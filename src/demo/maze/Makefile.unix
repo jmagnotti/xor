@@ -1,0 +1,339 @@
+#Makefile for maze demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -framework OpenGL -lSDLMain -framework Cocoa -lGOR
+
+#Packages
+SRCS = Maze.cpp MazeParser.cpp SocialRenderingProject.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Maze
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Maze:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+Maze.o: Maze.h ../../gor.h ../../core/Controller.h /usr/include/stdlib.h
+Maze.o: /usr/include/sys/cdefs.h /usr/include/_types.h
+Maze.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
+Maze.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
+Maze.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+Maze.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+Maze.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+Maze.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+Maze.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+Maze.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+Maze.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Maze.o: ../../../include/SDL.h ../../../include/SDL_main.h
+Maze.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+Maze.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+Maze.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+Maze.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+Maze.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+Maze.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+Maze.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+Maze.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+Maze.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+Maze.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+Maze.o: ../../../include/SDL_version.h ../../event/Keyboard.h
+Maze.o: ../../event/KeyboardListener.h ../../event/Timer.h
+Maze.o: ../../event/TimerListener.h ../../event/RegularKeyEvent.h
+Maze.o: ../../event/SpecialKeyEvent.h ../../event/Mouse.h
+Maze.o: ../../event/MouseListener.h ../../event/MouseClickEvent.h
+Maze.o: ../../event/MouseEvent.h ../../event/MouseMotionEvent.h
+Maze.o: ../../event/Timer.h ../../core/World.h ../../shape/Point3D.h
+Maze.o: /usr/include/math.h /usr/include/architecture/ppc/math.h
+Maze.o: ../../paint/Paint.h /usr/include/string.h ../../texture/Texture.h
+Maze.o: ../../paint/Color.h ../../shape/Renderable.h
+Maze.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+Maze.o: ../../shape/Renderable.h ../../transform/Rotate.h
+Maze.o: ../../transform/Transform.h ../../event/TimerListener.h
+Maze.o: ../../transform/Transform.h ../../transform/Translate.h
+Maze.o: ../../core/Viewer.h ../../geometry/Dimension2D.h
+Maze.o: ../../geometry/Dimension.h ../../util/GraphicsConversionUtility.h
+Maze.o: ../../transform/Orientate.h ../../transform/Translate.h
+Maze.o: ../../transform/Rotate.h ../../event/ReshapeListener.h
+Maze.o: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
+Maze.o: ../../core/World.h ../../event/DefaultMouseListener.h
+Maze.o: ../../core/Viewer.h ../../core/World.h
+Maze.o: ../../event/DefaultKeyboardListener.h
+Maze.o: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
+Maze.o: ../../event/KeyboardListener.h ../../event/Mouse.h
+Maze.o: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+Maze.o: ../../event/MouseListener.h ../../event/MouseMotionEvent.h
+Maze.o: ../../event/RegularKeyEvent.h ../../event/ReshapeListener.h
+Maze.o: ../../event/SpecialKeyEvent.h ../../event/Timer.h
+Maze.o: ../../event/TimerListener.h ../../geometry/CylindricalVolume.h
+Maze.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+Maze.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+Maze.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+Maze.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Maze.o: ../../paint/Color.h ../../paint/ColorConstants.h ../../paint/Paint.h
+Maze.o: ../../shape/AdornableCube.h ../../shape/Cube.h
+Maze.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+Maze.o: ../../paint/Color.h ../../geometry/RectangularVolume.h
+Maze.o: ../../shape/Positionable.h ../../shape/AdornablePrism.h
+Maze.o: ../../shape/AdornablePrism.h ../../shape/Arc3D.h
+Maze.o: ../../shape/CollisionRenderable.h ../../shape/Cube.h
+Maze.o: ../../shape/NormalPolygon3D.h ../../shape/Particle.h
+Maze.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+Maze.o: ../../shape/Point2D.h ../../shape/Point3D.h
+Maze.o: ../../shape/Quadrilateral3D.h ../../shape/Quadrilateral3DConstants.h
+Maze.o: ../../shape/RectangularPrism.h ../../shape/RectangularPrismFactory.h
+Maze.o: ../../shape/Renderable.h ../../shape/String2D.h
+Maze.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Maze.o: ../../core/Viewer.h ../../shape/Positionable.h
+Maze.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+Maze.o: ../../texture/TextureFactory.h /sw/include/GL/glut.h
+Maze.o: ../../texture/Texture.h ../../texture/TexturePPM.h
+Maze.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+Maze.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+Maze.o: ../../transform/Orientate.h ../../transform/Positionable.h
+Maze.o: ../../transform/Rotate.h ../../transform/Transform.h
+Maze.o: ../../transform/TransformFactory.h ../../transform/Transformable.h
+Maze.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+Maze.o: ../../transform/TransformFactory.h ../../util/BitmapFontConstants.h
+Maze.o: ../../util/BitmapFontUtil.h ../../util/FramesPerSecondCounter.h
+Maze.o: ../../shape/String2D.h ../../util/GraphicsConversionUtility.h
+MazeParser.o: MazeParser.h ../../gor.h ../../core/Controller.h
+MazeParser.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+MazeParser.o: /usr/include/_types.h /usr/include/sys/_types.h
+MazeParser.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+MazeParser.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+MazeParser.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+MazeParser.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+MazeParser.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+MazeParser.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+MazeParser.o: /usr/include/libkern/OSByteOrder.h
+MazeParser.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+MazeParser.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+MazeParser.o: ../../../include/SDL.h ../../../include/SDL_main.h
+MazeParser.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+MazeParser.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+MazeParser.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+MazeParser.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+MazeParser.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+MazeParser.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+MazeParser.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+MazeParser.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+MazeParser.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+MazeParser.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+MazeParser.o: ../../../include/SDL_version.h ../../event/Keyboard.h
+MazeParser.o: ../../event/KeyboardListener.h ../../event/Timer.h
+MazeParser.o: ../../event/TimerListener.h ../../event/RegularKeyEvent.h
+MazeParser.o: ../../event/SpecialKeyEvent.h ../../event/Mouse.h
+MazeParser.o: ../../event/MouseListener.h ../../event/MouseClickEvent.h
+MazeParser.o: ../../event/MouseEvent.h ../../event/MouseMotionEvent.h
+MazeParser.o: ../../event/Timer.h ../../core/World.h ../../shape/Point3D.h
+MazeParser.o: /usr/include/math.h /usr/include/architecture/ppc/math.h
+MazeParser.o: ../../paint/Paint.h /usr/include/string.h
+MazeParser.o: ../../texture/Texture.h ../../paint/Color.h
+MazeParser.o: ../../shape/Renderable.h ../../../include/SDL_opengl.h
+MazeParser.o: /usr/include/stddef.h ../../shape/Renderable.h
+MazeParser.o: ../../transform/Rotate.h ../../transform/Transform.h
+MazeParser.o: ../../event/TimerListener.h ../../transform/Transform.h
+MazeParser.o: ../../transform/Translate.h ../../core/Viewer.h
+MazeParser.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+MazeParser.o: ../../util/GraphicsConversionUtility.h
+MazeParser.o: ../../transform/Orientate.h ../../transform/Translate.h
+MazeParser.o: ../../transform/Rotate.h ../../event/ReshapeListener.h
+MazeParser.o: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
+MazeParser.o: ../../core/World.h ../../event/DefaultMouseListener.h
+MazeParser.o: ../../core/Viewer.h ../../core/World.h
+MazeParser.o: ../../event/DefaultKeyboardListener.h
+MazeParser.o: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
+MazeParser.o: ../../event/KeyboardListener.h ../../event/Mouse.h
+MazeParser.o: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+MazeParser.o: ../../event/MouseListener.h ../../event/MouseMotionEvent.h
+MazeParser.o: ../../event/RegularKeyEvent.h ../../event/ReshapeListener.h
+MazeParser.o: ../../event/SpecialKeyEvent.h ../../event/Timer.h
+MazeParser.o: ../../event/TimerListener.h ../../geometry/CylindricalVolume.h
+MazeParser.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+MazeParser.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+MazeParser.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+MazeParser.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+MazeParser.o: ../../paint/Color.h ../../paint/ColorConstants.h
+MazeParser.o: ../../paint/Paint.h ../../shape/AdornableCube.h
+MazeParser.o: ../../shape/Cube.h ../../shape/RectangularPrism.h
+MazeParser.o: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+MazeParser.o: ../../geometry/RectangularVolume.h ../../shape/Positionable.h
+MazeParser.o: ../../shape/AdornablePrism.h ../../shape/AdornablePrism.h
+MazeParser.o: ../../shape/Arc3D.h ../../shape/CollisionRenderable.h
+MazeParser.o: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
+MazeParser.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+MazeParser.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+MazeParser.o: ../../shape/Quadrilateral3D.h
+MazeParser.o: ../../shape/Quadrilateral3DConstants.h
+MazeParser.o: ../../shape/RectangularPrism.h
+MazeParser.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+MazeParser.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+MazeParser.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+MazeParser.o: ../../shape/Positionable.h ../../terrain/Terrain.h
+MazeParser.o: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
+MazeParser.o: /sw/include/GL/glut.h ../../texture/Texture.h
+MazeParser.o: ../../texture/TexturePPM.h ../../texture/TextureBMP.h
+MazeParser.o: ../../texture/TextureTGA.h ../../texture/Texture.h
+MazeParser.o: ../../texture/TextureFactory.h ../../transform/Orientate.h
+MazeParser.o: ../../transform/Positionable.h ../../transform/Rotate.h
+MazeParser.o: ../../transform/Transform.h ../../transform/TransformFactory.h
+MazeParser.o: ../../transform/Transformable.h ../../transform/Translate.h
+MazeParser.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+MazeParser.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+MazeParser.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+MazeParser.o: ../../util/GraphicsConversionUtility.h Maze.h
+SocialRenderingProject.o: /usr/include/string.h /usr/include/_types.h
+SocialRenderingProject.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+SocialRenderingProject.o: /usr/include/machine/_types.h
+SocialRenderingProject.o: /usr/include/ppc/_types.h SocialRenderingProject.h
+SocialRenderingProject.o: /usr/include/stdlib.h /usr/include/sys/wait.h
+SocialRenderingProject.o: /usr/include/sys/signal.h
+SocialRenderingProject.o: /usr/include/sys/appleapiopts.h
+SocialRenderingProject.o: /usr/include/machine/signal.h
+SocialRenderingProject.o: /usr/include/ppc/signal.h
+SocialRenderingProject.o: /usr/include/sys/resource.h
+SocialRenderingProject.o: /usr/include/machine/endian.h
+SocialRenderingProject.o: /usr/include/ppc/endian.h
+SocialRenderingProject.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+SocialRenderingProject.o: /usr/include/libkern/OSByteOrder.h
+SocialRenderingProject.o: /usr/include/libkern/ppc/OSByteOrder.h
+SocialRenderingProject.o: /usr/include/alloca.h /usr/include/machine/types.h
+SocialRenderingProject.o: /usr/include/ppc/types.h ../../gor.h
+SocialRenderingProject.o: ../../core/Controller.h ../../../include/SDL.h
+SocialRenderingProject.o: ../../../include/SDL_main.h
+SocialRenderingProject.o: ../../../include/SDL_types.h
+SocialRenderingProject.o: ../../../include/SDL_getenv.h
+SocialRenderingProject.o: ../../../include/SDL_error.h
+SocialRenderingProject.o: ../../../include/begin_code.h
+SocialRenderingProject.o: ../../../include/close_code.h
+SocialRenderingProject.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+SocialRenderingProject.o: ../../../include/SDL_timer.h
+SocialRenderingProject.o: ../../../include/SDL_audio.h
+SocialRenderingProject.o: ../../../include/SDL_byteorder.h
+SocialRenderingProject.o: ../../../include/SDL_cdrom.h
+SocialRenderingProject.o: ../../../include/SDL_joystick.h
+SocialRenderingProject.o: ../../../include/SDL_events.h
+SocialRenderingProject.o: ../../../include/SDL_active.h
+SocialRenderingProject.o: ../../../include/SDL_keyboard.h
+SocialRenderingProject.o: ../../../include/SDL_keysym.h
+SocialRenderingProject.o: ../../../include/SDL_mouse.h
+SocialRenderingProject.o: ../../../include/SDL_video.h
+SocialRenderingProject.o: ../../../include/SDL_mutex.h
+SocialRenderingProject.o: ../../../include/SDL_quit.h
+SocialRenderingProject.o: ../../../include/SDL_version.h
+SocialRenderingProject.o: ../../event/Keyboard.h
+SocialRenderingProject.o: ../../event/KeyboardListener.h ../../event/Timer.h
+SocialRenderingProject.o: ../../event/TimerListener.h
+SocialRenderingProject.o: ../../event/RegularKeyEvent.h
+SocialRenderingProject.o: ../../event/SpecialKeyEvent.h ../../event/Mouse.h
+SocialRenderingProject.o: ../../event/MouseListener.h
+SocialRenderingProject.o: ../../event/MouseClickEvent.h
+SocialRenderingProject.o: ../../event/MouseEvent.h
+SocialRenderingProject.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
+SocialRenderingProject.o: ../../core/World.h ../../shape/Point3D.h
+SocialRenderingProject.o: /usr/include/math.h
+SocialRenderingProject.o: /usr/include/architecture/ppc/math.h
+SocialRenderingProject.o: ../../paint/Paint.h ../../texture/Texture.h
+SocialRenderingProject.o: ../../paint/Color.h ../../shape/Renderable.h
+SocialRenderingProject.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+SocialRenderingProject.o: ../../shape/Renderable.h ../../transform/Rotate.h
+SocialRenderingProject.o: ../../transform/Transform.h
+SocialRenderingProject.o: ../../event/TimerListener.h
+SocialRenderingProject.o: ../../transform/Transform.h
+SocialRenderingProject.o: ../../transform/Translate.h ../../core/Viewer.h
+SocialRenderingProject.o: ../../geometry/Dimension2D.h
+SocialRenderingProject.o: ../../geometry/Dimension.h
+SocialRenderingProject.o: ../../util/GraphicsConversionUtility.h
+SocialRenderingProject.o: ../../transform/Orientate.h
+SocialRenderingProject.o: ../../transform/Translate.h
+SocialRenderingProject.o: ../../transform/Rotate.h
+SocialRenderingProject.o: ../../event/ReshapeListener.h
+SocialRenderingProject.o: ../../event/DefaultKeyboardListener.h
+SocialRenderingProject.o: ../../core/Controller.h ../../core/World.h
+SocialRenderingProject.o: ../../event/DefaultMouseListener.h
+SocialRenderingProject.o: ../../core/Viewer.h ../../core/World.h
+SocialRenderingProject.o: ../../event/DefaultKeyboardListener.h
+SocialRenderingProject.o: ../../event/DefaultMouseListener.h
+SocialRenderingProject.o: ../../event/Keyboard.h
+SocialRenderingProject.o: ../../event/KeyboardListener.h ../../event/Mouse.h
+SocialRenderingProject.o: ../../event/MouseClickEvent.h
+SocialRenderingProject.o: ../../event/MouseEvent.h
+SocialRenderingProject.o: ../../event/MouseListener.h
+SocialRenderingProject.o: ../../event/MouseMotionEvent.h
+SocialRenderingProject.o: ../../event/RegularKeyEvent.h
+SocialRenderingProject.o: ../../event/ReshapeListener.h
+SocialRenderingProject.o: ../../event/SpecialKeyEvent.h ../../event/Timer.h
+SocialRenderingProject.o: ../../event/TimerListener.h
+SocialRenderingProject.o: ../../geometry/CylindricalVolume.h
+SocialRenderingProject.o: ../../shape/CollisionRenderable.h
+SocialRenderingProject.o: ../../shape/Point3D.h ../../geometry/Dimension3D.h
+SocialRenderingProject.o: ../../geometry/Dimension.h
+SocialRenderingProject.o: ../../geometry/Dimension2D.h
+SocialRenderingProject.o: ../../geometry/Dimension3D.h
+SocialRenderingProject.o: ../../geometry/RectangularVolume.h
+SocialRenderingProject.o: ../../geometry/Dimension3D.h ../../paint/Color.h
+SocialRenderingProject.o: ../../paint/ColorConstants.h ../../paint/Paint.h
+SocialRenderingProject.o: ../../shape/AdornableCube.h ../../shape/Cube.h
+SocialRenderingProject.o: ../../shape/RectangularPrism.h
+SocialRenderingProject.o: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+SocialRenderingProject.o: ../../geometry/RectangularVolume.h
+SocialRenderingProject.o: ../../shape/Positionable.h
+SocialRenderingProject.o: ../../shape/AdornablePrism.h
+SocialRenderingProject.o: ../../shape/AdornablePrism.h ../../shape/Arc3D.h
+SocialRenderingProject.o: ../../shape/CollisionRenderable.h
+SocialRenderingProject.o: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
+SocialRenderingProject.o: ../../shape/Particle.h
+SocialRenderingProject.o: ../../shape/CollisionRenderable.h
+SocialRenderingProject.o: ../../shape/Point.h ../../shape/Point2D.h
+SocialRenderingProject.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+SocialRenderingProject.o: ../../shape/Quadrilateral3DConstants.h
+SocialRenderingProject.o: ../../shape/RectangularPrism.h
+SocialRenderingProject.o: ../../shape/RectangularPrismFactory.h
+SocialRenderingProject.o: ../../shape/Renderable.h ../../shape/String2D.h
+SocialRenderingProject.o: ../../util/BitmapFontUtil.h
+SocialRenderingProject.o: ../../util/BitmapFontConstants.h
+SocialRenderingProject.o: ../../core/Viewer.h ../../shape/Positionable.h
+SocialRenderingProject.o: ../../terrain/Terrain.h
+SocialRenderingProject.o: ../../shape/Quadrilateral3D.h
+SocialRenderingProject.o: ../../texture/TextureFactory.h
+SocialRenderingProject.o: /sw/include/GL/glut.h ../../texture/Texture.h
+SocialRenderingProject.o: ../../texture/TexturePPM.h
+SocialRenderingProject.o: ../../texture/TextureBMP.h
+SocialRenderingProject.o: ../../texture/TextureTGA.h ../../texture/Texture.h
+SocialRenderingProject.o: ../../texture/TextureFactory.h
+SocialRenderingProject.o: ../../transform/Orientate.h
+SocialRenderingProject.o: ../../transform/Positionable.h
+SocialRenderingProject.o: ../../transform/Rotate.h
+SocialRenderingProject.o: ../../transform/Transform.h
+SocialRenderingProject.o: ../../transform/TransformFactory.h
+SocialRenderingProject.o: ../../transform/Transformable.h
+SocialRenderingProject.o: ../../transform/Translate.h
+SocialRenderingProject.o: ../../util/BehaviorParser.h
+SocialRenderingProject.o: ../../transform/TransformFactory.h
+SocialRenderingProject.o: ../../util/BitmapFontConstants.h
+SocialRenderingProject.o: ../../util/BitmapFontUtil.h
+SocialRenderingProject.o: ../../util/FramesPerSecondCounter.h
+SocialRenderingProject.o: ../../shape/String2D.h
+SocialRenderingProject.o: ../../util/GraphicsConversionUtility.h Maze.h
+SocialRenderingProject.o: MazeParser.h

@@ -1,0 +1,37 @@
+#Makefile for coordinate system demo, mac osx
+#
+CC = g++
+
+LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lGOR
+
+#Packages
+SRCS = CoordinateSystem.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = CoordinateSystem
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+CoordinateSystem:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
