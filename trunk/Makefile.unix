@@ -1,0 +1,536 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++
+
+LIBS = -lGL -lGLU -lglut -lm
+
+#Packages
+SRCS = src/terrain/Terrain.cpp src/transform/Transform.cpp src/shape/Positionable.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Mouse.cpp src/event/Timer.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/MouseEvent.cpp src/event/MouseMotionEvent.cpp src/event/RegularKeyEvent.cpp src/event/SpecialKeyEvent.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/interpolation/CameraRoller.cpp src/interpolation/Interpolator.cpp src/interpolation/TimedInterpolator.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/String2D.cpp src/shape/_terrain.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/Orientate.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
+
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = libGOR.so
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+			cp $(MAIN) ./lib/
+
+libGOR.so:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -shared -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+install:
+			cp ./lib/$(MAIN) /usr/lib/$(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+src/core/Controller.o: src/core/Controller.h /usr/include/stdlib.h
+src/core/Controller.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/core/Controller.o: /usr/include/gnu/stubs.h
+src/core/Controller.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/core/Controller.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/core/Controller.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/core/Controller.o: src/event/Keyboard.h src/event/KeyboardListener.h
+src/core/Controller.o: src/event/RegularKeyEvent.h
+src/core/Controller.o: src/event/SpecialKeyEvent.h src/event/Mouse.h
+src/core/Controller.o: src/event/MouseListener.h src/event/MouseClickEvent.h
+src/core/Controller.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
+src/core/Controller.o: src/event/Timer.h src/event/TimerListener.h
+src/core/Controller.o: src/core/World.h src/shape/Point3D.h
+src/core/Controller.o: /usr/include/string.h /usr/include/math.h
+src/core/Controller.o: /usr/include/bits/huge_val.h
+src/core/Controller.o: /usr/include/bits/mathdef.h
+src/core/Controller.o: /usr/include/bits/mathcalls.h
+src/core/Controller.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/Controller.o: src/texture/Texture.h src/paint/Color.h
+src/core/Controller.o: src/shape/Renderable.h src/shape/Renderable.h
+src/core/Controller.o: src/transform/Rotate.h src/transform/Transform.h
+src/core/Controller.o: src/event/TimerListener.h src/transform/Transform.h
+src/core/Controller.o: src/transform/Translate.h src/core/Viewer.h
+src/core/Controller.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/core/Controller.o: src/util/GraphicsConversionUtility.h
+src/core/Controller.o: src/transform/Orientate.h src/transform/Translate.h
+src/core/Controller.o: src/transform/Rotate.h src/event/ReshapeListener.h
+src/core/Controller.o: src/event/DefaultKeyboardListener.h
+src/core/Controller.o: src/core/Controller.h src/core/World.h
+src/core/Controller.o: src/event/DefaultMouseListener.h
+src/core/Viewer.o: src/core/Viewer.h src/geometry/Dimension2D.h
+src/core/Viewer.o: src/geometry/Dimension.h
+src/core/Viewer.o: src/util/GraphicsConversionUtility.h /usr/include/stdlib.h
+src/core/Viewer.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/core/Viewer.o: /usr/include/gnu/stubs.h
+src/core/Viewer.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/core/Viewer.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/core/Viewer.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+src/core/Viewer.o: src/shape/Point3D.h /usr/include/string.h
+src/core/Viewer.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/core/Viewer.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/core/Viewer.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/Viewer.o: src/texture/Texture.h src/paint/Color.h
+src/core/Viewer.o: src/shape/Renderable.h src/transform/Orientate.h
+src/core/Viewer.o: src/transform/Transform.h src/transform/Translate.h
+src/core/Viewer.o: src/transform/Rotate.h src/event/ReshapeListener.h
+src/core/World.o: src/core/World.h /usr/include/stdlib.h
+src/core/World.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/core/World.o: /usr/include/gnu/stubs.h
+src/core/World.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/core/World.o: src/shape/Point3D.h /usr/include/string.h
+src/core/World.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/core/World.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+src/core/World.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/core/World.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/core/World.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/World.o: src/texture/Texture.h src/paint/Color.h
+src/core/World.o: src/shape/Renderable.h src/shape/Renderable.h
+src/core/World.o: src/transform/Rotate.h src/transform/Transform.h
+src/core/World.o: src/event/TimerListener.h src/transform/Transform.h
+src/core/World.o: src/transform/Translate.h
+src/event/DefaultKeyboardListener.o: src/event/DefaultKeyboardListener.h
+src/event/DefaultKeyboardListener.o: src/event/KeyboardListener.h
+src/event/DefaultKeyboardListener.o: /usr/include/stdlib.h
+src/event/DefaultKeyboardListener.o: /usr/include/features.h
+src/event/DefaultKeyboardListener.o: /usr/include/sys/cdefs.h
+src/event/DefaultKeyboardListener.o: /usr/include/gnu/stubs.h
+src/event/DefaultKeyboardListener.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/DefaultKeyboardListener.o: /usr/include/GL/glut.h
+src/event/DefaultKeyboardListener.o: /usr/include/GL/gl.h
+src/event/DefaultKeyboardListener.o: /usr/include/GL/glext.h
+src/event/DefaultKeyboardListener.o: /usr/include/GL/glu.h
+src/event/DefaultKeyboardListener.o: src/event/RegularKeyEvent.h
+src/event/DefaultKeyboardListener.o: src/event/SpecialKeyEvent.h
+src/event/DefaultKeyboardListener.o: src/core/Controller.h src/core/World.h
+src/event/DefaultMouseListener.o: src/event/DefaultMouseListener.h
+src/event/DefaultMouseListener.o: src/core/Controller.h
+src/event/DefaultMouseListener.o: src/event/MouseListener.h
+src/event/DefaultMouseListener.o: src/event/MouseClickEvent.h
+src/event/DefaultMouseListener.o: src/event/MouseEvent.h
+src/event/DefaultMouseListener.o: src/event/MouseMotionEvent.h
+src/event/Mouse.o: src/event/Mouse.h /usr/include/stdlib.h
+src/event/Mouse.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/Mouse.o: /usr/include/gnu/stubs.h
+src/event/Mouse.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/Mouse.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/event/Mouse.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/event/Mouse.o: src/event/MouseListener.h src/event/MouseClickEvent.h
+src/event/Mouse.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
+src/event/Timer.o: src/event/Timer.h /usr/include/GL/glut.h
+src/event/Timer.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/event/Timer.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/Timer.o: /usr/include/GL/glu.h src/event/TimerListener.h
+src/event/Keyboard.o: src/event/Keyboard.h /usr/include/stdlib.h
+src/event/Keyboard.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/Keyboard.o: /usr/include/gnu/stubs.h
+src/event/Keyboard.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/Keyboard.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/event/Keyboard.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/event/Keyboard.o: src/event/KeyboardListener.h
+src/event/Keyboard.o: src/event/RegularKeyEvent.h src/event/SpecialKeyEvent.h
+src/event/MouseClickEvent.o: src/event/MouseClickEvent.h
+src/event/MouseClickEvent.o: src/event/MouseEvent.h
+src/event/MouseEvent.o: src/event/MouseEvent.h
+src/event/MouseMotionEvent.o: src/event/MouseMotionEvent.h
+src/event/MouseMotionEvent.o: src/event/MouseEvent.h
+src/event/RegularKeyEvent.o: src/event/RegularKeyEvent.h
+src/event/SpecialKeyEvent.o: src/event/SpecialKeyEvent.h
+src/event/SpecialKeyEvent.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/event/SpecialKeyEvent.o: /usr/include/GL/glext.h
+src/event/SpecialKeyEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/SpecialKeyEvent.o: /usr/include/GL/glu.h /usr/include/stdlib.h
+src/event/SpecialKeyEvent.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/SpecialKeyEvent.o: /usr/include/gnu/stubs.h
+src/geometry/RectangularVolume.o: src/geometry/RectangularVolume.h
+src/geometry/RectangularVolume.o: src/geometry/Dimension3D.h
+src/geometry/RectangularVolume.o: src/geometry/Dimension.h
+src/geometry/RectangularVolume.o: src/shape/Point3D.h /usr/include/string.h
+src/geometry/RectangularVolume.o: /usr/include/features.h
+src/geometry/RectangularVolume.o: /usr/include/sys/cdefs.h
+src/geometry/RectangularVolume.o: /usr/include/gnu/stubs.h
+src/geometry/RectangularVolume.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/geometry/RectangularVolume.o: /usr/include/math.h
+src/geometry/RectangularVolume.o: /usr/include/bits/huge_val.h
+src/geometry/RectangularVolume.o: /usr/include/bits/mathdef.h
+src/geometry/RectangularVolume.o: /usr/include/bits/mathcalls.h
+src/geometry/RectangularVolume.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/geometry/RectangularVolume.o: /usr/include/GL/glext.h
+src/geometry/RectangularVolume.o: /usr/include/GL/glu.h
+src/geometry/RectangularVolume.o: src/interpolation/Interpolable.h
+src/geometry/RectangularVolume.o: src/paint/Paint.h src/texture/Texture.h
+src/geometry/RectangularVolume.o: src/paint/Color.h src/shape/Renderable.h
+src/geometry/Dimension.o: src/geometry/Dimension.h
+src/geometry/Dimension2D.o: src/geometry/Dimension2D.h
+src/geometry/Dimension2D.o: src/geometry/Dimension.h
+src/geometry/Dimension3D.o: src/geometry/Dimension3D.h
+src/geometry/Dimension3D.o: src/geometry/Dimension.h
+src/interpolation/CameraRoller.o: src/interpolation/CameraRoller.h
+src/interpolation/CameraRoller.o: src/core/Controller.h src/event/Timer.h
+src/interpolation/CameraRoller.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/interpolation/CameraRoller.o: /usr/include/GL/glext.h
+src/interpolation/CameraRoller.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/interpolation/CameraRoller.o: /usr/include/GL/glu.h
+src/interpolation/CameraRoller.o: src/event/TimerListener.h
+src/interpolation/Interpolator.o: src/interpolation/Interpolator.h
+src/interpolation/Interpolator.o: src/interpolation/Interpolable.h
+src/interpolation/Interpolator.o: src/interpolation/InterpolatorListener.h
+src/interpolation/TimedInterpolator.o: src/interpolation/TimedInterpolator.h
+src/interpolation/TimedInterpolator.o: src/event/Timer.h
+src/interpolation/TimedInterpolator.o: /usr/include/GL/glut.h
+src/interpolation/TimedInterpolator.o: /usr/include/GL/gl.h
+src/interpolation/TimedInterpolator.o: /usr/include/GL/glext.h
+src/interpolation/TimedInterpolator.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/interpolation/TimedInterpolator.o: /usr/include/GL/glu.h
+src/interpolation/TimedInterpolator.o: src/event/TimerListener.h
+src/interpolation/TimedInterpolator.o: src/event/TimerListener.h
+src/interpolation/TimedInterpolator.o: src/interpolation/Interpolator.h
+src/interpolation/TimedInterpolator.o: src/interpolation/Interpolable.h
+src/interpolation/TimedInterpolator.o: src/interpolation/InterpolatorListener.h
+src/paint/Color.o: src/paint/Color.h
+src/paint/Paint.o: src/paint/Paint.h /usr/include/string.h
+src/paint/Paint.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/paint/Paint.o: /usr/include/gnu/stubs.h
+src/paint/Paint.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/paint/Paint.o: src/texture/Texture.h src/paint/Color.h
+src/shape/AdornableCube.o: src/shape/AdornableCube.h src/shape/Cube.h
+src/shape/AdornableCube.o: src/paint/Paint.h /usr/include/string.h
+src/shape/AdornableCube.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/AdornableCube.o: /usr/include/gnu/stubs.h
+src/shape/AdornableCube.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/AdornableCube.o: src/texture/Texture.h src/paint/Color.h
+src/shape/AdornableCube.o: src/shape/Point3D.h /usr/include/math.h
+src/shape/AdornableCube.o: /usr/include/bits/huge_val.h
+src/shape/AdornableCube.o: /usr/include/bits/mathdef.h
+src/shape/AdornableCube.o: /usr/include/bits/mathcalls.h
+src/shape/AdornableCube.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/AdornableCube.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/AdornableCube.o: src/interpolation/Interpolable.h
+src/shape/AdornableCube.o: src/shape/Renderable.h
+src/shape/AdornableCube.o: src/shape/RectangularPrism.h
+src/shape/AdornableCube.o: src/util/GraphicsConversionUtility.h
+src/shape/AdornableCube.o: /usr/include/stdlib.h src/shape/Point3D.h
+src/shape/AdornableCube.o: src/shape/Quadrilateral3D.h
+src/shape/AdornableCube.o: src/geometry/Dimension3D.h
+src/shape/AdornableCube.o: src/geometry/Dimension.h
+src/shape/AdornableCube.o: src/geometry/RectangularVolume.h
+src/shape/AdornableCube.o: src/geometry/Dimension3D.h
+src/shape/AdornableCube.o: src/shape/AdornablePrism.h
+src/shape/AdornablePrism.o: src/shape/AdornablePrism.h
+src/shape/AdornablePrism.o: src/shape/RectangularPrism.h
+src/shape/AdornablePrism.o: src/util/GraphicsConversionUtility.h
+src/shape/AdornablePrism.o: /usr/include/stdlib.h /usr/include/features.h
+src/shape/AdornablePrism.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/shape/AdornablePrism.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/AdornablePrism.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/AdornablePrism.o: /usr/include/bits/mathdef.h
+src/shape/AdornablePrism.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/shape/AdornablePrism.o: /usr/include/string.h /usr/include/GL/glut.h
+src/shape/AdornablePrism.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/AdornablePrism.o: /usr/include/GL/glu.h
+src/shape/AdornablePrism.o: src/interpolation/Interpolable.h
+src/shape/AdornablePrism.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/AdornablePrism.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/AdornablePrism.o: src/shape/Quadrilateral3D.h
+src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
+src/shape/AdornablePrism.o: src/geometry/Dimension.h src/shape/Point3D.h
+src/shape/AdornablePrism.o: src/geometry/RectangularVolume.h
+src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
+src/shape/Arc3D.o: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
+src/shape/Arc3D.o: /usr/include/stdlib.h /usr/include/features.h
+src/shape/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/shape/Arc3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Arc3D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Arc3D.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+src/shape/Arc3D.o: src/shape/Point3D.h /usr/include/string.h
+src/shape/Arc3D.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/Arc3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/Arc3D.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/shape/Arc3D.o: src/texture/Texture.h src/paint/Color.h
+src/shape/Arc3D.o: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Cube.o: src/shape/Cube.h src/paint/Paint.h /usr/include/string.h
+src/shape/Cube.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/Cube.o: /usr/include/gnu/stubs.h
+src/shape/Cube.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Cube.o: src/texture/Texture.h src/paint/Color.h src/shape/Point3D.h
+src/shape/Cube.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Cube.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+src/shape/Cube.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/Cube.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/Cube.o: src/interpolation/Interpolable.h src/shape/Renderable.h
+src/shape/Cube.o: src/shape/RectangularPrism.h
+src/shape/Cube.o: src/util/GraphicsConversionUtility.h /usr/include/stdlib.h
+src/shape/Cube.o: src/shape/Point3D.h src/shape/Quadrilateral3D.h
+src/shape/Cube.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/shape/Cube.o: src/geometry/RectangularVolume.h src/geometry/Dimension3D.h
+src/shape/Particle.o: src/shape/Particle.h src/shape/CollisionRenderable.h
+src/shape/Particle.o: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Particle.o: /usr/include/string.h /usr/include/features.h
+src/shape/Particle.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/shape/Particle.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Particle.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Particle.o: /usr/include/bits/mathdef.h
+src/shape/Particle.o: /usr/include/bits/mathcalls.h /usr/include/GL/glut.h
+src/shape/Particle.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/Particle.o: /usr/include/GL/glu.h src/interpolation/Interpolable.h
+src/shape/Particle.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/Particle.o: src/paint/Color.h
+src/shape/Point3D.o: src/shape/Point3D.h /usr/include/string.h
+src/shape/Point3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/Point3D.o: /usr/include/gnu/stubs.h
+src/shape/Point3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Point3D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Point3D.o: /usr/include/bits/mathdef.h
+src/shape/Point3D.o: /usr/include/bits/mathcalls.h /usr/include/GL/glut.h
+src/shape/Point3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/Point3D.o: /usr/include/GL/glu.h src/interpolation/Interpolable.h
+src/shape/Point3D.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/Point3D.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/Quadrilateral3D.o: src/shape/Quadrilateral3D.h /usr/include/math.h
+src/shape/Quadrilateral3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/Quadrilateral3D.o: /usr/include/gnu/stubs.h
+src/shape/Quadrilateral3D.o: /usr/include/bits/huge_val.h
+src/shape/Quadrilateral3D.o: /usr/include/bits/mathdef.h
+src/shape/Quadrilateral3D.o: /usr/include/bits/mathcalls.h
+src/shape/Quadrilateral3D.o: /usr/include/string.h
+src/shape/Quadrilateral3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Quadrilateral3D.o: src/geometry/Dimension3D.h
+src/shape/Quadrilateral3D.o: src/geometry/Dimension.h
+src/shape/Quadrilateral3D.o: src/util/GraphicsConversionUtility.h
+src/shape/Quadrilateral3D.o: /usr/include/stdlib.h src/shape/Point3D.h
+src/shape/Quadrilateral3D.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/Quadrilateral3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/Quadrilateral3D.o: src/interpolation/Interpolable.h
+src/shape/Quadrilateral3D.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/Quadrilateral3D.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/Quadrilateral3D.o: src/shape/Point3D.h
+src/shape/RectangularPrism.o: src/shape/RectangularPrism.h
+src/shape/RectangularPrism.o: src/util/GraphicsConversionUtility.h
+src/shape/RectangularPrism.o: /usr/include/stdlib.h /usr/include/features.h
+src/shape/RectangularPrism.o: /usr/include/sys/cdefs.h
+src/shape/RectangularPrism.o: /usr/include/gnu/stubs.h
+src/shape/RectangularPrism.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/RectangularPrism.o: /usr/include/math.h
+src/shape/RectangularPrism.o: /usr/include/bits/huge_val.h
+src/shape/RectangularPrism.o: /usr/include/bits/mathdef.h
+src/shape/RectangularPrism.o: /usr/include/bits/mathcalls.h
+src/shape/RectangularPrism.o: src/shape/Point3D.h /usr/include/string.h
+src/shape/RectangularPrism.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/RectangularPrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/RectangularPrism.o: src/interpolation/Interpolable.h
+src/shape/RectangularPrism.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/RectangularPrism.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/RectangularPrism.o: src/shape/Quadrilateral3D.h
+src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
+src/shape/RectangularPrism.o: src/geometry/Dimension.h src/shape/Point3D.h
+src/shape/RectangularPrism.o: src/geometry/RectangularVolume.h
+src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
+src/shape/String2D.o: src/shape/String2D.h /usr/include/string.h
+src/shape/String2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/String2D.o: /usr/include/gnu/stubs.h
+src/shape/String2D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/String2D.o: src/util/BitmapFontUtil.h
+src/shape/String2D.o: src/util/BitmapFontConstants.h /usr/include/stdlib.h
+src/shape/String2D.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/shape/String2D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/String2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/shape/String2D.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/String2D.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/String2D.o: src/core/Controller.h src/core/Viewer.h
+src/shape/String2D.o: src/util/GraphicsConversionUtility.h
+src/shape/String2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/String2D.o: /usr/include/bits/mathdef.h
+src/shape/String2D.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/shape/String2D.o: src/interpolation/Interpolable.h
+src/shape/String2D.o: src/transform/Orientate.h src/transform/Transform.h
+src/shape/String2D.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/String2D.o: src/event/ReshapeListener.h
+src/texture/Texture.o: src/texture/Texture.h
+src/texture/TextureFactory.o: src/texture/TextureFactory.h
+src/texture/TextureFactory.o: /usr/include/stdlib.h /usr/include/features.h
+src/texture/TextureFactory.o: /usr/include/sys/cdefs.h
+src/texture/TextureFactory.o: /usr/include/gnu/stubs.h
+src/texture/TextureFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/texture/TextureFactory.o: /usr/include/string.h /usr/include/GL/glut.h
+src/texture/TextureFactory.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/texture/TextureFactory.o: /usr/include/GL/glu.h src/texture/Texture.h
+src/texture/TextureFactory.o: src/texture/TexturePPM.h
+src/texture/TextureFactory.o: src/texture/TextureBMP.h
+src/texture/TextureFactory.o: src/texture/TextureTGA.h
+src/transform/Orientate.o: src/transform/Orientate.h
+src/transform/Orientate.o: src/transform/Transform.h /usr/include/stdlib.h
+src/transform/Orientate.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/transform/Orientate.o: /usr/include/gnu/stubs.h
+src/transform/Orientate.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/transform/Orientate.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/transform/Orientate.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/transform/Orientate.o: src/shape/Point3D.h /usr/include/string.h
+src/transform/Orientate.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/transform/Orientate.o: /usr/include/bits/mathdef.h
+src/transform/Orientate.o: /usr/include/bits/mathcalls.h
+src/transform/Orientate.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/transform/Orientate.o: src/texture/Texture.h src/paint/Color.h
+src/transform/Orientate.o: src/shape/Renderable.h
+src/transform/Orientate.o: src/util/GraphicsConversionUtility.h
+src/transform/Orientate.o: src/transform/Translate.h src/transform/Rotate.h
+src/transform/Rotate.o: src/transform/Rotate.h
+src/transform/TransformFactory.o: src/transform/TransformFactory.h
+src/transform/TransformFactory.o: src/transform/Transform.h
+src/transform/TransformFactory.o: /usr/include/stdlib.h
+src/transform/TransformFactory.o: /usr/include/features.h
+src/transform/TransformFactory.o: /usr/include/sys/cdefs.h
+src/transform/TransformFactory.o: /usr/include/gnu/stubs.h
+src/transform/TransformFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/transform/TransformFactory.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/transform/TransformFactory.o: /usr/include/GL/glext.h
+src/transform/TransformFactory.o: /usr/include/GL/glu.h
+src/transform/TransformFactory.o: src/transform/Rotate.h
+src/transform/TransformFactory.o: src/transform/Translate.h
+src/transform/Translate.o: src/transform/Translate.h
+src/util/BehaviorParser.o: src/util/BehaviorParser.h /usr/include/stdlib.h
+src/util/BehaviorParser.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/util/BehaviorParser.o: /usr/include/gnu/stubs.h
+src/util/BehaviorParser.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/util/BehaviorParser.o: src/transform/TransformFactory.h
+src/util/BehaviorParser.o: src/transform/Transform.h /usr/include/GL/glut.h
+src/util/BehaviorParser.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/util/BehaviorParser.o: /usr/include/GL/glu.h src/transform/Rotate.h
+src/util/BehaviorParser.o: src/transform/Translate.h
+src/util/BitmapFontUtil.o: src/util/BitmapFontUtil.h
+src/util/BitmapFontUtil.o: src/util/BitmapFontConstants.h
+src/util/BitmapFontUtil.o: /usr/include/stdlib.h /usr/include/features.h
+src/util/BitmapFontUtil.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/util/BitmapFontUtil.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/util/BitmapFontUtil.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/util/BitmapFontUtil.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/util/FramesPerSecondCounter.o: src/util/FramesPerSecondCounter.h
+src/util/FramesPerSecondCounter.o: /usr/include/stdlib.h
+src/util/FramesPerSecondCounter.o: /usr/include/features.h
+src/util/FramesPerSecondCounter.o: /usr/include/sys/cdefs.h
+src/util/FramesPerSecondCounter.o: /usr/include/gnu/stubs.h
+src/util/FramesPerSecondCounter.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/util/FramesPerSecondCounter.o: src/event/Timer.h /usr/include/GL/glut.h
+src/util/FramesPerSecondCounter.o: /usr/include/GL/gl.h
+src/util/FramesPerSecondCounter.o: /usr/include/GL/glext.h
+src/util/FramesPerSecondCounter.o: /usr/include/GL/glu.h
+src/util/FramesPerSecondCounter.o: src/event/TimerListener.h
+src/util/FramesPerSecondCounter.o: src/event/TimerListener.h
+src/util/FramesPerSecondCounter.o: src/core/Controller.h src/core/Viewer.h
+src/util/FramesPerSecondCounter.o: src/geometry/Dimension2D.h
+src/util/FramesPerSecondCounter.o: src/geometry/Dimension.h
+src/util/FramesPerSecondCounter.o: src/util/GraphicsConversionUtility.h
+src/util/FramesPerSecondCounter.o: /usr/include/math.h
+src/util/FramesPerSecondCounter.o: /usr/include/bits/huge_val.h
+src/util/FramesPerSecondCounter.o: /usr/include/bits/mathdef.h
+src/util/FramesPerSecondCounter.o: /usr/include/bits/mathcalls.h
+src/util/FramesPerSecondCounter.o: src/shape/Point3D.h /usr/include/string.h
+src/util/FramesPerSecondCounter.o: src/interpolation/Interpolable.h
+src/util/FramesPerSecondCounter.o: src/paint/Paint.h src/texture/Texture.h
+src/util/FramesPerSecondCounter.o: src/paint/Color.h src/shape/Renderable.h
+src/util/FramesPerSecondCounter.o: src/transform/Orientate.h
+src/util/FramesPerSecondCounter.o: src/transform/Transform.h
+src/util/FramesPerSecondCounter.o: src/transform/Translate.h
+src/util/FramesPerSecondCounter.o: src/transform/Rotate.h
+src/util/FramesPerSecondCounter.o: src/event/ReshapeListener.h
+src/util/FramesPerSecondCounter.o: src/shape/String2D.h
+src/util/FramesPerSecondCounter.o: src/util/BitmapFontUtil.h
+src/util/FramesPerSecondCounter.o: src/util/BitmapFontConstants.h
+src/util/GraphicsConversionUtility.o: src/util/GraphicsConversionUtility.h
+src/util/GraphicsConversionUtility.o: /usr/include/stdlib.h
+src/util/GraphicsConversionUtility.o: /usr/include/features.h
+src/util/GraphicsConversionUtility.o: /usr/include/sys/cdefs.h
+src/util/GraphicsConversionUtility.o: /usr/include/gnu/stubs.h
+src/util/GraphicsConversionUtility.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/util/GraphicsConversionUtility.o: /usr/include/math.h
+src/util/GraphicsConversionUtility.o: /usr/include/bits/huge_val.h
+src/util/GraphicsConversionUtility.o: /usr/include/bits/mathdef.h
+src/util/GraphicsConversionUtility.o: /usr/include/bits/mathcalls.h
+src/util/GraphicsConversionUtility.o: src/shape/Point3D.h
+src/util/GraphicsConversionUtility.o: /usr/include/string.h
+src/util/GraphicsConversionUtility.o: /usr/include/GL/glut.h
+src/util/GraphicsConversionUtility.o: /usr/include/GL/gl.h
+src/util/GraphicsConversionUtility.o: /usr/include/GL/glext.h
+src/util/GraphicsConversionUtility.o: /usr/include/GL/glu.h
+src/util/GraphicsConversionUtility.o: src/interpolation/Interpolable.h
+src/util/GraphicsConversionUtility.o: src/paint/Paint.h src/texture/Texture.h
+src/util/GraphicsConversionUtility.o: src/paint/Color.h
+src/util/GraphicsConversionUtility.o: src/shape/Renderable.h
+src/transition/Fade.o: src/transition/Fade.h src/geometry/Dimension2D.h
+src/transition/Fade.o: src/geometry/Dimension.h src/paint/Paint.h
+src/transition/Fade.o: /usr/include/string.h /usr/include/features.h
+src/transition/Fade.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/transition/Fade.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/transition/Fade.o: src/texture/Texture.h src/paint/Color.h
+src/transition/Fade.o: src/transition/Transition.h src/core/Viewer.h
+src/transition/Fade.o: src/util/GraphicsConversionUtility.h
+src/transition/Fade.o: /usr/include/stdlib.h /usr/include/math.h
+src/transition/Fade.o: /usr/include/bits/huge_val.h
+src/transition/Fade.o: /usr/include/bits/mathdef.h
+src/transition/Fade.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/transition/Fade.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+src/transition/Fade.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/transition/Fade.o: src/interpolation/Interpolable.h
+src/transition/Fade.o: src/shape/Renderable.h src/transform/Orientate.h
+src/transition/Fade.o: src/transform/Transform.h src/transform/Translate.h
+src/transition/Fade.o: src/transform/Rotate.h src/event/ReshapeListener.h
+src/transition/TransitionFactory.o: src/transition/TransitionFactory.h
+src/transition/TransitionFactory.o: src/transition/Transition.h
+src/transition/TransitionFactory.o: src/core/Viewer.h
+src/transition/TransitionFactory.o: src/geometry/Dimension2D.h
+src/transition/TransitionFactory.o: src/geometry/Dimension.h
+src/transition/TransitionFactory.o: src/util/GraphicsConversionUtility.h
+src/transition/TransitionFactory.o: /usr/include/stdlib.h
+src/transition/TransitionFactory.o: /usr/include/features.h
+src/transition/TransitionFactory.o: /usr/include/sys/cdefs.h
+src/transition/TransitionFactory.o: /usr/include/gnu/stubs.h
+src/transition/TransitionFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/transition/TransitionFactory.o: /usr/include/math.h
+src/transition/TransitionFactory.o: /usr/include/bits/huge_val.h
+src/transition/TransitionFactory.o: /usr/include/bits/mathdef.h
+src/transition/TransitionFactory.o: /usr/include/bits/mathcalls.h
+src/transition/TransitionFactory.o: src/shape/Point3D.h /usr/include/string.h
+src/transition/TransitionFactory.o: /usr/include/GL/glut.h
+src/transition/TransitionFactory.o: /usr/include/GL/gl.h
+src/transition/TransitionFactory.o: /usr/include/GL/glext.h
+src/transition/TransitionFactory.o: /usr/include/GL/glu.h
+src/transition/TransitionFactory.o: src/interpolation/Interpolable.h
+src/transition/TransitionFactory.o: src/paint/Paint.h src/texture/Texture.h
+src/transition/TransitionFactory.o: src/paint/Color.h src/shape/Renderable.h
+src/transition/TransitionFactory.o: src/transform/Orientate.h
+src/transition/TransitionFactory.o: src/transform/Transform.h
+src/transition/TransitionFactory.o: src/transform/Translate.h
+src/transition/TransitionFactory.o: src/transform/Rotate.h
+src/transition/TransitionFactory.o: src/event/ReshapeListener.h
+src/transition/TransitionFactory.o: src/transition/Fade.h
+src/transition/TransitionFactory.o: src/transition/FadeOut.h
+src/transition/TransitionFactory.o: src/transition/FadeIn.h
+src/transition/FadeIn.o: src/transition/FadeIn.h src/transition/Transition.h
+src/transition/FadeIn.o: src/core/Viewer.h src/geometry/Dimension2D.h
+src/transition/FadeIn.o: src/geometry/Dimension.h
+src/transition/FadeIn.o: src/util/GraphicsConversionUtility.h
+src/transition/FadeIn.o: /usr/include/stdlib.h /usr/include/features.h
+src/transition/FadeIn.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/transition/FadeIn.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/transition/FadeIn.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/transition/FadeIn.o: /usr/include/bits/mathdef.h
+src/transition/FadeIn.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/transition/FadeIn.o: /usr/include/string.h /usr/include/GL/glut.h
+src/transition/FadeIn.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/transition/FadeIn.o: /usr/include/GL/glu.h
+src/transition/FadeIn.o: src/interpolation/Interpolable.h src/paint/Paint.h
+src/transition/FadeIn.o: src/texture/Texture.h src/paint/Color.h
+src/transition/FadeIn.o: src/shape/Renderable.h src/transform/Orientate.h
+src/transition/FadeIn.o: src/transform/Transform.h src/transform/Translate.h
+src/transition/FadeIn.o: src/transform/Rotate.h src/event/ReshapeListener.h

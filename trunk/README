@@ -1,0 +1,87 @@
+FEATURE HIGHLIGHT
+	# Automatic texture scaling based on the size of the Quadrilateral3D
+	#
+
+TODO LIST
+~ Requirement amended
+- near completion
+$ done
+
+#-1	This list should be prioritized
+
+#0 World.cpp needs to have functions built to allow for more control of movement. 
+	This means access to the two velocity variables. 
+
+#1 Collision detection needs to be implemented. Where should this be placed, when should it be called, how can we optimize it without damaging the design?  
+
+-#2 All event listeners & generators need to be properly implemented
+
+$#3 The demo program should be updated to reflect changes in the object code
+
+~$#4 Maze should have addRenderable(Renderable r) instead of addCube(Cube c)
+This will help when the maze is able to display things other than cubes, as only one method will be called.
+
+	$Because of the scope of Renderable, maze now takes a RectangularPrism, which is specific enough to solve problems like adding a String2D to the maze, but still generic enough that the current implementation with Cubes still works.
+
+	
+#5 Maze should also have addRenderableList() 
+	#Which means there should be a RenderableList object.
+	#Because of change to Req.4, maybe a RectangularPrismList? This could get "out of control hot" if optimizations are added to do things like remove redundant vertices.
+
+			
+$#6 Cube should use RectVol for its underlying implementation
+
+$#7 Texture needs to be implemented inside Paint.cpp
+	Use the texture factory for simplicity:	new Paint(TextureFactory.CreateTexture(char* filename))
+	$#switch texture factory to singleton
+
+-#8 Lighting should be calculated for all Quadrilaterals
+	There should be some way for people to know that certain objects support lighting. This could be done with a call to reflects() or something. reflects() could be added to Renderable.h and thus force everyone to implement it. And reflects() will return false if any of the objects do not support lighting. A compensatory way to get around this could be to internally handle all of the glEnable(...) calls and enable and disable around nonsupporting objects.
+
+#9 Terrain needs to be implemented -- consider supporting terrain formats should use the strategy pattern to handle terrain reformation. The default strategy should just create one big square (no changes between iterations)
+	# Look at code in the Terrain Filter for some examples of terrain generation etc.
+
+$#10 Remove TexturedQuadrilateral3D
+
+-#11 Renderable should have a method where you switch the rendering order CCW or CW
+		Consider another interface:: POLYGON2D that would house the CCW || CW functionality, since this is where the changes will have to be implemented. Should still provide high level access though.
+		# Trying to keep renderable as slim as possible. NORMALPOLYGON3D is being used as an all-purpose shape class. One that takes irregular polygons should be added at some point. 
+
+
+
+-#12 Factories for listeners that automatically add themselves to the generators and perform sane operations an XML format may be useful-->have several types of objects, several attributes could use the color parser so that they can specify 'exact' colors
+		# The controller is doing most of that work now, and doesn't seem too bloated
+
+
+
+#13 Incorporate openAL :)
+		#Simple looping background sounds
+		#Sounds associated with objects
+		#Sounds associated with keystrokes
+		#Sounds associated with particular timer states
+			#An object would listen to timer ticks, and play when timer->getState() == the right state
+			#This does NOT mean that the timer should be considered as a data holder. Specifically, people should NOT create subclasses of TIMER to pass around data to other objects (Similar to the cmd->command object in IMMERGE). This is BAD. If communication between machines or objects is needed, then an object should be created for that purpose. Remeber, what would bernstein do?
+
+
+
+$#14 Have decorators for renderables to be able to have renderers listen to timer events and do things like modify themselves on the fly
+	#Changed requirement to use proper MVC, mark as done.
+
+#15 Testing framework -- all components should also have debug versions of themselves that dump to a file all the work they would be doing. Should also allow for people to compare the output of the function with some other output
+
+#16	All files need to adhere to same style. 
+	All protected|private vars should have an underscore at the beginning		_privateVariable
+	All singleton instances should be an underscore then the class name			_className
+	All implementation code should be done in the .cpp files, not .h
+
+
+#17 Points, Dimensions, Colors should have respective parent classes defined and implemented
+
+#18 NormalPolygon2D should have an extrude(int dimension) method which returns a NormalPolygon3D object
+
+#19 Textures should always use GL_MODULATE and GL_REPEAT. If no modulation is needed, modulate with WHITE. If repeating is not the desired behavior, then stretch the texture so it won't tile.
+
+#20 All Renderables need to have an XML to GOR friendly constructor of format: static #{CLASS_NAME} Create#{CLASS_NAME}(string, ..., string) Note: The constructors should ONLY take in strings. Because of this blatant inefficiency, the following text should appear in each of the constructors comment block: 
+		 * This constructor is to be used only by the XML-to-GOR Tool. 
+		 * Use the other constructors for other uses, as they are MUCH more efficient.
+

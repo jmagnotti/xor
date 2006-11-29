@@ -1,0 +1,426 @@
+#Makefile for GORDemo, windows
+#
+
+VCPATH = D:/Microsoft\ Visual\ Studio\ 8/VC
+
+#CC = g++
+CC = $(VCPATH)/bin/cl
+
+CFLAGS = /EHsc /O2 /nologo
+
+INCLUDES = /I$(VCPATH)/include /I$(VCPATH)/PlatformSDK/Include
+
+#LIBS = -lopengl -lglut -lm
+LIBS = /link \
+  $(VCPATH)/PlatformSDK/lib/opengl32.lib $(VCPATH)/PlatformSDK/lib/glu32.lib \
+  $(VCPATH)/lib/kernel32.lib $(VCPATH)/lib/oldnames.lib $(VCPATH)/PlatformSDK/lib/winmm.lib  \
+  $(VCPATH)/lib/libcmt.lib $(VCPATH)/lib/libcpmt.lib $(VCPATH)/lib/glut32.lib
+
+#Packages
+SRCS = src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/demo/HelloWorld.cpp src/demo/maze/Maze.cpp src/demo/maze/MazeParser.cpp src/demo/maze/SocialRenderingProject.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Mouse.cpp src/event/Timer.cpp src/geometry/RectangularVolume.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationTester.cpp src/interpolation/Interpolator.cpp src/interpolation/TimedInterpolator.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/String2D.cpp src/texture/tex.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/Orientate.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
+
+#OBJS = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.obj)
+
+MAIN = GORDemo.exe
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+			@echo  GORDemo Compiled! Go to src/demo/maze/ and execute ./GORDemo 
+			cp -f $(MAIN) src/demo/maze/$(MAIN)
+
+GORDemo.exe:	$(OBJS) 
+#			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+			$(CC) $(CFLAGS) $(INCLUDES) /Fe"$(MAIN)" $(OBJS) $(LFLAGS) $(LIBS)
+
+#.c.o:
+%.obj:
+#			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+			$(CC) $(CFLAGS) $(INCLUDES) /c /Fo"$@" $(@:.obj=.cpp)
+
+clean:
+#			$(RM) *.o *~ $(MAIN)
+			$(RM) -f $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+src/core/Controller.obj: src/core/Controller.h src/event/Mouse.h
+src/core/Controller.obj: src/event/MouseListener.h
+src/core/Controller.obj: src/event/MouseClickEvent.h src/event/MouseEvent.h
+src/core/Controller.obj: src/event/MouseMotionEvent.h src/event/Timer.h
+src/core/Controller.obj: src/event/TimerListener.h src/shape/Point3D.h
+src/core/Controller.obj: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/Controller.obj: src/texture/Texture.h src/paint/Color.h
+src/core/Controller.obj: src/shape/Renderable.h src/shape/Renderable.h
+src/core/Controller.obj: src/event/DefaultKeyboardListener.h
+src/core/Controller.obj: src/event/KeyboardListener.h
+src/core/Controller.obj: src/event/RegularKeyEvent.h
+src/core/Controller.obj: src/event/SpecialKeyEvent.h src/core/Controller.h
+src/core/Controller.obj: src/core/World.h src/transform/Rotate.h
+src/core/Controller.obj: src/transform/Transform.h src/event/TimerListener.h
+src/core/Controller.obj: src/transform/Transform.h src/transform/Translate.h
+src/core/Controller.obj: src/event/DefaultMouseListener.h
+src/core/Viewer.obj: src/core/Viewer.h src/geometry/Dimension2D.h
+src/core/Viewer.obj: src/geometry/Dimension.h
+src/core/Viewer.obj: src/util/GraphicsConversionUtility.h src/shape/Point3D.h
+src/core/Viewer.obj: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/Viewer.obj: src/texture/Texture.h src/paint/Color.h
+src/core/Viewer.obj: src/shape/Renderable.h src/transform/Orientate.h
+src/core/Viewer.obj: src/transform/Transform.h src/transform/Translate.h
+src/core/Viewer.obj: src/transform/Rotate.h src/event/ReshapeListener.h
+src/core/World.obj: src/core/World.h src/shape/Point3D.h
+src/core/World.obj: src/interpolation/Interpolable.h src/paint/Paint.h
+src/core/World.obj: src/texture/Texture.h src/paint/Color.h
+src/core/World.obj: src/shape/Renderable.h src/shape/Renderable.h
+src/core/World.obj: src/transform/Rotate.h src/transform/Transform.h
+src/core/World.obj: src/event/TimerListener.h src/transform/Transform.h
+src/core/World.obj: src/transform/Translate.h
+src/demo/HelloWorld.obj: src/core/Controller.h src/shape/String2D.h
+src/demo/HelloWorld.obj: src/util/BitmapFontUtil.h
+src/demo/HelloWorld.obj: src/util/BitmapFontConstants.h
+src/demo/HelloWorld.obj: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/demo/HelloWorld.obj: src/paint/Paint.h src/texture/Texture.h
+src/demo/HelloWorld.obj: src/paint/Color.h src/shape/Renderable.h
+src/demo/HelloWorld.obj: src/core/Viewer.h
+src/demo/HelloWorld.obj: src/util/GraphicsConversionUtility.h
+src/demo/HelloWorld.obj: src/shape/Point3D.h src/interpolation/Interpolable.h
+src/demo/HelloWorld.obj: src/transform/Orientate.h src/transform/Transform.h
+src/demo/HelloWorld.obj: src/transform/Translate.h src/transform/Rotate.h
+src/demo/HelloWorld.obj: src/event/ReshapeListener.h
+src/demo/maze/Maze.obj: src/demo/maze/Maze.h src/util/BehaviorParser.h
+src/demo/maze/Maze.obj: src/transform/TransformFactory.h
+src/demo/maze/Maze.obj: src/transform/Transform.h src/transform/Rotate.h
+src/demo/maze/Maze.obj: src/shape/Point3D.h src/interpolation/Interpolable.h
+src/demo/maze/Maze.obj: src/paint/Paint.h src/texture/Texture.h
+src/demo/maze/Maze.obj: src/paint/Color.h src/shape/Renderable.h
+src/demo/maze/Maze.obj: src/transform/Translate.h
+src/demo/maze/Maze.obj: src/shape/CollisionRenderable.h src/shape/Point3D.h
+src/demo/maze/Maze.obj: src/shape/RectangularPrism.h
+src/demo/maze/Maze.obj: src/util/GraphicsConversionUtility.h
+src/demo/maze/Maze.obj: src/shape/Quadrilateral3D.h
+src/demo/maze/Maze.obj: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/demo/maze/Maze.obj: src/geometry/RectangularVolume.h
+src/demo/maze/Maze.obj: src/geometry/Dimension3D.h src/transform/Transform.h
+src/demo/maze/MazeParser.obj: src/demo/maze/MazeParser.h src/shape/Cube.h
+src/demo/maze/MazeParser.obj: src/paint/Paint.h src/texture/Texture.h
+src/demo/maze/MazeParser.obj: src/paint/Color.h src/shape/Point3D.h
+src/demo/maze/MazeParser.obj: src/shape/RectangularPrism.h
+src/demo/maze/MazeParser.obj: src/util/GraphicsConversionUtility.h
+src/demo/maze/MazeParser.obj: src/shape/Point3D.h
+src/demo/maze/MazeParser.obj: src/interpolation/Interpolable.h
+src/demo/maze/MazeParser.obj: src/shape/Renderable.h
+src/demo/maze/MazeParser.obj: src/shape/Quadrilateral3D.h
+src/demo/maze/MazeParser.obj: src/geometry/Dimension3D.h
+src/demo/maze/MazeParser.obj: src/geometry/Dimension.h
+src/demo/maze/MazeParser.obj: src/geometry/RectangularVolume.h
+src/demo/maze/MazeParser.obj: src/geometry/Dimension3D.h src/demo/maze/Maze.h
+src/demo/maze/MazeParser.obj: src/util/BehaviorParser.h
+src/demo/maze/MazeParser.obj: src/transform/TransformFactory.h
+src/demo/maze/MazeParser.obj: src/transform/Transform.h
+src/demo/maze/MazeParser.obj: src/transform/Rotate.h
+src/demo/maze/MazeParser.obj: src/transform/Translate.h
+src/demo/maze/MazeParser.obj: src/shape/CollisionRenderable.h
+src/demo/maze/MazeParser.obj: src/shape/RectangularPrism.h
+src/demo/maze/MazeParser.obj: src/transform/Transform.h
+src/demo/maze/MazeParser.obj: src/texture/TextureFactory.h
+src/demo/maze/MazeParser.obj: src/texture/Texture.h src/texture/TexturePPM.h
+src/demo/maze/MazeParser.obj: src/texture/TextureBMP.h
+src/demo/maze/MazeParser.obj: src/texture/TextureTGA.h
+src/demo/maze/SocialRenderingProject.obj: src/demo/maze/SocialRenderingProject.h
+src/demo/maze/SocialRenderingProject.obj: src/core/Controller.h
+src/demo/maze/SocialRenderingProject.obj: src/event/Mouse.h
+src/demo/maze/SocialRenderingProject.obj: src/event/MouseListener.h
+src/demo/maze/SocialRenderingProject.obj: src/event/MouseClickEvent.h
+src/demo/maze/SocialRenderingProject.obj: src/event/MouseEvent.h
+src/demo/maze/SocialRenderingProject.obj: src/event/MouseMotionEvent.h
+src/demo/maze/SocialRenderingProject.obj: src/event/Timer.h
+src/demo/maze/SocialRenderingProject.obj: src/event/TimerListener.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Point3D.h
+src/demo/maze/SocialRenderingProject.obj: src/interpolation/Interpolable.h
+src/demo/maze/SocialRenderingProject.obj: src/paint/Paint.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/Texture.h
+src/demo/maze/SocialRenderingProject.obj: src/paint/Color.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Renderable.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Renderable.h
+src/demo/maze/SocialRenderingProject.obj: src/event/DefaultKeyboardListener.h
+src/demo/maze/SocialRenderingProject.obj: src/event/KeyboardListener.h
+src/demo/maze/SocialRenderingProject.obj: src/event/RegularKeyEvent.h
+src/demo/maze/SocialRenderingProject.obj: src/event/SpecialKeyEvent.h
+src/demo/maze/SocialRenderingProject.obj: src/core/Controller.h
+src/demo/maze/SocialRenderingProject.obj: src/core/World.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Rotate.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Transform.h
+src/demo/maze/SocialRenderingProject.obj: src/event/TimerListener.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Transform.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Translate.h
+src/demo/maze/SocialRenderingProject.obj: src/event/DefaultMouseListener.h
+src/demo/maze/SocialRenderingProject.obj: src/demo/maze/Maze.h
+src/demo/maze/SocialRenderingProject.obj: src/util/BehaviorParser.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/TransformFactory.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Rotate.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Translate.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/CollisionRenderable.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Point3D.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/RectangularPrism.h
+src/demo/maze/SocialRenderingProject.obj: src/util/GraphicsConversionUtility.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Quadrilateral3D.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/Dimension3D.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/Dimension.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/RectangularVolume.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/Dimension3D.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Transform.h
+src/demo/maze/SocialRenderingProject.obj: src/demo/maze/MazeParser.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Cube.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/RectangularPrism.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/TextureFactory.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/Texture.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/TexturePPM.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/TextureBMP.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/TextureTGA.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/String2D.h
+src/demo/maze/SocialRenderingProject.obj: src/util/BitmapFontUtil.h
+src/demo/maze/SocialRenderingProject.obj: src/util/BitmapFontConstants.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/Dimension2D.h
+src/demo/maze/SocialRenderingProject.obj: src/core/Viewer.h
+src/demo/maze/SocialRenderingProject.obj: src/transform/Orientate.h
+src/demo/maze/SocialRenderingProject.obj: src/event/ReshapeListener.h
+src/demo/maze/SocialRenderingProject.obj: src/terrain/Terrain.h
+src/demo/maze/SocialRenderingProject.obj: src/shape/Quadrilateral3D.h
+src/demo/maze/SocialRenderingProject.obj: src/texture/TextureFactory.h
+src/demo/maze/SocialRenderingProject.obj: src/interpolation/CameraRoller.h
+src/demo/maze/SocialRenderingProject.obj: src/geometry/Dimension2D.h
+src/event/DefaultKeyboardListener.obj: src/event/DefaultKeyboardListener.h
+src/event/DefaultKeyboardListener.obj: src/event/KeyboardListener.h
+src/event/DefaultKeyboardListener.obj: src/event/RegularKeyEvent.h
+src/event/DefaultKeyboardListener.obj: src/event/SpecialKeyEvent.h
+src/event/DefaultKeyboardListener.obj: src/core/Controller.h src/core/World.h
+src/event/DefaultKeyboardListener.obj: src/shape/Point3D.h
+src/event/DefaultKeyboardListener.obj: src/interpolation/Interpolable.h
+src/event/DefaultKeyboardListener.obj: src/paint/Paint.h
+src/event/DefaultKeyboardListener.obj: src/texture/Texture.h
+src/event/DefaultKeyboardListener.obj: src/paint/Color.h
+src/event/DefaultKeyboardListener.obj: src/shape/Renderable.h
+src/event/DefaultKeyboardListener.obj: src/shape/Renderable.h
+src/event/DefaultKeyboardListener.obj: src/transform/Rotate.h
+src/event/DefaultKeyboardListener.obj: src/transform/Transform.h
+src/event/DefaultKeyboardListener.obj: src/event/TimerListener.h
+src/event/DefaultKeyboardListener.obj: src/transform/Transform.h
+src/event/DefaultKeyboardListener.obj: src/transform/Translate.h
+src/event/DefaultMouseListener.obj: src/event/DefaultMouseListener.h
+src/event/DefaultMouseListener.obj: src/core/Controller.h
+src/event/DefaultMouseListener.obj: src/event/MouseListener.h
+src/event/DefaultMouseListener.obj: src/event/MouseClickEvent.h
+src/event/DefaultMouseListener.obj: src/event/MouseEvent.h
+src/event/DefaultMouseListener.obj: src/event/MouseMotionEvent.h
+src/event/Mouse.obj: src/event/Mouse.h src/event/MouseListener.h
+src/event/Mouse.obj: src/event/MouseClickEvent.h src/event/MouseEvent.h
+src/event/Mouse.obj: src/event/MouseMotionEvent.h
+src/event/Timer.obj: src/event/Timer.h src/event/TimerListener.h
+src/geometry/RectangularVolume.obj: src/geometry/RectangularVolume.h
+src/geometry/RectangularVolume.obj: src/geometry/Dimension3D.h
+src/geometry/RectangularVolume.obj: src/shape/Point3D.h
+src/geometry/RectangularVolume.obj: src/interpolation/Interpolable.h
+src/geometry/RectangularVolume.obj: src/paint/Paint.h src/texture/Texture.h
+src/geometry/RectangularVolume.obj: src/paint/Color.h src/shape/Renderable.h
+src/interpolation/CameraRoller.obj: src/interpolation/CameraRoller.h
+src/interpolation/CameraRoller.obj: src/core/Controller.h src/event/Timer.h
+src/interpolation/CameraRoller.obj: src/event/TimerListener.h
+src/interpolation/InterpolationTester.obj: src/core/Controller.h
+src/interpolation/InterpolationTester.obj: src/interpolation/Interpolator.h
+src/interpolation/InterpolationTester.obj: src/interpolation/Interpolable.h
+src/interpolation/InterpolationTester.obj: src/interpolation/InterpolatorListener.h
+src/interpolation/InterpolationTester.obj: src/shape/Point3D.h
+src/interpolation/InterpolationTester.obj: src/interpolation/Interpolable.h
+src/interpolation/InterpolationTester.obj: src/paint/Paint.h
+src/interpolation/InterpolationTester.obj: src/texture/Texture.h
+src/interpolation/InterpolationTester.obj: src/paint/Color.h
+src/interpolation/InterpolationTester.obj: src/shape/Renderable.h
+src/interpolation/InterpolationTester.obj: src/interpolation/TimedInterpolator.h
+src/interpolation/InterpolationTester.obj: src/event/Timer.h
+src/interpolation/InterpolationTester.obj: src/event/TimerListener.h
+src/interpolation/InterpolationTester.obj: src/event/TimerListener.h
+src/interpolation/InterpolationTester.obj: src/shape/String2D.h
+src/interpolation/InterpolationTester.obj: src/util/BitmapFontUtil.h
+src/interpolation/InterpolationTester.obj: src/util/BitmapFontConstants.h
+src/interpolation/InterpolationTester.obj: src/geometry/Dimension2D.h
+src/interpolation/InterpolationTester.obj: src/geometry/Dimension.h
+src/interpolation/InterpolationTester.obj: src/core/Viewer.h
+src/interpolation/InterpolationTester.obj: src/util/GraphicsConversionUtility.h
+src/interpolation/InterpolationTester.obj: src/transform/Orientate.h
+src/interpolation/InterpolationTester.obj: src/transform/Transform.h
+src/interpolation/InterpolationTester.obj: src/transform/Translate.h
+src/interpolation/InterpolationTester.obj: src/transform/Rotate.h
+src/interpolation/InterpolationTester.obj: src/event/ReshapeListener.h
+src/interpolation/InterpolationTester.obj: src/shape/Cube.h
+src/interpolation/InterpolationTester.obj: src/shape/Point3D.h
+src/interpolation/InterpolationTester.obj: src/shape/RectangularPrism.h
+src/interpolation/InterpolationTester.obj: src/shape/Quadrilateral3D.h
+src/interpolation/InterpolationTester.obj: src/geometry/Dimension3D.h
+src/interpolation/InterpolationTester.obj: src/geometry/RectangularVolume.h
+src/interpolation/InterpolationTester.obj: src/geometry/Dimension3D.h
+src/interpolation/Interpolator.obj: src/interpolation/Interpolator.h
+src/interpolation/Interpolator.obj: src/interpolation/Interpolable.h
+src/interpolation/Interpolator.obj: src/interpolation/InterpolatorListener.h
+src/interpolation/TimedInterpolator.obj: src/interpolation/TimedInterpolator.h
+src/interpolation/TimedInterpolator.obj: src/event/Timer.h
+src/interpolation/TimedInterpolator.obj: src/event/TimerListener.h
+src/interpolation/TimedInterpolator.obj: src/event/TimerListener.h
+src/interpolation/TimedInterpolator.obj: src/interpolation/Interpolator.h
+src/interpolation/TimedInterpolator.obj: src/interpolation/Interpolable.h
+src/interpolation/TimedInterpolator.obj: src/interpolation/InterpolatorListener.h
+src/paint/Color.obj: src/paint/Color.h
+src/paint/Paint.obj: src/paint/Paint.h src/texture/Texture.h
+src/paint/Paint.obj: src/paint/Color.h
+src/shape/AdornableCube.obj: src/shape/AdornableCube.h src/shape/Cube.h
+src/shape/AdornableCube.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/AdornableCube.obj: src/paint/Color.h src/shape/Point3D.h
+src/shape/AdornableCube.obj: src/shape/RectangularPrism.h
+src/shape/AdornableCube.obj: src/util/GraphicsConversionUtility.h
+src/shape/AdornableCube.obj: src/shape/Point3D.h
+src/shape/AdornableCube.obj: src/interpolation/Interpolable.h
+src/shape/AdornableCube.obj: src/shape/Renderable.h
+src/shape/AdornableCube.obj: src/shape/Quadrilateral3D.h
+src/shape/AdornableCube.obj: src/geometry/Dimension3D.h
+src/shape/AdornableCube.obj: src/geometry/Dimension.h
+src/shape/AdornableCube.obj: src/geometry/RectangularVolume.h
+src/shape/AdornableCube.obj: src/geometry/Dimension3D.h
+src/shape/AdornableCube.obj: src/shape/AdornablePrism.h
+src/shape/AdornablePrism.obj: src/shape/AdornablePrism.h
+src/shape/AdornablePrism.obj: src/shape/RectangularPrism.h
+src/shape/AdornablePrism.obj: src/util/GraphicsConversionUtility.h
+src/shape/AdornablePrism.obj: src/shape/Point3D.h
+src/shape/AdornablePrism.obj: src/interpolation/Interpolable.h
+src/shape/AdornablePrism.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/AdornablePrism.obj: src/paint/Color.h src/shape/Renderable.h
+src/shape/AdornablePrism.obj: src/shape/Quadrilateral3D.h
+src/shape/AdornablePrism.obj: src/geometry/Dimension3D.h
+src/shape/AdornablePrism.obj: src/geometry/Dimension.h src/shape/Point3D.h
+src/shape/AdornablePrism.obj: src/geometry/RectangularVolume.h
+src/shape/AdornablePrism.obj: src/geometry/Dimension3D.h
+src/shape/Arc3D.obj: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
+src/shape/Arc3D.obj: src/shape/Point3D.h src/interpolation/Interpolable.h
+src/shape/Arc3D.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/Arc3D.obj: src/paint/Color.h src/shape/Renderable.h
+src/shape/Arc3D.obj: src/shape/Point3D.h
+src/shape/Cube.obj: src/shape/Cube.h src/paint/Paint.h src/texture/Texture.h
+src/shape/Cube.obj: src/paint/Color.h src/shape/Point3D.h
+src/shape/Cube.obj: src/shape/RectangularPrism.h
+src/shape/Cube.obj: src/util/GraphicsConversionUtility.h src/shape/Point3D.h
+src/shape/Cube.obj: src/interpolation/Interpolable.h src/shape/Renderable.h
+src/shape/Cube.obj: src/shape/Quadrilateral3D.h src/geometry/Dimension3D.h
+src/shape/Cube.obj: src/geometry/Dimension.h src/geometry/RectangularVolume.h
+src/shape/Cube.obj: src/geometry/Dimension3D.h
+src/shape/Particle.obj: src/shape/Particle.h src/shape/CollisionRenderable.h
+src/shape/Particle.obj: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Point3D.obj: src/shape/Point3D.h
+src/shape/Quadrilateral3D.obj: src/shape/Quadrilateral3D.h
+src/shape/Quadrilateral3D.obj: src/geometry/Dimension3D.h
+src/shape/Quadrilateral3D.obj: src/geometry/Dimension.h
+src/shape/Quadrilateral3D.obj: src/util/GraphicsConversionUtility.h
+src/shape/Quadrilateral3D.obj: src/shape/Point3D.h
+src/shape/Quadrilateral3D.obj: src/interpolation/Interpolable.h
+src/shape/Quadrilateral3D.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/Quadrilateral3D.obj: src/paint/Color.h src/shape/Renderable.h
+src/shape/Quadrilateral3D.obj: src/shape/Point3D.h
+src/shape/RectangularPrism.obj: src/shape/RectangularPrism.h
+src/shape/RectangularPrism.obj: src/util/GraphicsConversionUtility.h
+src/shape/RectangularPrism.obj: src/shape/Point3D.h
+src/shape/RectangularPrism.obj: src/interpolation/Interpolable.h
+src/shape/RectangularPrism.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/RectangularPrism.obj: src/paint/Color.h src/shape/Renderable.h
+src/shape/RectangularPrism.obj: src/shape/Quadrilateral3D.h
+src/shape/RectangularPrism.obj: src/geometry/Dimension3D.h
+src/shape/RectangularPrism.obj: src/geometry/Dimension.h src/shape/Point3D.h
+src/shape/RectangularPrism.obj: src/geometry/RectangularVolume.h
+src/shape/RectangularPrism.obj: src/geometry/Dimension3D.h
+src/shape/String2D.obj: src/shape/String2D.h src/util/BitmapFontUtil.h
+src/shape/String2D.obj: src/util/BitmapFontConstants.h
+src/shape/String2D.obj: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/shape/String2D.obj: src/paint/Paint.h src/texture/Texture.h
+src/shape/String2D.obj: src/paint/Color.h src/shape/Renderable.h
+src/shape/String2D.obj: src/core/Controller.h src/core/Viewer.h
+src/shape/String2D.obj: src/util/GraphicsConversionUtility.h
+src/shape/String2D.obj: src/shape/Point3D.h src/interpolation/Interpolable.h
+src/shape/String2D.obj: src/transform/Orientate.h src/transform/Transform.h
+src/shape/String2D.obj: src/transform/Translate.h src/transform/Rotate.h
+src/shape/String2D.obj: src/event/ReshapeListener.h
+src/texture/tex.obj: src/texture/tex.h
+src/texture/Texture.obj: src/texture/Texture.h
+src/texture/TextureFactory.obj: src/texture/TextureFactory.h
+src/texture/TextureFactory.obj: src/texture/Texture.h
+src/texture/TextureFactory.obj: src/texture/TexturePPM.h
+src/texture/TextureFactory.obj: src/texture/TextureBMP.h
+src/texture/TextureFactory.obj: src/texture/TextureTGA.h
+src/transform/Orientate.obj: src/transform/Orientate.h
+src/transform/Orientate.obj: src/transform/Transform.h src/shape/Point3D.h
+src/transform/Orientate.obj: src/interpolation/Interpolable.h
+src/transform/Orientate.obj: src/paint/Paint.h src/texture/Texture.h
+src/transform/Orientate.obj: src/paint/Color.h src/shape/Renderable.h
+src/transform/Orientate.obj: src/util/GraphicsConversionUtility.h
+src/transform/Orientate.obj: src/transform/Translate.h src/transform/Rotate.h
+src/transform/Rotate.obj: src/transform/Rotate.h src/transform/Transform.h
+src/transform/Rotate.obj: src/shape/Point3D.h
+src/transform/Rotate.obj: src/interpolation/Interpolable.h src/paint/Paint.h
+src/transform/Rotate.obj: src/texture/Texture.h src/paint/Color.h
+src/transform/Rotate.obj: src/shape/Renderable.h
+src/transform/TransformFactory.obj: src/transform/TransformFactory.h
+src/transform/TransformFactory.obj: src/transform/Transform.h
+src/transform/TransformFactory.obj: src/transform/Rotate.h
+src/transform/TransformFactory.obj: src/shape/Point3D.h
+src/transform/TransformFactory.obj: src/interpolation/Interpolable.h
+src/transform/TransformFactory.obj: src/paint/Paint.h src/texture/Texture.h
+src/transform/TransformFactory.obj: src/paint/Color.h src/shape/Renderable.h
+src/transform/TransformFactory.obj: src/transform/Translate.h
+src/transform/Translate.obj: src/transform/Translate.h
+src/transform/Translate.obj: src/transform/Transform.h src/shape/Point3D.h
+src/transform/Translate.obj: src/interpolation/Interpolable.h
+src/transform/Translate.obj: src/paint/Paint.h src/texture/Texture.h
+src/transform/Translate.obj: src/paint/Color.h src/shape/Renderable.h
+src/util/BehaviorParser.obj: src/util/BehaviorParser.h
+src/util/BehaviorParser.obj: src/transform/TransformFactory.h
+src/util/BehaviorParser.obj: src/transform/Transform.h src/transform/Rotate.h
+src/util/BehaviorParser.obj: src/shape/Point3D.h
+src/util/BehaviorParser.obj: src/interpolation/Interpolable.h
+src/util/BehaviorParser.obj: src/paint/Paint.h src/texture/Texture.h
+src/util/BehaviorParser.obj: src/paint/Color.h src/shape/Renderable.h
+src/util/BehaviorParser.obj: src/transform/Translate.h
+src/util/BitmapFontUtil.obj: src/util/BitmapFontUtil.h
+src/util/BitmapFontUtil.obj: src/util/BitmapFontConstants.h
+src/util/FramesPerSecondCounter.obj: src/util/FramesPerSecondCounter.h
+src/util/FramesPerSecondCounter.obj: src/event/Timer.h
+src/util/FramesPerSecondCounter.obj: src/event/TimerListener.h
+src/util/FramesPerSecondCounter.obj: src/event/TimerListener.h
+src/util/FramesPerSecondCounter.obj: src/core/Controller.h src/core/Viewer.h
+src/util/FramesPerSecondCounter.obj: src/geometry/Dimension2D.h
+src/util/FramesPerSecondCounter.obj: src/geometry/Dimension.h
+src/util/FramesPerSecondCounter.obj: src/util/GraphicsConversionUtility.h
+src/util/FramesPerSecondCounter.obj: src/shape/Point3D.h
+src/util/FramesPerSecondCounter.obj: src/interpolation/Interpolable.h
+src/util/FramesPerSecondCounter.obj: src/paint/Paint.h src/texture/Texture.h
+src/util/FramesPerSecondCounter.obj: src/paint/Color.h src/shape/Renderable.h
+src/util/FramesPerSecondCounter.obj: src/transform/Orientate.h
+src/util/FramesPerSecondCounter.obj: src/transform/Transform.h
+src/util/FramesPerSecondCounter.obj: src/transform/Translate.h
+src/util/FramesPerSecondCounter.obj: src/transform/Rotate.h
+src/util/FramesPerSecondCounter.obj: src/event/ReshapeListener.h
+src/util/FramesPerSecondCounter.obj: src/shape/String2D.h
+src/util/FramesPerSecondCounter.obj: src/util/BitmapFontUtil.h
+src/util/FramesPerSecondCounter.obj: src/util/BitmapFontConstants.h
+src/util/GraphicsConversionUtility.obj: src/util/GraphicsConversionUtility.h
+src/util/GraphicsConversionUtility.obj: src/shape/Point3D.h
+src/util/GraphicsConversionUtility.obj: src/interpolation/Interpolable.h
+src/util/GraphicsConversionUtility.obj: src/paint/Paint.h
+src/util/GraphicsConversionUtility.obj: src/texture/Texture.h
+src/util/GraphicsConversionUtility.obj: src/paint/Color.h
+src/util/GraphicsConversionUtility.obj: src/shape/Renderable.h

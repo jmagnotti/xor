@@ -1,0 +1,139 @@
+#Makefile for maze demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -framework OpenGL -lSDLMain -framework Cocoa -lGOR
+
+#Packages
+SRCS = Maze.cpp MazeParser.cpp SocialRenderingProject.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Maze
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Maze:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+Maze.o: Maze.h /usr/include/GL/glut.h /usr/include/GL/gl.h
+Maze.o: /usr/include/GL/glext.h
+Maze.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+Maze.o: /usr/include/GL/glu.h ../../util/BehaviorParser.h
+Maze.o: /usr/include/stdlib.h /usr/include/features.h
+Maze.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+Maze.o: ../../transform/TransformFactory.h ../../transform/Transform.h
+Maze.o: ../../transform/Rotate.h ../../shape/Point3D.h /usr/include/string.h
+Maze.o: /usr/include/math.h /usr/include/bits/huge_val.h
+Maze.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+Maze.o: ../../interpolation/Interpolable.h ../../paint/Paint.h
+Maze.o: ../../texture/Texture.h ../../paint/Color.h ../../shape/Renderable.h
+Maze.o: ../../transform/Translate.h ../../shape/CollisionRenderable.h
+Maze.o: ../../shape/Point3D.h ../../shape/RectangularPrism.h
+Maze.o: ../../util/GraphicsConversionUtility.h ../../shape/Quadrilateral3D.h
+Maze.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+Maze.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Maze.o: ../../transform/Transform.h
+MazeParser.o: MazeParser.h ../../shape/Cube.h ../../paint/Paint.h
+MazeParser.o: /usr/include/string.h /usr/include/features.h
+MazeParser.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+MazeParser.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+MazeParser.o: ../../texture/Texture.h ../../paint/Color.h
+MazeParser.o: ../../shape/Point3D.h ../../shape/RectangularPrism.h
+MazeParser.o: ../../util/GraphicsConversionUtility.h /usr/include/stdlib.h
+MazeParser.o: /usr/include/math.h /usr/include/bits/huge_val.h
+MazeParser.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+MazeParser.o: ../../shape/Point3D.h /usr/include/GL/glut.h
+MazeParser.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+MazeParser.o: /usr/include/GL/glu.h ../../interpolation/Interpolable.h
+MazeParser.o: ../../shape/Renderable.h ../../shape/Quadrilateral3D.h
+MazeParser.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+MazeParser.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+MazeParser.o: Maze.h ../../util/BehaviorParser.h
+MazeParser.o: ../../transform/TransformFactory.h ../../transform/Transform.h
+MazeParser.o: ../../transform/Rotate.h ../../transform/Translate.h
+MazeParser.o: ../../shape/CollisionRenderable.h
+MazeParser.o: ../../shape/RectangularPrism.h ../../transform/Transform.h
+MazeParser.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+MazeParser.o: ../../texture/TexturePPM.h ../../texture/TextureBMP.h
+MazeParser.o: ../../texture/TextureTGA.h
+SocialRenderingProject.o: /usr/include/string.h /usr/include/features.h
+SocialRenderingProject.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+SocialRenderingProject.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+SocialRenderingProject.o: SocialRenderingProject.h /usr/include/stdlib.h
+SocialRenderingProject.o: /usr/include/GL/glut.h /usr/include/GL/gl.h
+SocialRenderingProject.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+SocialRenderingProject.o: ../../core/Controller.h ../../event/Keyboard.h
+SocialRenderingProject.o: ../../event/KeyboardListener.h
+SocialRenderingProject.o: ../../event/RegularKeyEvent.h
+SocialRenderingProject.o: ../../event/SpecialKeyEvent.h ../../event/Mouse.h
+SocialRenderingProject.o: ../../event/MouseListener.h
+SocialRenderingProject.o: ../../event/MouseClickEvent.h
+SocialRenderingProject.o: ../../event/MouseEvent.h
+SocialRenderingProject.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
+SocialRenderingProject.o: ../../event/TimerListener.h ../../core/World.h
+SocialRenderingProject.o: ../../shape/Point3D.h /usr/include/math.h
+SocialRenderingProject.o: /usr/include/bits/huge_val.h
+SocialRenderingProject.o: /usr/include/bits/mathdef.h
+SocialRenderingProject.o: /usr/include/bits/mathcalls.h
+SocialRenderingProject.o: ../../interpolation/Interpolable.h
+SocialRenderingProject.o: ../../paint/Paint.h ../../texture/Texture.h
+SocialRenderingProject.o: ../../paint/Color.h ../../shape/Renderable.h
+SocialRenderingProject.o: ../../shape/Renderable.h ../../transform/Rotate.h
+SocialRenderingProject.o: ../../transform/Transform.h
+SocialRenderingProject.o: ../../event/TimerListener.h
+SocialRenderingProject.o: ../../transform/Transform.h
+SocialRenderingProject.o: ../../transform/Translate.h ../../core/Viewer.h
+SocialRenderingProject.o: ../../geometry/Dimension2D.h
+SocialRenderingProject.o: ../../geometry/Dimension.h
+SocialRenderingProject.o: ../../util/GraphicsConversionUtility.h
+SocialRenderingProject.o: ../../transform/Orientate.h
+SocialRenderingProject.o: ../../transform/Translate.h
+SocialRenderingProject.o: ../../transform/Rotate.h
+SocialRenderingProject.o: ../../event/ReshapeListener.h
+SocialRenderingProject.o: ../../event/DefaultKeyboardListener.h
+SocialRenderingProject.o: ../../core/Controller.h ../../core/World.h
+SocialRenderingProject.o: ../../event/DefaultMouseListener.h
+SocialRenderingProject.o: ../../util/FramesPerSecondCounter.h
+SocialRenderingProject.o: ../../core/Viewer.h ../../shape/String2D.h
+SocialRenderingProject.o: ../../util/BitmapFontUtil.h
+SocialRenderingProject.o: ../../util/BitmapFontConstants.h Maze.h
+SocialRenderingProject.o: ../../util/BehaviorParser.h
+SocialRenderingProject.o: ../../transform/TransformFactory.h
+SocialRenderingProject.o: ../../shape/CollisionRenderable.h
+SocialRenderingProject.o: ../../shape/Point3D.h
+SocialRenderingProject.o: ../../shape/RectangularPrism.h
+SocialRenderingProject.o: ../../shape/Quadrilateral3D.h
+SocialRenderingProject.o: ../../geometry/Dimension3D.h
+SocialRenderingProject.o: ../../geometry/RectangularVolume.h
+SocialRenderingProject.o: ../../geometry/Dimension3D.h
+SocialRenderingProject.o: ../../transform/Transform.h MazeParser.h
+SocialRenderingProject.o: ../../shape/Cube.h ../../shape/RectangularPrism.h
+SocialRenderingProject.o: ../../texture/TextureFactory.h
+SocialRenderingProject.o: ../../texture/Texture.h ../../texture/TexturePPM.h
+SocialRenderingProject.o: ../../texture/TextureBMP.h
+SocialRenderingProject.o: ../../texture/TextureTGA.h ../../shape/String2D.h
+SocialRenderingProject.o: ../../terrain/Terrain.h
+SocialRenderingProject.o: ../../shape/Quadrilateral3D.h
+SocialRenderingProject.o: ../../texture/TextureFactory.h
+SocialRenderingProject.o: ../../interpolation/CameraRoller.h
+SocialRenderingProject.o: ../../geometry/Dimension2D.h
