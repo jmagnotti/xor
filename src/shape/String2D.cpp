@@ -80,7 +80,7 @@ void String2D::render()
 {
 	glColor3fv(_paint->getColorTo());
 
-	BitmapFontUtil::beginRenderText(_size->getWidth(), _size->getHeight());
+	BitmapFontUtil::beginRenderText((int)_size->getWidth(), (int)_size->getHeight());
 	
 	BitmapFontUtil::renderText(_xpos, _ypos, BITMAP_FONT_TYPE_HELVETICA_12, _text);
 	
