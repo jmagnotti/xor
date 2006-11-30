@@ -4,6 +4,7 @@
 #include <map>
 
 #include "KeyboardListener.h"
+#include "KeyEvent.h"
 #include "../core/Controller.h"
 #include "../core/World.h"
 
@@ -19,22 +20,26 @@ class DefaultKeyboardListener : public KeyboardListener
 
 public:
 
+
 	/**
 	 * Singleton Accessor
 	 */
 	static DefaultKeyboardListener * GetInstance();
 	
 
-	/**
-	 * Handles non-ascii keys
-	 */
-	virtual void handleKey(SpecialKeyEvent* ske);
+	void handleKeyEvent(KeyEvent * ke);
+
+
+	virtual void handleKeyDown(KeyDownEvent * kde);
+
+
+	virtual void handleKeyUp(KeyUpEvent * kue);
 
 
 	/**
 	 * Handles keys that have an ascii representation
+    virtual void handleKey(RegularKeyEvent* rke);
 	 */
-	virtual void handleKey(RegularKeyEvent* rke);
 
 	virtual void handleKey_w();
 	virtual void handleKey_s();

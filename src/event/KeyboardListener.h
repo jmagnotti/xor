@@ -4,11 +4,15 @@
 #include <stdlib.h>
 
 #include "Timer.h"
-#include "RegularKeyEvent.h"
-#include "SpecialKeyEvent.h"
+#include "Keyboard.h"
+#include "KeyUpEvent.h"
+#include "KeyDownEvent.h"
 
 
 namespace XOR {
+
+// we need to forward declare the keyboard
+class Keyboard;
 
 /**
  * Implementer agrees to handle regular key presses as well as "special"
@@ -19,12 +23,10 @@ class KeyboardListener
 
 public:
 
-	KeyboardListener() { 
-        Keyboard::GetInstance()->addListener(this); 
-    }
+    KeyboardListener();
 
-	virtual void handleKey(RegularKeyEvent *)=0;
-	virtual void handleKey(SpecialKeyEvent *)=0;
+    virtual void handleKeyEvent(KeyEvent * ke)=0;
+
 
 	/**
 	 * Regular key handlers

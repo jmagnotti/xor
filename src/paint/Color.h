@@ -39,6 +39,7 @@ public:
     static const float DARK_GREEN[3];
     static const float DARK_KHAKI[3];
     static const float DARK_MAGENTA[3];
+    static const float DARK_NAVY[3];
     static const float DARK_OLIVE_GREEN[3];
     static const float DARK_ORANGE[3];
     static const float DARK_ORCHID[3];

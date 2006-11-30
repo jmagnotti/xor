@@ -85,9 +85,12 @@ protected:
 
 	bool   _compiled;
 	bool   _positioned;
+
 	GLuint _displayListID;
 
 };
 
 }
+
 #endif		// POSITIONABLE_H
+

@@ -29,6 +29,7 @@ const float Color::DARK_GRAY[3]				= { 0.6627451f, 0.6627451f, 0.6627451f };
 const float Color::DARK_GREEN[3]			    = { 0.0f, 0.39215687f, 0.0f };
 const float Color::DARK_KHAKI[3]		    	= { 0.7411765f, 0.7176471f, 0.41960785f };
 const float Color::DARK_MAGENTA[3]			= { 0.54509807f, 0.0f, 0.54509807f };
+const float Color::DARK_NAVY[3]             = { 0.1f, 0.1f, 0.2f };
 const float Color::DARK_OLIVE_GREEN[3]		= { 0.33333334f, 0.41960785f, 0.18431373f };
 const float Color::DARK_ORANGE[3]		    	= { 1.0f, 0.54901963f, 0.0f };
 const float Color::DARK_ORCHID[3]	    		= { 0.6f, 0.19607843f, 0.8f };

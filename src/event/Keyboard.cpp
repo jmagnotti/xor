@@ -3,13 +3,16 @@
 
 namespace XOR {
 
+// set the static instance to 0
+Keyboard * Keyboard::_keyboard = 0;
+
 
 /*
  * add new listener
  */
 void Keyboard::addListener(KeyboardListener* kl)
 {
-	listeners.push_back(kl);
+	_listeners.push_back(kl);
 }
 
 
@@ -26,11 +29,29 @@ Keyboard * Keyboard::GetInstance()
 
 
 /*
- * turns 
+ * sends a key event to all keyboard listeners
+ */
+void Keyboard::fireKeyEvent(KeyEvent * ke) 
+{
+    // safe traversal in case anyone removes themselves contingent upon a key press
+	list <KeyboardListener*>::iterator iter     = _listeners.begin();
+	list <KeyboardListener*>::iterator next     = _listeners.begin();
+	list <KeyboardListener*>::iterator finish   = _listeners.end();
+
+    while (iter != finish) {
+        ++next;
+		(*iter)->handleKeyEvent(ke);
+        iter = next;
+	}
+}
+
+
+/*
+ * Turns SDL Events into something that the Keyboard can fire off to listeners
  */ 
 void Keyboard::generateKeyEvent(SDL_Event * event)
 {
-   regularKeyEvent(event->key.which, 0, 0);
+    fireKeyEvent(KeyFactory::ConstructInstance(&(event->key.type), &(event->key.state), &(event->key.keysym))) ;
 }
 
 
@@ -40,34 +61,17 @@ void Keyboard::generateKeyEvent(SDL_Event * event)
 void Keyboard::removeListener(KeyboardListener* kl)
 {
 	bool found = false;
-	vector <KeyboardListener*>::iterator iter = listeners.begin();
+	list <KeyboardListener*>::iterator iter = _listeners.begin();
 
-	while (iter != listeners.end() && !found) {
+	while (iter != _listeners.end() && !found) {
 		if (*iter == kl) {		
-			listeners.erase(iter);
+			_listeners.erase(iter);
 			found = true;
 		}
 		++iter;
 	}
 }
 
-
-/*
- * regular event notification
- */
-void Keyboard::regularKeyEvent(Uint8 key)
-{
-	RegularKeyEvent *rke = new RegularKeyEvent(key, x, y);
-
-	vector <KeyboardListener*>::iterator iter = listeners.begin();
-
-	while (iter != listeners.end()) {
-		(*iter)->handleKey(rke);
-		++iter;
-	}
-	
-	delete rke;
-}
 
 }
 

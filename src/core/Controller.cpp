@@ -24,7 +24,8 @@ Controller::Controller()
 	_reshape     = (ReshapeListener*)_viewer;
 
 	//set the default keyboard listener
-	_keyboard->addListener(DefaultKeyboardListener::GetInstance());
+	//_keyboard->addListener(DefaultKeyboardListener::GetInstance());
+    DefaultKeyboardListener::GetInstance();
 
 	//set the default mouse listener
 	_mouse->addListener(DefaultMouseListener::GetInstance());
@@ -260,7 +261,7 @@ void Controller::EventLoop()
         switch(event.type) {
             case SDL_KEYDOWN:
             case SDL_KEYUP:
-                _keyboard->generateKeyEvent(event);
+                ctrl->getKeyboard()->generateKeyEvent(&event);
                 break;
      //       case MouseMotionEvent:
      //           _mouse->move(event);
