@@ -10,7 +10,11 @@ DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener = 0;
  * Protected Constructor
  */
 DefaultKeyboardListener::DefaultKeyboardListener()
-{}
+{
+
+        cout << "INFO: Debugging output is on. See DefaultKeyboardListener.cpp:42 for printouts" << endl;
+
+}
 
 
 /*
@@ -25,11 +29,44 @@ DefaultKeyboardListener * DefaultKeyboardListener::GetInstance()
 }
 
 
+/*
+ * handle keys being released.
+ */
+void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
+{
+    if (ke->getType() == KeyEvent::KEY_DOWN_EVENT)
+        handleKeyDown((KeyDownEvent*)ke);
+    else
+        handleKeyUp((KeyUpEvent*)ke);
+
+    cout << "Key stats"             << endl;
+    cout << "Shift held down: "     << ke->isShiftPressed()     << endl; 
+    cout << "Control held down: "   << ke->isCtrlPressed()      << endl;
+    cout << "Alt held down: "       << ke->isAltPressed()       << endl;
+    cout << "Meta held down: "      << ke->isMetaPressed()      << endl;
+}
+
+
+void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
+{
+    cout << "KEY UP" << endl;
+}
+
+
+void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
+{
+    cout << "KEY DOWN" << endl;
+
+    if ( *(kde->getKey()) == SDLK_ESCAPE)
+        Controller::GetInstance()->CleanUpAndExit();
+            
+}
+
+
 /* 
  * Handle ascii
  * Note that ESC is ascii 0x1B
- */
-void DefaultKeyboardListener::handleKey(RegularKeyEvent* rke)
+void DefaultKeyboardListener::handleKeyEvent(RegularKeyEvent* rke)
 {
 	switch (rke->getKeyPressed()) {
 		case 1: 	handleKeyAscii_1();  	break;
@@ -162,13 +199,7 @@ void DefaultKeyboardListener::handleKey(RegularKeyEvent* rke)
 	}
 }
 
-
-/* 
- * Handle non ascii
  */
-void DefaultKeyboardListener::handleKey(SpecialKeyEvent* ske)
-{}
-
 
 void DefaultKeyboardListener::handleKey_w()
 {

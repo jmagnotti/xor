@@ -3,16 +3,19 @@
 
 
 #include <stdlib.h>
-#include <vector>
+#include <list>
 
 #include "KeyboardListener.h"
-#include "RegularKeyEvent.h"
-#include "SpecialKeyEvent.h"
+#include "KeyEvent.h"
+#include "KeyFactory.h"
 
 
 using namespace std;
 
 namespace XOR {
+
+//we need to forward declare keyboardlistener
+class KeyboardListener;
 
 /**
  * Defines a keyboard that generates key press events
@@ -21,9 +24,6 @@ namespace XOR {
 class Keyboard
 {
 
-private:
-    vector <KeyboardListener*> listeners;
-
 
 public:
 
@@ -31,13 +31,13 @@ public:
     /**
      * Singleton accessor
      */
-    Keyboard * GetInstance();    
+    static Keyboard * GetInstance();    
 
 
 	/**
 	 * Add a listener
 	 */
-	void addListener(KeyboardListener* kl);
+	void addListener(KeyboardListener * kl);
 
 
 	/**
@@ -53,25 +53,19 @@ public:
     
 
 	/**
-	 * notify listeners of a special key event
+	 * notify listeners of a  key event
 	 */
-	void specialKeyEvent(int key, int x, int y);
-
-
-	/**
-	 * notify listeners of a regular key event
-	 */
-	void regularKeyEvent(unsigned char key, int x, int y);
+	void fireKeyEvent(KeyEvent * ke);
 
 
 protected:
 
-	Keyboard()
-    {}
+    list <KeyboardListener*> _listeners;
 
-public:
 
-    Keyboard * _keyboard;
+private:
+
+    static Keyboard * _keyboard;
 
 };
 

@@ -8,6 +8,7 @@ namespace XOR {
 Positionable::Positionable()
 {
 	_orientation = new Orientate();
+
 	_compiled = false;
 	_positioned = false;
 }
@@ -27,8 +28,7 @@ bool Positionable::isPositioned()
  */
 void Positionable::compile()
 {
-	if (!_compiled)
-	{
+	if (!_compiled) {
 		_displayListID = glGenLists(1);
 	
 		glNewList(_displayListID, GL_COMPILE);
@@ -68,6 +68,7 @@ bool Positionable::isCompiled()
 void Positionable::setOrientate(Orientate * newOrientate)
 {
     delete _orientation;
+
 	_positioned = true;
 	_orientation = newOrientate;
 }
