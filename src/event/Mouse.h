@@ -4,17 +4,22 @@
 #include "../../include/SDL.h"
 
 #include <stdlib.h>
-#include <vector>
+#include <list>
 
 #include "MouseListener.h"
 #include "MouseEvent.h"
+#include "MouseEventFactory.h"
 #include "MouseClickEvent.h"
 #include "MouseMotionEvent.h"
 
 
 using namespace std;
 
+
+
 namespace XOR {
+
+class MouseListener;
 
 /**
  * A place for all the mouse events. Maintains state information.
@@ -29,28 +34,30 @@ class Mouse
 {
 
 public:
+
+
     /**
 	 * Add a listener to the pool
 	 */
     void addListener(MouseListener*);
 
 
-	/**
-	 * Handles mouse click events -- UP & DOWN events
-	 */
-	void click(int, int, int, int);
-
-
     /**
      * Handles mouse clicks from SDL
      */
-    void click(SDL_Event event);
+    void click(SDL_Event * event);
+
+
+    /**
+     * Handles mouse motions from SDL
+     */
+    void move(SDL_Event * event);
 
 
 	/**
 	 * Fires an event to listeners
 	 */
-	void fireEvent(MouseEvent *);
+	void fireEvent(MouseEvent * me);
 
 
 	/**
@@ -67,18 +74,6 @@ public:
 
 
 	/**
-	 * Stores the values of the latest move
-	 */
-	void motion(int, int);
-
-
-    /**
-     * Handles mouse motion events from SDL
-     */
-	void motion(SDL_Event event);
-
-
-	/**
 	 * Removes a listener from the pool
 	 */
     void removeListener(MouseListener*);
@@ -90,16 +85,6 @@ public:
     void setCursorVisibility(bool show);
 
 
-	//---GETTERS---//
-	int	getLeftDown();
-	int	getStartX();
-	int	getStartY();
-	int	getPreviousX();
-	int	getPreviousY();
-	int getCurrentX();
-	int getCurrentY();
-
-
 protected:
 	
     Mouse();
@@ -107,16 +92,11 @@ protected:
 
 private:
 
-	vector <MouseListener*> listeners;
-
-    bool _cursorVisible;
-
-	int _leftDown;
-	int _startX,	_startY;
-	int _previousX, _previousY;
-	int _currentX,	_currentY;
+	list <MouseListener*> listeners;
+    bool    _cursorVisible;
 
 	static Mouse * _mouse;
+
 };
 
 }

@@ -51,7 +51,7 @@ void Keyboard::fireKeyEvent(KeyEvent * ke)
  */ 
 void Keyboard::generateKeyEvent(SDL_Event * event)
 {
-    fireKeyEvent(KeyFactory::ConstructInstance(&(event->key.type), &(event->key.state), &(event->key.keysym))) ;
+    fireKeyEvent(KeyEventFactory::ConstructInstance(&(event->key.type), &(event->key.state), &(event->key.keysym))) ;
 }
 
 

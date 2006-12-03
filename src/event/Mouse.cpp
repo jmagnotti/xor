@@ -1,5 +1,6 @@
 #include "Mouse.h"
 
+
 namespace XOR {
 
 //initialize static instance to NULL
@@ -11,14 +12,8 @@ Mouse * Mouse::_mouse = 0;
  */
 Mouse::Mouse()
 {
-
     _cursorVisible = false;
     setCursorVisibility(_cursorVisible);
-    
-	_leftDown			    	= 0;
-	_currentX	= _currentY 	= 0;
-	_startX		= _startY	    = 0;
-	_previousX	= _previousY    = 0;
 }
 
 
@@ -34,32 +29,9 @@ void Mouse::addListener(MouseListener * ml)
 /*
  * Handles click events
  */
-void Mouse::click(int button, int state, int x, int y)
+void Mouse::click(SDL_Event * event)
 {
-	if (false)
-           // button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
-	{
-		_leftDown = 1;
-
-		_currentX = x;
-		_currentY = y;
-
-		_startX = x;
-		_startY = y;
-	}
-	else if (false)
-            //_leftDown == 1 && button == GLUT_LEFT_BUTTON && state == GLUT_UP)
-	{
-		_leftDown = 0;
-
-		_currentX = x;
-		_currentY = y;
-
-		_startX = x;
-		_startY = y;
-	}
-
-	fireEvent(new MouseClickEvent(button, state, x, y));
+    fireEvent(MouseEventFactory::ConstructInstance(event));
 }
 
 
@@ -68,23 +40,15 @@ void Mouse::click(int button, int state, int x, int y)
  */
 void Mouse::fireEvent(MouseEvent * me)
 {
+    list<MouseListener*>::iterator iter   = listeners.begin();
+    list<MouseListener*>::iterator next   = listeners.begin();
+    list<MouseListener*>::iterator finish = listeners.end();
 
-    vector<MouseListener*>::iterator iter   = listeners.begin();
-    vector<MouseListener*>::iterator finish = listeners.end();
-
-	if (me->getType() == 2) {
-        while (iter != finish) {
-			(*iter)->handleMouseEvent((MouseClickEvent*)me);
-			++iter;
-		}
-	}
-	else {
-		while (iter != finish) {
-			(*iter)->handleMouseEvent((MouseMotionEvent*)me);
-			++iter;
-		}
-	}
-
+    while (iter != finish) {
+        ++next;
+        (*iter)->handleMouseEvent(me);
+        iter = next;
+    }
 }
 
 
@@ -117,27 +81,9 @@ Mouse * Mouse::GetInstance(MouseListener* ml)
 /*
  * Handles mouse movements
  */
-void Mouse::motion(int x, int y)
+void Mouse::move(SDL_Event * event)
 {
-	_previousX = _currentX;
-	_previousY = _currentY;
-
-	if (_leftDown == 1) 
-	{
-		_currentX = x;
-		_currentY = y;
-	} 
-	else			//simulates mouse drag
-	{
-		_currentX = x;
-		_currentY = y;
-
-		_startX = x;
-		_startY = y;
-	}
-
-
-	fireEvent(new MouseMotionEvent(x, y));
+	fireEvent(MouseEventFactory::ConstructInstance(event));
 }
 
 
@@ -148,8 +94,8 @@ void Mouse::removeListener(MouseListener * ml)
 {
     bool removed = false;
 
-    vector<MouseListener*>::iterator iter   = listeners.begin();
-    vector<MouseListener*>::iterator finish = listeners.end();
+    list<MouseListener*>::iterator iter   = listeners.begin();
+    list<MouseListener*>::iterator finish = listeners.end();
 
     while (iter != finish && !removed) {
         if (*iter == ml) {
@@ -160,6 +106,10 @@ void Mouse::removeListener(MouseListener * ml)
     }
 }
 
+
+/*
+ * sets the visibility of the cursor
+ */
 void Mouse::setCursorVisibility(bool show)
 {
     if (_cursorVisible != show) {
@@ -167,15 +117,6 @@ void Mouse::setCursorVisibility(bool show)
         SDL_ShowCursor(_cursorVisible);
     }
 }
-
-//---GETTERS---//
-int	Mouse::getLeftDown()	{ return _leftDown;	}
-int	Mouse::getStartX()		{ return _startX;	}
-int	Mouse::getStartY()		{ return _startY;	}
-int	Mouse::getPreviousX()	{ return _previousX;}
-int	Mouse::getPreviousY()	{ return _previousY;}
-int Mouse::getCurrentX()	{ return _currentX;	}
-int Mouse::getCurrentY()	{ return _currentY;	}
 
 }
 

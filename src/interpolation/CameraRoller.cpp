@@ -4,10 +4,7 @@
 namespace XOR {
 
 CameraRoller::CameraRoller()
-{
-	Timer::GetInstance()->addListener(this);
-	Mouse::GetInstance()->addListener(this);
-}
+{}
 	
 	
 /*
@@ -26,10 +23,11 @@ void CameraRoller::handleTick()
  */
 void CameraRoller::handleMouseEvent(MouseMotionEvent * mme)
 {
-	if (Mouse::GetInstance()->getLeftDown())
+	if (false)
+           // Mouse::GetInstance()->getLeftDown())
 	{
 		// rotate camera
-		float xChange = (float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 2.0f;
+		float xChange = 1.0;//(float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 2.0f;
 		Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(2, -(xChange));
 	}
 }

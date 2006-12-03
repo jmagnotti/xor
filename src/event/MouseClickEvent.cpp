@@ -2,23 +2,23 @@
 
 namespace XOR {
 
-/*
- * constructor
- */
-MouseClickEvent::MouseClickEvent(int button, int state, int x, int y)
-{
-	_button	= button;
-	_state	= state;
-	_xpos	= x;
-	_ypos	= y;
-	_type   = 2;
-}
+// mouse button constants
+const int MouseClickEvent::LEFT_MOUSE_BUTTON     = 0;
+const int MouseClickEvent::RIGHT_MOUSE_BUTTON    = 1;
+const int MouseClickEvent::MIDDLE_MOUSE_BUTTON   = 2;
+const int MouseClickEvent::MOUSE_WHEEL_UP        = 3;
+const int MouseClickEvent::MOUSE_WHEEL_DOWN      = 4;
+
+
+MouseClickEvent::MouseClickEvent()
+{}
+
 
 /*
- * accessors
+ * getters
  */
-int MouseClickEvent::getButton()		{	return _button;	}
-int MouseClickEvent::getState()			{	return _state;	}
+const int * MouseClickEvent::getButton()	{	return _button;	}
+const int * MouseClickEvent::getState()		{	return _state;	}
 
 }
 
