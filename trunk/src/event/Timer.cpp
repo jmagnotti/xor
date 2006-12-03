@@ -6,6 +6,7 @@ namespace XOR {
 Timer *     Timer::_timer = 0;
 SDL_Event   Timer::_sdlTimerEvent = {SDL_USEREVENT};
 
+
 /*
  * Default Constructor
  */
@@ -31,7 +32,7 @@ Timer::Timer(unsigned int interval)
 Timer::~Timer()
 {
     if (_timerHandle != NULL)
-    SDL_RemoveTimer(_timerHandle);
+        SDL_RemoveTimer(_timerHandle);
 }
 
 
@@ -66,7 +67,7 @@ void Timer::removeListener(TimerListener *tl)
 {
     bool removed = false;
 
-    list<TimerListener*>::iterator iter = listeners.begin();
+    list<TimerListener*>::iterator iter   = listeners.begin();
     list<TimerListener*>::iterator finish = listeners.end();
 
     while (!removed && iter != finish   ) {
@@ -162,8 +163,8 @@ int Timer::getState()
 void Timer::tickTock()
 {
     //this is a little more complicated since some listeners are going to be removing themselves when they get a tick, so we need to be safe
-    list<TimerListener*>::iterator iter = listeners.begin();
-	list<TimerListener*>::iterator next = listeners.begin();
+    list<TimerListener*>::iterator iter   = listeners.begin();
+	list<TimerListener*>::iterator next   = listeners.begin();
     list<TimerListener*>::iterator finish = listeners.end();
 
     while (iter != finish) {

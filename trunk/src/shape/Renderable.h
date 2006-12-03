@@ -16,6 +16,7 @@ public:
     Renderable()
     {}
 
+
 	/**
 	 * Code in here should be strictly limited to either delegating further rendering or 
 	 * drawing(OGL) calls. Calculation work should be done outside of the render() method.

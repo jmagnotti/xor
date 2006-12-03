@@ -1,23 +1,22 @@
 #include "DefaultMouseListener.h"
 
+
 namespace XOR {
 
-DefaultMouseListener* DefaultMouseListener::_defaultMouseListener = 0;
+DefaultMouseListener * DefaultMouseListener::_defaultMouseListener = 0;
 
 
 /*
  * Protected Constructor
  */
 DefaultMouseListener::DefaultMouseListener()
-{
-
-}
+{}
 
 
 /*
  * Singleton Accessor
  */
-DefaultMouseListener* DefaultMouseListener::GetInstance()
+DefaultMouseListener * DefaultMouseListener::GetInstance()
 {
 	if (_defaultMouseListener == NULL)
 		_defaultMouseListener = new DefaultMouseListener();
@@ -26,30 +25,41 @@ DefaultMouseListener* DefaultMouseListener::GetInstance()
 }
 
 
-/* 
- * Responds to mouse events
+/*
+ * Switch the mouse event to the proper method -- this is the primary function 
+ * of the default mouse listener.
  */
-void DefaultMouseListener::handleMouseEvent(MouseClickEvent* mce)
+void DefaultMouseListener::handleMouseEvent(MouseEvent * me)
 {
-	//cout << "MOUSE START X: " << mce->getXPosition() << endl;
-	//cout << "MOUSE START Y: " << mce->getYPosition() << endl;
-
-	//dxdir = (mouseCurrentX - mouseStartX)/150.0;
-	//dydir = (mouseCurrentY - mouseStartY)/150.0;
-
-	//xdir += dxdir;
-	//ydir += dydir;
-
-	//glRotatef(ydir, 1, 0, 0);
-	//glRotatef(xdir, 0, 1, 0);
+    if ( (*(me->getType())) == MouseEvent::MOUSE_BUTTON_DOWN)
+        handleMouseButtonPressed((MouseButtonDown*)me);
+    else if ((*(me->getType())) == MouseEvent::MOUSE_BUTTON_UP)
+        handleMouseButtonReleased((MouseButtonUp*)me);
+    else
+        handleMouseMotion((MouseMotionEvent*)me);
 }
 
 
-void DefaultMouseListener::handleMouseEvent(MouseMotionEvent* mme)
-{
-	//cout << "MOUSE X: " << mme->getXPosition() << endl;
-	//cout << "MOUSE Y: " << mme->getYPosition() << endl;
+void DefaultMouseListener::handleMouseButtonPressed(MouseButtonDown * mbd)
+{}
 
+
+void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
+{}
+
+
+/*
+ * Receives motion events from the default handler. This method will usually be overriden.
+ */
+void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
+{
+	cout << "MOUSE X: " << mme->getXPosition() << endl;
+	cout << "MOUSE Y: " << mme->getYPosition() << endl;
+
+	cout << "RELATIVE MOUSE X: " << mme->getRelativeXPosition() << endl;
+	cout << "RELATIVE MOUSE Y: " << mme->getRelativeYPosition() << endl;
+
+/*
 	if (Mouse::GetInstance()->getLeftDown())
 	{
 		// rotate camera
@@ -60,6 +70,7 @@ void DefaultMouseListener::handleMouseEvent(MouseMotionEvent* mme)
 		//Controller::GetInstance()->getViewer()->getOrientation()->printDebugInfo();
 		//Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(2, xChange);
 	}
+*/
 }
 
 }

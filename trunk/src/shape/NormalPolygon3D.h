@@ -15,6 +15,7 @@ class NormalPolygon3D : public Renderable
 
 public:
 
+
 	/**
 	 * Default Constructor
 	 */
@@ -50,6 +51,8 @@ protected:
 	bool		compiled;
 	
 	void recalculateSides(void);
+
+
 	void updatePaint(void);
 
 
@@ -58,3 +61,4 @@ protected:
 }
 
 #endif			// NORMALPOLYGON3D_H
+

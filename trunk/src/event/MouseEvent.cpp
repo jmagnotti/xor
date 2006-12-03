@@ -2,19 +2,21 @@
 
 namespace XOR {
 
+const int MouseEvent::MOUSE_MOTION          = 0;
+const int MouseEvent::MOUSE_BUTTON_DOWN     = 1; 
+const int MouseEvent::MOUSE_BUTTON_UP       = 2;
+
 /*
  * constructor
  */
 MouseEvent::MouseEvent()
-{
-	_type = 0;
-}
+{}
 
 
 //-- GETTERS --//
-int MouseEvent::getType()			{	return _type;	}
-int MouseEvent::getXPosition()		{	return _xpos;	}
-int MouseEvent::getYPosition()		{	return _ypos;	}
+
+int MouseEvent::getXPosition()		{	return (int) (*_xpos);	}
+int MouseEvent::getYPosition()		{	return (int) (*_ypos);	}
 
 }
 

@@ -3,6 +3,7 @@
 
 
 #include "MouseEvent.h"
+#include "../../include/SDL.h"
 
 
 namespace XOR {
@@ -17,15 +18,40 @@ public:
 
 
 	/**
+	 * Explicit Constructor
+	 */
+	MouseMotionEvent(Uint16 * xpos, Uint16 * ypos, Sint16 * xrel, Sint16 * yrel);
+
+
+    /**
+     * Returns MouseEvent::MOUSE_MOTION
+     */
+    const int * getType();
+
+
+    /**
+     * returns the amount moved during the last interval in the x dimension
+     */
+    int getRelativeXPosition();
+
+
+    /**
+     * returns the amount moved during the last interval in the y dimension
+     */
+    int getRelativeYPosition();
+
+
+protected:
+
+
+	/**
 	 * Default Constructor
 	 */
 	MouseMotionEvent();
-	
 
-	/**
-	 * Explicit Constructor
-	 */
-	MouseMotionEvent(int x, int y);
+
+    // relative positions
+    Sint16  * _xrel, * _yrel;
 
 
 };

@@ -250,7 +250,6 @@ void Controller::setModel(Renderable* rend)
 void Controller::EventLoop()
 {
     SDL_Event event;
-
     Controller * ctrl = Controller::GetInstance();
 
     // we are using WaitEvent(...) because we want everything to be called
@@ -263,33 +262,37 @@ void Controller::EventLoop()
             case SDL_KEYUP:
                 ctrl->getKeyboard()->generateKeyEvent(&event);
                 break;
-     //       case MouseMotionEvent:
-     //           _mouse->move(event);
-     //           break;
-     //       case MouseButtonEvent:
-     //           _mouse->click(event);
-     //           break;
+
+            case SDL_MOUSEMOTION:
+                ctrl->getMouse()->move(&event);
+                break;
+
+            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEBUTTONUP:
+                ctrl->getMouse()->click(&event);
+                break;
+
             case SDL_VIDEORESIZE:
-                cout << "Reshape event" << endl;
                 ctrl->getReshapeListener()->handleReshape(&event);
-                // attempting to reset GL info that may be getting hosed by SDL deleting the SDL_Surface we are rendering to
+                // attempting to reset GL info that may be getting hosed 
+                // by SDL deleting the SDL_Surface we are rendering to
                 ctrl->defaultGLConfiguration();
                 ctrl->getViewer()->view();
                 break;
+
             case SDL_QUIT:
                 Controller::CleanUpAndExit(); 
                 break;
+
             // this is where I am doing repaints, not sure if that is correct
             case SDL_USEREVENT:
                 if (event.user.code == Timer::TIMER_TICK_EVENT)
                     Timer::GetInstance()->tickTock();
                     ctrl->getViewer()->view();
                 break;
-            //case SDL_KEYDOWN:
-             //   Controller::CleanUpAndExit();
-              //  break;
-        }
 
+            default: break;
+        }
     }
 }
 

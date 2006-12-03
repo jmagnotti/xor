@@ -1,5 +1,5 @@
-#ifndef KEYFACTORY_H
-#define KEYFACTORY_H
+#ifndef KEYEVENTFACTORY_H
+#define KEYEVENTFACTORY_H
 
 
 #include "../../include/SDL.h"
@@ -20,7 +20,7 @@ namespace XOR {
  * there should be another way to find out what keys they are using and create a bunch of them.
  * A fun side effect is that we can ignore keypresses that the listeners don't care about.
  */
-class KeyFactory
+class KeyEventFactory
 {
     public:
 
@@ -33,11 +33,11 @@ class KeyFactory
 
     protected:
 
-        KeyFactory();
+        KeyEventFactory();
 
 };
 
 }
 
-#endif          // KEYFACTORY_H
+#endif          // KEYEVENTFACTORY_H
 
