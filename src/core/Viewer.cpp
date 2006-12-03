@@ -241,6 +241,9 @@ void Viewer::setBackground(const float color[3])
 {
     for (int i=0; i<3; i++)
         _backgroundColor[i] = color[i];
+
+    setupClearColor();
+    
 }
 
 }

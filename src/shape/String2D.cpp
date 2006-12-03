@@ -14,14 +14,15 @@ String2D::String2D(char * string)
 	_xpos = 10;
 	_ypos = 20;
 
-    _paint	= new Paint(Color::WHITE);
+    for (int i=0; i<3; i++)
+        _color[i] = Color::WHITE[i];
 }
 
 
 /*
  * Explicit Constructor.
  */
-String2D::String2D(char * string, int xpos, int ypos, Paint *p)
+String2D::String2D(char * string, int xpos, int ypos, const float color [3])
 {
     
     _size = Controller::GetInstance()->getViewer()->getWindowSize();
@@ -30,7 +31,8 @@ String2D::String2D(char * string, int xpos, int ypos, Paint *p)
     _xpos = xpos;
     _ypos = ypos;
 
-    _paint = p != NULL ? p : new Paint(Color::WHITE);
+    for (int i=0; i<3; i++)
+        _color[i] = color[i];
 }
 
 
@@ -45,7 +47,8 @@ String2D::String2D(char * string, Dimension2D * size, int xpos, int ypos)
 	_xpos = xpos;
 	_ypos = ypos;
 
-    _paint = new Paint(Color::WHITE);
+    for (int i=0; i<3; i++)
+        _color[i] = Color::WHITE[i];
 }
 
 
@@ -60,7 +63,8 @@ String2D::String2D(char * string, int winW, int winH, int xpos, int ypos)
 	_xpos	= xpos;
 	_ypos	= ypos;
 
-    _paint	= new Paint(Color::WHITE);
+    for (int i=0; i<3; i++)
+        _color[i] = Color::WHITE[i];
 }
 
 
@@ -78,23 +82,13 @@ char * String2D::getText()
  */
 void String2D::render()
 {
-	glColor3fv(_paint->getColorTo());
+	glColor3fv(_color);
 
 	BitmapFontUtil::beginRenderText((int)_size->getWidth(), (int)_size->getHeight());
 	
 	BitmapFontUtil::renderText(_xpos, _ypos, BITMAP_FONT_TYPE_HELVETICA_12, _text);
 	
 	BitmapFontUtil::endRenderText();
-}
-
-
-
-/*
- * Set the paint for the string
- */
-void String2D::setPaint(Paint *p)
-{
-	_paint = p;
 }
 
 
