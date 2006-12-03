@@ -8,7 +8,7 @@ CFLAGS = -dynamiclib
 LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lm
 
 #Packages
-SRCS = src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/event/KeyboardListener.cpp src/event/KeyFactory.cpp src/event/KeyEvent.cpp src/event/KeyUpEvent.cpp src/event/KeyDownEvent.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Keyboard.cpp src/event/Mouse.cpp src/event/MouseClickEvent.cpp src/event/MouseEvent.cpp src/event/MouseMotionEvent.cpp src/event/RegularKeyEvent.cpp src/event/SpecialKeyEvent.cpp src/event/Timer.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolationTester.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Positionable.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/String2D.cpp src/terrain/Terrain.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/Orientate.cpp src/transform/Rotate.cpp src/transform/scopeTester.cpp src/transform/Transform.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
+SRCS = src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Keyboard.cpp src/event/KeyboardListener.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyEventFactory.cpp src/event/KeyUpEvent.cpp src/event/Mouse.cpp src/event/MouseButtonDown.cpp src/event/MouseButtonUp.cpp src/event/MouseClickEvent.cpp src/event/MouseEvent.cpp src/event/MouseEventFactory.cpp src/event/MouseListener.cpp src/event/MouseMotionEvent.cpp src/event/RegularKeyEvent.cpp src/event/SpecialKeyEvent.cpp src/event/Timer.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolationTester.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Positionable.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/String2D.cpp src/terrain/Terrain.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/Orientate.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -77,10 +77,13 @@ src/core/Controller.o: src/event/Keyboard.h src/event/KeyboardListener.h
 src/core/Controller.o: src/event/Timer.h src/event/TimerListener.h
 src/core/Controller.o: src/event/Keyboard.h src/event/KeyUpEvent.h
 src/core/Controller.o: src/event/KeyEvent.h src/event/KeyDownEvent.h
-src/core/Controller.o: src/event/KeyFactory.h src/event/Mouse.h
-src/core/Controller.o: src/event/MouseListener.h src/event/MouseClickEvent.h
-src/core/Controller.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
-src/core/Controller.o: src/event/Timer.h src/core/World.h src/shape/Point3D.h
+src/core/Controller.o: src/event/KeyEventFactory.h src/event/Mouse.h
+src/core/Controller.o: src/event/MouseListener.h src/event/MouseEvent.h
+src/core/Controller.o: src/event/Mouse.h src/event/MouseEventFactory.h
+src/core/Controller.o: src/event/MouseButtonDown.h
+src/core/Controller.o: src/event/MouseClickEvent.h src/event/MouseButtonUp.h
+src/core/Controller.o: src/event/MouseMotionEvent.h src/event/Timer.h
+src/core/Controller.o: src/core/World.h src/shape/Point3D.h
 src/core/Controller.o: /usr/include/math.h
 src/core/Controller.o: /usr/include/architecture/ppc/math.h src/paint/Paint.h
 src/core/Controller.o: /usr/include/string.h src/texture/Texture.h
@@ -149,103 +152,6 @@ src/core/World.o: /usr/include/stddef.h src/shape/Renderable.h
 src/core/World.o: src/transform/Rotate.h src/transform/Transform.h
 src/core/World.o: src/event/TimerListener.h src/transform/Transform.h
 src/core/World.o: src/transform/Translate.h
-src/event/KeyboardListener.o: src/event/KeyboardListener.h
-src/event/KeyboardListener.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
-src/event/KeyboardListener.o: /usr/include/_types.h /usr/include/sys/_types.h
-src/event/KeyboardListener.o: /usr/include/machine/_types.h
-src/event/KeyboardListener.o: /usr/include/ppc/_types.h
-src/event/KeyboardListener.o: /usr/include/sys/wait.h
-src/event/KeyboardListener.o: /usr/include/sys/signal.h
-src/event/KeyboardListener.o: /usr/include/sys/appleapiopts.h
-src/event/KeyboardListener.o: /usr/include/machine/signal.h
-src/event/KeyboardListener.o: /usr/include/ppc/signal.h
-src/event/KeyboardListener.o: /usr/include/sys/resource.h
-src/event/KeyboardListener.o: /usr/include/machine/endian.h
-src/event/KeyboardListener.o: /usr/include/ppc/endian.h
-src/event/KeyboardListener.o: /usr/include/sys/_endian.h
-src/event/KeyboardListener.o: /usr/include/stdint.h
-src/event/KeyboardListener.o: /usr/include/libkern/OSByteOrder.h
-src/event/KeyboardListener.o: /usr/include/libkern/ppc/OSByteOrder.h
-src/event/KeyboardListener.o: /usr/include/alloca.h
-src/event/KeyboardListener.o: /usr/include/machine/types.h
-src/event/KeyboardListener.o: /usr/include/ppc/types.h src/event/Timer.h
-src/event/KeyboardListener.o: include/SDL.h include/SDL_main.h
-src/event/KeyboardListener.o: include/SDL_types.h include/SDL_getenv.h
-src/event/KeyboardListener.o: include/SDL_error.h include/begin_code.h
-src/event/KeyboardListener.o: include/close_code.h include/SDL_rwops.h
-src/event/KeyboardListener.o: /usr/include/stdio.h include/SDL_timer.h
-src/event/KeyboardListener.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/KeyboardListener.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/KeyboardListener.o: include/SDL_events.h include/SDL_active.h
-src/event/KeyboardListener.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/KeyboardListener.o: include/SDL_mouse.h include/SDL_video.h
-src/event/KeyboardListener.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/KeyboardListener.o: include/SDL_version.h src/event/TimerListener.h
-src/event/KeyboardListener.o: src/event/Keyboard.h src/event/KeyUpEvent.h
-src/event/KeyboardListener.o: src/event/KeyEvent.h src/event/KeyDownEvent.h
-src/event/KeyFactory.o: src/event/KeyFactory.h include/SDL.h
-src/event/KeyFactory.o: include/SDL_main.h include/SDL_types.h
-src/event/KeyFactory.o: include/SDL_getenv.h include/SDL_error.h
-src/event/KeyFactory.o: include/begin_code.h include/close_code.h
-src/event/KeyFactory.o: include/SDL_rwops.h /usr/include/stdio.h
-src/event/KeyFactory.o: /usr/include/_types.h /usr/include/sys/_types.h
-src/event/KeyFactory.o: /usr/include/sys/cdefs.h
-src/event/KeyFactory.o: /usr/include/machine/_types.h
-src/event/KeyFactory.o: /usr/include/ppc/_types.h include/SDL_timer.h
-src/event/KeyFactory.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/KeyFactory.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/KeyFactory.o: include/SDL_events.h include/SDL_active.h
-src/event/KeyFactory.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/KeyFactory.o: include/SDL_mouse.h include/SDL_video.h
-src/event/KeyFactory.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/KeyFactory.o: include/SDL_version.h src/event/KeyEvent.h
-src/event/KeyFactory.o: src/event/KeyDownEvent.h src/event/KeyUpEvent.h
-src/event/KeyEvent.o: src/event/KeyEvent.h include/SDL.h include/SDL_main.h
-src/event/KeyEvent.o: include/SDL_types.h include/SDL_getenv.h
-src/event/KeyEvent.o: include/SDL_error.h include/begin_code.h
-src/event/KeyEvent.o: include/close_code.h include/SDL_rwops.h
-src/event/KeyEvent.o: /usr/include/stdio.h /usr/include/_types.h
-src/event/KeyEvent.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
-src/event/KeyEvent.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-src/event/KeyEvent.o: include/SDL_timer.h include/SDL_audio.h
-src/event/KeyEvent.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/event/KeyEvent.o: include/SDL_joystick.h include/SDL_events.h
-src/event/KeyEvent.o: include/SDL_active.h include/SDL_keyboard.h
-src/event/KeyEvent.o: include/SDL_keysym.h include/SDL_mouse.h
-src/event/KeyEvent.o: include/SDL_video.h include/SDL_mutex.h
-src/event/KeyEvent.o: include/SDL_quit.h include/SDL_version.h
-src/event/KeyUpEvent.o: src/event/KeyUpEvent.h include/SDL.h
-src/event/KeyUpEvent.o: include/SDL_main.h include/SDL_types.h
-src/event/KeyUpEvent.o: include/SDL_getenv.h include/SDL_error.h
-src/event/KeyUpEvent.o: include/begin_code.h include/close_code.h
-src/event/KeyUpEvent.o: include/SDL_rwops.h /usr/include/stdio.h
-src/event/KeyUpEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
-src/event/KeyUpEvent.o: /usr/include/sys/cdefs.h
-src/event/KeyUpEvent.o: /usr/include/machine/_types.h
-src/event/KeyUpEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
-src/event/KeyUpEvent.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/KeyUpEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/KeyUpEvent.o: include/SDL_events.h include/SDL_active.h
-src/event/KeyUpEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/KeyUpEvent.o: include/SDL_mouse.h include/SDL_video.h
-src/event/KeyUpEvent.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/KeyUpEvent.o: include/SDL_version.h src/event/KeyEvent.h
-src/event/KeyDownEvent.o: src/event/KeyDownEvent.h include/SDL.h
-src/event/KeyDownEvent.o: include/SDL_main.h include/SDL_types.h
-src/event/KeyDownEvent.o: include/SDL_getenv.h include/SDL_error.h
-src/event/KeyDownEvent.o: include/begin_code.h include/close_code.h
-src/event/KeyDownEvent.o: include/SDL_rwops.h /usr/include/stdio.h
-src/event/KeyDownEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
-src/event/KeyDownEvent.o: /usr/include/sys/cdefs.h
-src/event/KeyDownEvent.o: /usr/include/machine/_types.h
-src/event/KeyDownEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
-src/event/KeyDownEvent.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/KeyDownEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/KeyDownEvent.o: include/SDL_events.h include/SDL_active.h
-src/event/KeyDownEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/KeyDownEvent.o: include/SDL_mouse.h include/SDL_video.h
-src/event/KeyDownEvent.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/KeyDownEvent.o: include/SDL_version.h src/event/KeyEvent.h
 src/event/DefaultKeyboardListener.o: src/event/DefaultKeyboardListener.h
 src/event/DefaultKeyboardListener.o: src/event/KeyboardListener.h
 src/event/DefaultKeyboardListener.o: /usr/include/stdlib.h
@@ -294,40 +200,249 @@ src/event/DefaultKeyboardListener.o: src/core/Controller.h src/core/World.h
 src/event/DefaultMouseListener.o: src/event/DefaultMouseListener.h
 src/event/DefaultMouseListener.o: src/core/Controller.h
 src/event/DefaultMouseListener.o: src/event/MouseListener.h
+src/event/DefaultMouseListener.o: src/event/MouseEvent.h include/SDL.h
+src/event/DefaultMouseListener.o: include/SDL_main.h include/SDL_types.h
+src/event/DefaultMouseListener.o: include/SDL_getenv.h include/SDL_error.h
+src/event/DefaultMouseListener.o: include/begin_code.h include/close_code.h
+src/event/DefaultMouseListener.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/DefaultMouseListener.o: /usr/include/_types.h
+src/event/DefaultMouseListener.o: /usr/include/sys/_types.h
+src/event/DefaultMouseListener.o: /usr/include/sys/cdefs.h
+src/event/DefaultMouseListener.o: /usr/include/machine/_types.h
+src/event/DefaultMouseListener.o: /usr/include/ppc/_types.h
+src/event/DefaultMouseListener.o: include/SDL_timer.h include/SDL_audio.h
+src/event/DefaultMouseListener.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/DefaultMouseListener.o: include/SDL_joystick.h include/SDL_events.h
+src/event/DefaultMouseListener.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/DefaultMouseListener.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/DefaultMouseListener.o: include/SDL_video.h include/SDL_mutex.h
+src/event/DefaultMouseListener.o: include/SDL_quit.h include/SDL_version.h
+src/event/DefaultMouseListener.o: src/event/Mouse.h
 src/event/DefaultMouseListener.o: src/event/MouseClickEvent.h
-src/event/DefaultMouseListener.o: src/event/MouseEvent.h
 src/event/DefaultMouseListener.o: src/event/MouseMotionEvent.h
+src/event/DefaultMouseListener.o: src/event/MouseButtonUp.h
+src/event/DefaultMouseListener.o: src/event/MouseButtonDown.h
 src/event/Keyboard.o: src/event/Keyboard.h
-src/event/Mouse.o: src/event/Mouse.h include/SDL.h include/SDL_main.h
-src/event/Mouse.o: include/SDL_types.h include/SDL_getenv.h
-src/event/Mouse.o: include/SDL_error.h include/begin_code.h
-src/event/Mouse.o: include/close_code.h include/SDL_rwops.h
-src/event/Mouse.o: /usr/include/stdio.h /usr/include/_types.h
-src/event/Mouse.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
-src/event/Mouse.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-src/event/Mouse.o: include/SDL_timer.h include/SDL_audio.h
-src/event/Mouse.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/event/Mouse.o: include/SDL_joystick.h include/SDL_events.h
-src/event/Mouse.o: include/SDL_active.h include/SDL_keyboard.h
-src/event/Mouse.o: include/SDL_keysym.h include/SDL_mouse.h
-src/event/Mouse.o: include/SDL_video.h include/SDL_mutex.h include/SDL_quit.h
-src/event/Mouse.o: include/SDL_version.h /usr/include/stdlib.h
-src/event/Mouse.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
-src/event/Mouse.o: /usr/include/sys/appleapiopts.h
-src/event/Mouse.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
-src/event/Mouse.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-src/event/Mouse.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-src/event/Mouse.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-src/event/Mouse.o: /usr/include/libkern/ppc/OSByteOrder.h
-src/event/Mouse.o: /usr/include/alloca.h /usr/include/machine/types.h
-src/event/Mouse.o: /usr/include/ppc/types.h src/event/MouseListener.h
-src/event/Mouse.o: src/event/MouseClickEvent.h src/event/MouseEvent.h
-src/event/Mouse.o: src/event/MouseMotionEvent.h
+src/event/KeyboardListener.o: src/event/KeyboardListener.h
+src/event/KeyboardListener.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+src/event/KeyboardListener.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/KeyboardListener.o: /usr/include/machine/_types.h
+src/event/KeyboardListener.o: /usr/include/ppc/_types.h
+src/event/KeyboardListener.o: /usr/include/sys/wait.h
+src/event/KeyboardListener.o: /usr/include/sys/signal.h
+src/event/KeyboardListener.o: /usr/include/sys/appleapiopts.h
+src/event/KeyboardListener.o: /usr/include/machine/signal.h
+src/event/KeyboardListener.o: /usr/include/ppc/signal.h
+src/event/KeyboardListener.o: /usr/include/sys/resource.h
+src/event/KeyboardListener.o: /usr/include/machine/endian.h
+src/event/KeyboardListener.o: /usr/include/ppc/endian.h
+src/event/KeyboardListener.o: /usr/include/sys/_endian.h
+src/event/KeyboardListener.o: /usr/include/stdint.h
+src/event/KeyboardListener.o: /usr/include/libkern/OSByteOrder.h
+src/event/KeyboardListener.o: /usr/include/libkern/ppc/OSByteOrder.h
+src/event/KeyboardListener.o: /usr/include/alloca.h
+src/event/KeyboardListener.o: /usr/include/machine/types.h
+src/event/KeyboardListener.o: /usr/include/ppc/types.h src/event/Timer.h
+src/event/KeyboardListener.o: include/SDL.h include/SDL_main.h
+src/event/KeyboardListener.o: include/SDL_types.h include/SDL_getenv.h
+src/event/KeyboardListener.o: include/SDL_error.h include/begin_code.h
+src/event/KeyboardListener.o: include/close_code.h include/SDL_rwops.h
+src/event/KeyboardListener.o: /usr/include/stdio.h include/SDL_timer.h
+src/event/KeyboardListener.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyboardListener.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyboardListener.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyboardListener.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyboardListener.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyboardListener.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyboardListener.o: include/SDL_version.h src/event/TimerListener.h
+src/event/KeyboardListener.o: src/event/Keyboard.h src/event/KeyUpEvent.h
+src/event/KeyboardListener.o: src/event/KeyEvent.h src/event/KeyDownEvent.h
+src/event/KeyDownEvent.o: src/event/KeyDownEvent.h include/SDL.h
+src/event/KeyDownEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyDownEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyDownEvent.o: include/begin_code.h include/close_code.h
+src/event/KeyDownEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyDownEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/KeyDownEvent.o: /usr/include/sys/cdefs.h
+src/event/KeyDownEvent.o: /usr/include/machine/_types.h
+src/event/KeyDownEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/KeyDownEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyDownEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyDownEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyDownEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyDownEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyDownEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyDownEvent.o: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyEvent.o: src/event/KeyEvent.h include/SDL.h include/SDL_main.h
+src/event/KeyEvent.o: include/SDL_types.h include/SDL_getenv.h
+src/event/KeyEvent.o: include/SDL_error.h include/begin_code.h
+src/event/KeyEvent.o: include/close_code.h include/SDL_rwops.h
+src/event/KeyEvent.o: /usr/include/stdio.h /usr/include/_types.h
+src/event/KeyEvent.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+src/event/KeyEvent.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+src/event/KeyEvent.o: include/SDL_timer.h include/SDL_audio.h
+src/event/KeyEvent.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/KeyEvent.o: include/SDL_joystick.h include/SDL_events.h
+src/event/KeyEvent.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/KeyEvent.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/KeyEvent.o: include/SDL_video.h include/SDL_mutex.h
+src/event/KeyEvent.o: include/SDL_quit.h include/SDL_version.h
+src/event/KeyEventFactory.o: src/event/KeyEventFactory.h include/SDL.h
+src/event/KeyEventFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyEventFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyEventFactory.o: include/begin_code.h include/close_code.h
+src/event/KeyEventFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyEventFactory.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/KeyEventFactory.o: /usr/include/sys/cdefs.h
+src/event/KeyEventFactory.o: /usr/include/machine/_types.h
+src/event/KeyEventFactory.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/KeyEventFactory.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyEventFactory.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyEventFactory.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyEventFactory.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyEventFactory.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyEventFactory.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyEventFactory.o: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyEventFactory.o: src/event/KeyDownEvent.h src/event/KeyUpEvent.h
+src/event/KeyUpEvent.o: src/event/KeyUpEvent.h include/SDL.h
+src/event/KeyUpEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyUpEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyUpEvent.o: include/begin_code.h include/close_code.h
+src/event/KeyUpEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyUpEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/KeyUpEvent.o: /usr/include/sys/cdefs.h
+src/event/KeyUpEvent.o: /usr/include/machine/_types.h
+src/event/KeyUpEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/KeyUpEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyUpEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyUpEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyUpEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyUpEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyUpEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyUpEvent.o: include/SDL_version.h src/event/KeyEvent.h
+src/event/Mouse.o: src/event/Mouse.h
+src/event/MouseButtonDown.o: src/event/MouseButtonDown.h
+src/event/MouseButtonDown.o: src/event/MouseClickEvent.h
+src/event/MouseButtonDown.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseButtonDown.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseButtonDown.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseButtonDown.o: include/begin_code.h include/close_code.h
+src/event/MouseButtonDown.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseButtonDown.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/MouseButtonDown.o: /usr/include/sys/cdefs.h
+src/event/MouseButtonDown.o: /usr/include/machine/_types.h
+src/event/MouseButtonDown.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseButtonDown.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseButtonDown.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseButtonDown.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseButtonDown.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseButtonDown.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseButtonDown.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseButtonDown.o: include/SDL_version.h src/event/Mouse.h
+src/event/MouseButtonUp.o: src/event/MouseButtonUp.h
+src/event/MouseButtonUp.o: src/event/MouseClickEvent.h src/event/MouseEvent.h
+src/event/MouseButtonUp.o: include/SDL.h include/SDL_main.h
+src/event/MouseButtonUp.o: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseButtonUp.o: include/SDL_error.h include/begin_code.h
+src/event/MouseButtonUp.o: include/close_code.h include/SDL_rwops.h
+src/event/MouseButtonUp.o: /usr/include/stdio.h /usr/include/_types.h
+src/event/MouseButtonUp.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+src/event/MouseButtonUp.o: /usr/include/machine/_types.h
+src/event/MouseButtonUp.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseButtonUp.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseButtonUp.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseButtonUp.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseButtonUp.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseButtonUp.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseButtonUp.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseButtonUp.o: include/SDL_version.h src/event/Mouse.h
 src/event/MouseClickEvent.o: src/event/MouseClickEvent.h
-src/event/MouseClickEvent.o: src/event/MouseEvent.h
-src/event/MouseEvent.o: src/event/MouseEvent.h
+src/event/MouseClickEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseClickEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseClickEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseClickEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseClickEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseClickEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/MouseClickEvent.o: /usr/include/sys/cdefs.h
+src/event/MouseClickEvent.o: /usr/include/machine/_types.h
+src/event/MouseClickEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseClickEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseClickEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseClickEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseClickEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseClickEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseClickEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseClickEvent.o: include/SDL_version.h
+src/event/MouseEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/MouseEvent.o: /usr/include/sys/cdefs.h
+src/event/MouseEvent.o: /usr/include/machine/_types.h
+src/event/MouseEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseEvent.o: include/SDL_version.h
+src/event/MouseEventFactory.o: src/event/MouseEventFactory.h include/SDL.h
+src/event/MouseEventFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseEventFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEventFactory.o: include/begin_code.h include/close_code.h
+src/event/MouseEventFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseEventFactory.o: /usr/include/_types.h
+src/event/MouseEventFactory.o: /usr/include/sys/_types.h
+src/event/MouseEventFactory.o: /usr/include/sys/cdefs.h
+src/event/MouseEventFactory.o: /usr/include/machine/_types.h
+src/event/MouseEventFactory.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseEventFactory.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseEventFactory.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseEventFactory.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseEventFactory.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseEventFactory.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseEventFactory.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseEventFactory.o: include/SDL_version.h src/event/MouseEvent.h
+src/event/MouseEventFactory.o: src/event/MouseButtonDown.h
+src/event/MouseEventFactory.o: src/event/MouseClickEvent.h src/event/Mouse.h
+src/event/MouseEventFactory.o: src/event/MouseButtonUp.h
+src/event/MouseEventFactory.o: src/event/MouseMotionEvent.h
+src/event/MouseListener.o: src/event/MouseListener.h src/event/MouseEvent.h
+src/event/MouseListener.o: include/SDL.h include/SDL_main.h
+src/event/MouseListener.o: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseListener.o: include/SDL_error.h include/begin_code.h
+src/event/MouseListener.o: include/close_code.h include/SDL_rwops.h
+src/event/MouseListener.o: /usr/include/stdio.h /usr/include/_types.h
+src/event/MouseListener.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+src/event/MouseListener.o: /usr/include/machine/_types.h
+src/event/MouseListener.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseListener.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseListener.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseListener.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseListener.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseListener.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseListener.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseListener.o: include/SDL_version.h src/event/Mouse.h
 src/event/MouseMotionEvent.o: src/event/MouseMotionEvent.h
-src/event/MouseMotionEvent.o: src/event/MouseEvent.h
+src/event/MouseMotionEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseMotionEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseMotionEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseMotionEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseMotionEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseMotionEvent.o: /usr/include/_types.h /usr/include/sys/_types.h
+src/event/MouseMotionEvent.o: /usr/include/sys/cdefs.h
+src/event/MouseMotionEvent.o: /usr/include/machine/_types.h
+src/event/MouseMotionEvent.o: /usr/include/ppc/_types.h include/SDL_timer.h
+src/event/MouseMotionEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseMotionEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseMotionEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseMotionEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseMotionEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseMotionEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseMotionEvent.o: include/SDL_version.h
 src/event/RegularKeyEvent.o: src/event/RegularKeyEvent.h
 src/event/SpecialKeyEvent.o: src/event/SpecialKeyEvent.h
 src/event/SpecialKeyEvent.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h

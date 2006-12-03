@@ -47,7 +47,7 @@ public:
      * This constructor is the most fun, as it will use your coordinates as the 
      * position of the string and figure out the window coordinates for you.
      */
-    String2D(char *, int, int, Paint * p = NULL);
+    String2D(char *, int, int, const float [3]); 
 
     
     /**
@@ -92,7 +92,9 @@ public:
 	 * really resource intensive, and a display list would have to be created, but
 	 * that isn't horrible.
 	 */
-	void setPaint(Paint*);
+	//void setPaint(Paint*);
+
+    void setColor(const float color[3]);
 
     /**
      * Sets the display text
@@ -105,9 +107,10 @@ protected:
 	GLuint			_stringDL;
 	char *			_text;
 	int				_xpos, _ypos;
+    float           _color[3];
 
 	Dimension2D *	_size;
-	Paint *			_paint;
+	//Paint *			_paint;
 
 };
 
