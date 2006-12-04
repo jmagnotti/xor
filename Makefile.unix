@@ -5,14 +5,11 @@ CC = g++
 LIBS = -lGL -lGLU -lglut -lm
 
 #Packages
-#SRCS = src/terrain/Terrain.cpp src/transform/Transform.cpp src/shape/Positionable.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Mouse.cpp src/event/Timer.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/MouseEvent.cpp src/event/MouseMotionEvent.cpp src/event/RegularKeyEvent.cpp src/event/SpecialKeyEvent.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/interpolation/CameraRoller.cpp src/interpolation/Interpolator.cpp src/interpolation/TimedInterpolator.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/String2D.cpp src/shape/_terrain.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/Orientate.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
-
-SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/PointTester.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Positionable.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/DefaultMouseListener.cpp src/event/DefaultKeyboardListener.cpp src/event/RegularKeyEvent.cpp src/event/MouseMotionEvent.cpp src/event/Timer.cpp src/event/Mouse.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/terrain/Terrain.cpp src/interpolation/InterpolationTester.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/core/Viewer.cpp src/core/Controller.cpp src/core/World.cpp src/transition/Fade.cpp src/transition/TransitionFactory.cpp src/transition/FadeIn.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/scopeTester.cpp src/transform/TransformFactory.cpp src/transform/Orientate.cpp src/transform/Transform.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp
-
+SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Positionable.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/DefaultMouseListener.cpp src/event/DefaultKeyboardListener.cpp src/event/RegularKeyEvent.cpp src/event/MouseMotionEvent.cpp src/event/Timer.cpp src/event/Mouse.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/MouseButtonDown.cpp src/event/MouseListener.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/core/Viewer.cpp src/core/Controller.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Orientate.cpp src/transform/Transform.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = libGOR.so
+MAIN = libXOR.so
 
 # 
 # The following part of the makefile is generic; it can be used to 
@@ -25,7 +22,10 @@ MAIN = libGOR.so
 all:		$(MAIN)
 			cp $(MAIN) ./lib/
 
-libGOR.so:	$(OBJS) 
+demos:
+	cd src/demo && make
+
+libXOR.so:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -shared -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:
@@ -38,7 +38,7 @@ install:
 			cp ./lib/$(MAIN) /usr/lib/$(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix $(INCLUDES) $^
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
@@ -86,7 +86,6 @@ src/shape/Cube.o: src/transform/Orientate.h src/transform/Transform.h
 src/shape/Cube.o: /usr/include/stdlib.h src/transform/Translate.h
 src/shape/Cube.o: src/transform/Rotate.h
 src/shape/Point3D.o: src/shape/Point3D.h
-src/shape/PointTester.o: src/shape/Point3D.h
 src/shape/Quadrilateral3D.o: src/shape/Quadrilateral3D.h /usr/include/math.h
 src/shape/Quadrilateral3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/Quadrilateral3D.o: /usr/include/gnu/stubs.h
@@ -184,6 +183,8 @@ src/shape/String2D.o: /usr/include/gnu/stubs.h
 src/shape/String2D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/String2D.o: src/util/BitmapFontUtil.h
 src/shape/String2D.o: src/util/BitmapFontConstants.h /usr/include/stdlib.h
+src/shape/String2D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/shape/String2D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/shape/String2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
 src/shape/String2D.o: src/paint/Paint.h src/texture/Texture.h
 src/shape/String2D.o: src/paint/Color.h src/shape/Renderable.h
@@ -207,16 +208,18 @@ src/shape/String2D.o: include/SDL_mouse.h include/SDL_video.h
 src/shape/String2D.o: include/SDL_mutex.h include/SDL_quit.h
 src/shape/String2D.o: include/SDL_version.h src/event/Keyboard.h
 src/shape/String2D.o: src/event/KeyboardListener.h src/event/Timer.h
-src/shape/String2D.o: src/event/TimerListener.h src/event/RegularKeyEvent.h
-src/shape/String2D.o: src/event/SpecialKeyEvent.h src/event/Mouse.h
-src/shape/String2D.o: src/event/MouseListener.h src/event/MouseClickEvent.h
-src/shape/String2D.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
+src/shape/String2D.o: src/event/TimerListener.h src/event/Keyboard.h
+src/shape/String2D.o: src/event/KeyUpEvent.h src/event/KeyEvent.h
+src/shape/String2D.o: src/event/KeyDownEvent.h src/event/KeyEventFactory.h
+src/shape/String2D.o: src/event/Mouse.h src/event/MouseListener.h
+src/shape/String2D.o: src/event/MouseEvent.h src/event/Mouse.h
+src/shape/String2D.o: src/event/MouseEventFactory.h
+src/shape/String2D.o: src/event/MouseButtonDown.h src/event/MouseClickEvent.h
+src/shape/String2D.o: src/event/MouseButtonUp.h src/event/MouseMotionEvent.h
 src/shape/String2D.o: src/event/Timer.h src/core/World.h src/shape/Point3D.h
 src/shape/String2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
 src/shape/String2D.o: /usr/include/bits/mathdef.h
-src/shape/String2D.o: /usr/include/bits/mathcalls.h include/SDL_opengl.h
-src/shape/String2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/String2D.o: /usr/include/GL/glu.h src/shape/Renderable.h
+src/shape/String2D.o: /usr/include/bits/mathcalls.h src/shape/Renderable.h
 src/shape/String2D.o: src/transform/Rotate.h src/transform/Transform.h
 src/shape/String2D.o: src/event/TimerListener.h src/transform/Transform.h
 src/shape/String2D.o: src/transform/Translate.h src/core/Viewer.h
@@ -237,32 +240,32 @@ src/texture/TextureFactory.o: /usr/include/GL/glu.h src/texture/Texture.h
 src/texture/TextureFactory.o: src/texture/TexturePPM.h
 src/texture/TextureFactory.o: src/texture/TextureBMP.h
 src/texture/TextureFactory.o: src/texture/TextureTGA.h
-src/event/Keyboard.o: src/event/Keyboard.h /usr/include/stdlib.h
-src/event/Keyboard.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/event/Keyboard.o: /usr/include/gnu/stubs.h
-src/event/Keyboard.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/event/Keyboard.o: src/event/KeyboardListener.h src/event/Timer.h
-src/event/Keyboard.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/event/Keyboard.o: include/SDL_getenv.h include/SDL_error.h
-src/event/Keyboard.o: include/begin_code.h include/close_code.h
-src/event/Keyboard.o: include/SDL_rwops.h /usr/include/stdio.h
-src/event/Keyboard.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
-src/event/Keyboard.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/event/Keyboard.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/event/Keyboard.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/event/Keyboard.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
-src/event/Keyboard.o: /usr/include/bits/stdio_lim.h
-src/event/Keyboard.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/event/Keyboard.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/Keyboard.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/Keyboard.o: include/SDL_events.h include/SDL_active.h
-src/event/Keyboard.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/Keyboard.o: include/SDL_mouse.h include/SDL_video.h
-src/event/Keyboard.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/Keyboard.o: include/SDL_version.h src/event/TimerListener.h
-src/event/Keyboard.o: src/event/RegularKeyEvent.h src/event/SpecialKeyEvent.h
+src/event/Keyboard.o: src/event/Keyboard.h
 src/event/MouseClickEvent.o: src/event/MouseClickEvent.h
-src/event/MouseClickEvent.o: src/event/MouseEvent.h
+src/event/MouseClickEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseClickEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseClickEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseClickEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseClickEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseClickEvent.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/MouseClickEvent.o: /usr/include/gnu/stubs.h
+src/event/MouseClickEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseClickEvent.o: /usr/include/bits/types.h
+src/event/MouseClickEvent.o: /usr/include/bits/wordsize.h
+src/event/MouseClickEvent.o: /usr/include/bits/typesizes.h
+src/event/MouseClickEvent.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/MouseClickEvent.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/MouseClickEvent.o: /usr/include/gconv.h
+src/event/MouseClickEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseClickEvent.o: /usr/include/bits/stdio_lim.h
+src/event/MouseClickEvent.o: /usr/include/bits/sys_errlist.h
+src/event/MouseClickEvent.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseClickEvent.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseClickEvent.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseClickEvent.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseClickEvent.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseClickEvent.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseClickEvent.o: include/SDL_quit.h include/SDL_version.h
 src/event/DefaultMouseListener.o: src/event/DefaultMouseListener.h
 src/event/DefaultMouseListener.o: src/core/Controller.h /usr/include/stdlib.h
 src/event/DefaultMouseListener.o: /usr/include/features.h
@@ -295,11 +298,16 @@ src/event/DefaultMouseListener.o: include/SDL_quit.h include/SDL_version.h
 src/event/DefaultMouseListener.o: src/event/Keyboard.h
 src/event/DefaultMouseListener.o: src/event/KeyboardListener.h
 src/event/DefaultMouseListener.o: src/event/Timer.h src/event/TimerListener.h
-src/event/DefaultMouseListener.o: src/event/RegularKeyEvent.h
-src/event/DefaultMouseListener.o: src/event/SpecialKeyEvent.h
+src/event/DefaultMouseListener.o: src/event/Keyboard.h src/event/KeyUpEvent.h
+src/event/DefaultMouseListener.o: src/event/KeyEvent.h
+src/event/DefaultMouseListener.o: src/event/KeyDownEvent.h
+src/event/DefaultMouseListener.o: src/event/KeyEventFactory.h
 src/event/DefaultMouseListener.o: src/event/Mouse.h src/event/MouseListener.h
+src/event/DefaultMouseListener.o: src/event/MouseEvent.h src/event/Mouse.h
+src/event/DefaultMouseListener.o: src/event/MouseEventFactory.h
+src/event/DefaultMouseListener.o: src/event/MouseButtonDown.h
 src/event/DefaultMouseListener.o: src/event/MouseClickEvent.h
-src/event/DefaultMouseListener.o: src/event/MouseEvent.h
+src/event/DefaultMouseListener.o: src/event/MouseButtonUp.h
 src/event/DefaultMouseListener.o: src/event/MouseMotionEvent.h
 src/event/DefaultMouseListener.o: src/event/Timer.h src/core/World.h
 src/event/DefaultMouseListener.o: src/shape/Point3D.h /usr/include/math.h
@@ -363,13 +371,20 @@ src/event/DefaultKeyboardListener.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/DefaultKeyboardListener.o: include/SDL_video.h include/SDL_mutex.h
 src/event/DefaultKeyboardListener.o: include/SDL_quit.h include/SDL_version.h
 src/event/DefaultKeyboardListener.o: src/event/TimerListener.h
-src/event/DefaultKeyboardListener.o: src/event/RegularKeyEvent.h
-src/event/DefaultKeyboardListener.o: src/event/SpecialKeyEvent.h
+src/event/DefaultKeyboardListener.o: src/event/Keyboard.h
+src/event/DefaultKeyboardListener.o: src/event/KeyUpEvent.h
+src/event/DefaultKeyboardListener.o: src/event/KeyEvent.h
+src/event/DefaultKeyboardListener.o: src/event/KeyDownEvent.h
 src/event/DefaultKeyboardListener.o: src/core/Controller.h
-src/event/DefaultKeyboardListener.o: src/event/Keyboard.h src/event/Mouse.h
+src/event/DefaultKeyboardListener.o: src/event/Keyboard.h
+src/event/DefaultKeyboardListener.o: src/event/KeyEventFactory.h
+src/event/DefaultKeyboardListener.o: src/event/Mouse.h
 src/event/DefaultKeyboardListener.o: src/event/MouseListener.h
+src/event/DefaultKeyboardListener.o: src/event/MouseEvent.h src/event/Mouse.h
+src/event/DefaultKeyboardListener.o: src/event/MouseEventFactory.h
+src/event/DefaultKeyboardListener.o: src/event/MouseButtonDown.h
 src/event/DefaultKeyboardListener.o: src/event/MouseClickEvent.h
-src/event/DefaultKeyboardListener.o: src/event/MouseEvent.h
+src/event/DefaultKeyboardListener.o: src/event/MouseButtonUp.h
 src/event/DefaultKeyboardListener.o: src/event/MouseMotionEvent.h
 src/event/DefaultKeyboardListener.o: src/event/Timer.h src/core/World.h
 src/event/DefaultKeyboardListener.o: src/shape/Point3D.h /usr/include/math.h
@@ -402,7 +417,31 @@ src/event/DefaultKeyboardListener.o: src/core/World.h
 src/event/DefaultKeyboardListener.o: src/event/DefaultMouseListener.h
 src/event/RegularKeyEvent.o: src/event/RegularKeyEvent.h
 src/event/MouseMotionEvent.o: src/event/MouseMotionEvent.h
-src/event/MouseMotionEvent.o: src/event/MouseEvent.h
+src/event/MouseMotionEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseMotionEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseMotionEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseMotionEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseMotionEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseMotionEvent.o: /usr/include/features.h
+src/event/MouseMotionEvent.o: /usr/include/sys/cdefs.h
+src/event/MouseMotionEvent.o: /usr/include/gnu/stubs.h
+src/event/MouseMotionEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseMotionEvent.o: /usr/include/bits/types.h
+src/event/MouseMotionEvent.o: /usr/include/bits/wordsize.h
+src/event/MouseMotionEvent.o: /usr/include/bits/typesizes.h
+src/event/MouseMotionEvent.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/MouseMotionEvent.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/MouseMotionEvent.o: /usr/include/gconv.h
+src/event/MouseMotionEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseMotionEvent.o: /usr/include/bits/stdio_lim.h
+src/event/MouseMotionEvent.o: /usr/include/bits/sys_errlist.h
+src/event/MouseMotionEvent.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseMotionEvent.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseMotionEvent.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseMotionEvent.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseMotionEvent.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseMotionEvent.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseMotionEvent.o: include/SDL_quit.h include/SDL_version.h
 src/event/Timer.o: src/event/Timer.h include/SDL.h include/SDL_main.h
 src/event/Timer.o: include/SDL_types.h include/SDL_getenv.h
 src/event/Timer.o: include/SDL_error.h include/begin_code.h
@@ -424,35 +463,263 @@ src/event/Timer.o: include/SDL_keyboard.h include/SDL_keysym.h
 src/event/Timer.o: include/SDL_mouse.h include/SDL_video.h
 src/event/Timer.o: include/SDL_mutex.h include/SDL_quit.h
 src/event/Timer.o: include/SDL_version.h src/event/TimerListener.h
-src/event/Mouse.o: src/event/Mouse.h include/SDL.h include/SDL_main.h
-src/event/Mouse.o: include/SDL_types.h include/SDL_getenv.h
-src/event/Mouse.o: include/SDL_error.h include/begin_code.h
-src/event/Mouse.o: include/close_code.h include/SDL_rwops.h
-src/event/Mouse.o: /usr/include/stdio.h /usr/include/features.h
-src/event/Mouse.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-src/event/Mouse.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/event/Mouse.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
-src/event/Mouse.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/event/Mouse.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/event/Mouse.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/event/Mouse.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
-src/event/Mouse.o: /usr/include/bits/stdio_lim.h
-src/event/Mouse.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/event/Mouse.o: include/SDL_audio.h include/SDL_byteorder.h
-src/event/Mouse.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/event/Mouse.o: include/SDL_events.h include/SDL_active.h
-src/event/Mouse.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/event/Mouse.o: include/SDL_mouse.h include/SDL_video.h
-src/event/Mouse.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/Mouse.o: include/SDL_version.h /usr/include/stdlib.h
-src/event/Mouse.o: src/event/MouseListener.h src/event/MouseClickEvent.h
-src/event/Mouse.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
-src/event/MouseEvent.o: src/event/MouseEvent.h
+src/event/Mouse.o: src/event/Mouse.h
+src/event/MouseEvent.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEvent.o: include/begin_code.h include/close_code.h
+src/event/MouseEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseEvent.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/MouseEvent.o: /usr/include/gnu/stubs.h
+src/event/MouseEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseEvent.o: /usr/include/bits/types.h
+src/event/MouseEvent.o: /usr/include/bits/wordsize.h
+src/event/MouseEvent.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/MouseEvent.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/MouseEvent.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/MouseEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseEvent.o: /usr/include/bits/stdio_lim.h
+src/event/MouseEvent.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/event/MouseEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/MouseEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseEvent.o: include/SDL_version.h
 src/event/SpecialKeyEvent.o: src/event/SpecialKeyEvent.h
 src/event/SpecialKeyEvent.o: /usr/include/stdlib.h /usr/include/features.h
 src/event/SpecialKeyEvent.o: /usr/include/sys/cdefs.h
 src/event/SpecialKeyEvent.o: /usr/include/gnu/stubs.h
 src/event/SpecialKeyEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyDownEvent.o: src/event/KeyDownEvent.h include/SDL.h
+src/event/KeyDownEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyDownEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyDownEvent.o: include/begin_code.h include/close_code.h
+src/event/KeyDownEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyDownEvent.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/KeyDownEvent.o: /usr/include/gnu/stubs.h
+src/event/KeyDownEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyDownEvent.o: /usr/include/bits/types.h
+src/event/KeyDownEvent.o: /usr/include/bits/wordsize.h
+src/event/KeyDownEvent.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/KeyDownEvent.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/KeyDownEvent.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/KeyDownEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/KeyDownEvent.o: /usr/include/bits/stdio_lim.h
+src/event/KeyDownEvent.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/event/KeyDownEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyDownEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyDownEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyDownEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyDownEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyDownEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyDownEvent.o: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyEvent.o: src/event/KeyEvent.h include/SDL.h include/SDL_main.h
+src/event/KeyEvent.o: include/SDL_types.h include/SDL_getenv.h
+src/event/KeyEvent.o: include/SDL_error.h include/begin_code.h
+src/event/KeyEvent.o: include/close_code.h include/SDL_rwops.h
+src/event/KeyEvent.o: /usr/include/stdio.h /usr/include/features.h
+src/event/KeyEvent.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/event/KeyEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyEvent.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+src/event/KeyEvent.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/KeyEvent.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/KeyEvent.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/KeyEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/KeyEvent.o: /usr/include/bits/stdio_lim.h
+src/event/KeyEvent.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/event/KeyEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyEvent.o: include/SDL_version.h
+src/event/KeyUpEvent.o: src/event/KeyUpEvent.h include/SDL.h
+src/event/KeyUpEvent.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyUpEvent.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyUpEvent.o: include/begin_code.h include/close_code.h
+src/event/KeyUpEvent.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyUpEvent.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/KeyUpEvent.o: /usr/include/gnu/stubs.h
+src/event/KeyUpEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyUpEvent.o: /usr/include/bits/types.h
+src/event/KeyUpEvent.o: /usr/include/bits/wordsize.h
+src/event/KeyUpEvent.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/KeyUpEvent.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/KeyUpEvent.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/KeyUpEvent.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/KeyUpEvent.o: /usr/include/bits/stdio_lim.h
+src/event/KeyUpEvent.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/event/KeyUpEvent.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyUpEvent.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyUpEvent.o: include/SDL_events.h include/SDL_active.h
+src/event/KeyUpEvent.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyUpEvent.o: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyUpEvent.o: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyUpEvent.o: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyboardListener.o: src/event/KeyboardListener.h
+src/event/KeyboardListener.o: /usr/include/stdlib.h /usr/include/features.h
+src/event/KeyboardListener.o: /usr/include/sys/cdefs.h
+src/event/KeyboardListener.o: /usr/include/gnu/stubs.h
+src/event/KeyboardListener.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyboardListener.o: src/event/Timer.h include/SDL.h
+src/event/KeyboardListener.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyboardListener.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyboardListener.o: include/begin_code.h include/close_code.h
+src/event/KeyboardListener.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyboardListener.o: /usr/include/bits/types.h
+src/event/KeyboardListener.o: /usr/include/bits/wordsize.h
+src/event/KeyboardListener.o: /usr/include/bits/typesizes.h
+src/event/KeyboardListener.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/KeyboardListener.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/KeyboardListener.o: /usr/include/gconv.h
+src/event/KeyboardListener.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/KeyboardListener.o: /usr/include/bits/stdio_lim.h
+src/event/KeyboardListener.o: /usr/include/bits/sys_errlist.h
+src/event/KeyboardListener.o: include/SDL_timer.h include/SDL_audio.h
+src/event/KeyboardListener.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/KeyboardListener.o: include/SDL_joystick.h include/SDL_events.h
+src/event/KeyboardListener.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/KeyboardListener.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/KeyboardListener.o: include/SDL_video.h include/SDL_mutex.h
+src/event/KeyboardListener.o: include/SDL_quit.h include/SDL_version.h
+src/event/KeyboardListener.o: src/event/TimerListener.h src/event/Keyboard.h
+src/event/KeyboardListener.o: src/event/KeyUpEvent.h src/event/KeyEvent.h
+src/event/KeyboardListener.o: src/event/KeyDownEvent.h
+src/event/MouseButtonDown.o: src/event/MouseButtonDown.h
+src/event/MouseButtonDown.o: src/event/MouseClickEvent.h
+src/event/MouseButtonDown.o: src/event/MouseEvent.h include/SDL.h
+src/event/MouseButtonDown.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseButtonDown.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseButtonDown.o: include/begin_code.h include/close_code.h
+src/event/MouseButtonDown.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseButtonDown.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/MouseButtonDown.o: /usr/include/gnu/stubs.h
+src/event/MouseButtonDown.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseButtonDown.o: /usr/include/bits/types.h
+src/event/MouseButtonDown.o: /usr/include/bits/wordsize.h
+src/event/MouseButtonDown.o: /usr/include/bits/typesizes.h
+src/event/MouseButtonDown.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/MouseButtonDown.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/MouseButtonDown.o: /usr/include/gconv.h
+src/event/MouseButtonDown.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseButtonDown.o: /usr/include/bits/stdio_lim.h
+src/event/MouseButtonDown.o: /usr/include/bits/sys_errlist.h
+src/event/MouseButtonDown.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseButtonDown.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseButtonDown.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseButtonDown.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseButtonDown.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseButtonDown.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseButtonDown.o: include/SDL_quit.h include/SDL_version.h
+src/event/MouseButtonDown.o: src/event/Mouse.h
+src/event/MouseListener.o: src/event/MouseListener.h src/event/MouseEvent.h
+src/event/MouseListener.o: include/SDL.h include/SDL_main.h
+src/event/MouseListener.o: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseListener.o: include/SDL_error.h include/begin_code.h
+src/event/MouseListener.o: include/close_code.h include/SDL_rwops.h
+src/event/MouseListener.o: /usr/include/stdio.h /usr/include/features.h
+src/event/MouseListener.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/event/MouseListener.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseListener.o: /usr/include/bits/types.h
+src/event/MouseListener.o: /usr/include/bits/wordsize.h
+src/event/MouseListener.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/MouseListener.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/MouseListener.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/MouseListener.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseListener.o: /usr/include/bits/stdio_lim.h
+src/event/MouseListener.o: /usr/include/bits/sys_errlist.h
+src/event/MouseListener.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseListener.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseListener.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseListener.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseListener.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseListener.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseListener.o: include/SDL_quit.h include/SDL_version.h
+src/event/MouseListener.o: src/event/Mouse.h
+src/event/KeyEventFactory.o: src/event/KeyEventFactory.h include/SDL.h
+src/event/KeyEventFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/KeyEventFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyEventFactory.o: include/begin_code.h include/close_code.h
+src/event/KeyEventFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/KeyEventFactory.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/KeyEventFactory.o: /usr/include/gnu/stubs.h
+src/event/KeyEventFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/KeyEventFactory.o: /usr/include/bits/types.h
+src/event/KeyEventFactory.o: /usr/include/bits/wordsize.h
+src/event/KeyEventFactory.o: /usr/include/bits/typesizes.h
+src/event/KeyEventFactory.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/KeyEventFactory.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/KeyEventFactory.o: /usr/include/gconv.h
+src/event/KeyEventFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/KeyEventFactory.o: /usr/include/bits/stdio_lim.h
+src/event/KeyEventFactory.o: /usr/include/bits/sys_errlist.h
+src/event/KeyEventFactory.o: include/SDL_timer.h include/SDL_audio.h
+src/event/KeyEventFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/KeyEventFactory.o: include/SDL_joystick.h include/SDL_events.h
+src/event/KeyEventFactory.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/KeyEventFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/KeyEventFactory.o: include/SDL_video.h include/SDL_mutex.h
+src/event/KeyEventFactory.o: include/SDL_quit.h include/SDL_version.h
+src/event/KeyEventFactory.o: src/event/KeyEvent.h src/event/KeyDownEvent.h
+src/event/KeyEventFactory.o: src/event/KeyUpEvent.h
+src/event/MouseEventFactory.o: src/event/MouseEventFactory.h include/SDL.h
+src/event/MouseEventFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/MouseEventFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEventFactory.o: include/begin_code.h include/close_code.h
+src/event/MouseEventFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/MouseEventFactory.o: /usr/include/features.h
+src/event/MouseEventFactory.o: /usr/include/sys/cdefs.h
+src/event/MouseEventFactory.o: /usr/include/gnu/stubs.h
+src/event/MouseEventFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseEventFactory.o: /usr/include/bits/types.h
+src/event/MouseEventFactory.o: /usr/include/bits/wordsize.h
+src/event/MouseEventFactory.o: /usr/include/bits/typesizes.h
+src/event/MouseEventFactory.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/MouseEventFactory.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/event/MouseEventFactory.o: /usr/include/gconv.h
+src/event/MouseEventFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseEventFactory.o: /usr/include/bits/stdio_lim.h
+src/event/MouseEventFactory.o: /usr/include/bits/sys_errlist.h
+src/event/MouseEventFactory.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseEventFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseEventFactory.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseEventFactory.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseEventFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseEventFactory.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseEventFactory.o: include/SDL_quit.h include/SDL_version.h
+src/event/MouseEventFactory.o: src/event/MouseEvent.h
+src/event/MouseEventFactory.o: src/event/MouseButtonDown.h
+src/event/MouseEventFactory.o: src/event/MouseClickEvent.h src/event/Mouse.h
+src/event/MouseEventFactory.o: src/event/MouseButtonUp.h
+src/event/MouseEventFactory.o: src/event/MouseMotionEvent.h
+src/event/MouseButtonUp.o: src/event/MouseButtonUp.h
+src/event/MouseButtonUp.o: src/event/MouseClickEvent.h src/event/MouseEvent.h
+src/event/MouseButtonUp.o: include/SDL.h include/SDL_main.h
+src/event/MouseButtonUp.o: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseButtonUp.o: include/SDL_error.h include/begin_code.h
+src/event/MouseButtonUp.o: include/close_code.h include/SDL_rwops.h
+src/event/MouseButtonUp.o: /usr/include/stdio.h /usr/include/features.h
+src/event/MouseButtonUp.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/event/MouseButtonUp.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/event/MouseButtonUp.o: /usr/include/bits/types.h
+src/event/MouseButtonUp.o: /usr/include/bits/wordsize.h
+src/event/MouseButtonUp.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/event/MouseButtonUp.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/event/MouseButtonUp.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/event/MouseButtonUp.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+src/event/MouseButtonUp.o: /usr/include/bits/stdio_lim.h
+src/event/MouseButtonUp.o: /usr/include/bits/sys_errlist.h
+src/event/MouseButtonUp.o: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseButtonUp.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseButtonUp.o: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseButtonUp.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseButtonUp.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseButtonUp.o: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseButtonUp.o: include/SDL_quit.h include/SDL_version.h
+src/event/MouseButtonUp.o: src/event/Mouse.h
 src/terrain/Terrain.o: src/terrain/Terrain.h src/shape/Renderable.h
 src/terrain/Terrain.o: src/shape/Point3D.h /usr/include/math.h
 src/terrain/Terrain.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -471,104 +738,6 @@ src/terrain/Terrain.o: src/shape/Point3D.h src/texture/TextureFactory.h
 src/terrain/Terrain.o: /usr/include/stdlib.h /usr/include/GL/glut.h
 src/terrain/Terrain.o: src/texture/Texture.h src/texture/TexturePPM.h
 src/terrain/Terrain.o: src/texture/TextureBMP.h src/texture/TextureTGA.h
-src/interpolation/InterpolationTester.o: src/core/Controller.h
-src/interpolation/InterpolationTester.o: /usr/include/stdlib.h
-src/interpolation/InterpolationTester.o: /usr/include/features.h
-src/interpolation/InterpolationTester.o: /usr/include/sys/cdefs.h
-src/interpolation/InterpolationTester.o: /usr/include/gnu/stubs.h
-src/interpolation/InterpolationTester.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/interpolation/InterpolationTester.o: include/SDL.h include/SDL_main.h
-src/interpolation/InterpolationTester.o: include/SDL_types.h
-src/interpolation/InterpolationTester.o: include/SDL_getenv.h
-src/interpolation/InterpolationTester.o: include/SDL_error.h
-src/interpolation/InterpolationTester.o: include/begin_code.h
-src/interpolation/InterpolationTester.o: include/close_code.h
-src/interpolation/InterpolationTester.o: include/SDL_rwops.h
-src/interpolation/InterpolationTester.o: /usr/include/stdio.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/types.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/wordsize.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/typesizes.h
-src/interpolation/InterpolationTester.o: /usr/include/libio.h
-src/interpolation/InterpolationTester.o: /usr/include/_G_config.h
-src/interpolation/InterpolationTester.o: /usr/include/wchar.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/wchar.h
-src/interpolation/InterpolationTester.o: /usr/include/gconv.h
-src/interpolation/InterpolationTester.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/stdio_lim.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/sys_errlist.h
-src/interpolation/InterpolationTester.o: include/SDL_timer.h
-src/interpolation/InterpolationTester.o: include/SDL_audio.h
-src/interpolation/InterpolationTester.o: include/SDL_byteorder.h
-src/interpolation/InterpolationTester.o: include/SDL_cdrom.h
-src/interpolation/InterpolationTester.o: include/SDL_joystick.h
-src/interpolation/InterpolationTester.o: include/SDL_events.h
-src/interpolation/InterpolationTester.o: include/SDL_active.h
-src/interpolation/InterpolationTester.o: include/SDL_keyboard.h
-src/interpolation/InterpolationTester.o: include/SDL_keysym.h
-src/interpolation/InterpolationTester.o: include/SDL_mouse.h
-src/interpolation/InterpolationTester.o: include/SDL_video.h
-src/interpolation/InterpolationTester.o: include/SDL_mutex.h
-src/interpolation/InterpolationTester.o: include/SDL_quit.h
-src/interpolation/InterpolationTester.o: include/SDL_version.h
-src/interpolation/InterpolationTester.o: src/event/Keyboard.h
-src/interpolation/InterpolationTester.o: src/event/KeyboardListener.h
-src/interpolation/InterpolationTester.o: src/event/Timer.h
-src/interpolation/InterpolationTester.o: src/event/TimerListener.h
-src/interpolation/InterpolationTester.o: src/event/RegularKeyEvent.h
-src/interpolation/InterpolationTester.o: src/event/SpecialKeyEvent.h
-src/interpolation/InterpolationTester.o: src/event/Mouse.h
-src/interpolation/InterpolationTester.o: src/event/MouseListener.h
-src/interpolation/InterpolationTester.o: src/event/MouseClickEvent.h
-src/interpolation/InterpolationTester.o: src/event/MouseEvent.h
-src/interpolation/InterpolationTester.o: src/event/MouseMotionEvent.h
-src/interpolation/InterpolationTester.o: src/event/Timer.h src/core/World.h
-src/interpolation/InterpolationTester.o: src/shape/Point3D.h
-src/interpolation/InterpolationTester.o: /usr/include/math.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/huge_val.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/mathdef.h
-src/interpolation/InterpolationTester.o: /usr/include/bits/mathcalls.h
-src/interpolation/InterpolationTester.o: src/paint/Paint.h
-src/interpolation/InterpolationTester.o: /usr/include/string.h
-src/interpolation/InterpolationTester.o: src/texture/Texture.h
-src/interpolation/InterpolationTester.o: src/paint/Color.h
-src/interpolation/InterpolationTester.o: src/shape/Renderable.h
-src/interpolation/InterpolationTester.o: include/SDL_opengl.h
-src/interpolation/InterpolationTester.o: /usr/include/GL/gl.h
-src/interpolation/InterpolationTester.o: /usr/include/GL/glext.h
-src/interpolation/InterpolationTester.o: /usr/include/GL/glu.h
-src/interpolation/InterpolationTester.o: src/shape/Renderable.h
-src/interpolation/InterpolationTester.o: src/transform/Rotate.h
-src/interpolation/InterpolationTester.o: src/transform/Transform.h
-src/interpolation/InterpolationTester.o: src/event/TimerListener.h
-src/interpolation/InterpolationTester.o: src/transform/Transform.h
-src/interpolation/InterpolationTester.o: src/transform/Translate.h
-src/interpolation/InterpolationTester.o: src/core/Viewer.h
-src/interpolation/InterpolationTester.o: src/geometry/Dimension2D.h
-src/interpolation/InterpolationTester.o: src/geometry/Dimension.h
-src/interpolation/InterpolationTester.o: src/util/GraphicsConversionUtility.h
-src/interpolation/InterpolationTester.o: src/transform/Orientate.h
-src/interpolation/InterpolationTester.o: src/transform/Translate.h
-src/interpolation/InterpolationTester.o: src/transform/Rotate.h
-src/interpolation/InterpolationTester.o: src/event/ReshapeListener.h
-src/interpolation/InterpolationTester.o: src/event/DefaultKeyboardListener.h
-src/interpolation/InterpolationTester.o: src/core/World.h
-src/interpolation/InterpolationTester.o: src/event/DefaultMouseListener.h
-src/interpolation/InterpolationTester.o: src/interpolation/Interpolator.h
-src/interpolation/InterpolationTester.o: src/interpolation/Interpolable.h
-src/interpolation/InterpolationTester.o: src/shape/Positionable.h
-src/interpolation/InterpolationTester.o: src/interpolation/InterpolationListener.h
-src/interpolation/InterpolationTester.o: src/shape/String2D.h
-src/interpolation/InterpolationTester.o: src/util/BitmapFontUtil.h
-src/interpolation/InterpolationTester.o: src/util/BitmapFontConstants.h
-src/interpolation/InterpolationTester.o: src/core/Viewer.h src/shape/Cube.h
-src/interpolation/InterpolationTester.o: src/shape/Point3D.h
-src/interpolation/InterpolationTester.o: src/shape/RectangularPrism.h
-src/interpolation/InterpolationTester.o: src/shape/Quadrilateral3D.h
-src/interpolation/InterpolationTester.o: src/geometry/Dimension3D.h
-src/interpolation/InterpolationTester.o: src/paint/Color.h
-src/interpolation/InterpolationTester.o: src/geometry/RectangularVolume.h
-src/interpolation/InterpolationTester.o: src/geometry/Dimension3D.h
-src/interpolation/InterpolationTester.o: src/shape/Positionable.h
 src/interpolation/CameraRoller.o: src/interpolation/CameraRoller.h
 src/interpolation/CameraRoller.o: src/core/Controller.h /usr/include/stdlib.h
 src/interpolation/CameraRoller.o: /usr/include/features.h
@@ -601,11 +770,16 @@ src/interpolation/CameraRoller.o: include/SDL_quit.h include/SDL_version.h
 src/interpolation/CameraRoller.o: src/event/Keyboard.h
 src/interpolation/CameraRoller.o: src/event/KeyboardListener.h
 src/interpolation/CameraRoller.o: src/event/Timer.h src/event/TimerListener.h
-src/interpolation/CameraRoller.o: src/event/RegularKeyEvent.h
-src/interpolation/CameraRoller.o: src/event/SpecialKeyEvent.h
+src/interpolation/CameraRoller.o: src/event/Keyboard.h src/event/KeyUpEvent.h
+src/interpolation/CameraRoller.o: src/event/KeyEvent.h
+src/interpolation/CameraRoller.o: src/event/KeyDownEvent.h
+src/interpolation/CameraRoller.o: src/event/KeyEventFactory.h
 src/interpolation/CameraRoller.o: src/event/Mouse.h src/event/MouseListener.h
+src/interpolation/CameraRoller.o: src/event/MouseEvent.h src/event/Mouse.h
+src/interpolation/CameraRoller.o: src/event/MouseEventFactory.h
+src/interpolation/CameraRoller.o: src/event/MouseButtonDown.h
 src/interpolation/CameraRoller.o: src/event/MouseClickEvent.h
-src/interpolation/CameraRoller.o: src/event/MouseEvent.h
+src/interpolation/CameraRoller.o: src/event/MouseButtonUp.h
 src/interpolation/CameraRoller.o: src/event/MouseMotionEvent.h
 src/interpolation/CameraRoller.o: src/event/Timer.h src/core/World.h
 src/interpolation/CameraRoller.o: src/shape/Point3D.h /usr/include/math.h
@@ -778,11 +952,16 @@ src/core/Controller.o: include/SDL_mouse.h include/SDL_video.h
 src/core/Controller.o: include/SDL_mutex.h include/SDL_quit.h
 src/core/Controller.o: include/SDL_version.h src/event/Keyboard.h
 src/core/Controller.o: src/event/KeyboardListener.h src/event/Timer.h
-src/core/Controller.o: src/event/TimerListener.h src/event/RegularKeyEvent.h
-src/core/Controller.o: src/event/SpecialKeyEvent.h src/event/Mouse.h
-src/core/Controller.o: src/event/MouseListener.h src/event/MouseClickEvent.h
-src/core/Controller.o: src/event/MouseEvent.h src/event/MouseMotionEvent.h
-src/core/Controller.o: src/event/Timer.h src/core/World.h src/shape/Point3D.h
+src/core/Controller.o: src/event/TimerListener.h src/event/Keyboard.h
+src/core/Controller.o: src/event/KeyUpEvent.h src/event/KeyEvent.h
+src/core/Controller.o: src/event/KeyDownEvent.h src/event/KeyEventFactory.h
+src/core/Controller.o: src/event/Mouse.h src/event/MouseListener.h
+src/core/Controller.o: src/event/MouseEvent.h src/event/Mouse.h
+src/core/Controller.o: src/event/MouseEventFactory.h
+src/core/Controller.o: src/event/MouseButtonDown.h
+src/core/Controller.o: src/event/MouseClickEvent.h src/event/MouseButtonUp.h
+src/core/Controller.o: src/event/MouseMotionEvent.h src/event/Timer.h
+src/core/Controller.o: src/core/World.h src/shape/Point3D.h
 src/core/Controller.o: /usr/include/math.h /usr/include/bits/huge_val.h
 src/core/Controller.o: /usr/include/bits/mathdef.h
 src/core/Controller.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
@@ -815,37 +994,6 @@ src/core/World.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/core/World.o: src/shape/Renderable.h src/transform/Rotate.h
 src/core/World.o: src/transform/Transform.h src/event/TimerListener.h
 src/core/World.o: src/transform/Transform.h src/transform/Translate.h
-src/transition/Fade.o: src/transition/Fade.h
-src/transition/Fade.o: src/interpolation/InterpolationListener.h
-src/transition/Fade.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
-src/transition/Fade.o: src/paint/Paint.h /usr/include/string.h
-src/transition/Fade.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/transition/Fade.o: /usr/include/gnu/stubs.h
-src/transition/Fade.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/transition/Fade.o: src/texture/Texture.h src/paint/Color.h
-src/transition/Fade.o: src/paint/Color.h src/transition/Transition.h
-src/transition/Fade.o: src/core/Viewer.h
-src/transition/TransitionFactory.o: src/transition/TransitionFactory.h
-src/transition/TransitionFactory.o: src/transition/Transition.h
-src/transition/TransitionFactory.o: src/core/Viewer.h src/transition/Fade.h
-src/transition/TransitionFactory.o: src/interpolation/InterpolationListener.h
-src/transition/TransitionFactory.o: src/geometry/Dimension2D.h
-src/transition/TransitionFactory.o: src/geometry/Dimension.h
-src/transition/TransitionFactory.o: src/paint/Paint.h /usr/include/string.h
-src/transition/TransitionFactory.o: /usr/include/features.h
-src/transition/TransitionFactory.o: /usr/include/sys/cdefs.h
-src/transition/TransitionFactory.o: /usr/include/gnu/stubs.h
-src/transition/TransitionFactory.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/transition/TransitionFactory.o: src/texture/Texture.h src/paint/Color.h
-src/transition/TransitionFactory.o: src/paint/Color.h
-src/transition/TransitionFactory.o: src/transition/FadeOut.h
-src/transition/TransitionFactory.o: src/transition/FadeIn.h
-src/transition/FadeIn.o: src/transition/FadeIn.h src/transition/Transition.h
-src/transition/FadeIn.o: src/core/Viewer.h src/paint/Paint.h
-src/transition/FadeIn.o: /usr/include/string.h /usr/include/features.h
-src/transition/FadeIn.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-src/transition/FadeIn.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/transition/FadeIn.o: src/texture/Texture.h src/paint/Color.h
 src/geometry/RectangularVolume.o: src/geometry/RectangularVolume.h
 src/geometry/RectangularVolume.o: src/geometry/Dimension3D.h
 src/geometry/RectangularVolume.o: src/shape/Point3D.h /usr/include/math.h
@@ -973,12 +1121,18 @@ src/util/FramesPerSecondCounter.o: src/event/Keyboard.h
 src/util/FramesPerSecondCounter.o: src/event/KeyboardListener.h
 src/util/FramesPerSecondCounter.o: src/event/Timer.h
 src/util/FramesPerSecondCounter.o: src/event/TimerListener.h
-src/util/FramesPerSecondCounter.o: src/event/RegularKeyEvent.h
-src/util/FramesPerSecondCounter.o: src/event/SpecialKeyEvent.h
+src/util/FramesPerSecondCounter.o: src/event/Keyboard.h
+src/util/FramesPerSecondCounter.o: src/event/KeyUpEvent.h
+src/util/FramesPerSecondCounter.o: src/event/KeyEvent.h
+src/util/FramesPerSecondCounter.o: src/event/KeyDownEvent.h
+src/util/FramesPerSecondCounter.o: src/event/KeyEventFactory.h
 src/util/FramesPerSecondCounter.o: src/event/Mouse.h
 src/util/FramesPerSecondCounter.o: src/event/MouseListener.h
+src/util/FramesPerSecondCounter.o: src/event/MouseEvent.h src/event/Mouse.h
+src/util/FramesPerSecondCounter.o: src/event/MouseEventFactory.h
+src/util/FramesPerSecondCounter.o: src/event/MouseButtonDown.h
 src/util/FramesPerSecondCounter.o: src/event/MouseClickEvent.h
-src/util/FramesPerSecondCounter.o: src/event/MouseEvent.h
+src/util/FramesPerSecondCounter.o: src/event/MouseButtonUp.h
 src/util/FramesPerSecondCounter.o: src/event/MouseMotionEvent.h
 src/util/FramesPerSecondCounter.o: src/core/World.h src/shape/Point3D.h
 src/util/FramesPerSecondCounter.o: /usr/include/math.h
@@ -1015,6 +1169,8 @@ src/util/BitmapFontUtil.o: src/util/BitmapFontConstants.h
 src/util/BitmapFontUtil.o: /usr/include/stdlib.h /usr/include/features.h
 src/util/BitmapFontUtil.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
 src/util/BitmapFontUtil.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/util/BitmapFontUtil.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/util/BitmapFontUtil.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/util/GraphicsConversionUtility.o: src/util/GraphicsConversionUtility.h
 src/util/GraphicsConversionUtility.o: /usr/include/math.h
 src/util/GraphicsConversionUtility.o: /usr/include/features.h

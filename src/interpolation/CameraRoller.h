@@ -22,6 +22,8 @@ public:
 
 	void handleTick();
 
+	void handleMouseEvent(MouseEvent * event);
+
 	void handleMouseEvent(MouseMotionEvent * mme);
 
 	void handleMouseEvent(MouseClickEvent * mce);

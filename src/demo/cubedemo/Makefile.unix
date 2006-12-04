@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lSDL -lGL -lGLU -lm -lGOR
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
 SRCS = HelloWorld.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix $(INCLUDES) $^
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
@@ -114,7 +114,22 @@ HelloWorld.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
 HelloWorld.o: ../../texture/TextureFactory.h /usr/include/GL/glut.h
 HelloWorld.o: ../../texture/Texture.h ../../texture/TexturePPM.h
 HelloWorld.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
-HelloWorld.o: ../../core/Viewer.h ../../core/Controller.h ../../core/World.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/Interpolable.h ../../shape/Positionable.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../interpolation/Interpolable.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
+HelloWorld.o: ../../core/Controller.h ../../core/World.h
 HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 HelloWorld.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
 HelloWorld.o: ../../paint/Paint.h ../../paint/ColorConstants.h

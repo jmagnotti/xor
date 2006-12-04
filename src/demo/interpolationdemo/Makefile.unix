@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lSDL -lGL -lGLU -lm -lGOR
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
 SRCS = InterpolationDemo.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix $(INCLUDES) $^
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 

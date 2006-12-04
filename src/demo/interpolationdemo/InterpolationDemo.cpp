@@ -1,5 +1,6 @@
 #include "../../xor.h"
 
+using namespace XOR;
 
 /**
  * Tests the interpolation.
@@ -76,7 +77,7 @@ public:
 	InterpolationDemo(int argc, char **argv)
 	{
 		Controller * ctrl = Controller::GetInstance();
-	    ctrl->defaultConfiguration(argc, argv);
+	    ctrl->defaultConfiguration();
 	    ctrl->getKeyboard()->addListener(this);
 	    
 		//FPS counter
