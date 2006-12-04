@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lSDL -lGL -lGLU -lm -lXOR
+LIBS = -lSDL -framework OpenGL -lSDLMain -framework Cocoa -lGOR
 
 #Packages
 SRCS = Maze.cpp MazeParser.cpp SocialRenderingProject.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+			makedepend -fMakefile.unix $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 

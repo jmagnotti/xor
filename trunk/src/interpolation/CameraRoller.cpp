@@ -21,6 +21,13 @@ void CameraRoller::handleTick()
 /*
  * roll camera based on theta-rotation
  */
+void CameraRoller::handleMouseEvent(MouseEvent * event)
+{
+}
+
+/*
+ * roll camera based on theta-rotation
+ */
 void CameraRoller::handleMouseEvent(MouseMotionEvent * mme)
 {
 	if (false)
