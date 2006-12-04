@@ -1,6 +1,7 @@
 #include <string.h>
 #include "SocialRenderingProject.h"
 
+using namespace XOR;
 
 /**
  * This function uses the MazeParser to parse the file maze1.mz

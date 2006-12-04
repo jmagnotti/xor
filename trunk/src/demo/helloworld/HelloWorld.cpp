@@ -1,4 +1,4 @@
-#include "../../gor.h"
+#include "../../xor.h"
 
 
 using namespace XOR;

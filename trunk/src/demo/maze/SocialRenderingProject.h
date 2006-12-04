@@ -3,7 +3,7 @@
 
 #include <stdlib.h>	//THIS MUST BE INCLUDED IN ALL FILES THAT INCLUDE GLUT.H TO QUIET "EXIT() REDEF ERROR"
 
-#include "../../gor.h"
+#include "../../xor.h"
 
 #include "Maze.h"
 #include "MazeParser.h"
