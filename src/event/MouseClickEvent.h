@@ -3,7 +3,7 @@
 
 
 #include "MouseEvent.h"
-#include "../../SDL.h"
+#include "../../include/SDL.h"
 
 
 namespace XOR {

@@ -55,7 +55,7 @@ protected:
     Interpolable * _begin;
 
     virtual void resetInterpolation();
-}
+};
 
 }
 

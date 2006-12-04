@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 
-#include "../../gor.h"
+#include "../../xor.h"
 
 #include "Maze.h"
 

@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lGL -lGLU -lglut -lm -lGOR
+LIBS = -lSDL -lGL -lGLU -lm -lGOR
 
 #Packages
 SRCS = CoordinateSystem.cpp
@@ -35,3 +35,128 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
+CoordinateSystem.o: ../../xor.h ../../shape/Point.h ../../shape/String2D.h
+CoordinateSystem.o: /usr/include/string.h /usr/include/features.h
+CoordinateSystem.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+CoordinateSystem.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+CoordinateSystem.o: ../../util/BitmapFontUtil.h
+CoordinateSystem.o: ../../util/BitmapFontConstants.h /usr/include/stdlib.h
+CoordinateSystem.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+CoordinateSystem.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+CoordinateSystem.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+CoordinateSystem.o: ../../paint/Paint.h ../../texture/Texture.h
+CoordinateSystem.o: ../../paint/Color.h ../../shape/Renderable.h
+CoordinateSystem.o: ../../core/Controller.h ../../../include/SDL.h
+CoordinateSystem.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+CoordinateSystem.o: ../../../include/SDL_getenv.h
+CoordinateSystem.o: ../../../include/SDL_error.h
+CoordinateSystem.o: ../../../include/begin_code.h
+CoordinateSystem.o: ../../../include/close_code.h
+CoordinateSystem.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+CoordinateSystem.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+CoordinateSystem.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+CoordinateSystem.o: /usr/include/_G_config.h /usr/include/wchar.h
+CoordinateSystem.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+CoordinateSystem.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+CoordinateSystem.o: /usr/include/bits/stdio_lim.h
+CoordinateSystem.o: /usr/include/bits/sys_errlist.h
+CoordinateSystem.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+CoordinateSystem.o: ../../../include/SDL_byteorder.h
+CoordinateSystem.o: ../../../include/SDL_cdrom.h
+CoordinateSystem.o: ../../../include/SDL_joystick.h
+CoordinateSystem.o: ../../../include/SDL_events.h
+CoordinateSystem.o: ../../../include/SDL_active.h
+CoordinateSystem.o: ../../../include/SDL_keyboard.h
+CoordinateSystem.o: ../../../include/SDL_keysym.h
+CoordinateSystem.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+CoordinateSystem.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+CoordinateSystem.o: ../../../include/SDL_version.h ../../event/Keyboard.h
+CoordinateSystem.o: ../../event/KeyboardListener.h ../../event/Timer.h
+CoordinateSystem.o: ../../event/TimerListener.h ../../event/Keyboard.h
+CoordinateSystem.o: ../../event/KeyUpEvent.h ../../event/KeyEvent.h
+CoordinateSystem.o: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
+CoordinateSystem.o: ../../event/Mouse.h ../../event/MouseListener.h
+CoordinateSystem.o: ../../event/MouseEvent.h ../../event/Mouse.h
+CoordinateSystem.o: ../../event/MouseEventFactory.h
+CoordinateSystem.o: ../../event/MouseButtonDown.h
+CoordinateSystem.o: ../../event/MouseClickEvent.h ../../event/MouseButtonUp.h
+CoordinateSystem.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
+CoordinateSystem.o: ../../core/World.h ../../shape/Point3D.h
+CoordinateSystem.o: /usr/include/math.h /usr/include/bits/huge_val.h
+CoordinateSystem.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+CoordinateSystem.o: ../../shape/Renderable.h ../../transform/Rotate.h
+CoordinateSystem.o: ../../transform/Transform.h ../../event/TimerListener.h
+CoordinateSystem.o: ../../transform/Transform.h ../../transform/Translate.h
+CoordinateSystem.o: ../../core/Viewer.h
+CoordinateSystem.o: ../../util/GraphicsConversionUtility.h
+CoordinateSystem.o: ../../transform/Orientate.h ../../transform/Translate.h
+CoordinateSystem.o: ../../transform/Rotate.h ../../event/ReshapeListener.h
+CoordinateSystem.o: ../../event/DefaultKeyboardListener.h ../../core/World.h
+CoordinateSystem.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
+CoordinateSystem.o: ../../shape/Arc3D.h ../../shape/Point3D.h
+CoordinateSystem.o: ../../shape/AdornablePrism.h
+CoordinateSystem.o: ../../shape/RectangularPrism.h
+CoordinateSystem.o: ../../shape/Quadrilateral3D.h
+CoordinateSystem.o: ../../geometry/Dimension3D.h ../../paint/Color.h
+CoordinateSystem.o: ../../geometry/RectangularVolume.h
+CoordinateSystem.o: ../../geometry/Dimension3D.h ../../shape/Positionable.h
+CoordinateSystem.o: ../../shape/Renderable.h ../../shape/Particle.h
+CoordinateSystem.o: ../../shape/CollisionRenderable.h
+CoordinateSystem.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
+CoordinateSystem.o: ../../shape/Quadrilateral3DConstants.h
+CoordinateSystem.o: ../../shape/CollisionRenderable.h ../../shape/Point2D.h
+CoordinateSystem.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+CoordinateSystem.o: ../../shape/RectangularPrism.h
+CoordinateSystem.o: ../../shape/AdornableCube.h ../../shape/Cube.h
+CoordinateSystem.o: ../../shape/AdornablePrism.h
+CoordinateSystem.o: ../../shape/NormalPolygon3D.h ../../shape/Positionable.h
+CoordinateSystem.o: ../../event/MouseEvent.h ../../event/SpecialKeyEvent.h
+CoordinateSystem.o: ../../event/ReshapeListener.h ../../event/MouseListener.h
+CoordinateSystem.o: ../../event/Keyboard.h ../../event/MouseClickEvent.h
+CoordinateSystem.o: ../../event/DefaultMouseListener.h
+CoordinateSystem.o: ../../event/KeyboardListener.h
+CoordinateSystem.o: ../../event/DefaultKeyboardListener.h
+CoordinateSystem.o: ../../event/RegularKeyEvent.h ../../event/Timer.h
+CoordinateSystem.o: ../../event/MouseMotionEvent.h
+CoordinateSystem.o: ../../event/TimerListener.h ../../event/Mouse.h
+CoordinateSystem.o: ../../event/KeyEvent.h ../../event/KeyUpEvent.h
+CoordinateSystem.o: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
+CoordinateSystem.o: ../../event/MouseEventFactory.h
+CoordinateSystem.o: ../../event/MouseButtonUp.h ../../event/MouseButtonDown.h
+CoordinateSystem.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+CoordinateSystem.o: ../../texture/TextureFactory.h /usr/include/GL/glut.h
+CoordinateSystem.o: ../../texture/Texture.h ../../texture/TexturePPM.h
+CoordinateSystem.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
+CoordinateSystem.o: ../../interpolation/InterpolationEngine.h
+CoordinateSystem.o: ../../interpolation/Interpolable.h
+CoordinateSystem.o: ../../shape/Positionable.h
+CoordinateSystem.o: ../../interpolation/InterpolationListener.h
+CoordinateSystem.o: ../../interpolation/InterpolatorFactory.h
+CoordinateSystem.o: ../../interpolation/Interpolator.h
+CoordinateSystem.o: ../../interpolation/LinearInterpolator.h
+CoordinateSystem.o: ../../interpolation/InterpolationEngine.h
+CoordinateSystem.o: ../../interpolation/LinearInterpolator.h
+CoordinateSystem.o: ../../interpolation/InterpolationListener.h
+CoordinateSystem.o: ../../interpolation/ContinuousInterpolation.h
+CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
+CoordinateSystem.o: ../../interpolation/Interpolable.h
+CoordinateSystem.o: ../../interpolation/Interpolator.h
+CoordinateSystem.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
+CoordinateSystem.o: ../../core/Controller.h ../../core/World.h
+CoordinateSystem.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+CoordinateSystem.o: ../../geometry/RectangularVolume.h
+CoordinateSystem.o: ../../geometry/Dimension.h ../../paint/Paint.h
+CoordinateSystem.o: ../../paint/ColorConstants.h ../../paint/Color.h
+CoordinateSystem.o: ../../texture/TextureFactory.h
+CoordinateSystem.o: ../../transform/Orientate.h ../../transform/Transform.h
+CoordinateSystem.o: ../../transform/Translate.h ../../transform/Rotate.h
+CoordinateSystem.o: ../../transform/Transformable.h
+CoordinateSystem.o: ../../transform/TransformFactory.h
+CoordinateSystem.o: ../../transform/Positionable.h
+CoordinateSystem.o: ../../util/GraphicsConversionUtility.h
+CoordinateSystem.o: ../../util/BehaviorParser.h
+CoordinateSystem.o: ../../transform/TransformFactory.h
+CoordinateSystem.o: ../../util/FramesPerSecondCounter.h
+CoordinateSystem.o: ../../shape/String2D.h ../../util/BitmapFontConstants.h
+CoordinateSystem.o: ../../util/BitmapFontUtil.h

@@ -5,7 +5,7 @@
 #include <set>
 #include <vector>
 
-#include "../../gor.h"
+#include "../../xor.h"
 
 
 using namespace std;
