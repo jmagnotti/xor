@@ -7,7 +7,7 @@
 # -- such lines must be manually removed from the resulting file
 
 # destination filename
-H_FILE=gor.h
+H_FILE=xor.h
 
 # delete old file
 rm -f $H_FILE
