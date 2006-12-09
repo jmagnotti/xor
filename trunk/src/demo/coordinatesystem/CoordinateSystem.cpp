@@ -36,6 +36,7 @@ public:
 
 	void handleKey_x()
 	{
+		cout << "SWITCH AXES\n";
 		_math = !_math;
 		Controller::GetInstance()->getViewer()->setCoordinateSystem(_math);
 	}
