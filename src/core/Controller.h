@@ -153,7 +153,6 @@ protected:
 
 	static Controller *			_controller;
 
-
 	Keyboard *			_keyboard;
 	Mouse *				_mouse;
 	Renderable *		_model;

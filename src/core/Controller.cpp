@@ -158,7 +158,7 @@ void Controller::defaultIVSConfiguration(bool configGL)
 World * Controller::getModel()
 {
 	if (_model == NULL)
-		return NULL;
+        _model = World::GetInstance();
 
 	return (World*)_model;
 }
@@ -182,7 +182,7 @@ Viewer * Controller::getViewer()
 Keyboard * Controller::getKeyboard()
 {
 	if (_keyboard == NULL)
-		return NULL;
+	    _keyboard = Keyboard::GetInstance();	
 
 	return _keyboard;
 }
@@ -194,7 +194,7 @@ Keyboard * Controller::getKeyboard()
 Mouse * Controller::getMouse()
 {
 	if (_mouse == NULL)
-		return NULL;
+        _mouse = Mouse::GetInstance();
 
 	return _mouse;
 }
@@ -206,7 +206,7 @@ Mouse * Controller::getMouse()
 ReshapeListener * Controller::getReshapeListener()
 {
     if (_reshape == NULL)
-        return 0;
+        return NULL;
 
     return _reshape;
 }

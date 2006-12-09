@@ -63,10 +63,11 @@ int main(int argc, char **argv)
 
 	// lets add some grass
 	Terrain * grass = new Terrain(new Point3D(0,0,0), _maze->getSize());
+
 	ctrl->getModel()->addRenderable("grass", grass);
 	
 	// camera roller
-	new CameraRoller();
+	//new CameraRoller();
 
     //FPS counter
     new FramesPerSecondCounter();

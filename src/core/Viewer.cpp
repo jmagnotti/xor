@@ -27,6 +27,8 @@ Viewer::Viewer(int fov, float nearCP, float farCP)
 	_size = new Dimension2D(DEFAULT_WINDOW_WIDTH, 
 							DEFAULT_WINDOW_HEIGHT);
 
+    _title = DEFAULT_WINDOW_TITLE;
+
 	_fullscreen         = false;
 
 	_fieldOfView		= fov;
@@ -112,6 +114,7 @@ void Viewer::setupSDLVideo()
     //at some point we need to have variables to hold things like current video flags, etc.
     SDL_SetVideoMode(_size->getWidth(), _size->getHeight(), 
                                     DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
+    setWindowTitle(NULL);
 }
 
 
@@ -243,7 +246,6 @@ void Viewer::setBackground(const float color[3])
         _backgroundColor[i] = color[i];
 
     setupClearColor();
-    
 }
 
 }
