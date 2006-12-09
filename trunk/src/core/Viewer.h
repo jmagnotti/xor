@@ -18,6 +18,7 @@ namespace XOR {
 /**
  * Designed to maintain the state of the viewer of the world.
  * Transformations are now diseminated.
+ * The Viewer is doing a little bit too much windowing at the moment.
  */
 class Viewer : public ReshapeListener
 {
@@ -152,6 +153,7 @@ protected:
 	bool			_fullscreen;
 
     float           _backgroundColor[3];
+    const char *          _title;
 
 	Dimension2D *	_size;
 	Renderable *	_model;
