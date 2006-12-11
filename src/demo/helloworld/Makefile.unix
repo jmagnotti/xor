@@ -38,24 +38,27 @@ depend: $(SRCS)
 HelloWorld.o: ../../xor.h ../../shape/Point.h ../../shape/String2D.h
 HelloWorld.o: /usr/include/string.h /usr/include/features.h
 HelloWorld.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-HelloWorld.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 HelloWorld.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-HelloWorld.o: /usr/include/stdlib.h ../../../include/SDL_opengl.h
-HelloWorld.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-HelloWorld.o: /usr/include/GL/glu.h ../../geometry/Dimension2D.h
-HelloWorld.o: ../../geometry/Dimension.h ../../paint/Paint.h
-HelloWorld.o: ../../texture/Texture.h ../../paint/Color.h
+HelloWorld.o: /usr/include/stdlib.h /usr/include/sys/types.h
+HelloWorld.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+HelloWorld.o: /usr/include/bits/typesizes.h /usr/include/time.h
+HelloWorld.o: /usr/include/endian.h /usr/include/bits/endian.h
+HelloWorld.o: /usr/include/sys/select.h /usr/include/bits/select.h
+HelloWorld.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+HelloWorld.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+HelloWorld.o: /usr/include/bits/sched.h /usr/include/alloca.h
+HelloWorld.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+HelloWorld.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+HelloWorld.o: ../../paint/Paint.h ../../texture/Texture.h ../../paint/Color.h
 HelloWorld.o: ../../shape/Renderable.h ../../core/Controller.h
 HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
 HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
 HelloWorld.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-HelloWorld.o: /usr/include/stdio.h /usr/include/bits/types.h
-HelloWorld.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
-HelloWorld.o: /usr/include/libio.h /usr/include/_G_config.h
-HelloWorld.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-HelloWorld.o: /usr/include/gconv.h
-HelloWorld.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
+HelloWorld.o: /usr/include/stdio.h /usr/include/libio.h
+HelloWorld.o: /usr/include/_G_config.h /usr/include/wchar.h
+HelloWorld.o: /usr/include/bits/wchar.h /usr/include/gconv.h
 HelloWorld.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
 HelloWorld.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
 HelloWorld.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
