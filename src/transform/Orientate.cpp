@@ -209,8 +209,8 @@ void Orientate::walk(float distance)
 	coords[0] = (_focalPoint->_xShift - _position->_xShift) * distance;
 	coords[1] = (_focalPoint->_yShift - _position->_yShift) * distance;
 	coords[2] = (_focalPoint->_zShift - _position->_zShift) * distance;
-	/*float t =  (_theta->_angle / 180.0f * M_PI);
-	float p = -(_phi->_angle / 180.0f * M_PI);
+	/*float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
+	float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
 	coords[0] = (distance * cos(p) * sin(t));
 	coords[1] = (distance * sin(p));
 	coords[2] = (distance * cos(p) * cos(t));*/
@@ -226,8 +226,8 @@ void Orientate::walk(float distance)
 void Orientate::updateFocalPoint()
 {
 	// theta and phi in radians
-	float t =  (_theta->_angle / 180.0f * M_PI);
-	float p = -(_phi->_angle / 180.0f * M_PI);
+	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
+	float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
 
 	// new focal point
 	_focalPoint->_xShift = _position->_xShift - (_focalDistance * cos(p) * sin(t));
@@ -253,8 +253,8 @@ void Orientate::updateFromFocalPoint()
 	float z = _focalPoint->_zShift - _position->_zShift;
 
 	// new rotation
-	_phi->_angle = -(asin(y / _focalDistance)) / M_PI * 180.0f;
-	_theta->_angle = (atan2(x , z) / M_PI * 180.0f) - 180.0f;
+	_phi->_angle = -(asin(y / _focalDistance)) / GraphicsConversionUtility::PI * 180.0f;
+	_theta->_angle = (atan2(x , z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f;
 }
 
 

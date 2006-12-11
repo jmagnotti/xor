@@ -5,6 +5,8 @@ using namespace XOR;
 //set the static instance to null.
 GraphicsConversionUtility * GraphicsConversionUtility::_graphicsConversionUtility = 0;
 
+//set pi
+const float GraphicsConversionUtility::PI = 3.14159265358979323846;
 
 /*
  * returns the instance.

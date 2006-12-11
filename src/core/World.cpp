@@ -65,6 +65,24 @@ void World::addRenderable(char * name, Renderable * rend)
 }
 
 
+/*
+ * Get a reference to an object in the world
+ */
+Renderable * World::getRenderable(char * name)
+{
+	return renderables[name];
+}
+
+
+/*
+ * Remove an object from the world
+ */
+void World::removeRenderable(char * name)
+{
+	renderables.erase(name);
+}
+
+
 /**
  * Remove all renderables from the world
  */

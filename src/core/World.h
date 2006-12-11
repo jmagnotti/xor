@@ -101,9 +101,15 @@ public:
 
 
 	/**
+	 * Returns a reference to a named renderable.
+	 */
+	Renderable * getRenderable(char *);
+
+
+	/**
 	 * Removes a renderable from the worlds vector
 	 */
-	void removeRenderable(Renderable *);
+	void removeRenderable(char *);
 
 
 	/**
