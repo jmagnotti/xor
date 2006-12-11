@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lGL -lGLU -lglut -lm
+LIBS = -lGL -lGLU -lm
 
 #Packages
 SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Positionable.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/DefaultMouseListener.cpp src/event/DefaultKeyboardListener.cpp src/event/RegularKeyEvent.cpp src/event/MouseMotionEvent.cpp src/event/Timer.cpp src/event/Mouse.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/MouseButtonDown.cpp src/event/MouseListener.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/core/Viewer.cpp src/core/Controller.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Orientate.cpp src/transform/Transform.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp
