@@ -9,6 +9,9 @@ namespace XOR {
  */
 Quadrilateral3D::Quadrilateral3D()
 {
+    /*
+    cout << "QUAD DC" << endl;
+
     _paint = new Paint(Color::WHITE);
 
 	_vertices[0] = new Point3D(0.0f, 0.0f, 0.0f);
@@ -17,6 +20,7 @@ Quadrilateral3D::Quadrilateral3D()
 	_vertices[3] = new Point3D(1.0f, 0.0f, 0.0f);
 
 	calculateCenter();
+    */
 }
 
 
@@ -85,6 +89,7 @@ void Quadrilateral3D::render(void)
 
 	if (_paint->isTextured())
 	{
+
        	// need to determine if lighting is on and if the object is textured 
 		//if (isLit()){
 		//	glNormal3fv(getNormal()->getPosition());
