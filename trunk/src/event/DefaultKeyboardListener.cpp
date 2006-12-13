@@ -11,9 +11,7 @@ DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener = 0;
  */
 DefaultKeyboardListener::DefaultKeyboardListener()
 {
-
-        cout << "INFO: Debugging output is on. See DefaultKeyboardListener.cpp:42 for printouts" << endl;
-
+    //cout << "INFO: Debugging output is on. See DefaultKeyboardListener.cpp:42 for printouts" << endl;
 }
 
 
@@ -38,26 +36,26 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
         handleKeyDown((KeyDownEvent*)ke);
     else
         handleKeyUp((KeyUpEvent*)ke);
-
+/*
     cout << "Key stats"             << endl;
     cout << "Shift held down: "     << ke->isShiftPressed()     << endl; 
     cout << "Control held down: "   << ke->isCtrlPressed()      << endl;
     cout << "Alt held down: "       << ke->isAltPressed()       << endl;
     cout << "Meta held down: "      << ke->isMetaPressed()      << endl;
+*/
 }
 
 
 void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
 {
-    cout << "KEY UP" << endl;
-
+//    cout << "KEY UP" << endl;
 	handleKey(kue);
 }
 
 
 void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 {
-    cout << "KEY DOWN" << endl;
+    //cout << "KEY DOWN" << endl;
 
     if ( *(kde->getKey()) == SDLK_ESCAPE)
         Controller::GetInstance()->CleanUpAndExit();
