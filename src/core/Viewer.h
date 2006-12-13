@@ -6,8 +6,9 @@
 
 #include "../../include/SDL.h"
 
+#include "World.h"
+
 #include "../geometry/Dimension2D.h"
-#include "../util/GraphicsConversionUtility.h"
 #include "../shape/Point3D.h"
 #include "../transform/Orientate.h"
 #include "../event/ReshapeListener.h"
@@ -59,7 +60,7 @@ public:
 	/**
 	 * Adds a renderable to the viewer's list
 	 */
-	void setModel(Renderable*);
+	void setModel(World*);
 
 
 	/**
@@ -73,6 +74,11 @@ public:
 	 */
     void handleReshape(SDL_Event * event);
 
+
+    /**
+     * Simple reshape handler
+     */
+    void handleReshape(int width, int height);
 
 	/** 
 	 * Calls render() on the model
@@ -156,7 +162,8 @@ protected:
     const char *          _title;
 
 	Dimension2D *	_size;
-	Renderable *	_model;
+
+	World *	_model;
 
 	Orientate *		_orientation;
 	Rotate *     	_coordinates[3];

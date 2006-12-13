@@ -65,17 +65,23 @@ Controller* Controller::GetInstance()
 	return _controller;
 }
 
+void Controller::exit()
+{
+
+	Controller * control = Controller::GetInstance();
+	delete control;
+
+    // clean up SDL, and exit
+    SDL_Quit(); 
+}
 
 /*
  * Destroy everything and terminate
  */
 void Controller::CleanUpAndExit()
 {
-	Controller * control = Controller::GetInstance();
-	delete control;
-
-    // clean up SDL, and exit
-    SDL_Quit(); 
+    SDL_Event quitEvent = {SDL_QUIT}; 
+    SDL_PushEvent(&quitEvent);
 }
 
 
@@ -220,6 +226,10 @@ void Controller::run(void)
     // start ticking
     _timer->start();
 
+    //set final window properties
+    _viewer->setWindowDimension(_viewer->getWindowSize());
+    _viewer->setupClearColor();
+
     // sit around and wait for something to do 
     Controller::EventLoop();
 }
@@ -239,7 +249,7 @@ void Controller::setModel(Renderable* rend)
 	else // it already is a world object
 		_model = rend;
 
-	_viewer->setModel(_model);
+	_viewer->setModel((World*)_model);
 }
 
 
@@ -277,18 +287,18 @@ void Controller::EventLoop()
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to
                 ctrl->defaultGLConfiguration();
-                ctrl->getViewer()->view();
                 break;
 
             case SDL_QUIT:
-                Controller::CleanUpAndExit(); 
+                exit();
                 break;
 
             // this is where I am doing repaints, not sure if that is correct
             case SDL_USEREVENT:
-                if (event.user.code == Timer::TIMER_TICK_EVENT)
+                if (event.user.code == Timer::TIMER_TICK_EVENT) {
                     Timer::GetInstance()->tickTock();
                     ctrl->getViewer()->view();
+                }
                 break;
 
             default: break;

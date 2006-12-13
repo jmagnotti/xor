@@ -8,6 +8,7 @@
 #include "../shape/Point3D.h"
 #include "../shape/Renderable.h"
 #include "../transform/Rotate.h"
+#include "../shape/Positionable.h"
 #include "../event/TimerListener.h"
 #include "../transform/Transform.h"
 #include "../transform/Translate.h"
@@ -67,6 +68,18 @@ public:
 	 * Clears the list of renderables
 	 */
 	void clean();
+
+
+    /*
+     * easy way to compile
+     */
+    void compile();
+
+
+    /*
+     * easy way to decompile
+     */
+    void decompile();
 
 
 	/**

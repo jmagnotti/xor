@@ -92,6 +92,34 @@ void World::clean()
 }
 
 
+void World::compile()
+{
+	map<char*, Renderable*>::iterator iter	 = renderables.begin();
+	map<char*, Renderable*>::iterator finish = renderables.end();
+
+	while(iter != finish) {
+        if (iter->second->getRenderableType() == "POSITIONABLE")
+            ((Positionable*)(iter->second))->compile();
+
+		++iter;
+	}
+}
+
+
+void World::decompile()
+{
+	map<char*, Renderable*>::iterator iter	 = renderables.begin();
+	map<char*, Renderable*>::iterator finish = renderables.end();
+
+	while(iter != finish) {
+        if (iter->second->getRenderableType() == "POSITIONABLE")
+            ((Positionable*)(iter->second))->decompile();
+
+		++iter;
+	}
+}
+
+
 /* 
  * return global rotation
  */
