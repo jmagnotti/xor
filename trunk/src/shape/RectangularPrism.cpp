@@ -89,8 +89,7 @@ void RectangularPrism::render(void)
 	if (_positioned)
 		_orientation->push();
 
-	if (!_compiled)
-	{
+	if (!_compiled) {
 		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 		vector<Quadrilateral3D*>::iterator finish = _faces.end();
 		
@@ -99,8 +98,7 @@ void RectangularPrism::render(void)
 			iter++;
 		}
 	}
-	else
-	{
+	else {
 		glCallList(_displayListID);
 	}
 	
