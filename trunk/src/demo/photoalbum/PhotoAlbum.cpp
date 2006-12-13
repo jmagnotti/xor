@@ -1,13 +1,12 @@
 #include "../../xor.h"
-#include "../../shape/Square3D.h"
-//#include <string>
 
 
 using namespace std;
+
 using namespace XOR;
 
 
-class PhotoAlbum : public DefaultKeyboardListener
+class PhotoAlbum : public DefaultKeyboardListener, public Renderable
 {
 
 public:
@@ -17,22 +16,38 @@ public:
  	*/
 	PhotoAlbum()
 	{
+
         Controller * ctrl = Controller::GetInstance();
-		// a nice big world to keep our pictures in
-		//world = World::GetInstance();
-		
 		ctrl->defaultConfiguration();
-		
+
 		ctrl->getKeyboard()->addListener(this);
-		
-		//ctrl->setModel(new Square3D(new Point3D(-200,-1000,0), 1.0f, new Paint(Color::RED, Paint::HEIGHT_BASED)));
-			//	world);
+       
+        a = new Cube(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
+        b = new Cube(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
+        c = new Cube(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
+
 		loadPics();
-		displayPics();
-        //ctrl->getViewer()->getOrientation()->incrementPosition(new Point3D(0,0,9));
-        //ctrl->getViewer()->getOrientation()->setFocalPoint(new Point3D(0,0,0));
+
+        s = new String2D("PHOTO DEMO"); // this is a kludge, FIXME 
+        ctrl->setModel(this);
+
         ctrl->run();
 	}
+
+    
+    void render()
+    {
+        s->render();
+
+        vector<Square3D*>::iterator iter = pics.begin();
+        vector<Square3D*>::iterator end = pics.end();
+
+        while (iter != end) { 
+            (*iter)->render();
+            iter++;
+        }
+    }
+ 
 
 	/**
 	 * When you hit the 0 key, all the pictures are set back to 
@@ -41,17 +56,15 @@ public:
 	void PhotoAlbum::handleKey_0()
 	{
 		cout << Controller::GetInstance()->getViewer()->getOrientation()->getFocalPoint()->toString() << endl;
-
-	
 	}
 
 //-- For all other key presses, the corresponding image (QUAD) is
 // made to go quasi-full screen
 	
 	void PhotoAlbum::handleKey_1()
-	{
-	
-	}
+	{ 
+         
+    }
 
 	void PhotoAlbum::handleKey_2()
 	{}
@@ -77,10 +90,6 @@ public:
 	void PhotoAlbum::handleKey_9()
 	{}
 
-private:
-
-	Square3D * _pictures[9];
-	//World * world;
 
 protected:
 	/**
@@ -93,31 +102,32 @@ protected:
 
 	void loadPics()
 	{
-		float squareDiameter = .1;
+		float squareDiameter = .3;
+        float z = 0;
+        float offset = .05;
 			
-		for(int i=0; i<3; i++)
-		{
-	   		for (int j=0; j<3; j++)
-			{
-			   	_pictures[3*i + j] = new Square3D(
-							new Point3D(i * squareDiameter, j * squareDiameter, 0),
-							squareDiameter,
-							new Paint(.2, .1 * i, .3 * j));
+		for(int i=-1; i<2; i++) {
+	   		for (int j=-1; j<2; j++) {
+                cout << "Adding square at: " << i *squareDiameter << ", " << j * squareDiameter << ", " << z << endl;
+
+			   	pics.push_back(new Square3D(
+                                    new Point3D(i * squareDiameter + offset*i, j * squareDiameter + offset*j, z),
+                                    squareDiameter,
+                                    new Paint( (i+1)*.3, (j+1)*.3, (j+i+1)*.3)
+                                ));
 			}
 		}
 	}
 	
-	void displayPics()
-	{
-		World * world = Controller::GetInstance()->getModel();
-		for(int i = 0; i < 9; i++) {
-			string name = "Quad " + i;
-			cout << "adding: " << name << " to world." << endl;
-			world->addRenderable((char*)name.c_str(), (Renderable*)_pictures[i]);
-		}
-	}
+
+private:
+
+    vector<Square3D*> pics;
+    Cube *a,*b,*c;
+    String2D *s;
 
 };	
+
 	
 /**
  *  Tester Main
@@ -125,6 +135,7 @@ protected:
 int main(int argc, char **argv)
 {
 	PhotoAlbum * demo = new PhotoAlbum(); 
+
     return 0;
 }
 
