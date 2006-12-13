@@ -63,7 +63,7 @@ Viewer::~Viewer()
  * Sets the model to be viewed.
  * This is substitutive, not additive.
  */
-void Viewer::setModel(Renderable * rend)
+void Viewer::setModel(World * rend)
 {
 	_model = rend;
 }
@@ -78,17 +78,18 @@ Dimension2D * Viewer::getWindowSize()
 }
 
 
-/*
- * handles window reshapes
- */
-void Viewer::handleReshape(SDL_Event * event)
+void Viewer::handleReshape(int width, int height)
 {
     // set a new video size
-	_size->setWidth(event->resize.w);
-	_size->setHeight(event->resize.h);
+	_size->setWidth(width);
+	_size->setHeight(height);
 
     // new screen size & bg color
-    setupSDLVideo();
+    //setupSDLVideo();
+
+    // let everyone now we need to do recalculations
+//    _model->decompile();
+//    _model->compile();
 
     // reset clear color
     setupClearColor(); 
@@ -96,13 +97,24 @@ void Viewer::handleReshape(SDL_Event * event)
     glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
     glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
     glLoadIdentity();
 
 	gluPerspective(_fieldOfView, (double)_size->getWidth()/ (double)_size->getHeight(),
 		_nearClippingPlane, _farClippingPlane);
 
     glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
     glLoadIdentity();
+}
+
+
+/*
+ * handles window reshapes
+ */
+void Viewer::handleReshape(SDL_Event * event)
+{
+    handleReshape(event->resize.w, event->resize.h);
 }
 
 
@@ -113,7 +125,7 @@ void Viewer::setupSDLVideo()
 {
     //at some point we need to have variables to hold things like current video flags, etc.
     SDL_SetVideoMode(_size->getWidth(), _size->getHeight(), 
-                                    DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
+                     DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
     setWindowTitle(NULL);
 }
 
@@ -123,7 +135,7 @@ void Viewer::setupSDLVideo()
  */
 void Viewer::setupClearColor()
 {
-	glClearColor(_backgroundColor[0], _backgroundColor[1], _backgroundColor[2], 1.0f); 
+	glClearColor(_backgroundColor[0], _backgroundColor[1], _backgroundColor[2], 0.1f); 
 }
 
 
@@ -139,7 +151,7 @@ void Viewer::view()
 
 	for (int o = 0; o < 3; o++)
 		_coordinates[o]->push();
-	
+
 	_model->render();
 
 	for (int o = 2; o >= 0; o--)
@@ -147,7 +159,7 @@ void Viewer::view()
 		
 	_orientation->pop();
 
-    //SDL call to swap the off screen buffer with the on screen one
+    // SDL call to swap the off screen buffer with the on screen one
     SDL_GL_SwapBuffers(); 
 }
 

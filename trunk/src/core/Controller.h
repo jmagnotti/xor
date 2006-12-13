@@ -167,6 +167,11 @@ private:
 
 	Controller();
 
+    /**
+     * the real exit function
+     */
+    static void exit();
+    
 };
 
 }
