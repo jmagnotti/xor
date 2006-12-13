@@ -53,13 +53,13 @@ void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
  */
 void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 {
+/*	
 	cout << "MOUSE X: " << mme->getXPosition() << endl;
 	cout << "MOUSE Y: " << mme->getYPosition() << endl;
 
 	cout << "RELATIVE MOUSE X: " << mme->getRelativeXPosition() << endl;
 	cout << "RELATIVE MOUSE Y: " << mme->getRelativeYPosition() << endl;
 
-/*
 	if (Mouse::GetInstance()->getLeftDown())
 	{
 		// rotate camera
