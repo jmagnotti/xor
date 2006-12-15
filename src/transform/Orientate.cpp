@@ -161,6 +161,7 @@ void Orientate::incrementRotation(int dimension, float angle)
  */
 void Orientate::setFocalPoint(Point3D *point)
 {
+	printDebugInfo();
 	_focalPoint->_xShift = point->getX();
 	_focalPoint->_yShift = point->getY();
 	_focalPoint->_zShift = point->getZ();
@@ -171,6 +172,7 @@ void Orientate::setFocalPoint(Point3D *point)
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
 
 	updateFromFocalPoint();
+	printDebugInfo();
 }
 
 

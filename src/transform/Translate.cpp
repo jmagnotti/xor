@@ -1,9 +1,5 @@
 #include "Translate.h"
 
-#include <iostream>
-
-using namespace std;
-
 
 namespace XOR {
 
