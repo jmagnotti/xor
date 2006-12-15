@@ -2,6 +2,7 @@
 #define CONTINUOUSINTERPOLATION_H
 
 
+#include "Interpolable.h"
 #include "TimedInterpolation.h"
 
 
@@ -60,3 +61,4 @@ protected:
 }
 
 #endif          // CONTINUOUSINTERPOLATION_H
+

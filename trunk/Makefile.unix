@@ -5,7 +5,7 @@ CC = g++
 LIBS = -lGL -lGLU -lm
 
 #Packages
-SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Positionable.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/DefaultMouseListener.cpp src/event/DefaultKeyboardListener.cpp src/event/RegularKeyEvent.cpp src/event/MouseMotionEvent.cpp src/event/Timer.cpp src/event/Mouse.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/MouseButtonDown.cpp src/event/MouseListener.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/core/Viewer.cpp src/core/Controller.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Orientate.cpp src/transform/Transform.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp
+SRCS = src/shape/Square3D.cpp src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Positionable.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/MouseClickEvent.cpp src/event/DefaultMouseListener.cpp src/event/DefaultKeyboardListener.cpp src/event/RegularKeyEvent.cpp src/event/MouseMotionEvent.cpp src/event/Timer.cpp src/event/Mouse.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/MouseButtonDown.cpp src/event/MouseListener.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/core/Viewer.cpp src/core/Controller.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/TransformFactory.cpp src/transform/Orientate.cpp src/transform/Transform.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -42,6 +42,21 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
+src/shape/Square3D.o: src/shape/Square3D.h src/shape/Point3D.h
+src/shape/Square3D.o: /usr/include/math.h /usr/include/features.h
+src/shape/Square3D.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/shape/Square3D.o: /usr/include/bits/huge_val.h
+src/shape/Square3D.o: /usr/include/bits/mathdef.h
+src/shape/Square3D.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
+src/shape/Square3D.o: /usr/include/string.h
+src/shape/Square3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Square3D.o: src/texture/Texture.h src/paint/Color.h
+src/shape/Square3D.o: src/shape/Renderable.h include/SDL_opengl.h
+src/shape/Square3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/Square3D.o: /usr/include/GL/glu.h src/shape/Quadrilateral3D.h
+src/shape/Square3D.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/shape/Square3D.o: src/util/GraphicsConversionUtility.h
+src/shape/Square3D.o: src/shape/Point3D.h src/paint/Color.h
 src/shape/AdornablePrism.o: src/shape/AdornablePrism.h
 src/shape/AdornablePrism.o: src/shape/RectangularPrism.h
 src/shape/AdornablePrism.o: src/util/GraphicsConversionUtility.h
@@ -53,12 +68,12 @@ src/shape/AdornablePrism.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
 src/shape/AdornablePrism.o: src/paint/Paint.h /usr/include/string.h
 src/shape/AdornablePrism.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/AdornablePrism.o: src/texture/Texture.h src/paint/Color.h
-src/shape/AdornablePrism.o: src/shape/Renderable.h include/SDL_opengl.h
-src/shape/AdornablePrism.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/AdornablePrism.o: /usr/include/GL/glu.h src/shape/Quadrilateral3D.h
+src/shape/AdornablePrism.o: src/shape/Quadrilateral3D.h
 src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
 src/shape/AdornablePrism.o: src/geometry/Dimension.h src/paint/Color.h
-src/shape/AdornablePrism.o: src/shape/Point3D.h
+src/shape/AdornablePrism.o: src/shape/Point3D.h src/shape/Renderable.h
+src/shape/AdornablePrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/shape/AdornablePrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/shape/AdornablePrism.o: src/geometry/RectangularVolume.h
 src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
 src/shape/AdornablePrism.o: src/shape/Positionable.h
@@ -67,25 +82,44 @@ src/shape/AdornablePrism.o: src/transform/Transform.h /usr/include/stdlib.h
 src/shape/AdornablePrism.o: src/transform/Translate.h src/transform/Rotate.h
 src/shape/Particle.o: src/shape/Particle.h src/shape/CollisionRenderable.h
 src/shape/Particle.o: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Particle.o: /usr/include/math.h /usr/include/features.h
+src/shape/Particle.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/shape/Particle.o: /usr/include/bits/huge_val.h
+src/shape/Particle.o: /usr/include/bits/mathdef.h
+src/shape/Particle.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
+src/shape/Particle.o: /usr/include/string.h
+src/shape/Particle.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Particle.o: src/texture/Texture.h src/paint/Color.h
+src/shape/Particle.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/shape/Particle.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/shape/Cube.o: src/shape/Cube.h src/paint/Paint.h /usr/include/string.h
 src/shape/Cube.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/Cube.o: /usr/include/gnu/stubs.h
 src/shape/Cube.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/Cube.o: src/texture/Texture.h src/paint/Color.h src/shape/Point3D.h
-src/shape/Cube.o: src/shape/RectangularPrism.h
-src/shape/Cube.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
-src/shape/Cube.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-src/shape/Cube.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/shape/Cube.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Cube.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
 src/shape/Cube.o: src/shape/Renderable.h include/SDL_opengl.h
 src/shape/Cube.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/Cube.o: /usr/include/GL/glu.h src/shape/Quadrilateral3D.h
-src/shape/Cube.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
-src/shape/Cube.o: src/paint/Color.h src/geometry/RectangularVolume.h
-src/shape/Cube.o: src/geometry/Dimension3D.h src/shape/Positionable.h
-src/shape/Cube.o: src/transform/Orientate.h src/transform/Transform.h
-src/shape/Cube.o: /usr/include/stdlib.h src/transform/Translate.h
-src/shape/Cube.o: src/transform/Rotate.h
-src/shape/Point3D.o: src/shape/Point3D.h
+src/shape/Cube.o: /usr/include/GL/glu.h src/shape/RectangularPrism.h
+src/shape/Cube.o: src/util/GraphicsConversionUtility.h src/shape/Point3D.h
+src/shape/Cube.o: src/shape/Quadrilateral3D.h src/geometry/Dimension3D.h
+src/shape/Cube.o: src/geometry/Dimension.h src/paint/Color.h
+src/shape/Cube.o: src/geometry/RectangularVolume.h src/geometry/Dimension3D.h
+src/shape/Cube.o: src/shape/Positionable.h src/transform/Orientate.h
+src/shape/Cube.o: src/transform/Transform.h /usr/include/stdlib.h
+src/shape/Cube.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/Point3D.o: src/shape/Point3D.h /usr/include/math.h
+src/shape/Point3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/shape/Point3D.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+src/shape/Point3D.o: /usr/include/bits/mathdef.h
+src/shape/Point3D.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
+src/shape/Point3D.o: /usr/include/string.h
+src/shape/Point3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
+src/shape/Point3D.o: src/texture/Texture.h src/paint/Color.h
+src/shape/Point3D.o: src/shape/Renderable.h include/SDL_opengl.h
+src/shape/Point3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/Point3D.o: /usr/include/GL/glu.h
 src/shape/Quadrilateral3D.o: src/shape/Quadrilateral3D.h /usr/include/math.h
 src/shape/Quadrilateral3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/Quadrilateral3D.o: /usr/include/gnu/stubs.h
@@ -97,12 +131,12 @@ src/shape/Quadrilateral3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/
 src/shape/Quadrilateral3D.o: src/geometry/Dimension3D.h
 src/shape/Quadrilateral3D.o: src/geometry/Dimension.h
 src/shape/Quadrilateral3D.o: src/util/GraphicsConversionUtility.h
-src/shape/Quadrilateral3D.o: src/shape/Point3D.h src/paint/Paint.h
-src/shape/Quadrilateral3D.o: src/texture/Texture.h src/paint/Color.h
+src/shape/Quadrilateral3D.o: src/shape/Point3D.h src/paint/Color.h
+src/shape/Quadrilateral3D.o: src/paint/Paint.h src/texture/Texture.h
+src/shape/Quadrilateral3D.o: src/paint/Color.h src/shape/Point3D.h
 src/shape/Quadrilateral3D.o: src/shape/Renderable.h include/SDL_opengl.h
 src/shape/Quadrilateral3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/Quadrilateral3D.o: /usr/include/GL/glu.h src/paint/Color.h
-src/shape/Quadrilateral3D.o: src/shape/Point3D.h
+src/shape/Quadrilateral3D.o: /usr/include/GL/glu.h
 src/shape/RectangularPrism.o: src/shape/RectangularPrism.h
 src/shape/RectangularPrism.o: src/util/GraphicsConversionUtility.h
 src/shape/RectangularPrism.o: /usr/include/math.h /usr/include/features.h
@@ -115,13 +149,12 @@ src/shape/RectangularPrism.o: src/shape/Point3D.h src/paint/Paint.h
 src/shape/RectangularPrism.o: /usr/include/string.h
 src/shape/RectangularPrism.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/RectangularPrism.o: src/texture/Texture.h src/paint/Color.h
-src/shape/RectangularPrism.o: src/shape/Renderable.h include/SDL_opengl.h
-src/shape/RectangularPrism.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/RectangularPrism.o: /usr/include/GL/glu.h
 src/shape/RectangularPrism.o: src/shape/Quadrilateral3D.h
 src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
 src/shape/RectangularPrism.o: src/geometry/Dimension.h src/paint/Color.h
-src/shape/RectangularPrism.o: src/shape/Point3D.h
+src/shape/RectangularPrism.o: src/shape/Point3D.h src/shape/Renderable.h
+src/shape/RectangularPrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/shape/RectangularPrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 src/shape/RectangularPrism.o: src/geometry/RectangularVolume.h
 src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
 src/shape/RectangularPrism.o: src/shape/Positionable.h
@@ -135,14 +168,15 @@ src/shape/AdornableCube.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/AdornableCube.o: /usr/include/gnu/stubs.h
 src/shape/AdornableCube.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/AdornableCube.o: src/texture/Texture.h src/paint/Color.h
-src/shape/AdornableCube.o: src/shape/Point3D.h src/shape/RectangularPrism.h
-src/shape/AdornableCube.o: src/util/GraphicsConversionUtility.h
-src/shape/AdornableCube.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/AdornableCube.o: src/shape/Point3D.h /usr/include/math.h
+src/shape/AdornableCube.o: /usr/include/bits/huge_val.h
 src/shape/AdornableCube.o: /usr/include/bits/mathdef.h
-src/shape/AdornableCube.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/shape/AdornableCube.o: /usr/include/bits/mathcalls.h
 src/shape/AdornableCube.o: src/shape/Renderable.h include/SDL_opengl.h
 src/shape/AdornableCube.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/AdornableCube.o: /usr/include/GL/glu.h src/shape/Quadrilateral3D.h
+src/shape/AdornableCube.o: /usr/include/GL/glu.h src/shape/RectangularPrism.h
+src/shape/AdornableCube.o: src/util/GraphicsConversionUtility.h
+src/shape/AdornableCube.o: src/shape/Point3D.h src/shape/Quadrilateral3D.h
 src/shape/AdornableCube.o: src/geometry/Dimension3D.h
 src/shape/AdornableCube.o: src/geometry/Dimension.h src/paint/Color.h
 src/shape/AdornableCube.o: src/geometry/RectangularVolume.h
@@ -158,25 +192,24 @@ src/shape/Positionable.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
 src/shape/Positionable.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/Positionable.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/shape/Positionable.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/shape/Positionable.o: src/shape/Point3D.h /usr/include/math.h
-src/shape/Positionable.o: /usr/include/bits/huge_val.h
-src/shape/Positionable.o: /usr/include/bits/mathdef.h
-src/shape/Positionable.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/shape/Positionable.o: /usr/include/string.h src/texture/Texture.h
-src/shape/Positionable.o: src/paint/Color.h
+src/shape/Positionable.o: src/shape/Point3D.h
 src/shape/Positionable.o: src/util/GraphicsConversionUtility.h
+src/shape/Positionable.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Positionable.o: /usr/include/bits/mathdef.h
+src/shape/Positionable.o: /usr/include/bits/mathcalls.h
 src/shape/Positionable.o: src/transform/Translate.h src/transform/Rotate.h
 src/shape/Arc3D.o: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
 src/shape/Arc3D.o: /usr/include/math.h /usr/include/features.h
 src/shape/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
 src/shape/Arc3D.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
 src/shape/Arc3D.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
-src/shape/Arc3D.o: src/paint/Paint.h /usr/include/string.h
+src/shape/Arc3D.o: src/shape/Renderable.h src/paint/Paint.h
+src/shape/Arc3D.o: /usr/include/string.h
 src/shape/Arc3D.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/shape/Arc3D.o: src/texture/Texture.h src/paint/Color.h
-src/shape/Arc3D.o: src/shape/Renderable.h include/SDL_opengl.h
+src/shape/Arc3D.o: src/shape/Point3D.h include/SDL_opengl.h
 src/shape/Arc3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/shape/Arc3D.o: /usr/include/GL/glu.h src/shape/Point3D.h
+src/shape/Arc3D.o: /usr/include/GL/glu.h
 src/shape/String2D.o: src/shape/String2D.h /usr/include/string.h
 src/shape/String2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/String2D.o: /usr/include/gnu/stubs.h
@@ -217,15 +250,16 @@ src/shape/String2D.o: src/event/MouseEventFactory.h
 src/shape/String2D.o: src/event/MouseButtonDown.h src/event/MouseClickEvent.h
 src/shape/String2D.o: src/event/MouseButtonUp.h src/event/MouseMotionEvent.h
 src/shape/String2D.o: src/event/Timer.h src/core/World.h src/shape/Point3D.h
+src/shape/String2D.o: src/shape/Renderable.h src/transform/Rotate.h
+src/shape/String2D.o: src/transform/Transform.h src/shape/Positionable.h
+src/shape/String2D.o: src/transform/Orientate.h
+src/shape/String2D.o: src/util/GraphicsConversionUtility.h
 src/shape/String2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
 src/shape/String2D.o: /usr/include/bits/mathdef.h
-src/shape/String2D.o: /usr/include/bits/mathcalls.h src/shape/Renderable.h
-src/shape/String2D.o: src/transform/Rotate.h src/transform/Transform.h
-src/shape/String2D.o: src/event/TimerListener.h src/transform/Transform.h
-src/shape/String2D.o: src/transform/Translate.h src/core/Viewer.h
-src/shape/String2D.o: src/util/GraphicsConversionUtility.h
-src/shape/String2D.o: src/transform/Orientate.h src/transform/Translate.h
-src/shape/String2D.o: src/transform/Rotate.h src/event/ReshapeListener.h
+src/shape/String2D.o: /usr/include/bits/mathcalls.h src/transform/Translate.h
+src/shape/String2D.o: src/transform/Rotate.h src/event/TimerListener.h
+src/shape/String2D.o: src/transform/Transform.h src/transform/Translate.h
+src/shape/String2D.o: src/core/Viewer.h src/event/ReshapeListener.h
 src/shape/String2D.o: src/event/DefaultKeyboardListener.h src/core/World.h
 src/shape/String2D.o: src/event/DefaultMouseListener.h src/core/Viewer.h
 src/texture/Texture.o: src/texture/Texture.h
@@ -310,28 +344,27 @@ src/event/DefaultMouseListener.o: src/event/MouseClickEvent.h
 src/event/DefaultMouseListener.o: src/event/MouseButtonUp.h
 src/event/DefaultMouseListener.o: src/event/MouseMotionEvent.h
 src/event/DefaultMouseListener.o: src/event/Timer.h src/core/World.h
-src/event/DefaultMouseListener.o: src/shape/Point3D.h /usr/include/math.h
+src/event/DefaultMouseListener.o: src/shape/Point3D.h src/shape/Renderable.h
+src/event/DefaultMouseListener.o: src/transform/Rotate.h
+src/event/DefaultMouseListener.o: src/transform/Transform.h
+src/event/DefaultMouseListener.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/event/DefaultMouseListener.o: /usr/include/GL/glext.h
+src/event/DefaultMouseListener.o: /usr/include/GL/glu.h
+src/event/DefaultMouseListener.o: src/shape/Positionable.h
+src/event/DefaultMouseListener.o: src/shape/Renderable.h
+src/event/DefaultMouseListener.o: src/transform/Orientate.h
+src/event/DefaultMouseListener.o: src/util/GraphicsConversionUtility.h
+src/event/DefaultMouseListener.o: /usr/include/math.h
 src/event/DefaultMouseListener.o: /usr/include/bits/huge_val.h
 src/event/DefaultMouseListener.o: /usr/include/bits/mathdef.h
 src/event/DefaultMouseListener.o: /usr/include/bits/mathcalls.h
-src/event/DefaultMouseListener.o: src/paint/Paint.h /usr/include/string.h
-src/event/DefaultMouseListener.o: src/texture/Texture.h src/paint/Color.h
-src/event/DefaultMouseListener.o: src/shape/Renderable.h include/SDL_opengl.h
-src/event/DefaultMouseListener.o: /usr/include/GL/gl.h
-src/event/DefaultMouseListener.o: /usr/include/GL/glext.h
-src/event/DefaultMouseListener.o: /usr/include/GL/glu.h
-src/event/DefaultMouseListener.o: src/shape/Renderable.h
+src/event/DefaultMouseListener.o: src/transform/Translate.h
 src/event/DefaultMouseListener.o: src/transform/Rotate.h
-src/event/DefaultMouseListener.o: src/transform/Transform.h
 src/event/DefaultMouseListener.o: src/event/TimerListener.h
 src/event/DefaultMouseListener.o: src/transform/Transform.h
 src/event/DefaultMouseListener.o: src/transform/Translate.h src/core/Viewer.h
 src/event/DefaultMouseListener.o: src/geometry/Dimension2D.h
 src/event/DefaultMouseListener.o: src/geometry/Dimension.h
-src/event/DefaultMouseListener.o: src/util/GraphicsConversionUtility.h
-src/event/DefaultMouseListener.o: src/transform/Orientate.h
-src/event/DefaultMouseListener.o: src/transform/Translate.h
-src/event/DefaultMouseListener.o: src/transform/Rotate.h
 src/event/DefaultMouseListener.o: src/event/ReshapeListener.h
 src/event/DefaultMouseListener.o: src/event/DefaultKeyboardListener.h
 src/event/DefaultMouseListener.o: src/core/World.h
@@ -387,30 +420,30 @@ src/event/DefaultKeyboardListener.o: src/event/MouseClickEvent.h
 src/event/DefaultKeyboardListener.o: src/event/MouseButtonUp.h
 src/event/DefaultKeyboardListener.o: src/event/MouseMotionEvent.h
 src/event/DefaultKeyboardListener.o: src/event/Timer.h src/core/World.h
-src/event/DefaultKeyboardListener.o: src/shape/Point3D.h /usr/include/math.h
-src/event/DefaultKeyboardListener.o: /usr/include/bits/huge_val.h
-src/event/DefaultKeyboardListener.o: /usr/include/bits/mathdef.h
-src/event/DefaultKeyboardListener.o: /usr/include/bits/mathcalls.h
-src/event/DefaultKeyboardListener.o: src/paint/Paint.h /usr/include/string.h
-src/event/DefaultKeyboardListener.o: src/texture/Texture.h src/paint/Color.h
+src/event/DefaultKeyboardListener.o: src/shape/Point3D.h
 src/event/DefaultKeyboardListener.o: src/shape/Renderable.h
+src/event/DefaultKeyboardListener.o: src/transform/Rotate.h
+src/event/DefaultKeyboardListener.o: src/transform/Transform.h
 src/event/DefaultKeyboardListener.o: include/SDL_opengl.h
 src/event/DefaultKeyboardListener.o: /usr/include/GL/gl.h
 src/event/DefaultKeyboardListener.o: /usr/include/GL/glext.h
 src/event/DefaultKeyboardListener.o: /usr/include/GL/glu.h
+src/event/DefaultKeyboardListener.o: src/shape/Positionable.h
 src/event/DefaultKeyboardListener.o: src/shape/Renderable.h
+src/event/DefaultKeyboardListener.o: src/transform/Orientate.h
+src/event/DefaultKeyboardListener.o: src/util/GraphicsConversionUtility.h
+src/event/DefaultKeyboardListener.o: /usr/include/math.h
+src/event/DefaultKeyboardListener.o: /usr/include/bits/huge_val.h
+src/event/DefaultKeyboardListener.o: /usr/include/bits/mathdef.h
+src/event/DefaultKeyboardListener.o: /usr/include/bits/mathcalls.h
+src/event/DefaultKeyboardListener.o: src/transform/Translate.h
 src/event/DefaultKeyboardListener.o: src/transform/Rotate.h
-src/event/DefaultKeyboardListener.o: src/transform/Transform.h
 src/event/DefaultKeyboardListener.o: src/event/TimerListener.h
 src/event/DefaultKeyboardListener.o: src/transform/Transform.h
 src/event/DefaultKeyboardListener.o: src/transform/Translate.h
 src/event/DefaultKeyboardListener.o: src/core/Viewer.h
 src/event/DefaultKeyboardListener.o: src/geometry/Dimension2D.h
 src/event/DefaultKeyboardListener.o: src/geometry/Dimension.h
-src/event/DefaultKeyboardListener.o: src/util/GraphicsConversionUtility.h
-src/event/DefaultKeyboardListener.o: src/transform/Orientate.h
-src/event/DefaultKeyboardListener.o: src/transform/Translate.h
-src/event/DefaultKeyboardListener.o: src/transform/Rotate.h
 src/event/DefaultKeyboardListener.o: src/event/ReshapeListener.h
 src/event/DefaultKeyboardListener.o: src/event/DefaultKeyboardListener.h
 src/event/DefaultKeyboardListener.o: src/core/World.h
@@ -721,20 +754,20 @@ src/event/MouseButtonUp.o: include/SDL_video.h include/SDL_mutex.h
 src/event/MouseButtonUp.o: include/SDL_quit.h include/SDL_version.h
 src/event/MouseButtonUp.o: src/event/Mouse.h
 src/terrain/Terrain.o: src/terrain/Terrain.h src/shape/Renderable.h
-src/terrain/Terrain.o: src/shape/Point3D.h /usr/include/math.h
-src/terrain/Terrain.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/terrain/Terrain.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+src/terrain/Terrain.o: src/shape/Point3D.h src/shape/Quadrilateral3D.h
+src/terrain/Terrain.o: /usr/include/math.h /usr/include/features.h
+src/terrain/Terrain.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+src/terrain/Terrain.o: /usr/include/bits/huge_val.h
 src/terrain/Terrain.o: /usr/include/bits/mathdef.h
-src/terrain/Terrain.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/terrain/Terrain.o: /usr/include/string.h
+src/terrain/Terrain.o: /usr/include/bits/mathcalls.h /usr/include/string.h
 src/terrain/Terrain.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/terrain/Terrain.o: src/texture/Texture.h src/paint/Color.h
-src/terrain/Terrain.o: src/shape/Renderable.h include/SDL_opengl.h
-src/terrain/Terrain.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/terrain/Terrain.o: /usr/include/GL/glu.h src/shape/Quadrilateral3D.h
 src/terrain/Terrain.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
 src/terrain/Terrain.o: src/util/GraphicsConversionUtility.h src/paint/Color.h
-src/terrain/Terrain.o: src/shape/Point3D.h src/texture/TextureFactory.h
+src/terrain/Terrain.o: src/paint/Paint.h src/texture/Texture.h
+src/terrain/Terrain.o: src/paint/Color.h src/shape/Point3D.h
+src/terrain/Terrain.o: src/shape/Renderable.h include/SDL_opengl.h
+src/terrain/Terrain.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/terrain/Terrain.o: /usr/include/GL/glu.h src/texture/TextureFactory.h
 src/terrain/Terrain.o: /usr/include/stdlib.h /usr/include/GL/glut.h
 src/terrain/Terrain.o: src/texture/Texture.h src/texture/TexturePPM.h
 src/terrain/Terrain.o: src/texture/TextureBMP.h src/texture/TextureTGA.h
@@ -782,28 +815,27 @@ src/interpolation/CameraRoller.o: src/event/MouseClickEvent.h
 src/interpolation/CameraRoller.o: src/event/MouseButtonUp.h
 src/interpolation/CameraRoller.o: src/event/MouseMotionEvent.h
 src/interpolation/CameraRoller.o: src/event/Timer.h src/core/World.h
-src/interpolation/CameraRoller.o: src/shape/Point3D.h /usr/include/math.h
+src/interpolation/CameraRoller.o: src/shape/Point3D.h src/shape/Renderable.h
+src/interpolation/CameraRoller.o: src/transform/Rotate.h
+src/interpolation/CameraRoller.o: src/transform/Transform.h
+src/interpolation/CameraRoller.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/interpolation/CameraRoller.o: /usr/include/GL/glext.h
+src/interpolation/CameraRoller.o: /usr/include/GL/glu.h
+src/interpolation/CameraRoller.o: src/shape/Positionable.h
+src/interpolation/CameraRoller.o: src/shape/Renderable.h
+src/interpolation/CameraRoller.o: src/transform/Orientate.h
+src/interpolation/CameraRoller.o: src/util/GraphicsConversionUtility.h
+src/interpolation/CameraRoller.o: /usr/include/math.h
 src/interpolation/CameraRoller.o: /usr/include/bits/huge_val.h
 src/interpolation/CameraRoller.o: /usr/include/bits/mathdef.h
 src/interpolation/CameraRoller.o: /usr/include/bits/mathcalls.h
-src/interpolation/CameraRoller.o: src/paint/Paint.h /usr/include/string.h
-src/interpolation/CameraRoller.o: src/texture/Texture.h src/paint/Color.h
-src/interpolation/CameraRoller.o: src/shape/Renderable.h include/SDL_opengl.h
-src/interpolation/CameraRoller.o: /usr/include/GL/gl.h
-src/interpolation/CameraRoller.o: /usr/include/GL/glext.h
-src/interpolation/CameraRoller.o: /usr/include/GL/glu.h
-src/interpolation/CameraRoller.o: src/shape/Renderable.h
+src/interpolation/CameraRoller.o: src/transform/Translate.h
 src/interpolation/CameraRoller.o: src/transform/Rotate.h
-src/interpolation/CameraRoller.o: src/transform/Transform.h
 src/interpolation/CameraRoller.o: src/event/TimerListener.h
 src/interpolation/CameraRoller.o: src/transform/Transform.h
 src/interpolation/CameraRoller.o: src/transform/Translate.h src/core/Viewer.h
 src/interpolation/CameraRoller.o: src/geometry/Dimension2D.h
 src/interpolation/CameraRoller.o: src/geometry/Dimension.h
-src/interpolation/CameraRoller.o: src/util/GraphicsConversionUtility.h
-src/interpolation/CameraRoller.o: src/transform/Orientate.h
-src/interpolation/CameraRoller.o: src/transform/Translate.h
-src/interpolation/CameraRoller.o: src/transform/Rotate.h
 src/interpolation/CameraRoller.o: src/event/ReshapeListener.h
 src/interpolation/CameraRoller.o: src/event/DefaultKeyboardListener.h
 src/interpolation/CameraRoller.o: src/core/World.h
@@ -825,15 +857,11 @@ src/interpolation/InterpolatorFactory.o: /usr/include/GL/gl.h
 src/interpolation/InterpolatorFactory.o: /usr/include/GL/glext.h
 src/interpolation/InterpolatorFactory.o: /usr/include/GL/glu.h
 src/interpolation/InterpolatorFactory.o: src/shape/Point3D.h
+src/interpolation/InterpolatorFactory.o: src/util/GraphicsConversionUtility.h
 src/interpolation/InterpolatorFactory.o: /usr/include/math.h
 src/interpolation/InterpolatorFactory.o: /usr/include/bits/huge_val.h
 src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathdef.h
 src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathcalls.h
-src/interpolation/InterpolatorFactory.o: src/paint/Paint.h
-src/interpolation/InterpolatorFactory.o: /usr/include/string.h
-src/interpolation/InterpolatorFactory.o: src/texture/Texture.h
-src/interpolation/InterpolatorFactory.o: src/paint/Color.h
-src/interpolation/InterpolatorFactory.o: src/util/GraphicsConversionUtility.h
 src/interpolation/InterpolatorFactory.o: src/transform/Translate.h
 src/interpolation/InterpolatorFactory.o: src/transform/Rotate.h
 src/interpolation/InterpolatorFactory.o: src/interpolation/LinearInterpolator.h
@@ -856,15 +884,11 @@ src/interpolation/TimedInterpolation.o: /usr/include/GL/gl.h
 src/interpolation/TimedInterpolation.o: /usr/include/GL/glext.h
 src/interpolation/TimedInterpolation.o: /usr/include/GL/glu.h
 src/interpolation/TimedInterpolation.o: src/shape/Point3D.h
+src/interpolation/TimedInterpolation.o: src/util/GraphicsConversionUtility.h
 src/interpolation/TimedInterpolation.o: /usr/include/math.h
 src/interpolation/TimedInterpolation.o: /usr/include/bits/huge_val.h
 src/interpolation/TimedInterpolation.o: /usr/include/bits/mathdef.h
 src/interpolation/TimedInterpolation.o: /usr/include/bits/mathcalls.h
-src/interpolation/TimedInterpolation.o: src/paint/Paint.h
-src/interpolation/TimedInterpolation.o: /usr/include/string.h
-src/interpolation/TimedInterpolation.o: src/texture/Texture.h
-src/interpolation/TimedInterpolation.o: src/paint/Color.h
-src/interpolation/TimedInterpolation.o: src/util/GraphicsConversionUtility.h
 src/interpolation/TimedInterpolation.o: src/transform/Translate.h
 src/interpolation/TimedInterpolation.o: src/transform/Rotate.h
 src/interpolation/TimedInterpolation.o: src/interpolation/InterpolationListener.h
@@ -884,15 +908,11 @@ src/interpolation/InterpolationEngine.o: /usr/include/GL/gl.h
 src/interpolation/InterpolationEngine.o: /usr/include/GL/glext.h
 src/interpolation/InterpolationEngine.o: /usr/include/GL/glu.h
 src/interpolation/InterpolationEngine.o: src/shape/Point3D.h
+src/interpolation/InterpolationEngine.o: src/util/GraphicsConversionUtility.h
 src/interpolation/InterpolationEngine.o: /usr/include/math.h
 src/interpolation/InterpolationEngine.o: /usr/include/bits/huge_val.h
 src/interpolation/InterpolationEngine.o: /usr/include/bits/mathdef.h
 src/interpolation/InterpolationEngine.o: /usr/include/bits/mathcalls.h
-src/interpolation/InterpolationEngine.o: src/paint/Paint.h
-src/interpolation/InterpolationEngine.o: /usr/include/string.h
-src/interpolation/InterpolationEngine.o: src/texture/Texture.h
-src/interpolation/InterpolationEngine.o: src/paint/Color.h
-src/interpolation/InterpolationEngine.o: src/util/GraphicsConversionUtility.h
 src/interpolation/InterpolationEngine.o: src/transform/Translate.h
 src/interpolation/InterpolationEngine.o: src/transform/Rotate.h
 src/interpolation/InterpolationEngine.o: src/interpolation/InterpolationListener.h
@@ -916,18 +936,19 @@ src/core/Viewer.o: include/SDL_events.h include/SDL_active.h
 src/core/Viewer.o: include/SDL_keyboard.h include/SDL_keysym.h
 src/core/Viewer.o: include/SDL_mouse.h include/SDL_video.h
 src/core/Viewer.o: include/SDL_mutex.h include/SDL_quit.h
-src/core/Viewer.o: include/SDL_version.h src/geometry/Dimension2D.h
-src/core/Viewer.o: src/geometry/Dimension.h
+src/core/Viewer.o: include/SDL_version.h src/core/World.h
+src/core/Viewer.o: /usr/include/stdlib.h src/shape/Point3D.h
+src/core/Viewer.o: src/shape/Renderable.h src/transform/Rotate.h
+src/core/Viewer.o: src/transform/Transform.h include/SDL_opengl.h
+src/core/Viewer.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/core/Viewer.o: /usr/include/GL/glu.h src/shape/Positionable.h
+src/core/Viewer.o: src/shape/Renderable.h src/transform/Orientate.h
 src/core/Viewer.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
 src/core/Viewer.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-src/core/Viewer.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
-src/core/Viewer.o: src/paint/Paint.h /usr/include/string.h
-src/core/Viewer.o: src/texture/Texture.h src/paint/Color.h
-src/core/Viewer.o: src/shape/Renderable.h include/SDL_opengl.h
-src/core/Viewer.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/core/Viewer.o: /usr/include/GL/glu.h src/transform/Orientate.h
-src/core/Viewer.o: src/transform/Transform.h /usr/include/stdlib.h
-src/core/Viewer.o: src/transform/Translate.h src/transform/Rotate.h
+src/core/Viewer.o: /usr/include/bits/mathcalls.h src/transform/Translate.h
+src/core/Viewer.o: src/transform/Rotate.h src/event/TimerListener.h
+src/core/Viewer.o: src/transform/Transform.h src/transform/Translate.h
+src/core/Viewer.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
 src/core/Viewer.o: src/event/ReshapeListener.h
 src/core/Controller.o: src/core/Controller.h /usr/include/stdlib.h
 src/core/Controller.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -962,21 +983,20 @@ src/core/Controller.o: src/event/MouseButtonDown.h
 src/core/Controller.o: src/event/MouseClickEvent.h src/event/MouseButtonUp.h
 src/core/Controller.o: src/event/MouseMotionEvent.h src/event/Timer.h
 src/core/Controller.o: src/core/World.h src/shape/Point3D.h
+src/core/Controller.o: src/shape/Renderable.h src/transform/Rotate.h
+src/core/Controller.o: src/transform/Transform.h include/SDL_opengl.h
+src/core/Controller.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/core/Controller.o: /usr/include/GL/glu.h src/shape/Positionable.h
+src/core/Controller.o: src/shape/Renderable.h src/transform/Orientate.h
+src/core/Controller.o: src/util/GraphicsConversionUtility.h
 src/core/Controller.o: /usr/include/math.h /usr/include/bits/huge_val.h
 src/core/Controller.o: /usr/include/bits/mathdef.h
-src/core/Controller.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/core/Controller.o: /usr/include/string.h src/texture/Texture.h
-src/core/Controller.o: src/paint/Color.h src/shape/Renderable.h
-src/core/Controller.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/core/Controller.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/core/Controller.o: src/shape/Renderable.h src/transform/Rotate.h
-src/core/Controller.o: src/transform/Transform.h src/event/TimerListener.h
-src/core/Controller.o: src/transform/Transform.h src/transform/Translate.h
-src/core/Controller.o: src/core/Viewer.h src/geometry/Dimension2D.h
-src/core/Controller.o: src/geometry/Dimension.h
-src/core/Controller.o: src/util/GraphicsConversionUtility.h
-src/core/Controller.o: src/transform/Orientate.h src/transform/Translate.h
-src/core/Controller.o: src/transform/Rotate.h src/event/ReshapeListener.h
+src/core/Controller.o: /usr/include/bits/mathcalls.h
+src/core/Controller.o: src/transform/Translate.h src/transform/Rotate.h
+src/core/Controller.o: src/event/TimerListener.h src/transform/Transform.h
+src/core/Controller.o: src/transform/Translate.h src/core/Viewer.h
+src/core/Controller.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/core/Controller.o: src/event/ReshapeListener.h
 src/core/Controller.o: src/event/DefaultKeyboardListener.h
 src/core/Controller.o: src/core/Controller.h src/event/DefaultMouseListener.h
 src/core/Controller.o: src/core/World.h
@@ -984,32 +1004,20 @@ src/core/World.o: src/core/World.h /usr/include/stdlib.h
 src/core/World.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/core/World.o: /usr/include/gnu/stubs.h
 src/core/World.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/core/World.o: src/shape/Point3D.h /usr/include/math.h
-src/core/World.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-src/core/World.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/core/World.o: /usr/include/string.h src/texture/Texture.h
-src/core/World.o: src/paint/Color.h src/shape/Renderable.h
+src/core/World.o: src/shape/Point3D.h src/shape/Renderable.h
+src/core/World.o: src/transform/Rotate.h src/transform/Transform.h
 src/core/World.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/core/World.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/core/World.o: src/shape/Renderable.h src/transform/Rotate.h
-src/core/World.o: src/transform/Transform.h src/event/TimerListener.h
+src/core/World.o: src/shape/Positionable.h src/shape/Renderable.h
+src/core/World.o: src/transform/Orientate.h
+src/core/World.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
+src/core/World.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+src/core/World.o: /usr/include/bits/mathcalls.h src/transform/Translate.h
+src/core/World.o: src/transform/Rotate.h src/event/TimerListener.h
 src/core/World.o: src/transform/Transform.h src/transform/Translate.h
 src/geometry/RectangularVolume.o: src/geometry/RectangularVolume.h
 src/geometry/RectangularVolume.o: src/geometry/Dimension3D.h
-src/geometry/RectangularVolume.o: src/shape/Point3D.h /usr/include/math.h
-src/geometry/RectangularVolume.o: /usr/include/features.h
-src/geometry/RectangularVolume.o: /usr/include/sys/cdefs.h
-src/geometry/RectangularVolume.o: /usr/include/gnu/stubs.h
-src/geometry/RectangularVolume.o: /usr/include/bits/huge_val.h
-src/geometry/RectangularVolume.o: /usr/include/bits/mathdef.h
-src/geometry/RectangularVolume.o: /usr/include/bits/mathcalls.h
-src/geometry/RectangularVolume.o: src/paint/Paint.h /usr/include/string.h
-src/geometry/RectangularVolume.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/geometry/RectangularVolume.o: src/texture/Texture.h src/paint/Color.h
-src/geometry/RectangularVolume.o: src/shape/Renderable.h include/SDL_opengl.h
-src/geometry/RectangularVolume.o: /usr/include/GL/gl.h
-src/geometry/RectangularVolume.o: /usr/include/GL/glext.h
-src/geometry/RectangularVolume.o: /usr/include/GL/glu.h
+src/geometry/RectangularVolume.o: src/shape/Point3D.h
 src/geometry/Dimension.o: src/geometry/Dimension.h
 src/geometry/Dimension2D.o: src/geometry/Dimension2D.h
 src/geometry/Dimension2D.o: src/geometry/Dimension.h
@@ -1026,12 +1034,7 @@ src/transform/Rotate.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
 src/transform/Rotate.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/transform/Rotate.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/transform/Rotate.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/transform/Rotate.o: src/shape/Point3D.h /usr/include/math.h
-src/transform/Rotate.o: /usr/include/bits/huge_val.h
-src/transform/Rotate.o: /usr/include/bits/mathdef.h
-src/transform/Rotate.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/transform/Rotate.o: /usr/include/string.h src/texture/Texture.h
-src/transform/Rotate.o: src/paint/Color.h src/shape/Renderable.h
+src/transform/Rotate.o: src/shape/Point3D.h
 src/transform/TransformFactory.o: src/transform/TransformFactory.h
 src/transform/TransformFactory.o: src/transform/Transform.h
 src/transform/TransformFactory.o: /usr/include/stdlib.h
@@ -1043,13 +1046,6 @@ src/transform/TransformFactory.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/transform/TransformFactory.o: /usr/include/GL/glext.h
 src/transform/TransformFactory.o: /usr/include/GL/glu.h
 src/transform/TransformFactory.o: src/transform/Rotate.h src/shape/Point3D.h
-src/transform/TransformFactory.o: /usr/include/math.h
-src/transform/TransformFactory.o: /usr/include/bits/huge_val.h
-src/transform/TransformFactory.o: /usr/include/bits/mathdef.h
-src/transform/TransformFactory.o: /usr/include/bits/mathcalls.h
-src/transform/TransformFactory.o: src/paint/Paint.h /usr/include/string.h
-src/transform/TransformFactory.o: src/texture/Texture.h src/paint/Color.h
-src/transform/TransformFactory.o: src/shape/Renderable.h
 src/transform/TransformFactory.o: src/transform/Translate.h
 src/transform/Orientate.o: src/transform/Orientate.h
 src/transform/Orientate.o: src/transform/Transform.h /usr/include/stdlib.h
@@ -1058,13 +1054,11 @@ src/transform/Orientate.o: /usr/include/gnu/stubs.h
 src/transform/Orientate.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/transform/Orientate.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/transform/Orientate.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/transform/Orientate.o: src/shape/Point3D.h /usr/include/math.h
-src/transform/Orientate.o: /usr/include/bits/huge_val.h
-src/transform/Orientate.o: /usr/include/bits/mathdef.h
-src/transform/Orientate.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/transform/Orientate.o: /usr/include/string.h src/texture/Texture.h
-src/transform/Orientate.o: src/paint/Color.h src/shape/Renderable.h
+src/transform/Orientate.o: src/shape/Point3D.h
 src/transform/Orientate.o: src/util/GraphicsConversionUtility.h
+src/transform/Orientate.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/transform/Orientate.o: /usr/include/bits/mathdef.h
+src/transform/Orientate.o: /usr/include/bits/mathcalls.h
 src/transform/Orientate.o: src/transform/Translate.h src/transform/Rotate.h
 src/transform/Transform.o: src/transform/Transform.h /usr/include/stdlib.h
 src/transform/Transform.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -1079,12 +1073,7 @@ src/transform/Translate.o: /usr/include/gnu/stubs.h
 src/transform/Translate.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
 src/transform/Translate.o: include/SDL_opengl.h /usr/include/GL/gl.h
 src/transform/Translate.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/transform/Translate.o: src/shape/Point3D.h /usr/include/math.h
-src/transform/Translate.o: /usr/include/bits/huge_val.h
-src/transform/Translate.o: /usr/include/bits/mathdef.h
-src/transform/Translate.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/transform/Translate.o: /usr/include/string.h src/texture/Texture.h
-src/transform/Translate.o: src/paint/Color.h src/shape/Renderable.h
+src/transform/Translate.o: src/shape/Point3D.h
 src/util/FramesPerSecondCounter.o: src/util/FramesPerSecondCounter.h
 src/util/FramesPerSecondCounter.o: /usr/include/stdlib.h
 src/util/FramesPerSecondCounter.o: /usr/include/features.h
@@ -1135,35 +1124,37 @@ src/util/FramesPerSecondCounter.o: src/event/MouseClickEvent.h
 src/util/FramesPerSecondCounter.o: src/event/MouseButtonUp.h
 src/util/FramesPerSecondCounter.o: src/event/MouseMotionEvent.h
 src/util/FramesPerSecondCounter.o: src/core/World.h src/shape/Point3D.h
+src/util/FramesPerSecondCounter.o: src/shape/Renderable.h
+src/util/FramesPerSecondCounter.o: src/transform/Rotate.h
+src/util/FramesPerSecondCounter.o: src/transform/Transform.h
+src/util/FramesPerSecondCounter.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/util/FramesPerSecondCounter.o: /usr/include/GL/glext.h
+src/util/FramesPerSecondCounter.o: /usr/include/GL/glu.h
+src/util/FramesPerSecondCounter.o: src/shape/Positionable.h
+src/util/FramesPerSecondCounter.o: src/shape/Renderable.h
+src/util/FramesPerSecondCounter.o: src/transform/Orientate.h
+src/util/FramesPerSecondCounter.o: src/util/GraphicsConversionUtility.h
 src/util/FramesPerSecondCounter.o: /usr/include/math.h
 src/util/FramesPerSecondCounter.o: /usr/include/bits/huge_val.h
 src/util/FramesPerSecondCounter.o: /usr/include/bits/mathdef.h
 src/util/FramesPerSecondCounter.o: /usr/include/bits/mathcalls.h
-src/util/FramesPerSecondCounter.o: src/paint/Paint.h /usr/include/string.h
-src/util/FramesPerSecondCounter.o: src/texture/Texture.h src/paint/Color.h
-src/util/FramesPerSecondCounter.o: src/shape/Renderable.h
-src/util/FramesPerSecondCounter.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/util/FramesPerSecondCounter.o: /usr/include/GL/glext.h
-src/util/FramesPerSecondCounter.o: /usr/include/GL/glu.h
-src/util/FramesPerSecondCounter.o: src/shape/Renderable.h
+src/util/FramesPerSecondCounter.o: src/transform/Translate.h
 src/util/FramesPerSecondCounter.o: src/transform/Rotate.h
-src/util/FramesPerSecondCounter.o: src/transform/Transform.h
 src/util/FramesPerSecondCounter.o: src/transform/Transform.h
 src/util/FramesPerSecondCounter.o: src/transform/Translate.h
 src/util/FramesPerSecondCounter.o: src/core/Viewer.h
 src/util/FramesPerSecondCounter.o: src/geometry/Dimension2D.h
 src/util/FramesPerSecondCounter.o: src/geometry/Dimension.h
-src/util/FramesPerSecondCounter.o: src/util/GraphicsConversionUtility.h
-src/util/FramesPerSecondCounter.o: src/transform/Orientate.h
-src/util/FramesPerSecondCounter.o: src/transform/Translate.h
-src/util/FramesPerSecondCounter.o: src/transform/Rotate.h
 src/util/FramesPerSecondCounter.o: src/event/ReshapeListener.h
 src/util/FramesPerSecondCounter.o: src/event/DefaultKeyboardListener.h
 src/util/FramesPerSecondCounter.o: src/core/World.h
 src/util/FramesPerSecondCounter.o: src/event/DefaultMouseListener.h
 src/util/FramesPerSecondCounter.o: src/core/Viewer.h src/shape/String2D.h
+src/util/FramesPerSecondCounter.o: /usr/include/string.h
 src/util/FramesPerSecondCounter.o: src/util/BitmapFontUtil.h
 src/util/FramesPerSecondCounter.o: src/util/BitmapFontConstants.h
+src/util/FramesPerSecondCounter.o: src/paint/Paint.h src/texture/Texture.h
+src/util/FramesPerSecondCounter.o: src/paint/Color.h
 src/util/BitmapFontUtil.o: src/util/BitmapFontUtil.h
 src/util/BitmapFontUtil.o: src/util/BitmapFontConstants.h
 src/util/BitmapFontUtil.o: /usr/include/stdlib.h /usr/include/features.h
@@ -1179,15 +1170,7 @@ src/util/GraphicsConversionUtility.o: /usr/include/gnu/stubs.h
 src/util/GraphicsConversionUtility.o: /usr/include/bits/huge_val.h
 src/util/GraphicsConversionUtility.o: /usr/include/bits/mathdef.h
 src/util/GraphicsConversionUtility.o: /usr/include/bits/mathcalls.h
-src/util/GraphicsConversionUtility.o: src/shape/Point3D.h src/paint/Paint.h
-src/util/GraphicsConversionUtility.o: /usr/include/string.h
-src/util/GraphicsConversionUtility.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-src/util/GraphicsConversionUtility.o: src/texture/Texture.h src/paint/Color.h
-src/util/GraphicsConversionUtility.o: src/shape/Renderable.h
-src/util/GraphicsConversionUtility.o: include/SDL_opengl.h
-src/util/GraphicsConversionUtility.o: /usr/include/GL/gl.h
-src/util/GraphicsConversionUtility.o: /usr/include/GL/glext.h
-src/util/GraphicsConversionUtility.o: /usr/include/GL/glu.h
+src/util/GraphicsConversionUtility.o: src/shape/Point3D.h
 src/util/BehaviorParser.o: src/util/BehaviorParser.h /usr/include/stdlib.h
 src/util/BehaviorParser.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/util/BehaviorParser.o: /usr/include/gnu/stubs.h
@@ -1196,10 +1179,4 @@ src/util/BehaviorParser.o: src/transform/TransformFactory.h
 src/util/BehaviorParser.o: src/transform/Transform.h include/SDL_opengl.h
 src/util/BehaviorParser.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
 src/util/BehaviorParser.o: /usr/include/GL/glu.h src/transform/Rotate.h
-src/util/BehaviorParser.o: src/shape/Point3D.h /usr/include/math.h
-src/util/BehaviorParser.o: /usr/include/bits/huge_val.h
-src/util/BehaviorParser.o: /usr/include/bits/mathdef.h
-src/util/BehaviorParser.o: /usr/include/bits/mathcalls.h src/paint/Paint.h
-src/util/BehaviorParser.o: /usr/include/string.h src/texture/Texture.h
-src/util/BehaviorParser.o: src/paint/Color.h src/shape/Renderable.h
-src/util/BehaviorParser.o: src/transform/Translate.h
+src/util/BehaviorParser.o: src/shape/Point3D.h src/transform/Translate.h

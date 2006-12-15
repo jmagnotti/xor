@@ -2,11 +2,16 @@
 #define TRANSLATE_H
 
 
+#include <iostream>
+
 #include "Transform.h"
 #include "../shape/Point3D.h"
 
 
+using namespace std;
+
 namespace XOR {
+
 
 /**
  * Applies a translate transform
@@ -69,3 +74,4 @@ protected:
 }
 
 #endif			// TRANSLATE_H
+

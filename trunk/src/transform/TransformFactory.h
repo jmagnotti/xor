@@ -8,7 +8,6 @@
 #include "Rotate.h"
 #include "Translate.h"
 
-
 using namespace std;
 
 namespace XOR {
@@ -31,15 +30,10 @@ public:
 //	static Transform * CreateTransform(String, String, String, String, String);
 
 
-protected:
-
-
-private:
-
-
 };
 
 }
 
 #endif			// TRANSFORMFACTORY_H
+
 
