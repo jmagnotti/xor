@@ -9,9 +9,10 @@ Orientate::Orientate()
 {
 	_position   = new Translate(0,0,0);
 	_focalPoint = new Translate(0,0,1);
-	_phi   = new Rotate(0, 1,0,0);
-	_theta = new Rotate(0, 0,1,0);
-	_roll  = new Rotate(0, 0,0,1);
+	_phi        = new Rotate(0, 1,0,0);
+	_theta      = new Rotate(0, 0,1,0);
+	_roll       = new Rotate(0, 0,0,1);
+
 	_focalDistance = 1.0f;
 }
 
@@ -23,14 +24,19 @@ Orientate::Orientate(Translate * position, float theta, float phi, float roll)
 {
 	_position   = position;
 	_focalPoint = new Translate(0,0,0);
-	_phi   = new Rotate(phi,   1,0,0);
-	_theta = new Rotate(theta, 0,1,0);
-	_roll  = new Rotate(roll,  0,0,1);
+	_phi        = new Rotate(phi,   1,0,0);
+	_theta      = new Rotate(theta, 0,1,0);
+	_roll       = new Rotate(roll,  0,0,1);
+
 	_focalDistance = 1.0f;
+
 	updateFocalPoint();
 }
 
 
+/*
+ * Explicit Constructor
+ */
 Orientate::Orientate(Translate * position, Translate * focalPoint)
 {
 	_position   = position;
@@ -44,6 +50,7 @@ Orientate::Orientate(Translate * position, Translate * focalPoint)
 	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
 	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+ 
 	updateFromFocalPoint();
 }
 
@@ -134,17 +141,16 @@ void Orientate::incrementPosition(Point3D * point)
  */
 void Orientate::incrementRotation(int dimension, float angle)
 {
-	switch (dimension)
-	{
-	case 0: // theta
-		_theta->_angle += angle;
-		break;
-	case 1: // phi
-		_phi->_angle += angle;
-		break;
-	case 2: // roll
-		_roll->_angle += angle;
-		break;
+	switch (dimension) {
+        case 0: // theta
+            _theta->_angle += angle;
+            break;
+        case 1: // phi
+            _phi->_angle += angle;
+            break;
+        case 2: // roll
+            _roll->_angle += angle;
+            break;
 	}
 	updateFocalPoint();
 }
@@ -158,10 +164,12 @@ void Orientate::setFocalPoint(Point3D *point)
 	_focalPoint->_xShift = point->getX();
 	_focalPoint->_yShift = point->getY();
 	_focalPoint->_zShift = point->getZ();
+
 	_focalDistance = sqrt(
 	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
 	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+
 	updateFromFocalPoint();
 }
 
@@ -172,17 +180,16 @@ void Orientate::setFocalPoint(Point3D *point)
 float Orientate::getRotation(int dimension)
 {
 	float angle = 0.0;
-	switch (dimension)
-	{
-	case 0: // theta
-		angle = _theta->_angle;
-		break;
-	case 1: // phi
-		angle = _phi->_angle;
-		break;
-	case 2: // roll
-		angle = _roll->_angle;
-		break;
+	switch (dimension) {
+        case 0: // theta
+            angle = _theta->_angle;
+            break;
+        case 1: // phi
+            angle = _phi->_angle;
+            break;
+        case 2: // roll
+            angle = _roll->_angle;
+            break;
 	}
 	return angle;
 }
@@ -267,18 +274,24 @@ void Orientate::printDebugInfo()
 	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
 	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
-	cout << "\n";
-	cout << " focal distance=" << _focalDistance << "\n";
-	cout << " real distance=" << distance << "\n";
-	cout << " p_x=" << _position->_xShift << 
-		    " p_y=" << _position->_yShift <<
-		    " p_z=" << _position->_zShift << "\n";
-	cout << " f_x=" << _focalPoint->_xShift << 
-		    " f_y=" << _focalPoint->_yShift <<
-		    " f_z=" << _focalPoint->_zShift << "\n";
-	cout << " theta=" << _theta->_angle << 
-		    " phi=" << _phi->_angle <<
-		    " roll=" << _roll->_angle << "\n";
+
+	cout << endl;
+
+	cout << " focal distance=" << _focalDistance << endl;
+	cout << " real distance="  << distance << endl;
+
+	cout << " p_x="     << _position->_xShift << 
+		    " p_y="     << _position->_yShift <<
+		    " p_z="     << _position->_zShift << endl;
+
+	cout << " f_x="     << _focalPoint->_xShift << 
+		    " f_y="     << _focalPoint->_yShift <<
+		    " f_z="     << _focalPoint->_zShift << endl;
+
+	cout << " theta="   << _theta->_angle << 
+		    " phi="     << _phi->_angle <<
+		    " roll="    << _roll->_angle << endl;;
 }
 
 }
+
