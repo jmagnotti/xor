@@ -7,9 +7,10 @@
 #include "Interpolable.h"
 #include "InterpolationListener.h"
 
+using namespace std;
+
 namespace XOR {
 
-using namespace std;
 
 /**
  * This class defines a high-level parent for all interpolators. This class allows for generic 

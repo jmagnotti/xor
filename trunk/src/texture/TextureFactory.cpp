@@ -1,5 +1,7 @@
 #include "TextureFactory.h"
 
+namespace XOR {
+
 //set the static instance to null
 TextureFactory* TextureFactory::_textureFactory = 0;
 
@@ -48,3 +50,6 @@ Texture* TextureFactory::createTexture(char *pathToFile)
 
 	return temp;
 }
+
+}
+

@@ -14,13 +14,23 @@ rm -f $H_FILE
 
 echo "#ifndef XOR_H" > $H_FILE
 echo "#define XOR_H" >> $H_FILE
+echo >> $H_FILE
 
 # find all .h files
 for i in `find . -name "*.h" | sed -e 's/\.\///'`
 do
 	# don't add a recursive include
 	if [ $i != $H_FILE ]; then
-		echo "#include \"$i\"" >> $H_FILE
+		# don't add files in demo folders
+		ISDEMO=`expr match "$i" 'demo'`
+		if [ $ISDEMO == 0 ]; then
+			# TEMPORARY: don't add transition package
+			ISTRANS=`expr match "$i" 'transition'`
+			if [ $ISTRANS == 0 ]; then
+				echo "#include \"$i\"" >> $H_FILE
+				echo >> $H_FILE
+			fi
+		fi
 	fi
 done
 

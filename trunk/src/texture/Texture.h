@@ -5,6 +5,8 @@
 
 using namespace std;
 
+namespace XOR {
+
 class Texture
 {
 
@@ -38,5 +40,7 @@ public:
 	int				getWidth();
 
 };
+
+}
 
 #endif			//TEXTURES_H

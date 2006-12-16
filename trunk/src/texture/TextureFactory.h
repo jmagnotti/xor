@@ -19,6 +19,7 @@
 
 using namespace std;
 
+namespace XOR {
 
 /**
  * A factory that takes in one of several image types and returns a texture'
@@ -68,5 +69,7 @@ private:
 	static TextureFactory* _textureFactory;
 
 };
+
+}
 
 #endif			//TEXTUREFACTORY_H
