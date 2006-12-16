@@ -6,5 +6,5 @@
 class TerrainStrategy
 {
 	//virtual void 
-}
+};
 

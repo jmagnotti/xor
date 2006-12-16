@@ -1,5 +1,6 @@
 #include "Texture.h"
 
+namespace XOR {
 
 /**
  * Explicit Constructor
@@ -68,4 +69,6 @@ void Texture::loadFromFile(char * filename)
 void Texture::setActive()
 {
 //	glBindTexture(GL_TEXTURE_2D, _id);
+}
+
 }
