@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++
-
+CFLAGS = -fPIC
 LIBS = -lGL -lGLU -lm
 
 #Packages
@@ -28,8 +28,8 @@ demos:
 libXOR.so:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -shared -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
-.c.o:
-			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+.cpp.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
 			$(RM) $(OBJS) $(MAIN)
