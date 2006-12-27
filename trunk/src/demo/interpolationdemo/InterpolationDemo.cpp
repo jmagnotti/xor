@@ -1,124 +1,129 @@
 #include "../../xor.h"
 
+
 using namespace XOR;
 
-/**
- * Tests the interpolation.
+/*
+ * Note that by declaring ourselves as a DefaultKeyboardListener 
+ * we are automatically added to the keyboard.
  */
-//class InterpolationTester : public InterpolatorListener, public TimerListener
-//{
-//
-//
-//public: 
-//
-//    Point3D *start, *end;
-//    static const int TEN_SECONDS = 10000;
-//    TimedInterpolator * ti; 
-//    unsigned int time;
-//    
-//
-//    /*
-//     * Constructors
-//     */
-//    InterpolationTester()
-//    {
-//    	
-//        time    = 0;
-//        start   = new Point3D(0, 0, 0);
-//        end     = new Point3D(0, 0, 100);
-//
-//        ti = new TimedInterpolator(start, end, TEN_SECONDS);
-//        ti->start();
-//        ti->addListener(this);
-//
-////        cout << ((Point3D*)ti->getCurrentInterpolation())->toString() << endl;
-//        Timer::GetInstance()->addListener(this);
-//    }
-//
-//
-//    /*
-//     * Called by the timer tick
-//     */
-//    void handleTick()
-//    {
-//        Point3D * curr = ((Point3D*)ti->getCurrentInterpolation());
-//
-//        Controller::GetInstance()->getModel()->addRenderable("eh", new Cube(curr, 2, new Paint(Color::RED)));
-//
-//        time++;
-//        if (time > Timer::GetInstance()->getInterval()) {
-//            cout << "Current Value:\t" << curr->toString() << endl;
-//            cout << "Current Time:\t" << Timer::GetInstance()->getElapsedTime() << endl;
-//            time = 0;
-//        }
-//    }
-//
-//
-//    /*
-//     *  Called when the interpolation is finished
-//     */
-//    void interpolationComplete()
-//    {
-//        cout << "Finished!" << endl;
-//    }
-//
-//};
-//
-//	    InterpolationTester * it = new InterpolationTester();
-//
-
-class InterpolationDemo : public DefaultKeyboardListener
+class InterpolationDemo : public DefaultKeyboardListener, public Renderable,
+    public InterpolationListener
 {
+
 public:
 
+    static const int THREE_SECONDS = 5000;
+
 	/* 
- 	* Constructor
- 	*/
-	InterpolationDemo(int argc, char **argv)
+  	 * Constructor
+ 	 */
+	InterpolationDemo()
 	{
 		Controller * ctrl = Controller::GetInstance();
 	    ctrl->defaultConfiguration();
-	    ctrl->getKeyboard()->addListener(this);
-	    
-		//FPS counter
-	    new FramesPerSecondCounter();
-	
-	    ctrl->setModel(new String2D("Interpolation Test (press 'x' to compile the yellow cube)"));
-	    ctrl->getViewer()->getOrientation()->incrementPosition(new Point3D(0,0,10));
-	    ctrl->getViewer()->getOrientation()->setFocalPoint(new Point3D(0,0,0));
-	    
-	    Cube * whiteCube = new Cube(new Point3D(-.5,-.5,-.5), 1, new Paint(Color::WHITE));
-	    ctrl->getModel()->addRenderable("white", whiteCube);
-	    
-	   	ctrl->getModel()->addRenderable("c_blue", new Cube(new Point3D(0,0,5), 1, new Paint(Color::BLUE)));
-	    ctrl->getModel()->addRenderable("c_green", new Cube(new Point3D(0,5,0), 1, new Paint(Color::GREEN)));
-	    ctrl->getModel()->addRenderable("c_red", new Cube(new Point3D(5,0,0), 1, new Paint(Color::RED)));
-	    
-	    yellowCube = new Cube(new Point3D(-.5,-.5,-.5), 1, new Paint(Color::YELLOW));
-	    ctrl->getModel()->addRenderable("yellow", yellowCube);
-	    Orientate * cubePos = yellowCube->getOrientate();
-	    cubePos->incrementPosition(new Point3D(3,3,3));
-	    
+
+        // need a cleaner way to do this, override the get instance method or something
+        ctrl->removeDefaultKeyboardListener();
+
+        yellowCube = new Cube(new Point3D(-.5f,0.0f,-1.0f), 1.0f, new
+                Paint(Color::YELLOW, Paint::HEIGHT_BASED));
+
+        _interpolation = new TimedInterpolation(new LinearInterpolator(), THREE_SECONDS);
+
+        // should use the BoundedRangeModel to get screen coordinates
+        up = new Translate(0, 1, 0);
+        down = new Translate(0, -1, 0);
+
+        left = new Translate(0, 1, 0);
+        right = new Translate(0, -1, 0);
+
+	    ctrl->setModel(this);
+
+        yellowCube->compile();
+
 	    ctrl->run();
 	}
 
-	void handleKey_x()
-	{
-		yellowCube->compile();
-	}
+
+    void render()
+    {
+        yellowCube->render();
+    }
+
+
+protected:
+
+    void handleKey_w()
+    {}
+
+    void handleKey_s()
+    {}
+
+    void handleKey_r()
+    {}
+
+    void handleKey_p()
+    {} 
+
+    void goup()
+    {
+        yellowCube->applyTransform(up, _interpolation);
+    }
+
+    void godown()
+    {
+        yellowCube->applyTransform(down, _interpolation);
+    }
+
+    void goright()
+    {
+        yellowCube->applyTransform(right, _interpolation);
+    }
+
+    void goleft()
+    {
+        yellowCube->applyTransform(left, _interpolation);
+    }
+
+    void handleKey_l()
+    {
+        // starts the chain
+        yellowCube->applyTransform(up, _interpolation); 
+    }
+
+    void interpolationComplete()
+    { 
+        switch(++stage) { 
+            case 0:       goup();    break; 
+            case 1:       godown();  break; 
+            case 2:       goright(); break; 
+            case 3:       goleft();  break; 
+            case default: stage = 0; break;
+        }
+
+    }
+
 		
 private:
 
 	Cube * yellowCube;
+    Transform * left, * right, * up, * down;
+
+    TimedInterpolation * _interpolation;
+
+    int stage;
 	
 };
 
-/**
+
+/*
  *  Tester Main
  */
 int main(int argc, char **argv)
 {
-	InterpolationDemo * demo = new InterpolationDemo(argc, argv); 
-	delete demo;
+	new InterpolationDemo();
+
     return 0;
 }
+
