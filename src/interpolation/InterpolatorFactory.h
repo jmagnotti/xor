@@ -1,15 +1,15 @@
 #ifndef INTERPOLATORFACTORY_H
 #define INTERPOLATORFACTORY_H
 
+#include <iostream>
 
 #include "Interpolator.h"
 #include "LinearInterpolator.h"
 //#include "ExponentialInterpolator.h"
 
+using namespace std;
 
 namespace XOR {
-
-using namespace std;
 
 /**
  * Easy way to create Interpolators
@@ -19,17 +19,17 @@ class InterpolatorFactory
     
 public:
 
-    static const int SQ_ROOT_INTERPOLATOR = -1;
-    static const int RK4_INTERPOLATOR = 0;
-    static const int LINEAR_INTERPOLATOR = 1;
-    static const int SQUARED_INTERPOLATOR = 2;
-    static const int CUBIC_INTERPOLATOR = 3;
+    static const int SQ_ROOT_INTERPOLATOR   = -1;
+    static const int RK4_INTERPOLATOR       = 0;
+    static const int LINEAR_INTERPOLATOR    = 1;
+    static const int SQUARED_INTERPOLATOR   = 2;
+    static const int CUBIC_INTERPOLATOR     = 3;
 
     
     /**
      * Singleton Accessor for the factory
      */
-    InterpolatorFactory * GetInstance();
+    static InterpolatorFactory * GetInstance();
 
 
     /**

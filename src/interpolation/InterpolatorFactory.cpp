@@ -41,6 +41,8 @@ void InterpolatorFactory::setDefaultInterpolator(int interpolator)
  */
 Interpolator * InterpolatorFactory::getDefaultInterpolator()
 {
+//    cout << "Returning " << _defaultInterpolator << " interpolator" << endl;
+
     return getInterpolator(_defaultInterpolator);
 }
 
