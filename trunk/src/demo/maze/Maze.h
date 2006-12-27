@@ -15,7 +15,8 @@ using namespace XOR;
  * A maze is basically a bunch of rectangular prisms. 
  * The maze adds the notion of a starting point and an ending point.
  */
-class Maze : public CollisionRenderable {
+class Maze 
+{
 
 public:
 
