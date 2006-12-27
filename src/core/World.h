@@ -8,7 +8,7 @@
 #include "../shape/Point3D.h"
 #include "../shape/Renderable.h"
 #include "../transform/Rotate.h"
-#include "../shape/Positionable.h"
+#include "../transform/Positionable.h"
 #include "../event/TimerListener.h"
 #include "../transform/Transform.h"
 #include "../transform/Translate.h"
@@ -22,7 +22,9 @@ namespace XOR {
 /**
  * This is the highest-level model in the GOR framework
  */
-class World : public Renderable, public TimerListener
+class World : //public Positionable, 
+                public TimerListener,
+                public Renderable
 {
 
 public:
@@ -68,18 +70,6 @@ public:
 	 * Clears the list of renderables
 	 */
 	void clean();
-
-
-    /*
-     * easy way to compile
-     */
-    void compile();
-
-
-    /*
-     * easy way to decompile
-     */
-    void decompile();
 
 
 	/**
@@ -177,3 +167,4 @@ private:
 }
 
 #endif			// WORLD_H
+

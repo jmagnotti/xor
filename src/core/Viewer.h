@@ -10,7 +10,9 @@
 
 #include "../geometry/Dimension2D.h"
 #include "../shape/Point3D.h"
-#include "../transform/Orientate.h"
+#include "../transform/Positionable.h"
+#include "../transform/CoordinateSystem.h"
+#include "../transform/CoordinateSystemFactory.h"
 #include "../event/ReshapeListener.h"
 
 namespace XOR {
@@ -18,10 +20,10 @@ namespace XOR {
 
 /**
  * Designed to maintain the state of the viewer of the world.
- * Transformations are now diseminated.
+ * Transformations are now delegated.
  * The Viewer is doing a little bit too much windowing at the moment.
  */
-class Viewer : public ReshapeListener
+class Viewer : public ReshapeListener, public Positionable
 {
 
 public:
@@ -80,16 +82,11 @@ public:
      */
     void handleReshape(int width, int height);
 
+
 	/** 
 	 * Calls render() on the model
 	 */
 	void view(void);
-
-
-	/**
-	 * Returns the current camera orientation transform
-	 */
-	Orientate * getOrientation();
 
 
     /**
@@ -129,9 +126,9 @@ public:
 
 
 	/**
-	 * Change user coordinate system (math vs. opengl system)
+	 * Change user coordinate system 
 	 */
-	void setCoordinateSystem(bool math);
+	void setCoordinateSystem(CoordinateSystem * coordinateSystem);
 	
 
     /**
@@ -159,14 +156,13 @@ protected:
 	bool			_fullscreen;
 
     float           _backgroundColor[3];
-    const char *          _title;
+    const char *    _title;
 
 	Dimension2D *	_size;
 
 	World *	_model;
 
-	Orientate *		_orientation;
-	Rotate *     	_coordinates[3];
+    CoordinateSystem * _coordinateSystem;
 
 };
 

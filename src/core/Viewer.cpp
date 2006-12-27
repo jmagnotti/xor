@@ -5,18 +5,18 @@ namespace XOR {
 // initialize static defaults
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
-const int   Viewer::DEFAULT_FOV			= 60;
+const int   Viewer::DEFAULT_FOV			= 90;
 const float Viewer::DEFAULT_NEAR_CLIP	= .01f;
 const int   Viewer::DEFAULT_FAR_CLIP	= 100;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
 const int Viewer::DEFAULT_WINDOW_Y		= 100;
 
-const int Viewer::DEFAULT_WINDOW_WIDTH	= 800;
-const int Viewer::DEFAULT_WINDOW_HEIGHT	= 525;
+const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
+const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 
 const int Viewer::DEFAULT_COLOR_DEPTH   = 0;    // use the OS default
-const int Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
+const int Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL;// | SDL_RESIZABLE;
 
 
 /*
@@ -35,10 +35,7 @@ Viewer::Viewer(int fov, float nearCP, float farCP)
     _nearClippingPlane	= nearCP;
     _farClippingPlane	= farCP;
 
-	// camera orientation
-	_orientation = new Orientate();
-	for (int o = 0; o < 3; o++)
-		_coordinates[o] = new Rotate();
+    _coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
     for(int i=0; i<3; i++)
         _backgroundColor[i] = Color::DARK_NAVY[i];
@@ -51,11 +48,7 @@ Viewer::Viewer(int fov, float nearCP, float farCP)
 Viewer::~Viewer()
 {
     delete _size;
-    delete _orientation;
-
-	for (int o = 0; o < 3; o++) {
-        delete _coordinates[o];
-    }
+    delete _coordinateSystem;
 }
 
 
@@ -84,12 +77,7 @@ void Viewer::handleReshape(int width, int height)
 	_size->setWidth(width);
 	_size->setHeight(height);
 
-    // new screen size & bg color
-    //setupSDLVideo();
-
-    // let everyone now we need to do recalculations
-//    _model->decompile();
-//    _model->compile();
+    // we may have to worry about regenerating textures and such
 
     // reset clear color
     setupClearColor(); 
@@ -123,6 +111,7 @@ void Viewer::handleReshape(SDL_Event * event)
  */
 void Viewer::setupSDLVideo()
 {
+
     //at some point we need to have variables to hold things like current video flags, etc.
     SDL_SetVideoMode(_size->getWidth(), _size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
@@ -135,7 +124,8 @@ void Viewer::setupSDLVideo()
  */
 void Viewer::setupClearColor()
 {
-	glClearColor(_backgroundColor[0], _backgroundColor[1], _backgroundColor[2], 0.1f); 
+    glClearColor(_backgroundColor[0], _backgroundColor[1], _backgroundColor[2],
+            1.0f); 
 }
 
 
@@ -147,17 +137,11 @@ void Viewer::view()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	// since we're technically moving the whole world, push the inverse
-	_orientation->pushInverse();
-
-	for (int o = 0; o < 3; o++)
-		_coordinates[o]->push();
-
-	_model->render();
-
-	for (int o = 2; o >= 0; o--)
-		_coordinates[o]->pop();
-		
-	_orientation->pop();
+    pushInverse();
+        _coordinateSystem->push();
+            _model->render();
+        _coordinateSystem->pop();
+    pop();
 
     // SDL call to swap the off screen buffer with the on screen one
     SDL_GL_SwapBuffers(); 
@@ -180,7 +164,7 @@ void Viewer::setFullScreen(bool status)
 {
 	// TODO: implement turning fullscreen OFF
 
-	if (status && !_fullscreen)
+	if (status != _fullscreen)
         int i=0;
 
 	_fullscreen = status;
@@ -189,33 +173,11 @@ void Viewer::setFullScreen(bool status)
 
 /*
  * change user coordinate system.
- * Should use strategy Pattern.
  */
-void Viewer::setCoordinateSystem(bool math)
+void Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 {
-	if (math) {
-		for (int o = 0; o < 3; o++)
-			delete _coordinates[o];
-
-		_coordinates[0] = new Rotate(90.0f,0,1,0);
-		_coordinates[1] = new Rotate(90.0f,1,0,0);
-		_coordinates[2] = new Rotate(0.0f,0,0,0);
-	}
-	else {
-		for (int o = 0; o < 3; o++) {
-			delete _coordinates[o];
-			_coordinates[o] = new Rotate(0.0f,0,0,0);
-		}
-	}
-}
-
-
-/*
- * Returns the current camera orientation transform
- */
-Orientate * Viewer::getOrientation()
-{
-    return _orientation;
+    delete _coordinateSystem;
+    _coordinateSystem = coordinateSystem;
 }
 
 
@@ -243,9 +205,8 @@ void Viewer::toggleFullScreen()
 void Viewer::setWindowDimension(Dimension2D * size)
 {
     _size->clone(size);
-
-    // this should trigger a reshape event
-    SDL_SetVideoMode(_size->getWidth(), _size->getHeight(), DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
+    SDL_SetVideoMode(_size->getWidth(), _size->getHeight(),
+            DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
 }
 
 

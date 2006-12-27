@@ -82,6 +82,12 @@ public:
 	void defaultIVSConfiguration(bool configGL=true);
 
 
+    /**
+     * Separate out the SDL_GL vars so they can be reset on a reshape event
+     */
+    void defaultSDLGLConfiguration();
+
+
 	/** 
 	 * Returns a reference to the model.
 	 * If you try to get the model before you have set one, NULL is returned
@@ -143,6 +149,21 @@ public:
 	void setView(Viewer *);
 
 
+
+    /**
+     * Since the controller is setting up a key listener, we need to have a way for the user 
+     * to override this guy.
+     */
+    void removeDefaultKeyboardListener();
+
+
+    /**
+     * Since the controller is setting up a mouse listener, we need to have a way for the user 
+     * to override this guy.
+     */
+    void removeDefaultMouseListener();
+
+
     /**
      * Event loop, it's an SDL thing
      */
@@ -151,18 +172,16 @@ public:
 
 protected:
 
-	static Controller *			_controller;
+	static Controller *		_controller;
 
-	Keyboard *			_keyboard;
-	Mouse *				_mouse;
-	Renderable *		_model;
+	Keyboard *			    _keyboard;
+	Mouse *				    _mouse;
+	Renderable *		    _model;
 
-	ReshapeListener *	_reshape;
-	Timer *				_timer;
-	Viewer *			_viewer;
+	ReshapeListener *	    _reshape;
+	Timer *				    _timer;
+	Viewer *			    _viewer;
     
-    static bool         _keepGoing;
-
 private:
 
 	Controller();

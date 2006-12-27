@@ -6,8 +6,6 @@ namespace XOR {
 // Set the static instances to null
 Controller * Controller::_controller = 0;
 
-bool Controller::_keepGoing = false;
-
 
 /*
  * Protected Default Constructor
@@ -28,9 +26,7 @@ Controller::Controller()
     DefaultKeyboardListener::GetInstance();
 
 	//set the default mouse listener
-	_mouse->addListener(DefaultMouseListener::GetInstance());
-
-    _keepGoing = true;
+	DefaultMouseListener::GetInstance();
 }
 
 
@@ -43,7 +39,7 @@ Controller::~Controller()
     delete _model;
 
     // view
-    delete _viewer;
+//    delete _viewer;
 
     // sub-controllers
     delete _keyboard;
@@ -65,18 +61,23 @@ Controller* Controller::GetInstance()
 	return _controller;
 }
 
+
+/*
+ * does the real deleting, protected to keep people from calling it
+ * directly
+ */
 void Controller::exit()
 {
-
 	Controller * control = Controller::GetInstance();
-	delete control;
+	//delete control;
 
     // clean up SDL, and exit
     SDL_Quit(); 
 }
 
+
 /*
- * Destroy everything and terminate
+ * Push a quit event onto the queue
  */
 void Controller::CleanUpAndExit()
 {
@@ -85,15 +86,11 @@ void Controller::CleanUpAndExit()
 }
 
 
-/* 
- * Set up the default configuration for the renderer
+/*
+ * unhoses the SDL GL bridge
  */
-void Controller::defaultConfiguration(bool configGL)
+void Controller::defaultSDLGLConfiguration()
 {
-    SDL_Init(SDL_INIT_EVERYTHING); 
-
-    _viewer->setupSDLVideo();
-
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); 
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 
@@ -104,8 +101,19 @@ void Controller::defaultConfiguration(bool configGL)
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,  8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
-    //disable SDL subsystems that we haven't implemented yet
-    //the one that we may want to add later:  KEYUP
+    _viewer->setupSDLVideo();
+}
+
+
+/* 
+ * Set up the default configuration for SDL
+ */
+void Controller::defaultConfiguration(bool configGL)
+{
+    //SDL_Init(SDL_INIT_EVERYTHING); 
+    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO); 
+
+    defaultSDLGLConfiguration();
 
     // no joystick suport yet
     SDL_EventState(SDL_JOYAXISMOTION, SDL_IGNORE); 
@@ -119,6 +127,9 @@ void Controller::defaultConfiguration(bool configGL)
 }
 
 
+/*
+ * Set up openGL defaults
+ */
 void Controller::defaultGLConfiguration()
 {
 	// enable blending
@@ -227,7 +238,7 @@ void Controller::run(void)
     _timer->start();
 
     //set final window properties
-    _viewer->setWindowDimension(_viewer->getWindowSize());
+    // _viewer->setWindowDimension();
     _viewer->setupClearColor();
 
     // sit around and wait for something to do 
@@ -253,6 +264,26 @@ void Controller::setModel(Renderable* rend)
 }
 
 
+/**
+ * set mouse listener
+ */
+void Controller::removeDefaultMouseListener()
+{
+    _mouse->removeListener(DefaultMouseListener::GetInstance()); 
+//    _mouse->addListener(ml);
+}
+
+
+/**
+ * set keyboard listener
+ */
+void Controller::removeDefaultKeyboardListener()
+{
+    _keyboard->removeListener(DefaultKeyboardListener::GetInstance());
+//    _keyboard->setKeyboardListener(kl);
+}
+
+
 /*
  * Okay, so I hate big case statements, but this is just how SDL works, I think.
  * I am more than open to enhancements of this situations, GLUT-style callbacks?
@@ -265,7 +296,7 @@ void Controller::EventLoop()
     // we are using WaitEvent(...) because we want everything to be called
     // off timer ticks or other events. I am still not 100% sure where to 
     // put the call to render...
-    while(_keepGoing && SDL_WaitEvent(&event)) {
+    while(SDL_WaitEvent(&event)) {
 
         switch(event.type) {
             case SDL_KEYDOWN:
@@ -286,6 +317,7 @@ void Controller::EventLoop()
                 ctrl->getReshapeListener()->handleReshape(&event);
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to
+                ctrl->defaultSDLGLConfiguration();
                 ctrl->defaultGLConfiguration();
                 break;
 
@@ -298,6 +330,10 @@ void Controller::EventLoop()
                 if (event.user.code == Timer::TIMER_TICK_EVENT) {
                     Timer::GetInstance()->tickTock();
                     ctrl->getViewer()->view();
+                }
+                else {
+                    // establish user event system here
+                    // ctrl->getUserEventPublisher()->publish(&event);
                 }
                 break;
 
