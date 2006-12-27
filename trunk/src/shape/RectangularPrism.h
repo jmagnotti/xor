@@ -8,7 +8,7 @@
 #include "../paint/Paint.h"
 #include "Quadrilateral3D.h"
 #include "../geometry/RectangularVolume.h"
-#include "Positionable.h"
+#include "../transform/Positionable.h"
 
 
 namespace XOR {

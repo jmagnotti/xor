@@ -3,164 +3,97 @@
 
 namespace XOR {
 
-/**
- * default constructor
- */
-Paint::Paint(void)
-{
-	textured = false;
-
-	for (int i=0; i<3; i++) {
-		colorFrom[i]	= 1.0f;
-		colorTo[i]		= 1.0f;
-	}
-
-	gradientType = NO_GRADIENT;
-}
+/*
+ * Purposely not initialized here. see Paint.h
+    const int Paint::NO_GRADIENT    = 0;
+    const int Paint::HEIGHT_BASED   = 1;
+    const int Paint::LENGTH_BASED   = 2;
+    const int Paint::DEPTH_BASED    = 3;
+*/
 
 
 /**
  * Explicit constructor
  */
-Paint::Paint(float red, float green, float blue)
+Paint::Paint(float red, float green, float blue, int gradientType)
 {
-	textured = false;
+	_textured = false;
 
-	colorFrom[0] = red;
-	colorFrom[1] = green;
-	colorFrom[2] = blue;
+	_colorFrom[0] = red;
+	_colorFrom[1] = green;
+	_colorFrom[2] = blue;
 
 	for (int i=0; i<3; i++)
-		colorTo[i] = colorFrom[i];
+		_colorTo[i] = _colorFrom[i];
 
-	gradientType = NO_GRADIENT;
-}
+	_gradientType = NO_GRADIENT;
 
-
-/**
- * Explicit Constructor
- * Creates a Paint object with the specified color
- */
-Paint::Paint(const float color[3])
-{
-	textured = false;
-
-	for (int i=0; i<3; i++)
-	{
-		colorFrom[i] = color[i];
-		colorTo[i] = color[i];
-	}
-
-	gradientType = NO_GRADIENT;
-}
-
-
-/*
- * Explicit Constructor
- */
-Paint::Paint(const float color[3], int gradient)
-{
-	textured = false;
-
-	gradientType = gradient;
-	
-	for (int i=0; i<3; i++)
-	{
-		colorFrom[i] = color[i];
-		colorTo[i] = color[i];
-	}
-
-	if (gradientType != NO_GRADIENT)
+	if (_gradientType != NO_GRADIENT)
 		recalculateGradient();	
 }
 
 
 /*
  * Explicit Constructor
- * Creates a Paint object with the specified gradient
  */
-Paint::Paint(const float startColor[3], const float endColor[3], int gradient)
+Paint::Paint(const float color[3], int gradientType, Texture * tex)
 {
-	textured = false;
+    _textured = false;
 
-	gradientType = gradient;
-
-	for (int i=0; i<3; i++)
-	{
-		colorFrom[i]	= startColor[i];
-		colorTo[i]		= endColor[i];
+    if (tex != NULL) {
+        _textured   = true;
+        _texture    = tex;
+    }
+	
+	for (int i=0; i<3; i++) {
+		_colorFrom[i]	= color[i];
+		_colorTo[i]		= color[i];
 	}
 
-}
+	_gradientType = gradientType;
+
+	if (_gradientType != NO_GRADIENT)
+		recalculateGradient();
+} 
+
 
 /*
  * Explicit Constructor
  * Creates a Paint object with the specified gradient
  */
-Paint::Paint(const float startColor[3], const float endColor[3], int gradType, Texture * tex)
+Paint::Paint(const float startColor[3], const float endColor[3], int gradientType, Texture * tex)
 {
-	textured = true;
+    _textured = false;
+
+    if (tex != NULL) {
+        _textured   = true;
+        _texture    = tex;
+    }
 
 	for (int i=0; i<3; i++) {
-		colorFrom[i]	= startColor[i];
-		colorTo[i]		= endColor[i];
+		_colorFrom[i]	= startColor[i];
+		_colorTo[i]		= endColor[i];
 	}
 
-	gradientType	= gradType;
-	texture			= tex;
+	_gradientType	= gradientType;
 
+	if (_gradientType != NO_GRADIENT)
+		recalculateGradient();	
 }
 
 
 /*
- * Explicit Constructor
+ * Exp const
  */
-Paint::Paint(const float startColor[3], int gradient, Texture *  tex)
+Paint::Paint(Texture *tex)
 {
-	textured = true;
-	
+    _textured = true;
+
 	for (int i=0; i<3; i++)
-	{
-		colorFrom[i]	= startColor[i];
-		colorTo[i]		= startColor[i];
-	}
+		_colorFrom[i] = _colorTo[i]	= Color::WHITE[i];
 
-	gradientType	= gradient;
-	texture			= tex;
-
-	if (gradientType != NO_GRADIENT)
-		recalculateGradient();
+	_gradientType = NO_GRADIENT;
 }
-
-
-/*
- * Explicit Constructor.
- * Creates a Paint object with a texture and a white color
- */
-Paint::Paint(Texture * tex)
-{
-	textured = true;
-	texture			= tex;
-
-    setColorTo(Color::WHITE);
-    setColorFrom(Color::WHITE);
-
-	gradientType	= NO_GRADIENT;
-}
-
-
-/*
- * Explicit Constructor
- */
-Paint::Paint(const float color[3], Texture * tex)
-{
-    textured = true;
-    texture = tex;
-
-    setColorFrom(color);
-    setColorTo(color);
-}
-
 
 
 /**
@@ -169,47 +102,38 @@ Paint::Paint(const float color[3], Texture * tex)
  */
 void Paint::recalculateGradient()
 {
-	if (autoGradient == 0)
-		autoGradient = .4f;
-
-
-    if (gradientType != NO_GRADIENT) {
-	    for (int i=0; i<3; i++)
-		    colorFrom[i] = colorTo[i] * autoGradient;
-    }
+    for (int i=0; i<3; i++)
+        _colorFrom[i] = _colorTo[i] * _autoGradient;
 }
 
 
 /**
- * Sets the decrement value for the auto gradient
+ * Sets the decrement value for the _auto gradient
  */
 void Paint::setAutoGradient(float autoGrad)	
 {
-	//check if different than current value
-	if (autoGradient != autoGrad) {
-		autoGradient = autoGrad;		
+		_autoGradient = autoGrad;		
 		recalculateGradient();
-	}
 }
 
 
 /*
- * Sets just the colorFrom
+ * Sets just the _colorFrom
  */
 void Paint::setColorFrom(const float ct[3])
 {
     for (int i=0; i<3; i++)
-        colorFrom[i] = ct[i];
+        _colorFrom[i] = ct[i];
 }
 
 
 /*
- * Sets just the colorTo
+ * Sets just the _colorTo
  */
 void Paint::setColorTo(const float ct[3])
 {
     for (int i=0; i<3; i++)
-        colorTo[i] = ct[i];
+        _colorTo[i] = ct[i];
 }
 
 
@@ -218,7 +142,7 @@ void Paint::setColorTo(const float ct[3])
  */
 void Paint::setGradient(int grad)				
 {
-	gradientType = grad; 
+	_gradientType = grad; 
 }
 
 
@@ -227,17 +151,18 @@ void Paint::setGradient(int grad)
  */
 void Paint::setTexture(Texture *tex)
 {
-	textured = true;
-	texture = tex;
+	_textured = true;
+	_texture = tex;
 }
 
+
 //---GETTERS---//
-bool		Paint::isTextured()			{	return textured;		}
-float		Paint::getAutoGradient()	{	return autoGradient;	}
-float	*	Paint::getColorFrom()		{	return colorFrom;		}
-float	*	Paint::getColorTo()			{	return colorTo;			}
-int			Paint::getGradientStyle()	{	return gradientType;	}
-Texture	*	Paint::getTexture()			{	return texture;			}
+bool		Paint::isTextured()			{	return _textured;		}
+float		Paint::getAutoGradient()	{	return _autoGradient;	}
+float	*	Paint::getColorFrom()		{	return _colorFrom;		}
+float	*	Paint::getColorTo()			{	return _colorTo;		}
+int			Paint::getGradientStyle()	{	return _gradientType;	}
+Texture	*	Paint::getTexture()			{	return _texture;		}
 
 }
 

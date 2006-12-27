@@ -16,7 +16,7 @@ public:
 	 * Useful for determining the child class, since cpp doesn't have reflection.
      * Also used for reducing methods that only differ in their extent.
 	 */
-	inline virtual int getDimensionality()=0;
+	virtual int getDimensionality()=0;
 
     /**
      * Clones the other dimensions values into this one. Does it's best to always copy some values. 
@@ -40,6 +40,12 @@ public:
      * Returns the smallest value in the dimension.
      */
     float getSmallestSize();
+
+
+    /**
+     * Returns the given dimension, or 0 if the dimension was invalid
+     */
+    float get(int dimension);
 
 
     /**
