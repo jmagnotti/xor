@@ -26,7 +26,7 @@ GraphicsConversionUtility * GraphicsConversionUtility::GetInstance()
 GraphicsConversionUtility::GraphicsConversionUtility()
 {
     //fill the (co)sine tables
-    for (float i = 0; i<360; i++) {
+    for (int i = 0; i<360; i++) {
         float j = degressToRadians(i);
 
         cosineValues[i] = cos(j);
@@ -101,6 +101,19 @@ float GraphicsConversionUtility::getSine(int deg)
     result = sineValues[deg];
 
     return result;
+}
+
+
+/*
+ * generate DL
+ */
+void GraphicsConversionUtility::generateDisplayList(GLuint & displayListID, Renderable * renderable)
+{
+    displayListID = glGenLists(1);
+
+    glNewList(displayListID, GL_COMPILE);
+        renderable->render();
+    glEndList();
 }
 
 
