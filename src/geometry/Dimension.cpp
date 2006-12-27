@@ -54,6 +54,19 @@ float Dimension::getSmallestSize()
 
 
 /*
+ * return the requested dimension
+ */
+float Dimension::get(int dimension)
+{
+    float val = 0;
+
+    if (dimension < getDimensionality() && dimension > 0)
+        val = _dimension[dimension];
+
+    return val;
+}
+
+/*
  * Returns the dimension formatted as an array
  */
 float * Dimension::toArray()

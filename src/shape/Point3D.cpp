@@ -249,13 +249,12 @@ void Point3D::setColor(float c[3])
 
 /*
  * Scales each point by the specified amount
- */
 void Point3D::scale(float scaleAmount)
 {
    for (int i=0; i<3; i++)
        _position[i] *= scaleAmount;
 }
-
+ */
 
 /*
  * Required by Interpolable.h.
@@ -318,7 +317,6 @@ char * Point3D::toString()
 /*
  * Finds the min and max of the two points and stores the minimum values in a, and the maximum
  * values in b. Retains respective color values.
- */
 void Point3D::minAndMax(Point3D * a, Point3D * b)
 {
     float   * aPos = new float[3],
@@ -332,6 +330,6 @@ void Point3D::minAndMax(Point3D * a, Point3D * b)
     a->setPosition(aPos);
     b->setPosition(bPos);
 }
-
+ */
 }
 

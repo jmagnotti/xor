@@ -86,10 +86,12 @@ void RectangularPrism::removeFace(int faceToRemove)
  */
 void RectangularPrism::render(void)
 {
-	if (_positioned)
-		_orientation->push();
+//	if (_positioned)
+//		_orientation->push();
 
-	if (!_compiled) {
+    push();
+
+	if (true) {
 		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 		vector<Quadrilateral3D*>::iterator finish = _faces.end();
 		
@@ -99,11 +101,13 @@ void RectangularPrism::render(void)
 		}
 	}
 	else {
-		glCallList(_displayListID);
+		//glCallList(_displayListID);
 	}
+
+    pop();
 	
-	if (_positioned)
-		_orientation->pop();
+//	if (_positioned)
+//		_orientation->pop();
 }
 
 

@@ -7,9 +7,6 @@
 #include <string>
 #include <math.h>
 
-// this needs to be worked out. an interpolable is a much higher level construct than
-// Point3D. Should have a way to access the Interpolators though.
-
 #include "../paint/Paint.h"
 #include "Renderable.h"
 #include "../../include/SDL_opengl.h"
@@ -115,7 +112,7 @@ public:
      * Finds the min and max of the two points and stores the minimum values in a, and the maximum
      * values in b. Retains respective color values.
      */
-    void minAndMax(Point3D * a, Point3D * b);
+//    void minAndMax(Point3D * a, Point3D * b);
 
 
     /**
@@ -144,7 +141,7 @@ public:
     /**
 	 * Multiplies each point by the specified value
 	 */
-	void scale(float);
+//	void scale(float);
 
 
     /**
@@ -188,6 +185,8 @@ public:
 protected:
 
 	float * _position;
+    //Translate * _position;
+ 
 	float * _color;
     
 };

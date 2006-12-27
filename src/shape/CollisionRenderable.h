@@ -14,6 +14,9 @@ namespace XOR {
  * The idea is that there are two kinds of graphics-- those you can collide with and those you can't
  * CollisionRenderables are still renderables and have render methods, they just also have checkCollision()
  * methods.
+ *
+ * @author John Magnotti, Michael Lam
+ * @version 0.5
  */
 class CollisionRenderable : public Renderable
 {
@@ -22,10 +25,9 @@ public:
 
 	
 	/**
-	 * See the notes on Renderable#render().
+     * @see Renderable
 	 */
-	virtual void render(void)
-    {}
+	virtual void render(void)=0;
 
 
 	/** 
@@ -44,6 +46,7 @@ public:
 
 	/**
 	 * Returns the class type
+     * @see Renderable
 	 */
 	virtual char * getRenderableType() {    return "COLLIDABLE";    }
 
@@ -52,3 +55,4 @@ public:
 }
 
 #endif			// COLLISIONRENDERABLE_H
+
