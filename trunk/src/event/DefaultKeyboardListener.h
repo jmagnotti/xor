@@ -41,6 +41,8 @@ public:
 	 */
     virtual void handleKey(KeyEvent* ke);
 
+protected:
+
 	virtual void handleKey_w();
 	virtual void handleKey_s();
 	virtual void handleKey_q();
@@ -48,7 +50,6 @@ public:
 	virtual void handleKey_F();
 	virtual void handleKeyAscii_27();
 
-protected:
 	
 	DefaultKeyboardListener();
 

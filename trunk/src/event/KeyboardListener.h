@@ -27,10 +27,12 @@ public:
 
     virtual void handleKeyEvent(KeyEvent * ke)=0;
 
+protected: 
 
 	/**
 	 * Regular key handlers
 	 */
+
 	inline virtual void handleKey_0() {}
 	inline virtual void handleKey_1() {}
 	inline virtual void handleKey_2() {}
