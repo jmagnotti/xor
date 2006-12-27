@@ -11,16 +11,29 @@ Translate::Translate(float x, float y, float z)
 	_xShift = x;
 	_yShift = y;
 	_zShift = z;
+
+    _values = new list<float*>(); 
+
+    _values->push_back(& _xShift);
+    _values->push_back(& _yShift);
+    _values->push_back(& _zShift);
 }
+
 
 /*
  * Explicit Constructor
  */
-Translate::Translate(Point3D *p)
+Translate::Translate(Dimension3D *p)
 {
 	_xShift = p->getX();
 	_yShift = p->getY();
 	_zShift = p->getZ();
+
+    _values = new list<float*>(); 
+
+    _values->push_back(& _xShift);
+    _values->push_back(& _yShift);
+    _values->push_back(& _zShift);
 }
 
 
@@ -47,7 +60,7 @@ void Translate::clone(Translate * other)
 /* 
  * Add the point to the current translate
  */
-void Translate::increment(Point3D * point)
+void Translate::increment(Dimension3D * point)
 {
 	_xShift += point->getX();
 	_yShift += point->getY();
@@ -74,4 +87,6 @@ void Translate::pushInverse()
 	glTranslatef(-(_xShift), -(_yShift), -(_zShift));
 }
 
+
 }
+
