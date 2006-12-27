@@ -13,8 +13,7 @@ char* BehaviorParser::_pathToFile = 0;
  * Protected Constructor
  */
 BehaviorParser::BehaviorParser()
-{
-}
+{}
 
 
 /*
@@ -52,14 +51,15 @@ vector<Transform*> BehaviorParser::parse()
     }
 	else {
 		while (! fin.eof()) {
+
 			// set the char* to null
-			memset(buffer, '\0', 1024);
+			memset(buffer, '\0', 32);
 
 			// clear the string array
 			for(int i=0; i<5; i++)
 				command[i].clear();
 
-			fin.getline(buffer, 1024);
+			fin.getline(buffer, 32);
 
 			cout << buffer << endl;
 
@@ -67,7 +67,7 @@ vector<Transform*> BehaviorParser::parse()
 			index	= buffer[0];
 
 			// loop until you find the terminating character
-			while(index != '\0' && index != '\n' && counter < 1024 && strPointer < 5) {
+			while(index != '\0' && index != '\n' && counter < 32 && strPointer < 5) {
 				command[strPointer] += index;
 				
 				counter++;

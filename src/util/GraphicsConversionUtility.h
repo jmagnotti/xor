@@ -5,6 +5,8 @@
 #include <math.h>
 #include <map>
 
+#include "../../include/SDL_opengl.h"
+
 #include "../shape/Point3D.h"
 
 
@@ -40,9 +42,7 @@ public:
 	
 
 	/**
-	 * converts the given float degree in to radians RAD*PI/180
-	 * calling this too often (1mill+) will slow you down, just do the conversion
-	 * inline
+	 * Converts the given float degree in to radians RAD*PI/180
 	 */
     inline float degressToRadians(float degree);
 
@@ -60,6 +60,15 @@ public:
 	 */
 	float getSine(int deg);
 
+
+    /**
+     * Compiles the object (and all subobjects) to OpenGL display lists. This
+     * should be called after object creation but before initial rendering.
+     * Note that this does go through the render method, but nothing is drawn
+     * to the screen.
+     */
+    void generateDisplayList(GLuint & displayListID, Renderable * renderable); 
+
 	
 	/** 
 	 * Compares two float values for equality, uses the specified epsilon value
@@ -71,7 +80,6 @@ public:
 	/**
 	 * Converts a given ratio value to a ratio value in another system. I think
 	 * ratio value is the right phrase.
-	 * --The crux of this method is credited to joshblake@gmail.com
 	 */
 	inline float mapValue(float value, float min, float max, float targetmin, float targetmax);
 
