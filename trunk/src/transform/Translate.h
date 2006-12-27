@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <list>
 
 #include "Transform.h"
 #include "../geometry/Dimension3D.h"
@@ -63,13 +64,6 @@ public:
 	 * to decrement, just increment by a negative amount
 	 */
 	void increment(Dimension3D*);
-
-
-    /**
-     * Interpolable mehtods.
-     */
-    void scale(Interpolable *other, int numSteps);
-    void next(void);
 
 
 protected:

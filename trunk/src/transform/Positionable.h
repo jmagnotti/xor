@@ -9,7 +9,6 @@
 #include "Translate.h"
 #include "Rotate.h"
 
-#include "../interpolation/Interpolable.h"
 #include "../interpolation/InterpolationEngine.h"
 #include "../shape/Point3D.h"
 #include "../util/GraphicsConversionUtility.h"

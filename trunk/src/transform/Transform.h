@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include "../../include/SDL_opengl.h"
 
-#include "../interpolation/Interpolable.h"
-
 
 namespace XOR {
 
