@@ -4,7 +4,6 @@
 
 #include <vector>
 
-#include "Interpolable.h"
 #include "InterpolationListener.h"
 
 using namespace std;
@@ -26,7 +25,7 @@ public:
     /**
      * Explicit Constructor
      */
-    InterpolationEngine(Interpolable *, Positionable *, int);
+    InterpolationEngine(int, InterpolationListener * listener=NULL);
 
 
     /**
@@ -39,12 +38,6 @@ public:
      * Adds a listener to the collection
      */
     virtual void addListener(InterpolationListener *);
-
-  
-    /**
-     *  Returns the current interpolable
-     */
-    Interpolable * getCurrentInterpolation();
 
 
     /**
@@ -59,12 +52,6 @@ public:
     virtual void start(void)=0;
 
 
-    /**
-     * Sets up the interpolator
-     */
-    virtual void setup(void)=0;
-     
-
 protected:
 
     /**
@@ -73,7 +60,6 @@ protected:
     virtual void notifyAll();
 
     vector<InterpolationListener*> _listeners;
-    Interpolable * _current;
 
     int _iterationsRemaining;
 

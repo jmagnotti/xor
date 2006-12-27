@@ -2,42 +2,55 @@
 #define INTERPOLATOR_H
 
 
-#include <vector>
+#include <list>
 
-#include "Interpolable.h"
-#include "../shape/Positionable.h"
-
-
-namespace XOR {
 
 using namespace std;
 
+namespace XOR {
+
 /**
- * This class defines a high-level parent for all interpolators. This class allows for generic 
- * incrementing of an Interpolable. The details of how the incrementing is done is left to the
- * underlying Interpolable object. This is not to be used for objects that may be colliding with other objects. A more high performance implementation is needed for that. Look to the particle class (which may not be implemented yet).
+ * This class defines a high-level parent for all interpolators. The details of how the
+ * incrementing is done is left to the underlying Interpolator object. This is
+ * not to be used for objects that may be colliding with other objects. A more
+ * high performance implementation is needed for that. Look to the particle
+ * class (which may not be implemented yet).
  */
 class Interpolator
 {
 
 public:
-    
- 
+
     /**
-     * Advances the interpolation
+     * Because the interpolator has a reference to the original values, they do
+     * not need to be passed in.
      */
-    virtual void next(float &)=0;
+    virtual void next()=0;
 
 
     /**
-     * Sets up the interpolator
+     * Reset the interpolator. This clears out the step amounts and the stored values. 
      */
-    virtual void setScale(float &, float &, int)=0;
+    void reset(void);
+
+
+    /**
+     * Call this to scale values
+     */
+    virtual void setScale(list <float*> * in, list <float*> * out, int
+            numSteps)=0;
+
+
+    /**
+     * Call this to scale values
+     */
+    virtual void setScale(float & in, float & out, int numSteps)=0;
      
 
 protected:
     
-    float _current, _step;
+    list <float> * _steps;
+    list <float*> * _values;
 
 };
 

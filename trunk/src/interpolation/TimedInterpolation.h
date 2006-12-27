@@ -4,6 +4,7 @@
 
 #include "../event/Timer.h"
 #include "../event/TimerListener.h"
+#include "InterpolationListener.h"
 #include "InterpolationEngine.h"
 
 
@@ -23,7 +24,7 @@ public:
     /**
      * Explicit Constructor
      */
-    TimedInterpolation(Interpolable * begin, Positionable * end, int milliseconds);
+    TimedInterpolation(int milliseconds, InterpolationListener * listener = NULL);
 
 
     /** 
@@ -31,7 +32,7 @@ public:
      */
     virtual void handleTick();
 
-    
+ 
     /**
      * Takes care of notifying listeners and removing itself as a timer listener
      */
@@ -44,11 +45,13 @@ public:
     void start(void);
 
 
+
 protected:
 
+
     // shouldn't be using the default constructor.
-    TimedInterpolation()
-    {}
+    TimedInterpolation() {}
+
 
     int _time;
 

@@ -1,9 +1,13 @@
 #ifndef LINEARINTERPOLATOR_H
 #define LINEARINTERPOLATOR_H
 
+#include<list>
+#include <iostream>
 
 #include "Interpolator.h"
+#include "../util/GraphicsConversionUtility.h"
 
+using namespace std;
 
 namespace XOR {
 
@@ -15,31 +19,30 @@ class LinearInterpolator : public Interpolator
 
 public:
 
+
     /**
      * Default Constructor
      */
-    LinearInterpolator()
-    {
-        _step = 0;
-    }
+    LinearInterpolator();
 
 
     /**
      * Calculates the next value in the sequence and stores it in value
      */
-    void next(float & value)
-    {
-       value += _step; 
-    }
+    void next(void);
 
+
+    /**
+     * Reset the interpolation
+     */
+    void reset(void);
    
-   /**
-    * Calculates the step amount
-    */ 
-    void setScale(float & begin, float & end, int steps)
-    {
-        _step = (end - begin) / steps;
-    }
+    /**
+     * Calculates the step amount
+     */
+    void setScale(float & in, float & out, int numSteps);
+    void setScale(list <float*> * in, list <float*> * out, int numSteps);
+
 
 };
 

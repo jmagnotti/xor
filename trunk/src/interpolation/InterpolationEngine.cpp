@@ -6,12 +6,10 @@ namespace XOR {
 /*
  * Explicit Constructor
  */
-InterpolationEngine::InterpolationEngine(Interpolable * start, Positionable * finish, int steps)
+InterpolationEngine::InterpolationEngine(int steps, InterpolationListener * listener)
 {
-    _current = start;
-    _current->scale(finish, _iterationsRemaining);
-
     _iterationsRemaining = steps;
+    addListener(listener);
 }
 
 
@@ -29,19 +27,19 @@ InterpolationEngine::~InterpolationEngine()
  */
 void InterpolationEngine::addListener(InterpolationListener * listener)
 {
-    if (listener != 0)
+    if (listener != NULL)
         _listeners.push_back(listener);
 }
 
 
 /**
  * Returns the current interpolable
- */
 Interpolable * InterpolationEngine::getCurrentInterpolation()
 {
     return _current; 
 }
 
+ */
 
 /*
  * procedes to the next iteration
@@ -52,7 +50,6 @@ void InterpolationEngine::next()
         notifyAll();
     }
     else {
-        _current->next();
         --(_iterationsRemaining);
     }
 }

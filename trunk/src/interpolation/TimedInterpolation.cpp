@@ -6,14 +6,13 @@ namespace XOR {
 /*
  * Setup a timed interpolation
  */
-TimedInterpolation::TimedInterpolation(Interpolable * start, Positionable * finish, int milliseconds)
+TimedInterpolation::TimedInterpolation(int milliseconds, InterpolationListener * listener)
 {
-     _time = milliseconds;
-    _current = start;
+    _time = milliseconds;
 
     _iterationsRemaining = _time/(double)Timer::GetInstance()->getInterval();
 
-    _current->scale(finish, _iterationsRemaining);
+    addListener(listener);
 }
 
 
