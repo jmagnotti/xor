@@ -202,26 +202,28 @@ void DefaultKeyboardListener::handleKey(KeyEvent* ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	Controller::GetInstance()->getViewer()->getOrientation()->walk(0.05f);
+	Controller::GetInstance()->getViewer()->walk(0.05f);
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-	Controller::GetInstance()->getViewer()->getOrientation()->walk(-0.05f);
+	Controller::GetInstance()->getViewer()->walk(-0.05f);
 }
 
 void DefaultKeyboardListener::handleKey_q()
 {
-	Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(2, 5.0f);
+	Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_e()
 {
-	Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(2, -5.0f);
+	Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_F()
 {
+    cout << "Toggle Full Screen" << endl;
+
 	Controller::GetInstance()->getViewer()->toggleFullScreen();
 }
 
