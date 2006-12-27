@@ -3,7 +3,7 @@
 
 
 #include "Transform.h"
-#include "../shape/Point3D.h"
+#include "../geometry/Dimension3D.h"
 
 
 namespace XOR {
@@ -13,7 +13,7 @@ namespace XOR {
  */
 class Rotate : public Transform
 {
-	friend class Orientate;
+	friend class Positionable;
 
 public:
 
@@ -52,7 +52,13 @@ public:
 	 * Easy way to increment a rotation
 	 * to decrement, just increment by a negative amount
 	 */
-	void increment(Point3D*);
+	void increment(Dimension3D*);
+
+
+    /**
+     * See Interpolable.h
+    void scale(Interpolable * other, int numSteps);
+     */
 
 
 protected:

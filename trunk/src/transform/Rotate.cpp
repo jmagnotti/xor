@@ -42,7 +42,7 @@ void Rotate::clone(Rotate * other)
 /* 
  * increment the rotation values
  */
-void Rotate::increment(Point3D * point)
+void Rotate::increment(Dimension3D * point)
 {
 	_xCoord += point->getX();
 	_yCoord += point->getY();
@@ -57,8 +57,6 @@ void Rotate::push()
 {
 	glPushMatrix();
 	glRotatef(_angle, _xCoord, _yCoord, _zCoord);
-
-    // quaternions
 }
 
 
@@ -74,3 +72,4 @@ void Rotate::pushInverse()
 }
 
 }
+

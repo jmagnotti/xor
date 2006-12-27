@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Transform.h"
-#include "../shape/Point3D.h"
+#include "../geometry/Dimension3D.h"
 
 
 using namespace std;
@@ -18,7 +18,7 @@ namespace XOR {
  */
 class Translate : public Transform
 {
-	friend class Orientate;
+	friend class Positionable;
 
 public:
 
@@ -31,13 +31,13 @@ public:
 	/**
 	 * Explicit Constructor
 	 */
-	Translate(Point3D *);
+	Translate(Dimension3D *);
 
 
 	/**
 	 * Static Constructor for your convenience
 	 */
-	static Translate * CreateTranslation(float, float, float);
+	static Translate * CreateTranslation(float x, float y, float z);
     
 
     /**
@@ -62,12 +62,21 @@ public:
 	 * Easy way to increment a translation
 	 * to decrement, just increment by a negative amount
 	 */
-	void increment(Point3D*);
+	void increment(Dimension3D*);
+
+
+    /**
+     * Interpolable mehtods.
+     */
+    void scale(Interpolable *other, int numSteps);
+    void next(void);
 
 
 protected:
 	
-	float		_xShift, _yShift, _zShift;
+	float _xShift, _yShift, _zShift;
+
+    list<float*> * _values;
 
 };
 
