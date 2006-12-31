@@ -10,15 +10,19 @@ const int MouseClickEvent::MOUSE_WHEEL_UP        = 3;
 const int MouseClickEvent::MOUSE_WHEEL_DOWN      = 4;
 
 
-MouseClickEvent::MouseClickEvent()
-{}
-
-
 /*
  * getters
  */
-const int * MouseClickEvent::getButton()	{	return _button;	}
-const int * MouseClickEvent::getState()		{	return _state;	}
+const int * MouseClickEvent::getButton()	
+{
+	return _button;	
+}
+
+
+const int * MouseClickEvent::getState()
+{
+    return _state;
+}
 
 }
 

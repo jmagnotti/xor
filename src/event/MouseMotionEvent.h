@@ -26,7 +26,7 @@ public:
     /**
      * Returns MouseEvent::MOUSE_MOTION
      */
-    const int * getType();
+    const int getType();
 
 
     /**
@@ -42,12 +42,6 @@ public:
 
 
 protected:
-
-
-	/**
-	 * Default Constructor
-	 */
-	MouseMotionEvent();
 
 
     // relative positions

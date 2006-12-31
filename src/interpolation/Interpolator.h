@@ -2,7 +2,7 @@
 #define INTERPOLATOR_H
 
 
-#include <list>
+#include <vector>
 
 
 using namespace std;
@@ -21,6 +21,19 @@ class Interpolator
 
 public:
 
+    /*
+     * Interpolator Constants. Used to specify which interpolator to retrieve or 
+     * which to set as the default for the InterpolatorFactory.
+     * 
+     * @see Paint for a discussion about initializing static const class data in the Header file.
+     */
+    static const int SQ_ROOT_INTERPOLATOR   = -1;
+    static const int RK4_INTERPOLATOR       = 0;
+    static const int LINEAR_INTERPOLATOR    = 1;
+    static const int SQUARED_INTERPOLATOR   = 2;
+    static const int CUBIC_INTERPOLATOR     = 3;
+
+
     /**
      * Because the interpolator has a reference to the original values, they do
      * not need to be passed in.
@@ -31,26 +44,31 @@ public:
     /**
      * Reset the interpolator. This clears out the step amounts and the stored values. 
      */
-    void reset(void);
+    virtual void reset(void)=0;
 
 
     /**
      * Call this to scale values
      */
-    virtual void setScale(list <float*> * in, list <float*> * out, int
-            numSteps)=0;
+    virtual void setScale(vector <float*> & in, vector <float*> & out, int numSteps)=0;
 
+
+    /*
+     * guarantee that in[i] == out[i]. This is especially important when dealing with floats.
+     */
+    virtual void finish()=0;
+    
 
     /**
-     * Call this to scale values
+     * Returns one of the constants above.
      */
-    virtual void setScale(float & in, float & out, int numSteps)=0;
+    virtual const int getType()=0;
      
 
 protected:
     
-    list <float> * _steps;
-    list <float*> * _values;
+    vector <float> * _steps;
+    vector <float*> * _values, * _final;
 
 };
 

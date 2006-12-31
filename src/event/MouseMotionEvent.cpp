@@ -2,12 +2,6 @@
 
 namespace XOR {
 
-/*
- * default constructor
- */
-MouseMotionEvent::MouseMotionEvent()
-{}
-
 int MouseMotionEvent::getRelativeXPosition()
 {
     return (int) (*_xrel);    
@@ -19,9 +13,9 @@ int MouseMotionEvent::getRelativeYPosition()
     return (int) (*_yrel);
 }
 
-const int * MouseMotionEvent::getType()
+const int MouseMotionEvent::getType()
 {
-    return &(MouseEvent::MOUSE_MOTION);
+    return MouseEvent::MOUSE_MOTION;
 }
 
 

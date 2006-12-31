@@ -8,7 +8,9 @@ namespace XOR {
  */
 InterpolationEngine::InterpolationEngine(int steps, InterpolationListener * listener)
 {
-    _iterationsRemaining = steps;
+    _interpolator = InterpolatorFactory::GetInstance()->getDefaultInterpolator();
+    _iterationsRemaining = _size = steps;
+    
     addListener(listener);
 }
 
@@ -41,17 +43,27 @@ Interpolable * InterpolationEngine::getCurrentInterpolation()
 
  */
 
+
 /*
  * procedes to the next iteration
  */
 void InterpolationEngine::next()
 {
-    if (_iterationsRemaining <= 0) {
+    _interpolator->next();
+        
+    // decrement and check for completion
+    if (--_iterationsRemaining <= 0)
         notifyAll();
-    }
-    else {
-        --(_iterationsRemaining);
-    }
+        
+}
+
+
+/*
+ * setup up the interpolation
+ */
+void InterpolationEngine::setup(vector <float*> & in, vector <float*> & out)
+{
+    _interpolator->setScale(in, out, _size);
 }
 
 
@@ -66,6 +78,15 @@ void InterpolationEngine::notifyAll()
     while (iter != finish) {
         (*iter)->interpolationComplete();
         ++iter;        
+    }
+}
+
+
+void InterpolationEngine::setInterpolator(const int interpolator)
+{
+    if (_interpolator->getType() != interpolator) {
+        delete _interpolator;
+        _interpolator = InterpolatorFactory::GetInstance()->getInterpolator(interpolator);
     }
 }
 

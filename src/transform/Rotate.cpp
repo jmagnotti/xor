@@ -42,12 +42,21 @@ void Rotate::clone(Rotate * other)
 /* 
  * increment the rotation values
  */
-void Rotate::increment(Dimension3D * point)
+void Rotate::increment(float angle, InterpolationEngine * interpolation)
 {
-	_xCoord += point->getX();
-	_yCoord += point->getY();
-	_zCoord += point->getZ();
+    if (interpolation != NULL)
+    {}
+    else
+        _angle += angle;
 }
+ 
+void Rotate::set(float angle, InterpolationEngine * interpolation)
+{
+    if (interpolation != NULL)
+    {}
+    else
+        _angle = angle;
+}    
 
 
 /*

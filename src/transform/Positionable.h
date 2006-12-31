@@ -58,14 +58,6 @@ public:
 	virtual ~Positionable();
 
 
-	/**
-	 * Explicit Constructors
-	 */
-	Positionable(Translate * position, Translate * focalPoint);
-    Positionable(Translate * position, float theta=0.0f, float phi=0.0f, float
-            roll=0.0f);
-   
-
     /**
      * Copies the values from the other Positionable, no aliasing
      */
@@ -256,7 +248,7 @@ protected:
 
 	float       _focalDistance;
 
-
+    
 private:
 
 	/**

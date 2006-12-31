@@ -25,13 +25,13 @@ GraphicsConversionUtility * GraphicsConversionUtility::GetInstance()
  */
 GraphicsConversionUtility::GraphicsConversionUtility()
 {
-    //fill the (co)sine tables
-    for (int i = 0; i<360; i++) {
-        float j = degressToRadians(i);
-
-        cosineValues[i] = cos(j);
-        sineValues[i]   = sin(j);
-    }
+//    //fill the (co)sine tables
+//    for (int i = 0; i<360; i++) {
+//        float j = degressToRadians(i);
+//
+//        cosineValues[i] = cos(j);
+//        sineValues[i]   = sin(j);
+//    }
 }
 
 
@@ -83,10 +83,10 @@ float GraphicsConversionUtility::degressToRadians(float degree)
  */
 float GraphicsConversionUtility::getCosine(int deg)
 {
-    deg = deg % 360;
-    float result= cosineValues[deg];
+//    deg = deg % 360;
+//    float result = cosineValues[deg];
 
-    return result;
+    return cos((double)deg);
 }
 
 
@@ -95,12 +95,12 @@ float GraphicsConversionUtility::getCosine(int deg)
  */
 float GraphicsConversionUtility::getSine(int deg)
 {
-    float result = 0;
+//    float result = 0;
+//
+//    deg = deg % 360;
+//    result = sineValues[deg];
 
-    deg = deg % 360;
-    result = sineValues[deg];
-
-    return result;
+    return sin((double)deg);
 }
 
 

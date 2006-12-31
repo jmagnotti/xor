@@ -18,17 +18,10 @@ MouseButtonUp::MouseButtonUp(const int * button, Uint16 * x, Uint16 * y)
 /**
  *
  */
-const int * MouseButtonUp::getType()
+const int MouseButtonUp::getType()
 {
-    return &(MouseEvent::MOUSE_BUTTON_UP);
+    return MouseEvent::MOUSE_BUTTON_UP;
 }
-
-
-/*
- * protected constructor
- */
-MouseButtonUp::MouseButtonUp()
-{}
 
 }
 

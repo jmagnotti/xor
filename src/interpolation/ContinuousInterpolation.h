@@ -2,9 +2,7 @@
 #define CONTINUOUSINTERPOLATION_H
 
 
-#include "Interpolable.h"
 #include "TimedInterpolation.h"
-
 
 namespace XOR {
 
@@ -14,11 +12,18 @@ namespace XOR {
  * step backward through the interpolated steps. Interpolation only stops when the
  * stop method is called. The repeat type can be reset on the fly, but only takes affect
  * upon reaching the end of a sequence.
+ * 
+ * @author John Magnotti
+ * @version 1.0
  */
 class ContinuousInterpolation : public TimedInterpolation
 {
 
 public:
+    
+    ContinuousInterpolation()
+    {}
+    
     
     /**
      * Upon reaching the end of the sequence, the interpolation restarts at at the first instance.
@@ -53,9 +58,9 @@ public:
 protected:
     
     int     _repeatType;
-    Interpolable * _begin;
 
     virtual void resetInterpolation();
+    
 };
 
 }

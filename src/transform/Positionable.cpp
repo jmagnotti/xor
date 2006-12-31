@@ -20,9 +20,9 @@ Positionable::Positionable()
 	_position   = new Translate(0.0f, 0.0f, 0.0f);
 	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
 
-	_phi        = new Rotate(0.0f, 1.0f, 0.0f, 0.0f);
-	_theta      = new Rotate(0.0f, 0.0f, 1.0f, 0.0f);
-	_roll       = new Rotate(0.0f, 0.0f, 0.0f, 1.0f);
+	_phi        = new Rotate(0.0f, 1, 0, 0);
+	_theta      = new Rotate(0.0f, 0, 1, 0);
+	_roll       = new Rotate(0.0f, 0, 0, 1);
 
     _scale       = new Scale(0.0f, 0.0f, 0.0f);
 
@@ -113,6 +113,17 @@ void Positionable::pop()
 	_roll->pop();
 }
 
+/* 
+ * increment the position values
+ */
+void Positionable::setTranslation(Dimension3D * position,
+        InterpolationEngine * interpolation)
+{
+    _position->set(position, interpolation);
+    
+    updateFocalPoint();
+}
+
 
 /* 
  * increment the position values
@@ -120,12 +131,9 @@ void Positionable::pop()
 void Positionable::incrementTranslation(Dimension3D * position,
         InterpolationEngine * interpolation)
 {
-    if (interpolation != NULL)
-    {}
-    else {
-        _position->increment(position);
-    }
-	updateFocalPoint();
+    _position->increment(position, interpolation);
+    
+    updateFocalPoint();
 }
 
 
@@ -135,22 +143,22 @@ void Positionable::incrementTranslation(Dimension3D * position,
 void Positionable::incrementRotation(const int dimension, float angle,
         InterpolationEngine * interpolation)
 {
-    if (interpolation != NULL)
-    {}
-    else {
-        switch (dimension) {
-            case Positionable::THETA:
-                _theta->_angle += angle;
-                break;
-            case Positionable::PHI:
-                _phi->_angle += angle;
-                break;
-            case Positionable::ROLL: 
-                _roll->_angle += angle;
-                break;
-        }
+    switch (dimension) {
+        
+        case Positionable::THETA:
+            _theta->increment(angle, interpolation);
+            break;
+            
+        case Positionable::PHI:
+            _phi->increment(angle, interpolation);
+            break;
+            
+        case Positionable::ROLL: 
+            _roll->increment(angle, interpolation);
+            break;
     }
-	updateFocalPoint();
+    
+    updateFocalPoint();
 }
 
 
@@ -160,22 +168,22 @@ void Positionable::incrementRotation(const int dimension, float angle,
 void Positionable::setRotation(const int dimension, float angle,
         InterpolationEngine * interpolation)
 {
-    if (interpolation != NULL)
-    {}
-    else {
-        switch (dimension) {
-            case Positionable::THETA:
-                _theta->_angle = angle;
-                break;
-            case Positionable::PHI:
-                _phi->_angle = angle;
-                break;
-            case Positionable::ROLL: 
-                _roll->_angle = angle;
-                break;
-        }
+    switch (dimension) {
+        
+        case Positionable::THETA:
+            _theta->set(angle, interpolation);
+            break;
+            
+        case Positionable::PHI:
+            _phi->set(angle, interpolation);
+            break;
+            
+        case Positionable::ROLL: 
+            _roll->set(angle, interpolation);
+            break;
     }
-	updateFocalPoint();
+    
+    updateFocalPoint();
 }
 
 
@@ -184,6 +192,10 @@ void Positionable::setRotation(const int dimension, float angle,
  */
 void Positionable::setFocalPoint(Dimension3D * point, InterpolationEngine * interpolation)
 {
+    
+    if (interpolation != NULL)
+        cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
+    
 	printDebugInfo();
 
 	_focalPoint->_xShift = point->getX();
@@ -252,6 +264,7 @@ void Positionable::walk(float distance)
 	coords[2] = (distance * cos(p) * cos(t));*/
 
 	_position->increment(new Dimension3D(coords));
+//    _position->increment(new Dimension3D(coords), _walkInterpolation);
 
 	updateFocalPoint();
 }

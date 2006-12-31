@@ -3,9 +3,10 @@
 
 
 #include <iostream>
-#include <list>
+#include <vector>
 
 #include "Transform.h"
+#include "../interpolation/InterpolationEngine.h"
 #include "../geometry/Dimension3D.h"
 
 
@@ -63,7 +64,8 @@ public:
 	 * Easy way to increment a translation
 	 * to decrement, just increment by a negative amount
 	 */
-	void increment(Dimension3D*);
+    void increment(Dimension3D *, InterpolationEngine * interpolation=NULL);
+    void set(Dimension3D *, InterpolationEngine * interpolation=NULL);
 
 
 protected:

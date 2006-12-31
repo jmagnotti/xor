@@ -2,7 +2,6 @@
 
 
 using namespace std;
-
 using namespace XOR;
 
 
@@ -22,13 +21,15 @@ public:
 
 		ctrl->getKeyboard()->addListener(this);
        
-        a = new Cube(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
-        b = new Cube(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
-        c = new Cube(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
+        /*
+            a = new Cube(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
+            b = new Cube(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
+            c = new Cube(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
+        */
 
 		loadPics();
 
-        s = new String2D("PHOTO DEMO"); // this is a kludge, FIXME 
+        s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
 
         ctrl->run();
@@ -55,7 +56,7 @@ public:
 	 */
 	void PhotoAlbum::handleKey_0()
 	{
-		cout << Controller::GetInstance()->getViewer()->getOrientation()->getFocalPoint()->toString() << endl;
+		//cout << Controller::GetInstance()->getViewer()->getFocalPoint()->toString() << endl;
 	}
 
 //-- For all other key presses, the corresponding image (QUAD) is
@@ -63,11 +64,13 @@ public:
 	
 	void PhotoAlbum::handleKey_1()
 	{ 
-         
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,1,0));
     }
 
 	void PhotoAlbum::handleKey_2()
-	{}
+    {
+        Controller::GetInstance()->getViewer()->setRotation(Positionable::THETA, 20);
+    }
 	
 	void PhotoAlbum::handleKey_3()
 	{}
@@ -104,11 +107,11 @@ protected:
 	{
 		float squareDiameter = .3;
         float z = 0;
-        float offset = .05;
+        float offset = .025;
 			
 		for(int i=-1; i<2; i++) {
 	   		for (int j=-1; j<2; j++) {
-                cout << "Adding square at: " << i *squareDiameter << ", " << j * squareDiameter << ", " << z << endl;
+                cout << "Adding square at: " << i * squareDiameter << ", " << j * squareDiameter << ", " << z << endl;
 
 			   	pics.push_back(new Square3D(
                                     new Point3D(i * squareDiameter + offset*i, j * squareDiameter + offset*j, z),

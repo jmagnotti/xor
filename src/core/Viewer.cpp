@@ -15,8 +15,8 @@ const int Viewer::DEFAULT_WINDOW_Y		= 100;
 const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
 const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 
-const int Viewer::DEFAULT_COLOR_DEPTH   = 0;    // use the OS default
-const int Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL;// | SDL_RESIZABLE;
+const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 0;    			// use the OS default
+const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL;	// | SDL_RESIZABLE;
 
 
 /*
@@ -113,8 +113,9 @@ void Viewer::setupSDLVideo()
 {
 
     //at some point we need to have variables to hold things like current video flags, etc.
-    SDL_SetVideoMode(_size->getWidth(), _size->getHeight(), 
+    SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
+                     
     setWindowTitle(NULL);
 }
 
@@ -153,7 +154,7 @@ void Viewer::view()
  */
 void Viewer::setWindowTitle(char * text)
 {
-    SDL_WM_SetCaption("Project Xavier", "XOR");
+    SDL_WM_SetCaption(DEFAULT_WINDOW_TITLE, "XOR");
 }
 
 
@@ -205,7 +206,7 @@ void Viewer::toggleFullScreen()
 void Viewer::setWindowDimension(Dimension2D * size)
 {
     _size->clone(size);
-    SDL_SetVideoMode(_size->getWidth(), _size->getHeight(),
+    SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(),
             DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
 }
 
