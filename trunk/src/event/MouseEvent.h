@@ -22,17 +22,12 @@ public:
     static const int MOUSE_BUTTON_UP; 
 
 
-	/**
-	 * Default Constructor
-	 */
-	MouseEvent();
-
 
 	//-- GETTERS --//
 	int     getXPosition();
 	int     getYPosition();
 
-	virtual const int * getType()=0;
+	virtual const int getType()=0;
 
 
 protected:

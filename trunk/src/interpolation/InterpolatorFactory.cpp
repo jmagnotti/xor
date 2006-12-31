@@ -11,7 +11,7 @@ InterpolatorFactory * InterpolatorFactory::_interpolatorFactory = NULL;
  */
 InterpolatorFactory::InterpolatorFactory()
 {
-    _defaultInterpolator = LINEAR_INTERPOLATOR;
+    _defaultInterpolator = Interpolator::LINEAR_INTERPOLATOR;
 }
 
 
@@ -50,9 +50,13 @@ Interpolator * InterpolatorFactory::getDefaultInterpolator()
 /*
  * Returns the proper Interpolator
  */
-Interpolator * InterpolatorFactory::getInterpolator(int interpolator)
+Interpolator * InterpolatorFactory::getInterpolator(const int interpolator)
 {
+    if (Interpolator::LINEAR_INTERPOLATOR != interpolator)
+        cout << "Only returning LinearInterpolators for now" << endl;
+        
     return new LinearInterpolator();
+
 /*
     switch (interpolator)
     {
@@ -63,9 +67,9 @@ Interpolator * InterpolatorFactory::getInterpolator(int interpolator)
             return new LinearInterpolator();
             break;
         case default:
-        //case SQ_ROOT_INTERPOLATOR:
-    //case SQUARED_INTERPOLATOR:
-        //case CUBIC_INTERPOLATOR:
+      //case SQ_ROOT_INTERPOLATOR:
+      //case SQUARED_INTERPOLATOR:
+      //case CUBIC_INTERPOLATOR:
             return new ExponentialInterpolator(interpolator);
             break;
     }

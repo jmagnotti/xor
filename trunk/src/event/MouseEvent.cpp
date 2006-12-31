@@ -6,13 +6,6 @@ const int MouseEvent::MOUSE_MOTION          = 0;
 const int MouseEvent::MOUSE_BUTTON_DOWN     = 1; 
 const int MouseEvent::MOUSE_BUTTON_UP       = 2;
 
-/*
- * constructor
- */
-MouseEvent::MouseEvent()
-{}
-
-
 //-- GETTERS --//
 
 int MouseEvent::getXPosition()		{	return (int) (*_xpos);	}

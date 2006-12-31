@@ -19,8 +19,7 @@ namespace XOR {
 
 
 /**
- * Designed to maintain the state of the viewer of the world.
- * Transformations are now delegated.
+ * Designed to maintain the state of the camera of the world.
  * The Viewer is doing a little bit too much windowing at the moment.
  */
 class Viewer : public ReshapeListener, public Positionable
@@ -41,14 +40,15 @@ public:
 	static const int		DEFAULT_WINDOW_HEIGHT;
     
     static const int        DEFAULT_COLOR_DEPTH;
-    static const int        DEFAULT_VIDEO_FLAGS;
+    static const Uint32     DEFAULT_VIDEO_FLAGS;
 
 
 	/**
      * Explicit Constructor
-	 * Field Of View, 
-	 * Near clipping plane, 
-	 * far clipping plane
+     * 
+     * @param fov		Field of view
+     * @param nearCP	Near clipping plane
+     * @param farCP		Far clipping plane
      */
     Viewer(int fov=DEFAULT_FOV, float nearCP=DEFAULT_NEAR_CLIP, float farCP=DEFAULT_FAR_CLIP);
 
@@ -56,7 +56,7 @@ public:
 	/** 
 	 * Destructor
 	 */
-	virtual ~Viewer();
+	~Viewer();
 
 
 	/**
@@ -97,6 +97,7 @@ public:
     
     /**
      * Sets the text of the window title bar
+     * @param	text	The text that will appear on the window title bar.
      */
     void setWindowTitle(char * text);
 

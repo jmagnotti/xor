@@ -60,11 +60,27 @@ void Translate::clone(Translate * other)
 /* 
  * Add the point to the current translate
  */
-void Translate::increment(Dimension3D * point)
+void Translate::increment(Dimension3D * point, InterpolationEngine * interpolation)
 {
 	_xShift += point->getX();
 	_yShift += point->getY();
 	_zShift += point->getZ();
+}
+
+
+/*
+ * Set the translation coordinates
+ */
+void Translate::set(Dimension3D * point, InterpolationEngine * interpolation)
+{
+    if (interpolation != NULL) {
+//        interpolation->setup(in, out);
+    }
+    else {
+        _xShift = point->getX();
+        _yShift = point->getY();
+        _zShift = point->getZ();
+    }
 }
 
 

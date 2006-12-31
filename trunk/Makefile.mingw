@@ -1,0 +1,683 @@
+#Makefile for libXOR.so, mingw on windows 
+#
+CC = g++
+CFLAGS = -O3
+LFLAGS = -shared
+LIBS = -lSDL -lSDLmain -lopengl32 -lglu32 -lm
+LIBDIR = C:/Windows/system32/
+RM = rm
+#Packages
+SRCS = src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/event/DefaultKeyboardListener.cpp src/event/DefaultMouseListener.cpp src/event/Keyboard.cpp src/event/KeyboardListener.cpp src/event/KeyDownEvent.cpp src/event/KeyEvent.cpp src/event/KeyEventFactory.cpp src/event/KeyUpEvent.cpp src/event/Mouse.cpp src/event/MouseButtonDown.cpp src/event/MouseButtonUp.cpp src/event/MouseClickEvent.cpp src/event/MouseEvent.cpp src/event/MouseEventFactory.cpp src/event/MouseListener.cpp src/event/MouseMotionEvent.cpp src/event/RegularKeyEvent.cpp src/event/SpecialKeyEvent.cpp src/event/Timer.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/TimedInterpolation.cpp src/paint/Color.cpp src/paint/Paint.cpp src/shape/AdornableCube.cpp src/shape/AdornablePrism.cpp src/shape/Arc3D.cpp src/shape/Cube.cpp src/shape/Particle.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/Square3D.cpp src/shape/String2D.cpp src/terrain/Terrain.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/transform/CoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/Positionable.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = XOR.dll
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+			mv $(MAIN) ./lib/
+
+demos:
+	cd src/demo && make
+
+$(MAIN):	$(OBJS) 
+			$(CC) $(LFLAGS) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.cpp.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+
+clean:
+			$(RM) $(OBJS) ./lib/$(MAIN)
+
+install:
+			cp -f ./lib/$(MAIN) $(LIBDIR)/$(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.mingw $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+src/core/Controllero: src/core/Controller.h include/SDL.h include/SDL_main.h
+src/core/Controllero: include/SDL_types.h include/SDL_getenv.h
+src/core/Controllero: include/SDL_error.h include/begin_code.h
+src/core/Controllero: include/close_code.h include/SDL_rwops.h
+src/core/Controllero: include/SDL_timer.h include/SDL_audio.h
+src/core/Controllero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/core/Controllero: include/SDL_joystick.h include/SDL_events.h
+src/core/Controllero: include/SDL_active.h include/SDL_keyboard.h
+src/core/Controllero: include/SDL_keysym.h include/SDL_mouse.h
+src/core/Controllero: include/SDL_video.h include/SDL_mutex.h
+src/core/Controllero: include/SDL_quit.h include/SDL_version.h
+src/core/Controllero: src/event/Keyboard.h src/event/KeyboardListener.h
+src/core/Controllero: src/event/Timer.h src/event/TimerListener.h
+src/core/Controllero: src/event/Keyboard.h src/event/KeyUpEvent.h
+src/core/Controllero: src/event/KeyEvent.h src/event/KeyDownEvent.h
+src/core/Controllero: src/event/KeyEventFactory.h src/event/Mouse.h
+src/core/Controllero: src/event/MouseListener.h src/event/MouseEvent.h
+src/core/Controllero: src/event/Mouse.h src/event/MouseEventFactory.h
+src/core/Controllero: src/event/MouseButtonDown.h src/event/MouseClickEvent.h
+src/core/Controllero: src/event/MouseButtonUp.h src/event/MouseMotionEvent.h
+src/core/Controllero: src/event/Timer.h src/core/World.h src/shape/Point3D.h
+src/core/Controllero: src/paint/Paint.h src/texture/Texture.h
+src/core/Controllero: src/paint/Color.h src/shape/Renderable.h
+src/core/Controllero: include/SDL_opengl.h src/shape/Renderable.h
+src/core/Controllero: src/transform/Rotate.h src/transform/Transform.h
+src/core/Controllero: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/core/Controllero: src/interpolation/InterpolationEngine.h
+src/core/Controllero: src/interpolation/InterpolationListener.h
+src/core/Controllero: src/interpolation/Interpolator.h
+src/core/Controllero: src/interpolation/InterpolatorFactory.h
+src/core/Controllero: src/interpolation/LinearInterpolator.h
+src/core/Controllero: src/util/GraphicsConversionUtility.h
+src/core/Controllero: src/transform/Positionable.h src/transform/Scale.h
+src/core/Controllero: src/transform/Translate.h src/transform/Rotate.h
+src/core/Controllero: src/event/TimerListener.h src/transform/Transform.h
+src/core/Controllero: src/transform/Translate.h src/core/Viewer.h
+src/core/Controllero: src/geometry/Dimension2D.h
+src/core/Controllero: src/transform/CoordinateSystem.h
+src/core/Controllero: src/transform/CoordinateSystemFactory.h
+src/core/Controllero: src/transform/CoordinateSystem.h
+src/core/Controllero: src/transform/OpenGLCoordinateSystem.h
+src/core/Controllero: src/transform/MathCoordinateSystem.h
+src/core/Controllero: src/event/ReshapeListener.h
+src/core/Controllero: src/event/DefaultKeyboardListener.h
+src/core/Controllero: src/core/Controller.h src/core/World.h
+src/core/Controllero: src/event/DefaultMouseListener.h
+src/core/Viewero: src/core/Viewer.h include/SDL.h include/SDL_main.h
+src/core/Viewero: include/SDL_types.h include/SDL_getenv.h
+src/core/Viewero: include/SDL_error.h include/begin_code.h
+src/core/Viewero: include/close_code.h include/SDL_rwops.h
+src/core/Viewero: include/SDL_timer.h include/SDL_audio.h
+src/core/Viewero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/core/Viewero: include/SDL_joystick.h include/SDL_events.h
+src/core/Viewero: include/SDL_active.h include/SDL_keyboard.h
+src/core/Viewero: include/SDL_keysym.h include/SDL_mouse.h
+src/core/Viewero: include/SDL_video.h include/SDL_mutex.h include/SDL_quit.h
+src/core/Viewero: include/SDL_version.h src/core/World.h src/shape/Point3D.h
+src/core/Viewero: src/paint/Paint.h src/texture/Texture.h src/paint/Color.h
+src/core/Viewero: src/shape/Renderable.h include/SDL_opengl.h
+src/core/Viewero: src/shape/Renderable.h src/transform/Rotate.h
+src/core/Viewero: src/transform/Transform.h src/geometry/Dimension3D.h
+src/core/Viewero: src/geometry/Dimension.h
+src/core/Viewero: src/interpolation/InterpolationEngine.h
+src/core/Viewero: src/interpolation/InterpolationListener.h
+src/core/Viewero: src/interpolation/Interpolator.h
+src/core/Viewero: src/interpolation/InterpolatorFactory.h
+src/core/Viewero: src/interpolation/LinearInterpolator.h
+src/core/Viewero: src/util/GraphicsConversionUtility.h
+src/core/Viewero: src/transform/Positionable.h src/transform/Scale.h
+src/core/Viewero: src/transform/Translate.h src/transform/Rotate.h
+src/core/Viewero: src/event/TimerListener.h src/transform/Transform.h
+src/core/Viewero: src/transform/Translate.h src/geometry/Dimension2D.h
+src/core/Viewero: src/transform/CoordinateSystem.h
+src/core/Viewero: src/transform/CoordinateSystemFactory.h
+src/core/Viewero: src/transform/CoordinateSystem.h
+src/core/Viewero: src/transform/OpenGLCoordinateSystem.h
+src/core/Viewero: src/transform/MathCoordinateSystem.h
+src/core/Viewero: src/event/ReshapeListener.h
+src/core/Worldo: src/core/World.h src/shape/Point3D.h src/paint/Paint.h
+src/core/Worldo: src/texture/Texture.h src/paint/Color.h
+src/core/Worldo: src/shape/Renderable.h include/SDL_opengl.h
+src/core/Worldo: src/shape/Renderable.h src/transform/Rotate.h
+src/core/Worldo: src/transform/Transform.h src/geometry/Dimension3D.h
+src/core/Worldo: src/geometry/Dimension.h
+src/core/Worldo: src/interpolation/InterpolationEngine.h
+src/core/Worldo: src/interpolation/InterpolationListener.h
+src/core/Worldo: src/interpolation/Interpolator.h
+src/core/Worldo: src/interpolation/InterpolatorFactory.h
+src/core/Worldo: src/interpolation/LinearInterpolator.h
+src/core/Worldo: src/util/GraphicsConversionUtility.h
+src/core/Worldo: src/transform/Positionable.h src/transform/Scale.h
+src/core/Worldo: src/transform/Translate.h src/transform/Rotate.h
+src/core/Worldo: src/event/TimerListener.h src/transform/Transform.h
+src/core/Worldo: src/transform/Translate.h
+src/event/DefaultKeyboardListenero: src/event/DefaultKeyboardListener.h
+src/event/DefaultKeyboardListenero: src/event/KeyboardListener.h
+src/event/DefaultKeyboardListenero: src/event/Timer.h include/SDL.h
+src/event/DefaultKeyboardListenero: include/SDL_main.h include/SDL_types.h
+src/event/DefaultKeyboardListenero: include/SDL_getenv.h include/SDL_error.h
+src/event/DefaultKeyboardListenero: include/begin_code.h include/close_code.h
+src/event/DefaultKeyboardListenero: include/SDL_rwops.h include/SDL_timer.h
+src/event/DefaultKeyboardListenero: include/SDL_audio.h
+src/event/DefaultKeyboardListenero: include/SDL_byteorder.h
+src/event/DefaultKeyboardListenero: include/SDL_cdrom.h
+src/event/DefaultKeyboardListenero: include/SDL_joystick.h
+src/event/DefaultKeyboardListenero: include/SDL_events.h include/SDL_active.h
+src/event/DefaultKeyboardListenero: include/SDL_keyboard.h
+src/event/DefaultKeyboardListenero: include/SDL_keysym.h include/SDL_mouse.h
+src/event/DefaultKeyboardListenero: include/SDL_video.h include/SDL_mutex.h
+src/event/DefaultKeyboardListenero: include/SDL_quit.h include/SDL_version.h
+src/event/DefaultKeyboardListenero: src/event/TimerListener.h
+src/event/DefaultKeyboardListenero: src/event/Keyboard.h
+src/event/DefaultKeyboardListenero: src/event/KeyUpEvent.h
+src/event/DefaultKeyboardListenero: src/event/KeyEvent.h
+src/event/DefaultKeyboardListenero: src/event/KeyDownEvent.h
+src/event/DefaultKeyboardListenero: src/core/Controller.h src/core/World.h
+src/event/DefaultMouseListenero: src/event/DefaultMouseListener.h
+src/event/DefaultMouseListenero: src/core/Controller.h
+src/event/DefaultMouseListenero: src/event/MouseListener.h
+src/event/DefaultMouseListenero: src/event/MouseEvent.h include/SDL.h
+src/event/DefaultMouseListenero: include/SDL_main.h include/SDL_types.h
+src/event/DefaultMouseListenero: include/SDL_getenv.h include/SDL_error.h
+src/event/DefaultMouseListenero: include/begin_code.h include/close_code.h
+src/event/DefaultMouseListenero: include/SDL_rwops.h include/SDL_timer.h
+src/event/DefaultMouseListenero: include/SDL_audio.h include/SDL_byteorder.h
+src/event/DefaultMouseListenero: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/DefaultMouseListenero: include/SDL_events.h include/SDL_active.h
+src/event/DefaultMouseListenero: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/DefaultMouseListenero: include/SDL_mouse.h include/SDL_video.h
+src/event/DefaultMouseListenero: include/SDL_mutex.h include/SDL_quit.h
+src/event/DefaultMouseListenero: include/SDL_version.h src/event/Mouse.h
+src/event/DefaultMouseListenero: src/event/MouseMotionEvent.h
+src/event/DefaultMouseListenero: src/event/MouseButtonUp.h
+src/event/DefaultMouseListenero: src/event/MouseClickEvent.h
+src/event/DefaultMouseListenero: src/event/MouseButtonDown.h
+src/event/Keyboardo: src/event/Keyboard.h
+src/event/KeyboardListenero: src/event/KeyboardListener.h src/event/Timer.h
+src/event/KeyboardListenero: include/SDL.h include/SDL_main.h
+src/event/KeyboardListenero: include/SDL_types.h include/SDL_getenv.h
+src/event/KeyboardListenero: include/SDL_error.h include/begin_code.h
+src/event/KeyboardListenero: include/close_code.h include/SDL_rwops.h
+src/event/KeyboardListenero: include/SDL_timer.h include/SDL_audio.h
+src/event/KeyboardListenero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/KeyboardListenero: include/SDL_joystick.h include/SDL_events.h
+src/event/KeyboardListenero: include/SDL_active.h include/SDL_keyboard.h
+src/event/KeyboardListenero: include/SDL_keysym.h include/SDL_mouse.h
+src/event/KeyboardListenero: include/SDL_video.h include/SDL_mutex.h
+src/event/KeyboardListenero: include/SDL_quit.h include/SDL_version.h
+src/event/KeyboardListenero: src/event/TimerListener.h src/event/Keyboard.h
+src/event/KeyboardListenero: src/event/KeyUpEvent.h src/event/KeyEvent.h
+src/event/KeyboardListenero: src/event/KeyDownEvent.h
+src/event/KeyDownEvento: src/event/KeyDownEvent.h include/SDL.h
+src/event/KeyDownEvento: include/SDL_main.h include/SDL_types.h
+src/event/KeyDownEvento: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyDownEvento: include/begin_code.h include/close_code.h
+src/event/KeyDownEvento: include/SDL_rwops.h include/SDL_timer.h
+src/event/KeyDownEvento: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyDownEvento: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyDownEvento: include/SDL_events.h include/SDL_active.h
+src/event/KeyDownEvento: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyDownEvento: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyDownEvento: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyDownEvento: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyEvento: src/event/KeyEvent.h include/SDL.h include/SDL_main.h
+src/event/KeyEvento: include/SDL_types.h include/SDL_getenv.h
+src/event/KeyEvento: include/SDL_error.h include/begin_code.h
+src/event/KeyEvento: include/close_code.h include/SDL_rwops.h
+src/event/KeyEvento: include/SDL_timer.h include/SDL_audio.h
+src/event/KeyEvento: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/KeyEvento: include/SDL_joystick.h include/SDL_events.h
+src/event/KeyEvento: include/SDL_active.h include/SDL_keyboard.h
+src/event/KeyEvento: include/SDL_keysym.h include/SDL_mouse.h
+src/event/KeyEvento: include/SDL_video.h include/SDL_mutex.h
+src/event/KeyEvento: include/SDL_quit.h include/SDL_version.h
+src/event/KeyEventFactoryo: src/event/KeyEventFactory.h include/SDL.h
+src/event/KeyEventFactoryo: include/SDL_main.h include/SDL_types.h
+src/event/KeyEventFactoryo: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyEventFactoryo: include/begin_code.h include/close_code.h
+src/event/KeyEventFactoryo: include/SDL_rwops.h include/SDL_timer.h
+src/event/KeyEventFactoryo: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyEventFactoryo: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyEventFactoryo: include/SDL_events.h include/SDL_active.h
+src/event/KeyEventFactoryo: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyEventFactoryo: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyEventFactoryo: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyEventFactoryo: include/SDL_version.h src/event/KeyEvent.h
+src/event/KeyEventFactoryo: src/event/KeyDownEvent.h src/event/KeyUpEvent.h
+src/event/KeyUpEvento: src/event/KeyUpEvent.h include/SDL.h
+src/event/KeyUpEvento: include/SDL_main.h include/SDL_types.h
+src/event/KeyUpEvento: include/SDL_getenv.h include/SDL_error.h
+src/event/KeyUpEvento: include/begin_code.h include/close_code.h
+src/event/KeyUpEvento: include/SDL_rwops.h include/SDL_timer.h
+src/event/KeyUpEvento: include/SDL_audio.h include/SDL_byteorder.h
+src/event/KeyUpEvento: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/KeyUpEvento: include/SDL_events.h include/SDL_active.h
+src/event/KeyUpEvento: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/KeyUpEvento: include/SDL_mouse.h include/SDL_video.h
+src/event/KeyUpEvento: include/SDL_mutex.h include/SDL_quit.h
+src/event/KeyUpEvento: include/SDL_version.h src/event/KeyEvent.h
+src/event/Mouseo: src/event/Mouse.h
+src/event/MouseButtonDowno: src/event/MouseButtonDown.h
+src/event/MouseButtonDowno: src/event/MouseClickEvent.h
+src/event/MouseButtonDowno: src/event/MouseEvent.h include/SDL.h
+src/event/MouseButtonDowno: include/SDL_main.h include/SDL_types.h
+src/event/MouseButtonDowno: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseButtonDowno: include/begin_code.h include/close_code.h
+src/event/MouseButtonDowno: include/SDL_rwops.h include/SDL_timer.h
+src/event/MouseButtonDowno: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseButtonDowno: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseButtonDowno: include/SDL_events.h include/SDL_active.h
+src/event/MouseButtonDowno: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseButtonDowno: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseButtonDowno: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseButtonDowno: include/SDL_version.h src/event/Mouse.h
+src/event/MouseButtonUpo: src/event/MouseButtonUp.h
+src/event/MouseButtonUpo: src/event/MouseClickEvent.h src/event/MouseEvent.h
+src/event/MouseButtonUpo: include/SDL.h include/SDL_main.h
+src/event/MouseButtonUpo: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseButtonUpo: include/SDL_error.h include/begin_code.h
+src/event/MouseButtonUpo: include/close_code.h include/SDL_rwops.h
+src/event/MouseButtonUpo: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseButtonUpo: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseButtonUpo: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseButtonUpo: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseButtonUpo: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseButtonUpo: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseButtonUpo: include/SDL_quit.h include/SDL_version.h
+src/event/MouseButtonUpo: src/event/Mouse.h
+src/event/MouseClickEvento: src/event/MouseClickEvent.h
+src/event/MouseClickEvento: src/event/MouseEvent.h include/SDL.h
+src/event/MouseClickEvento: include/SDL_main.h include/SDL_types.h
+src/event/MouseClickEvento: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseClickEvento: include/begin_code.h include/close_code.h
+src/event/MouseClickEvento: include/SDL_rwops.h include/SDL_timer.h
+src/event/MouseClickEvento: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseClickEvento: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseClickEvento: include/SDL_events.h include/SDL_active.h
+src/event/MouseClickEvento: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseClickEvento: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseClickEvento: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseClickEvento: include/SDL_version.h
+src/event/MouseEvento: src/event/MouseEvent.h include/SDL.h
+src/event/MouseEvento: include/SDL_main.h include/SDL_types.h
+src/event/MouseEvento: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEvento: include/begin_code.h include/close_code.h
+src/event/MouseEvento: include/SDL_rwops.h include/SDL_timer.h
+src/event/MouseEvento: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseEvento: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseEvento: include/SDL_events.h include/SDL_active.h
+src/event/MouseEvento: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseEvento: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseEvento: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseEvento: include/SDL_version.h
+src/event/MouseEventFactoryo: src/event/MouseEventFactory.h include/SDL.h
+src/event/MouseEventFactoryo: include/SDL_main.h include/SDL_types.h
+src/event/MouseEventFactoryo: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseEventFactoryo: include/begin_code.h include/close_code.h
+src/event/MouseEventFactoryo: include/SDL_rwops.h include/SDL_timer.h
+src/event/MouseEventFactoryo: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseEventFactoryo: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseEventFactoryo: include/SDL_events.h include/SDL_active.h
+src/event/MouseEventFactoryo: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseEventFactoryo: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseEventFactoryo: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseEventFactoryo: include/SDL_version.h src/event/MouseEvent.h
+src/event/MouseEventFactoryo: src/event/MouseButtonDown.h
+src/event/MouseEventFactoryo: src/event/MouseClickEvent.h src/event/Mouse.h
+src/event/MouseEventFactoryo: src/event/MouseButtonUp.h
+src/event/MouseEventFactoryo: src/event/MouseMotionEvent.h
+src/event/MouseListenero: src/event/MouseListener.h src/event/MouseEvent.h
+src/event/MouseListenero: include/SDL.h include/SDL_main.h
+src/event/MouseListenero: include/SDL_types.h include/SDL_getenv.h
+src/event/MouseListenero: include/SDL_error.h include/begin_code.h
+src/event/MouseListenero: include/close_code.h include/SDL_rwops.h
+src/event/MouseListenero: include/SDL_timer.h include/SDL_audio.h
+src/event/MouseListenero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/MouseListenero: include/SDL_joystick.h include/SDL_events.h
+src/event/MouseListenero: include/SDL_active.h include/SDL_keyboard.h
+src/event/MouseListenero: include/SDL_keysym.h include/SDL_mouse.h
+src/event/MouseListenero: include/SDL_video.h include/SDL_mutex.h
+src/event/MouseListenero: include/SDL_quit.h include/SDL_version.h
+src/event/MouseListenero: src/event/Mouse.h
+src/event/MouseMotionEvento: src/event/MouseMotionEvent.h
+src/event/MouseMotionEvento: src/event/MouseEvent.h include/SDL.h
+src/event/MouseMotionEvento: include/SDL_main.h include/SDL_types.h
+src/event/MouseMotionEvento: include/SDL_getenv.h include/SDL_error.h
+src/event/MouseMotionEvento: include/begin_code.h include/close_code.h
+src/event/MouseMotionEvento: include/SDL_rwops.h include/SDL_timer.h
+src/event/MouseMotionEvento: include/SDL_audio.h include/SDL_byteorder.h
+src/event/MouseMotionEvento: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/MouseMotionEvento: include/SDL_events.h include/SDL_active.h
+src/event/MouseMotionEvento: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/MouseMotionEvento: include/SDL_mouse.h include/SDL_video.h
+src/event/MouseMotionEvento: include/SDL_mutex.h include/SDL_quit.h
+src/event/MouseMotionEvento: include/SDL_version.h
+src/event/RegularKeyEvento: src/event/RegularKeyEvent.h
+src/event/SpecialKeyEvento: src/event/SpecialKeyEvent.h
+src/event/Timero: src/event/Timer.h include/SDL.h include/SDL_main.h
+src/event/Timero: include/SDL_types.h include/SDL_getenv.h
+src/event/Timero: include/SDL_error.h include/begin_code.h
+src/event/Timero: include/close_code.h include/SDL_rwops.h
+src/event/Timero: include/SDL_timer.h include/SDL_audio.h
+src/event/Timero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/Timero: include/SDL_joystick.h include/SDL_events.h
+src/event/Timero: include/SDL_active.h include/SDL_keyboard.h
+src/event/Timero: include/SDL_keysym.h include/SDL_mouse.h
+src/event/Timero: include/SDL_video.h include/SDL_mutex.h include/SDL_quit.h
+src/event/Timero: include/SDL_version.h src/event/TimerListener.h
+src/geometry/Dimensiono: src/geometry/Dimension.h
+src/geometry/Dimension2Do: src/geometry/Dimension2D.h
+src/geometry/Dimension2Do: src/geometry/Dimension.h
+src/geometry/Dimension3Do: src/geometry/Dimension3D.h
+src/geometry/Dimension3Do: src/geometry/Dimension.h
+src/geometry/RectangularVolumeo: src/geometry/RectangularVolume.h
+src/geometry/RectangularVolumeo: src/geometry/Dimension3D.h
+src/geometry/RectangularVolumeo: src/geometry/Dimension.h src/shape/Point3D.h
+src/geometry/RectangularVolumeo: src/paint/Paint.h src/texture/Texture.h
+src/geometry/RectangularVolumeo: src/paint/Color.h src/shape/Renderable.h
+src/geometry/RectangularVolumeo: include/SDL_opengl.h
+src/interpolation/CameraRollero: src/interpolation/CameraRoller.h
+src/interpolation/CameraRollero: src/core/Controller.h src/event/Timer.h
+src/interpolation/InterpolationEngineo: src/interpolation/InterpolationEngine.h
+src/interpolation/InterpolationEngineo: src/interpolation/InterpolationListener.h
+src/interpolation/InterpolationEngineo: src/interpolation/Interpolator.h
+src/interpolation/InterpolationEngineo: src/interpolation/InterpolatorFactory.h
+src/interpolation/InterpolationEngineo: src/interpolation/LinearInterpolator.h
+src/interpolation/InterpolationEngineo: src/util/GraphicsConversionUtility.h
+src/interpolation/InterpolationEngineo: include/SDL_opengl.h
+src/interpolation/InterpolationEngineo: src/shape/Point3D.h src/paint/Paint.h
+src/interpolation/InterpolationEngineo: src/texture/Texture.h
+src/interpolation/InterpolationEngineo: src/paint/Color.h
+src/interpolation/InterpolationEngineo: src/shape/Renderable.h
+src/interpolation/InterpolatorFactoryo: src/interpolation/InterpolatorFactory.h
+src/interpolation/InterpolatorFactoryo: src/interpolation/Interpolator.h
+src/interpolation/InterpolatorFactoryo: src/interpolation/LinearInterpolator.h
+src/interpolation/InterpolatorFactoryo: src/util/GraphicsConversionUtility.h
+src/interpolation/InterpolatorFactoryo: include/SDL_opengl.h
+src/interpolation/InterpolatorFactoryo: src/shape/Point3D.h src/paint/Paint.h
+src/interpolation/InterpolatorFactoryo: src/texture/Texture.h
+src/interpolation/InterpolatorFactoryo: src/paint/Color.h
+src/interpolation/InterpolatorFactoryo: src/shape/Renderable.h
+src/interpolation/LinearInterpolatoro: src/interpolation/LinearInterpolator.h
+src/interpolation/LinearInterpolatoro: src/interpolation/Interpolator.h
+src/interpolation/LinearInterpolatoro: src/util/GraphicsConversionUtility.h
+src/interpolation/LinearInterpolatoro: include/SDL_opengl.h
+src/interpolation/LinearInterpolatoro: src/shape/Point3D.h src/paint/Paint.h
+src/interpolation/LinearInterpolatoro: src/texture/Texture.h
+src/interpolation/LinearInterpolatoro: src/paint/Color.h
+src/interpolation/LinearInterpolatoro: src/shape/Renderable.h
+src/interpolation/TimedInterpolationo: src/interpolation/TimedInterpolation.h
+src/interpolation/TimedInterpolationo: src/event/Timer.h
+src/interpolation/TimedInterpolationo: src/event/TimerListener.h
+src/interpolation/TimedInterpolationo: src/interpolation/InterpolationListener.h
+src/interpolation/TimedInterpolationo: src/interpolation/InterpolationEngine.h
+src/interpolation/TimedInterpolationo: src/interpolation/Interpolator.h
+src/interpolation/TimedInterpolationo: src/interpolation/InterpolatorFactory.h
+src/interpolation/TimedInterpolationo: src/interpolation/LinearInterpolator.h
+src/interpolation/TimedInterpolationo: src/util/GraphicsConversionUtility.h
+src/interpolation/TimedInterpolationo: include/SDL_opengl.h
+src/interpolation/TimedInterpolationo: src/shape/Point3D.h src/paint/Paint.h
+src/interpolation/TimedInterpolationo: src/texture/Texture.h
+src/interpolation/TimedInterpolationo: src/paint/Color.h
+src/interpolation/TimedInterpolationo: src/shape/Renderable.h
+src/paint/Coloro: src/paint/Color.h
+src/paint/Painto: src/paint/Paint.h src/texture/Texture.h src/paint/Color.h
+src/shape/AdornableCubeo: src/shape/AdornableCube.h src/shape/Cube.h
+src/shape/AdornableCubeo: src/paint/Paint.h src/texture/Texture.h
+src/shape/AdornableCubeo: src/paint/Color.h src/shape/Point3D.h
+src/shape/AdornableCubeo: src/shape/Renderable.h include/SDL_opengl.h
+src/shape/AdornableCubeo: src/shape/RectangularPrism.h
+src/shape/AdornableCubeo: src/util/GraphicsConversionUtility.h
+src/shape/AdornableCubeo: src/shape/Point3D.h src/shape/Quadrilateral3D.h
+src/shape/AdornableCubeo: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/shape/AdornableCubeo: src/paint/Color.h src/geometry/RectangularVolume.h
+src/shape/AdornableCubeo: src/geometry/Dimension3D.h
+src/shape/AdornableCubeo: src/transform/Positionable.h
+src/shape/AdornableCubeo: src/transform/Transform.h src/transform/Scale.h
+src/shape/AdornableCubeo: src/transform/Translate.h
+src/shape/AdornableCubeo: src/interpolation/InterpolationEngine.h
+src/shape/AdornableCubeo: src/interpolation/InterpolationListener.h
+src/shape/AdornableCubeo: src/interpolation/Interpolator.h
+src/shape/AdornableCubeo: src/interpolation/InterpolatorFactory.h
+src/shape/AdornableCubeo: src/interpolation/LinearInterpolator.h
+src/shape/AdornableCubeo: src/transform/Rotate.h src/shape/AdornablePrism.h
+src/shape/AdornablePrismo: src/shape/AdornablePrism.h
+src/shape/AdornablePrismo: src/shape/RectangularPrism.h
+src/shape/AdornablePrismo: src/util/GraphicsConversionUtility.h
+src/shape/AdornablePrismo: include/SDL_opengl.h src/shape/Point3D.h
+src/shape/AdornablePrismo: src/paint/Paint.h src/texture/Texture.h
+src/shape/AdornablePrismo: src/paint/Color.h src/shape/Renderable.h
+src/shape/AdornablePrismo: src/shape/Quadrilateral3D.h
+src/shape/AdornablePrismo: src/geometry/Dimension3D.h
+src/shape/AdornablePrismo: src/geometry/Dimension.h src/paint/Color.h
+src/shape/AdornablePrismo: src/shape/Point3D.h
+src/shape/AdornablePrismo: src/geometry/RectangularVolume.h
+src/shape/AdornablePrismo: src/geometry/Dimension3D.h
+src/shape/AdornablePrismo: src/transform/Positionable.h
+src/shape/AdornablePrismo: src/transform/Transform.h src/transform/Scale.h
+src/shape/AdornablePrismo: src/transform/Translate.h
+src/shape/AdornablePrismo: src/interpolation/InterpolationEngine.h
+src/shape/AdornablePrismo: src/interpolation/InterpolationListener.h
+src/shape/AdornablePrismo: src/interpolation/Interpolator.h
+src/shape/AdornablePrismo: src/interpolation/InterpolatorFactory.h
+src/shape/AdornablePrismo: src/interpolation/LinearInterpolator.h
+src/shape/AdornablePrismo: src/transform/Rotate.h
+src/shape/Arc3Do: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
+src/shape/Arc3Do: include/SDL_opengl.h src/shape/Point3D.h src/paint/Paint.h
+src/shape/Arc3Do: src/texture/Texture.h src/paint/Color.h
+src/shape/Arc3Do: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Cubeo: src/shape/Cube.h src/paint/Paint.h src/texture/Texture.h
+src/shape/Cubeo: src/paint/Color.h src/shape/Point3D.h src/shape/Renderable.h
+src/shape/Cubeo: include/SDL_opengl.h src/shape/RectangularPrism.h
+src/shape/Cubeo: src/util/GraphicsConversionUtility.h src/shape/Point3D.h
+src/shape/Cubeo: src/shape/Quadrilateral3D.h src/geometry/Dimension3D.h
+src/shape/Cubeo: src/geometry/Dimension.h src/paint/Color.h
+src/shape/Cubeo: src/geometry/RectangularVolume.h src/geometry/Dimension3D.h
+src/shape/Cubeo: src/transform/Positionable.h src/transform/Transform.h
+src/shape/Cubeo: src/transform/Scale.h src/transform/Translate.h
+src/shape/Cubeo: src/interpolation/InterpolationEngine.h
+src/shape/Cubeo: src/interpolation/InterpolationListener.h
+src/shape/Cubeo: src/interpolation/Interpolator.h
+src/shape/Cubeo: src/interpolation/InterpolatorFactory.h
+src/shape/Cubeo: src/interpolation/LinearInterpolator.h
+src/shape/Cubeo: src/transform/Rotate.h
+src/shape/Particleo: src/shape/Particle.h src/shape/CollisionRenderable.h
+src/shape/Particleo: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Particleo: src/paint/Paint.h src/texture/Texture.h
+src/shape/Particleo: src/paint/Color.h include/SDL_opengl.h
+src/shape/Point3Do: src/shape/Point3D.h src/paint/Paint.h
+src/shape/Point3Do: src/texture/Texture.h src/paint/Color.h
+src/shape/Point3Do: src/shape/Renderable.h include/SDL_opengl.h
+src/shape/Quadrilateral3Do: src/shape/Quadrilateral3D.h
+src/shape/Quadrilateral3Do: src/geometry/Dimension3D.h
+src/shape/Quadrilateral3Do: src/geometry/Dimension.h
+src/shape/Quadrilateral3Do: src/util/GraphicsConversionUtility.h
+src/shape/Quadrilateral3Do: include/SDL_opengl.h src/shape/Point3D.h
+src/shape/Quadrilateral3Do: src/paint/Paint.h src/texture/Texture.h
+src/shape/Quadrilateral3Do: src/paint/Color.h src/shape/Renderable.h
+src/shape/Quadrilateral3Do: src/paint/Color.h src/shape/Point3D.h
+src/shape/RectangularPrismo: src/shape/RectangularPrism.h
+src/shape/RectangularPrismo: src/util/GraphicsConversionUtility.h
+src/shape/RectangularPrismo: include/SDL_opengl.h src/shape/Point3D.h
+src/shape/RectangularPrismo: src/paint/Paint.h src/texture/Texture.h
+src/shape/RectangularPrismo: src/paint/Color.h src/shape/Renderable.h
+src/shape/RectangularPrismo: src/shape/Quadrilateral3D.h
+src/shape/RectangularPrismo: src/geometry/Dimension3D.h
+src/shape/RectangularPrismo: src/geometry/Dimension.h src/paint/Color.h
+src/shape/RectangularPrismo: src/shape/Point3D.h
+src/shape/RectangularPrismo: src/geometry/RectangularVolume.h
+src/shape/RectangularPrismo: src/geometry/Dimension3D.h
+src/shape/RectangularPrismo: src/transform/Positionable.h
+src/shape/RectangularPrismo: src/transform/Transform.h src/transform/Scale.h
+src/shape/RectangularPrismo: src/transform/Translate.h
+src/shape/RectangularPrismo: src/interpolation/InterpolationEngine.h
+src/shape/RectangularPrismo: src/interpolation/InterpolationListener.h
+src/shape/RectangularPrismo: src/interpolation/Interpolator.h
+src/shape/RectangularPrismo: src/interpolation/InterpolatorFactory.h
+src/shape/RectangularPrismo: src/interpolation/LinearInterpolator.h
+src/shape/RectangularPrismo: src/transform/Rotate.h
+src/shape/Square3Do: src/shape/Square3D.h src/shape/Point3D.h
+src/shape/Square3Do: src/paint/Paint.h src/texture/Texture.h
+src/shape/Square3Do: src/paint/Color.h src/shape/Renderable.h
+src/shape/Square3Do: include/SDL_opengl.h src/shape/Quadrilateral3D.h
+src/shape/Square3Do: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/shape/Square3Do: src/util/GraphicsConversionUtility.h src/shape/Point3D.h
+src/shape/Square3Do: src/paint/Color.h
+src/shape/String2Do: src/shape/String2D.h src/util/BitmapFontUtil.h
+src/shape/String2Do: src/util/BitmapFontConstants.h include/SDL_opengl.h
+src/shape/String2Do: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/shape/String2Do: src/paint/Paint.h src/texture/Texture.h
+src/shape/String2Do: src/paint/Color.h src/shape/Renderable.h
+src/shape/String2Do: src/core/Controller.h src/core/Viewer.h include/SDL.h
+src/shape/String2Do: include/SDL_main.h include/SDL_types.h
+src/shape/String2Do: include/SDL_getenv.h include/SDL_error.h
+src/shape/String2Do: include/begin_code.h include/close_code.h
+src/shape/String2Do: include/SDL_rwops.h include/SDL_timer.h
+src/shape/String2Do: include/SDL_audio.h include/SDL_byteorder.h
+src/shape/String2Do: include/SDL_cdrom.h include/SDL_joystick.h
+src/shape/String2Do: include/SDL_events.h include/SDL_active.h
+src/shape/String2Do: include/SDL_keyboard.h include/SDL_keysym.h
+src/shape/String2Do: include/SDL_mouse.h include/SDL_video.h
+src/shape/String2Do: include/SDL_mutex.h include/SDL_quit.h
+src/shape/String2Do: include/SDL_version.h src/core/World.h
+src/shape/String2Do: src/shape/Point3D.h src/shape/Renderable.h
+src/shape/String2Do: src/transform/Rotate.h src/transform/Transform.h
+src/shape/String2Do: src/geometry/Dimension3D.h
+src/shape/String2Do: src/interpolation/InterpolationEngine.h
+src/shape/String2Do: src/interpolation/InterpolationListener.h
+src/shape/String2Do: src/interpolation/Interpolator.h
+src/shape/String2Do: src/interpolation/InterpolatorFactory.h
+src/shape/String2Do: src/interpolation/LinearInterpolator.h
+src/shape/String2Do: src/util/GraphicsConversionUtility.h
+src/shape/String2Do: src/transform/Positionable.h src/transform/Scale.h
+src/shape/String2Do: src/transform/Translate.h src/transform/Rotate.h
+src/shape/String2Do: src/event/TimerListener.h src/transform/Transform.h
+src/shape/String2Do: src/transform/Translate.h
+src/shape/String2Do: src/transform/CoordinateSystem.h
+src/shape/String2Do: src/transform/CoordinateSystemFactory.h
+src/shape/String2Do: src/transform/CoordinateSystem.h
+src/shape/String2Do: src/transform/OpenGLCoordinateSystem.h
+src/shape/String2Do: src/transform/MathCoordinateSystem.h
+src/shape/String2Do: src/event/ReshapeListener.h
+src/terrain/Terraino: src/terrain/Terrain.h src/shape/Renderable.h
+src/terrain/Terraino: src/shape/Point3D.h src/paint/Paint.h
+src/terrain/Terraino: src/texture/Texture.h src/paint/Color.h
+src/terrain/Terraino: src/shape/Renderable.h include/SDL_opengl.h
+src/terrain/Terraino: src/shape/Quadrilateral3D.h src/geometry/Dimension3D.h
+src/terrain/Terraino: src/geometry/Dimension.h
+src/terrain/Terraino: src/util/GraphicsConversionUtility.h src/paint/Color.h
+src/terrain/Terraino: src/shape/Point3D.h src/texture/TextureFactory.h
+src/terrain/Terraino: src/texture/Texture.h src/texture/TexturePPM.h
+src/terrain/Terraino: src/texture/TextureBMP.h src/texture/TextureTGA.h
+src/texture/Textureo: src/texture/Texture.h
+src/texture/TextureFactoryo: src/texture/TextureFactory.h
+src/texture/TextureFactoryo: include/SDL_opengl.h src/texture/Texture.h
+src/texture/TextureFactoryo: src/texture/TexturePPM.h
+src/texture/TextureFactoryo: src/texture/TextureBMP.h
+src/texture/TextureFactoryo: src/texture/TextureTGA.h
+src/transform/CoordinateSystemo: src/transform/CoordinateSystem.h
+src/transform/CoordinateSystemFactoryo: src/transform/CoordinateSystemFactory.h
+src/transform/CoordinateSystemFactoryo: src/transform/CoordinateSystem.h
+src/transform/CoordinateSystemFactoryo: src/transform/OpenGLCoordinateSystem.h
+src/transform/CoordinateSystemFactoryo: src/transform/Rotate.h
+src/transform/CoordinateSystemFactoryo: src/transform/MathCoordinateSystem.h
+src/transform/MathCoordinateSystemo: src/transform/MathCoordinateSystem.h
+src/transform/MathCoordinateSystemo: src/transform/CoordinateSystem.h
+src/transform/MathCoordinateSystemo: src/transform/Rotate.h
+src/transform/OpenGLCoordinateSystemo: src/transform/OpenGLCoordinateSystem.h
+src/transform/OpenGLCoordinateSystemo: src/transform/CoordinateSystem.h
+src/transform/OpenGLCoordinateSystemo: src/transform/Rotate.h
+src/transform/Positionableo: src/transform/Positionable.h
+src/transform/Positionableo: include/SDL_opengl.h src/transform/Transform.h
+src/transform/Positionableo: src/transform/Scale.h src/geometry/Dimension3D.h
+src/transform/Positionableo: src/geometry/Dimension.h
+src/transform/Positionableo: src/transform/Translate.h
+src/transform/Positionableo: src/interpolation/InterpolationEngine.h
+src/transform/Positionableo: src/interpolation/InterpolationListener.h
+src/transform/Positionableo: src/interpolation/Interpolator.h
+src/transform/Positionableo: src/interpolation/InterpolatorFactory.h
+src/transform/Positionableo: src/interpolation/LinearInterpolator.h
+src/transform/Positionableo: src/util/GraphicsConversionUtility.h
+src/transform/Positionableo: src/shape/Point3D.h src/paint/Paint.h
+src/transform/Positionableo: src/texture/Texture.h src/paint/Color.h
+src/transform/Positionableo: src/shape/Renderable.h src/transform/Rotate.h
+src/transform/Rotateo: src/transform/Rotate.h
+src/transform/Transformo: src/transform/Transform.h include/SDL_opengl.h
+src/transform/TransformFactoryo: src/transform/TransformFactory.h
+src/transform/TransformFactoryo: src/transform/Transform.h
+src/transform/TransformFactoryo: include/SDL_opengl.h src/transform/Rotate.h
+src/transform/TransformFactoryo: src/transform/Translate.h
+src/transform/TransformFactoryo: src/interpolation/InterpolationEngine.h
+src/transform/TransformFactoryo: src/interpolation/InterpolationListener.h
+src/transform/TransformFactoryo: src/interpolation/Interpolator.h
+src/transform/TransformFactoryo: src/interpolation/InterpolatorFactory.h
+src/transform/TransformFactoryo: src/interpolation/LinearInterpolator.h
+src/transform/TransformFactoryo: src/util/GraphicsConversionUtility.h
+src/transform/TransformFactoryo: src/shape/Point3D.h src/paint/Paint.h
+src/transform/TransformFactoryo: src/texture/Texture.h src/paint/Color.h
+src/transform/TransformFactoryo: src/shape/Renderable.h
+src/transform/TransformFactoryo: src/geometry/Dimension3D.h
+src/transform/TransformFactoryo: src/geometry/Dimension.h
+src/transform/Translateo: src/transform/Translate.h src/transform/Transform.h
+src/transform/Translateo: include/SDL_opengl.h
+src/transform/Translateo: src/interpolation/InterpolationEngine.h
+src/transform/Translateo: src/interpolation/InterpolationListener.h
+src/transform/Translateo: src/interpolation/Interpolator.h
+src/transform/Translateo: src/interpolation/InterpolatorFactory.h
+src/transform/Translateo: src/interpolation/LinearInterpolator.h
+src/transform/Translateo: src/util/GraphicsConversionUtility.h
+src/transform/Translateo: src/shape/Point3D.h src/paint/Paint.h
+src/transform/Translateo: src/texture/Texture.h src/paint/Color.h
+src/transform/Translateo: src/shape/Renderable.h src/geometry/Dimension3D.h
+src/transform/Translateo: src/geometry/Dimension.h
+src/util/BehaviorParsero: src/util/BehaviorParser.h
+src/util/BehaviorParsero: src/transform/TransformFactory.h
+src/util/BehaviorParsero: src/transform/Transform.h include/SDL_opengl.h
+src/util/BehaviorParsero: src/transform/Rotate.h src/transform/Translate.h
+src/util/BehaviorParsero: src/interpolation/InterpolationEngine.h
+src/util/BehaviorParsero: src/interpolation/InterpolationListener.h
+src/util/BehaviorParsero: src/interpolation/Interpolator.h
+src/util/BehaviorParsero: src/interpolation/InterpolatorFactory.h
+src/util/BehaviorParsero: src/interpolation/LinearInterpolator.h
+src/util/BehaviorParsero: src/util/GraphicsConversionUtility.h
+src/util/BehaviorParsero: src/shape/Point3D.h src/paint/Paint.h
+src/util/BehaviorParsero: src/texture/Texture.h src/paint/Color.h
+src/util/BehaviorParsero: src/shape/Renderable.h src/geometry/Dimension3D.h
+src/util/BehaviorParsero: src/geometry/Dimension.h
+src/util/BitmapFontUtilo: src/util/BitmapFontUtil.h
+src/util/BitmapFontUtilo: src/util/BitmapFontConstants.h include/SDL_opengl.h
+src/util/FramesPerSecondCountero: src/util/FramesPerSecondCounter.h
+src/util/FramesPerSecondCountero: src/event/Timer.h src/event/TimerListener.h
+src/util/FramesPerSecondCountero: src/core/Controller.h src/core/Viewer.h
+src/util/FramesPerSecondCountero: include/SDL.h include/SDL_main.h
+src/util/FramesPerSecondCountero: include/SDL_types.h include/SDL_getenv.h
+src/util/FramesPerSecondCountero: include/SDL_error.h include/begin_code.h
+src/util/FramesPerSecondCountero: include/close_code.h include/SDL_rwops.h
+src/util/FramesPerSecondCountero: include/SDL_timer.h include/SDL_audio.h
+src/util/FramesPerSecondCountero: include/SDL_byteorder.h include/SDL_cdrom.h
+src/util/FramesPerSecondCountero: include/SDL_joystick.h include/SDL_events.h
+src/util/FramesPerSecondCountero: include/SDL_active.h include/SDL_keyboard.h
+src/util/FramesPerSecondCountero: include/SDL_keysym.h include/SDL_mouse.h
+src/util/FramesPerSecondCountero: include/SDL_video.h include/SDL_mutex.h
+src/util/FramesPerSecondCountero: include/SDL_quit.h include/SDL_version.h
+src/util/FramesPerSecondCountero: src/core/World.h src/shape/Point3D.h
+src/util/FramesPerSecondCountero: src/paint/Paint.h src/texture/Texture.h
+src/util/FramesPerSecondCountero: src/paint/Color.h src/shape/Renderable.h
+src/util/FramesPerSecondCountero: include/SDL_opengl.h src/shape/Renderable.h
+src/util/FramesPerSecondCountero: src/transform/Rotate.h
+src/util/FramesPerSecondCountero: src/transform/Transform.h
+src/util/FramesPerSecondCountero: src/geometry/Dimension3D.h
+src/util/FramesPerSecondCountero: src/geometry/Dimension.h
+src/util/FramesPerSecondCountero: src/interpolation/InterpolationEngine.h
+src/util/FramesPerSecondCountero: src/interpolation/InterpolationListener.h
+src/util/FramesPerSecondCountero: src/interpolation/Interpolator.h
+src/util/FramesPerSecondCountero: src/interpolation/InterpolatorFactory.h
+src/util/FramesPerSecondCountero: src/interpolation/LinearInterpolator.h
+src/util/FramesPerSecondCountero: src/util/GraphicsConversionUtility.h
+src/util/FramesPerSecondCountero: src/transform/Positionable.h
+src/util/FramesPerSecondCountero: src/transform/Scale.h
+src/util/FramesPerSecondCountero: src/transform/Translate.h
+src/util/FramesPerSecondCountero: src/transform/Rotate.h
+src/util/FramesPerSecondCountero: src/transform/Transform.h
+src/util/FramesPerSecondCountero: src/transform/Translate.h
+src/util/FramesPerSecondCountero: src/geometry/Dimension2D.h
+src/util/FramesPerSecondCountero: src/transform/CoordinateSystem.h
+src/util/FramesPerSecondCountero: src/transform/CoordinateSystemFactory.h
+src/util/FramesPerSecondCountero: src/transform/CoordinateSystem.h
+src/util/FramesPerSecondCountero: src/transform/OpenGLCoordinateSystem.h
+src/util/FramesPerSecondCountero: src/transform/MathCoordinateSystem.h
+src/util/FramesPerSecondCountero: src/event/ReshapeListener.h
+src/util/FramesPerSecondCountero: src/shape/String2D.h
+src/util/FramesPerSecondCountero: src/util/BitmapFontUtil.h
+src/util/FramesPerSecondCountero: src/util/BitmapFontConstants.h
+src/util/GraphicsConversionUtilityo: src/util/GraphicsConversionUtility.h
+src/util/GraphicsConversionUtilityo: include/SDL_opengl.h src/shape/Point3D.h
+src/util/GraphicsConversionUtilityo: src/paint/Paint.h src/texture/Texture.h
+src/util/GraphicsConversionUtilityo: src/paint/Color.h src/shape/Renderable.h

@@ -47,16 +47,14 @@ public:
     inline float degressToRadians(float degree);
 
 
-	/**
-	 * Accessor to the cosine table, only holds values for every 5 deg
-	 * Mods by 360 to handle large numbers
-	 */
+    /**
+     * Just a pass through
+     */
 	float getCosine(int deg);
 
 
 	/**
-	 * Accessor to the sine table, only holds values for every 5 deg
-	 * Mods by 360 to handle large numbers
+     * Just a pass through
 	 */
 	float getSine(int deg);
 
@@ -101,9 +99,10 @@ private:
 	/**
 	 * store commonly used values in hashtables for 
 	 * fast and efficient usage
+     * This may not be fast or efficient. Test this.
 	 */
-	map<int, float>cosineValues;
-	map<int, float>sineValues;
+    //	map<int, float>cosineValues;
+    //	map<int, float>sineValues;
 
 };
 

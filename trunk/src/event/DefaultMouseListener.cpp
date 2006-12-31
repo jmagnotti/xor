@@ -31,9 +31,9 @@ DefaultMouseListener * DefaultMouseListener::GetInstance()
  */
 void DefaultMouseListener::handleMouseEvent(MouseEvent * me)
 {
-    if ( (*(me->getType())) == MouseEvent::MOUSE_BUTTON_DOWN)
+    if ( me->getType() == MouseEvent::MOUSE_BUTTON_DOWN)
         handleMouseButtonPressed((MouseButtonDown*)me);
-    else if ((*(me->getType())) == MouseEvent::MOUSE_BUTTON_UP)
+    else if (me->getType() == MouseEvent::MOUSE_BUTTON_UP)
         handleMouseButtonReleased((MouseButtonUp*)me);
     else
         handleMouseMotion((MouseMotionEvent*)me);

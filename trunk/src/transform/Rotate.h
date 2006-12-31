@@ -4,6 +4,7 @@
 
 #include "Transform.h"
 #include "../geometry/Dimension3D.h"
+#include "../interpolation/InterpolationEngine.h"
 
 
 namespace XOR {
@@ -13,6 +14,7 @@ namespace XOR {
  */
 class Rotate : public Transform
 {
+    //trying to use this less and less. Performance tests should determine value    
 	friend class Positionable;
 
 public:
@@ -52,13 +54,14 @@ public:
 	 * Easy way to increment a rotation
 	 * to decrement, just increment by a negative amount
 	 */
-	void increment(Dimension3D*);
+	void increment(float angle, InterpolationEngine * interpolation=NULL);
 
 
     /**
-     * See Interpolable.h
-    void scale(Interpolable * other, int numSteps);
+     * Easy way to set a rotation
+     * to decrement, just increment by a negative amount
      */
+    void set(float angle, InterpolationEngine * interpolation=NULL);
 
 
 protected:

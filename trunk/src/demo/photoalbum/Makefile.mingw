@@ -2,7 +2,7 @@
 #
 CC = g++ -g
 
-LIBS = -lSDL -lGL -lGLU -lm -lXOR
+LIBS = -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lXOR -lm -mwindows
 
 #Packages
 SRCS = PhotoAlbum.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+			makedepend -fMakefile.mingw $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
@@ -128,9 +128,9 @@ PhotoAlbumo: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 PhotoAlbumo: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
 PhotoAlbumo: ../../geometry/CylindricalVolume.h
 PhotoAlbumo: ../../shape/CollisionRenderable.h ../../paint/Paint.h
-PhotoAlbumo: ../../paint/Color.h ../../transform/Transform.h
-PhotoAlbumo: ../../transform/Translate.h ../../transform/Rotate.h
-PhotoAlbumo: ../../transform/Transformable.h
+PhotoAlbumo: ../../paint/Color.h ../../transform/Positionable.h
+PhotoAlbumo: ../../transform/Transform.h ../../transform/Translate.h
+PhotoAlbumo: ../../transform/Rotate.h ../../transform/Transformable.h
 PhotoAlbumo: ../../transform/TransformFactory.h
 PhotoAlbumo: ../../util/GraphicsConversionUtility.h
 PhotoAlbumo: ../../util/BehaviorParser.h ../../transform/TransformFactory.h

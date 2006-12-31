@@ -23,6 +23,8 @@ void CameraRoller::handleTick()
  */
 void CameraRoller::handleMouseEvent(MouseEvent * event)
 {
+    if (MouseEvent::MOUSE_MOTION == event->getType())
+        handleMouseEvent((MouseMotionEvent*)event);
 }
 
 /*

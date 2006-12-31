@@ -18,17 +18,10 @@ MouseButtonDown::MouseButtonDown(const int * button, Uint16 * x, Uint16 * y)
 /*
  *
  */
-const int * MouseButtonDown::getType()
+const int MouseButtonDown::getType()
 {
-    return &(MouseEvent::MOUSE_BUTTON_DOWN);
+    return MouseEvent::MOUSE_BUTTON_DOWN;
 }
-
-
-/*
- * protected constructor
- */
-MouseButtonDown::MouseButtonDown()
-{}
 
 }
 

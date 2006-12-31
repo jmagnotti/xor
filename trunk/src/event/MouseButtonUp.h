@@ -18,13 +18,7 @@ class MouseButtonUp : public MouseClickEvent
     public:
 
         MouseButtonUp(const int * button, Uint16 * x, Uint16 * y);
-
-        const int * getType();
-
-    protected:
-
-        MouseButtonUp();
-
+        const int getType();
 
 };
 

@@ -10,7 +10,7 @@ TimedInterpolation::TimedInterpolation(int milliseconds, InterpolationListener *
 {
     _time = milliseconds;
 
-    _iterationsRemaining = _time/(double)Timer::GetInstance()->getInterval();
+    _iterationsRemaining = (int)(_time/(double)Timer::GetInstance()->getInterval());
 
     addListener(listener);
 }
@@ -43,6 +43,4 @@ void TimedInterpolation::start()
     Timer::GetInstance()->addListener(this);
 }
 
-
 }
-

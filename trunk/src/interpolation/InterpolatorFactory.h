@@ -12,20 +12,19 @@ using namespace std;
 namespace XOR {
 
 /**
- * Easy way to create Interpolators
+ * Easy way to create Interpolators. Additionally, this factory is used by the 
+ * InterpolationEngines to retrieve an interpolator. Applications should set 
+ * the default interpolator at the beginning of their interpolation, to ensure 
+ * that all InterpolationEngines use it.
+ * 
+ * @author John Magnotti, Michael Lam
+ * @version 1.0
  */
 class InterpolatorFactory
 {
     
 public:
 
-    static const int SQ_ROOT_INTERPOLATOR   = -1;
-    static const int RK4_INTERPOLATOR       = 0;
-    static const int LINEAR_INTERPOLATOR    = 1;
-    static const int SQUARED_INTERPOLATOR   = 2;
-    static const int CUBIC_INTERPOLATOR     = 3;
-
-    
     /**
      * Singleton Accessor for the factory
      */
@@ -38,6 +37,7 @@ public:
      */
     Interpolator * getDefaultInterpolator();
 
+
     /**
      * Sets the interpolator that will be used by default
      */
@@ -48,6 +48,14 @@ public:
      * Provides a way to create interpolators 
      */
     Interpolator * getInterpolator(int interpolator);
+    
+    
+    /**
+     * Put the Interpolator back into the ready pool.
+     * 
+        void reclaimInterpolator(Interpolator * interpolator)
+     */
+    
 
 protected:
 

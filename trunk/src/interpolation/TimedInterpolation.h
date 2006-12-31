@@ -48,11 +48,6 @@ public:
 
 protected:
 
-
-    // shouldn't be using the default constructor.
-    TimedInterpolation() {}
-
-
     int _time;
 
 };

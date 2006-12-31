@@ -23,7 +23,6 @@ public:
     static const int MOUSE_WHEEL_DOWN;
     
 
-
     /**
      * Returns a button value, LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON, MIDDLE_MOUSE_BUTTON
      */
@@ -38,7 +37,6 @@ public:
 
 protected:
 
-    MouseClickEvent();
 
 	const int * _button;
     const int * _state;
