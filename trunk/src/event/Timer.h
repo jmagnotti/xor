@@ -73,8 +73,7 @@ public:
 
 
 	/** 
-	 * Sets the timer interval
-	 * in milliseconds
+	 * Sets the timer interval in milliseconds
 	 */
 	void setInterval(unsigned int time);
 

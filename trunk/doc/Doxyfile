@@ -1,11 +1,11 @@
-# Doxyfile 1.5.1-p1
+# Doxyfile 1.4.7
 
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
 PROJECT_NAME           = Xavier
 PROJECT_NUMBER         = 1.0_Alpha
-OUTPUT_DIRECTORY       = "C:/Documents and Settings/John/workspace/Xavier/doc"
+OUTPUT_DIRECTORY       = /Users/john/workspace/xor/doc
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
 USE_WINDOWS_ENCODING   = NO
@@ -55,15 +55,15 @@ HIDE_IN_BODY_DOCS      = NO
 INTERNAL_DOCS          = NO
 CASE_SENSE_NAMES       = NO
 HIDE_SCOPE_NAMES       = NO
-SHOW_INCLUDE_FILES     = YES
-INLINE_INFO            = YES
-SORT_MEMBER_DOCS       = YES
+SHOW_INCLUDE_FILES     = NO
+INLINE_INFO            = NO
+SORT_MEMBER_DOCS       = NO
 SORT_BRIEF_DOCS        = NO
 SORT_BY_SCOPE_NAME     = NO
-GENERATE_TODOLIST      = YES
-GENERATE_TESTLIST      = YES
-GENERATE_BUGLIST       = YES
-GENERATE_DEPRECATEDLIST= YES
+GENERATE_TODOLIST      = NO
+GENERATE_TESTLIST      = NO
+GENERATE_BUGLIST       = NO
+GENERATE_DEPRECATEDLIST= NO
 ENABLED_SECTIONS       = 
 MAX_INITIALIZER_LINES  = 30
 SHOW_USED_FILES        = YES
@@ -73,16 +73,16 @@ FILE_VERSION_FILTER    =
 # configuration options related to warning and progress messages
 #---------------------------------------------------------------------------
 QUIET                  = YES
-WARNINGS               = YES
-WARN_IF_UNDOCUMENTED   = YES
-WARN_IF_DOC_ERROR      = YES
+WARNINGS               = NO
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = NO
 WARN_NO_PARAMDOC       = NO
 WARN_FORMAT            = "$file:$line: $text"
 WARN_LOGFILE           = 
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = "C:/Documents and Settings/John/workspace/Xavier/src"
+INPUT                  = /Users/john/workspace/xor/src
 FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \
@@ -138,13 +138,13 @@ FILTER_SOURCE_FILES    = NO
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------
-SOURCE_BROWSER         = YES
+SOURCE_BROWSER         = NO
 INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = YES
 REFERENCED_BY_RELATION = YES
 REFERENCES_RELATION    = YES
-REFERENCES_LINK_SOURCE = YES
-USE_HTAGS              = YES
+REFERENCES_LINK_SOURCE = NO
+USE_HTAGS              = NO
 VERBATIM_HEADERS       = YES
 #---------------------------------------------------------------------------
 # configuration options related to the alphabetical class index
@@ -161,7 +161,7 @@ HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = 
 HTML_FOOTER            = 
 HTML_STYLESHEET        = 
-HTML_ALIGN_MEMBERS     = YES
+HTML_ALIGN_MEMBERS     = NO
 GENERATE_HTMLHELP      = NO
 CHM_FILE               = 
 HHC_LOCATION           = 
@@ -214,7 +214,7 @@ XML_PROGRAMLISTING     = YES
 #---------------------------------------------------------------------------
 # configuration options for the AutoGen Definitions output
 #---------------------------------------------------------------------------
-GENERATE_AUTOGEN_DEF   = YES
+GENERATE_AUTOGEN_DEF   = NO
 #---------------------------------------------------------------------------
 # configuration options related to the Perl module output
 #---------------------------------------------------------------------------
@@ -225,7 +225,7 @@ PERLMOD_MAKEVAR_PREFIX =
 #---------------------------------------------------------------------------
 # Configuration options related to the preprocessor   
 #---------------------------------------------------------------------------
-ENABLE_PREPROCESSING   = YES
+ENABLE_PREPROCESSING   = NO
 MACRO_EXPANSION        = YES
 EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
@@ -240,7 +240,7 @@ SKIP_FUNCTION_MACROS   = YES
 TAGFILES               = 
 GENERATE_TAGFILE       = 
 ALLEXTERNALS           = NO
-EXTERNAL_GROUPS        = YES
+EXTERNAL_GROUPS        = NO
 PERL_PATH              = /usr/bin/perl
 #---------------------------------------------------------------------------
 # Configuration options related to the dot tool   
@@ -249,18 +249,18 @@ CLASS_DIAGRAMS         = NO
 HIDE_UNDOC_RELATIONS   = NO
 HAVE_DOT               = YES
 CLASS_GRAPH            = YES
-COLLABORATION_GRAPH    = YES
-GROUP_GRAPHS           = YES
+COLLABORATION_GRAPH    = NO
+GROUP_GRAPHS           = NO
 UML_LOOK               = NO
 TEMPLATE_RELATIONS     = NO
-INCLUDE_GRAPH          = YES
-INCLUDED_BY_GRAPH      = YES
-CALL_GRAPH             = YES
-CALLER_GRAPH           = YES
+INCLUDE_GRAPH          = NO
+INCLUDED_BY_GRAPH      = NO
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
 GRAPHICAL_HIERARCHY    = YES
-DIRECTORY_GRAPH        = YES
-DOT_IMAGE_FORMAT       = gif
-DOT_PATH               = "C:/Program Files/ATT/Graphviz/bin"
+DIRECTORY_GRAPH        = NO
+DOT_IMAGE_FORMAT       = png
+DOT_PATH               = /Applications/Graphviz.app/Contents/MacOS
 DOTFILE_DIRS           = 
 MAX_DOT_GRAPH_WIDTH    = 1024
 MAX_DOT_GRAPH_HEIGHT   = 1024

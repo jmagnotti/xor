@@ -21,7 +21,7 @@ class ContinuousInterpolation : public TimedInterpolation
 
 public:
     
-    ContinuousInterpolation()
+    ContinuousInterpolation(int i, InterpolationListener *l)
     {}
     
     

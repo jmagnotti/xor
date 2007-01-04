@@ -17,6 +17,7 @@ namespace XOR {
  */
 Paint::Paint(float red, float green, float blue, int gradientType)
 {
+    _autoGradient = .3f;
 	_textured = false;
 
 	_colorFrom[0] = red;
@@ -38,6 +39,7 @@ Paint::Paint(float red, float green, float blue, int gradientType)
  */
 Paint::Paint(const float color[3], int gradientType, Texture * tex)
 {
+    _autoGradient = .3f;
     _textured = false;
 
     if (tex != NULL) {
@@ -54,6 +56,10 @@ Paint::Paint(const float color[3], int gradientType, Texture * tex)
 
 	if (_gradientType != NO_GRADIENT)
 		recalculateGradient();
+
+    //cout << "Colors Set:" << endl;
+    //cout << _colorTo[0] << " " << _colorTo[1] <<  " " << _colorTo[2] << endl;
+    //cout << _colorFrom[0] << " " << _colorFrom[1] <<  " " << _colorFrom[2] << endl;
 } 
 
 
@@ -63,6 +69,7 @@ Paint::Paint(const float color[3], int gradientType, Texture * tex)
  */
 Paint::Paint(const float startColor[3], const float endColor[3], int gradientType, Texture * tex)
 {
+    _autoGradient = .3f;
     _textured = false;
 
     if (tex != NULL) {
@@ -76,9 +83,6 @@ Paint::Paint(const float startColor[3], const float endColor[3], int gradientTyp
 	}
 
 	_gradientType	= gradientType;
-
-	if (_gradientType != NO_GRADIENT)
-		recalculateGradient();	
 }
 
 
@@ -87,6 +91,7 @@ Paint::Paint(const float startColor[3], const float endColor[3], int gradientTyp
  */
 Paint::Paint(Texture *tex)
 {
+    _autoGradient = .3f;
     _textured = true;
 
 	for (int i=0; i<3; i++)
@@ -102,8 +107,28 @@ Paint::Paint(Texture *tex)
  */
 void Paint::recalculateGradient()
 {
-    for (int i=0; i<3; i++)
+    /*
+        cout << "CALC GRAD " << endl;
+        cout << "Before " << endl;
+        for (int i=0; i<3; i++)
+            cout << _colorFrom[i] << " ";
+        cout << endl;
+    */
+
+    for (int i=0; i<3; i++) {
+        cout << _colorFrom[i] << " =  " << _colorTo[i]  << " *  " <<
+            _autoGradient << endl;
+
         _colorFrom[i] = _colorTo[i] * _autoGradient;
+    }
+
+    /*
+        cout << "After" << endl;
+        for (int i=0; i<3; i++)
+            cout << _colorFrom[i] << " ";
+
+        cout << endl;
+    */
 }
 
 
@@ -153,6 +178,24 @@ void Paint::setTexture(Texture *tex)
 {
 	_textured = true;
 	_texture = tex;
+}
+
+
+void Paint::print()
+{
+    cout << "Gradient type: " << _gradientType << endl << "Colors:\t";
+    for(int i=0; i<3; i++) 
+        cout << _colorFrom[i] << " ";   
+    cout << endl << "\t";
+
+    for(int i=0; i<3; i++) 
+        cout << _colorTo[i] << " ";   
+    cout << endl;
+
+    cout << "Textured? " << isTextured() << endl;
+    cout << "AutoGradient: " << getAutoGradient() << endl;
+
+    cout << endl;
 }
 
 

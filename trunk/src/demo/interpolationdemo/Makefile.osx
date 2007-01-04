@@ -35,12 +35,10 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-InterpolationDemo.o: ../../xor.h ../../shape/Point.h ../../shape/String2D.h
-InterpolationDemo.o: /usr/include/string.h /usr/include/_types.h
-InterpolationDemo.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+InterpolationDemo.o: ../../xor.h ../../core/Controller.h
+InterpolationDemo.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+InterpolationDemo.o: /usr/include/_types.h /usr/include/sys/_types.h
 InterpolationDemo.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-InterpolationDemo.o: ../../util/BitmapFontUtil.h
-InterpolationDemo.o: ../../util/BitmapFontConstants.h /usr/include/stdlib.h
 InterpolationDemo.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 InterpolationDemo.o: /usr/include/sys/appleapiopts.h
 InterpolationDemo.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
@@ -50,13 +48,8 @@ InterpolationDemo.o: /usr/include/sys/_endian.h /usr/include/stdint.h
 InterpolationDemo.o: /usr/include/libkern/OSByteOrder.h
 InterpolationDemo.o: /usr/include/libkern/ppc/OSByteOrder.h
 InterpolationDemo.o: /usr/include/alloca.h /usr/include/machine/types.h
-InterpolationDemo.o: /usr/include/ppc/types.h ../../../include/SDL_opengl.h
-InterpolationDemo.o: /usr/include/stddef.h ../../geometry/Dimension2D.h
-InterpolationDemo.o: ../../geometry/Dimension.h ../../paint/Paint.h
-InterpolationDemo.o: ../../texture/Texture.h ../../paint/Color.h
-InterpolationDemo.o: ../../shape/Renderable.h ../../core/Controller.h
-InterpolationDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
-InterpolationDemo.o: ../../../include/SDL_types.h
+InterpolationDemo.o: /usr/include/ppc/types.h ../../../include/SDL.h
+InterpolationDemo.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
 InterpolationDemo.o: ../../../include/SDL_getenv.h
 InterpolationDemo.o: ../../../include/SDL_error.h
 InterpolationDemo.o: ../../../include/begin_code.h
@@ -88,66 +81,107 @@ InterpolationDemo.o: ../../event/MouseButtonUp.h
 InterpolationDemo.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
 InterpolationDemo.o: ../../core/World.h ../../shape/Point3D.h
 InterpolationDemo.o: /usr/include/math.h /usr/include/architecture/ppc/math.h
-InterpolationDemo.o: ../../shape/Renderable.h ../../transform/Rotate.h
-InterpolationDemo.o: ../../transform/Transform.h ../../shape/Positionable.h
-InterpolationDemo.o: ../../transform/Orientate.h
+InterpolationDemo.o: ../../paint/Paint.h /usr/include/string.h
+InterpolationDemo.o: ../../texture/Texture.h ../../paint/Color.h
+InterpolationDemo.o: ../../shape/Renderable.h ../../../include/SDL_opengl.h
+InterpolationDemo.o: /usr/include/stddef.h ../../shape/Renderable.h
+InterpolationDemo.o: ../../transform/Rotate.h ../../transform/Transform.h
+InterpolationDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
+InterpolationDemo.o: ../../interpolation/InterpolationListener.h
+InterpolationDemo.o: ../../interpolation/Interpolator.h
+InterpolationDemo.o: ../../interpolation/InterpolatorFactory.h
+InterpolationDemo.o: ../../interpolation/LinearInterpolator.h
 InterpolationDemo.o: ../../util/GraphicsConversionUtility.h
+InterpolationDemo.o: ../../transform/Positionable.h ../../transform/Scale.h
 InterpolationDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 InterpolationDemo.o: ../../event/TimerListener.h ../../transform/Transform.h
 InterpolationDemo.o: ../../transform/Translate.h ../../core/Viewer.h
-InterpolationDemo.o: ../../event/ReshapeListener.h
-InterpolationDemo.o: ../../event/DefaultKeyboardListener.h ../../core/World.h
-InterpolationDemo.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
-InterpolationDemo.o: ../../shape/Arc3D.h ../../shape/Point3D.h
-InterpolationDemo.o: ../../shape/AdornablePrism.h
-InterpolationDemo.o: ../../shape/RectangularPrism.h
-InterpolationDemo.o: ../../shape/Quadrilateral3D.h
-InterpolationDemo.o: ../../geometry/Dimension3D.h ../../paint/Color.h
-InterpolationDemo.o: ../../geometry/RectangularVolume.h
-InterpolationDemo.o: ../../geometry/Dimension3D.h ../../shape/Positionable.h
-InterpolationDemo.o: ../../shape/Renderable.h ../../shape/Particle.h
-InterpolationDemo.o: ../../shape/CollisionRenderable.h
-InterpolationDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-InterpolationDemo.o: ../../shape/Quadrilateral3DConstants.h
-InterpolationDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point2D.h
-InterpolationDemo.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-InterpolationDemo.o: ../../shape/RectangularPrism.h
-InterpolationDemo.o: ../../shape/AdornableCube.h ../../shape/Cube.h
-InterpolationDemo.o: ../../shape/AdornablePrism.h
-InterpolationDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Positionable.h
-InterpolationDemo.o: ../../shape/Square3D.h ../../texture/Texture.h
-InterpolationDemo.o: ../../texture/TextureFactory.h /sw/include/GL/glut.h
-InterpolationDemo.o: ../../texture/Texture.h ../../texture/TexturePPM.h
-InterpolationDemo.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
-InterpolationDemo.o: ../../event/MouseEvent.h ../../event/SpecialKeyEvent.h
-InterpolationDemo.o: ../../event/ReshapeListener.h
-InterpolationDemo.o: ../../event/MouseListener.h ../../event/Keyboard.h
-InterpolationDemo.o: ../../event/MouseClickEvent.h
-InterpolationDemo.o: ../../event/DefaultMouseListener.h
-InterpolationDemo.o: ../../event/KeyboardListener.h
-InterpolationDemo.o: ../../event/DefaultKeyboardListener.h
-InterpolationDemo.o: ../../event/RegularKeyEvent.h ../../event/Timer.h
-InterpolationDemo.o: ../../event/MouseMotionEvent.h
-InterpolationDemo.o: ../../event/TimerListener.h ../../event/Mouse.h
-InterpolationDemo.o: ../../event/KeyEvent.h ../../event/KeyUpEvent.h
-InterpolationDemo.o: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
-InterpolationDemo.o: ../../event/MouseEventFactory.h
-InterpolationDemo.o: ../../event/MouseButtonUp.h
-InterpolationDemo.o: ../../event/MouseButtonDown.h ../../terrain/Terrain.h
-InterpolationDemo.o: ../../shape/Quadrilateral3D.h
-InterpolationDemo.o: ../../texture/TextureFactory.h
-InterpolationDemo.o: ../../terrain/TerrainStrategy.h ../../core/Viewer.h
-InterpolationDemo.o: ../../core/Controller.h ../../core/World.h
 InterpolationDemo.o: ../../geometry/Dimension2D.h
+InterpolationDemo.o: ../../transform/CoordinateSystem.h
+InterpolationDemo.o: ../../transform/CoordinateSystemFactory.h
+InterpolationDemo.o: ../../transform/CoordinateSystem.h
+InterpolationDemo.o: ../../transform/OpenGLCoordinateSystem.h
+InterpolationDemo.o: ../../transform/MathCoordinateSystem.h
+InterpolationDemo.o: ../../event/ReshapeListener.h
+InterpolationDemo.o: ../../event/DefaultKeyboardListener.h
+InterpolationDemo.o: ../../core/Controller.h ../../core/World.h
+InterpolationDemo.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
+InterpolationDemo.o: ../../core/World.h ../../event/DefaultKeyboardListener.h
+InterpolationDemo.o: ../../event/DefaultMouseListener.h
+InterpolationDemo.o: ../../event/Keyboard.h ../../event/KeyboardListener.h
+InterpolationDemo.o: ../../event/KeyDownEvent.h ../../event/KeyEvent.h
+InterpolationDemo.o: ../../event/KeyEventFactory.h ../../event/KeyUpEvent.h
+InterpolationDemo.o: ../../event/Mouse.h ../../event/MouseButtonDown.h
+InterpolationDemo.o: ../../event/MouseButtonUp.h
+InterpolationDemo.o: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+InterpolationDemo.o: ../../event/MouseEventFactory.h
+InterpolationDemo.o: ../../event/MouseListener.h
+InterpolationDemo.o: ../../event/MouseMotionEvent.h
+InterpolationDemo.o: ../../event/RegularKeyEvent.h
+InterpolationDemo.o: ../../event/ReshapeListener.h
+InterpolationDemo.o: ../../event/SpecialKeyEvent.h ../../event/Timer.h
+InterpolationDemo.o: ../../event/TimerListener.h
+InterpolationDemo.o: ../../geometry/CylindricalVolume.h
+InterpolationDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+InterpolationDemo.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
 InterpolationDemo.o: ../../geometry/Dimension3D.h
 InterpolationDemo.o: ../../geometry/RectangularVolume.h
-InterpolationDemo.o: ../../geometry/Dimension.h ../../paint/Paint.h
-InterpolationDemo.o: ../../paint/Color.h ../../transform/Orientate.h
-InterpolationDemo.o: ../../transform/Transform.h ../../transform/Translate.h
-InterpolationDemo.o: ../../transform/Rotate.h ../../transform/Transformable.h
-InterpolationDemo.o: ../../util/GraphicsConversionUtility.h
-InterpolationDemo.o: ../../util/BehaviorParser.h
+InterpolationDemo.o: ../../geometry/Dimension3D.h
+InterpolationDemo.o: ../../interpolation/CameraRoller.h
+InterpolationDemo.o: ../../interpolation/ContinuousInterpolation.h
+InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
+InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
+InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
+InterpolationDemo.o: ../../interpolation/InterpolationListener.h
+InterpolationDemo.o: ../../interpolation/Interpolator.h
+InterpolationDemo.o: ../../interpolation/InterpolatorFactory.h
+InterpolationDemo.o: ../../interpolation/LinearInterpolator.h
+InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
+InterpolationDemo.o: ../../paint/Color.h ../../paint/Paint.h
+InterpolationDemo.o: ../../shape/AdornableCube.h ../../shape/Cube.h
+InterpolationDemo.o: ../../shape/RectangularPrism.h
+InterpolationDemo.o: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+InterpolationDemo.o: ../../geometry/RectangularVolume.h
+InterpolationDemo.o: ../../shape/AdornablePrism.h
+InterpolationDemo.o: ../../shape/AdornablePrism.h ../../shape/Arc3D.h
+InterpolationDemo.o: ../../shape/CollisionRenderable.h ../../shape/Cube.h
+InterpolationDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Particle.h
+InterpolationDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+InterpolationDemo.o: ../../shape/Point2D.h ../../shape/Point3D.h
+InterpolationDemo.o: ../../shape/Quadrilateral3D.h
+InterpolationDemo.o: ../../shape/Quadrilateral3DConstants.h
+InterpolationDemo.o: ../../shape/RectangularPrism.h
+InterpolationDemo.o: ../../shape/RectangularPrismFactory.h
+InterpolationDemo.o: ../../shape/Renderable.h ../../shape/Square3D.h
+InterpolationDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+InterpolationDemo.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+InterpolationDemo.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+InterpolationDemo.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+InterpolationDemo.o: ../../texture/TexturePPM.h ../../texture/TextureBMP.h
+InterpolationDemo.o: ../../texture/TextureTGA.h
+InterpolationDemo.o: ../../terrain/TerrainStrategy.h ../../texture/Texture.h
+InterpolationDemo.o: ../../texture/TextureBMP.h
+InterpolationDemo.o: ../../texture/TextureFactory.h
+InterpolationDemo.o: ../../texture/TexturePPM.h ../../texture/TextureSDL.h
+InterpolationDemo.o: ../../texture/TextureTGA.h
+InterpolationDemo.o: ../../transform/CoordinateSystem.h
+InterpolationDemo.o: ../../transform/CoordinateSystemFactory.h
+InterpolationDemo.o: ../../transform/MathCoordinateSystem.h
+InterpolationDemo.o: ../../transform/OpenGLCoordinateSystem.h
+InterpolationDemo.o: ../../transform/Positionable.h ../../transform/Rotate.h
+InterpolationDemo.o: ../../transform/Scale.h ../../transform/Transform.h
+InterpolationDemo.o: ../../transform/Transformable.h
 InterpolationDemo.o: ../../transform/TransformFactory.h
-InterpolationDemo.o: ../../util/FramesPerSecondCounter.h
-InterpolationDemo.o: ../../shape/String2D.h ../../util/BitmapFontConstants.h
+InterpolationDemo.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+InterpolationDemo.o: ../../transform/TransformFactory.h
+InterpolationDemo.o: ../../util/BitmapFontConstants.h
 InterpolationDemo.o: ../../util/BitmapFontUtil.h
+InterpolationDemo.o: ../../util/FramesPerSecondCounter.h
+InterpolationDemo.o: ../../shape/String2D.h
+InterpolationDemo.o: ../../util/GraphicsConversionUtility.h
+InterpolationDemo.o: ../../util/xmlParser.h /usr/include/wchar.h
+InterpolationDemo.o: /usr/include/stdarg.h /usr/include/time.h
+InterpolationDemo.o: /usr/include/machine/_limits.h
+InterpolationDemo.o: /usr/include/ppc/_limits.h /usr/include/_wctype.h
+InterpolationDemo.o: /usr/include/ctype.h /usr/include/runetype.h

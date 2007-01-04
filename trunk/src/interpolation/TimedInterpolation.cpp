@@ -8,9 +8,14 @@ namespace XOR {
  */
 TimedInterpolation::TimedInterpolation(int milliseconds, InterpolationListener * listener)
 {
+    cout << "Amount of time for interpolating: " << milliseconds << endl;
+
     _time = milliseconds;
+    _size = _iterationsRemaining = (int)(_time/(double)Timer::GetInstance()->getInterval());
 
     _iterationsRemaining = (int)(_time/(double)Timer::GetInstance()->getInterval());
+    cout << "Time: " << milliseconds << ", adjusted for interval of " <<
+            Timer::GetInstance()->getInterval() << " resolves to " << _iterationsRemaining << " number of steps."  << endl;
 
     addListener(listener);
 }

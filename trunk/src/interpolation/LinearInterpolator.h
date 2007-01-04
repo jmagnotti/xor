@@ -36,14 +36,18 @@ public:
      * Reset the interpolation
      */
     void reset(void);
+
+
+    /*
+     * ensures that the interpolation is complete
+     */
     void finish(void);
     
    
     /**
      * Calculates the step amount
      */
-    void setScale(float & in, float & out, int numSteps);
-    void setScale(vector <float*> & in, vector<float*> & out, int numSteps);
+    void setScale(vector <float*> & in, vector<float> & out, int numSteps);
 
 
     /**

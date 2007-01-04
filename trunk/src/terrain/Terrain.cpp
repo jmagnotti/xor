@@ -22,7 +22,7 @@ Terrain::Terrain(Point3D * point, int diameter)
 
 
 	Texture * t = TextureFactory::GetInstance()->createTexture("grass.bmp");
-	//_terrain->setAllColors(new Paint(t));
+   
     _terrain->setPaint(new Paint(t));
 	_size		= diameter;
 }

@@ -21,14 +21,12 @@ Square3D::Square3D()
  */
 Square3D::Square3D(Point3D * point, float diameter, Paint * paint)
 {
-    _paint = paint;
+    setPaint(paint);
 
 	_vertices[0] = point; 
 	_vertices[1] = new Point3D(point->getX()+diameter, point->getY(), point->getZ());
 	_vertices[2] = new Point3D(point->getX()+diameter, point->getY()+diameter, point->getZ());
 	_vertices[3] = new Point3D(point->getX(), point->getY()+diameter, point->getZ());
-
-    setAllColors(_paint);
 }
 
 }

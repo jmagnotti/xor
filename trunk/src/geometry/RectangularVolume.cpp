@@ -113,6 +113,14 @@ void RectangularVolume::generatePoints(Point3D * points[8])
 	points[7] = new Point3D(frontBottomLeftCorner->getX() + getXDiameter(),
 							frontBottomLeftCorner->getY() + getYDiameter(),
 							frontBottomLeftCorner->getZ() );
+
+/*
+    cout << "Generated Points: " << endl;
+    for (int i=0; i<8; i++)
+        cout << "\t" << i << ": " << points[i]->toString() << endl;
+    cout << "__" << endl;
+*/
+
 }
 
 
@@ -124,3 +132,4 @@ float RectangularVolume::getZDiameter() {	return _radii->getDepth();	}
 Point3D * RectangularVolume::getRegistrationPoint() {	return frontBottomLeftCorner; }
 
 }
+

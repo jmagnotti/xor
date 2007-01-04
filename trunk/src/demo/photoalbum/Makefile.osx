@@ -76,23 +76,29 @@ PhotoAlbum.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
 PhotoAlbum.o: ../../core/World.h ../../shape/Point3D.h /usr/include/math.h
 PhotoAlbum.o: /usr/include/architecture/ppc/math.h ../../shape/Renderable.h
 PhotoAlbum.o: ../../transform/Rotate.h ../../transform/Transform.h
-PhotoAlbum.o: ../../interpolation/Interpolable.h
-PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
+PhotoAlbum.o: ../../geometry/Dimension3D.h
+PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
+PhotoAlbum.o: ../../interpolation/InterpolationListener.h
 PhotoAlbum.o: ../../interpolation/Interpolator.h
+PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
 PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
 PhotoAlbum.o: ../../util/GraphicsConversionUtility.h
-PhotoAlbum.o: ../../shape/Positionable.h ../../transform/Orientate.h
+PhotoAlbum.o: ../../transform/Positionable.h ../../transform/Scale.h
 PhotoAlbum.o: ../../transform/Translate.h ../../transform/Rotate.h
 PhotoAlbum.o: ../../event/TimerListener.h ../../transform/Transform.h
 PhotoAlbum.o: ../../transform/Translate.h ../../core/Viewer.h
+PhotoAlbum.o: ../../transform/CoordinateSystem.h
+PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
+PhotoAlbum.o: ../../transform/CoordinateSystem.h
+PhotoAlbum.o: ../../transform/OpenGLCoordinateSystem.h
+PhotoAlbum.o: ../../transform/MathCoordinateSystem.h
 PhotoAlbum.o: ../../event/ReshapeListener.h
 PhotoAlbum.o: ../../event/DefaultKeyboardListener.h ../../core/World.h
 PhotoAlbum.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
 PhotoAlbum.o: ../../shape/Arc3D.h ../../shape/Point3D.h
 PhotoAlbum.o: ../../shape/AdornablePrism.h ../../shape/RectangularPrism.h
-PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../geometry/Dimension3D.h
-PhotoAlbum.o: ../../paint/Color.h ../../geometry/RectangularVolume.h
-PhotoAlbum.o: ../../geometry/Dimension3D.h ../../shape/Positionable.h
+PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+PhotoAlbum.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
 PhotoAlbum.o: ../../shape/Renderable.h ../../shape/Particle.h
 PhotoAlbum.o: ../../shape/CollisionRenderable.h
 PhotoAlbum.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
@@ -101,12 +107,11 @@ PhotoAlbum.o: ../../shape/CollisionRenderable.h ../../shape/Point2D.h
 PhotoAlbum.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
 PhotoAlbum.o: ../../shape/RectangularPrism.h ../../shape/AdornableCube.h
 PhotoAlbum.o: ../../shape/Cube.h ../../shape/AdornablePrism.h
-PhotoAlbum.o: ../../shape/NormalPolygon3D.h ../../shape/Positionable.h
-PhotoAlbum.o: ../../shape/Square3D.h ../../texture/TextureTGA.h
-PhotoAlbum.o: ../../texture/TexturePPM.h ../../texture/TextureBMP.h
-PhotoAlbum.o: ../../texture/Texture.h ../../texture/TextureSDL.h
-PhotoAlbum.o: ../../texture/Texture.h ../../texture/TextureFactory.h
-PhotoAlbum.o: /sw/include/GL/glut.h ../../texture/TexturePPM.h
+PhotoAlbum.o: ../../shape/NormalPolygon3D.h ../../shape/Square3D.h
+PhotoAlbum.o: ../../texture/TextureTGA.h ../../texture/TexturePPM.h
+PhotoAlbum.o: ../../texture/TextureBMP.h ../../texture/Texture.h
+PhotoAlbum.o: ../../texture/TextureSDL.h ../../texture/Texture.h
+PhotoAlbum.o: ../../texture/TextureFactory.h ../../texture/TexturePPM.h
 PhotoAlbum.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
 PhotoAlbum.o: ../../event/MouseEvent.h ../../event/SpecialKeyEvent.h
 PhotoAlbum.o: ../../event/ReshapeListener.h ../../event/MouseListener.h
@@ -123,8 +128,6 @@ PhotoAlbum.o: ../../event/MouseButtonUp.h ../../event/MouseButtonDown.h
 PhotoAlbum.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
 PhotoAlbum.o: ../../texture/TextureFactory.h ../../terrain/TerrainStrategy.h
 PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
-PhotoAlbum.o: ../../interpolation/Interpolable.h
-PhotoAlbum.o: ../../interpolation/InterpolationListener.h
 PhotoAlbum.o: ../../interpolation/TimedInterpolation.h
 PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
 PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
@@ -132,7 +135,6 @@ PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
 PhotoAlbum.o: ../../interpolation/InterpolationListener.h
 PhotoAlbum.o: ../../interpolation/ContinuousInterpolation.h
 PhotoAlbum.o: ../../interpolation/TimedInterpolation.h
-PhotoAlbum.o: ../../interpolation/Interpolable.h
 PhotoAlbum.o: ../../interpolation/Interpolator.h
 PhotoAlbum.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
 PhotoAlbum.o: ../../core/Controller.h ../../core/World.h
@@ -140,7 +142,7 @@ PhotoAlbum.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 PhotoAlbum.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
 PhotoAlbum.o: ../../geometry/CylindricalVolume.h
 PhotoAlbum.o: ../../shape/CollisionRenderable.h ../../paint/Paint.h
-PhotoAlbum.o: ../../paint/Color.h ../../transform/Orientate.h
+PhotoAlbum.o: ../../paint/Color.h ../../transform/Positionable.h
 PhotoAlbum.o: ../../transform/Transform.h ../../transform/Translate.h
 PhotoAlbum.o: ../../transform/Rotate.h ../../transform/Transformable.h
 PhotoAlbum.o: ../../transform/TransformFactory.h

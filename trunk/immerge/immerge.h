@@ -72,7 +72,7 @@ struct iData {
 	float myx, myy, myz;
 	float myrx, myry, myrz;
 
-	float theta, thetar;
+	float theta, rad_theta;
 	float xcenter,ycenter,zcenter;
 	float rightoffset;
 	float maxnumx, realnumx, realnumy;

@@ -14,7 +14,6 @@ int main(int argc, char** argv)
     // controller object (note: Singleton Pattern).
     Controller * ctrl = Controller::GetInstance();
 
-
     // tell the controller to setup friendly defaults for us. This includes
     // mouse, keyboard, view, and reshape defaults. It also sets up openGL 
     // parameters. To only setup I/O and windowing, pass false to the method,
@@ -25,7 +24,8 @@ int main(int argc, char** argv)
 
     // We want to print 'Hello World,' so we need a String2D object. 
     // We are creating the object as a pointer for greater effecincy
-    String2D * hello = new String2D("Hello World!");
+    Square3D * hello = new Square3D();
+    //String2D * hello = new String2D("Hello World!");
 
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)

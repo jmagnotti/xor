@@ -30,7 +30,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.osx $(INCLUDES) $^
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
@@ -75,11 +75,12 @@ HelloWorld.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
 HelloWorld.o: ../../core/World.h ../../shape/Point3D.h /usr/include/math.h
 HelloWorld.o: /usr/include/architecture/ppc/math.h ../../shape/Renderable.h
 HelloWorld.o: ../../transform/Rotate.h ../../transform/Transform.h
+HelloWorld.o: ../../shape/Positionable.h ../../transform/Orientate.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h
+HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
 HelloWorld.o: ../../event/TimerListener.h ../../transform/Transform.h
 HelloWorld.o: ../../transform/Translate.h ../../core/Viewer.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h
-HelloWorld.o: ../../transform/Orientate.h ../../transform/Translate.h
-HelloWorld.o: ../../transform/Rotate.h ../../event/ReshapeListener.h
+HelloWorld.o: ../../event/ReshapeListener.h
 HelloWorld.o: ../../event/DefaultKeyboardListener.h ../../core/World.h
 HelloWorld.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
 HelloWorld.o: ../../shape/Arc3D.h ../../shape/Point3D.h
@@ -96,6 +97,10 @@ HelloWorld.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
 HelloWorld.o: ../../shape/RectangularPrism.h ../../shape/AdornableCube.h
 HelloWorld.o: ../../shape/Cube.h ../../shape/AdornablePrism.h
 HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Positionable.h
+HelloWorld.o: ../../shape/Square3D.h ../../texture/Texture.h
+HelloWorld.o: ../../texture/TextureFactory.h /sw/include/GL/glut.h
+HelloWorld.o: ../../texture/Texture.h ../../texture/TexturePPM.h
+HelloWorld.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
 HelloWorld.o: ../../event/MouseEvent.h ../../event/SpecialKeyEvent.h
 HelloWorld.o: ../../event/ReshapeListener.h ../../event/MouseListener.h
 HelloWorld.o: ../../event/Keyboard.h ../../event/MouseClickEvent.h
@@ -109,34 +114,14 @@ HelloWorld.o: ../../event/KeyUpEvent.h ../../event/KeyDownEvent.h
 HelloWorld.o: ../../event/KeyEventFactory.h ../../event/MouseEventFactory.h
 HelloWorld.o: ../../event/MouseButtonUp.h ../../event/MouseButtonDown.h
 HelloWorld.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
-HelloWorld.o: ../../texture/TextureFactory.h /sw/include/GL/glut.h
-HelloWorld.o: ../../texture/Texture.h ../../texture/TexturePPM.h
-HelloWorld.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../interpolation/Interpolable.h ../../shape/Positionable.h
-HelloWorld.o: ../../interpolation/InterpolationListener.h
-HelloWorld.o: ../../interpolation/InterpolatorFactory.h
-HelloWorld.o: ../../interpolation/Interpolator.h
-HelloWorld.o: ../../interpolation/LinearInterpolator.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../interpolation/LinearInterpolator.h
-HelloWorld.o: ../../interpolation/InterpolationListener.h
-HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../interpolation/Interpolable.h
-HelloWorld.o: ../../interpolation/Interpolator.h
-HelloWorld.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
-HelloWorld.o: ../../core/Controller.h ../../core/World.h
+HelloWorld.o: ../../texture/TextureFactory.h ../../terrain/TerrainStrategy.h
+HelloWorld.o: ../../core/Viewer.h ../../core/Controller.h ../../core/World.h
 HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 HelloWorld.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
-HelloWorld.o: ../../paint/Paint.h ../../paint/ColorConstants.h
-HelloWorld.o: ../../paint/Color.h ../../texture/TextureFactory.h
+HelloWorld.o: ../../paint/Paint.h ../../paint/Color.h
 HelloWorld.o: ../../transform/Orientate.h ../../transform/Transform.h
 HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
 HelloWorld.o: ../../transform/Transformable.h
-HelloWorld.o: ../../transform/TransformFactory.h
-HelloWorld.o: ../../transform/Positionable.h
 HelloWorld.o: ../../util/GraphicsConversionUtility.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h

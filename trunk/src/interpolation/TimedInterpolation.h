@@ -48,6 +48,8 @@ public:
 
 protected:
 
+    TimedInterpolation(){}
+
     int _time;
 
 };

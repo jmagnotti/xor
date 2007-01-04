@@ -19,7 +19,7 @@ public:
     MazeDriver();
 
 protected:
-    initializeMaze();
+    void initializeMaze();
 
     // high level model
     Maze *              _maze;

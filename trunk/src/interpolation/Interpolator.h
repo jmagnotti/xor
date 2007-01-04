@@ -50,7 +50,7 @@ public:
     /**
      * Call this to scale values
      */
-    virtual void setScale(vector <float*> & in, vector <float*> & out, int numSteps)=0;
+    virtual void setScale(vector <float*> & in, vector <float> & out, int numSteps)=0;
 
 
     /*
@@ -66,9 +66,9 @@ public:
      
 
 protected:
-    
-    vector <float> * _steps;
-    vector <float*> * _values, * _final;
+
+    vector <float> * _steps, * _final;
+    vector <float*> * _values;
 
 };
 

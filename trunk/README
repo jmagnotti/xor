@@ -1,6 +1,6 @@
 FEATURE HIGHLIGHT
 	# Automatic texture scaling based on the size of the Quadrilateral3D
-	#
+
 
 TODO LIST
 ~ Requirement amended
@@ -53,8 +53,7 @@ $#10 Remove TexturedQuadrilateral3D
 		# The controller is doing most of that work now, and doesn't seem too bloated
 
 
-
-#13 Incorporate openAL :)
+#13 Incorporate SDL_Sound
 		#Simple looping background sounds
 		#Sounds associated with objects
 		#Sounds associated with keystrokes

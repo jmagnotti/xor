@@ -8,6 +8,8 @@
 #include "../util/GraphicsConversionUtility.h"
 #include "../paint/Color.h"
 #include "../paint/Paint.h"
+#include "../transform/Positionable.h"
+
 #include "Point3D.h"
 
 
@@ -20,7 +22,7 @@ namespace XOR {
  * two points, then a dimension3D object (or 3 floats). Also, should be able to calculate center. The new 
  * specification will allow for auto-sizing of textures.
  */
-class Quadrilateral3D : public Renderable
+class Quadrilateral3D : public Renderable, public Positionable
 {
 
 public:
@@ -102,6 +104,9 @@ public:
 	void render(void);
 
 
+    void print();
+
+
 protected:
 
 	/**
@@ -118,6 +123,8 @@ protected:
 	 * This is virtual so special case Quads (maybe an equilateral one?) can be optimized.
 	 */
 	virtual void calculateDimension();
+
+
 
 
 	Dimension3D *	_dimension;

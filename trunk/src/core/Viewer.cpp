@@ -6,7 +6,7 @@ namespace XOR {
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
 const int   Viewer::DEFAULT_FOV			= 90;
-const float Viewer::DEFAULT_NEAR_CLIP	= .01f;
+const float Viewer::DEFAULT_NEAR_CLIP	= .001f;
 const int   Viewer::DEFAULT_FAR_CLIP	= 100;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
@@ -16,7 +16,7 @@ const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
 const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 
 const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 0;    			// use the OS default
-const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL;	// | SDL_RESIZABLE;
+const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
 
 /*
@@ -112,7 +112,8 @@ void Viewer::handleReshape(SDL_Event * event)
 void Viewer::setupSDLVideo()
 {
 
-    //at some point we need to have variables to hold things like current video flags, etc.
+    // at some point we need to have variables to hold things like current video
+    // flags, etc.
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
                      
@@ -121,7 +122,7 @@ void Viewer::setupSDLVideo()
 
 
 /*
- * SDL is reseting this value for me, so we have to set it back each time. We need to have a better way of
+ * SDL is reseting this value for me, so we have to set it back each time.
  */
 void Viewer::setupClearColor()
 {
@@ -144,7 +145,7 @@ void Viewer::view()
         _coordinateSystem->pop();
     pop();
 
-    // SDL call to swap the off screen buffer with the on screen one
+    // SDL call to swap the off screen buffer with the on screen buffer
     SDL_GL_SwapBuffers(); 
 }
 
@@ -173,7 +174,7 @@ void Viewer::setFullScreen(bool status)
 
 
 /*
- * change user coordinate system.
+ * Change user coordinate system.
  */
 void Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 {

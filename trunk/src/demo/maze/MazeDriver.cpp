@@ -24,10 +24,8 @@ MazeDriver::MazeDriver()
     // translation will even effect objects added later, like the Terrain.
     // Also note that we had to invert the starting point to get the desired
     // effect.
-    ctrl->getViewer()->getOrientation()->incrementPosition(
-            _maze->getStartingPoint());
-    ctrl->getViewer()->getOrientation()->incrementRotation(
-            Orientate::THETA, 180);
+    ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
+    ctrl->getViewer()->incrementRotation(Positionable::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary
@@ -37,9 +35,9 @@ MazeDriver::MazeDriver()
     ctrl->getModel()->addRenderable("text", new String2D("Enjoy the show"));
 
     // lets add some grass
-    Terrain * grass = new Terrain(new Point3D(0,0,0), _maze->getSize());
+ //   Terrain * grass = new Terrain(new Point3D(0,0,0), _maze->getSize());
 
-    ctrl->getModel()->addRenderable("grass", grass);
+  //  ctrl->getModel()->addRenderable("grass", grass);
 	
     //FPS counter ctrl->setFramesPerSecondCounter(new
     //FramesPerSecondCounter());
@@ -56,7 +54,6 @@ MazeDriver::MazeDriver()
 void MazeDriver::initializeMaze() 
 { 
     MazeParser * mp = MazeParser::GetInstance("resources/maze1.mz");
-
     _maze = mp->parse(); 
     _maze->optimize();
 
@@ -71,8 +68,7 @@ int main(int argc, char **argv)
 { 
     new MazeDriver();
 
-    //this never executes, but we want to conform to the ANSI standard
+    // this never executes, but we want to conform to the ANSI standard
     return 0; 
 }
-
 

@@ -2,9 +2,11 @@
 #define RECTANGULARVOLUME_H
 
 
+#include <iostream>
 #include "Dimension3D.h"
 #include "../shape/Point3D.h"
 
+using namespace std;
 
 namespace XOR {
 

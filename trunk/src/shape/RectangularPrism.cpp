@@ -7,9 +7,11 @@ namespace XOR {
  * Default Constructor
  */
 RectangularPrism::RectangularPrism() {
-	_paint	= new Paint(Color::WHITE);
-	_volume	= new RectangularVolume();
-	setup();
+    /*
+        _paint	= new Paint(Color::WHITE);
+        _volume	= new RectangularVolume();
+        setup();
+    */
 }
 
 
@@ -40,7 +42,11 @@ RectangularPrism::RectangularPrism(RectangularVolume * rv)
  */
 void RectangularPrism::calculateNormals()
 {	
+    cout << "Setting normals" << endl;
+
     GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
+
+    cout << "got gcu" << endl;
 
 	_normals[0] = gcu->crossProduct(_points[3], _points[7], _points[4]);
 	_normals[1] = gcu->crossProduct(_points[2], _points[6], _points[5]);
@@ -51,11 +57,14 @@ void RectangularPrism::calculateNormals()
 	_normals[4] = gcu->crossProduct(_points[7], _points[6], _points[5]);
 	_normals[5] = gcu->crossProduct(_points[3], _points[2], _points[1]);
 
+    cout << "calling normalize" << endl;
 	gcu->normalize(_normals);
 
 	// set the normal for each quad 
 	for (int i=0; i<6; i++)
 		_faces[i]->setNormal(_normals[i]);
+    
+    cout << "set normals" << endl;
 }
 
 
@@ -65,6 +74,9 @@ void RectangularPrism::calculateNormals()
 void RectangularPrism::setPaint(Paint *p)
 {
 	_paint = p;
+   
+    _paint->print();
+
 	updatePaint();
 }
 
@@ -74,8 +86,8 @@ void RectangularPrism::setPaint(Paint *p)
  */
 void RectangularPrism::removeFace(int faceToRemove)
 {
-	// make sure the int is valid, get an iterator to the vector, move to the proper place,
-	// erase from the vector
+    // make sure the int is valid, get an iterator to the vector, move to the
+    // proper place erase from the vector
 	if (faceToRemove <= BOTTOM && faceToRemove >= FRONT)
 		_faces.erase(_faces.begin() + faceToRemove);
 }
@@ -86,28 +98,30 @@ void RectangularPrism::removeFace(int faceToRemove)
  */
 void RectangularPrism::render(void)
 {
-//	if (_positioned)
-//		_orientation->push();
-
     push();
 
 	if (true) {
+        int i=0;
+        cout << "Render RP" << endl;
 		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 		vector<Quadrilateral3D*>::iterator finish = _faces.end();
 		
 		while (iter != finish) {
+            cout << endl << "Data for quad: " << i << endl;
+            (*iter)->print();
 			(*iter)->render();
-			iter++;
+			++iter;
+            ++i;
 		}
+
+        cout << i << " quads rendered" << endl;
+
 	}
 	else {
 		//glCallList(_displayListID);
 	}
 
     pop();
-	
-//	if (_positioned)
-//		_orientation->pop();
 }
 
 
@@ -117,6 +131,8 @@ void RectangularPrism::render(void)
  */
 void RectangularPrism::setFaces()
 {
+    cout << "Setting faces" << endl;    
+
 	// clear any existing faces
 	if (! _faces.empty())
         _faces.clear();
@@ -132,6 +148,8 @@ void RectangularPrism::setFaces()
     // TOP AND BOTTOM
     _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint));		//highYside
     _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint));		//lowYside
+
+    cout << "Done setting faces" << endl;
 }
 
 
@@ -149,8 +167,13 @@ void RectangularPrism::setup()
 	// initialize the Quad3D array with the points
 	setFaces();
 
+    cout << "calling calc normals" << endl;
+
 	// calculate normals for the quads
 	calculateNormals();
+
+
+    cout << "Done in setup()" << endl;
 }
 
 
@@ -161,14 +184,13 @@ void RectangularPrism::setup()
  */
 void RectangularPrism::updatePaint()
 {
-	if (_paint == NULL)
-        _paint = new Paint(Color::WHITE);
-
 	// painting order depends on gradient style
 	int type = _paint->getGradientStyle();
+    cout << "Switching on gradient style " << type << endl;
+    _paint->print();
 
-	switch (type) 
-    {
+    switch (type) {
+
 		// all verts get same _paint
 		case Paint::NO_GRADIENT:
 			for (int i=0; i<8; i++)
@@ -177,13 +199,6 @@ void RectangularPrism::updatePaint()
 
 		// paint based on Z
 		case Paint::DEPTH_BASED:	//think about this a bit more
-			//for (int i=0; i<8; i++)
-			//{
-			//	if (i < 4)
-			//		_points[i]->setColor(_paint->getColorFrom());
-			//	else
-			//		_points[i]->setColor(_paint->getColorTo());
-			//}
 			break;
 
 		// paint based on Y
@@ -204,11 +219,11 @@ void RectangularPrism::updatePaint()
 				else
 					_points[i]->setColor(_paint->getColorTo());
 			}
-
 			break;
 		default:
 			break;
 	}
+    cout << "paint set" << endl;
 
 }
 
@@ -228,6 +243,19 @@ Point3D * RectangularPrism::getRegistrationPoint()
 bool RectangularPrism::checkCollision(Point3D * position)
 {
 	return _volume->contains(position);
+}
+
+
+void RectangularPrism::printInfo()
+{
+    vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
+    vector<Quadrilateral3D*>::iterator finish = _faces.end();
+    
+    while (iter != finish) {
+        (*iter)->print();
+        ++iter;
+    }
+
 }
 
 }

@@ -80,6 +80,7 @@ public:
 	void setGradient		(int  grad);
 	void setTexture			(Texture * tex);
 
+    void print();
 
 protected:
 
