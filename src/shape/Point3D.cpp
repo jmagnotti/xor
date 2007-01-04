@@ -196,15 +196,6 @@ Point3D * Point3D::invert()
 
 
 /*
- * increments the point by the values of the interpolable
-void Point3D::next(Interpolable * interp)
-{
-    increment(((Point3D*)interp)->getPosition());
-}
- */
-
-
-/*
  * addition
  */
 Point3D * Point3D::operator +(Point3D * point)
@@ -232,8 +223,11 @@ Point3D * Point3D::operator -(Point3D * point)
  */
 void Point3D::render(void)
 {
+    //cout << "render at " << getX() << " "<< getY() << " "<< getZ() << endl;
+
 	glColor3fv(getColor());
 	glVertex3fv(getPosition());	
+    //glVertex3f(getX(), getY(), getZ());
 }
 
 
@@ -257,43 +251,6 @@ void Point3D::scale(float scaleAmount)
  */
 
 /*
- * Required by Interpolable.h.
- * Returns a point that is scaled into a section based on 'steps' sections between the two given points.
-Interpolable * Point3D::scale(Interpolable * begin, Interpolable * end, int steps)
-{
-    Point3D * scalar = *((Point3D*)end) - (Point3D*)begin;
-    cout << "Distance: " << scalar->toString() << endl;   
-
-//    float * c0 = ((Point3D*)begin)->getColor();
- //   float * c1 = ((Point3D*)end)->getColor();
-
-   // for (int i=0; i<3; i++)
-    //    c0[0] -= c1[1];
-
-    scalar->scale(1.0f/steps);
- //   scalar->setColor(c0);
-
-//    delete c0;
- //   delete c1;
-
-    cout << "Scalar: " << scalar->toString() << endl;
-
-    return scalar;
-}
- */
-
-
-/*
- * Required by Interpolable.h.
- * Sets the point the given value.
- */
-//void Point3D::set(Interpolable *interp)
-//{
-//    clonePosition((Point3D*)interp);
-//}
-
-
-/*
  * Updates the position array
  */
 void Point3D::setPosition(float pos[])
@@ -307,29 +264,11 @@ void Point3D::setPosition(float pos[])
  */
 char * Point3D::toString()
 {
-    char * buffer = new char[30];
-    sprintf(buffer, "%f %f %f", getX(), getY(), getZ());   
+    char * buffer = new char[60];
+    sprintf(buffer, "%f %f %f\tr: %f g: %f b: %f", getX(), getY(), getZ(), _color[0], _color[1], _color[2] );   
 
     return buffer;
 }
 
-
-/*
- * Finds the min and max of the two points and stores the minimum values in a, and the maximum
- * values in b. Retains respective color values.
-void Point3D::minAndMax(Point3D * a, Point3D * b)
-{
-    float   * aPos = new float[3],
-            * bPos = new float[3];
-
-    for (int i=0; i<3; i++) {
-        aPos[i] = min(a->get(i), b->get(i));
-        bPos[i] = max(a->get(i), b->get(i));
-    }
-
-    a->setPosition(aPos);
-    b->setPosition(bPos);
-}
- */
 }
 

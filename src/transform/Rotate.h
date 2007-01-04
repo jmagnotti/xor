@@ -1,6 +1,7 @@
 #ifndef ROTATE_H
 #define ROTATE_H
 
+#include <vector>
 
 #include "Transform.h"
 #include "../geometry/Dimension3D.h"
@@ -68,6 +69,9 @@ protected:
 
 	int		_xCoord, _yCoord, _zCoord;
 	float	_angle;
+
+    vector<float*> _values;
+    vector<float> _out;
 
 };
 

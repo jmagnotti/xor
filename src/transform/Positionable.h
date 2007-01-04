@@ -183,7 +183,7 @@ public:
 	/**
 	 * Applies the transform
 	 */
-	void push(void);
+	void push();
 
 
 	/**
@@ -201,7 +201,7 @@ public:
 	 * Removes the transform. Overridden because subtransforms need to be 
 	 * popped in the reverse order that they are pushed. 
 	 */
-	void pop(void);
+	void pop();
 
 	
 	/**
@@ -262,7 +262,6 @@ private:
 	 * Update transforms from _focalPoint.
 	 */
 	void updateFromFocalPoint();
-
 
 };
 

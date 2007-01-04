@@ -52,8 +52,7 @@ Interpolator * InterpolatorFactory::getDefaultInterpolator()
  */
 Interpolator * InterpolatorFactory::getInterpolator(const int interpolator)
 {
-    if (Interpolator::LINEAR_INTERPOLATOR != interpolator)
-        cout << "Only returning LinearInterpolators for now" << endl;
+    cout << "Only returning LinearInterpolators for now" << endl;
         
     return new LinearInterpolator();
 

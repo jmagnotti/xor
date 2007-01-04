@@ -35,112 +35,131 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-KeyboardDemo.o: ../../xor.h ../../shape/Point.h ../../shape/String2D.h
-KeyboardDemo.o: /usr/include/string.h /usr/include/features.h
-KeyboardDemo.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
-KeyboardDemo.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stddef.h
-KeyboardDemo.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-KeyboardDemo.o: /usr/include/stdlib.h ../../../include/SDL_opengl.h
-KeyboardDemo.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-KeyboardDemo.o: /usr/include/GL/glu.h ../../geometry/Dimension2D.h
-KeyboardDemo.o: ../../geometry/Dimension.h ../../paint/Paint.h
-KeyboardDemo.o: ../../texture/Texture.h ../../paint/Color.h
-KeyboardDemo.o: ../../shape/Renderable.h ../../core/Controller.h
+KeyboardDemo.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
+KeyboardDemo.o: /usr/include/sys/cdefs.h /usr/include/_types.h
+KeyboardDemo.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
+KeyboardDemo.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
+KeyboardDemo.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+KeyboardDemo.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+KeyboardDemo.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+KeyboardDemo.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+KeyboardDemo.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+KeyboardDemo.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+KeyboardDemo.o: /usr/include/machine/types.h /usr/include/ppc/types.h
 KeyboardDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
 KeyboardDemo.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 KeyboardDemo.o: ../../../include/SDL_error.h ../../../include/begin_code.h
 KeyboardDemo.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-KeyboardDemo.o: /usr/include/stdio.h /usr/include/bits/types.h
-KeyboardDemo.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
-KeyboardDemo.o: /usr/include/libio.h /usr/include/_G_config.h
-KeyboardDemo.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-KeyboardDemo.o: /usr/include/gconv.h
-KeyboardDemo.o: /usr/lib/gcc/i586-mandriva-linux-gnu/4.0.1/include/stdarg.h
-KeyboardDemo.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-KeyboardDemo.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
-KeyboardDemo.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
-KeyboardDemo.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
-KeyboardDemo.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
-KeyboardDemo.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
-KeyboardDemo.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
-KeyboardDemo.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
-KeyboardDemo.o: ../../event/Keyboard.h ../../event/KeyboardListener.h
-KeyboardDemo.o: ../../event/Timer.h ../../event/TimerListener.h
-KeyboardDemo.o: ../../event/Keyboard.h ../../event/KeyUpEvent.h
-KeyboardDemo.o: ../../event/KeyEvent.h ../../event/KeyDownEvent.h
-KeyboardDemo.o: ../../event/KeyEventFactory.h ../../event/Mouse.h
-KeyboardDemo.o: ../../event/MouseListener.h ../../event/MouseEvent.h
-KeyboardDemo.o: ../../event/Mouse.h ../../event/MouseEventFactory.h
-KeyboardDemo.o: ../../event/MouseButtonDown.h ../../event/MouseClickEvent.h
-KeyboardDemo.o: ../../event/MouseButtonUp.h ../../event/MouseMotionEvent.h
-KeyboardDemo.o: ../../event/Timer.h ../../core/World.h ../../shape/Point3D.h
-KeyboardDemo.o: /usr/include/math.h /usr/include/bits/huge_val.h
-KeyboardDemo.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+KeyboardDemo.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+KeyboardDemo.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+KeyboardDemo.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+KeyboardDemo.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+KeyboardDemo.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+KeyboardDemo.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+KeyboardDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+KeyboardDemo.o: ../../../include/SDL_version.h ../../event/Keyboard.h
+KeyboardDemo.o: ../../event/KeyboardListener.h ../../event/Timer.h
+KeyboardDemo.o: ../../event/TimerListener.h ../../event/Keyboard.h
+KeyboardDemo.o: ../../event/KeyUpEvent.h ../../event/KeyEvent.h
+KeyboardDemo.o: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
+KeyboardDemo.o: ../../event/Mouse.h ../../event/MouseListener.h
+KeyboardDemo.o: ../../event/MouseEvent.h ../../event/Mouse.h
+KeyboardDemo.o: ../../event/MouseEventFactory.h ../../event/MouseButtonDown.h
+KeyboardDemo.o: ../../event/MouseClickEvent.h ../../event/MouseButtonUp.h
+KeyboardDemo.o: ../../event/MouseMotionEvent.h ../../event/Timer.h
+KeyboardDemo.o: ../../core/World.h ../../shape/Point3D.h /usr/include/math.h
+KeyboardDemo.o: /usr/include/architecture/ppc/math.h ../../paint/Paint.h
+KeyboardDemo.o: /usr/include/string.h ../../texture/Texture.h
+KeyboardDemo.o: ../../paint/Color.h ../../shape/Renderable.h
+KeyboardDemo.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
 KeyboardDemo.o: ../../shape/Renderable.h ../../transform/Rotate.h
 KeyboardDemo.o: ../../transform/Transform.h ../../event/TimerListener.h
 KeyboardDemo.o: ../../transform/Transform.h ../../transform/Translate.h
-KeyboardDemo.o: ../../core/Viewer.h ../../util/GraphicsConversionUtility.h
+KeyboardDemo.o: ../../core/Viewer.h ../../geometry/Dimension2D.h
+KeyboardDemo.o: ../../geometry/Dimension.h
+KeyboardDemo.o: ../../util/GraphicsConversionUtility.h
 KeyboardDemo.o: ../../transform/Orientate.h ../../transform/Translate.h
 KeyboardDemo.o: ../../transform/Rotate.h ../../event/ReshapeListener.h
-KeyboardDemo.o: ../../event/DefaultKeyboardListener.h ../../core/World.h
-KeyboardDemo.o: ../../event/DefaultMouseListener.h ../../core/Viewer.h
-KeyboardDemo.o: ../../shape/Arc3D.h ../../shape/Point3D.h
-KeyboardDemo.o: ../../shape/AdornablePrism.h ../../shape/RectangularPrism.h
-KeyboardDemo.o: ../../shape/Quadrilateral3D.h ../../geometry/Dimension3D.h
-KeyboardDemo.o: ../../paint/Color.h ../../geometry/RectangularVolume.h
-KeyboardDemo.o: ../../geometry/Dimension3D.h ../../shape/Positionable.h
-KeyboardDemo.o: ../../shape/Renderable.h ../../shape/Particle.h
-KeyboardDemo.o: ../../shape/CollisionRenderable.h
-KeyboardDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-KeyboardDemo.o: ../../shape/Quadrilateral3DConstants.h
-KeyboardDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point2D.h
-KeyboardDemo.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-KeyboardDemo.o: ../../shape/RectangularPrism.h ../../shape/AdornableCube.h
-KeyboardDemo.o: ../../shape/Cube.h ../../shape/AdornablePrism.h
-KeyboardDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Positionable.h
-KeyboardDemo.o: ../../event/MouseEvent.h ../../event/SpecialKeyEvent.h
-KeyboardDemo.o: ../../event/ReshapeListener.h ../../event/MouseListener.h
-KeyboardDemo.o: ../../event/Keyboard.h ../../event/MouseClickEvent.h
-KeyboardDemo.o: ../../event/DefaultMouseListener.h
-KeyboardDemo.o: ../../event/KeyboardListener.h
+KeyboardDemo.o: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
+KeyboardDemo.o: ../../core/World.h ../../event/DefaultMouseListener.h
+KeyboardDemo.o: ../../core/Viewer.h ../../core/World.h ../../demo/maze/Maze.h
+KeyboardDemo.o: ../../demo/maze/MazeParser.h ../../demo/maze/Maze.h
+KeyboardDemo.o: ../../demo/maze/SocialRenderingProject.h
+KeyboardDemo.o: ../../demo/maze/MazeParser.h ../../demo/museum/HubAndSpoke.h
+KeyboardDemo.o: ../../demo/museum/MuseumLayout.h ../../demo/museum/Museum.h
+KeyboardDemo.o: ../../demo/museum/Room.h ../../demo/museum/Lobby.h
+KeyboardDemo.o: ../../demo/museum/Lobby.h ../../demo/museum/Museum.h
+KeyboardDemo.o: ../../demo/museum/MuseumLayout.h
+KeyboardDemo.o: ../../demo/museum/MuseumLayoutFactory.h
+KeyboardDemo.o: ../../demo/museum/Room.h
 KeyboardDemo.o: ../../event/DefaultKeyboardListener.h
-KeyboardDemo.o: ../../event/RegularKeyEvent.h ../../event/Timer.h
-KeyboardDemo.o: ../../event/MouseMotionEvent.h ../../event/TimerListener.h
-KeyboardDemo.o: ../../event/Mouse.h ../../event/KeyEvent.h
-KeyboardDemo.o: ../../event/KeyUpEvent.h ../../event/KeyDownEvent.h
-KeyboardDemo.o: ../../event/KeyEventFactory.h ../../event/MouseEventFactory.h
-KeyboardDemo.o: ../../event/MouseButtonUp.h ../../event/MouseButtonDown.h
-KeyboardDemo.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
-KeyboardDemo.o: ../../texture/TextureFactory.h /usr/include/GL/glut.h
-KeyboardDemo.o: ../../texture/Texture.h ../../texture/TexturePPM.h
-KeyboardDemo.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+KeyboardDemo.o: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
+KeyboardDemo.o: ../../event/KeyboardListener.h ../../event/KeyDownEvent.h
+KeyboardDemo.o: ../../event/KeyEvent.h ../../event/KeyEventFactory.h
+KeyboardDemo.o: ../../event/KeyUpEvent.h ../../event/Mouse.h
+KeyboardDemo.o: ../../event/MouseButtonDown.h ../../event/MouseButtonUp.h
+KeyboardDemo.o: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+KeyboardDemo.o: ../../event/MouseEventFactory.h ../../event/MouseListener.h
+KeyboardDemo.o: ../../event/MouseMotionEvent.h ../../event/RegularKeyEvent.h
+KeyboardDemo.o: ../../event/ReshapeListener.h ../../event/SpecialKeyEvent.h
+KeyboardDemo.o: ../../event/Timer.h ../../event/TimerListener.h
+KeyboardDemo.o: ../../geometry/CylindricalVolume.h
+KeyboardDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+KeyboardDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+KeyboardDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+KeyboardDemo.o: ../../geometry/RectangularVolume.h
+KeyboardDemo.o: ../../geometry/Dimension3D.h
+KeyboardDemo.o: ../../interpolation/CameraRoller.h
+KeyboardDemo.o: ../../interpolation/ContinuousInterpolation.h
 KeyboardDemo.o: ../../interpolation/TimedInterpolation.h
 KeyboardDemo.o: ../../interpolation/InterpolationEngine.h
 KeyboardDemo.o: ../../interpolation/Interpolable.h ../../shape/Positionable.h
 KeyboardDemo.o: ../../interpolation/InterpolationListener.h
+KeyboardDemo.o: ../../interpolation/Interpolable.h
+KeyboardDemo.o: ../../interpolation/InterpolationEngine.h
+KeyboardDemo.o: ../../interpolation/InterpolationListener.h
+KeyboardDemo.o: ../../interpolation/Interpolator.h
 KeyboardDemo.o: ../../interpolation/InterpolatorFactory.h
 KeyboardDemo.o: ../../interpolation/Interpolator.h
 KeyboardDemo.o: ../../interpolation/LinearInterpolator.h
-KeyboardDemo.o: ../../interpolation/InterpolationEngine.h
 KeyboardDemo.o: ../../interpolation/LinearInterpolator.h
-KeyboardDemo.o: ../../interpolation/InterpolationListener.h
-KeyboardDemo.o: ../../interpolation/ContinuousInterpolation.h
-KeyboardDemo.o: ../../interpolation/TimedInterpolation.h
-KeyboardDemo.o: ../../interpolation/Interpolable.h
-KeyboardDemo.o: ../../interpolation/Interpolator.h
-KeyboardDemo.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
-KeyboardDemo.o: ../../core/Controller.h ../../core/World.h
-KeyboardDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
-KeyboardDemo.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
-KeyboardDemo.o: ../../paint/Paint.h ../../paint/ColorConstants.h
-KeyboardDemo.o: ../../paint/Color.h ../../texture/TextureFactory.h
-KeyboardDemo.o: ../../transform/Orientate.h ../../transform/Transform.h
-KeyboardDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
-KeyboardDemo.o: ../../transform/Transformable.h
+KeyboardDemo.o: ../../interpolation/TimedInterpolation.h ../../paint/Color.h
+KeyboardDemo.o: ../../paint/ColorConstants.h ../../paint/Paint.h
+KeyboardDemo.o: ../../shape/AdornableCube.h ../../shape/Cube.h
+KeyboardDemo.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+KeyboardDemo.o: ../../paint/Color.h ../../geometry/RectangularVolume.h
+KeyboardDemo.o: ../../shape/Positionable.h ../../shape/AdornablePrism.h
+KeyboardDemo.o: ../../shape/AdornablePrism.h ../../shape/Arc3D.h
+KeyboardDemo.o: ../../shape/CollisionRenderable.h ../../shape/Cube.h
+KeyboardDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Particle.h
+KeyboardDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+KeyboardDemo.o: ../../shape/Point2D.h ../../shape/Point3D.h
+KeyboardDemo.o: ../../shape/Positionable.h ../../shape/Quadrilateral3D.h
+KeyboardDemo.o: ../../shape/Quadrilateral3DConstants.h
+KeyboardDemo.o: ../../shape/RectangularPrism.h
+KeyboardDemo.o: ../../shape/RectangularPrismFactory.h
+KeyboardDemo.o: ../../shape/Renderable.h ../../shape/String2D.h
+KeyboardDemo.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+KeyboardDemo.o: ../../core/Viewer.h ../../terrain/_terrain.h
+KeyboardDemo.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+KeyboardDemo.o: ../../texture/TextureFactory.h /sw/include/GL/glut.h
+KeyboardDemo.o: ../../texture/Texture.h ../../texture/TexturePPM.h
+KeyboardDemo.o: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+KeyboardDemo.o: ../../terrain/TerrainStrategy.h ../../texture/Texture.h
+KeyboardDemo.o: ../../texture/TextureBMP.h ../../texture/TextureFactory.h
+KeyboardDemo.o: ../../texture/TexturePPM.h ../../texture/TextureSDL.h
+KeyboardDemo.o: ../../texture/TextureTGA.h ../../transform/Orientate.h
+KeyboardDemo.o: ../../transform/Positionable.h ../../transform/Rotate.h
+KeyboardDemo.o: ../../transform/Transform.h ../../transform/Transformable.h
 KeyboardDemo.o: ../../transform/TransformFactory.h
-KeyboardDemo.o: ../../transform/Positionable.h
-KeyboardDemo.o: ../../util/GraphicsConversionUtility.h
+KeyboardDemo.o: ../../transform/Translate.h ../../transition/Fade.h
+KeyboardDemo.o: ../../interpolation/InterpolationListener.h
+KeyboardDemo.o: ../../transition/Transition.h ../../transition/FadeIn.h
+KeyboardDemo.o: ../../transition/FadeOut.h ../../transition/Transition.h
+KeyboardDemo.o: ../../transition/TransitionFactory.h ../../transition/Fade.h
+KeyboardDemo.o: ../../transition/FadeOut.h ../../transition/FadeIn.h
 KeyboardDemo.o: ../../util/BehaviorParser.h
 KeyboardDemo.o: ../../transform/TransformFactory.h
-KeyboardDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
 KeyboardDemo.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+KeyboardDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+KeyboardDemo.o: ../../util/GraphicsConversionUtility.h

@@ -68,7 +68,7 @@ void Maze::decompile()
 /* 
  * returns the ending point
  */
-Point3D * Maze::getFinishingPoint()
+Dimension3D * Maze::getFinishingPoint()
 {
 	return _finish;
 }
@@ -77,7 +77,7 @@ Point3D * Maze::getFinishingPoint()
 /* 
  * returns the starting point
  */
-Point3D * Maze::getStartingPoint()
+Dimension3D * Maze::getStartingPoint()
 {
 	return _start;
 }
@@ -161,7 +161,7 @@ void Maze::render(void)
 /**
  * Sets the finishing position
  */
-void Maze::setFinishingPoint(Point3D * p)
+void Maze::setFinishingPoint(Dimension3D * p)
 {
 	_finish = p;
 }
@@ -170,7 +170,7 @@ void Maze::setFinishingPoint(Point3D * p)
 /**
  * Sets the starting position
  */
-void Maze::setStartingPoint(Point3D * p)
+void Maze::setStartingPoint(Dimension3D * p)
 {
 	_start = p;
 }

@@ -71,8 +71,8 @@ public:
 protected:
 	
 	float _xShift, _yShift, _zShift;
-
-    list<float*> * _values;
+    vector<float*> _values;
+    vector<float> _out;
 
 };
 

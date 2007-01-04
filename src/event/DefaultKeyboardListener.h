@@ -39,7 +39,7 @@ public:
 	/**
 	 * Handles keys that have an ascii representation
 	 */
-    virtual void handleKey(KeyEvent* ke);
+    virtual void handleKey(KeyUpEvent* ke);
 
 protected:
 

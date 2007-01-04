@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lGOR
+LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lXOR
 
 #Packages
 SRCS = CoordinateSystem.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.unix $(INCLUDES) $^
+			makedepend -fMakefile.unix &> /dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 

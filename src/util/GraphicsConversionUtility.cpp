@@ -130,6 +130,17 @@ float GraphicsConversionUtility::mapValue(float value, float min, float max,
 }	
 
 
+float GraphicsConversionUtility::floatModulus(float a, int b)
+{
+    float c = a;
+
+    while (c > b) 
+        c -= b;
+
+    return c;
+}
+
+
 /*
  * normalizes the point array.
  */

@@ -17,7 +17,7 @@ namespace XOR {
 /**
  * A three-dimensional object with six quadrilateral sides.
  */
-class RectangularPrism : public Positionable
+class RectangularPrism : public Renderable, public Positionable
 {
 
 public:
@@ -86,6 +86,11 @@ public:
 	void setPaint(Paint * p);
 
 
+    /**
+     *
+     */
+    void printInfo();
+
 protected:
 	
 	Paint *				_paint;
@@ -114,14 +119,15 @@ protected:
 	void setup(void);
 
 
+
 	/**
 	 * updates the paint of the faces by giving them new colored points
 	 */
 	void updatePaint(void);
-
 
 };
 
 }
 
 #endif			// RECTANGULARPRISM_H
+

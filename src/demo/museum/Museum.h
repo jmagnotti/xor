@@ -1,4 +1,4 @@
-#ifndef MUSEUM_H
+#if 0
 #define MUSEUM_H
 
 
@@ -94,3 +94,4 @@ protected:
 
 
 #endif			// MUSEUM_H
+

@@ -15,7 +15,7 @@ using namespace XOR;
  * A maze is basically a bunch of rectangular prisms. 
  * The maze adds the notion of a starting point and an ending point.
  */
-class Maze 
+class Maze : public Renderable
 {
 
 public:
@@ -57,13 +57,13 @@ public:
 	/**
 	 * Returns the end point of the maze
 	 */
-	Point3D * getFinishingPoint();
+	Dimension3D * getFinishingPoint();
 
 
 	/**
 	 * Gets the starting point for the maze
 	 */
-	Point3D * getStartingPoint();
+	Dimension3D * getStartingPoint();
 
 
 	/**
@@ -111,14 +111,14 @@ public:
 	 * this to enable special events to happen when the player gets to the end of the maze, or closer | further.
 	 * By default, the ending point is NULL
 	 */
-	void setFinishingPoint(Point3D *);
+	void setFinishingPoint(Dimension3D *);
 
 
 	/**
 	 * Sets the starting point for the maze. This is used to determine the translation to be applied at World creation
 	 * By default, the starting point is 0,0,0
 	 */
-	void setStartingPoint(Point3D *);
+	void setStartingPoint(Dimension3D *);
 
 
 protected:
@@ -143,7 +143,7 @@ protected:
 	 * These points describe the initial and final positions of the maze. A MazeViewer may use this information
 	 * to display interesting things
 	 */
-	Point3D * _start, * _finish;
+	Dimension3D * _start, * _finish;
 
 
 	/**

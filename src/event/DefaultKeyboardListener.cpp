@@ -67,7 +67,7 @@ void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
  * Handle ascii
  * Note that ESC is ascii 0x1B
  */
-void DefaultKeyboardListener::handleKey(KeyEvent* ke)
+void DefaultKeyboardListener::handleKey(KeyUpEvent* ke)
 {
 	bool shift = ke->isShiftPressed();
 	

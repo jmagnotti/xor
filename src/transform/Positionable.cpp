@@ -168,6 +168,7 @@ void Positionable::incrementRotation(const int dimension, float angle,
 void Positionable::setRotation(const int dimension, float angle,
         InterpolationEngine * interpolation)
 {
+    cout << "Set rotation called" << endl;
     switch (dimension) {
         
         case Positionable::THETA:

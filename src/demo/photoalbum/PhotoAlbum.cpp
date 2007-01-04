@@ -5,7 +5,8 @@ using namespace std;
 using namespace XOR;
 
 
-class PhotoAlbum : public DefaultKeyboardListener, public Renderable
+class PhotoAlbum : public DefaultKeyboardListener, public Renderable, 
+                   public InterpolationListener
 {
 
 public:
@@ -15,16 +16,15 @@ public:
  	*/
 	PhotoAlbum()
 	{
-
         Controller * ctrl = Controller::GetInstance();
-		ctrl->defaultConfiguration();
 
-		ctrl->getKeyboard()->addListener(this);
-       
+		ctrl->defaultConfiguration();
+		ctrl->removeDefaultKeyboardListener();
+
         /*
-            a = new Cube(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
-            b = new Cube(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
-            c = new Cube(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
+            a = new RectangularPrism(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
+            b = new RectangularPrism(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
+            c = new RectangularPrism(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
         */
 
 		loadPics();
@@ -32,20 +32,38 @@ public:
         s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
 
+/*
+        vector<RectangularPrism*>::iterator iter = pics.begin();
+        vector<RectangularPrism*>::iterator end = pics.end();
+
+        while (iter != end) { 
+            (*iter)->printInfo();
+            ++iter;
+        }
+
+        */
+
+        cout << "Passing control" << endl;
         ctrl->run();
 	}
+
+
+    void interpolationComplete()
+    {
+        //cout << "Interpolation complete" << endl;
+    }
 
     
     void render()
     {
         s->render();
 
-        vector<Square3D*>::iterator iter = pics.begin();
-        vector<Square3D*>::iterator end = pics.end();
+        vector<RectangularPrism*>::iterator iter = pics.begin();
+        vector<RectangularPrism*>::iterator end = pics.end();
 
         while (iter != end) { 
             (*iter)->render();
-            iter++;
+            ++iter;
         }
     }
  
@@ -59,21 +77,40 @@ public:
 		//cout << Controller::GetInstance()->getViewer()->getFocalPoint()->toString() << endl;
 	}
 
-//-- For all other key presses, the corresponding image (QUAD) is
-// made to go quasi-full screen
+    //-- For all other key presses, the corresponding image (QUAD) is
+    // made to go quasi-full screen
 	
 	void PhotoAlbum::handleKey_1()
 	{ 
-        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,1,0));
+        //Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,1,0));
     }
 
 	void PhotoAlbum::handleKey_2()
     {
-        Controller::GetInstance()->getViewer()->setRotation(Positionable::THETA, 20);
+        //Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, 180, _interpolation);
     }
 	
 	void PhotoAlbum::handleKey_3()
-	{}
+	{
+        vector<RectangularPrism*>::iterator iter = pics.begin();
+        vector<RectangularPrism*>::iterator end  = pics.end();
+
+        //vector<TimedInterpolation*>::iterator i_iter = _interpolation.begin();
+        //vector<TimedInterpolation*>::iterator i_end  = _interpolation.end();
+
+        int i=1;
+        while (iter != end ) {
+               // && i_iter != i_end
+            (*iter)->incrementRotation(Positionable::ROLL, 30, new TimedInterpolation(1000, this));
+            (*iter)->incrementRotation(Positionable::THETA, 35, new TimedInterpolation(1000, this));
+            (*iter)->incrementRotation(Positionable::PHI, 40, new TimedInterpolation(1000, this));
+            //(*iter)->setPaint(new Paint(i*.3, .2, i*.2));
+            //(*iter)->incrementTranslation(new Dimension3D(0,.3,0), (*i_iter));
+            ++iter; 
+          //  ++i_iter;
+            ++i;
+        }
+    }
 	
 	void PhotoAlbum::handleKey_4()
 	{}
@@ -99,9 +136,7 @@ protected:
 	 * setCurrentPic()  picture changes the pictures on the main display
 	 */
 	void setCurrentPic(int index)
-	{
-		
-	}
+	{}
 
 	void loadPics()
 	{
@@ -109,25 +144,26 @@ protected:
         float z = 0;
         float offset = .025;
 			
-		for(int i=-1; i<2; i++) {
-	   		for (int j=-1; j<2; j++) {
-                cout << "Adding square at: " << i * squareDiameter << ", " << j * squareDiameter << ", " << z << endl;
-
-			   	pics.push_back(new Square3D(
-                                    new Point3D(i * squareDiameter + offset*i, j * squareDiameter + offset*j, z),
-                                    squareDiameter,
-                                    new Paint( (i+1)*.3, (j+1)*.3, (j+i+1)*.3)
+        int ii=0;
+		for(int i = -1; i<2; i++) {
+	   		for (int j =- 1; j<2; j++) {
+                cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
+                //_interpolation.push_back(new TimedInterpolation(2000, this));
+			   	pics.push_back(new RectangularPrism(
+                                    new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
+                                    squareDiameter, squareDiameter, squareDiameter,
+                                    new Paint(Color::BLUE, Color::WHITE, Paint::HEIGHT_BASED)
                                 ));
+                ++ii;
 			}
 		}
 	}
-	
 
 private:
 
-    vector<Square3D*> pics;
-    Cube *a,*b,*c;
-    String2D *s;
+    vector<RectangularPrism*> pics; RectangularPrism *a,*b,*c;
+    String2D * s;
+    //vector<TimedInterpolation*> _interpolation;
 
 };	
 
@@ -138,7 +174,6 @@ private:
 int main(int argc, char **argv)
 {
 	PhotoAlbum * demo = new PhotoAlbum(); 
-
     return 0;
 }
 

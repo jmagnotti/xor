@@ -61,8 +61,8 @@ Maze * MazeParser::parse()
 		}
 
 		// note that we are switching 0 and 1, as well as giving Y as default value of 0
-		maze->setStartingPoint(new Point3D(points[0][1]-.5, .5, points[0][0]));
-		maze->setFinishingPoint(new Point3D(points[1][1], 0, points[1][0]));
+		maze->setStartingPoint(new Dimension3D(points[0][1]-.5, .5, points[0][0]));
+		maze->setFinishingPoint(new Dimension3D(points[1][1], 0, points[1][0]));
 
 		// initialize the maze
         for (int row=0; row < size && entry != EOF; row++) {

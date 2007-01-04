@@ -86,8 +86,17 @@ Dimension3D * Quadrilateral3D::getSize()
  */
 void Quadrilateral3D::render(void)
 {
+    //push();
+        glBegin(GL_QUADS);
+            _vertices[0]->render();
+            _vertices[1]->render();
+            _vertices[2]->render();
+            _vertices[3]->render();
+        glEnd();
+    //pop();
 
-	if (_paint->isTextured())
+	if(false) 
+        //(_paint->isTextured())
 	{
 
        	// need to determine if lighting is on and if the object is textured 
@@ -129,8 +138,8 @@ void Quadrilateral3D::render(void)
 			glEnd();
         glDisable(GL_TEXTURE_2D);
     }
-	else		//no texture
-	{
+    /*
+    else {
         glBegin(GL_QUADS);
 		    _vertices[0]->render();
 		    _vertices[1]->render();
@@ -138,6 +147,7 @@ void Quadrilateral3D::render(void)
 		    _vertices[3]->render();
         glEnd();
 	}
+    */
 }
 
 
@@ -234,6 +244,13 @@ void Quadrilateral3D::setAllColors(Paint * p)
 	_paint = p;
 	for(int i=0; i<4; i++) 
 		_vertices[i]->setColor(_paint->getColorTo());
+}
+
+
+void Quadrilateral3D::print()
+{
+    for (int i=0; i<4; i++)
+       cout << "vert " << i << ": " << _vertices[i]->toString() << endl; 
 }
 
 }

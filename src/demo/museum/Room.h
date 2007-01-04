@@ -1,12 +1,12 @@
-#ifndef ROOM_H
+#if 0
 #define ROOM_H
-
 
 #include "Paint.h"
 #include "Renderable.h"
 #include "RectangularPrism.h"
 #include "RectangularVolume.h"
 
+using namespace XOR;
 
 /**
  * Represents a volume of space that can be painted and have PositionableRenderables rendered
@@ -80,5 +80,5 @@ protected:
 	
 };
 
-
 #endif			// ROOM_H
+

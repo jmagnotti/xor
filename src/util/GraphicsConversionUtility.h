@@ -88,6 +88,11 @@ public:
 	 */
 	void normalize(Point3D * points[6]);
 
+    /**
+     * Performs c = a % b
+     */
+    float floatModulus(float a, int b);
+
 
 protected:
 	GraphicsConversionUtility(void);

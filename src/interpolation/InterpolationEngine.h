@@ -56,7 +56,7 @@ public:
      * Connects the interpolator with the values
      * Collections are automatically passed by reference, so we don't need to declare them as pointers.
      */
-     virtual void setup(vector <float*> & in, vector <float*> & out);
+     virtual void setup(vector <float*> & in, vector <float> & out);
 
 
     /**

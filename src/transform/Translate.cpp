@@ -12,11 +12,12 @@ Translate::Translate(float x, float y, float z)
 	_yShift = y;
 	_zShift = z;
 
-    _values = new list<float*>(); 
+    //_values = new vector<float*>(); 
+    //_out    = new vector<float*>(); 
 
-    _values->push_back(& _xShift);
-    _values->push_back(& _yShift);
-    _values->push_back(& _zShift);
+    _values.push_back(& _xShift);
+    _values.push_back(& _yShift);
+    _values.push_back(& _zShift);
 }
 
 
@@ -29,11 +30,12 @@ Translate::Translate(Dimension3D *p)
 	_yShift = p->getY();
 	_zShift = p->getZ();
 
-    _values = new list<float*>(); 
+    //_values = new vector<float*>(); 
+    //_out    = new vector<float*>(); 
 
-    _values->push_back(& _xShift);
-    _values->push_back(& _yShift);
-    _values->push_back(& _zShift);
+    _values.push_back(& _xShift);
+    _values.push_back(& _yShift);
+    _values.push_back(& _zShift);
 }
 
 
@@ -62,9 +64,20 @@ void Translate::clone(Translate * other)
  */
 void Translate::increment(Dimension3D * point, InterpolationEngine * interpolation)
 {
-	_xShift += point->getX();
-	_yShift += point->getY();
-	_zShift += point->getZ();
+    if (interpolation != NULL) {
+        _out.clear();
+        _out.push_back(_xShift + point->getX());
+        _out.push_back(_yShift + point->getY());
+        _out.push_back(_zShift + point->getZ());
+
+        interpolation->setup(_values, _out);
+        interpolation->start();
+    }
+    else {
+        _xShift += point->getX();
+        _yShift += point->getY();
+        _zShift += point->getZ();
+    }
 }
 
 
@@ -74,7 +87,13 @@ void Translate::increment(Dimension3D * point, InterpolationEngine * interpolati
 void Translate::set(Dimension3D * point, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
-//        interpolation->setup(in, out);
+        _out.clear();
+        _out.push_back(_xShift + point->getX());
+        _out.push_back(_yShift + point->getY());
+        _out.push_back(_zShift + point->getZ());
+
+        interpolation->setup(_values, _out);
+        interpolation->start();
     }
     else {
         _xShift = point->getX();
@@ -102,7 +121,6 @@ void Translate::pushInverse()
 	glPushMatrix();
 	glTranslatef(-(_xShift), -(_yShift), -(_zShift));
 }
-
 
 }
 
