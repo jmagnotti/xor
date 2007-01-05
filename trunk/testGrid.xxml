@@ -1,0 +1,25 @@
+<XavierXML version="1.0" xmlns="x-schema:xavier.xsd">
+
+  <wall Name="Test 3 by 3">
+
+    <monitor-resolution width="1280" height="1024" />
+    <field-of-view xview="120" yview="50" />
+
+    <Servers>
+      <Server Name="Top left" Address="" xOffset="-1" yOffset="1" MacAddress="" />
+      <Server Name="Top middle" Address="" xOffset="0" yOffset="1" MacAddress="" />
+      <Server Name="Top right" Address="" xOffset="1" yOffset="1" MacAddress="" />
+
+      <Server Name="Center left" Address="" xOffset="-1" yOffset="0" MacAddress="" />
+      <Server Name="Center middle" Address="" xOffset="0" yOffset="0" MacAddress="" />
+      <Server Name="Center right" Address="" xOffset="1" yOffset="0" MacAddress="" />
+
+      <Server Name="Bottom left" Address="" xOffset="-1" yOffset="-1" MacAddress="" />
+      <Server Name="Bottom middle" Address="" xOffset="0" yOffset="-1" MacAddress="" />
+      <Server Name="Bottom right" Address="" xOffset="1" yOffset="-1" MacAddress="" />
+    </Servers>
+
+  </wall>
+
+</XavierXML>
+
