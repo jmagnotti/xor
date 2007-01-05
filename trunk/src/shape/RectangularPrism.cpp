@@ -42,11 +42,11 @@ RectangularPrism::RectangularPrism(RectangularVolume * rv)
  */
 void RectangularPrism::calculateNormals()
 {	
-    cout << "Setting normals" << endl;
+    //cout << "Setting normals" << endl;
 
     GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
 
-    cout << "got gcu" << endl;
+    //cout << "got gcu" << endl;
 
 	_normals[0] = gcu->crossProduct(_points[3], _points[7], _points[4]);
 	_normals[1] = gcu->crossProduct(_points[2], _points[6], _points[5]);
@@ -102,19 +102,19 @@ void RectangularPrism::render(void)
 
 	if (true) {
         int i=0;
-        cout << "Render RP" << endl;
+        //cout << "Render RP" << endl;
 		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 		vector<Quadrilateral3D*>::iterator finish = _faces.end();
 		
 		while (iter != finish) {
-            cout << endl << "Data for quad: " << i << endl;
-            (*iter)->print();
+            //cout << endl << "Data for quad: " << i << endl;
+            //(*iter)->print();
 			(*iter)->render();
 			++iter;
             ++i;
 		}
 
-        cout << i << " quads rendered" << endl;
+       // cout << i << " quads rendered" << endl;
 
 	}
 	else {
