@@ -32,17 +32,6 @@ public:
         s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
 
-/*
-        vector<RectangularPrism*>::iterator iter = pics.begin();
-        vector<RectangularPrism*>::iterator end = pics.end();
-
-        while (iter != end) { 
-            (*iter)->printInfo();
-            ++iter;
-        }
-
-        */
-
         cout << "Passing control" << endl;
         ctrl->run();
 	}
@@ -132,6 +121,7 @@ public:
 
 
 protected:
+
 	/**
 	 * setCurrentPic()  picture changes the pictures on the main display
 	 */
