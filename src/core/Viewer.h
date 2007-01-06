@@ -29,9 +29,9 @@ public:
 
 	static const char *     DEFAULT_WINDOW_TITLE;
 
-	static const int		DEFAULT_FOV;
-	static const float	    DEFAULT_NEAR_CLIP;
-	static const int		DEFAULT_FAR_CLIP;
+	static const double		DEFAULT_FOV;
+	static const double		DEFAULT_NEAR_CLIP;
+	static const double		DEFAULT_FAR_CLIP;
 
 	static const int		DEFAULT_WINDOW_X;
 	static const int		DEFAULT_WINDOW_Y;
@@ -39,8 +39,8 @@ public:
 	static const int		DEFAULT_WINDOW_WIDTH;
 	static const int		DEFAULT_WINDOW_HEIGHT;
     
-    static const int        DEFAULT_COLOR_DEPTH;
-    static const Uint32     DEFAULT_VIDEO_FLAGS;
+	static const int        DEFAULT_COLOR_DEPTH;
+	static const Uint32     DEFAULT_VIDEO_FLAGS;
 
 
 	/**
@@ -50,7 +50,7 @@ public:
      * @param nearCP	Near clipping plane
      * @param farCP		Far clipping plane
      */
-    Viewer(int fov=DEFAULT_FOV, float nearCP=DEFAULT_NEAR_CLIP, float farCP=DEFAULT_FAR_CLIP);
+    Viewer(double fov=DEFAULT_FOV, double nearCP=DEFAULT_NEAR_CLIP, double farCP=DEFAULT_FAR_CLIP);
 
 
 	/** 
@@ -150,9 +150,9 @@ public:
 protected:
 
 
-    float			_nearClippingPlane;	
-    float			_farClippingPlane;
-	int				_fieldOfView;
+    double			_nearClippingPlane;	
+    double			_farClippingPlane;
+	double			_fieldOfView;
 
 	bool			_fullscreen;
 
