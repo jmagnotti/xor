@@ -18,16 +18,11 @@ public:
 	{
         Controller * ctrl = Controller::GetInstance();
 
-		ctrl->defaultConfiguration();
-		ctrl->removeDefaultKeyboardListener();
+	ctrl->defaultConfiguration();
+	ctrl->removeDefaultKeyboardListener();
+	//ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,-1));
 
-        /*
-            a = new RectangularPrism(new Point3D(0,-1,-1), .5f, new Paint(Color::RED, Paint::HEIGHT_BASED));
-            b = new RectangularPrism(new Point3D(-1,0,-1), .5f, new Paint(Color::GREEN, Paint::HEIGHT_BASED));
-            c = new RectangularPrism(new Point3D(-1,-1,-1), .5f, new Paint(Color::BROWN, Paint::HEIGHT_BASED));
-        */
-
-		loadPics();
+	loadPics();
 
         s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
@@ -61,7 +56,7 @@ public:
 	 * When you hit the 0 key, all the pictures are set back to 
 	 * the grid configuration
 	 */
-	void PhotoAlbum::handleKey_0()
+	void handleKey_0()
 	{
 		//cout << Controller::GetInstance()->getViewer()->getFocalPoint()->toString() << endl;
 	}
@@ -69,57 +64,22 @@ public:
     //-- For all other key presses, the corresponding image (QUAD) is
     // made to go quasi-full screen
 	
-	void PhotoAlbum::handleKey_1()
-	{ 
-        //Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,1,0));
-    }
-
-	void PhotoAlbum::handleKey_2()
-    {
-        //Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, 180, _interpolation);
-    }
-	
-	void PhotoAlbum::handleKey_3()
+	void handleKey_3()
 	{
         vector<RectangularPrism*>::iterator iter = pics.begin();
         vector<RectangularPrism*>::iterator end  = pics.end();
 
-        //vector<TimedInterpolation*>::iterator i_iter = _interpolation.begin();
-        //vector<TimedInterpolation*>::iterator i_end  = _interpolation.end();
-
-        int i=1;
+        int i=0;
         while (iter != end ) {
-               // && i_iter != i_end
-            (*iter)->incrementRotation(Positionable::ROLL, 30, new TimedInterpolation(1000, this));
-            (*iter)->incrementRotation(Positionable::THETA, 35, new TimedInterpolation(1000, this));
-            (*iter)->incrementRotation(Positionable::PHI, 40, new TimedInterpolation(1000, this));
-            //(*iter)->setPaint(new Paint(i*.3, .2, i*.2));
-            //(*iter)->incrementTranslation(new Dimension3D(0,.3,0), (*i_iter));
+	    ++i;
+            (*iter)->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600*i, this));
+            (*iter)->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600*i, this));
+            (*iter)->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600*i, this));
+
             ++iter; 
-          //  ++i_iter;
-            ++i;
         }
     }
 	
-	void PhotoAlbum::handleKey_4()
-	{}
-
-	void PhotoAlbum::handleKey_5()
-	{}
-
-	void PhotoAlbum::handleKey_6()
-	{}
-
-	void PhotoAlbum::handleKey_7()
-	{}
-
-	void PhotoAlbum::handleKey_8()
-	{}
-
-	void PhotoAlbum::handleKey_9()
-	{}
-
-
 protected:
 
 	/**
@@ -130,20 +90,19 @@ protected:
 
 	void loadPics()
 	{
-		float squareDiameter = .3;
-        float z = 0;
-        float offset = .025;
-			
-        int ii=0;
-		for(int i = -1; i<2; i++) {
-	   		for (int j =- 1; j<2; j++) {
+		float squareDiameter = .20;
+		float z = 0;
+		float offset = .1;
+				
+		int ii=0;
+		for(double i = -3; i<3; i++) {
+	   		for (double j =- 3; j<3; j++) {
                 cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
-                //_interpolation.push_back(new TimedInterpolation(2000, this));
 			   	pics.push_back(new RectangularPrism(
-                                    new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
-                                    squareDiameter, squareDiameter, squareDiameter,
-                                    new Paint(Color::BLUE, Color::WHITE, Paint::HEIGHT_BASED)
-                                ));
+					new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
+					squareDiameter, squareDiameter, squareDiameter,
+					new Paint(.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
+				));
                 ++ii;
 			}
 		}

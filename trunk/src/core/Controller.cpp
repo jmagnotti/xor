@@ -314,6 +314,7 @@ void Controller::EventLoop()
                 break;
 
             case SDL_VIDEORESIZE:
+		cout << "RESIZE" << endl;
                 ctrl->getReshapeListener()->handleReshape(&event);
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to

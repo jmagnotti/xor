@@ -5,9 +5,9 @@ namespace XOR {
 // initialize static defaults
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
-const int   Viewer::DEFAULT_FOV			= 90;
-const float Viewer::DEFAULT_NEAR_CLIP	= .001f;
-const int   Viewer::DEFAULT_FAR_CLIP	= 100;
+const double   Viewer::DEFAULT_FOV			= 45;
+const double   Viewer::DEFAULT_NEAR_CLIP	= 1.0f;
+const double   Viewer::DEFAULT_FAR_CLIP	= 1000;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
 const int Viewer::DEFAULT_WINDOW_Y		= 100;
@@ -22,20 +22,20 @@ const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 /*
  * Explicit Constructor
  */
-Viewer::Viewer(int fov, float nearCP, float farCP)
+Viewer::Viewer(double fov, double nearCP, double farCP)
 {
 	_size = new Dimension2D(DEFAULT_WINDOW_WIDTH, 
-							DEFAULT_WINDOW_HEIGHT);
+				DEFAULT_WINDOW_HEIGHT);
 
-    _title = DEFAULT_WINDOW_TITLE;
+	_title = DEFAULT_WINDOW_TITLE;
 
 	_fullscreen         = false;
 
 	_fieldOfView		= fov;
-    _nearClippingPlane	= nearCP;
-    _farClippingPlane	= farCP;
+	_nearClippingPlane	= nearCP;
+	_farClippingPlane	= farCP;
 
-    _coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
+	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
     for(int i=0; i<3; i++)
         _backgroundColor[i] = Color::DARK_NAVY[i];
@@ -117,6 +117,7 @@ void Viewer::setupSDLVideo()
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
                      
+    //handleReshape((int)_size->getWidth(), (int)_size->getHeight()); 
     setWindowTitle(NULL);
 }
 
@@ -155,6 +156,7 @@ void Viewer::view()
  */
 void Viewer::setWindowTitle(char * text)
 {
+	cout << "Window title arguments ignored in this version" << endl;
     SDL_WM_SetCaption(DEFAULT_WINDOW_TITLE, "XOR");
 }
 

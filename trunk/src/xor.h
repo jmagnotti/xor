@@ -81,7 +81,6 @@
 #include "util/BitmapFontUtil.h"
 #include "util/FramesPerSecondCounter.h"
 #include "util/GraphicsConversionUtility.h"
-#include "util/xmlParser.h"
 
 #endif			// XOR_H
 

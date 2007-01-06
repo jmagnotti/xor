@@ -18,19 +18,20 @@ namespace XOR {
 Paint::Paint(float red, float green, float blue, int gradientType)
 {
     _autoGradient = .3f;
+    _gradientType = gradientType;
+
 	_textured = false;
 
-	_colorFrom[0] = red;
-	_colorFrom[1] = green;
-	_colorFrom[2] = blue;
+	_colorTo[0] = red;
+	_colorTo[1] = green;
+	_colorTo[2] = blue;
 
-	for (int i=0; i<3; i++)
-		_colorTo[i] = _colorFrom[i];
-
-	_gradientType = NO_GRADIENT;
-
-	if (_gradientType != NO_GRADIENT)
-		recalculateGradient();	
+	if (_gradientType == NO_GRADIENT) {
+		for (int i=0; i<3; i++)
+			_colorFrom[i] = _colorTo[i];
+	}
+	else
+	    recalculateGradient();	
 }
 
 
