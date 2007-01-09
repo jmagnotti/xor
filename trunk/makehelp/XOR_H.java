@@ -16,7 +16,8 @@ public class XOR_H
 		out.write("#define XOR_H\n\n");
 
 		BuildFileList lister = new BuildFileList(
-				"/Users/John/workspace/xor", BuildFileList.H);
+		//		"/Users/John/workspace/xor", BuildFileList.H);
+				"/home/michael/data/svn/xor/src", BuildFileList.H);
 		
 		for (String s : lister.buildSourceList())
 			out.write("#include \"" + s + "\"\n");

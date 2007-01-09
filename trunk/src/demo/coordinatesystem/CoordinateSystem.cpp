@@ -36,15 +36,22 @@ public:
 
 	void handleKey_1()
 	{
-		Controller::GetInstance()->getViewer()->getOrientation()->setFocalPoint(
-				((Cube *)Controller::GetInstance()->getModel()->getRenderable("white"))->getRegistrationPoint());
+		//Controller::GetInstance()->getViewer()->getOrientation()->setFocalPoint(
+		//		((Cube *)Controller::GetInstance()->getModel()->getRenderable("white"))->getRegistrationPoint());
 	}
 
 	void handleKey_x()
 	{
 		std::cout << "SWITCH AXES\n";
 		_math = !_math;
-		Controller::GetInstance()->getViewer()->setCoordinateSystem(_math);
+		if (_math)
+		{
+			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
+		}
+		else
+		{
+			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetDefaultCoordinateSystem());
+		}
 	}
 	
 private:
