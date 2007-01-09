@@ -180,7 +180,7 @@ void Viewer::setFullScreen(bool status)
  */
 void Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 {
-    delete _coordinateSystem;
+    //delete _coordinateSystem;
     _coordinateSystem = coordinateSystem;
 }
 
