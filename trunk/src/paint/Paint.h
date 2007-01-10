@@ -6,27 +6,25 @@
 
 #include "../texture/Texture.h"
 #include "Color.h"
-//#include "../interpolation/Interpolable"
 
 
 namespace XOR {
 
 /**
  * Represents a paint job for a particular object. Contains information about
- * gradient painting as well. Can do textures, and will soon do alpha values.
+ * gradient painting as well. This should probably be turned into a singleton factory.
  */
-class Paint 
+class Paint
 {
 
 public: 
 
     /**
 	 * Gradient constants.
-     * Used to creates Paint objects with an auto gradient. This is used to
-     * simulate lighting. Basically the given color is used as the main color,
-     * then a darker color is used at the bottom. Just how much darker is
-     * specified by the value of autoGradient. 
-     *
+     * Used to creates Paint objects with an auto gradient. This is used to simulate lighting. Basically 
+     * the given color is used as the base color, then a darker color is used at the bottom.
+     * Just how much darker is specified by the value of autoGradient.
+     * 
      * These must be initialized in the Header file for the following reason,
      * borrowed from the gcc mailing list:
      * "The reason is that a switch statement is usually implemented with a
@@ -45,21 +43,23 @@ public:
 
 
 	//---CONSTRUCTORS---//
-    Paint(float red, float green, float blue, int gradientType=NO_GRADIENT);
+	Paint(void);
+    Paint(float red, float green, float blue);
 
-    //Paint(const float color[3]=Color::WHITE, int gradientType=NO_GRADIENT);
-	Paint(const float color[3]=Color::WHITE, int gradientType=NO_GRADIENT, Texture * tex=NULL);
+    Paint(const float color[3]);
+    Paint(const float startColor[3],	int gradientType);
+    Paint(const float startColor[3],	const float endColor[3],	int gradientType);
 
-    //Paint(const float startColor[3], const float endColor[3], int gradientType);
-	Paint(const float startColor[3], const float endColor[3], int gradientType=NO_GRADIENT, Texture * tex=NULL);
+	Paint(Texture * tex);
+	Paint(const float color[3],		Texture * tex);
+	Paint(const float startColor[3],	int gradientType,	Texture *  tex);
+	Paint(const float startColor[3],	const float endColor[3],	int gradientType,	Texture * tex);
 
-    Paint(Texture * tex);
 
 	/**
 	 * Explicit Constructor.
-	 * This constructor is to be used only by the XML-to-XOR Tool. 
-     * Use the other constructors for other uses, as they are MUCH more
-     * efficient.
+	 * This constructor is to be used only by the XML-to-GOR Tool. 
+	 * Use the other constructors for other uses, as they are MUCH more efficient.
 	 */
 //	static Paint * CreatePaint(String, String, String, String, String, String);
 
@@ -71,6 +71,9 @@ public:
 	float	*	getColorTo();
 	int			getGradientStyle();
 	Texture	*	getTexture();
+    
+    
+    void print();
 
 
 	//---SETTERS---//
@@ -80,7 +83,6 @@ public:
 	void setGradient		(int  grad);
 	void setTexture			(Texture * tex);
 
-    void print();
 
 protected:
 
@@ -99,12 +101,7 @@ protected:
 
     float		_autoGradient;	
     int			_gradientType;
-
-private:
-
-    //no need for default construction
-	Paint(void) {}
-
+    
 };
 
 }

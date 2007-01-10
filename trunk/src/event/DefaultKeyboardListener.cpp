@@ -48,11 +48,10 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
 {
-//    cout << "KEY UP" << endl;
 	handleKey(kue);
 }
 
-
+     
 void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 {
     //cout << "KEY DOWN" << endl;
@@ -67,7 +66,7 @@ void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
  * Handle ascii
  * Note that ESC is ascii 0x1B
  */
-void DefaultKeyboardListener::handleKey(KeyUpEvent* ke)
+void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 {
 	bool shift = ke->isShiftPressed();
 	

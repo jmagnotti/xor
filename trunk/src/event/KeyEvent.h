@@ -8,7 +8,7 @@
 namespace XOR {
 
 /**
- * Factory for key presses. I want to keep this as generic as possible for now.
+ * I want to keep this as generic as possible for now.
  * The idea for now is that the constructor will return either KeyUpEvent or KeyDownEvent 
  * objects. Later we could save (even preload!) KeyEvents that we know are going to be used.
  * This would speed things up as we aren't creating and deleting objects all over the place. 
@@ -57,7 +57,9 @@ class KeyEvent
 
 
     protected:
-
+    
+        KeyEvent()
+        {}
 
         SDLKey  *   _key;
         SDLMod  *   _modifiers;

@@ -1,0 +1,145 @@
+#Makefile for keyboard demo, *nix
+#
+CC = g++ -g
+
+LIBS = -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lXOR -lm -mwindows
+
+#Packages
+SRCS = KeyboardDemo.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = KeyboardDemo
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+KeyboardDemo:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.mingw $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+KeyboardDemoo: ../../xor.h ../../core/Controller.h ../../../include/SDL.h
+KeyboardDemoo: ../../../include/SDL_main.h ../../../include/SDL_types.h
+KeyboardDemoo: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+KeyboardDemoo: ../../../include/begin_code.h ../../../include/close_code.h
+KeyboardDemoo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+KeyboardDemoo: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+KeyboardDemoo: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+KeyboardDemoo: ../../../include/SDL_events.h ../../../include/SDL_active.h
+KeyboardDemoo: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+KeyboardDemoo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+KeyboardDemoo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+KeyboardDemoo: ../../../include/SDL_version.h ../../event/Keyboard.h
+KeyboardDemoo: ../../event/KeyboardListener.h ../../event/Timer.h
+KeyboardDemoo: ../../event/TimerListener.h ../../event/Keyboard.h
+KeyboardDemoo: ../../event/KeyUpEvent.h ../../event/KeyEvent.h
+KeyboardDemoo: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
+KeyboardDemoo: ../../event/Mouse.h ../../event/MouseListener.h
+KeyboardDemoo: ../../event/MouseEvent.h ../../event/Mouse.h
+KeyboardDemoo: ../../event/MouseEventFactory.h ../../event/MouseButtonDown.h
+KeyboardDemoo: ../../event/MouseClickEvent.h ../../event/MouseButtonUp.h
+KeyboardDemoo: ../../event/MouseMotionEvent.h ../../event/Timer.h
+KeyboardDemoo: ../../core/World.h ../../shape/Point3D.h ../../paint/Paint.h
+KeyboardDemoo: ../../texture/Texture.h ../../paint/Color.h
+KeyboardDemoo: ../../shape/Renderable.h ../../../include/SDL_opengl.h
+KeyboardDemoo: ../../shape/Renderable.h ../../transform/Rotate.h
+KeyboardDemoo: ../../transform/Transform.h ../../geometry/Dimension3D.h
+KeyboardDemoo: ../../geometry/Dimension.h
+KeyboardDemoo: ../../interpolation/InterpolationEngine.h
+KeyboardDemoo: ../../interpolation/InterpolationListener.h
+KeyboardDemoo: ../../interpolation/Interpolator.h
+KeyboardDemoo: ../../interpolation/InterpolatorFactory.h
+KeyboardDemoo: ../../interpolation/LinearInterpolator.h
+KeyboardDemoo: ../../util/GraphicsConversionUtility.h
+KeyboardDemoo: ../../transform/Positionable.h ../../transform/Scale.h
+KeyboardDemoo: ../../transform/Translate.h ../../transform/Rotate.h
+KeyboardDemoo: ../../event/TimerListener.h ../../transform/Transform.h
+KeyboardDemoo: ../../transform/Translate.h ../../core/Viewer.h
+KeyboardDemoo: ../../geometry/Dimension2D.h
+KeyboardDemoo: ../../transform/CoordinateSystem.h
+KeyboardDemoo: ../../transform/CoordinateSystemFactory.h
+KeyboardDemoo: ../../transform/CoordinateSystem.h
+KeyboardDemoo: ../../transform/OpenGLCoordinateSystem.h
+KeyboardDemoo: ../../transform/MathCoordinateSystem.h
+KeyboardDemoo: ../../event/ReshapeListener.h
+KeyboardDemoo: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
+KeyboardDemoo: ../../core/World.h ../../event/DefaultMouseListener.h
+KeyboardDemoo: ../../core/Viewer.h ../../core/World.h
+KeyboardDemoo: ../../event/DefaultKeyboardListener.h
+KeyboardDemoo: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
+KeyboardDemoo: ../../event/KeyboardListener.h ../../event/KeyDownEvent.h
+KeyboardDemoo: ../../event/KeyEvent.h ../../event/KeyEventFactory.h
+KeyboardDemoo: ../../event/KeyUpEvent.h ../../event/Mouse.h
+KeyboardDemoo: ../../event/MouseButtonDown.h ../../event/MouseButtonUp.h
+KeyboardDemoo: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+KeyboardDemoo: ../../event/MouseEventFactory.h ../../event/MouseListener.h
+KeyboardDemoo: ../../event/MouseMotionEvent.h ../../event/RegularKeyEvent.h
+KeyboardDemoo: ../../event/ReshapeListener.h ../../event/SpecialKeyEvent.h
+KeyboardDemoo: ../../event/Timer.h ../../event/TimerListener.h
+KeyboardDemoo: ../../geometry/CylindricalVolume.h
+KeyboardDemoo: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+KeyboardDemoo: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+KeyboardDemoo: ../../geometry/Dimension3D.h
+KeyboardDemoo: ../../geometry/RectangularVolume.h
+KeyboardDemoo: ../../geometry/Dimension3D.h
+KeyboardDemoo: ../../interpolation/CameraRoller.h
+KeyboardDemoo: ../../interpolation/ContinuousInterpolation.h
+KeyboardDemoo: ../../interpolation/TimedInterpolation.h
+KeyboardDemoo: ../../interpolation/InterpolationEngine.h
+KeyboardDemoo: ../../interpolation/InterpolationEngine.h
+KeyboardDemoo: ../../interpolation/InterpolationListener.h
+KeyboardDemoo: ../../interpolation/Interpolator.h
+KeyboardDemoo: ../../interpolation/InterpolatorFactory.h
+KeyboardDemoo: ../../interpolation/LinearInterpolator.h
+KeyboardDemoo: ../../interpolation/TimedInterpolation.h ../../paint/Color.h
+KeyboardDemoo: ../../paint/Paint.h ../../shape/AdornableCube.h
+KeyboardDemoo: ../../shape/Cube.h ../../shape/RectangularPrism.h
+KeyboardDemoo: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+KeyboardDemoo: ../../geometry/RectangularVolume.h
+KeyboardDemoo: ../../shape/AdornablePrism.h ../../shape/AdornablePrism.h
+KeyboardDemoo: ../../shape/Arc3D.h ../../shape/CollisionRenderable.h
+KeyboardDemoo: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
+KeyboardDemoo: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+KeyboardDemoo: ../../shape/Point.h ../../shape/Point2D.h
+KeyboardDemoo: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+KeyboardDemoo: ../../shape/Quadrilateral3DConstants.h
+KeyboardDemoo: ../../shape/RectangularPrism.h
+KeyboardDemoo: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+KeyboardDemoo: ../../shape/Square3D.h ../../shape/String2D.h
+KeyboardDemoo: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+KeyboardDemoo: ../../core/Viewer.h ../../terrain/Terrain.h
+KeyboardDemoo: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
+KeyboardDemoo: ../../texture/Texture.h ../../texture/TexturePPM.h
+KeyboardDemoo: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+KeyboardDemoo: ../../terrain/TerrainStrategy.h ../../texture/Texture.h
+KeyboardDemoo: ../../texture/TextureBMP.h ../../texture/TextureFactory.h
+KeyboardDemoo: ../../texture/TexturePPM.h ../../texture/TextureSDL.h
+KeyboardDemoo: ../../texture/TextureTGA.h ../../transform/CoordinateSystem.h
+KeyboardDemoo: ../../transform/CoordinateSystemFactory.h
+KeyboardDemoo: ../../transform/MathCoordinateSystem.h
+KeyboardDemoo: ../../transform/OpenGLCoordinateSystem.h
+KeyboardDemoo: ../../transform/Positionable.h ../../transform/Rotate.h
+KeyboardDemoo: ../../transform/Scale.h ../../transform/Transform.h
+KeyboardDemoo: ../../transform/Transformable.h
+KeyboardDemoo: ../../transform/TransformFactory.h ../../transform/Translate.h
+KeyboardDemoo: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+KeyboardDemoo: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+KeyboardDemoo: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+KeyboardDemoo: ../../util/GraphicsConversionUtility.h

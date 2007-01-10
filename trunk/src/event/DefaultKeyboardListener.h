@@ -22,7 +22,7 @@ public:
 
 
 	/**
-	 * Singleton Accessor
+	 * Singleton Accessor  
 	 */
 	static DefaultKeyboardListener * GetInstance();
 	
@@ -33,13 +33,13 @@ public:
 	virtual void handleKeyDown(KeyDownEvent * kde);
 
 
-	virtual void handleKeyUp(KeyUpEvent * kue);
+	virtual void handleKeyUp(KeyUpEvent * ke);
 
 
 	/**
 	 * Handles keys that have an ascii representation
 	 */
-    virtual void handleKey(KeyUpEvent* ke);
+    void handleKey(KeyEvent * ke);
 
 protected:
 

@@ -8,10 +8,11 @@
 
 namespace XOR {
 
-    /**
-     * Represents a key being released. Contains information about the key that was released and modifier keys. Something to think about.
-     * This really could just be an inner class of KeyEvent.
-     */
+/**
+ * Represents a key being released. Contains information about the key that 
+ * was released and modifier keys. Something to think about: This really 
+ * could just be an inner class of KeyEvent.
+ */
 class KeyUpEvent : public KeyEvent
 {
     public:
