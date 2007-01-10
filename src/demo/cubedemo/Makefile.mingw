@@ -1,0 +1,145 @@
+#Makefile for keyboard demo, *nix
+#
+CC = g++ -g
+
+LIBS = -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lXOR -lm -mwindows
+
+#Packages
+SRCS = HelloWorld.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = HelloWorld
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+HelloWorld:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.mingw $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+HelloWorldo: ../../xor.h ../../core/Controller.h ../../../include/SDL.h
+HelloWorldo: ../../../include/SDL_main.h ../../../include/SDL_types.h
+HelloWorldo: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+HelloWorldo: ../../../include/begin_code.h ../../../include/close_code.h
+HelloWorldo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+HelloWorldo: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+HelloWorldo: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+HelloWorldo: ../../../include/SDL_events.h ../../../include/SDL_active.h
+HelloWorldo: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+HelloWorldo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+HelloWorldo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+HelloWorldo: ../../../include/SDL_version.h ../../event/Keyboard.h
+HelloWorldo: ../../event/KeyboardListener.h ../../event/Timer.h
+HelloWorldo: ../../event/TimerListener.h ../../event/Keyboard.h
+HelloWorldo: ../../event/KeyUpEvent.h ../../event/KeyEvent.h
+HelloWorldo: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
+HelloWorldo: ../../event/Mouse.h ../../event/MouseListener.h
+HelloWorldo: ../../event/MouseEvent.h ../../event/Mouse.h
+HelloWorldo: ../../event/MouseEventFactory.h ../../event/MouseButtonDown.h
+HelloWorldo: ../../event/MouseClickEvent.h ../../event/MouseButtonUp.h
+HelloWorldo: ../../event/MouseMotionEvent.h ../../event/Timer.h
+HelloWorldo: ../../core/World.h ../../shape/Point3D.h ../../paint/Paint.h
+HelloWorldo: ../../texture/Texture.h ../../paint/Color.h
+HelloWorldo: ../../shape/Renderable.h ../../../include/SDL_opengl.h
+HelloWorldo: ../../shape/Renderable.h ../../transform/Rotate.h
+HelloWorldo: ../../transform/Transform.h ../../geometry/Dimension3D.h
+HelloWorldo: ../../geometry/Dimension.h
+HelloWorldo: ../../interpolation/InterpolationEngine.h
+HelloWorldo: ../../interpolation/InterpolationListener.h
+HelloWorldo: ../../interpolation/Interpolator.h
+HelloWorldo: ../../interpolation/InterpolatorFactory.h
+HelloWorldo: ../../interpolation/LinearInterpolator.h
+HelloWorldo: ../../util/GraphicsConversionUtility.h
+HelloWorldo: ../../transform/Positionable.h ../../transform/Scale.h
+HelloWorldo: ../../transform/Translate.h ../../transform/Rotate.h
+HelloWorldo: ../../event/TimerListener.h ../../transform/Transform.h
+HelloWorldo: ../../transform/Translate.h ../../core/Viewer.h
+HelloWorldo: ../../geometry/Dimension2D.h
+HelloWorldo: ../../transform/CoordinateSystem.h
+HelloWorldo: ../../transform/CoordinateSystemFactory.h
+HelloWorldo: ../../transform/CoordinateSystem.h
+HelloWorldo: ../../transform/OpenGLCoordinateSystem.h
+HelloWorldo: ../../transform/MathCoordinateSystem.h
+HelloWorldo: ../../event/ReshapeListener.h
+HelloWorldo: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
+HelloWorldo: ../../core/World.h ../../event/DefaultMouseListener.h
+HelloWorldo: ../../core/Viewer.h ../../core/World.h
+HelloWorldo: ../../event/DefaultKeyboardListener.h
+HelloWorldo: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
+HelloWorldo: ../../event/KeyboardListener.h ../../event/KeyDownEvent.h
+HelloWorldo: ../../event/KeyEvent.h ../../event/KeyEventFactory.h
+HelloWorldo: ../../event/KeyUpEvent.h ../../event/Mouse.h
+HelloWorldo: ../../event/MouseButtonDown.h ../../event/MouseButtonUp.h
+HelloWorldo: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
+HelloWorldo: ../../event/MouseEventFactory.h ../../event/MouseListener.h
+HelloWorldo: ../../event/MouseMotionEvent.h ../../event/RegularKeyEvent.h
+HelloWorldo: ../../event/ReshapeListener.h ../../event/SpecialKeyEvent.h
+HelloWorldo: ../../event/Timer.h ../../event/TimerListener.h
+HelloWorldo: ../../geometry/CylindricalVolume.h
+HelloWorldo: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+HelloWorldo: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+HelloWorldo: ../../geometry/Dimension3D.h
+HelloWorldo: ../../geometry/RectangularVolume.h
+HelloWorldo: ../../geometry/Dimension3D.h
+HelloWorldo: ../../interpolation/CameraRoller.h
+HelloWorldo: ../../interpolation/ContinuousInterpolation.h
+HelloWorldo: ../../interpolation/TimedInterpolation.h
+HelloWorldo: ../../interpolation/InterpolationEngine.h
+HelloWorldo: ../../interpolation/InterpolationEngine.h
+HelloWorldo: ../../interpolation/InterpolationListener.h
+HelloWorldo: ../../interpolation/Interpolator.h
+HelloWorldo: ../../interpolation/InterpolatorFactory.h
+HelloWorldo: ../../interpolation/LinearInterpolator.h
+HelloWorldo: ../../interpolation/TimedInterpolation.h ../../paint/Color.h
+HelloWorldo: ../../paint/Paint.h ../../shape/AdornableCube.h
+HelloWorldo: ../../shape/Cube.h ../../shape/RectangularPrism.h
+HelloWorldo: ../../shape/Quadrilateral3D.h ../../paint/Color.h
+HelloWorldo: ../../geometry/RectangularVolume.h
+HelloWorldo: ../../shape/AdornablePrism.h ../../shape/AdornablePrism.h
+HelloWorldo: ../../shape/Arc3D.h ../../shape/CollisionRenderable.h
+HelloWorldo: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
+HelloWorldo: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+HelloWorldo: ../../shape/Point.h ../../shape/Point2D.h
+HelloWorldo: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+HelloWorldo: ../../shape/Quadrilateral3DConstants.h
+HelloWorldo: ../../shape/RectangularPrism.h
+HelloWorldo: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+HelloWorldo: ../../shape/Square3D.h ../../shape/String2D.h
+HelloWorldo: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+HelloWorldo: ../../core/Viewer.h ../../terrain/Terrain.h
+HelloWorldo: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
+HelloWorldo: ../../texture/Texture.h ../../texture/TexturePPM.h
+HelloWorldo: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
+HelloWorldo: ../../terrain/TerrainStrategy.h ../../texture/Texture.h
+HelloWorldo: ../../texture/TextureBMP.h ../../texture/TextureFactory.h
+HelloWorldo: ../../texture/TexturePPM.h ../../texture/TextureSDL.h
+HelloWorldo: ../../texture/TextureTGA.h ../../transform/CoordinateSystem.h
+HelloWorldo: ../../transform/CoordinateSystemFactory.h
+HelloWorldo: ../../transform/MathCoordinateSystem.h
+HelloWorldo: ../../transform/OpenGLCoordinateSystem.h
+HelloWorldo: ../../transform/Positionable.h ../../transform/Rotate.h
+HelloWorldo: ../../transform/Scale.h ../../transform/Transform.h
+HelloWorldo: ../../transform/Transformable.h
+HelloWorldo: ../../transform/TransformFactory.h ../../transform/Translate.h
+HelloWorldo: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+HelloWorldo: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+HelloWorldo: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+HelloWorldo: ../../util/GraphicsConversionUtility.h

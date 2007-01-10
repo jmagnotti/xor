@@ -83,8 +83,10 @@ public final class BuildFileList {
 	}
 
 	public Vector<String> buildSourceList() {
+		File top = new File(pathToDir);
+		pathToDir = top.getAbsolutePath();
 
-		for (File f : new File(pathToDir).listFiles(filter))
+		for (File f : top.listFiles(filter))
 			buildAndDescend(f);
 
 		return sourceList;

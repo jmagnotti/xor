@@ -6,22 +6,19 @@ import java.io.PrintWriter;
 
 /**
  */
-public class XOR_H
+public class Source
 {
 	public static void main(String[] args) throws IOException {
-		File headerFile = new File("xor.h");
+		File headerFile = new File("sourceList.list");
 		PrintWriter out = new PrintWriter(headerFile);
 
-		out.write("#ifndef XOR_H\n");
-		out.write("#define XOR_H\n\n");
-
-		BuildFileList lister = new BuildFileList("./src/", BuildFileList.H);
+		BuildFileList lister = new BuildFileList(
+				"./", BuildFileList.CPP);
 		
 		for (String s : lister.buildSourceList())
-			out.write("#include \"" + s + "\"\n");
-
-		out.write("\n#endif\t\t\t// XOR_H\n\n");
+			out.write(s + " ");
 		
+		out.write("\n");
 		out.close();
 	}
 }
