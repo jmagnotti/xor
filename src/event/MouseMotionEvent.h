@@ -20,7 +20,7 @@ public:
 	/**
 	 * Explicit Constructor
 	 */
-	MouseMotionEvent(Uint16 * xpos, Uint16 * ypos, Sint16 * xrel, Sint16 * yrel);
+	MouseMotionEvent(int xpos, int ypos, int xrel, int yrel);
 
 
     /**
@@ -45,7 +45,7 @@ protected:
 
 
     // relative positions
-    Sint16  * _xrel, * _yrel;
+    int _xrel, _yrel;
 
 
 };

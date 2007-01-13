@@ -85,6 +85,48 @@ public:
     void setCursorVisibility(bool show);
 
 
+	/**
+	 * Get current x-coordinate
+	 */
+	int getCurrentX();
+
+
+	/**
+	 * Get current y-coordinate
+	 */
+	int getCurrentY();
+
+
+	/**
+	 * Get previously registered x-coordinate
+	 */
+	int getPreviousX();
+
+
+	/**
+	 * Get previously registered y-coordinate
+	 */
+	int getPreviousY();
+
+	
+	/**
+	 * Get current left button status
+	 */
+	bool isLeftButtonDown();
+
+
+	/**
+	 * Get current right button status
+	 */
+	bool isRightButtonDown();
+
+
+	/**
+	 * Get current middle button status
+	 */
+	bool isMiddleButtonDown();
+
+
 protected:
 	
     Mouse();
@@ -94,6 +136,13 @@ private:
 
 	list <MouseListener*> listeners;
     bool    _cursorVisible;
+	int		_currentX;
+	int		_currentY;
+	int		_previousX;
+	int		_previousY;
+	bool	_leftButtonDown;
+	bool	_rightButtonDown;
+	bool	_middleButtonDown;
 
 	static Mouse * _mouse;
 

@@ -17,7 +17,7 @@ class MouseButtonDown : public MouseClickEvent
 
     public:
 
-        MouseButtonDown(const int * button, Uint16 * x, Uint16 * y);
+        MouseButtonDown(const int button, int x, int y);
 
         const int getType();
 

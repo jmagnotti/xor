@@ -53,24 +53,22 @@ void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
  */
 void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 {
-/*	
 	cout << "MOUSE X: " << mme->getXPosition() << endl;
 	cout << "MOUSE Y: " << mme->getYPosition() << endl;
 
 	cout << "RELATIVE MOUSE X: " << mme->getRelativeXPosition() << endl;
 	cout << "RELATIVE MOUSE Y: " << mme->getRelativeYPosition() << endl;
 
-	if (Mouse::GetInstance()->getLeftDown())
+	if (Mouse::GetInstance()->isLeftButtonDown())
 	{
 		// rotate camera
 		float xChange = (float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 2.0f;
 		float yChange = (float)(Mouse::GetInstance()->getCurrentY() - Mouse::GetInstance()->getPreviousY()) / 2.0f;
-		Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(0, -xChange);
-		Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(1, -yChange);
+		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, -xChange);
+		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::PHI, -yChange);
 		//Controller::GetInstance()->getViewer()->getOrientation()->printDebugInfo();
 		//Controller::GetInstance()->getViewer()->getOrientation()->incrementRotation(2, xChange);
 	}
-*/
 }
 
 }

@@ -8,8 +8,8 @@ const int MouseEvent::MOUSE_BUTTON_UP       = 2;
 
 //-- GETTERS --//
 
-int MouseEvent::getXPosition()		{	return (int) (*_xpos);	}
-int MouseEvent::getYPosition()		{	return (int) (*_ypos);	}
+int MouseEvent::getXPosition()		{	return _xpos;	}
+int MouseEvent::getYPosition()		{	return _ypos;	}
 
 }
 
