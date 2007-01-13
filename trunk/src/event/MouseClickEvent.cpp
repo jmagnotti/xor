@@ -13,13 +13,13 @@ const int MouseClickEvent::MOUSE_WHEEL_DOWN      = 4;
 /*
  * getters
  */
-const int * MouseClickEvent::getButton()	
+const int MouseClickEvent::getButton()	
 {
 	return _button;	
 }
 
 
-const int * MouseClickEvent::getState()
+const int MouseClickEvent::getState()
 {
     return _state;
 }

@@ -32,7 +32,7 @@ public:
 
 protected:
 
-    Uint16  *_xpos, *_ypos;
+    int _xpos, _ypos;
 
 };
 

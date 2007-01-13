@@ -26,20 +26,20 @@ public:
     /**
      * Returns a button value, LEFT_MOUSE_BUTTON, RIGHT_MOUSE_BUTTON, MIDDLE_MOUSE_BUTTON
      */
-	const int * getButton();
+	const int getButton();
 
 
     /**
      * Returns a state value, MOUSE_BUTTON_UP, MOUSE_BUTTON_DOWN
      */
-	const int * getState();
+	const int getState();
 
 
 protected:
 
 
-	const int * _button;
-    const int * _state;
+	int _button;
+    int _state;
 
 
 };
