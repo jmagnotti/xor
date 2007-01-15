@@ -41,6 +41,29 @@ Paint::Paint(float red, float green, float blue)
 
 /**
  * Explicit Constructor
+ */
+Paint::Paint(float red, float green, float blue, const int gradientType)
+{
+	_autoGradient = .3f;
+    _textured = false;
+
+	_colorTo[0] = red;
+	_colorTo[1] = green;
+	_colorTo[2] = blue;
+
+	_gradientType = gradientType;
+
+
+	if (_gradientType != NO_GRADIENT)
+		recalculateGradient();	
+    else
+        for (int i=0; i<3; i++)
+            _colorFrom[i] = _colorTo[i];
+}
+
+
+/**
+ * Explicit Constructor
  * Creates a Paint object with the specified color
  */
 Paint::Paint(const float color[3])
@@ -48,8 +71,7 @@ Paint::Paint(const float color[3])
     _autoGradient = .3f;
 	_textured = false;
 
-	for (int i=0; i<3; i++)
-	{
+	for (int i=0; i<3; i++) {
 		_colorFrom[i] = color[i];
 		_colorTo[i] = color[i];
 	}
@@ -68,8 +90,7 @@ Paint::Paint(const float color[3], int gradient)
     
 	_gradientType = gradient;
 	
-	for (int i=0; i<3; i++)
-	{
+	for (int i=0; i<3; i++) {
 		_colorFrom[i] = color[i];
 		_colorTo[i] = color[i];
 	}
