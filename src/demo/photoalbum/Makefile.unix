@@ -37,14 +37,14 @@ depend: $(SRCS)
 
 PhotoAlbum.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
 PhotoAlbum.o: /usr/include/features.h /usr/include/sys/cdefs.h
-PhotoAlbum.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-PhotoAlbum.o: /usr/include/gnu/stubs-32.h /usr/include/sys/types.h
-PhotoAlbum.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-PhotoAlbum.o: /usr/include/time.h /usr/include/endian.h
-PhotoAlbum.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-PhotoAlbum.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-PhotoAlbum.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-PhotoAlbum.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+PhotoAlbum.o: /usr/include/gnu/stubs.h /usr/include/sys/types.h
+PhotoAlbum.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+PhotoAlbum.o: /usr/include/bits/typesizes.h /usr/include/time.h
+PhotoAlbum.o: /usr/include/endian.h /usr/include/bits/endian.h
+PhotoAlbum.o: /usr/include/sys/select.h /usr/include/bits/select.h
+PhotoAlbum.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+PhotoAlbum.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+PhotoAlbum.o: /usr/include/bits/sched.h /usr/include/alloca.h
 PhotoAlbum.o: ../../../include/SDL.h ../../../include/SDL_main.h
 PhotoAlbum.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 PhotoAlbum.o: ../../../include/SDL_error.h ../../../include/begin_code.h
