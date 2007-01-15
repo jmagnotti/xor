@@ -58,6 +58,12 @@ public:
 	 * Applies the reverse translation
 	 */
 	void pushInverse(void);
+
+
+    /*
+     * resets the translation to have no effect
+     */
+    void clear();
 	
 
 	/**

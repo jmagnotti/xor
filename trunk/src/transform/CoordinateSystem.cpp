@@ -2,6 +2,9 @@
 
 namespace XOR {
 
+/*
+ * protected constructor
+ */
 CoordinateSystem::CoordinateSystem()
 {}
 
@@ -11,9 +14,8 @@ CoordinateSystem::CoordinateSystem()
  */
 void CoordinateSystem::push(void)
 {
-    _xRotation->push();
-    _yRotation->push();
-    _zRotation->push();
+    for(int i=0; i<3; i++)
+        _rotations[i]->push();
 }
 
 
@@ -22,10 +24,18 @@ void CoordinateSystem::push(void)
  */
 void CoordinateSystem::pop(void)
 {
-    _zRotation->pop();
-    _yRotation->pop();
-    _xRotation->pop();
+    for (int i=3; i>=0; i--)
+        _rotations[i]->pop();
 }
 
 
+/*
+ * clear
+ */
+void CoordinateSystem::clear()
+{
+    //you don't want to do this
 }
+
+}
+

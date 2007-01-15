@@ -2,38 +2,49 @@
 #define SCALE_H
 
 
-#include "Transform.h"
+#include <vector>
+#include "../../include/SDL_opengl.h"
+
 #include "../geometry/Dimension3D.h"
+#include "../interpolation/InterpolationEngine.h"
+#include "Transform.h"
 
 
 namespace XOR {
 
+/**
+ *
+ */
 class Scale : public Transform
 {
 
 public:
 
-    Scale()
-    {}
+    Scale();
 
-    Scale(float a, float b, float c)
-    {}
+    Scale(float x, float y, float z);
 
-    Scale(Dimension3D * d)
-    {}
+    Scale(Dimension3D * dimension);
 
-    void push()
-    {}
+    void push();
 
-    void pushInverse()
-    {}
+    void pushInverse();
 
-    void clone(Scale * sc)
-    {}
+    void clone(Scale * other);
+
+    void set(Dimension3D * scale);
+    void set(Dimension3D * scale, InterpolationEngine * interpolation);
+
+    void increment(Dimension3D * scale);
+    void increment(Dimension3D * scale, InterpolationEngine * interpolation);
+
+    void clear();
 
 private:
 
     float _xScale, _yScale, _zScale;
+    vector<float*> _values;
+    vector<float> _out;
 
 };
 

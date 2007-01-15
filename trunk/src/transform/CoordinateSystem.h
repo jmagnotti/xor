@@ -19,20 +19,24 @@ public:
     /**
      * Applies the coordinate system transforms
      */
-    void push();
+    virtual void push();
 
 
     /**
      * Removes the coordinate system transforms
      */
-    void pop();
+    virtual void pop();
+
+    /**
+     * Here for completeness, but this method is empty. It doesn't make any
+     * sense to clear a coordinate system.
+     */
+    void clear();
 
 
 protected:
 
-    Rotate  * _xRotation, 
-            * _yRotation,
-            * _zRotation;
+    Rotate  * _rotations[3];
 
     CoordinateSystem();
 

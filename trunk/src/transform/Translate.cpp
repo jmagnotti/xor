@@ -122,5 +122,14 @@ void Translate::pushInverse()
 	glTranslatef(-(_xShift), -(_yShift), -(_zShift));
 }
 
+/*
+ * set trans to 0
+ */
+void Translate::clear()
+{
+    _xShift = _yShift = _zShift = 0.0f;
+}
+
+
 }
 

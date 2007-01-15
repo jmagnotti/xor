@@ -25,6 +25,8 @@ namespace XOR {
  *
  * For efficiency reasons, Positionable is a declared as a friend class in both
  * Translate and Rotate
+ *
+ * I hate default parameters, which is why there are overloaded mutation methods.
  * 
  * @author John Magnotti, Michael Lam
  * @version 1.0
@@ -80,8 +82,9 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change
      */
-    void setTranslation(Dimension3D * position, InterpolationEngine *
-            interpolation=NULL); 
+    void setTranslation(Dimension3D * position);
+    void setTranslation(Dimension3D * position, InterpolationEngine * interpolation);
+            
 
 
     /**
@@ -93,8 +96,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change
      */
-    void incrementTranslation(Dimension3D * position, InterpolationEngine *
-            interpolation=NULL);
+    void incrementTranslation(Dimension3D * position);
+    void incrementTranslation(Dimension3D * position, InterpolationEngine * interpolation);
 
 
 	/**
@@ -114,8 +117,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void setRotation(const int axis, float angle, InterpolationEngine *
-            interpolation=NULL);
+    void setRotation(const int axis, float angle);
+    void setRotation(const int axis, float angle, InterpolationEngine * interpolation);
 
 
     /** 
@@ -128,8 +131,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void incrementRotation(const int axis, float angle, InterpolationEngine *
-            interpolation=NULL);
+    void incrementRotation(const int axis, float angle);
+    void incrementRotation(const int axis, float angle, InterpolationEngine * interpolation);
 
 
     /**
@@ -147,8 +150,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void setScalar(Dimension3D * scalar, InterpolationEngine *
-            interpolation=NULL);
+    void setScalar(Dimension3D * scalar);
+    void setScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
 
 
     /**
@@ -159,8 +162,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void incrementScalar(Dimension3D * scalar, InterpolationEngine *
-            interpolation=NULL);
+    void incrementScalar(Dimension3D * scalar);
+    void incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
 
 
     /**
@@ -214,12 +217,12 @@ public:
 	 * Easy way to set the focus point.
 	 * Automatically adjusts rotations to match given point.
 	 */
-    void setFocalPoint(Dimension3D * point, InterpolationEngine *
-            interpolable=NULL);
+    void setFocalPoint(Dimension3D * point);
+    void setFocalPoint(Dimension3D * point, InterpolationEngine * interpolable);
 
 
-    void incrementFocalPoint(Dimension3D * point, InterpolationEngine *
-            interpolable=NULL);
+    void incrementFocalPoint(Dimension3D * point);
+    void incrementFocalPoint(Dimension3D * point, InterpolationEngine * interpolable);
 
 
 	/**
@@ -234,6 +237,10 @@ public:
 	 */
 	void printDebugInfo();
 	
+    /**
+     * remove the effect of all of the transform objects
+     */
+    void clear();
 
 protected:
     
