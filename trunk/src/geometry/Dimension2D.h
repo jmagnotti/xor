@@ -30,6 +30,9 @@ public:
     // Getters //
 	int getDimensionality();
 
+	float getX();
+	float getY();
+
 	float getWidth();
 	float getHeight();
 
