@@ -9,10 +9,9 @@ public abstract class MakefileGenerator {
 	private static BuildFileList fileLister;
 
 	public MakefileGenerator() {
-		fileLister = new BuildFileList("/home/michael/data/svn/xor",
-				BuildFileList.CPP);
-		//fileLister = new BuildFileList("/Users/John/workspace/xor",
-		//		BuildFileList.CPP);
+		//fileLister = new BuildFileList("/home/michael/data/svn/xor",
+				//BuildFileList.CPP);
+		fileLister = new BuildFileList("./", BuildFileList.CPP);
 	}
 
 
