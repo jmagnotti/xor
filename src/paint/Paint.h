@@ -45,15 +45,16 @@ public:
 	//---CONSTRUCTORS---//
 	Paint(void);
     Paint(float red, float green, float blue);
+    Paint(float red, float green, float blue, const int gradientType);
 
     Paint(const float color[3]);
     Paint(const float startColor[3],	int gradientType);
-    Paint(const float startColor[3],	const float endColor[3],	int gradientType);
+    Paint(const float startColor[3],	const float endColor[3],	const int gradientType);
 
 	Paint(Texture * tex);
-	Paint(const float color[3],		Texture * tex);
-	Paint(const float startColor[3],	int gradientType,	Texture *  tex);
-	Paint(const float startColor[3],	const float endColor[3],	int gradientType,	Texture * tex);
+	Paint(const float color[3],		    Texture * tex);
+	Paint(const float startColor[3],	const int gradientType,     Texture *  tex);
+	Paint(const float startColor[3],	const float endColor[3],	const int gradientType,	Texture * tex);
 
 
 	/**
