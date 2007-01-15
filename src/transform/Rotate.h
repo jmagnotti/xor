@@ -65,6 +65,11 @@ public:
     void set(float angle, InterpolationEngine * interpolation=NULL);
 
 
+    /**
+     * reset the rotate to have no effect
+     */
+    void clear();
+
 protected:
 
 	int		_xCoord, _yCoord, _zCoord;

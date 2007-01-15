@@ -11,9 +11,6 @@ Rotate::Rotate()
 {
     _angle = 0.0f;
 
-    //_out     = new vector<float>();
-    //_values  = new vector<float*>();
-
     _values.push_back(&_angle);
 
     _xCoord = _yCoord = _zCoord = 0;
@@ -30,9 +27,6 @@ Rotate::Rotate(float angle, int x, int y, int z)
 	_xCoord	= x;
 	_yCoord	= y;
 	_zCoord	= z;
-
-    //_out    = new vector<float>();
-    //_values = new vector<float*>();
 
     _values.push_back(&_angle);
 }
@@ -103,6 +97,14 @@ void Rotate::pushInverse()
 	glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
 
     // quaternions
+}
+
+/*
+ * set rot to 0
+ */
+void Rotate::clear()
+{
+    _angle = 0;
 }
 
 }

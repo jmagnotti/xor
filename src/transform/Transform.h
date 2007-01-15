@@ -40,6 +40,12 @@ public:
 	 */
 	virtual void pop(void);
 
+    /**
+     * Restores the transform to its neutral state. Note that this does not
+     * always mean 0, as in the case of scale transforms.
+     */
+    virtual void clear(void)=0;
+
 };
 
 }

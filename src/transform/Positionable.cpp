@@ -24,7 +24,8 @@ Positionable::Positionable()
 	_theta      = new Rotate(0.0f, 0, 1, 0);
 	_roll       = new Rotate(0.0f, 0, 0, 1);
 
-    _scale       = new Scale(0.0f, 0.0f, 0.0f);
+    // the default scale is 1,1,1
+    _scale       = new Scale();
 
 	_focalDistance = 1.0f;
 }
@@ -113,26 +114,62 @@ void Positionable::pop()
 	_roll->pop();
 }
 
+
 /* 
  * increment the position values
  */
-void Positionable::setTranslation(Dimension3D * position,
-        InterpolationEngine * interpolation)
+void Positionable::setTranslation(Dimension3D * position, InterpolationEngine * interpolation)
 {
+    cout << "hosing focal point" << endl;
     _position->set(position, interpolation);
-    
-    updateFocalPoint();
 }
 
 
 /* 
  * increment the position values
  */
-void Positionable::incrementTranslation(Dimension3D * position,
-        InterpolationEngine * interpolation)
+void Positionable::setTranslation(Dimension3D * position)
 {
-    _position->increment(position, interpolation);
-    
+    _position->set(position);
+    updateFocalPoint();
+}
+
+void Positionable::incrementScalar(Dimension3D * scalar)
+{
+    _scale->increment(scalar);
+}
+
+void Positionable::incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation)
+{
+    _scale->increment(scalar, interpolation);
+}
+
+void Positionable::setScalar(Dimension3D * scalar)
+{
+    _scale->set(scalar);
+}
+
+void Positionable::setScalar(Dimension3D * scalar, InterpolationEngine * interpolation)
+{
+    _scale->set(scalar, interpolation);
+}
+
+/* 
+ * increment the position values
+ */
+void Positionable::incrementTranslation(Dimension3D * position, InterpolationEngine * interpolation)
+{
+    cout << "hosing focal point" << endl;
+   _position->increment(position, interpolation); 
+}
+
+
+/* 
+ * increment the position values
+ */
+void Positionable::incrementTranslation(Dimension3D * position)
+{
+    _position->increment(position);
     updateFocalPoint();
 }
 
@@ -140,8 +177,7 @@ void Positionable::incrementTranslation(Dimension3D * position,
 /*
  * increment the rotation value
  */
-void Positionable::incrementRotation(const int dimension, float angle,
-        InterpolationEngine * interpolation)
+void Positionable::incrementRotation(const int dimension, float angle, InterpolationEngine *  interpolation)
 {
     switch (dimension) {
         
@@ -158,17 +194,38 @@ void Positionable::incrementRotation(const int dimension, float angle,
             break;
     }
     
-    updateFocalPoint();
+    cout << "hosing focal point" << endl;
 }
 
 
 /*
+ * increment the rotation value
+ */
+void Positionable::incrementRotation(const int dimension, float angle)
+{
+    switch (dimension) {
+        
+        case Positionable::THETA:
+            _theta->increment(angle);
+            break;
+            
+        case Positionable::PHI:
+            _phi->increment(angle);
+            break;
+            
+        case Positionable::ROLL: 
+            _roll->increment(angle);
+            break;
+    }
+    
+    updateFocalPoint();
+}
+
+/*
  * set the rotation value
  */
-void Positionable::setRotation(const int dimension, float angle,
-        InterpolationEngine * interpolation)
+void Positionable::setRotation(const int dimension, float angle, InterpolationEngine * interpolation)
 {
-    cout << "Set rotation called" << endl;
     switch (dimension) {
         
         case Positionable::THETA:
@@ -187,15 +244,43 @@ void Positionable::setRotation(const int dimension, float angle,
     updateFocalPoint();
 }
 
+/*
+ * set the rotation value
+ */
+void Positionable::setRotation(const int dimension, float angle)
+{
+    switch (dimension) {
+        
+        case Positionable::THETA:
+            _theta->set(angle);
+            break;
+            
+        case Positionable::PHI:
+            _phi->set(angle);
+            break;
+            
+        case Positionable::ROLL: 
+            _roll->set(angle);
+            break;
+    }
+    
+    updateFocalPoint();
+}
+
 
 /*
  * change focus and adjust transforms
  */
 void Positionable::setFocalPoint(Dimension3D * point, InterpolationEngine * interpolation)
 {
+    cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
+    setFocalPoint(point);
+}
+
+
+void Positionable::setFocalPoint(Dimension3D * point)
+{
     
-    if (interpolation != NULL)
-        cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
     
 	printDebugInfo();
 
@@ -350,6 +435,21 @@ void Positionable::printDebugInfo()
 	cout << " theta="   << _theta->_angle << 
 		    " phi="     << _phi->_angle   <<
 		    " roll="    << _roll->_angle  << endl;;
+}
+
+
+/*
+ * reset the transforms
+ */
+void Positionable::clear()
+{
+    _phi->clear();
+    _roll->clear();
+    _theta->clear();
+
+    _focalPoint->clear();
+    _scale->clear();
+    _position->clear();
 }
 
 }

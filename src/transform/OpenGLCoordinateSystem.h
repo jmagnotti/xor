@@ -19,6 +19,9 @@ public:
      */
     static CoordinateSystem * GetInstance();
 
+    void push();
+    void pop();
+
 
 protected:
 

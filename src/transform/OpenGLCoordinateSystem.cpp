@@ -11,9 +11,7 @@ OpenGLCoordinateSystem * OpenGLCoordinateSystem::_openGLCoordinateSystem =
  */
 OpenGLCoordinateSystem::OpenGLCoordinateSystem()
 {
-    _xRotation = new Rotate();
-    _yRotation = new Rotate();
-    _zRotation = new Rotate();
+    // doesn't use the rotations
 }
 
 
@@ -26,6 +24,17 @@ CoordinateSystem * OpenGLCoordinateSystem::GetInstance()
         _openGLCoordinateSystem = new OpenGLCoordinateSystem();
 
     return _openGLCoordinateSystem;
+}
+
+void OpenGLCoordinateSystem::push()
+{
+    // nothing
+}
+
+
+void OpenGLCoordinateSystem::pop()
+{
+    // nothing
 }
 
 }
