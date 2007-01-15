@@ -140,15 +140,24 @@ public:
 
 
     /*
-     * Recalculate the clearColor since SDL keeps messing it up. This is kind of a hack, but 
-     * it allows for a somewhat clean way of doing it, at least people don't have to make the GL
+     * Recalculate the clearColor since SDL keeps messing it up. This is kind
+     * of a hack, but 
+     * it allows for a somewhat clean way of doing it, at least people don't
+     * have to make the GL
      * call themselves, right?
      */
     void setupClearColor();
 
 
-protected:
+    /**
+     * Called to trigger a reshape event with the current settings. Use for
+     * setting up new window contexts that don't already trigger a reshape
+     * event (e.g., Program Initialization).
+     */
+    void forceReshape();
 
+
+protected:
 
     double			_nearClippingPlane;	
     double			_farClippingPlane;

@@ -234,12 +234,14 @@ ReshapeListener * Controller::getReshapeListener()
  */
 void Controller::run(void)
 {
+    _viewer->forceReshape();
+
     // start ticking
     _timer->start();
 
     //set final window properties
     // _viewer->setWindowDimension();
-    _viewer->setupClearColor();
+    //_viewer->setupClearColor();
 
     // sit around and wait for something to do 
     Controller::EventLoop();
@@ -314,7 +316,7 @@ void Controller::EventLoop()
                 break;
 
             case SDL_VIDEORESIZE:
-		cout << "RESIZE" << endl;
+        		cout << "---------RESIZE----------" << endl;
                 ctrl->getReshapeListener()->handleReshape(&event);
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to
