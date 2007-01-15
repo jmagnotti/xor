@@ -66,6 +66,12 @@ public:
                 new Dimension3D(0,0,1), new TimedInterpolation(1000, this));
     }
 
+	void handleKey_A()
+	{
+		Controller::GetInstance()->getViewer()->incrementTranslation(
+				new Dimension3D(0,0,-1), new TimedInterpolation(1000, this));
+	}
+	
 	/** 
      * When you hit the 0 key, all the pictures are set back to 
 	 * the grid configuration
@@ -141,7 +147,10 @@ public:
         //need to move about .53 in the x and about -0.3 in the y
         
         pics[index]->incrementScalar(new Dimension3D(7, 7, 1), new TimedInterpolation(300, this));
-        pics[index]->incrementTranslation(new Dimension3D(.53, -.3,-.1), new TimedInterpolation(300, this));
+        pics[index]->setTranslation(new Dimension3D(.53, -.3, .1), new TimedInterpolation(300, this));
+        pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
+        pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
+        pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
     }
     
 protected:
