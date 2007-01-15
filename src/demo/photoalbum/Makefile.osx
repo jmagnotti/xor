@@ -2,7 +2,7 @@
 #
 CC = g++ 
 
-LIBS = -framework OpenGL -framework Cocoa -lSDLMain -lSDL -lXOR -lm
+LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lXOR -lm
 
 #Packages
 SRCS = PhotoAlbum.cpp
@@ -20,6 +20,7 @@ MAIN = PhotoAlbum
 .PHONY: depend clean
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
+			./$(MAIN)
 
 PhotoAlbum:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
