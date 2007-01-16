@@ -62,8 +62,8 @@ void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 	if (Mouse::GetInstance()->isLeftButtonDown())
 	{
 		// rotate camera
-		float xChange = (float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 2.0f;
-		float yChange = (float)(Mouse::GetInstance()->getCurrentY() - Mouse::GetInstance()->getPreviousY()) / 2.0f;
+		float xChange = (float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 5.0f;
+		float yChange = (float)(Mouse::GetInstance()->getCurrentY() - Mouse::GetInstance()->getPreviousY()) / 5.0f;
 		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, -xChange);
 		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::PHI, -yChange);
 		//Controller::GetInstance()->getViewer()->getOrientation()->printDebugInfo();

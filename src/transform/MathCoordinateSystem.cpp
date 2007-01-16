@@ -11,8 +11,9 @@ MathCoordinateSystem * MathCoordinateSystem::_mathCoordinateSystem =
  */
 MathCoordinateSystem::MathCoordinateSystem()
 {
-    for (int i=0; i<3; i++)
-        _rotations[i] = new Rotate();
+	_rotations[0] = new Rotate(-90.0,1,0,0);
+	_rotations[1] = new Rotate(-90.0,0,0,1);
+	_rotations[2] = new Rotate();
 }
 
 

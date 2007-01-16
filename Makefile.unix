@@ -9,7 +9,7 @@ LIBS = -lGL -lGLU -lSDL -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Square3D.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/DefaultMouseListener.cpp src/event/MouseClickEvent.cpp src/event/KeyDownEvent.cpp src/event/RegularKeyEvent.cpp src/event/MouseButtonDown.cpp src/event/MouseMotionEvent.cpp src/event/KeyEvent.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/MouseListener.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/DefaultKeyboardListener.cpp src/event/Timer.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/Mouse.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/CoordinateSystemFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Positionable.cpp src/transform/Translate.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp 
+SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Square3D.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/DefaultMouseListener.cpp src/event/MouseClickEvent.cpp src/event/KeyDownEvent.cpp src/event/RegularKeyEvent.cpp src/event/MouseButtonDown.cpp src/event/MouseMotionEvent.cpp src/event/KeyEvent.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/MouseListener.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/DefaultKeyboardListener.cpp src/event/Timer.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/Mouse.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/CoordinateSystemFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Positionable.cpp src/transform/Translate.cpp src/transform/Scale.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -74,13 +74,13 @@ src/shape/AdornablePrism.o: /usr/include/bits/time.h
 src/shape/AdornablePrism.o: /usr/include/sys/sysmacros.h
 src/shape/AdornablePrism.o: /usr/include/bits/pthreadtypes.h
 src/shape/AdornablePrism.o: /usr/include/alloca.h src/transform/Scale.h
-src/shape/AdornablePrism.o: src/transform/Translate.h
 src/shape/AdornablePrism.o: src/interpolation/InterpolationEngine.h
 src/shape/AdornablePrism.o: src/interpolation/InterpolationListener.h
 src/shape/AdornablePrism.o: src/interpolation/Interpolator.h
 src/shape/AdornablePrism.o: src/interpolation/InterpolatorFactory.h
 src/shape/AdornablePrism.o: src/interpolation/LinearInterpolator.h
-src/shape/AdornablePrism.o: src/transform/Rotate.h src/shape/Point3D.h
+src/shape/AdornablePrism.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/AdornablePrism.o: src/shape/Point3D.h
 src/shape/AdornablePrism.o: src/geometry/RectangularVolume.h
 src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
 src/shape/Particle.o: src/shape/Particle.h src/shape/CollisionRenderable.h
@@ -107,14 +107,14 @@ src/shape/Cube.o: /usr/include/sys/select.h /usr/include/bits/select.h
 src/shape/Cube.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 src/shape/Cube.o: /usr/include/sys/sysmacros.h
 src/shape/Cube.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-src/shape/Cube.o: src/transform/Scale.h src/transform/Translate.h
+src/shape/Cube.o: src/transform/Scale.h
 src/shape/Cube.o: src/interpolation/InterpolationEngine.h
 src/shape/Cube.o: src/interpolation/InterpolationListener.h
 src/shape/Cube.o: src/interpolation/Interpolator.h
 src/shape/Cube.o: src/interpolation/InterpolatorFactory.h
 src/shape/Cube.o: src/interpolation/LinearInterpolator.h
-src/shape/Cube.o: src/transform/Rotate.h src/geometry/RectangularVolume.h
-src/shape/Cube.o: src/geometry/Dimension3D.h
+src/shape/Cube.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/Cube.o: src/geometry/RectangularVolume.h src/geometry/Dimension3D.h
 src/shape/Point3D.o: src/shape/Point3D.h
 src/shape/Quadrilateral3D.o: src/shape/Quadrilateral3D.h /usr/include/math.h
 src/shape/Quadrilateral3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -146,13 +146,13 @@ src/shape/Quadrilateral3D.o: /usr/include/bits/time.h
 src/shape/Quadrilateral3D.o: /usr/include/sys/sysmacros.h
 src/shape/Quadrilateral3D.o: /usr/include/bits/pthreadtypes.h
 src/shape/Quadrilateral3D.o: /usr/include/alloca.h src/transform/Scale.h
-src/shape/Quadrilateral3D.o: src/transform/Translate.h
 src/shape/Quadrilateral3D.o: src/interpolation/InterpolationEngine.h
 src/shape/Quadrilateral3D.o: src/interpolation/InterpolationListener.h
 src/shape/Quadrilateral3D.o: src/interpolation/Interpolator.h
 src/shape/Quadrilateral3D.o: src/interpolation/InterpolatorFactory.h
 src/shape/Quadrilateral3D.o: src/interpolation/LinearInterpolator.h
-src/shape/Quadrilateral3D.o: src/transform/Rotate.h src/shape/Point3D.h
+src/shape/Quadrilateral3D.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/Quadrilateral3D.o: src/shape/Point3D.h
 src/shape/RectangularPrism.o: src/shape/RectangularPrism.h
 src/shape/RectangularPrism.o: src/util/GraphicsConversionUtility.h
 src/shape/RectangularPrism.o: /usr/include/math.h /usr/include/features.h
@@ -185,12 +185,12 @@ src/shape/RectangularPrism.o: /usr/include/bits/time.h
 src/shape/RectangularPrism.o: /usr/include/sys/sysmacros.h
 src/shape/RectangularPrism.o: /usr/include/bits/pthreadtypes.h
 src/shape/RectangularPrism.o: /usr/include/alloca.h src/transform/Scale.h
-src/shape/RectangularPrism.o: src/transform/Translate.h
 src/shape/RectangularPrism.o: src/interpolation/InterpolationEngine.h
 src/shape/RectangularPrism.o: src/interpolation/InterpolationListener.h
 src/shape/RectangularPrism.o: src/interpolation/Interpolator.h
 src/shape/RectangularPrism.o: src/interpolation/InterpolatorFactory.h
 src/shape/RectangularPrism.o: src/interpolation/LinearInterpolator.h
+src/shape/RectangularPrism.o: src/transform/Translate.h
 src/shape/RectangularPrism.o: src/transform/Rotate.h src/shape/Point3D.h
 src/shape/RectangularPrism.o: src/geometry/RectangularVolume.h
 src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
@@ -223,13 +223,12 @@ src/shape/AdornableCube.o: /usr/include/bits/time.h
 src/shape/AdornableCube.o: /usr/include/sys/sysmacros.h
 src/shape/AdornableCube.o: /usr/include/bits/pthreadtypes.h
 src/shape/AdornableCube.o: /usr/include/alloca.h src/transform/Scale.h
-src/shape/AdornableCube.o: src/transform/Translate.h
 src/shape/AdornableCube.o: src/interpolation/InterpolationEngine.h
 src/shape/AdornableCube.o: src/interpolation/InterpolationListener.h
 src/shape/AdornableCube.o: src/interpolation/Interpolator.h
 src/shape/AdornableCube.o: src/interpolation/InterpolatorFactory.h
 src/shape/AdornableCube.o: src/interpolation/LinearInterpolator.h
-src/shape/AdornableCube.o: src/transform/Rotate.h
+src/shape/AdornableCube.o: src/transform/Translate.h src/transform/Rotate.h
 src/shape/AdornableCube.o: src/geometry/RectangularVolume.h
 src/shape/AdornableCube.o: src/geometry/Dimension3D.h
 src/shape/AdornableCube.o: src/shape/AdornablePrism.h
@@ -256,13 +255,13 @@ src/shape/Square3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
 src/shape/Square3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 src/shape/Square3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
 src/shape/Square3D.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-src/shape/Square3D.o: src/transform/Scale.h src/transform/Translate.h
+src/shape/Square3D.o: src/transform/Scale.h
 src/shape/Square3D.o: src/interpolation/InterpolationEngine.h
 src/shape/Square3D.o: src/interpolation/InterpolationListener.h
 src/shape/Square3D.o: src/interpolation/Interpolator.h
 src/shape/Square3D.o: src/interpolation/InterpolatorFactory.h
 src/shape/Square3D.o: src/interpolation/LinearInterpolator.h
-src/shape/Square3D.o: src/transform/Rotate.h
+src/shape/Square3D.o: src/transform/Translate.h src/transform/Rotate.h
 src/shape/Arc3D.o: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
 src/shape/Arc3D.o: /usr/include/math.h /usr/include/features.h
 src/shape/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
@@ -914,16 +913,16 @@ src/terrain/Terrain.o: /usr/include/sys/select.h /usr/include/bits/select.h
 src/terrain/Terrain.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 src/terrain/Terrain.o: /usr/include/sys/sysmacros.h
 src/terrain/Terrain.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-src/terrain/Terrain.o: src/transform/Scale.h src/transform/Translate.h
+src/terrain/Terrain.o: src/transform/Scale.h
 src/terrain/Terrain.o: src/interpolation/InterpolationEngine.h
 src/terrain/Terrain.o: src/interpolation/InterpolationListener.h
 src/terrain/Terrain.o: src/interpolation/Interpolator.h
 src/terrain/Terrain.o: src/interpolation/InterpolatorFactory.h
 src/terrain/Terrain.o: src/interpolation/LinearInterpolator.h
-src/terrain/Terrain.o: src/transform/Rotate.h src/shape/Point3D.h
-src/terrain/Terrain.o: src/texture/TextureFactory.h src/texture/Texture.h
-src/terrain/Terrain.o: src/texture/TexturePPM.h src/texture/TextureBMP.h
-src/terrain/Terrain.o: src/texture/TextureTGA.h
+src/terrain/Terrain.o: src/transform/Translate.h src/transform/Rotate.h
+src/terrain/Terrain.o: src/shape/Point3D.h src/texture/TextureFactory.h
+src/terrain/Terrain.o: src/texture/Texture.h src/texture/TexturePPM.h
+src/terrain/Terrain.o: src/texture/TextureBMP.h src/texture/TextureTGA.h
 src/interpolation/CameraRoller.o: src/interpolation/CameraRoller.h
 src/interpolation/CameraRoller.o: src/core/Controller.h /usr/include/stdlib.h
 src/interpolation/CameraRoller.o: /usr/include/features.h
@@ -1527,7 +1526,6 @@ src/transform/Positionable.o: /usr/include/bits/pthreadtypes.h
 src/transform/Positionable.o: /usr/include/alloca.h src/transform/Scale.h
 src/transform/Positionable.o: src/geometry/Dimension3D.h
 src/transform/Positionable.o: src/geometry/Dimension.h
-src/transform/Positionable.o: src/transform/Translate.h
 src/transform/Positionable.o: src/interpolation/InterpolationEngine.h
 src/transform/Positionable.o: src/interpolation/InterpolationListener.h
 src/transform/Positionable.o: src/interpolation/Interpolator.h
@@ -1541,6 +1539,7 @@ src/transform/Positionable.o: /usr/include/bits/mathcalls.h
 src/transform/Positionable.o: src/shape/Point3D.h src/paint/Paint.h
 src/transform/Positionable.o: /usr/include/string.h src/texture/Texture.h
 src/transform/Positionable.o: src/paint/Color.h src/shape/Renderable.h
+src/transform/Positionable.o: src/transform/Translate.h
 src/transform/Positionable.o: src/transform/Rotate.h
 src/transform/Translate.o: src/transform/Translate.h
 src/transform/Translate.o: src/transform/Transform.h /usr/include/stdlib.h
@@ -1573,6 +1572,33 @@ src/transform/Translate.o: src/paint/Paint.h /usr/include/string.h
 src/transform/Translate.o: src/texture/Texture.h src/paint/Color.h
 src/transform/Translate.o: src/shape/Renderable.h src/geometry/Dimension3D.h
 src/transform/Translate.o: src/geometry/Dimension.h
+src/transform/Scale.o: src/transform/Scale.h include/SDL_opengl.h
+src/transform/Scale.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/transform/Scale.o: /usr/include/GL/glu.h src/geometry/Dimension3D.h
+src/transform/Scale.o: src/geometry/Dimension.h
+src/transform/Scale.o: src/interpolation/InterpolationEngine.h
+src/transform/Scale.o: src/interpolation/InterpolationListener.h
+src/transform/Scale.o: src/interpolation/Interpolator.h
+src/transform/Scale.o: src/interpolation/InterpolatorFactory.h
+src/transform/Scale.o: src/interpolation/LinearInterpolator.h
+src/transform/Scale.o: src/util/GraphicsConversionUtility.h
+src/transform/Scale.o: /usr/include/math.h /usr/include/features.h
+src/transform/Scale.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+src/transform/Scale.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/transform/Scale.o: /usr/include/bits/huge_val.h
+src/transform/Scale.o: /usr/include/bits/mathdef.h
+src/transform/Scale.o: /usr/include/bits/mathcalls.h src/shape/Point3D.h
+src/transform/Scale.o: src/paint/Paint.h /usr/include/string.h
+src/transform/Scale.o: src/texture/Texture.h src/paint/Color.h
+src/transform/Scale.o: src/shape/Renderable.h src/transform/Transform.h
+src/transform/Scale.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/transform/Scale.o: /usr/include/bits/types.h
+src/transform/Scale.o: /usr/include/bits/typesizes.h /usr/include/time.h
+src/transform/Scale.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/transform/Scale.o: /usr/include/sys/select.h /usr/include/bits/select.h
+src/transform/Scale.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/transform/Scale.o: /usr/include/sys/sysmacros.h
+src/transform/Scale.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
 src/util/GraphicsConversionUtility.o: src/util/GraphicsConversionUtility.h
 src/util/GraphicsConversionUtility.o: /usr/include/math.h
 src/util/GraphicsConversionUtility.o: /usr/include/features.h
