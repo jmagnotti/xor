@@ -19,12 +19,17 @@ public:
         Controller * ctrl = Controller::GetInstance();
         ctrl->defaultConfiguration();
 
-        ctrl->getKeyboard()->addListener(this);
-		ctrl->getMouse()->addListener(this);
+		// super-special function call
+		ctrl->removeDefaultKeyboardListener();
+		ctrl->removeDefaultMouseListener();
+
+        //ctrl->getKeyboard()->addListener(this);
+		//ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,0));  
+		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));  
+		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
         //ctrl->getViewer()->incrementPosition(new Point3D(0,0,9));
         
         ctrl->getModel()->addRenderable("white", new Cube(new Point3D(-.5,-.5,-.5), 1, new Paint(Color::WHITE)));
@@ -45,14 +50,15 @@ public:
 
 	void handleKey_x()
 	{
-		std::cout << "SWITCH AXES\n";
 		_math = !_math;
 		if (_math)
 		{
+			std::cout << "SWITCH COORD SYSTEM: MATH" << endl;
 			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
 		}
 		else
 		{
+			std::cout << "SWITCH COORD SYSTEM: DEFAULT" << endl;
 			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetDefaultCoordinateSystem());
 		}
 	}

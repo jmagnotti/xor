@@ -394,7 +394,8 @@ void Positionable::updateFromFocalPoint()
 	float z = _focalPoint->_zShift - _position->_zShift;
 
 	// new rotation
-    _phi->_angle = -(asin(y / _focalDistance)) / 
+    //_phi->_angle = -(asin(y / _focalDistance)) / 
+    _phi->_angle = (asin(y / _focalDistance)) / 
             GraphicsConversionUtility::PI * 180.0f;
     _theta->_angle = (atan2(x , z) / 
             GraphicsConversionUtility::PI * 180.0f) - 180.0f;

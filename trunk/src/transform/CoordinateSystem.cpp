@@ -24,7 +24,7 @@ void CoordinateSystem::push(void)
  */
 void CoordinateSystem::pop(void)
 {
-    for (int i=3; i>=0; i--)
+    for (int i=2; i>=0; i--)
         _rotations[i]->pop();
 }
 

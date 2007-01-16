@@ -201,22 +201,22 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	Controller::GetInstance()->getViewer()->walk(0.05f);
+	Controller::GetInstance()->getViewer()->walk(0.1f);
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-	Controller::GetInstance()->getViewer()->walk(-0.05f);
+	Controller::GetInstance()->getViewer()->walk(-0.1f);
 }
 
 void DefaultKeyboardListener::handleKey_q()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);
+	Controller::GetInstance()->getViewer()->incrementRotation(2, 2.0f);
 }
 
 void DefaultKeyboardListener::handleKey_e()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f);
+	Controller::GetInstance()->getViewer()->incrementRotation(2, -2.0f);
 }
 
 void DefaultKeyboardListener::handleKey_F()
