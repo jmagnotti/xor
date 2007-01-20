@@ -14,6 +14,7 @@ CoordinateSystem::CoordinateSystem()
  */
 void CoordinateSystem::push(void)
 {
+	_scale->push();
     for(int i=0; i<3; i++)
         _rotations[i]->push();
 }
@@ -26,6 +27,7 @@ void CoordinateSystem::pop(void)
 {
     for (int i=2; i>=0; i--)
         _rotations[i]->pop();
+	_scale->pop();
 }
 
 
@@ -37,5 +39,5 @@ void CoordinateSystem::clear()
     //you don't want to do this
 }
 
-}
 
+}

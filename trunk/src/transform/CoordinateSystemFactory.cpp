@@ -40,6 +40,14 @@ CoordinateSystem * CoordinateSystemFactory::GetCoordinateSystem(const int coordi
         case MATH_COORDINATE_SYSTEM :
             return MathCoordinateSystem::GetInstance();
             break;
+		
+		case LEFT_OPENGL_COORDINATE_SYSTEM :
+			return LeftOpenGLCoordinateSystem::GetInstance();
+			break;
+
+		case ENGINEER_COORDINATE_SYSTEM :
+			return EngineerCoordinateSystem::GetInstance();
+			break;
 
         default:
             return OpenGLCoordinateSystem::GetInstance();

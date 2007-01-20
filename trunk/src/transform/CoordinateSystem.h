@@ -4,6 +4,7 @@
 
 #include "Transform.h"
 #include "Rotate.h"
+#include "Scale.h"
 
 
 namespace XOR {
@@ -37,6 +38,7 @@ public:
 protected:
 
     Rotate  * _rotations[3];
+	Scale   * _scale;
 
     CoordinateSystem();
 
