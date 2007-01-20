@@ -4,20 +4,32 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public abstract class MakefileGenerator {
+public abstract class MakefileGenerator 
+{
+
 	private static File makefile;
 	private static BuildFileList fileLister;
 
 	public MakefileGenerator() {
-		//fileLister = new BuildFileList("/home/michael/data/svn/xor",
-				//BuildFileList.CPP);
 		fileLister = new BuildFileList("./", BuildFileList.CPP);
 	}
+
+
+    public String getMakefileName()
+    {
+        if (makefile != null)
+            return makefile.getName(); 
+        else
+            return "";
+    }
 
 
 	public abstract File generateMakefile();
 
 
+    /**
+     * Return the appropriate inner class
+     */
     public static MakefileGenerator GetInstance()
     {
 		if ("Mac OS X".equals(System.getProperty("os.name")))
@@ -203,6 +215,7 @@ public abstract class MakefileGenerator {
 				out.write("MAKEFILE = Makefile.unix\n");
 				out.write("MKDP = makedepend\n\n");
 				out.write("CC = g++\n");
+				out.write("CFLAGS = -fPIC\n");
 				out.write("LFLAGS = -shared\n");
 				out.write("LIBS = -lGL -lGLU -lSDL -lm\n");
 				out.write("LIBDIR = /usr/lib\n");
