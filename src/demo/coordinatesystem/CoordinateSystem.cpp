@@ -14,7 +14,7 @@ public:
  	*/
 	CoordinateSystemDemo()
 	{
-		_math = false;
+		_systype = 0;
 
         Controller * ctrl = Controller::GetInstance();
         ctrl->defaultConfiguration();
@@ -50,11 +50,22 @@ public:
 
 	void handleKey_x()
 	{
-		_math = !_math;
-		if (_math)
+		_systype = (_systype+1)%4;
+
+		if (_systype == 1)
 		{
 			std::cout << "SWITCH COORD SYSTEM: MATH" << endl;
 			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
+		}
+		else if (_systype == 2)
+		{
+			std::cout << "SWITCH COORD SYSTEM: LEFT OPENGL" << endl;
+			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::LEFT_OPENGL_COORDINATE_SYSTEM));
+		}
+		else if (_systype == 3)
+		{
+			std::cout << "SWITCH COORD SYSTEM: ENGINEER" << endl;
+			Controller::GetInstance()->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::ENGINEER_COORDINATE_SYSTEM));
 		}
 		else
 		{
@@ -127,7 +138,7 @@ public:
 	
 private:
 
-	bool _math;
+	int _systype;
 
 	static const float ROTATE_CHANGE = 5.0f;
 	static const float TRANSLATE_CHANGE = 0.2f;

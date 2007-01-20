@@ -4,12 +4,13 @@ MAKEFILE = Makefile.unix
 MKDP = makedepend
 
 CC = g++
+CFLAGS = -fPIC
 LFLAGS = -shared
 LIBS = -lGL -lGLU -lSDL -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Square3D.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/DefaultMouseListener.cpp src/event/MouseClickEvent.cpp src/event/KeyDownEvent.cpp src/event/RegularKeyEvent.cpp src/event/MouseButtonDown.cpp src/event/MouseMotionEvent.cpp src/event/KeyEvent.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/MouseListener.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/DefaultKeyboardListener.cpp src/event/Timer.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/Mouse.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/CoordinateSystemFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Positionable.cpp src/transform/Translate.cpp src/transform/Scale.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp 
+SRCS = src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/AdornableCube.cpp src/shape/Square3D.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/event/Keyboard.cpp src/event/DefaultMouseListener.cpp src/event/MouseClickEvent.cpp src/event/KeyDownEvent.cpp src/event/RegularKeyEvent.cpp src/event/MouseButtonDown.cpp src/event/MouseMotionEvent.cpp src/event/KeyEvent.cpp src/event/MouseEvent.cpp src/event/SpecialKeyEvent.cpp src/event/MouseListener.cpp src/event/KeyUpEvent.cpp src/event/KeyboardListener.cpp src/event/DefaultKeyboardListener.cpp src/event/Timer.cpp src/event/KeyEventFactory.cpp src/event/MouseEventFactory.cpp src/event/Mouse.cpp src/event/MouseButtonUp.cpp src/terrain/Terrain.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transform.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/CoordinateSystemFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Positionable.cpp src/transform/Translate.cpp src/transform/Scale.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -336,6 +337,8 @@ src/shape/String2D.o: src/transform/CoordinateSystemFactory.h
 src/shape/String2D.o: src/transform/CoordinateSystem.h
 src/shape/String2D.o: src/transform/OpenGLCoordinateSystem.h
 src/shape/String2D.o: src/transform/MathCoordinateSystem.h
+src/shape/String2D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/shape/String2D.o: src/transform/EngineerCoordinateSystem.h
 src/shape/String2D.o: src/event/ReshapeListener.h
 src/shape/String2D.o: src/event/DefaultKeyboardListener.h src/core/World.h
 src/shape/String2D.o: src/event/DefaultMouseListener.h src/core/Viewer.h
@@ -450,6 +453,8 @@ src/event/DefaultMouseListener.o: src/transform/CoordinateSystemFactory.h
 src/event/DefaultMouseListener.o: src/transform/CoordinateSystem.h
 src/event/DefaultMouseListener.o: src/transform/OpenGLCoordinateSystem.h
 src/event/DefaultMouseListener.o: src/transform/MathCoordinateSystem.h
+src/event/DefaultMouseListener.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/event/DefaultMouseListener.o: src/transform/EngineerCoordinateSystem.h
 src/event/DefaultMouseListener.o: src/event/ReshapeListener.h
 src/event/DefaultMouseListener.o: src/event/DefaultKeyboardListener.h
 src/event/DefaultMouseListener.o: src/core/World.h
@@ -786,6 +791,8 @@ src/event/DefaultKeyboardListener.o: src/transform/CoordinateSystemFactory.h
 src/event/DefaultKeyboardListener.o: src/transform/CoordinateSystem.h
 src/event/DefaultKeyboardListener.o: src/transform/OpenGLCoordinateSystem.h
 src/event/DefaultKeyboardListener.o: src/transform/MathCoordinateSystem.h
+src/event/DefaultKeyboardListener.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/event/DefaultKeyboardListener.o: src/transform/EngineerCoordinateSystem.h
 src/event/DefaultKeyboardListener.o: src/event/ReshapeListener.h
 src/event/DefaultKeyboardListener.o: src/event/DefaultKeyboardListener.h
 src/event/DefaultKeyboardListener.o: src/core/World.h
@@ -1009,6 +1016,8 @@ src/interpolation/CameraRoller.o: src/transform/CoordinateSystemFactory.h
 src/interpolation/CameraRoller.o: src/transform/CoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/OpenGLCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/MathCoordinateSystem.h
+src/interpolation/CameraRoller.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/interpolation/CameraRoller.o: src/transform/EngineerCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/event/ReshapeListener.h
 src/interpolation/CameraRoller.o: src/event/DefaultKeyboardListener.h
 src/interpolation/CameraRoller.o: src/core/World.h
@@ -1172,6 +1181,8 @@ src/core/Controller.o: src/transform/CoordinateSystemFactory.h
 src/core/Controller.o: src/transform/CoordinateSystem.h
 src/core/Controller.o: src/transform/OpenGLCoordinateSystem.h
 src/core/Controller.o: src/transform/MathCoordinateSystem.h
+src/core/Controller.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/core/Controller.o: src/transform/EngineerCoordinateSystem.h
 src/core/Controller.o: src/event/ReshapeListener.h
 src/core/Controller.o: src/event/DefaultKeyboardListener.h
 src/core/Controller.o: src/core/Controller.h src/event/DefaultMouseListener.h
@@ -1226,6 +1237,8 @@ src/core/Viewer.o: src/transform/CoordinateSystemFactory.h
 src/core/Viewer.o: src/transform/CoordinateSystem.h
 src/core/Viewer.o: src/transform/OpenGLCoordinateSystem.h
 src/core/Viewer.o: src/transform/MathCoordinateSystem.h
+src/core/Viewer.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/core/Viewer.o: src/transform/EngineerCoordinateSystem.h
 src/core/Viewer.o: src/event/ReshapeListener.h
 src/core/World.o: src/core/World.h /usr/include/stdlib.h
 src/core/World.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -1459,6 +1472,9 @@ src/transform/CoordinateSystemFactory.o: src/texture/Texture.h
 src/transform/CoordinateSystemFactory.o: src/paint/Color.h
 src/transform/CoordinateSystemFactory.o: src/shape/Renderable.h
 src/transform/CoordinateSystemFactory.o: src/transform/MathCoordinateSystem.h
+src/transform/CoordinateSystemFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/transform/CoordinateSystemFactory.o: src/transform/Scale.h
+src/transform/CoordinateSystemFactory.o: src/transform/EngineerCoordinateSystem.h
 src/transform/MathCoordinateSystem.o: src/transform/MathCoordinateSystem.h
 src/transform/MathCoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/MathCoordinateSystem.o: src/transform/Rotate.h
@@ -1599,6 +1615,98 @@ src/transform/Scale.o: /usr/include/sys/select.h /usr/include/bits/select.h
 src/transform/Scale.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 src/transform/Scale.o: /usr/include/sys/sysmacros.h
 src/transform/Scale.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+src/transform/EngineerCoordinateSystem.o: src/transform/EngineerCoordinateSystem.h
+src/transform/EngineerCoordinateSystem.o: src/transform/CoordinateSystem.h
+src/transform/EngineerCoordinateSystem.o: src/transform/Rotate.h
+src/transform/EngineerCoordinateSystem.o: src/transform/Transform.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/stdlib.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/features.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/sys/cdefs.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/wordsize.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/gnu/stubs.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/gnu/stubs-32.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/sys/types.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/types.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/typesizes.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/time.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/endian.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/endian.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/sys/select.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/select.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/sigset.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/time.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/sys/sysmacros.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/pthreadtypes.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/alloca.h
+src/transform/EngineerCoordinateSystem.o: include/SDL_opengl.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/GL/gl.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/GL/glext.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/GL/glu.h
+src/transform/EngineerCoordinateSystem.o: src/geometry/Dimension3D.h
+src/transform/EngineerCoordinateSystem.o: src/geometry/Dimension.h
+src/transform/EngineerCoordinateSystem.o: src/interpolation/InterpolationEngine.h
+src/transform/EngineerCoordinateSystem.o: src/interpolation/InterpolationListener.h
+src/transform/EngineerCoordinateSystem.o: src/interpolation/Interpolator.h
+src/transform/EngineerCoordinateSystem.o: src/interpolation/InterpolatorFactory.h
+src/transform/EngineerCoordinateSystem.o: src/interpolation/LinearInterpolator.h
+src/transform/EngineerCoordinateSystem.o: src/util/GraphicsConversionUtility.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/math.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/huge_val.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/mathdef.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/bits/mathcalls.h
+src/transform/EngineerCoordinateSystem.o: src/shape/Point3D.h
+src/transform/EngineerCoordinateSystem.o: src/paint/Paint.h
+src/transform/EngineerCoordinateSystem.o: /usr/include/string.h
+src/transform/EngineerCoordinateSystem.o: src/texture/Texture.h
+src/transform/EngineerCoordinateSystem.o: src/paint/Color.h
+src/transform/EngineerCoordinateSystem.o: src/shape/Renderable.h
+src/transform/EngineerCoordinateSystem.o: src/transform/Scale.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/transform/CoordinateSystem.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Rotate.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Transform.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/stdlib.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/features.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/sys/cdefs.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/wordsize.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/gnu/stubs.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/gnu/stubs-32.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/sys/types.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/types.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/typesizes.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/time.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/endian.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/endian.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/sys/select.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/select.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/sigset.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/time.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/sys/sysmacros.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/pthreadtypes.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/alloca.h
+src/transform/LeftOpenGLCoordinateSystem.o: include/SDL_opengl.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/GL/gl.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/GL/glext.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/GL/glu.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/geometry/Dimension3D.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/geometry/Dimension.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/interpolation/InterpolationEngine.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/interpolation/InterpolationListener.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/interpolation/Interpolator.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/interpolation/InterpolatorFactory.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/interpolation/LinearInterpolator.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/util/GraphicsConversionUtility.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/math.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/huge_val.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/mathdef.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/mathcalls.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/shape/Point3D.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/paint/Paint.h
+src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/string.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/texture/Texture.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/paint/Color.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/shape/Renderable.h
+src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Scale.h
 src/util/GraphicsConversionUtility.o: src/util/GraphicsConversionUtility.h
 src/util/GraphicsConversionUtility.o: /usr/include/math.h
 src/util/GraphicsConversionUtility.o: /usr/include/features.h
@@ -1709,6 +1817,8 @@ src/util/FramesPerSecondCounter.o: src/transform/CoordinateSystemFactory.h
 src/util/FramesPerSecondCounter.o: src/transform/CoordinateSystem.h
 src/util/FramesPerSecondCounter.o: src/transform/OpenGLCoordinateSystem.h
 src/util/FramesPerSecondCounter.o: src/transform/MathCoordinateSystem.h
+src/util/FramesPerSecondCounter.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/util/FramesPerSecondCounter.o: src/transform/EngineerCoordinateSystem.h
 src/util/FramesPerSecondCounter.o: src/event/ReshapeListener.h
 src/util/FramesPerSecondCounter.o: src/event/DefaultKeyboardListener.h
 src/util/FramesPerSecondCounter.o: src/core/World.h

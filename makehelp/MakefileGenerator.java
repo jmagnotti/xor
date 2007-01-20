@@ -151,7 +151,7 @@ public abstract class MakefileGenerator
 
 
 		public File generateMakefile() {
-			File makefile = new File("Makefile.mingw.test");
+			makefile = new File("Makefile.mingw.test");
 
 			try {
 				PrintWriter out = new PrintWriter(makefile);
@@ -204,7 +204,7 @@ public abstract class MakefileGenerator
 
 
 		public File generateMakefile() {
-			File makefile = new File("Makefile.unix");
+			makefile = new File("Makefile.unix");
 
 			try {
 				PrintWriter out = new PrintWriter(makefile);

@@ -12,8 +12,10 @@ public class Make {
 		MakefileGenerator generator = MakefileGenerator.GetInstance();
 		generator.generateMakefile();
 
-        Process proc = Runtime.getRuntime().exec(
-                "make -f " + generator.getMakefileName() + " depend");
+		String command = "make -f " + generator.getMakefileName() + " depend";
+		System.out.println(command);
+
+        Process proc = Runtime.getRuntime().exec(command);
         BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
         proc.waitFor(); // wait for termination
 
@@ -22,8 +24,9 @@ public class Make {
 
         reader.close();
 
-        proc = Runtime.getRuntime().exec(
-               "make -f " + generator.getMakefileName()); 
+		command = "make -f " + generator.getMakefileName(); 
+        proc = Runtime.getRuntime().exec(command);
+		System.out.println(command);
 
         reader = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
         proc.waitFor();

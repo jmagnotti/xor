@@ -5,6 +5,8 @@
 #include "CoordinateSystem.h"
 #include "OpenGLCoordinateSystem.h"
 #include "MathCoordinateSystem.h"
+#include "LeftOpenGLCoordinateSystem.h"
+#include "EngineerCoordinateSystem.h"
 
 
 namespace XOR { 
@@ -23,8 +25,10 @@ public:
      * @see Paint   For a discussion about static class members in switch
      *              statements.
      */
-    static const int OPENGL_COORDINATE_SYSTEM   = 0;
-    static const int MATH_COORDINATE_SYSTEM     = 1;
+    static const int OPENGL_COORDINATE_SYSTEM        = 0;
+    static const int MATH_COORDINATE_SYSTEM          = 1;
+    static const int LEFT_OPENGL_COORDINATE_SYSTEM   = 2;
+    static const int ENGINEER_COORDINATE_SYSTEM      = 3;
 
 
     /**
@@ -51,6 +55,7 @@ public:
 protected:
     
     static CoordinateSystem * _defaultCoordinateSystem;
+	static bool _reverseZ;
 
 
 };
