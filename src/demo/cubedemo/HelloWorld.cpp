@@ -68,10 +68,11 @@ int main(int argc, char **argv)
     ctrl->defaultConfiguration();
 
     // slow interval
+    /*
     Timer::GetInstance()->setInterval(2000);
     
     Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED);
-    p->setAutoGradient(.1);
+    p->setAutoGradient(.01);
 
     Cube * hello = new Cube(new Point3D(0, 0, 0), 1.0f, new Paint(Color::WHITE,
                 Paint::HEIGHT_BASED));
@@ -79,9 +80,10 @@ int main(int argc, char **argv)
     hello->setTranslation(new Dimension3D(-.5,-.5,0));
     hello->setRotation(Positionable::PHI, -20);
     hello->setRotation(Positionable::THETA, 20);
+    */
     
-    //ctrl->setModel(new RenderTest());
-    ctrl->setModel(hello);
+    ctrl->setModel(new RenderTest());
+    //ctrl->setModel(hello);
 
     ctrl->run();
 

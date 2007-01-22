@@ -1,7 +1,9 @@
 #include "../../xor.h"
 
+#include <stdlib.h>
 
 using namespace XOR;
+using namespace std;
 
 /**
  * Shows the simplicity of XOR
@@ -22,9 +24,11 @@ int main(int argc, char** argv)
     // gets setup.
     ctrl->defaultConfiguration();
 
+    ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,-1), new TimedInterpolation(3000, NULL));
+
     // We want to print 'Hello World,' so we need a String2D object. 
     // We are creating the object as a pointer for greater effecincy
-    Square3D * hello = new Square3D();
+    Cube * hello = new Cube();
     //String2D * hello = new String2D("Hello World!");
 
     // the controller will detect this is not a "WORLD" object

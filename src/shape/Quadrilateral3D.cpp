@@ -86,17 +86,8 @@ Dimension3D * Quadrilateral3D::getSize()
  */
 void Quadrilateral3D::render(void)
 {
-    //push();
-        glBegin(GL_QUADS);
-            _vertices[0]->render();
-            _vertices[1]->render();
-            _vertices[2]->render();
-            _vertices[3]->render();
-        glEnd();
-    //pop();
 
-	if(false) 
-        //(_paint->isTextured())
+	if(_paint->isTextured())
 	{
 
        	// need to determine if lighting is on and if the object is textured 
@@ -138,7 +129,6 @@ void Quadrilateral3D::render(void)
 			glEnd();
         glDisable(GL_TEXTURE_2D);
     }
-    /*
     else {
         glBegin(GL_QUADS);
 		    _vertices[0]->render();
@@ -147,7 +137,6 @@ void Quadrilateral3D::render(void)
 		    _vertices[3]->render();
         glEnd();
 	}
-    */
 }
 
 

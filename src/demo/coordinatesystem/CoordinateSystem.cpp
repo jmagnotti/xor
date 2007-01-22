@@ -16,24 +16,20 @@ public:
 	{
 		_systype = 0;
 
-        Controller * ctrl = Controller::GetInstance();
+        Controller * ctrl = Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
         ctrl->defaultConfiguration();
 
-		// super-special function call
-		ctrl->removeDefaultKeyboardListener();
-		ctrl->removeDefaultMouseListener();
-
-        //ctrl->getKeyboard()->addListener(this);
-		//ctrl->getMouse()->addListener(this);
+        ctrl->getKeyboard()->addListener(this);
+		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));  
-		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		//ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,-10));  
+		//ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
         //ctrl->getViewer()->incrementPosition(new Point3D(0,0,9));
         
-        ctrl->getModel()->addRenderable("white", new Cube(new Point3D(-.5,-.5,-.5), 1, new Paint(Color::WHITE)));
-        ctrl->getModel()->addRenderable("blue", new Cube(new Point3D(0,0,5), 1, new Paint(Color::BLUE)));
+        ctrl->getModel()->addRenderable("white", new Cube(new Point3D(.5,.5,.5), 1, new Paint(Color::WHITE)));
+        ctrl->getModel()->addRenderable("blue", new Cube(new Point3D(0,0,-5), 1, new Paint(Color::BLUE)));
         ctrl->getModel()->addRenderable("green", new Cube(new Point3D(0,5,0), 1, new Paint(Color::GREEN)));
         ctrl->getModel()->addRenderable("red", new Cube(new Point3D(5,0,0), 1, new Paint(Color::RED)));
 
@@ -135,6 +131,20 @@ public:
 		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,0.0f-(TRANSLATE_CHANGE)));
 	}
 	*/
+    void handleKey_C()
+    {
+        Controller::GetInstance()->getViewer()->clear();
+    }
+
+    void handleKey_RBracket()
+    {
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,1));
+    }
+
+    void handleKey_LBracket()
+    {
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,-1));
+    }
 	
 private:
 

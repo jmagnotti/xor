@@ -2,8 +2,8 @@
 #define FRAMESPERSECONDCOUNTER_H
 
 #include <stdlib.h>
-#include "../event/Timer.h"
-#include "../event/TimerListener.h"
+#include "../event/timer/Timer.h"
+#include "../event/timer/TimerListener.h"
 #include "../core/Controller.h"
 #include "../core/Viewer.h"
 #include "../shape/String2D.h"

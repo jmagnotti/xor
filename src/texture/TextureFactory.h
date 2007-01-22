@@ -3,15 +3,13 @@
 
 
 #include <map>
-#include <stdlib.h>
-#include <string.h>
 
 #include "../../include/SDL_opengl.h"
 
+#include "../event/reshape/ReshapeListener.h"
+#include "../event/reshape/ReshapeEvent.h"
+
 #include "Texture.h"
-#include "TexturePPM.h"
-#include "TextureBMP.h"
-#include "TextureTGA.h"
 
 using namespace std;
 
@@ -21,7 +19,7 @@ namespace XOR {
  * A factory that takes in one of several image types and returns a texture'
  * that can be used by a Paint object
  */
-class TextureFactory
+class TextureFactory : public ReshapeListener
 {
 	
 public:
@@ -35,22 +33,32 @@ public:
 	/**
 	 * A method for creating textures. Employs singleton texture creation
 	 */
-	Texture * createTexture(char* pathToFile);
+	Texture * createTexture(char * pathToFile);
+
+
+    /**
+     * Because the reshape results in a new rendering context, the textures
+     * must be regenerated. this routine updates all textures stored by the
+     * factory. If you create textures outside the factory, you may want to add
+     * a them to the factory's collection just to take advantage of this timely
+     * regeneration.
+     *
+     * @param event    The ReshapeEvent describing the new window position. This
+     * value is totally ignored, all we need to know is that the display
+     * context has been recreated, and our texture data is hosed.
+     */
+    void handleReshape(ReshapeEvent * event);
 
 
 	/**
 	 * Explicit Constructor
-	 * This constructor is to be used only by the XML-to-GOR Tool. 
+	 * This constructor is to be used only by the XML-to-XOR Tool. 
 	 * Use the other constructors for other uses, as they are MUCH more efficeint
 	 */
 //	static Texture * CreateTexture(String pathToFile);
 
 
-protected:
-
-	//container for textures
-	map<char*, Texture*> textures;
-
+private:
 
 	/**
 	 * Default Constructor
@@ -60,12 +68,14 @@ protected:
 	TextureFactory();
 
 
-private:
+	//container for textures
+	map<char *, Texture *> textures;
 
-	static TextureFactory* _textureFactory;
+	static TextureFactory * _textureFactory;
 
 };
 
 }
 
-#endif			//TEXTUREFACTORY_H
+#endif			// TEXTUREFACTORY_H
+

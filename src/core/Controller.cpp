@@ -6,27 +6,33 @@ namespace XOR {
 // Set the static instances to null
 Controller * Controller::_controller = 0;
 
-
 /*
- * Protected Default Constructor
+ * Private Default Constructor
  */
 Controller::Controller()
-{
-	//set up the controllers
-    _timer       = Timer::GetInstance();
-	_viewer      = new Viewer();
-	_mouse       = Mouse::GetInstance();
-	_keyboard    = Keyboard::GetInstance();
+{}
 
-	//set viewer to be the reshape listener
-	_reshape     = (ReshapeListener*)_viewer;
+
+/*
+ * Private Explicit Constructor
+ */
+Controller::Controller(EventHandlerFactory * factory)
+{
+    // reshape must be created before Viewer, since viewer is going to add
+    // itself as a listener
+	_reshape     = factory->getReshape();
+
+	//set up the controllers
+    _timer       = factory->getTimer();
+	_mouse       = factory->getMouse();
+	_keyboard    = factory->getKeyboard();
 
 	//set the default keyboard listener
-	//_keyboard->addListener(DefaultKeyboardListener::GetInstance());
-    DefaultKeyboardListener::GetInstance();
+    //DefaultKeyboardListener::GetInstance();
 
 	//set the default mouse listener
-	DefaultMouseListener::GetInstance();
+	//DefaultMouseListener::GetInstance();
+	_viewer = new Viewer();
 }
 
 
@@ -39,11 +45,13 @@ Controller::~Controller()
     delete _model;
 
     // view
-//    delete _viewer;
+    delete _viewer;
 
     // sub-controllers
     delete _keyboard;
     delete _mouse;
+
+    delete _reshape;
 
     // timer is special 
     _timer->stop();
@@ -53,7 +61,7 @@ Controller::~Controller()
 /* 
  * Singleton Accessor
  */
-Controller* Controller::GetInstance()
+Controller * Controller::GetInstance()
 {
 	if (_controller == NULL)
 		_controller = new Controller();
@@ -61,6 +69,13 @@ Controller* Controller::GetInstance()
 	return _controller;
 }
 
+Controller * Controller::GetInstance(EventHandlerFactory * factory)
+{
+	if (_controller == NULL)
+		_controller = new Controller(factory);
+
+	return _controller;
+}
 
 /*
  * does the real deleting, protected to keep people from calling it
@@ -160,23 +175,11 @@ void Controller::defaultGLConfiguration()
 }
 
 
-/*
- * Just a pass through to the regular configurator
- */
-void Controller::defaultIVSConfiguration(bool configGL)
-{
-    defaultConfiguration(configGL);
-}
-
-
 /* 
  * Returns the model
  */
 World * Controller::getModel()
 {
-	if (_model == NULL)
-        _model = World::GetInstance();
-
 	return (World*)_model;
 }
 
@@ -186,9 +189,6 @@ World * Controller::getModel()
  */
 Viewer * Controller::getViewer()
 {
-	if (_viewer == NULL)
-		return NULL;
-
 	return _viewer;
 }
 
@@ -198,9 +198,6 @@ Viewer * Controller::getViewer()
  */
 Keyboard * Controller::getKeyboard()
 {
-	if (_keyboard == NULL)
-	    _keyboard = Keyboard::GetInstance();	
-
 	return _keyboard;
 }
 
@@ -210,9 +207,6 @@ Keyboard * Controller::getKeyboard()
  */
 Mouse * Controller::getMouse()
 {
-	if (_mouse == NULL)
-        _mouse = Mouse::GetInstance();
-
 	return _mouse;
 }
 
@@ -220,12 +214,18 @@ Mouse * Controller::getMouse()
 /*
  * Returns the reshape handler
  */
-ReshapeListener * Controller::getReshapeListener()
+Reshape * Controller::getReshape()
 {
-    if (_reshape == NULL)
-        return NULL;
-
     return _reshape;
+}
+
+
+/*
+ * returns the timer
+ */
+Timer * Controller::getTimer()
+{
+    return _timer;
 }
 
 
@@ -272,7 +272,6 @@ void Controller::setModel(Renderable* rend)
 void Controller::removeDefaultMouseListener()
 {
     _mouse->removeListener(DefaultMouseListener::GetInstance()); 
-//    _mouse->addListener(ml);
 }
 
 
@@ -282,13 +281,13 @@ void Controller::removeDefaultMouseListener()
 void Controller::removeDefaultKeyboardListener()
 {
     _keyboard->removeListener(DefaultKeyboardListener::GetInstance());
-//    _keyboard->setKeyboardListener(kl);
 }
 
 
 /*
- * Okay, so I hate big case statements, but this is just how SDL works, I think.
- * I am more than open to enhancements of this situations, GLUT-style callbacks?
+ * Okay, so I hate big case statements, but this is just how SDL works, I
+ * think. I am more than open to enhancements of this situations, GLUT-style
+ * callbacks?
  */
 void Controller::EventLoop()
 {
@@ -316,10 +315,12 @@ void Controller::EventLoop()
                 break;
 
             case SDL_VIDEORESIZE:
-        		cout << "---------RESIZE----------" << endl;
-                ctrl->getReshapeListener()->handleReshape(&event);
+                ctrl->getReshape()->generateEvent(&event);
+
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to
+                // this may be dirtier than adding ctrl as a ReshapeListener,
+                // but works for now.
                 ctrl->defaultSDLGLConfiguration();
                 ctrl->defaultGLConfiguration();
                 break;
@@ -331,7 +332,7 @@ void Controller::EventLoop()
             // this is where I am doing repaints, not sure if that is correct
             case SDL_USEREVENT:
                 if (event.user.code == Timer::TIMER_TICK_EVENT) {
-                    Timer::GetInstance()->tickTock();
+                    ctrl->getTimer()->tickTock();
                     ctrl->getViewer()->view();
                 }
                 else {
@@ -342,8 +343,10 @@ void Controller::EventLoop()
 
             default: break;
         }
-    }
-}
+
+    }   // end while 
+
+}   // end EventLoop
 
 }
 

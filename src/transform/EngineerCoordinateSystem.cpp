@@ -21,7 +21,7 @@ EngineerCoordinateSystem::EngineerCoordinateSystem()
 /*
  * Singleton accessor
  */
-CoordinateSystem * EngineerCoordinateSystem::GetInstance()
+EngineerCoordinateSystem * EngineerCoordinateSystem::GetInstance()
 {
     if (_engineerCoordinateSystem == NULL)
         _engineerCoordinateSystem = new EngineerCoordinateSystem();

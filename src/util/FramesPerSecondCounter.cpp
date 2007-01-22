@@ -9,7 +9,7 @@ namespace XOR {
  */
 FramesPerSecondCounter::~FramesPerSecondCounter()
 {
-    Timer::GetInstance()->removeListener(this);
+    Controller::GetInstance()->getTimer()->removeListener(this);
     delete _displayText;
 }
 
@@ -19,7 +19,7 @@ FramesPerSecondCounter::~FramesPerSecondCounter()
  */
 FramesPerSecondCounter::FramesPerSecondCounter()
 {
-    Timer::GetInstance()->addListener(this);
+    Controller::GetInstance()->getTimer()->addListener(this);
     
     _displayText = new String2D("FPS: n/a");
 
@@ -70,7 +70,7 @@ void FramesPerSecondCounter::handleTick()
 {
         
     //callback to the timer to get some info beyond just the tick event
-    Timer * timer = Timer::GetInstance();
+    Timer * timer = Controller::GetInstance()->getTimer();
 
     char s [50];
     _frameCounter++;

@@ -18,7 +18,7 @@ OpenGLCoordinateSystem::OpenGLCoordinateSystem()
 /*
  * Singleton accessor
  */
-CoordinateSystem * OpenGLCoordinateSystem::GetInstance()
+OpenGLCoordinateSystem * OpenGLCoordinateSystem::GetInstance()
 {
     if (_openGLCoordinateSystem == NULL)
         _openGLCoordinateSystem = new OpenGLCoordinateSystem();

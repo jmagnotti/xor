@@ -18,15 +18,11 @@ public:
     /**
      * Singleton Accessor
      */
-    static CoordinateSystem * GetInstance();
-
-
-protected:
-
-    LeftOpenGLCoordinateSystem();
+    static LeftOpenGLCoordinateSystem * GetInstance();
 
 
 private:
+    LeftOpenGLCoordinateSystem();
 
     static LeftOpenGLCoordinateSystem * _leftOpenGLCoordinateSystem;
 

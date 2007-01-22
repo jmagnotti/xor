@@ -3,8 +3,8 @@
 
 namespace XOR {
 
-LeftOpenGLCoordinateSystem * LeftOpenGLCoordinateSystem::_leftOpenGLCoordinateSystem =
-    NULL;
+LeftOpenGLCoordinateSystem *
+    LeftOpenGLCoordinateSystem::_leftOpenGLCoordinateSystem = NULL;
 
 /*
  * Protected constructor
@@ -22,7 +22,7 @@ LeftOpenGLCoordinateSystem::LeftOpenGLCoordinateSystem()
 /*
  * Singleton accessor
  */
-CoordinateSystem * LeftOpenGLCoordinateSystem::GetInstance()
+LeftOpenGLCoordinateSystem * LeftOpenGLCoordinateSystem::GetInstance()
 {
     if (_leftOpenGLCoordinateSystem == NULL)
         _leftOpenGLCoordinateSystem = new LeftOpenGLCoordinateSystem();
