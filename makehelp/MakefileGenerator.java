@@ -95,7 +95,7 @@ public abstract class MakefileGenerator
 				out.write("MKDP = makedepend\n");
 				out.write("CC = g++\n");
 				out.write("LFLAGS = -dynamiclib\n");
-				out.write("LIBS = -framework OpenGL -lSDL -lm\n\n");
+				out.write("LIBS = -framework OpenGL -lSDL -lSDL_image -lm\n\n");
 				out
 						.write("# Notice that libdir does not specify the ending /\n");
 				out.write("LIBDIR = /usr/local/lib\n");
@@ -162,7 +162,7 @@ public abstract class MakefileGenerator
 				out.write("MAKEFILE = Makefile.mingw\n\n");
 				out.write("CC = g++\n");
 				out.write("LFLAGS = -dynamiclib\n");
-				out.write("LIBS = -framework OpenGL -lSDL -lm\n");
+				out.write("LIBS = -framework OpenGL -lSDL -lSDL_image -lm\n");
 				out
 						.write("#Notice that libs dir does not specify the ending /\n");
 				out.write("LIBDIR = /usr/local/lib\n");
@@ -217,7 +217,7 @@ public abstract class MakefileGenerator
 				out.write("CC = g++\n");
 				out.write("CFLAGS = -fPIC\n");
 				out.write("LFLAGS = -shared\n");
-				out.write("LIBS = -lGL -lGLU -lSDL -lm\n");
+				out.write("LIBS = -lGL -lGLU -lSDL -lSDL_image -lm\n");
 				out.write("LIBDIR = /usr/lib\n");
 				out.write("\n");
 				out.write("#Packages\n");

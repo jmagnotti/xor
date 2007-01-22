@@ -22,7 +22,6 @@
   <xsd:complexType>
     <xsd:attribute name="Name" type="xsd:string" use="required" />
     <xsd:attribute name="Address" type="xsd:string" use="required" />
-    <xsd:attribute name="Address" type="xsd:string" use="required" />
     <xsd:attribute name="xOffset" type="xsd:double" use="required" />
     <xsd:attribute name="yOffset" type="xsd:double" use="required" />
   </xsd:complexType>
