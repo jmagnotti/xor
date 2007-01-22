@@ -13,7 +13,8 @@
 #include "../transform/Positionable.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
-#include "../event/ReshapeListener.h"
+#include "../event/reshape/ReshapeListener.h"
+#include "../event/reshape/ReshapeEvent.h"
 
 namespace XOR {
 
@@ -43,6 +44,11 @@ public:
 	static const Uint32     DEFAULT_VIDEO_FLAGS;
 
 
+    /**
+     * default constructor. Uses constants above.
+     */
+    Viewer();
+
 	/**
      * Explicit Constructor
      * 
@@ -50,7 +56,7 @@ public:
      * @param nearCP	Near clipping plane
      * @param farCP		Far clipping plane
      */
-    Viewer(double fov=DEFAULT_FOV, double nearCP=DEFAULT_NEAR_CLIP, double farCP=DEFAULT_FAR_CLIP);
+    Viewer(double fov, double nearCP, double farCP);
 
 
 	/** 
@@ -74,7 +80,7 @@ public:
     /**
 	 * Called on window reshape/resize
 	 */
-    void handleReshape(SDL_Event * event);
+    void handleReshape(ReshapeEvent * event);
 
 
     /**
@@ -157,7 +163,11 @@ public:
     void forceReshape();
 
 
-protected:
+private:
+
+    // set all state vars
+    void initialize(double fov, double nearCP, double farCP, int winWidth, int
+            winHeight, bool fullscreen, const char * windowTitle);
 
     double			_nearClippingPlane;	
     double			_farClippingPlane;

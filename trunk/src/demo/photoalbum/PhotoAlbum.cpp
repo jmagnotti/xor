@@ -16,11 +16,19 @@ public:
  	*/
 	PhotoAlbum()
 	{
-        Controller * ctrl = Controller::GetInstance();
+        Controller * ctrl =
+            Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
 
         ctrl->defaultConfiguration();
         ctrl->removeDefaultKeyboardListener();
-        //ctrl->getViewer()->incrementTranslation(new Dimension3D(0,1,0), new TimedInterpolation(3000, this));
+
+        ctrl->getKeyboard()->addListener(this);
+
+        //ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
+                //TimedInterpolation(3000, this));
+
+        //ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+
         //ctrl->getViewer()->incrementTranslation(new Dimension3D(1,0,3), new TimedInterpolation(3000, this));
 
         loadPics();
@@ -147,7 +155,7 @@ public:
         //need to move about .53 in the x and about -0.3 in the y
         
         pics[index]->incrementScalar(new Dimension3D(7, 7, 1), new TimedInterpolation(300, this));
-        pics[index]->setTranslation(new Dimension3D(.53, -.3, .1), new TimedInterpolation(300, this));
+        pics[index]->setTranslation(new Dimension3D(.53, -.3, -.1), new TimedInterpolation(300, this));
         pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
@@ -163,6 +171,9 @@ protected:
 
 	void loadPics()
 	{
+        
+        TextureFactory * factory = TextureFactory::GetInstance();
+
 		float squareDiameter = .20;
 		float z = 0;
 		float offset = .01;
@@ -174,7 +185,8 @@ protected:
 			   	pics.push_back(new RectangularPrism(
 					new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
 					squareDiameter, squareDiameter, squareDiameter,
-					new Paint(.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
+					new Paint(Color::RED, Paint::HEIGHT_BASED, factory->createTexture("monkey.png"))
+                        //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
 				));
                 /*```pics.push_back(new RectangularPrism(
                             new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),

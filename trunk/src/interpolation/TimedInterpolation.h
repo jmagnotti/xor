@@ -2,8 +2,10 @@
 #define TIMEDINTERPOLATOR_H
 
 
-#include "../event/Timer.h"
-#include "../event/TimerListener.h"
+#include "../event/timer/Timer.h"
+#include "../event/timer/TimerListener.h"
+#include "../core/Controller.h"
+
 #include "InterpolationListener.h"
 #include "InterpolationEngine.h"
 

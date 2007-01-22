@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "../core/Controller.h"
-#include "../event/Timer.h"
+#include "../event/timer/Timer.h"
 
 namespace XOR {
 

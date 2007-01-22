@@ -1,5 +1,6 @@
 #include "Texture.h"
 
+
 namespace XOR {
 
 /**
@@ -12,11 +13,28 @@ Texture::Texture(char *fileName)
 }
 
 
-//--GETTERS--//
-int				Texture::getHeight()	{ return _height;	}
-unsigned int	Texture::getID()		{ return _id;		}
-char*			Texture::getPath()	{ return _path;		}
-int				Texture::getWidth()	{ return _width;		}
+int Texture::getHeight()
+{
+    return _height;
+}
+
+
+GLuint Texture::getID()
+{
+    return _id;
+}
+
+
+char * Texture::getPath()
+{ 
+    return _path;
+}
+
+
+int	Texture::getWidth()
+{
+    return _width;
+}
 
 	
 /*
@@ -24,43 +42,21 @@ int				Texture::getWidth()	{ return _width;		}
  */
 void Texture::loadFromFile()
 {
-	return;
+    // use SDL IMG library to load
+    SDL_Surface * texture = IMG_Load(_path);
+    glGenTextures(1, &_id);
+   // glBindTexture(GL_TEXTURE_2D);
 
-//	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-//	glGenTextures(1, &_id); 
-//	glBindTexture(GL_TEXTURE_2D, _id);
+	_width  = texture->w;
+	_height = texture->h;
 
-//	_image = auxDIBImageLoadA( (const char*) _path );
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _width, _height, 0, GL_RGBA,
+            GL_UNSIGNED_BYTE, texture->pixels);
 
-//	_height = _image->sizeY;
-//	_width = _image->sizeX;
+    //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGB,
+    //GL_UNSIGNED_BYTE, _image->data);
 
-	//gluBuild2DMipmaps(	GL_TEXTURE_2D, 3, _width, _height, GL_RGB,
-//						GL_UNSIGNED_BYTE,
-//						_image->data);
-//	delete _image;
-}
-
-/* 
- * get the texture data from the file
- */
-void Texture::loadFromFile(char * filename)
-{
-	return;
-//	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-//	glGenTextures(1, &_id); 
-//	glBindTexture(GL_TEXTURE_2D, _id);
-/**
-	_image = auxDIBImageLoadA( (const char*) filename );
-
-	_height = _image->sizeY;
-	_width = _image->sizeX;
-
-	gluBuild2DMipmaps(	GL_TEXTURE_2D, 3, _width, _height,	GL_RGB,
-						GL_UNSIGNED_BYTE,
-						_image->data);
-	delete _image;
-*/
+    SDL_FreeSurface(texture);
 }
 
 /**
@@ -68,7 +64,7 @@ void Texture::loadFromFile(char * filename)
  */
 void Texture::setActive()
 {
-//	glBindTexture(GL_TEXTURE_2D, _id);
+	glBindTexture(GL_TEXTURE_2D, _id);
 }
 
 }

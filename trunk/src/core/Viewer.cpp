@@ -20,16 +20,37 @@ const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
 
 /*
+ * default constructor
+ */ 
+Viewer::Viewer()
+{
+    initialize( DEFAULT_FOV, DEFAULT_NEAR_CLIP, DEFAULT_FAR_CLIP,
+                DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, false,
+                DEFAULT_WINDOW_TITLE); 
+}
+
+
+/*
  * Explicit Constructor
  */
 Viewer::Viewer(double fov, double nearCP, double farCP)
 {
-	_size = new Dimension2D(DEFAULT_WINDOW_WIDTH, 
-				DEFAULT_WINDOW_HEIGHT);
+    initialize(fov, nearCP, farCP, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT,
+            false, DEFAULT_WINDOW_TITLE); 
+}
 
-	_title = DEFAULT_WINDOW_TITLE;
 
-	_fullscreen         = false;
+/*
+ * set up the viewer
+ */
+void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, int
+        winHeight, bool fullscreen, const char * windowTitle)
+{
+	_size = new Dimension2D(winWidth, winHeight);
+
+	_title = windowTitle;
+
+	_fullscreen         = fullscreen;
 
 	_fieldOfView		= fov;
 	_nearClippingPlane	= nearCP;
@@ -71,43 +92,30 @@ Dimension2D * Viewer::getWindowSize()
 }
 
 
-void Viewer::handleReshape(int width, int height)
+/*
+ * 
+ */
+void Viewer::handleReshape(ReshapeEvent * event)
 {
-    cout << "step 1: reshape handler is called" << endl;
-
     // set a new video size
-	_size->setWidth(width);
-	_size->setHeight(height);
+	_size->setWidth(event->getWidth());
+	_size->setHeight(event->getHeight());
 
-    // we may have to worry about regenerating textures and such
-    // texregen code & DL regen
-    
     // reset clear color
-    cout << "step 2: setup clear color called" << endl;
     setupClearColor(); 
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
 
-    cout << "step 3: setup glViewport" << endl;
     glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
-    cout << "step 4: setup gluPerspective" << endl;
-	gluPerspective(_fieldOfView, (double)_size->getWidth()/ (double)_size->getHeight(),
-		_nearClippingPlane, _farClippingPlane);
+    gluPerspective(_fieldOfView, (double)_size->getWidth()/
+            (double)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
 
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
     glLoadIdentity();
-}
-
-/*
- * handles window reshapes
- */
-void Viewer::handleReshape(SDL_Event * event)
-{
-    handleReshape(event->resize.w, event->resize.h);
 }
 
 
@@ -116,7 +124,8 @@ void Viewer::handleReshape(SDL_Event * event)
  */
 void Viewer::setupSDLVideo()
 {
-    cout << "SDL Video mode is being set" << endl;
+    if (_size == NULL)
+        cout << "BAIL" << endl;
 
     // at some point we need to have variables to hold things like current video
     // flags, etc.
@@ -212,7 +221,6 @@ void Viewer::toggleFullScreen()
  */ 
 void Viewer::setWindowDimension(Dimension2D * size)
 {
-    cout << "Window Dimension has been set" << endl;
     _size->clone(size);
 
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(),
@@ -238,8 +246,8 @@ void Viewer::setBackground(const float color[3])
 void Viewer::forceReshape()
 {
     SDL_Event reshape = { SDL_VIDEORESIZE };
-    reshape.resize.w = _size->getX();
-    reshape.resize.h = _size->getY();
+    reshape.resize.w = (int) _size->getX();
+    reshape.resize.h = (int) _size->getY();
 
     SDL_PushEvent(&reshape);
 }

@@ -17,7 +17,7 @@ public:
     /**
      * Singleton Accessor
      */
-    static CoordinateSystem * GetInstance();
+    static OpenGLCoordinateSystem * GetInstance();
 
     void push();
     void pop();

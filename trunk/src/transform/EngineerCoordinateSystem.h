@@ -18,7 +18,7 @@ public:
     /**
      * Singleton Accessor
      */
-    static CoordinateSystem * GetInstance();
+    static EngineerCoordinateSystem * GetInstance();
 
 
 protected:
