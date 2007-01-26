@@ -18,6 +18,7 @@ Controller::Controller()
  */
 Controller::Controller(EventHandlerFactory * factory)
 {
+    //cout << "Building Controller" << endl;
     // reshape must be created before Viewer, since viewer is going to add
     // itself as a listener
 	_reshape     = factory->getReshape();
@@ -28,10 +29,12 @@ Controller::Controller(EventHandlerFactory * factory)
 	_keyboard    = factory->getKeyboard();
 
 	//set the default keyboard listener
-    //DefaultKeyboardListener::GetInstance();
+    _keyboard->addListener(DefaultKeyboardListener::GetInstance());
 
 	//set the default mouse listener
-	//DefaultMouseListener::GetInstance();
+	_mouse->addListener(DefaultMouseListener::GetInstance());
+
+    //cout << "Constructing viewer" << endl;
 	_viewer = new Viewer();
 }
 
@@ -64,7 +67,7 @@ Controller::~Controller()
 Controller * Controller::GetInstance()
 {
 	if (_controller == NULL)
-		_controller = new Controller();
+		_controller = new Controller(LocalEventHandlerFactory::GetInstance());
 
 	return _controller;
 }
@@ -147,6 +150,11 @@ void Controller::defaultConfiguration(bool configGL)
  */
 void Controller::defaultGLConfiguration()
 {
+	// set the clear color
+    _viewer->setupClearColor();
+
+    glShadeModel(GL_SMOOTH);
+
 	// enable blending
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -155,8 +163,6 @@ void Controller::defaultGLConfiguration()
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 
-	// set the clear color
-    _viewer->setupClearColor();
 
 	// enable depth testings
 	glEnable(GL_DEPTH_TEST);

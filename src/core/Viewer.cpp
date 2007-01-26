@@ -46,6 +46,7 @@ Viewer::Viewer(double fov, double nearCP, double farCP)
 void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, int
         winHeight, bool fullscreen, const char * windowTitle)
 {
+    //cout << "constructing D2D from viewer" << endl;
 	_size = new Dimension2D(winWidth, winHeight);
 
 	_title = windowTitle;
@@ -124,9 +125,6 @@ void Viewer::handleReshape(ReshapeEvent * event)
  */
 void Viewer::setupSDLVideo()
 {
-    if (_size == NULL)
-        cout << "BAIL" << endl;
-
     // at some point we need to have variables to hold things like current video
     // flags, etc.
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
