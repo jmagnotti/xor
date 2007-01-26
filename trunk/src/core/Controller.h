@@ -11,6 +11,7 @@
 
 // sub-controllers
 #include "../event/EventHandlerFactory.h"
+#include "../event/LocalEventHandlerFactory.h"
 #include "../event/keyboard/Keyboard.h"
 #include "../event/mouse/Mouse.h"
 #include "../event/timer/Timer.h"
