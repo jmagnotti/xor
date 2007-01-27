@@ -19,17 +19,18 @@ public:
         Controller * ctrl = Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
         ctrl->defaultConfiguration();
 
+		ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
+		ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		//ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,-10));  
-		//ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
-        //ctrl->getViewer()->incrementPosition(new Point3D(0,0,9));
+		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));
+		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
         
         ctrl->getModel()->addRenderable("white", new Cube(new Point3D(.5,.5,.5), 1, new Paint(Color::WHITE)));
-        ctrl->getModel()->addRenderable("blue", new Cube(new Point3D(0,0,-5), 1, new Paint(Color::BLUE)));
+        ctrl->getModel()->addRenderable("blue", new Cube(new Point3D(0,0,5), 1, new Paint(Color::BLUE)));
         ctrl->getModel()->addRenderable("green", new Cube(new Point3D(0,5,0), 1, new Paint(Color::GREEN)));
         ctrl->getModel()->addRenderable("red", new Cube(new Point3D(5,0,0), 1, new Paint(Color::RED)));
 
@@ -38,8 +39,6 @@ public:
 
 	void handleKey_l()
 	{
-		//Controller::GetInstance()->getViewer()->getOrientation()->setFocalPoint(
-		//		((Cube *)Controller::GetInstance()->getModel()->getRenderable("white"))->getRegistrationPoint());
 		cout << "LOOK AT ORIGIN" << endl;
 		Controller::GetInstance()->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
 	}
@@ -70,67 +69,51 @@ public:
 		}
 	}
 
-	/*
-	void handleKey_w()
+	void handleKey_p()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::PHI, ROTATE_CHANGE);
-	}
-
-	void handleKey_s()
-	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::PHI, 0.0f-(ROTATE_CHANGE));
+		Controller::GetInstance()->getViewer()->printDebugInfo();
 	}
 
 	void handleKey_a()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, 0.0f-(ROTATE_CHANGE));
+		Controller::GetInstance()->getViewer()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_d()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::THETA, ROTATE_CHANGE);
+		Controller::GetInstance()->getViewer()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_e()
+	void handleKey_w()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::ROLL, 0.0f-(ROTATE_CHANGE));
+		Controller::GetInstance()->getViewer()->walk(0.15f, new TimedInterpolation(300,NULL));
+	}
+
+	void handleKey_s()
+	{
+		Controller::GetInstance()->getViewer()->walk(-0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_q()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(Positionable::ROLL, ROTATE_CHANGE);
+		Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_Q()
+	void handleKey_e()
 	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(TRANSLATE_CHANGE,0,0));
+		Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_A()
+	void handleKey_c()
 	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0.0f-(TRANSLATE_CHANGE),0,0));
+		Controller::GetInstance()->getViewer()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_W()
+	void handleKey_z()
 	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,TRANSLATE_CHANGE,0));
+		Controller::GetInstance()->getViewer()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_S()
-	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0.0f-(TRANSLATE_CHANGE),0));
-	}
-
-	void handleKey_E()
-	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,TRANSLATE_CHANGE));
-	}
-
-	void handleKey_D()
-	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,0.0f-(TRANSLATE_CHANGE)));
-	}
-	*/
     void handleKey_C()
     {
         Controller::GetInstance()->getViewer()->clear();
@@ -145,6 +128,32 @@ public:
     {
         Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,-1));
     }
+	
+	void handleMouseMotion(MouseMotionEvent * mme)
+	{
+		Mouse * mouse = Controller::GetInstance()->getMouse();
+
+		if (mouse->isLeftButtonDown()) {
+			// rotate camera
+			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
+			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
+
+			Controller::GetInstance()->getViewer()->incrementRotation(
+					Positionable::THETA, -xChange, new TimedInterpolation(100,NULL));
+			Controller::GetInstance()->getViewer()->incrementRotation(
+					Positionable::PHI, -yChange, new TimedInterpolation(100,NULL));
+		}
+	}
+	
+	void handleMouseButtonPressed(MouseButtonDown * mbd)
+	{
+		cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
+	}
+
+	void handleMouseButtonReleased(MouseButtonUp * mbu)
+	{
+		cout << "MOUSE UP: button=" << mbu->getButton() << endl;
+	}
 	
 private:
 

@@ -5,8 +5,8 @@ namespace XOR {
 // initialize static defaults
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
-const double   Viewer::DEFAULT_FOV			= 45;
-const double   Viewer::DEFAULT_NEAR_CLIP	= 1.0f;
+const double   Viewer::DEFAULT_FOV			= 60;
+const double   Viewer::DEFAULT_NEAR_CLIP	= 0.1f;
 const double   Viewer::DEFAULT_FAR_CLIP	= 1000;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
@@ -157,7 +157,7 @@ void Viewer::view()
 
 	// since we're technically moving the whole world, push the inverse
     pushInverse();
-        _coordinateSystem->push();
+		_coordinateSystem->push();
             _model->render();
         _coordinateSystem->pop();
     pop();
@@ -172,7 +172,7 @@ void Viewer::view()
  */
 void Viewer::setWindowTitle(char * text)
 {
-	cout << "Window title arguments ignored in this version" << endl;
+	//cout << "Window title arguments ignored in this version" << endl;
     SDL_WM_SetCaption(DEFAULT_WINDOW_TITLE, "XOR");
 }
 

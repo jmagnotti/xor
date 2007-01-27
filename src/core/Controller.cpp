@@ -36,6 +36,8 @@ Controller::Controller(EventHandlerFactory * factory)
 
     //cout << "Constructing viewer" << endl;
 	_viewer = new Viewer();
+
+	_reshape->addListener(_viewer);
 }
 
 

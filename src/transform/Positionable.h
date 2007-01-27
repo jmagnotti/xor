@@ -229,7 +229,7 @@ public:
 	 * Easy way to move the camera a certain distance
 	 * along its focus vector.
 	 */
-	void walk(float distance);
+	void walk(float distance, InterpolationEngine * interpolation);
 
 
 	/**

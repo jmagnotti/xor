@@ -40,6 +40,9 @@ protected:
     Rotate  * _rotations[3];
 	Scale   * _scale;
 
+	// on PPC/Mac the z-axis is inverted
+	Scale   * _zInvertScale;
+
     CoordinateSystem();
 
 };
