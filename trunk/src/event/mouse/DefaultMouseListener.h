@@ -14,12 +14,7 @@
 namespace XOR {
 
 /**
- * Represents the default mouse behavior. Methods are purposely made virtual to allow
- * people to easily extend this classes behavior. When you declare yourself as a MouseListener, the
- * default constructor adds itself to the Mouse as a listener.
- * These are the functions that you should extend if you want access to mouse events.
- * if you need the raw SDL event, you should extend MouseListener. These methods have empty implementations
- * so that you don't HAVE to implement them.
+ * Describe the differences between DML and just ML
  */
 class DefaultMouseListener : public MouseListener
 {

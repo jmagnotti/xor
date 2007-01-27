@@ -42,11 +42,7 @@ RectangularPrism::RectangularPrism(RectangularVolume * rv)
  */
 void RectangularPrism::calculateNormals()
 {	
-    //cout << "Setting normals" << endl;
-
     GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
-
-    //cout << "got gcu" << endl;
 
 	_normals[0] = gcu->crossProduct(_points[3], _points[7], _points[4]);
 	_normals[1] = gcu->crossProduct(_points[2], _points[6], _points[5]);
@@ -57,14 +53,11 @@ void RectangularPrism::calculateNormals()
 	_normals[4] = gcu->crossProduct(_points[7], _points[6], _points[5]);
 	_normals[5] = gcu->crossProduct(_points[3], _points[2], _points[1]);
 
-    cout << "calling normalize" << endl;
 	gcu->normalize(_normals);
 
 	// set the normal for each quad 
 	for (int i=0; i<6; i++)
 		_faces[i]->setNormal(_normals[i]);
-    
-    cout << "set normals" << endl;
 }
 
 
@@ -75,8 +68,6 @@ void RectangularPrism::setPaint(Paint *p)
 {
 	_paint = p;
    
-    _paint->print();
-
 	updatePaint();
 }
 
@@ -102,20 +93,14 @@ void RectangularPrism::render(void)
 
 	if (true) {
         int i=0;
-        //cout << "Render RP" << endl;
 		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 		vector<Quadrilateral3D*>::iterator finish = _faces.end();
 		
 		while (iter != finish) {
-            //cout << endl << "Data for quad: " << i << endl;
-            //(*iter)->print();
 			(*iter)->render();
 			++iter;
             ++i;
 		}
-
-       // cout << i << " quads rendered" << endl;
-
 	}
 	else {
 		//glCallList(_displayListID);
@@ -131,8 +116,6 @@ void RectangularPrism::render(void)
  */
 void RectangularPrism::setFaces()
 {
-    cout << "Setting faces" << endl;    
-
 	// clear any existing faces
 	if (! _faces.empty())
         _faces.clear();
@@ -149,7 +132,6 @@ void RectangularPrism::setFaces()
     _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint));		//highYside
     _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint));		//lowYside
 
-    cout << "Done setting faces" << endl;
 }
 
 
@@ -167,13 +149,8 @@ void RectangularPrism::setup()
 	// initialize the Quad3D array with the points
 	setFaces();
 
-    cout << "calling calc normals" << endl;
-
 	// calculate normals for the quads
 	calculateNormals();
-
-
-    cout << "Done in setup()" << endl;
 }
 
 
@@ -186,8 +163,6 @@ void RectangularPrism::updatePaint()
 {
 	// painting order depends on gradient style
 	int type = _paint->getGradientStyle();
-    cout << "Switching on gradient style " << type << endl;
-    _paint->print();
 
     switch (type) {
 
@@ -223,8 +198,6 @@ void RectangularPrism::updatePaint()
 		default:
 			break;
 	}
-    cout << "paint set" << endl;
-
 }
 
 

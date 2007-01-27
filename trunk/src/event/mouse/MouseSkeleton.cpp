@@ -1,5 +1,6 @@
 #include "MouseSkeleton.h"
-
+#include <iostream>
+using namespace std;
 
 namespace XOR {
 
@@ -20,7 +21,9 @@ void MouseSkeleton::fireEvent(MouseEvent * me)
     if (me->getType() == MouseEvent::MOUSE_MOTION)
         updateFromEvent((MouseMotionEvent*)me);
     else 
-        updateFromEvent((MouseClickEvent*)me);
+        updateFromEvent((MouseClickEvent *)me);
+
+    cout << "Notifiying listeners of event type: " << me->getType() << endl;
 
     notifyListeners(me);
 

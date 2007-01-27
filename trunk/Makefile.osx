@@ -104,14 +104,22 @@ src/core/Controller.o: src/event/mouse/MouseButtonUp.h
 src/core/Controller.o: src/event/mouse/MouseMotionEvent.h
 src/core/Controller.o: src/event/timer/Timer.h
 src/core/Controller.o: src/event/timer/TimerListener.h
-src/core/Controller.o: src/event/reshape/Reshape.h
+src/core/Controller.o: src/event/reshape/Reshape.h src/geometry/Dimension2D.h
+src/core/Controller.o: src/geometry/Dimension.h
 src/core/Controller.o: src/event/reshape/ReshapeEvent.h
-src/core/Controller.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
 src/core/Controller.o: src/event/reshape/ReshapeListener.h
-src/core/Controller.o: src/event/keyboard/Keyboard.h src/event/mouse/Mouse.h
-src/core/Controller.o: src/event/timer/Timer.h src/event/reshape/Reshape.h
-src/core/Controller.o: src/core/World.h src/shape/Point3D.h
-src/core/Controller.o: /usr/include/math.h
+src/core/Controller.o: src/event/LocalEventHandlerFactory.h
+src/core/Controller.o: src/event/EventHandlerFactory.h
+src/core/Controller.o: src/event/keyboard/KeyboardSkeleton.h
+src/core/Controller.o: src/event/keyboard/Keyboard.h
+src/core/Controller.o: src/event/mouse/MouseSkeleton.h
+src/core/Controller.o: src/event/reshape/ReshapeSkeleton.h
+src/core/Controller.o: src/event/reshape/Reshape.h
+src/core/Controller.o: src/event/timer/TimerSkeleton.h
+src/core/Controller.o: src/event/timer/Timer.h src/event/keyboard/Keyboard.h
+src/core/Controller.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/core/Controller.o: src/event/reshape/Reshape.h src/core/World.h
+src/core/Controller.o: src/shape/Point3D.h /usr/include/math.h
 src/core/Controller.o: /usr/include/architecture/ppc/math.h src/paint/Paint.h
 src/core/Controller.o: /usr/include/string.h src/texture/Texture.h
 src/core/Controller.o: include/SDL_image.h include/SDL.h include/SDL_opengl.h
@@ -239,31 +247,6 @@ src/event/keyboard/DefaultKeyboardListener.o: include/SDL.h
 src/event/keyboard/DefaultKeyboardListener.o: src/core/Controller.h
 src/event/keyboard/DefaultKeyboardListener.o: src/core/World.h
 src/event/keyboard/Keyboard.o: src/event/keyboard/Keyboard.h
-src/event/keyboard/Keyboard.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
-src/event/keyboard/Keyboard.o: /usr/include/_types.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/_types.h
-src/event/keyboard/Keyboard.o: /usr/include/machine/_types.h
-src/event/keyboard/Keyboard.o: /usr/include/ppc/_types.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/wait.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/signal.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/appleapiopts.h
-src/event/keyboard/Keyboard.o: /usr/include/machine/signal.h
-src/event/keyboard/Keyboard.o: /usr/include/ppc/signal.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/resource.h
-src/event/keyboard/Keyboard.o: /usr/include/machine/endian.h
-src/event/keyboard/Keyboard.o: /usr/include/ppc/endian.h
-src/event/keyboard/Keyboard.o: /usr/include/sys/_endian.h
-src/event/keyboard/Keyboard.o: /usr/include/stdint.h
-src/event/keyboard/Keyboard.o: /usr/include/libkern/OSByteOrder.h
-src/event/keyboard/Keyboard.o: /usr/include/libkern/ppc/OSByteOrder.h
-src/event/keyboard/Keyboard.o: /usr/include/alloca.h
-src/event/keyboard/Keyboard.o: /usr/include/machine/types.h
-src/event/keyboard/Keyboard.o: /usr/include/ppc/types.h include/SDL_events.h
-src/event/keyboard/Keyboard.o: src/event/keyboard/KeyboardListener.h
-src/event/keyboard/Keyboard.o: src/event/keyboard/KeyEvent.h include/SDL.h
-src/event/keyboard/Keyboard.o: src/event/keyboard/KeyEventFactory.h
-src/event/keyboard/Keyboard.o: src/event/keyboard/KeyDownEvent.h
-src/event/keyboard/Keyboard.o: src/event/keyboard/KeyUpEvent.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyboardSkeleton.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/stdlib.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/sys/cdefs.h
@@ -290,7 +273,6 @@ src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyboardListener.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyEvent.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/Keyboard.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_events.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyEventFactory.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyDownEvent.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyUpEvent.h
@@ -317,8 +299,6 @@ src/event/keyboard/KeyboardStub.o: /usr/include/alloca.h
 src/event/keyboard/KeyboardStub.o: /usr/include/machine/types.h
 src/event/keyboard/KeyboardStub.o: /usr/include/ppc/types.h
 src/event/keyboard/KeyboardStub.o: src/event/keyboard/Keyboard.h
-src/event/keyboard/KeyboardStub.o: include/SDL_events.h
-src/event/keyboard/KeyboardStub.o: src/event/keyboard/KeyboardListener.h
 src/event/keyboard/KeyboardStub.o: src/event/keyboard/KeyEvent.h
 src/event/keyboard/KeyboardStub.o: include/SDL.h
 src/event/keyboard/KeyboardStub.o: src/event/keyboard/KeyEventFactory.h
@@ -389,6 +369,8 @@ src/event/LocalEventHandlerFactory.o: include/SDL.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyEventFactory.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyDownEvent.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyUpEvent.h
+src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyboardSkeleton.h
+src/event/LocalEventHandlerFactory.o: src/event/keyboard/Keyboard.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/Mouse.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseListener.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseEvent.h
@@ -398,18 +380,16 @@ src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseButtonDown.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseClickEvent.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseButtonUp.h
 src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseMotionEvent.h
-src/event/LocalEventHandlerFactory.o: src/event/timer/Timer.h
-src/event/LocalEventHandlerFactory.o: src/event/timer/TimerListener.h
+src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseSkeleton.h
 src/event/LocalEventHandlerFactory.o: src/event/reshape/Reshape.h
-src/event/LocalEventHandlerFactory.o: src/event/reshape/ReshapeEvent.h
 src/event/LocalEventHandlerFactory.o: src/geometry/Dimension2D.h
 src/event/LocalEventHandlerFactory.o: src/geometry/Dimension.h
+src/event/LocalEventHandlerFactory.o: src/event/reshape/ReshapeEvent.h
 src/event/LocalEventHandlerFactory.o: src/event/reshape/ReshapeListener.h
-src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyboardSkeleton.h
-src/event/LocalEventHandlerFactory.o: src/event/keyboard/Keyboard.h
-src/event/LocalEventHandlerFactory.o: src/event/mouse/MouseSkeleton.h
 src/event/LocalEventHandlerFactory.o: src/event/reshape/ReshapeSkeleton.h
 src/event/LocalEventHandlerFactory.o: src/event/reshape/Reshape.h
+src/event/LocalEventHandlerFactory.o: src/event/timer/Timer.h
+src/event/LocalEventHandlerFactory.o: src/event/timer/TimerListener.h
 src/event/LocalEventHandlerFactory.o: src/event/timer/TimerSkeleton.h
 src/event/LocalEventHandlerFactory.o: src/event/timer/Timer.h
 src/event/mouse/DefaultMouseListener.o: src/event/mouse/DefaultMouseListener.h
@@ -478,6 +458,14 @@ src/event/mouse/MouseStub.o: src/event/mouse/MouseEvent.h include/SDL.h
 src/event/mouse/MouseStub.o: src/event/mouse/Mouse.h
 src/event/RemoteEventHandlerFactory.o: src/event/RemoteEventHandlerFactory.h
 src/event/RemoteEventHandlerFactory.o: src/event/EventHandlerFactory.h
+src/event/RemoteEventHandlerFactory.o: src/event/reshape/Reshape.h
+src/event/RemoteEventHandlerFactory.o: src/geometry/Dimension2D.h
+src/event/RemoteEventHandlerFactory.o: src/geometry/Dimension.h
+src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeEvent.h
+src/event/RemoteEventHandlerFactory.o: include/SDL.h
+src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeListener.h
+src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeSkeleton.h
+src/event/RemoteEventHandlerFactory.o: src/event/reshape/Reshape.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/Keyboard.h
 src/event/RemoteEventHandlerFactory.o: /usr/include/stdlib.h
 src/event/RemoteEventHandlerFactory.o: /usr/include/sys/cdefs.h
@@ -503,10 +491,11 @@ src/event/RemoteEventHandlerFactory.o: /usr/include/ppc/types.h
 src/event/RemoteEventHandlerFactory.o: include/SDL_events.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyboardListener.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyEvent.h
-src/event/RemoteEventHandlerFactory.o: include/SDL.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyEventFactory.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyDownEvent.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyUpEvent.h
+src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyboardStub.h
+src/event/RemoteEventHandlerFactory.o: src/event/keyboard/Keyboard.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/Mouse.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseListener.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseEvent.h
@@ -516,18 +505,9 @@ src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseButtonDown.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseClickEvent.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseButtonUp.h
 src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseMotionEvent.h
+src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseStub.h
 src/event/RemoteEventHandlerFactory.o: src/event/timer/Timer.h
 src/event/RemoteEventHandlerFactory.o: src/event/timer/TimerListener.h
-src/event/RemoteEventHandlerFactory.o: src/event/reshape/Reshape.h
-src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeEvent.h
-src/event/RemoteEventHandlerFactory.o: src/geometry/Dimension2D.h
-src/event/RemoteEventHandlerFactory.o: src/geometry/Dimension.h
-src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeListener.h
-src/event/RemoteEventHandlerFactory.o: src/event/reshape/ReshapeSkeleton.h
-src/event/RemoteEventHandlerFactory.o: src/event/reshape/Reshape.h
-src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyboardStub.h
-src/event/RemoteEventHandlerFactory.o: src/event/keyboard/Keyboard.h
-src/event/RemoteEventHandlerFactory.o: src/event/mouse/MouseStub.h
 src/event/RemoteEventHandlerFactory.o: src/event/timer/TimerStub.h
 src/event/RemoteEventHandlerFactory.o: src/event/timer/Timer.h
 src/event/reshape/Reshape.o: src/event/reshape/Reshape.h
@@ -627,10 +607,19 @@ src/interpolation/CameraRoller.o: src/event/mouse/MouseMotionEvent.h
 src/interpolation/CameraRoller.o: src/event/timer/Timer.h
 src/interpolation/CameraRoller.o: src/event/timer/TimerListener.h
 src/interpolation/CameraRoller.o: src/event/reshape/Reshape.h
-src/interpolation/CameraRoller.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/CameraRoller.o: src/geometry/Dimension2D.h
 src/interpolation/CameraRoller.o: src/geometry/Dimension.h
+src/interpolation/CameraRoller.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/CameraRoller.o: src/event/reshape/ReshapeListener.h
+src/interpolation/CameraRoller.o: src/event/LocalEventHandlerFactory.h
+src/interpolation/CameraRoller.o: src/event/EventHandlerFactory.h
+src/interpolation/CameraRoller.o: src/event/keyboard/KeyboardSkeleton.h
+src/interpolation/CameraRoller.o: src/event/keyboard/Keyboard.h
+src/interpolation/CameraRoller.o: src/event/mouse/MouseSkeleton.h
+src/interpolation/CameraRoller.o: src/event/reshape/ReshapeSkeleton.h
+src/interpolation/CameraRoller.o: src/event/reshape/Reshape.h
+src/interpolation/CameraRoller.o: src/event/timer/TimerSkeleton.h
+src/interpolation/CameraRoller.o: src/event/timer/Timer.h
 src/interpolation/CameraRoller.o: src/event/keyboard/Keyboard.h
 src/interpolation/CameraRoller.o: src/event/mouse/Mouse.h
 src/interpolation/CameraRoller.o: src/event/timer/Timer.h
@@ -867,10 +856,19 @@ src/interpolation/TimedInterpolation.o: src/event/mouse/MouseMotionEvent.h
 src/interpolation/TimedInterpolation.o: src/event/timer/Timer.h
 src/interpolation/TimedInterpolation.o: src/event/timer/TimerListener.h
 src/interpolation/TimedInterpolation.o: src/event/reshape/Reshape.h
-src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/TimedInterpolation.o: src/geometry/Dimension2D.h
 src/interpolation/TimedInterpolation.o: src/geometry/Dimension.h
+src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeListener.h
+src/interpolation/TimedInterpolation.o: src/event/LocalEventHandlerFactory.h
+src/interpolation/TimedInterpolation.o: src/event/EventHandlerFactory.h
+src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyboardSkeleton.h
+src/interpolation/TimedInterpolation.o: src/event/keyboard/Keyboard.h
+src/interpolation/TimedInterpolation.o: src/event/mouse/MouseSkeleton.h
+src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeSkeleton.h
+src/interpolation/TimedInterpolation.o: src/event/reshape/Reshape.h
+src/interpolation/TimedInterpolation.o: src/event/timer/TimerSkeleton.h
+src/interpolation/TimedInterpolation.o: src/event/timer/Timer.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/Keyboard.h
 src/interpolation/TimedInterpolation.o: src/event/mouse/Mouse.h
 src/interpolation/TimedInterpolation.o: src/event/reshape/Reshape.h
@@ -1327,10 +1325,18 @@ src/shape/String2D.o: src/event/mouse/MouseClickEvent.h
 src/shape/String2D.o: src/event/mouse/MouseButtonUp.h
 src/shape/String2D.o: src/event/mouse/MouseMotionEvent.h
 src/shape/String2D.o: src/event/timer/Timer.h src/event/timer/TimerListener.h
-src/shape/String2D.o: src/event/reshape/Reshape.h
+src/shape/String2D.o: src/event/reshape/Reshape.h src/geometry/Dimension2D.h
+src/shape/String2D.o: src/geometry/Dimension.h
 src/shape/String2D.o: src/event/reshape/ReshapeEvent.h
-src/shape/String2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
 src/shape/String2D.o: src/event/reshape/ReshapeListener.h
+src/shape/String2D.o: src/event/LocalEventHandlerFactory.h
+src/shape/String2D.o: src/event/EventHandlerFactory.h
+src/shape/String2D.o: src/event/keyboard/KeyboardSkeleton.h
+src/shape/String2D.o: src/event/keyboard/Keyboard.h
+src/shape/String2D.o: src/event/mouse/MouseSkeleton.h
+src/shape/String2D.o: src/event/reshape/ReshapeSkeleton.h
+src/shape/String2D.o: src/event/reshape/Reshape.h
+src/shape/String2D.o: src/event/timer/TimerSkeleton.h src/event/timer/Timer.h
 src/shape/String2D.o: src/event/keyboard/Keyboard.h src/event/mouse/Mouse.h
 src/shape/String2D.o: src/event/timer/Timer.h src/event/reshape/Reshape.h
 src/shape/String2D.o: src/core/World.h src/shape/Point3D.h
@@ -1406,7 +1412,52 @@ src/terrain/Terrain.o: src/interpolation/LinearInterpolator.h
 src/terrain/Terrain.o: src/transform/Translate.h src/transform/Rotate.h
 src/terrain/Terrain.o: src/shape/Point3D.h src/texture/TextureFactory.h
 src/terrain/Terrain.o: src/event/reshape/ReshapeListener.h
-src/terrain/Terrain.o: src/event/reshape/ReshapeEvent.h src/texture/Texture.h
+src/terrain/Terrain.o: src/event/reshape/ReshapeEvent.h src/core/Controller.h
+src/terrain/Terrain.o: src/event/EventHandlerFactory.h
+src/terrain/Terrain.o: src/event/keyboard/Keyboard.h include/SDL_events.h
+src/terrain/Terrain.o: src/event/keyboard/KeyboardListener.h
+src/terrain/Terrain.o: src/event/keyboard/KeyEvent.h include/SDL.h
+src/terrain/Terrain.o: src/event/keyboard/KeyEventFactory.h
+src/terrain/Terrain.o: src/event/keyboard/KeyDownEvent.h
+src/terrain/Terrain.o: src/event/keyboard/KeyUpEvent.h
+src/terrain/Terrain.o: src/event/mouse/Mouse.h
+src/terrain/Terrain.o: src/event/mouse/MouseListener.h
+src/terrain/Terrain.o: src/event/mouse/MouseEvent.h src/event/mouse/Mouse.h
+src/terrain/Terrain.o: src/event/mouse/MouseEventFactory.h
+src/terrain/Terrain.o: src/event/mouse/MouseButtonDown.h
+src/terrain/Terrain.o: src/event/mouse/MouseClickEvent.h
+src/terrain/Terrain.o: src/event/mouse/MouseButtonUp.h
+src/terrain/Terrain.o: src/event/mouse/MouseMotionEvent.h
+src/terrain/Terrain.o: src/event/timer/Timer.h
+src/terrain/Terrain.o: src/event/timer/TimerListener.h
+src/terrain/Terrain.o: src/event/reshape/Reshape.h src/geometry/Dimension2D.h
+src/terrain/Terrain.o: src/event/reshape/ReshapeEvent.h
+src/terrain/Terrain.o: src/event/reshape/ReshapeListener.h
+src/terrain/Terrain.o: src/event/LocalEventHandlerFactory.h
+src/terrain/Terrain.o: src/event/EventHandlerFactory.h
+src/terrain/Terrain.o: src/event/keyboard/KeyboardSkeleton.h
+src/terrain/Terrain.o: src/event/keyboard/Keyboard.h
+src/terrain/Terrain.o: src/event/mouse/MouseSkeleton.h
+src/terrain/Terrain.o: src/event/reshape/ReshapeSkeleton.h
+src/terrain/Terrain.o: src/event/reshape/Reshape.h
+src/terrain/Terrain.o: src/event/timer/TimerSkeleton.h
+src/terrain/Terrain.o: src/event/timer/Timer.h src/event/keyboard/Keyboard.h
+src/terrain/Terrain.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/terrain/Terrain.o: src/event/reshape/Reshape.h src/core/World.h
+src/terrain/Terrain.o: src/transform/Rotate.h src/event/timer/TimerListener.h
+src/terrain/Terrain.o: src/transform/Transform.h src/transform/Translate.h
+src/terrain/Terrain.o: src/core/Viewer.h src/geometry/Dimension2D.h
+src/terrain/Terrain.o: src/transform/CoordinateSystem.h
+src/terrain/Terrain.o: src/transform/CoordinateSystemFactory.h
+src/terrain/Terrain.o: src/transform/CoordinateSystem.h
+src/terrain/Terrain.o: src/transform/OpenGLCoordinateSystem.h
+src/terrain/Terrain.o: src/transform/MathCoordinateSystem.h
+src/terrain/Terrain.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/terrain/Terrain.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/Terrain.o: src/event/keyboard/DefaultKeyboardListener.h
+src/terrain/Terrain.o: src/core/Controller.h src/core/World.h
+src/terrain/Terrain.o: src/event/mouse/DefaultMouseListener.h
+src/terrain/Terrain.o: src/texture/Texture.h
 src/texture/Texture.o: src/texture/Texture.h
 src/texture/TextureFactory.o: src/texture/TextureFactory.h
 src/texture/TextureFactory.o: include/SDL_opengl.h /usr/include/stddef.h
@@ -1416,6 +1467,101 @@ src/texture/TextureFactory.o: /usr/include/machine/_types.h
 src/texture/TextureFactory.o: /usr/include/ppc/_types.h
 src/texture/TextureFactory.o: src/event/reshape/ReshapeListener.h
 src/texture/TextureFactory.o: src/event/reshape/ReshapeEvent.h
+src/texture/TextureFactory.o: src/core/Controller.h /usr/include/stdlib.h
+src/texture/TextureFactory.o: /usr/include/sys/wait.h
+src/texture/TextureFactory.o: /usr/include/sys/signal.h
+src/texture/TextureFactory.o: /usr/include/sys/appleapiopts.h
+src/texture/TextureFactory.o: /usr/include/machine/signal.h
+src/texture/TextureFactory.o: /usr/include/ppc/signal.h
+src/texture/TextureFactory.o: /usr/include/sys/resource.h
+src/texture/TextureFactory.o: /usr/include/machine/endian.h
+src/texture/TextureFactory.o: /usr/include/ppc/endian.h
+src/texture/TextureFactory.o: /usr/include/sys/_endian.h
+src/texture/TextureFactory.o: /usr/include/stdint.h
+src/texture/TextureFactory.o: /usr/include/libkern/OSByteOrder.h
+src/texture/TextureFactory.o: /usr/include/libkern/ppc/OSByteOrder.h
+src/texture/TextureFactory.o: /usr/include/alloca.h
+src/texture/TextureFactory.o: /usr/include/machine/types.h
+src/texture/TextureFactory.o: /usr/include/ppc/types.h include/SDL.h
+src/texture/TextureFactory.o: include/SDL_main.h include/SDL_types.h
+src/texture/TextureFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/texture/TextureFactory.o: include/begin_code.h include/close_code.h
+src/texture/TextureFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/texture/TextureFactory.o: include/SDL_timer.h include/SDL_audio.h
+src/texture/TextureFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/texture/TextureFactory.o: include/SDL_joystick.h include/SDL_events.h
+src/texture/TextureFactory.o: include/SDL_active.h include/SDL_keyboard.h
+src/texture/TextureFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/texture/TextureFactory.o: include/SDL_video.h include/SDL_mutex.h
+src/texture/TextureFactory.o: include/SDL_quit.h include/SDL_version.h
+src/texture/TextureFactory.o: src/event/EventHandlerFactory.h
+src/texture/TextureFactory.o: src/event/keyboard/Keyboard.h
+src/texture/TextureFactory.o: include/SDL_events.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyboardListener.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyEvent.h include/SDL.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyEventFactory.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyDownEvent.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyUpEvent.h
+src/texture/TextureFactory.o: src/event/mouse/Mouse.h
+src/texture/TextureFactory.o: src/event/mouse/MouseListener.h
+src/texture/TextureFactory.o: src/event/mouse/MouseEvent.h
+src/texture/TextureFactory.o: src/event/mouse/Mouse.h
+src/texture/TextureFactory.o: src/event/mouse/MouseEventFactory.h
+src/texture/TextureFactory.o: src/event/mouse/MouseButtonDown.h
+src/texture/TextureFactory.o: src/event/mouse/MouseClickEvent.h
+src/texture/TextureFactory.o: src/event/mouse/MouseButtonUp.h
+src/texture/TextureFactory.o: src/event/mouse/MouseMotionEvent.h
+src/texture/TextureFactory.o: src/event/timer/Timer.h
+src/texture/TextureFactory.o: src/event/timer/TimerListener.h
+src/texture/TextureFactory.o: src/event/reshape/Reshape.h
+src/texture/TextureFactory.o: src/geometry/Dimension2D.h
+src/texture/TextureFactory.o: src/geometry/Dimension.h
+src/texture/TextureFactory.o: src/event/reshape/ReshapeEvent.h
+src/texture/TextureFactory.o: src/event/reshape/ReshapeListener.h
+src/texture/TextureFactory.o: src/event/LocalEventHandlerFactory.h
+src/texture/TextureFactory.o: src/event/EventHandlerFactory.h
+src/texture/TextureFactory.o: src/event/keyboard/KeyboardSkeleton.h
+src/texture/TextureFactory.o: src/event/keyboard/Keyboard.h
+src/texture/TextureFactory.o: src/event/mouse/MouseSkeleton.h
+src/texture/TextureFactory.o: src/event/reshape/ReshapeSkeleton.h
+src/texture/TextureFactory.o: src/event/reshape/Reshape.h
+src/texture/TextureFactory.o: src/event/timer/TimerSkeleton.h
+src/texture/TextureFactory.o: src/event/timer/Timer.h
+src/texture/TextureFactory.o: src/event/keyboard/Keyboard.h
+src/texture/TextureFactory.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/texture/TextureFactory.o: src/event/reshape/Reshape.h src/core/World.h
+src/texture/TextureFactory.o: src/shape/Point3D.h /usr/include/math.h
+src/texture/TextureFactory.o: /usr/include/architecture/ppc/math.h
+src/texture/TextureFactory.o: src/paint/Paint.h /usr/include/string.h
+src/texture/TextureFactory.o: src/texture/Texture.h include/SDL_image.h
+src/texture/TextureFactory.o: include/SDL.h src/paint/Color.h
+src/texture/TextureFactory.o: src/shape/Renderable.h src/shape/Renderable.h
+src/texture/TextureFactory.o: src/transform/Rotate.h
+src/texture/TextureFactory.o: src/transform/Transform.h
+src/texture/TextureFactory.o: src/geometry/Dimension3D.h
+src/texture/TextureFactory.o: src/interpolation/InterpolationEngine.h
+src/texture/TextureFactory.o: src/interpolation/InterpolationListener.h
+src/texture/TextureFactory.o: src/interpolation/Interpolator.h
+src/texture/TextureFactory.o: src/interpolation/InterpolatorFactory.h
+src/texture/TextureFactory.o: src/interpolation/LinearInterpolator.h
+src/texture/TextureFactory.o: src/util/GraphicsConversionUtility.h
+src/texture/TextureFactory.o: src/transform/Positionable.h
+src/texture/TextureFactory.o: src/transform/Scale.h src/transform/Translate.h
+src/texture/TextureFactory.o: src/transform/Rotate.h
+src/texture/TextureFactory.o: src/event/timer/TimerListener.h
+src/texture/TextureFactory.o: src/transform/Transform.h
+src/texture/TextureFactory.o: src/transform/Translate.h src/core/Viewer.h
+src/texture/TextureFactory.o: src/geometry/Dimension2D.h
+src/texture/TextureFactory.o: src/transform/CoordinateSystem.h
+src/texture/TextureFactory.o: src/transform/CoordinateSystemFactory.h
+src/texture/TextureFactory.o: src/transform/CoordinateSystem.h
+src/texture/TextureFactory.o: src/transform/OpenGLCoordinateSystem.h
+src/texture/TextureFactory.o: src/transform/MathCoordinateSystem.h
+src/texture/TextureFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/texture/TextureFactory.o: src/transform/EngineerCoordinateSystem.h
+src/texture/TextureFactory.o: src/event/keyboard/DefaultKeyboardListener.h
+src/texture/TextureFactory.o: src/core/Controller.h src/core/World.h
+src/texture/TextureFactory.o: src/event/mouse/DefaultMouseListener.h
 src/texture/TextureFactory.o: src/texture/Texture.h
 src/transform/CoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/CoordinateSystemFactory.o: src/transform/CoordinateSystemFactory.h
@@ -1958,10 +2104,19 @@ src/util/FramesPerSecondCounter.o: src/event/mouse/MouseMotionEvent.h
 src/util/FramesPerSecondCounter.o: src/event/timer/Timer.h
 src/util/FramesPerSecondCounter.o: src/event/timer/TimerListener.h
 src/util/FramesPerSecondCounter.o: src/event/reshape/Reshape.h
-src/util/FramesPerSecondCounter.o: src/event/reshape/ReshapeEvent.h
 src/util/FramesPerSecondCounter.o: src/geometry/Dimension2D.h
 src/util/FramesPerSecondCounter.o: src/geometry/Dimension.h
+src/util/FramesPerSecondCounter.o: src/event/reshape/ReshapeEvent.h
 src/util/FramesPerSecondCounter.o: src/event/reshape/ReshapeListener.h
+src/util/FramesPerSecondCounter.o: src/event/LocalEventHandlerFactory.h
+src/util/FramesPerSecondCounter.o: src/event/EventHandlerFactory.h
+src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyboardSkeleton.h
+src/util/FramesPerSecondCounter.o: src/event/keyboard/Keyboard.h
+src/util/FramesPerSecondCounter.o: src/event/mouse/MouseSkeleton.h
+src/util/FramesPerSecondCounter.o: src/event/reshape/ReshapeSkeleton.h
+src/util/FramesPerSecondCounter.o: src/event/reshape/Reshape.h
+src/util/FramesPerSecondCounter.o: src/event/timer/TimerSkeleton.h
+src/util/FramesPerSecondCounter.o: src/event/timer/Timer.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/Keyboard.h
 src/util/FramesPerSecondCounter.o: src/event/mouse/Mouse.h
 src/util/FramesPerSecondCounter.o: src/event/reshape/Reshape.h

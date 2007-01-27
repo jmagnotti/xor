@@ -1,28 +1,69 @@
-#ifndef MULTICASTBROADCASTER_H
-#define MULTICASTBROADCASTER_H
+#ifndef MULTICASTSOCKET_H
+#define MULTICASTSOCKET_H
 
-#include "../event/keyboard/Keyboard.h"
-#include "../event/keyboard/KeyboardListener.h"
-#include "../event/keyboard/KeyEvent.h"
-#include "../core/Controller.h"
-#include "mcsend.h"
+
+#include "multicast.h"
 
 
 namespace XOR {
 
-class MulticastBroadcaster : public KeyboardListener
+/**
+ * Encapsulates sending and receiving of UDP Broadcasts.
+ */
+class MulticastSocket
 {
 
 public:
 
-	MulticastBroadcaster();
-	void handleKeyEvent(KeyEvent * ke);
+	MulticastSocket();
 
 private:
 
-	MCSend * mcsend;
+
 };
+
+
+
+
+/**
+ * takes care of the defaults for the keyboard socket
+ */
+class MulticastKeyboardSocket : MulticastSocket
+{
+
+public:
+
+    MulticastKeyboardSocket();
+
+};
+
+/**
+ * takes care of the defaults for the Mouse socket
+ */
+class MulticastMouseSocket 
+{
+
+public:
+
+   MulticastMouseSocket(); 
+
+};
+
+
+/**
+ * Takes care of the defaults for the Timer socket
+ */
+class MulticastTimerSocket 
+{
+
+public:
+
+    MulticastTimerSocket();
+
+};
+
 
 }
 
-#endif			// MULTICASTBROADCASTER_H
+#endif			// MULTICASTSOCKET_H
+

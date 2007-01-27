@@ -1,5 +1,7 @@
 #include "Dimension2D.h"
 
+#include <iostream>
+using namespace std;
 
 namespace XOR {
 
@@ -9,6 +11,9 @@ namespace XOR {
 Dimension2D::Dimension2D()
 {
     _dimension = new float[2];
+
+    _dimension[0] = 0.0f;
+    _dimension[1] = 0.0f;
 }
 
 
@@ -17,7 +22,9 @@ Dimension2D::Dimension2D()
  */
 Dimension2D::Dimension2D(float width, float height)
 {
+    //cout << "Exp Constr in D_2D" << endl;
     _dimension = new float[2];
+
     _dimension[0] = width;
     _dimension[1] = height;
 }

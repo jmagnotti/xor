@@ -89,6 +89,7 @@ void Quadrilateral3D::render(void)
 
 	if(_paint->isTextured())
 	{
+        cout << "isTextured" << endl;
 
        	// need to determine if lighting is on and if the object is textured 
 		//if (isLit()){
@@ -96,14 +97,8 @@ void Quadrilateral3D::render(void)
 		//}
 
         glColor3fv(_paint->getColorTo());
-
-		//Point3D * p = *_center + getNormal();
-		//glBegin(GL_LINES);
-		//	_center->render();
-		//	p->render();
-		//glEnd();
-
         glEnable(GL_TEXTURE_2D);
+
 			//activate the texture
             _paint->getTexture()->setActive();
 			
@@ -118,13 +113,13 @@ void Quadrilateral3D::render(void)
 				glTexCoord2f(0, 0);
 				_vertices[0]->render();
 
-				glTexCoord2f(0, 10);
+				glTexCoord2f(0, 1);
 				_vertices[1]->render();
 
-				glTexCoord2f(10, 10);
+				glTexCoord2f(1, 1);
 				_vertices[2]->render();
 
-				glTexCoord2f(10, 0);
+				glTexCoord2f(1, 0);
 				_vertices[3]->render();
 			glEnd();
         glDisable(GL_TEXTURE_2D);

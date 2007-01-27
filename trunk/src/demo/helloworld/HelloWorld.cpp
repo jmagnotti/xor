@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     // gets setup.
     ctrl->defaultConfiguration();
 
-    ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,-1), new TimedInterpolation(3000, NULL));
+    //ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,-1), new TimedInterpolation(3000, NULL));
 
     // We want to print 'Hello World,' so we need a String2D object. 
     // We are creating the object as a pointer for greater effecincy
