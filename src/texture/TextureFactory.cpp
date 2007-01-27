@@ -11,6 +11,31 @@ TextureFactory * TextureFactory::_textureFactory = 0;
  */
 TextureFactory::TextureFactory()
 {
+    initializeTextureSettings();    
+    Controller::GetInstance()->getReshape()->addListener(this);
+}
+
+
+/*
+ *
+ */
+void TextureFactory::handleReshape(ReshapeEvent * event)
+{
+   initializeTextureSettings();
+
+   map<char*, Texture*>::iterator iter   = textures.begin();
+   map<char*, Texture*>::iterator finish = textures.end();
+
+   while (iter != finish) {
+       iter->second->regenerate();
+       ++iter;
+   }
+
+}
+
+
+void TextureFactory::initializeTextureSettings()
+{
 	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_S,		GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_T,		GL_REPEAT);
 
@@ -19,18 +44,6 @@ TextureFactory::TextureFactory()
 
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 }
-
-
-
-/*
- *
- */
-void TextureFactory::handleReshape(ReshapeEvent * event)
-{
-    //regen the textures
-   //map<char*, Texture*>::iterator iter = textures->
-}
-
 
 /*
  * singleton accessor

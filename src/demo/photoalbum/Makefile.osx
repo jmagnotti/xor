@@ -2,7 +2,7 @@
 #
 CC = g++ 
 
-LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDLMain -lXOR -lm
+LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDL_image -lSDLMain -lXOR -lm
 
 #Packages
 SRCS = PhotoAlbum.cpp

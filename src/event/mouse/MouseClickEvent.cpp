@@ -3,11 +3,11 @@
 namespace XOR {
 
 // mouse button constants
-const int MouseClickEvent::LEFT_MOUSE_BUTTON     = 0;
-const int MouseClickEvent::RIGHT_MOUSE_BUTTON    = 1;
-const int MouseClickEvent::MIDDLE_MOUSE_BUTTON   = 2;
-const int MouseClickEvent::MOUSE_WHEEL_UP        = 3;
-const int MouseClickEvent::MOUSE_WHEEL_DOWN      = 4;
+const int MouseClickEvent::LEFT_MOUSE_BUTTON     = 1;
+const int MouseClickEvent::RIGHT_MOUSE_BUTTON    = 2;
+const int MouseClickEvent::MIDDLE_MOUSE_BUTTON   = 3;
+const int MouseClickEvent::MOUSE_WHEEL_UP        = 4;
+const int MouseClickEvent::MOUSE_WHEEL_DOWN      = 5;
 
 
 /*

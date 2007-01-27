@@ -56,8 +56,11 @@ void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
      
 void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 {
-    if (kde->getKey() == SDLK_ESCAPE)
+    if (    kde->getKey() == SDLK_ESCAPE ||
+           (kde->getKey() == SDLK_q && kde->isMetaPressed())) {
+
         Controller::GetInstance()->CleanUpAndExit();
+    }
 }
 
 

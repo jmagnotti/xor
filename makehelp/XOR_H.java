@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  */
 public class XOR_H
 {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		File headerFile = new File("xor.h");
 		PrintWriter out = new PrintWriter(headerFile);
 
@@ -23,6 +23,9 @@ public class XOR_H
 		out.write("\n#endif\t\t\t// XOR_H\n\n");
 		
 		out.close();
+
+        Process proc = Runtime.getRuntime().exec("mv xor.h src/");
+        proc.waitFor();
 	}
 }
 

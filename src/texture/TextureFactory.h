@@ -8,7 +8,7 @@
 
 #include "../event/reshape/ReshapeListener.h"
 #include "../event/reshape/ReshapeEvent.h"
-
+#include "../core/Controller.h"
 #include "Texture.h"
 
 using namespace std;
@@ -67,6 +67,7 @@ private:
 	 */
 	TextureFactory();
 
+    void initializeTextureSettings();
 
 	//container for textures
 	map<char *, Texture *> textures;

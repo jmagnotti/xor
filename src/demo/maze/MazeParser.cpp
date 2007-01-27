@@ -35,8 +35,8 @@ Maze * MazeParser::parse()
 	TextureFactory * tf = TextureFactory::GetInstance();
 
 	//set a paint to be used by the maze
-    //Paint * p =  new Paint(Color::BLACK, Color::WHITE, Paint::HEIGHT_BASED, tf->createTexture("rocks.bmp"));
-    Paint * p =  new Paint(Color::BLACK, Color::SNOW, Paint::HEIGHT_BASED);//, tf->createTexture("greenstone.bmp"));
+    Paint * p =  new Paint(Color::BLACK, Color::WHITE, Paint::HEIGHT_BASED, tf->createTexture("texture.png"));
+    //Paint * p =  new Paint(Color::BLACK, Color::SNOW, Paint::HEIGHT_BASED);//, tf->createTexture("greenstone.bmp"));
 
 	//initialize a file stream reader
 	ifstream fin(mazeFile);

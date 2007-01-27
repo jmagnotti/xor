@@ -65,7 +65,7 @@ public final class BuildFileList {
 	private final String[] excludeFiles = { "xor.h" };
 
 	private final String[] excludeDirs = { "include", "lib", "bin", "demo",
-			"doc", "immerge", "transition" };
+			"doc", "immerge", "transition", "multicast" };
 
 	private Vector<String> sourceList;
 

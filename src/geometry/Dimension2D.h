@@ -8,7 +8,7 @@
 namespace XOR {
 
 /**
- * This is a quick hack to allow for passing float[2]. 
+ * This is a quick class to allow for passing float[2]. 
  */
 class Dimension2D : public Dimension
 {

@@ -27,6 +27,12 @@ public class Make {
 		err.stop();
 		in.stop();
 
+        command = "java makehelp.XOR_H";
+        System.out.println(command);
+
+        proc = Runtime.getRuntime().exec(command);
+        proc.waitFor();
+
 		command = "make -j2 -f " + generator.getMakefileName();
 		System.out.println(command);
 		proc = Runtime.getRuntime().exec(command);
@@ -97,12 +103,12 @@ public class Make {
 				}
 			}
 
-            try {
             // catch any leftover buffer
-            while (reader.ready()) {
-                System.out.println(reader.readLine());
-                System.out.flush();
-            }
+            try {
+                while (reader.ready()) {
+                    System.out.println(reader.readLine());
+                    System.out.flush();
+                }
             } catch (IOException ioe) {
                 //nothing
             }

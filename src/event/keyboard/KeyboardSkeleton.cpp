@@ -15,8 +15,6 @@ KeyboardSkeleton::KeyboardSkeleton()
 
 KeyboardSkeleton * KeyboardSkeleton::GetInstance()
 {
-    cout << "Getting an instance of the skeleton" << endl;
-
     if (_keyboardSkeleton == NULL)
         _keyboardSkeleton = new KeyboardSkeleton();
 
@@ -26,7 +24,7 @@ KeyboardSkeleton * KeyboardSkeleton::GetInstance()
 
 void KeyboardSkeleton::fireKeyEvent(KeyEvent * ke)
 {
-    cout << "Notifying the listeners" << endl;
+    cout << "firing key event: " << ke->getKey() << endl;
 
     notifyListeners(ke);
 

@@ -13,48 +13,81 @@ Texture::Texture(char *fileName)
 }
 
 
+/*
+ * height in pixels
+ */
 int Texture::getHeight()
 {
     return _height;
 }
 
 
+/*
+ * pointer to the texture
+ */
 GLuint Texture::getID()
 {
     return _id;
 }
 
 
+/*
+ * path to the texture file
+ */
 char * Texture::getPath()
 { 
     return _path;
 }
 
 
+/*
+ * width in pixels
+ */
 int	Texture::getWidth()
 {
     return _width;
 }
 
+
+/*
+ * regen the texture after a reshape
+ */
+void Texture::regenerate()
+{
+    loadFromFile();
+}
 	
 /*
- * loads a bmp texture file
+ * loads a texture file
  */
 void Texture::loadFromFile()
 {
     // use SDL IMG library to load
-    SDL_Surface * texture = IMG_Load(_path);
+    SDL_Surface * texture = NULL;
+    texture = IMG_Load(_path);
+
+    if (texture == NULL)    cout << "FAILURE" << endl;
+
+    if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
+ 
+    glEnable(GL_TEXTURE_2D);
     glGenTextures(1, &_id);
-   // glBindTexture(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, _id);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
 	_width  = texture->w;
 	_height = texture->h;
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _width, _height, 0, GL_RGBA,
-            GL_UNSIGNED_BYTE, texture->pixels);
+//    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
 
-    //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGB,
-    //GL_UNSIGNED_BYTE, _image->data);
+    if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
 
     SDL_FreeSurface(texture);
 }
@@ -68,3 +101,4 @@ void Texture::setActive()
 }
 
 }
+

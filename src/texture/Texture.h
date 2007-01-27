@@ -52,15 +52,24 @@ public:
      */
 	int	getWidth();
 
+    
+    /**
+     * Rebuilds the texture.
+     */
+    void regenerate();
+
 
 private:
 
     Texture();
 
-	char* _path;
+	char * _path;
+
 	int _height, _width;
+
 	GLuint _id;
-	void loadFromFile();	//this is the preferred method to use for creation
+
+	void loadFromFile();
 
 };
 

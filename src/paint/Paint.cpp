@@ -210,7 +210,6 @@ void Paint::print()
 
     cout << endl << "Textured? " << isTextured() << endl;
     cout << "AutoGradient: " << getAutoGradient() << endl << endl;
-
 }
 
 

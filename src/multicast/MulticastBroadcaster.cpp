@@ -12,11 +12,12 @@ MulticastBroadcaster::MulticastBroadcaster()
 
 void MulticastBroadcaster::handleKeyEvent(KeyEvent * ke)
 {
-	if(ke->getKey() != 300)
-	{
+	if(ke->getKey() != 300) {
 		char * buffer = new char[20];
 		sprintf(buffer, "%d %d\n", ke->getKey(), ke->getModifiers());
+
 		printf("PRINT: %s", buffer);
+
 		mcsend->send(buffer);
 	}
 }
