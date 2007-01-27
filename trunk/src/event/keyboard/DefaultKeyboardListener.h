@@ -43,10 +43,14 @@ public:
 
 protected:
 
+	/*
 	virtual void handleKey_w();
 	virtual void handleKey_s();
 	virtual void handleKey_q();
 	virtual void handleKey_e();
+	virtual void handleKey_a();
+	virtual void handleKey_d();
+	*/
 	virtual void handleKey_F();
 	virtual void handleKeyAscii_27();
 

@@ -28,8 +28,7 @@ public:
                 //TimedInterpolation(3000, this));
 
         //ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
-
-        //ctrl->getViewer()->incrementTranslation(new Dimension3D(1,0,3), new TimedInterpolation(3000, this));
+        ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,2), new TimedInterpolation(3000, this));
 
         loadPics();
 
@@ -137,6 +136,52 @@ public:
     {
         pics[4]->clear();
     }
+
+
+	void handleKey_p()
+	{
+		Controller::GetInstance()->getViewer()->printDebugInfo();
+	}
+
+	void handleKey_a()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(0, -10.0f);
+	}
+
+	void handleKey_d()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(0, 10.0f);
+	}
+
+	void handleKey_w()
+	{
+		Controller::GetInstance()->getViewer()->walk(0.15f, new TimedInterpolation(200,NULL));
+	}
+
+	void handleKey_s()
+	{
+		Controller::GetInstance()->getViewer()->walk(-0.15f, new TimedInterpolation(200,NULL));
+	}
+
+	void handleKey_q()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);
+	}
+
+	void handleKey_e()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f);
+	}
+
+	void handleKey_c()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(1, 5.0f);
+	}
+
+	void handleKey_z()
+	{
+		Controller::GetInstance()->getViewer()->incrementRotation(1, -5.0f);
+	}
 
 
     void bringToFront(int index)

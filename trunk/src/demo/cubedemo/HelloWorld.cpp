@@ -136,12 +136,12 @@ int main(int argc, char **argv)
     Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED, t); 
     p->setAutoGradient(.01);
 
-    Cube * hello = new Cube(new Point3D(0, 0, 0), 1.0f, p);
+    Cube * hello = new Cube(new Point3D(-.5, -.5, -2.5), 1.0f, p);
         //new Paint(Color::WHITE, Paint::HEIGHT_BASED));
 
-    hello->setTranslation(new Dimension3D(-.5,-.5,0));
-    hello->setRotation(Positionable::PHI, -20);
-    hello->setRotation(Positionable::THETA, 20);
+    //hello->setTranslation(new Dimension3D(0,0,2));
+    //hello->setRotation(Positionable::PHI, -20);
+    //hello->setRotation(Positionable::THETA, 20);
     
     //ctrl->setModel(new RenderTest());
     ctrl->setModel(hello);

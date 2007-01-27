@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     // we need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
     // controller object (note: Singleton Pattern).
-    Controller * ctrl = Controller::GetInstance();
+    Controller * ctrl = Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
 
     // tell the controller to setup friendly defaults for us. This includes
     // mouse, keyboard, view, and reshape defaults. It also sets up openGL 

@@ -12,6 +12,10 @@ OpenGLCoordinateSystem * OpenGLCoordinateSystem::_openGLCoordinateSystem =
 OpenGLCoordinateSystem::OpenGLCoordinateSystem()
 {
     // doesn't use the rotations
+	_rotations[0] = new Rotate();
+	_rotations[1] = new Rotate();
+	_rotations[2] = new Rotate();
+	_scale = new Scale();
 }
 
 
