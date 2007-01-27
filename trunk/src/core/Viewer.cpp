@@ -15,7 +15,7 @@ const int Viewer::DEFAULT_WINDOW_Y		= 100;
 const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
 const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 
-const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 0;    			// use the OS default
+const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;    			// use the OS default
 const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
 
@@ -125,6 +125,8 @@ void Viewer::handleReshape(ReshapeEvent * event)
  */
 void Viewer::setupSDLVideo()
 {
+    cout << "SetVIdeoMode" << endl;
+
     // at some point we need to have variables to hold things like current video
     // flags, etc.
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
@@ -151,6 +153,8 @@ void Viewer::view()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+    glLoadIdentity();
+
 	// since we're technically moving the whole world, push the inverse
     pushInverse();
         _coordinateSystem->push();

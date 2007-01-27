@@ -154,20 +154,24 @@ void Controller::defaultGLConfiguration()
     _viewer->setupClearColor();
 
     glShadeModel(GL_SMOOTH);
+    glEnable(GL_TEXTURE_2D);
 
 	// enable blending
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// enable anti-aliasing
+/*
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+*/
 
 
 	// enable depth testings
 	glEnable(GL_DEPTH_TEST);
 
 	// enable fog
+/*
 	glEnable(GL_FOG);
 
 	glFogi(GL_FOG_MODE, GL_LINEAR);
@@ -178,6 +182,7 @@ void Controller::defaultGLConfiguration()
 	glFogi(GL_FOG_END, 25);
 	GLfloat fogColor[4] = {0.0, 0.0, 0.0, 1.0};
 	glFogfv(GL_FOG_COLOR, fogColor);
+*/
 }
 
 

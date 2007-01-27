@@ -4,7 +4,6 @@
 #include "core/Controller.h"
 #include "core/Viewer.h"
 #include "core/World.h"
-#include "core/XavierConfiguration.h"
 #include "event/EventHandlerFactory.h"
 #include "event/keyboard/DefaultKeyboardListener.h"
 #include "event/keyboard/Keyboard.h"
@@ -88,7 +87,6 @@
 #include "transform/Positionable.h"
 #include "transform/Rotate.h"
 #include "transform/Scale.h"
-#include "transform/Stretch.h"
 #include "transform/Transform.h"
 #include "transform/Transformable.h"
 #include "transform/TransformFactory.h"
@@ -98,7 +96,6 @@
 #include "util/BitmapFontUtil.h"
 #include "util/FramesPerSecondCounter.h"
 #include "util/GraphicsConversionUtility.h"
-#include "util/xmlParser.h"
 
 #endif			// XOR_H
 

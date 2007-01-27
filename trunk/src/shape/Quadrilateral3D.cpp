@@ -89,8 +89,6 @@ void Quadrilateral3D::render(void)
 
 	if(_paint->isTextured())
 	{
-        cout << "isTextured" << endl;
-
        	// need to determine if lighting is on and if the object is textured 
 		//if (isLit()){
 		//	glNormal3fv(getNormal()->getPosition());
@@ -103,7 +101,6 @@ void Quadrilateral3D::render(void)
             _paint->getTexture()->setActive();
 			
             //get the coords from the quad, and use them to create a proper texture spread
-            
             
             //fool around with the stretching values
 			//should do something like finding the proper values for the quad
