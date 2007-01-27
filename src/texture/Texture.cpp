@@ -84,7 +84,7 @@ void Texture::loadFromFile()
 	_width  = texture->w;
 	_height = texture->h;
 
-//    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
+//   gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
     glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
 
     if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);

@@ -39,14 +39,10 @@ depend: $(SRCS)
 HelloWorld.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
 HelloWorld.o: /usr/include/sys/cdefs.h /usr/include/_types.h
 HelloWorld.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-HelloWorld.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-HelloWorld.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-HelloWorld.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+HelloWorld.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+HelloWorld.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
 HelloWorld.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-HelloWorld.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-HelloWorld.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-HelloWorld.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-HelloWorld.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+HelloWorld.o: /usr/include/alloca.h /usr/include/machine/types.h
 HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
 HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
@@ -87,8 +83,7 @@ HelloWorld.o: ../../event/reshape/Reshape.h ../../event/timer/TimerSkeleton.h
 HelloWorld.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
 HelloWorld.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
 HelloWorld.o: ../../event/reshape/Reshape.h ../../core/World.h
-HelloWorld.o: ../../shape/Point3D.h /usr/include/math.h
-HelloWorld.o: /usr/include/architecture/ppc/math.h ../../paint/Paint.h
+HelloWorld.o: ../../shape/Point3D.h /usr/include/math.h ../../paint/Paint.h
 HelloWorld.o: /usr/include/string.h ../../texture/Texture.h
 HelloWorld.o: ../../../include/SDL_image.h ../../../include/SDL.h
 HelloWorld.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
@@ -117,8 +112,7 @@ HelloWorld.o: ../../event/reshape/ReshapeEvent.h
 HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
 HelloWorld.o: ../../core/Controller.h ../../core/World.h
 HelloWorld.o: ../../event/mouse/DefaultMouseListener.h ../../core/Viewer.h
-HelloWorld.o: ../../core/World.h ../../core/XavierConfiguration.h
-HelloWorld.o: ../../event/EventHandlerFactory.h
+HelloWorld.o: ../../core/World.h ../../event/EventHandlerFactory.h
 HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h
 HelloWorld.o: ../../event/keyboard/KeyboardListener.h
@@ -192,14 +186,10 @@ HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/MathCoordinateSystem.h
 HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/Positionable.h ../../transform/Rotate.h
-HelloWorld.o: ../../transform/Scale.h ../../transform/Stretch.h
-HelloWorld.o: ../../transform/Transform.h ../../transform/Transformable.h
+HelloWorld.o: ../../transform/Scale.h ../../transform/Transform.h
+HelloWorld.o: ../../transform/Transformable.h
 HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-HelloWorld.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
-HelloWorld.o: /usr/include/machine/_limits.h /usr/include/ppc/_limits.h
-HelloWorld.o: /usr/include/_wctype.h /usr/include/ctype.h
-HelloWorld.o: /usr/include/runetype.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h

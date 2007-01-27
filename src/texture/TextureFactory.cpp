@@ -12,7 +12,7 @@ TextureFactory * TextureFactory::_textureFactory = 0;
 TextureFactory::TextureFactory()
 {
     initializeTextureSettings();    
-    Controller::GetInstance()->getReshape()->addListener(this);
+    //Controller::GetInstance()->getReshape()->addListener(this);
 }
 
 

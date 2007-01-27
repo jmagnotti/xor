@@ -26,7 +26,7 @@ public:
 
         SDL_Surface * tex = NULL;
 
-        tex = IMG_Load("texture.png");
+        tex = IMG_Load("monkey.png");
         if (tex == NULL) {
             cout <<"FAILURE"<<endl;
         }
@@ -131,20 +131,20 @@ int main(int argc, char **argv)
     Controller * ctrl = Controller::GetInstance();
     ctrl->defaultConfiguration();
 
-    //Texture * t = TextureFactory::GetInstance()->createTexture("texture.png");
+    Texture * t = TextureFactory::GetInstance()->createTexture("monkey.png");
 
-    //Paint * p = new Paint(t);//Color::WHITE, Paint::HEIGHT_BASED, t);
-    //p->setAutoGradient(.01);
+    Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED, t); 
+    p->setAutoGradient(.01);
 
-    //Cube * hello = new Cube(new Point3D(0, 0, 0), 1.0f, p);
+    Cube * hello = new Cube(new Point3D(0, 0, 0), 1.0f, p);
         //new Paint(Color::WHITE, Paint::HEIGHT_BASED));
 
-    //hello->setTranslation(new Dimension3D(-.5,-.5,0));
-    //hello->setRotation(Positionable::PHI, -20);
-    //hello->setRotation(Positionable::THETA, 20);
+    hello->setTranslation(new Dimension3D(-.5,-.5,0));
+    hello->setRotation(Positionable::PHI, -20);
+    hello->setRotation(Positionable::THETA, 20);
     
-    ctrl->setModel(new RenderTest());
-    //ctrl->setModel(hello);
+    //ctrl->setModel(new RenderTest());
+    ctrl->setModel(hello);
 
     ctrl->run();
 

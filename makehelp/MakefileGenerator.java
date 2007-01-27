@@ -79,7 +79,7 @@ public abstract class MakefileGenerator
         }
 
 		public File generateMakefile() {
-			makefile = new File("Makefile.osx");
+			makefile = new File("Makefile");
 
 			try {
 				PrintWriter out = new PrintWriter(makefile);
