@@ -45,8 +45,7 @@ Quadrilateral3D::Quadrilateral3D(Point3D * p0, Point3D * p1, Point3D * p2, Point
 
 /*
  * Explicit Constructor.
- * Four corners and a paint.
- */
+ * Four corners and a paint.  */
 Quadrilateral3D::Quadrilateral3D(Point3D *p0, Point3D *p1, Point3D *p2, Point3D *p3, Paint *p)
 {
 	_paint = p;
@@ -100,23 +99,22 @@ void Quadrilateral3D::render(void)
 			//activate the texture
             _paint->getTexture()->setActive();
 			
-            //get the coords from the quad, and use them to create a proper texture spread
-            
+            //get the coords from the quad, and use them to create a proper texture spread 
             //fool around with the stretching values
 			//should do something like finding the proper values for the quad
 			//just take the min of vert[0] and the max of vert[2]. that should work...
 			glBegin(GL_QUADS);
 				//texture coords in CCW
-				glTexCoord2f(0, 0);
+				glTexCoord2f(0, 1);
 				_vertices[0]->render();
 
-				glTexCoord2f(0, 1);
+				glTexCoord2f(0, 0);
 				_vertices[1]->render();
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(1, 0);
 				_vertices[2]->render();
 
-				glTexCoord2f(1, 0);
+				glTexCoord2f(1, 1);
 				_vertices[3]->render();
 			glEnd();
         glDisable(GL_TEXTURE_2D);
