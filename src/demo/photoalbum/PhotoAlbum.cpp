@@ -28,10 +28,15 @@ public:
                 //TimedInterpolation(3000, this));
 
         //ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
-        ctrl->getViewer()->incrementTranslation(new Dimension3D(0,0,2), new TimedInterpolation(3000, this));
+        ctrl->getViewer()->incrementTranslation(
+				new Dimension3D(0,0,2), new TimedInterpolation(3000, this));
 
         loadPics();
-
+		
+		spaceFlag = false;
+		currentPic = 0;  // select first picture by default
+		setCurrentPic(currentPic);
+		
         s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
 
@@ -183,6 +188,60 @@ public:
 		Controller::GetInstance()->getViewer()->incrementRotation(1, -5.0f);
 	}
 
+	void handleKey_Down()
+	{
+		if(currentPic - 1 >= 0) 
+		{
+			setCurrentPic(currentPic - 1);
+		}
+	}
+
+	void handleKey_Up()
+	{
+		if(currentPic + 1 < numOfPics)
+		{
+			setCurrentPic(currentPic + 1);
+		}
+	}
+	/**
+	 * This function only works as-is with rows of 6 pics
+	 */
+	void handleKey_Left()
+	{
+		if((currentPic - 6) >= 0)
+		{
+			setCurrentPic(currentPic - 6);
+		}
+	}
+
+	/**
+	 * This function also only works as-is with rows of 6 pics
+	 */
+	void handleKey_Right()
+	{
+		if((currentPic + 6) < numOfPics)
+		{
+			setCurrentPic(currentPic + 6);
+		}
+	}
+	/*
+	 * Spacebar will bring a picture to the front
+	 */
+	void handleKey_Space()
+	{
+		if(spaceFlag) // if we're in view mode (hit space)
+		{
+			pics[currentPic]->clear();
+			spaceFlag = false;  // toggle flag
+		}	
+		else
+		{
+			bringToFront(currentPic);
+			spaceFlag = true;
+		}
+	}
+	
+
 
     void bringToFront(int index)
     {
@@ -198,7 +257,10 @@ public:
         y = currentPoint->getY();
         */
         //need to move about .53 in the x and about -0.3 in the y
-        
+
+        // need scale the pic back to it's original form before messing with it
+	   	revertPic(index);
+	   	
         pics[index]->incrementScalar(new Dimension3D(7, 7, 1), new TimedInterpolation(300, this));
         pics[index]->setTranslation(new Dimension3D(.53, -.3, -.1), new TimedInterpolation(300, this));
         pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
@@ -212,8 +274,26 @@ protected:
 	 * setCurrentPic()  picture changes the pictures on the main display
 	 */
 	void setCurrentPic(int index)
-	{}
+	{
+		// scale down previous picture
+		if(currentPic != index) // didn't actually change
+		{
+			revertPic(currentPic);
+		}
+		// change the current picture
+		currentPic = index;	
+		// scale up
+        pics[currentPic]->incrementScalar(new Dimension3D(.2, .2, .2), new TimedInterpolation(300, this));
+	}
 
+	/*
+	 *
+	 */
+	void revertPic(int index)
+	{		
+		pics[index]->incrementScalar(new Dimension3D(-.2,-.2,-.2), new TimedInterpolation(300,this));
+	}
+	
 	void loadPics()
 	{
         
@@ -226,6 +306,7 @@ protected:
 		int ii=0;
 		for(double i = -3; i<3; i++) {
 	   		for (double j = -3; j<3; j++) {
+				numOfPics++;  // keep track of number of pics
                 cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
 			   	pics.push_back(new RectangularPrism(
 					new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
@@ -247,8 +328,11 @@ private:
     
     vector<RectangularPrism*> pics; RectangularPrism *a,*b,*c;
     String2D * s;
-        
-    //vector<TimedInterpolation*> _interpolation
+    int currentPic;  // the index of the currently selected pic    
+    int numOfPics;   // the actual number of pics (not highest index)
+	bool spaceFlag;  // are we in view mode? 
+	
+	//vector<TimedInterpolation*> _interpolation
     /*  
     GLuint loadPic(char * filename)
     {
