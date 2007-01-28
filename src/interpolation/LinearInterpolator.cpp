@@ -89,14 +89,14 @@ void LinearInterpolator::setScale(vector<float*> & in, vector<float> & out, int 
     vector<float>::iterator out_finish = out.end();
 
     while (in_iter != in_finish && out_iter != out_finish) {
-        cout << "src: " << (**in_iter) << " target: " << (*out_iter) << " steps: " << numSteps << endl;
+        //cout << "src: " << (**in_iter) << " target: " << (*out_iter) << " steps: " << numSteps << endl;
             
         _steps->push_back( ( (*out_iter) - (*(*in_iter)) ) / numSteps);
 
-        cout << "\tstep size: " << ( (*out_iter) - (*(*in_iter)) ) / numSteps << endl;
+        //cout << "\tstep size: " << ( (*out_iter) - (*(*in_iter)) ) / numSteps << endl;
 
         in_iter++; out_iter++;
-        cout << endl << endl << endl;
+        //cout << endl << endl << endl;
     }
 }
 
