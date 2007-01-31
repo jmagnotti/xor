@@ -3,6 +3,7 @@
 
 
 #include "Multicast.h"
+#include "MulticastSocket.h"
 
 
 namespace XOR {
@@ -10,7 +11,8 @@ namespace XOR {
 /**
  * Factory and container for MulticastSockets. Provides constants for selecting
  * the appropriate socket type, and takes care of initializing and closing
- * OS-specific socket interfaces.
+ * OS-specific socket interfaces. This class does not handle the actual closing
+ * of the socket.
  */
 class MulticastSocketPool
 {
@@ -23,6 +25,7 @@ public:
      * the header file so they may be used in switch statements. See Paint.h
      * for further discussion of this.
      */
+    static const int ERROR_SOCKET           = -1;
     static const int KEYBOARD_SOCKET        = 0;
     static const int TIMER_SOCKET           = 1;
     static const int MOUSE_SOCKET           = 2;
@@ -54,9 +57,11 @@ public:
 
 private:
 
-    static MulticastSocketPool * _multicastSocketPool;
+    MulticastSocketPool();
 
-    list<MulticastSocket*> _multicastSockets;
+    static MulticastSocketPool * _multicastSocketPool;
+    list<MulticastSocket*> _sockets;
+
 };
 
 }
