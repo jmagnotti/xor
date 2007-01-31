@@ -9,7 +9,8 @@
 namespace XOR {
 
 /**
- * 
+ * Contains send() and receive() methods that use UDP broadcasting and
+ * receiving. This class is not thread safe.
  */
 class MulticastSocket
 {
@@ -45,13 +46,20 @@ public:
      */
     string receive(void);
 
+
+private:
+
+    struct sockaddr_in _address;
+
+    int _socket;
+
 };
 
 
 /**
  * takes care of the defaults for the keyboard socket
  */
-class MulticastKeyboardSocket : MulticastSocket
+class MulticastKeyboardSocket : public MulticastSocket
 {
 
 public:
@@ -64,7 +72,7 @@ public:
 /**
  * takes care of the defaults for the Mouse socket
  */
-class MulticastMouseSocket 
+class MulticastMouseSocket : public MulticastSocket
 {
 
 public:
@@ -77,7 +85,7 @@ public:
 /**
  * Takes care of the defaults for the Timer socket
  */
-class MulticastTimerSocket 
+class MulticastTimerSocket : public MulticastSocket
 {
 
 public:
@@ -87,7 +95,10 @@ public:
 };
 
 
-class MulticastUserSocket
+/*
+ * user event channel
+ */
+class MulticastUserSocket: public MulticastSocket
 {
 
 public:
@@ -95,6 +106,21 @@ public:
     MulticastUserSocket();
 
 };
+
+
+/*
+ * error broadcaster, for those who want to listen to the complaints
+ * of the framework.
+ */
+class MulticastErrorSocket : public MulticastSocket
+{
+
+public:
+
+    MulticastErrorSocket();
+
+};
+
 
 }
 
