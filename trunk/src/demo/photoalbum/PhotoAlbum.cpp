@@ -248,24 +248,34 @@ public:
 
     void bringToFront(int index)
     {
-        /*
+        
         // grab x and y from the picture in question
         double x;   // original x position
         double y;
-        Point3D * currentPoint;
         
-        currentPoint = pics[index].getRegistrationPoint();
+		double newXshift;
+		double newYshift;
+
+		Point3D * currentPoint;
+			
+		// Get a copy of the point so we can 
+		// extract the x and y values to work on
+		currentPoint = pics[index]->getRegistrationPoint();
        
         x = currentPoint->getX();
         y = currentPoint->getY();
-        */
+        
+		// want to shift to the right spot
+		newXshift = -0.101 - x;
+		newYshift = -0.1 - y;
+
         //need to move about .53 in the x and about -0.3 in the y
 
         // need scale the pic back to it's original form before messing with it
 	   	revertPic(index);
 	   	
-        //pics[index]->setScalar(new Dimension3D(3, 3, 1), new TimedInterpolation(300, this));
-        pics[index]->setTranslation(new Dimension3D(.2, -.3, .1), new TimedInterpolation(300, this));
+        pics[index]->setScalar(new Dimension3D(6, 6, 1), new TimedInterpolation(300, this));
+        pics[index]->incrementTranslation(new Dimension3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
         pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
