@@ -190,7 +190,8 @@ public:
 
 	void handleKey_Down()
 	{
-		if(currentPic - 1 >= 0) 
+		// notice we wont let them move if spacebar is toggled
+		if(currentPic - 1 >= 0 && !spaceFlag) 
 		{
 			setCurrentPic(currentPic - 1);
 		}
@@ -198,7 +199,7 @@ public:
 
 	void handleKey_Up()
 	{
-		if(currentPic + 1 < numOfPics)
+		if(currentPic + 1 < numOfPics && !spaceFlag)
 		{
 			setCurrentPic(currentPic + 1);
 		}
@@ -208,7 +209,7 @@ public:
 	 */
 	void handleKey_Left()
 	{
-		if((currentPic - 6) >= 0)
+		if((currentPic - 6) >= 0 && !spaceFlag)
 		{
 			setCurrentPic(currentPic - 6);
 		}
@@ -219,7 +220,7 @@ public:
 	 */
 	void handleKey_Right()
 	{
-		if((currentPic + 6) < numOfPics)
+		if((currentPic + 6) < numOfPics && !spaceFlag)
 		{
 			setCurrentPic(currentPic + 6);
 		}
@@ -232,6 +233,8 @@ public:
 		if(spaceFlag) // if we're in view mode (hit space)
 		{
 			pics[currentPic]->clear();
+			// okay now we have to make the pic look selected again
+			setCurrentPic(currentPic);
 			spaceFlag = false;  // toggle flag
 		}	
 		else
@@ -261,8 +264,8 @@ public:
         // need scale the pic back to it's original form before messing with it
 	   	revertPic(index);
 	   	
-        pics[index]->incrementScalar(new Dimension3D(7, 7, 1), new TimedInterpolation(300, this));
-        pics[index]->setTranslation(new Dimension3D(.53, -.3, -.1), new TimedInterpolation(300, this));
+        //pics[index]->setScalar(new Dimension3D(3, 3, 1), new TimedInterpolation(300, this));
+        pics[index]->setTranslation(new Dimension3D(.2, -.3, .1), new TimedInterpolation(300, this));
         pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
