@@ -88,9 +88,9 @@ void Translate::set(Dimension3D * point, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
         _out.clear();
-        _out.push_back(_xShift + point->getX());
-        _out.push_back(_yShift + point->getY());
-        _out.push_back(_zShift + point->getZ());
+        _out.push_back(point->getX());
+        _out.push_back(point->getY());
+        _out.push_back(point->getZ());
 
         interpolation->setup(_values, _out);
         interpolation->start();
