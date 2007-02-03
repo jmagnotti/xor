@@ -6,7 +6,7 @@ namespace XOR {
 /**
  * Explicit Constructor
  */
-Texture::Texture(char *fileName)
+Texture::Texture(const char *fileName)
 {
 	_path = fileName;
 	loadFromFile();
@@ -34,7 +34,7 @@ GLuint Texture::getID()
 /*
  * path to the texture file
  */
-char * Texture::getPath()
+const char * Texture::getPath()
 { 
     return _path;
 }
@@ -66,7 +66,7 @@ void Texture::loadFromFile()
     SDL_Surface * texture = NULL;
     texture = IMG_Load(_path);
 
-    if (texture == NULL)    cout << "FAILURE" << endl;
+    if (texture == NULL) cout << IMG_GetError() << endl;
 
     if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
  

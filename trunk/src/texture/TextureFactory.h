@@ -33,7 +33,7 @@ public:
 	/**
 	 * A method for creating textures. Employs singleton texture creation
 	 */
-	Texture * createTexture(char * pathToFile);
+	Texture * createTexture(const char * pathToFile);
 
 
     /**
@@ -70,7 +70,7 @@ private:
     void initializeTextureSettings();
 
 	//container for textures
-	map<char *, Texture *> textures;
+	map<const char *, Texture *> textures;
 
 	static TextureFactory * _textureFactory;
 
