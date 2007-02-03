@@ -1,21 +1,32 @@
 #ifndef MULTICASTSOCKET_H
-#define MULTICASTSOCKET_H
-
+#define MULTICASTSOCKET_H 
 
 #include <string>
-#include "multicast.h"
+#include "Multicast.h"
 
+using namespace std;
 
 namespace XOR {
 
 /**
  * Contains send() and receive() methods that use UDP broadcasting and
- * receiving. This class is not thread safe.
+ * receiving.
  */
 class MulticastSocket
 {
 
 public:
+
+	/**
+	 * Maximum data transmisson size 
+	 */
+	static const short MAX_LENGTH = 1024;
+
+
+	/**
+	 * Destructor. Closes the socket. Does not shut down OS-specific socket APIs (WSA)
+	 */
+	virtual ~MulticastSocket();
 
 
     /**
@@ -49,10 +60,15 @@ public:
 
 private:
 
-    struct sockaddr_in _address;
+	MulticastSocket();
 
-    int _socket;
+    struct sockaddr_in  _localAddress;
+    struct sockaddr_in  _remoteAddress;
+	struct ip_mreq 		_request;
 
+	int	 _socket;
+
+	bool _joined;
 };
 
 
