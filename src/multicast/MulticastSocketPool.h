@@ -1,10 +1,12 @@
 #ifndef MULTICASTSOCKETPOOL_H
-#define MULTICASTSOCKETPOOL_H
+#define MULTICASTSOCKETPOOL_H 
 
+#include <list>
 
 #include "Multicast.h"
 #include "MulticastSocket.h"
 
+using namespace std;
 
 namespace XOR {
 
@@ -44,7 +46,7 @@ public:
      * closing it. The actual creation and later closing of sockets is done by
      * the MulticastSocket object.
      */
-    MulticastSocket * GetMulticastSocket(const int type);
+    MulticastSocket * getMulticastSocket(const int type);
 
 
     /**
@@ -52,7 +54,7 @@ public:
      * sockets, this should only be called by the Controller upon program
      * termination.
      */
-    static void CleanUpAndExit();
+     void cleanUpAndExit();
 
 
 private:

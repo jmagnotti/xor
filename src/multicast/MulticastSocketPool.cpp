@@ -3,6 +3,8 @@
 
 namespace XOR {
 
+ MulticastSocketPool * MulticastSocketPool::_multicastSocketPool = NULL;
+
 MulticastSocketPool::MulticastSocketPool()
 {
 
@@ -20,11 +22,41 @@ MulticastSocketPool::MulticastSocketPool()
 
 }
 
+MulticastSocketPool * MulticastSocketPool::GetInstance()
+{
+	if (_multicastSocketPool == NULL)
+		_multicastSocketPool = new MulticastSocketPool();
+
+	return _multicastSocketPool;
+}
+
+
+MulticastSocket * MulticastSocketPool::getMulticastSocket(const int type)
+{
+	switch(type) {
+		case ERROR_SOCKET :
+			return new MulticastErrorSocket();
+			break;
+		case TIMER_SOCKET :
+			return new MulticastTimerSocket();
+			break;
+		case MOUSE_SOCKET :
+			return new MulticastMouseSocket();
+			break;
+		case KEYBOARD_SOCKET :
+			return new MulticastKeyboardSocket();
+			break;
+		default :
+			return new MulticastUserSocket();
+			break;
+	}
+}
+
 
 /*
  * close the sockets and close API specific settings
  */
-MulticastSocketPool::CleanUpAndExit()
+void MulticastSocketPool::cleanUpAndExit()
 {
     list<MulticastSocket*>::iterator iter   = _sockets.begin();
     list<MulticastSocket*>::iterator next   = _sockets.begin();
@@ -32,7 +64,7 @@ MulticastSocketPool::CleanUpAndExit()
 
     while(iter != finish) {
         ++next;
-        (*iter)->close();
+        delete (*iter);
         iter = next;
     }
 
@@ -41,7 +73,6 @@ MulticastSocketPool::CleanUpAndExit()
 #endif
 
 }
-
 
 }
 

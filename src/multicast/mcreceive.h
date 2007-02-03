@@ -1,7 +1,7 @@
 #ifndef MCRECEIVE_H
 #define MCRECEIVE_H
 
-#include "multicast.h"
+#include "Multicast.h"
 
 namespace XOR {
 

@@ -1,7 +1,7 @@
 #ifndef MCSEND_H
 #define MCSEND_H
 
-#include "multicast.h"
+#include "Multicast.h"
 
 namespace XOR {
 
