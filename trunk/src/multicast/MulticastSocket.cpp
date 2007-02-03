@@ -3,6 +3,8 @@
 
 namespace XOR {
 
+const short  MulticastSocket::MAX_LENGTH = 1024;
+
 const char * MulticastSocket::MULTICAST_GROUP = "239.239.239.239";	
 
 
@@ -128,6 +130,7 @@ MulticastMouseSocket::MulticastMouseSocket() :
 
 MulticastKeyboardSocket::MulticastKeyboardSocket() :
 	MulticastSocket(MULTICAST_GROUP, 1235)
+{}
 
 MulticastUserSocket::MulticastUserSocket() :
 	MulticastSocket(MULTICAST_GROUP, 1236)
