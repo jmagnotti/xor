@@ -21,7 +21,12 @@ public:
 	/**
 	 * Maximum data transmisson size 
 	 */
-	static const short MAX_LENGTH = 1024;
+	static const short MAX_LENGTH;
+
+    /**
+     * Multicast group
+     */
+	static const char * MULTICAST_GROUP;
 
 
 	/**
