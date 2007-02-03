@@ -21,7 +21,7 @@ public:
 	/**
 	 * Explicit Constructor
 	 */
-	Texture(char * fileName);
+	Texture(const char * fileName);
 
 
     /*
@@ -45,7 +45,7 @@ public:
 
     /*
      */
-	char * getPath();
+	const char * getPath();
 
 
     /*
@@ -63,7 +63,7 @@ private:
 
     Texture();
 
-	char * _path;
+	const char * _path;
 
 	int _height, _width;
 

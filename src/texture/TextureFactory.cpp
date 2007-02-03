@@ -23,8 +23,8 @@ void TextureFactory::handleReshape(ReshapeEvent * event)
 {
    initializeTextureSettings();
 
-   map<char*, Texture*>::iterator iter   = textures.begin();
-   map<char*, Texture*>::iterator finish = textures.end();
+   map<const char*, Texture*>::iterator iter   = textures.begin();
+   map<const char*, Texture*>::iterator finish = textures.end();
 
    while (iter != finish) {
        iter->second->regenerate();
@@ -60,7 +60,7 @@ TextureFactory * TextureFactory::GetInstance()
 /* 
  * creates and returns a texture
  */
-Texture * TextureFactory::createTexture(char * pathToFile)
+Texture * TextureFactory::createTexture(const char * pathToFile)
 {
 	Texture * temp = textures[pathToFile];
 
