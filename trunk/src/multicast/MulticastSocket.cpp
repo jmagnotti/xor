@@ -3,7 +3,9 @@
 
 namespace XOR {
 
-	
+const char * MulticastSocket::MULTICAST_GROUP = "239.239.239.239";	
+
+
 /*
  * Private default constructor
  */
@@ -34,6 +36,8 @@ MulticastSocket::~MulticastSocket()
  */
 MulticastSocket::MulticastSocket(const char * group, unsigned short port)
 {
+    cout << "Building multicast socket with " << group << ":" << port << endl;
+
     int success;
 	int on = 1;
 
@@ -51,6 +55,11 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
     _localAddress.sin_family      = AF_INET;
     _localAddress.sin_addr.s_addr = inet_addr(group);
     _localAddress.sin_port        = htons(port);
+
+    memset(&_remoteAddress, 0, sizeof(_remoteAddress));
+    _remoteAddress.sin_family      = AF_INET;
+    _remoteAddress.sin_addr.s_addr = inet_addr(group);
+    _remoteAddress.sin_port        = htons(port);
 
 	/* construct an IGMP join request structure */
 	_request.imr_multiaddr.s_addr = inet_addr(group);
@@ -76,12 +85,13 @@ void MulticastSocket::send(string message)
 		_joined = true;
 	}
 
-    int length = sendto(_socket, message.c_str(), strlen(message.c_str()),
-            0, (struct sockaddr *) &_remoteAddress, sizeof(_remoteAddress));
+    cout << message.size() << endl;
 
-    if (length < message.size() ) {
-        // error condition
-    }
+    int length = sendto(_socket, message.c_str(), message.size(), 0, (struct sockaddr *) &_remoteAddress, sizeof(_remoteAddress));
+
+    /* if (length < message.size() ) { cout << "only " << length << " bytes sent" << endl; } */
+
+    cout << "Sent " << length << " bytes" << endl;
 
 }
 
@@ -91,9 +101,9 @@ void MulticastSocket::send(string message)
  */
 string MulticastSocket::receive()
 {
-	char buffer[MAX_LENGTH+1];     /* buffer to receive string */
-    string message;
+	char buffer[MAX_LENGTH+1];
     unsigned int length;
+    string message;
 
 	/* clear the receive buffers & structs */
 	memset(buffer, 0, MAX_LENGTH+1);
@@ -102,9 +112,9 @@ string MulticastSocket::receive()
 	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*)
 			&_remoteAddress, (socklen_t *) sizeof(_remoteAddress));
 
-    if (length < 0) {
-       // error condition
-    }
+    cout << "Receive " << length << " bytes" << endl;
+
+    /* if (length < message.size() ) { cout << "only " << length << " bytes received" << endl; } */
 
 	message = string(buffer);
 
@@ -113,24 +123,23 @@ string MulticastSocket::receive()
 
 
 MulticastMouseSocket::MulticastMouseSocket() :
-	MulticastSocket("239.239.239.239", 1234)
+	MulticastSocket(MULTICAST_GROUP, 1234)
 {}
 
 MulticastKeyboardSocket::MulticastKeyboardSocket() :
-	MulticastSocket("239.239.239.239", 1235)
-{}
+	MulticastSocket(MULTICAST_GROUP, 1235)
 
 MulticastUserSocket::MulticastUserSocket() :
-	MulticastSocket("239.239.239.239", 1236)
+	MulticastSocket(MULTICAST_GROUP, 1236)
 {}
 
 
 MulticastTimerSocket::MulticastTimerSocket() :
-	MulticastSocket("239.239.239.239", 1237)
+	MulticastSocket(MULTICAST_GROUP, 1237)
 {}
 
 MulticastErrorSocket::MulticastErrorSocket() :
-	MulticastSocket("239.239.239.239", 1238)
+	MulticastSocket(MULTICAST_GROUP, 1238)
 {}
 
 }
