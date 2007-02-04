@@ -44,6 +44,7 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
 	int on = 1;
 
 	_joined = false;
+	_bound = false;
 
 	/* create a socket for sending to the multicast address */
     _socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -53,26 +54,21 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
 			sizeof(on));
 
 	/* construct a multicast address structure */
-    memset(&_localAddress, 0, sizeof(_localAddress));
-    _localAddress.sin_family      = AF_INET;
-    _localAddress.sin_addr.s_addr = inet_addr(group);
-    _localAddress.sin_port        = htons(port);
-
-    memset(&_remoteAddress, 0, sizeof(_remoteAddress));
-    _remoteAddress.sin_family      = AF_INET;
-    _remoteAddress.sin_addr.s_addr = inet_addr(group);
-    _remoteAddress.sin_port        = htons(port);
+    memset(&_multicastAddress, 0, sizeof(_multicastAddress));
+    _multicastAddress.sin_family      = AF_INET;
+    _multicastAddress.sin_addr.s_addr = inet_addr(group);
+    _multicastAddress.sin_port        = htons(port);
 
 	/* construct an IGMP join request structure */
 	_request.imr_multiaddr.s_addr = inet_addr(group);
 	_request.imr_interface.s_addr = INADDR_ANY;
 
-	bind(_socket, (struct sockaddr *) &_localAddress, sizeof(_localAddress));
 
     if (success < 0 || _socket < 0) {
         //set failure condition
     }
 
+    perror("From constructor");
 }
 
 
@@ -89,12 +85,13 @@ void MulticastSocket::send(string message)
 
     cout << message.size() << endl;
 
-    int length = sendto(_socket, message.c_str(), message.size(), 0, (struct sockaddr *) &_remoteAddress, sizeof(_remoteAddress));
+    int length = sendto(_socket, message.c_str(), message.size() + 1, 0, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
 
     /* if (length < message.size() ) { cout << "only " << length << " bytes sent" << endl; } */
 
     cout << "Sent " << length << " bytes" << endl;
 
+    perror("From Send");
 }
 
 
@@ -104,17 +101,26 @@ void MulticastSocket::send(string message)
 string MulticastSocket::receive()
 {
 	char buffer[MAX_LENGTH+1];
-    unsigned int length;
+    int length;
     string message;
+
+
+    if (! _bound)
+        bind(_socket, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
+
 
 	/* clear the receive buffers & structs */
 	memset(buffer, 0, MAX_LENGTH+1);
-	memset(&_remoteAddress, 0, sizeof(_remoteAddress));
+
+    unsigned int sz =sizeof(_remoteAddress);
+
+	memset(&_remoteAddress, 0, sz);
 
 	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*)
-			&_remoteAddress, (socklen_t *) sizeof(_remoteAddress));
+			&_remoteAddress, (socklen_t *) sz);
 
-    cout << "Receive " << length << " bytes" << endl;
+    cout << "Receive " <<  length << " bytes" << endl;
+    perror("From Receive");
 
     /* if (length < message.size() ) { cout << "only " << length << " bytes received" << endl; } */
 

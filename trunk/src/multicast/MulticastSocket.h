@@ -1,6 +1,5 @@
 #ifndef MULTICASTSOCKET_H
 #define MULTICASTSOCKET_H 
-
 #include <string>
 #include <iostream>
 #include "Multicast.h"
@@ -68,13 +67,14 @@ private:
 
 	MulticastSocket();
 
-    struct sockaddr_in  _localAddress;
     struct sockaddr_in  _remoteAddress;
+    struct sockaddr_in  _multicastAddress;
 	struct ip_mreq 		_request;
 
 	int	 _socket;
 
 	bool _joined;
+	bool _bound;
 };
 
 
