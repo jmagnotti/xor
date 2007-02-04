@@ -73,7 +73,6 @@ private:
 
 	int	 _socket;
 
-	bool _joined;
 	bool _bound;
 };
 
