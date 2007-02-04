@@ -71,12 +71,13 @@ void Positionable::push()
 {
     _scale->push();
 
+	_position->push();
+
 	// order is important: roll, phi, theta
 	_roll->push();
 	_phi->push();
 	_theta->push();
 
-	_position->push();
 }
 
 
@@ -105,13 +106,15 @@ void Positionable::pushInverse(bool invertScale)
  */
 void Positionable::pop()
 {
-    _scale->pop();
-	_position->pop();
 
 	// reverse of push
 	_theta->pop();
 	_phi->pop();
 	_roll->pop();
+
+	_position->pop();
+
+    _scale->pop();
 }
 
 

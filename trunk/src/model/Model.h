@@ -105,7 +105,11 @@ class Model : public Renderable, public Positionable
 		int m_numVertices;
 		Vertex *m_pVertices;
 
+		//  Used for shading
 		float _minY, _maxY;
+
+		//  Look for all textures here
+		static string _resourcePrefix;
 };
 
 }

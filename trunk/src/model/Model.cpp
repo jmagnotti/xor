@@ -19,6 +19,8 @@
 
 namespace XOR {
 
+string Model::_resourcePrefix = "resources/";
+
 Model::Model()
 {
 	m_numMeshes = 0;
@@ -108,13 +110,17 @@ void Model::render()
 					int index = pTri->m_vertexIndices[k];
 
 					/*
+					 * fake shading
 					float c = m_pVertices[index].m_location[1];
 					c = c / (_maxY - _minY) * 1.0;
 					glColor3f(c,c,c);
 					*/
+
 					glColor3f(1,1,1);
+
 					//glNormal3fv( pTri->m_vertexNormals[k] );
-					glTexCoord2f( pTri->m_s[k], pTri->m_t[k] );
+					//glTexCoord2f( pTri->m_s[k], pTri->m_t[k] );
+					glTexCoord2f( pTri->m_s[k], -pTri->m_t[k] );
 					glVertex3fv( m_pVertices[index].m_location );
 				}
 			}
@@ -224,7 +230,28 @@ int Model::loadBMP(const char *filename, textureImage *texture)
 
 GLuint Model::LoadGLTexture(const char* name)
 {
-	Texture * newTexture = TextureFactory::GetInstance()->createTexture(name);
+	string filename(name);
+
+	// find last forward slash
+	int slash = filename.rfind('/');
+	if (slash == string::npos)
+	{
+		// look for backward slash if there's no forward slash
+		slash = filename.rfind('\\');
+	}
+
+	// strip everything before the last slash
+	if (slash != string::npos)
+	{
+		filename = filename.substr(slash+1);
+	}
+
+	// add resources prefix
+	filename = _resourcePrefix + filename;
+
+	// build texture
+	Texture * newTexture = 
+		TextureFactory::GetInstance()->createTexture(filename.c_str());
 	return newTexture->getID();
 
 #ifdef OMIT
