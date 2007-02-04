@@ -20,7 +20,7 @@ MulticastSocket::MulticastSocket()
  */
 MulticastSocket::~MulticastSocket()
 {
-	if (_joined) {
+	if (_bound) {
 		setsockopt(_socket, IPPROTO_IP, IP_DROP_MEMBERSHIP, (opt_type)
 				&_request, sizeof(_request));
 	}
@@ -41,17 +41,21 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
     cout << "Building multicast socket with " << group << ":" << port << endl;
 
     int success;
-	int on = 1;
+    int mc_ttl = 1;
 
-	_joined = false;
-	_bound = false;
+	_bound  = false;
 
 	/* create a socket for sending to the multicast address */
     _socket = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 	/* set the TTL (time to live/hop count) for the send */
-	success = setsockopt(_socket, IPPROTO_IP, IP_MULTICAST_TTL, (opt_type) &on,
-			sizeof(on));
+	success = setsockopt(_socket, IPPROTO_IP, IP_MULTICAST_TTL, (opt_type) &mc_ttl, sizeof(mc_ttl));
+
+    /* set reuse port to on to allow multiple binds per host */
+    if ((setsockopt(_socket, SOL_SOCKET, SO_REUSEADDR, (opt_type) &mc_ttl,
+        sizeof(mc_ttl))) < 0) {
+        perror("setsockopt() failed1");
+    }
 
 	/* construct a multicast address structure */
     memset(&_multicastAddress, 0, sizeof(_multicastAddress));
@@ -65,10 +69,9 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
 
 
     if (success < 0 || _socket < 0) {
-        //set failure condition
+        perror("From constructor");
     }
 
-    perror("From constructor");
 }
 
 
@@ -77,21 +80,13 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
  */
 void MulticastSocket::send(string message)
 {
-	if (! _joined) {
-		setsockopt(_socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (opt_type)&_request,
-				sizeof(_request));
-		_joined = true;
-	}
-
     cout << message.size() << endl;
 
-    int length = sendto(_socket, message.c_str(), message.size() + 1, 0, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
+    int length = sendto(_socket, message.c_str(), strlen(message.c_str()), 0,
+(struct sockaddr *)& _multicastAddress, sizeof(_multicastAddress));
 
-    /* if (length < message.size() ) { cout << "only " << length << " bytes sent" << endl; } */
-
-    cout << "Sent " << length << " bytes" << endl;
-
-    perror("From Send");
+    if (length < message.size() ) 
+        perror("From Send");
 }
 
 
@@ -104,27 +99,29 @@ string MulticastSocket::receive()
     int length;
     string message;
 
+    unsigned int from_len;
 
-    if (! _bound)
+    from_len = sizeof(_remoteAddress);
+    memset(&_remoteAddress, 0, from_len);
+
+    if (! _bound) {
         bind(_socket, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
+        setsockopt(_socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (opt_type)&_request, sizeof(_request));
+        _bound = true;
+    }
 
+    perror("From top of receive");
 
 	/* clear the receive buffers & structs */
 	memset(buffer, 0, MAX_LENGTH+1);
 
-    unsigned int sz =sizeof(_remoteAddress);
-
-	memset(&_remoteAddress, 0, sz);
-
-	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*)
-			&_remoteAddress, (socklen_t *) sz);
+	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*) &_remoteAddress, (socklen_t *) &from_len);
 
     cout << "Receive " <<  length << " bytes" << endl;
     perror("From Receive");
 
-    /* if (length < message.size() ) { cout << "only " << length << " bytes received" << endl; } */
-
 	message = string(buffer);
+    cout << "returning: " << message << endl;
 
     return message;
 }
