@@ -166,6 +166,19 @@ public:
     void incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
 
 
+	/**
+	 * Generates a display list to use for rendering the object.
+	 */
+	virtual void compile()
+{}
+	
+	
+	/**
+	 * Returns whether the object is compiled
+	 */
+	void isCompiled();
+
+
     /**
      * Returns the state of the transformed variable, which is set to TRUE when
      * 

@@ -60,5 +60,11 @@ bool KeyEvent::isCtrlPressed()
     return  (KMOD_RCTRL & _modifiers) || (KMOD_LCTRL & _modifiers);
 }
 
+string KeyEvent::toString()
+{
+    string event = "";//getType() + " " + _key + " " + _modifiers;
+    return event;
+}
+
 }
 

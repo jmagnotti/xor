@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <list>
 
+#include "../../multicast/MulticastSocket.h"
+#include "../../multicast/MulticastSocketPool.h"
 #include "Keyboard.h"
 #include "KeyEvent.h"
 #include "KeyEventFactory.h"
@@ -41,7 +43,7 @@ private:
     KeyboardStub();
     static KeyboardStub * _keyboardStub;
 
-    //MulticastSender _multicastSender;
+    MulticastSocket * _socket;
 
 };
 

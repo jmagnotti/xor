@@ -12,7 +12,8 @@ int main(int argc, char * argv[])
 	string msg = "Hello";
 	out->send(msg);
 
-	pool->cleanUpAndExit();
+
+//	pool->cleanUpAndExit();
 
 	return 0;
 }

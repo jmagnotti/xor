@@ -40,6 +40,8 @@ public:
         s = new String2D("PHOTO DEMO"); 
         ctrl->setModel(this);
 
+		new FramesPerSecondCounter();
+
         cout << "Passing control" << endl;
         ctrl->run();
 	}
@@ -324,7 +326,7 @@ protected:
 			   	pics.push_back(new RectangularPrism(
 					new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
 					squareDiameter, squareDiameter, squareDiameter,
-					new Paint(Color::RED, Paint::HEIGHT_BASED, factory->createTexture("monkey.png"))
+					new Paint(Color::BLACK, Paint::HEIGHT_BASED, factory->createTexture("monkey.png"))
                         //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
 				));
                 /*```pics.push_back(new RectangularPrism(

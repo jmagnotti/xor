@@ -43,7 +43,7 @@ ReshapeEvent * ReshapeEvent::ConstructInstance(Dimension2D * size)
  */
 int ReshapeEvent::getHeight()
 {
-    return _size->getHeight();
+    return (int)(_size->getHeight());
 }
 
 
@@ -52,7 +52,7 @@ int ReshapeEvent::getHeight()
  */
 int ReshapeEvent::getWidth()
 {
-    return _size->getWidth();
+    return (int)(_size->getWidth());
 }
 
 }
