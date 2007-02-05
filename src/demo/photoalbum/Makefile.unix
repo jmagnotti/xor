@@ -2,7 +2,7 @@
 #
 CC = g++ -g
 
-LIBS = -lSDL -lGL -lGLU -lm -lXOR
+LIBS = -lSDL -lSDL_image -lGL -lGLU -lm -lXOR
 
 #Packages
 SRCS = PhotoAlbum.cpp
@@ -35,40 +35,63 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-PhotoAlbum.o: ../../xor.h ../../shape/String2D.h /usr/include/string.h
+PhotoAlbum.o: ../../xor.h ../../paint/Paint.h /usr/include/string.h
 PhotoAlbum.o: /usr/include/features.h /usr/include/sys/cdefs.h
 PhotoAlbum.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-PhotoAlbum.o: /usr/include/gnu/stubs-32.h ../../util/BitmapFontUtil.h
-PhotoAlbum.o: ../../util/BitmapFontConstants.h /usr/include/stdlib.h
-PhotoAlbum.o: /usr/include/sys/types.h /usr/include/bits/types.h
-PhotoAlbum.o: /usr/include/bits/typesizes.h /usr/include/time.h
-PhotoAlbum.o: /usr/include/endian.h /usr/include/bits/endian.h
-PhotoAlbum.o: /usr/include/sys/select.h /usr/include/bits/select.h
-PhotoAlbum.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-PhotoAlbum.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-PhotoAlbum.o: /usr/include/alloca.h ../../../include/SDL_opengl.h
-PhotoAlbum.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-PhotoAlbum.o: /usr/include/GL/glu.h ../../geometry/Dimension2D.h
-PhotoAlbum.o: ../../geometry/Dimension.h ../../paint/Paint.h
-PhotoAlbum.o: ../../texture/Texture.h ../../../include/SDL.h
-PhotoAlbum.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-PhotoAlbum.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-PhotoAlbum.o: ../../../include/begin_code.h ../../../include/close_code.h
-PhotoAlbum.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
-PhotoAlbum.o: /usr/include/libio.h /usr/include/_G_config.h
-PhotoAlbum.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-PhotoAlbum.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
-PhotoAlbum.o: /usr/include/bits/sys_errlist.h ../../../include/SDL_timer.h
-PhotoAlbum.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-PhotoAlbum.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-PhotoAlbum.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-PhotoAlbum.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-PhotoAlbum.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-PhotoAlbum.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-PhotoAlbum.o: ../../../include/SDL_version.h ../../../include/SDL_image.h
-PhotoAlbum.o: ../../../include/SDL.h ../../paint/Color.h
-PhotoAlbum.o: ../../shape/Renderable.h ../../core/Controller.h
-PhotoAlbum.o: ../../event/EventHandlerFactory.h
+PhotoAlbum.o: /usr/include/gnu/stubs-32.h ../../texture/Texture.h
+PhotoAlbum.o: ../../../include/SDL.h ../../../include/SDL_main.h
+PhotoAlbum.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+PhotoAlbum.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+PhotoAlbum.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+PhotoAlbum.o: /usr/include/stdio.h /usr/include/bits/types.h
+PhotoAlbum.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+PhotoAlbum.o: /usr/include/_G_config.h /usr/include/wchar.h
+PhotoAlbum.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+PhotoAlbum.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+PhotoAlbum.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+PhotoAlbum.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+PhotoAlbum.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+PhotoAlbum.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+PhotoAlbum.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+PhotoAlbum.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+PhotoAlbum.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+PhotoAlbum.o: ../../../include/SDL_image.h ../../../include/SDL.h
+PhotoAlbum.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+PhotoAlbum.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+PhotoAlbum.o: ../../paint/Color.h ../../paint/Color.h ../../shape/Point3D.h
+PhotoAlbum.o: /usr/include/math.h /usr/include/bits/huge_val.h
+PhotoAlbum.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+PhotoAlbum.o: ../../paint/Paint.h ../../shape/Renderable.h
+PhotoAlbum.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+PhotoAlbum.o: ../../shape/Point3D.h ../../shape/Arc3D.h
+PhotoAlbum.o: ../../util/GraphicsConversionUtility.h ../../shape/Point3D.h
+PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../geometry/Dimension3D.h
+PhotoAlbum.o: ../../geometry/Dimension.h ../../paint/Color.h
+PhotoAlbum.o: ../../transform/Positionable.h ../../transform/Transform.h
+PhotoAlbum.o: /usr/include/stdlib.h /usr/include/sys/types.h
+PhotoAlbum.o: /usr/include/time.h /usr/include/endian.h
+PhotoAlbum.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+PhotoAlbum.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+PhotoAlbum.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+PhotoAlbum.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+PhotoAlbum.o: ../../transform/Scale.h
+PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
+PhotoAlbum.o: ../../interpolation/InterpolationListener.h
+PhotoAlbum.o: ../../interpolation/Interpolator.h
+PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
+PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
+PhotoAlbum.o: ../../transform/Translate.h ../../transform/Rotate.h
+PhotoAlbum.o: ../../shape/NormalPolygon3D.h ../../shape/CollisionRenderable.h
+PhotoAlbum.o: ../../shape/Cube.h ../../shape/RectangularPrism.h
+PhotoAlbum.o: ../../shape/Quadrilateral3D.h
+PhotoAlbum.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+PhotoAlbum.o: ../../shape/Square3D.h ../../shape/Point.h
+PhotoAlbum.o: ../../shape/RectangularPrism.h ../../shape/Renderable.h
+PhotoAlbum.o: ../../shape/Point2D.h ../../shape/AdornableCube.h
+PhotoAlbum.o: ../../shape/Cube.h ../../shape/AdornablePrism.h
+PhotoAlbum.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+PhotoAlbum.o: ../../util/BitmapFontConstants.h ../../geometry/Dimension2D.h
+PhotoAlbum.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
 PhotoAlbum.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 PhotoAlbum.o: ../../event/keyboard/KeyboardListener.h
 PhotoAlbum.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
@@ -95,19 +118,7 @@ PhotoAlbum.o: ../../event/reshape/Reshape.h ../../event/timer/TimerSkeleton.h
 PhotoAlbum.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
 PhotoAlbum.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
 PhotoAlbum.o: ../../event/reshape/Reshape.h ../../core/World.h
-PhotoAlbum.o: ../../shape/Point3D.h /usr/include/math.h
-PhotoAlbum.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-PhotoAlbum.o: /usr/include/bits/mathcalls.h ../../shape/Renderable.h
-PhotoAlbum.o: ../../transform/Rotate.h ../../transform/Transform.h
-PhotoAlbum.o: ../../geometry/Dimension3D.h
-PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
-PhotoAlbum.o: ../../interpolation/InterpolationListener.h
-PhotoAlbum.o: ../../interpolation/Interpolator.h
-PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
-PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
-PhotoAlbum.o: ../../util/GraphicsConversionUtility.h
-PhotoAlbum.o: ../../transform/Positionable.h ../../transform/Scale.h
-PhotoAlbum.o: ../../transform/Translate.h ../../transform/Rotate.h
+PhotoAlbum.o: ../../shape/Renderable.h ../../transform/Rotate.h
 PhotoAlbum.o: ../../event/timer/TimerListener.h ../../transform/Transform.h
 PhotoAlbum.o: ../../transform/Translate.h ../../core/Viewer.h
 PhotoAlbum.o: ../../transform/CoordinateSystem.h
@@ -122,83 +133,70 @@ PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h
 PhotoAlbum.o: ../../event/keyboard/DefaultKeyboardListener.h
 PhotoAlbum.o: ../../core/Controller.h ../../core/World.h
 PhotoAlbum.o: ../../event/mouse/DefaultMouseListener.h ../../core/Viewer.h
-PhotoAlbum.o: ../../shape/Point.h ../../shape/Arc3D.h ../../shape/Point3D.h
-PhotoAlbum.o: ../../shape/CollisionRenderable.h ../../shape/AdornablePrism.h
-PhotoAlbum.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
-PhotoAlbum.o: ../../paint/Color.h ../../geometry/RectangularVolume.h
-PhotoAlbum.o: ../../geometry/Dimension3D.h ../../shape/Particle.h
-PhotoAlbum.o: ../../shape/CollisionRenderable.h ../../shape/Renderable.h
-PhotoAlbum.o: ../../shape/Cube.h ../../shape/RectangularPrismFactory.h
-PhotoAlbum.o: ../../shape/Quadrilateral3DConstants.h ../../shape/Point2D.h
-PhotoAlbum.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-PhotoAlbum.o: ../../shape/RectangularPrism.h ../../shape/AdornableCube.h
-PhotoAlbum.o: ../../shape/Cube.h ../../shape/AdornablePrism.h
-PhotoAlbum.o: ../../shape/NormalPolygon3D.h ../../shape/Square3D.h
-PhotoAlbum.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-PhotoAlbum.o: ../../texture/TextureTGA.h ../../texture/TexturePPM.h
-PhotoAlbum.o: ../../texture/TextureBMP.h ../../texture/Texture.h
-PhotoAlbum.o: ../../texture/TextureSDL.h ../../event/timer/TimerStub.h
-PhotoAlbum.o: ../../event/timer/Timer.h ../../event/timer/TimerSkeleton.h
-PhotoAlbum.o: ../../event/timer/TimerListener.h
-PhotoAlbum.o: ../../event/keyboard/SpecialKeyEvent.h
+PhotoAlbum.o: ../../shape/RectangularPrismFactory.h
+PhotoAlbum.o: ../../shape/AdornablePrism.h ../../geometry/Dimension.h
+PhotoAlbum.o: ../../geometry/Dimension2D.h ../../geometry/RectangularVolume.h
+PhotoAlbum.o: ../../geometry/Dimension3D.h ../../geometry/CylindricalVolume.h
+PhotoAlbum.o: ../../shape/CollisionRenderable.h
+PhotoAlbum.o: ../../event/EventHandlerFactory.h
 PhotoAlbum.o: ../../event/keyboard/KeyEvent.h
-PhotoAlbum.o: ../../event/keyboard/KeyboardStub.h
-PhotoAlbum.o: ../../event/keyboard/KeyUpEvent.h
-PhotoAlbum.o: ../../event/keyboard/Keyboard.h
 PhotoAlbum.o: ../../event/keyboard/KeyboardSkeleton.h
-PhotoAlbum.o: ../../event/keyboard/KeyboardListener.h
-PhotoAlbum.o: ../../event/keyboard/RegularKeyEvent.h
-PhotoAlbum.o: ../../event/keyboard/DefaultKeyboardListener.h
-PhotoAlbum.o: ../../event/keyboard/KeyDownEvent.h
 PhotoAlbum.o: ../../event/keyboard/KeyEventFactory.h
-PhotoAlbum.o: ../../event/reshape/ReshapeSkeleton.h
-PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h
-PhotoAlbum.o: ../../event/reshape/ReshapeListener.h
-PhotoAlbum.o: ../../event/reshape/Reshape.h ../../event/mouse/MouseButtonUp.h
-PhotoAlbum.o: ../../event/mouse/MouseEvent.h
-PhotoAlbum.o: ../../event/mouse/MouseClickEvent.h
-PhotoAlbum.o: ../../event/mouse/MouseSkeleton.h
-PhotoAlbum.o: ../../event/mouse/MouseListener.h ../../event/mouse/Mouse.h
-PhotoAlbum.o: ../../event/mouse/DefaultMouseListener.h
-PhotoAlbum.o: ../../event/mouse/MouseButtonDown.h
-PhotoAlbum.o: ../../event/mouse/MouseMotionEvent.h
-PhotoAlbum.o: ../../event/mouse/MouseEventFactory.h
-PhotoAlbum.o: ../../event/mouse/MouseStub.h
-PhotoAlbum.o: ../../event/LocalEventHandlerFactory.h
+PhotoAlbum.o: ../../event/keyboard/KeyboardListener.h
+PhotoAlbum.o: ../../event/keyboard/DefaultKeyboardListener.h
+PhotoAlbum.o: ../../event/keyboard/SpecialKeyEvent.h
+PhotoAlbum.o: ../../event/keyboard/KeyDownEvent.h
+PhotoAlbum.o: ../../event/keyboard/Keyboard.h
+PhotoAlbum.o: ../../event/keyboard/KeyUpEvent.h
+PhotoAlbum.o: ../../event/keyboard/KeyboardStub.h
+PhotoAlbum.o: ../../event/keyboard/RegularKeyEvent.h
 PhotoAlbum.o: ../../event/RemoteEventHandlerFactory.h
 PhotoAlbum.o: ../../event/keyboard/KeyboardStub.h
 PhotoAlbum.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
-PhotoAlbum.o: ../../event/EventHandlerFactory.h ../../event/TimerListener.h
-PhotoAlbum.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
-PhotoAlbum.o: ../../texture/TextureFactory.h ../../terrain/TerrainStrategy.h
-PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
+PhotoAlbum.o: ../../event/TimerListener.h ../../event/mouse/MouseListener.h
+PhotoAlbum.o: ../../event/mouse/MouseStub.h
+PhotoAlbum.o: ../../event/mouse/DefaultMouseListener.h
+PhotoAlbum.o: ../../event/mouse/MouseButtonDown.h
+PhotoAlbum.o: ../../event/mouse/MouseEvent.h
+PhotoAlbum.o: ../../event/mouse/MouseEventFactory.h
+PhotoAlbum.o: ../../event/mouse/MouseMotionEvent.h
+PhotoAlbum.o: ../../event/mouse/MouseButtonUp.h
+PhotoAlbum.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/Mouse.h
+PhotoAlbum.o: ../../event/mouse/MouseSkeleton.h ../../event/reshape/Reshape.h
+PhotoAlbum.o: ../../event/reshape/ReshapeListener.h
+PhotoAlbum.o: ../../event/reshape/ReshapeSkeleton.h
+PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h
+PhotoAlbum.o: ../../event/LocalEventHandlerFactory.h
+PhotoAlbum.o: ../../event/timer/TimerListener.h ../../event/timer/Timer.h
+PhotoAlbum.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+PhotoAlbum.o: ../../texture/TextureSDL.h ../../texture/Texture.h
+PhotoAlbum.o: ../../texture/Texture.h ../../texture/TextureTGA.h
+PhotoAlbum.o: ../../texture/TextureBMP.h ../../texture/TextureFactory.h
+PhotoAlbum.o: ../../texture/TexturePPM.h ../../util/BehaviorParser.h
+PhotoAlbum.o: ../../transform/TransformFactory.h
+PhotoAlbum.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+PhotoAlbum.o: ../../util/GraphicsConversionUtility.h
+PhotoAlbum.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+PhotoAlbum.o: ../../core/Controller.h ../../core/World.h ../../core/Viewer.h
+PhotoAlbum.o: ../../terrain/TerrainStrategy.h ../../terrain/Terrain.h
+PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
+PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
+PhotoAlbum.o: ../../transform/MathCoordinateSystem.h
+PhotoAlbum.o: ../../transform/OpenGLCoordinateSystem.h
+PhotoAlbum.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+PhotoAlbum.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PhotoAlbum.o: ../../transform/Positionable.h
+PhotoAlbum.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+PhotoAlbum.o: ../../transform/Rotate.h ../../transform/Transform.h
+PhotoAlbum.o: ../../transform/Transformable.h
+PhotoAlbum.o: ../../transform/EngineerCoordinateSystem.h
+PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
+PhotoAlbum.o: ../../interpolation/Interpolator.h
+PhotoAlbum.o: ../../interpolation/CameraRoller.h
 PhotoAlbum.o: ../../interpolation/TimedInterpolation.h
 PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
+PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
+PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
+PhotoAlbum.o: ../../interpolation/InterpolationListener.h
 PhotoAlbum.o: ../../interpolation/ContinuousInterpolation.h
 PhotoAlbum.o: ../../interpolation/TimedInterpolation.h
-PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
-PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
-PhotoAlbum.o: ../../interpolation/InterpolationListener.h
-PhotoAlbum.o: ../../interpolation/Interpolator.h
-PhotoAlbum.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
-PhotoAlbum.o: ../../core/Controller.h ../../core/World.h
-PhotoAlbum.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
-PhotoAlbum.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension.h
-PhotoAlbum.o: ../../geometry/CylindricalVolume.h
-PhotoAlbum.o: ../../shape/CollisionRenderable.h ../../paint/Paint.h
-PhotoAlbum.o: ../../paint/Color.h ../../transform/Transformable.h
-PhotoAlbum.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
-PhotoAlbum.o: ../../transform/Rotate.h
-PhotoAlbum.o: ../../transform/OpenGLCoordinateSystem.h
-PhotoAlbum.o: ../../transform/TransformFactory.h
-PhotoAlbum.o: ../../transform/EngineerCoordinateSystem.h
-PhotoAlbum.o: ../../transform/MathCoordinateSystem.h
-PhotoAlbum.o: ../../transform/Transform.h
-PhotoAlbum.o: ../../transform/LeftOpenGLCoordinateSystem.h
-PhotoAlbum.o: ../../transform/Scale.h
-PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
-PhotoAlbum.o: ../../transform/Positionable.h
-PhotoAlbum.o: ../../util/GraphicsConversionUtility.h
-PhotoAlbum.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
-PhotoAlbum.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-PhotoAlbum.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h

@@ -11,6 +11,7 @@ int main(int argc, char * argv[])
 		pool->getMulticastSocket(MulticastSocketPool::KEYBOARD_SOCKET);
 
 	string msg = "000"; 
+
 	msg = in->receive();
 
 	pool->cleanUpAndExit();

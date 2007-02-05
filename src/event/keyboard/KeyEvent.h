@@ -3,6 +3,10 @@
 
 
 #include "../../../include/SDL.h"
+#include <string>
+
+
+using namespace std;
 
 
 namespace XOR {
@@ -48,6 +52,9 @@ class KeyEvent
 
 
         bool isCtrlPressed();
+
+
+        string toString();
 
 
         /**
