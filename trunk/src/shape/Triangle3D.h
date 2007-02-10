@@ -1,5 +1,5 @@
-#ifndef QUADRILATERAL3D_H
-#define QUADRILATERAL3D_H
+#ifndef TRIANGLE3D_H
+#define TRIANGLE3D_H
 
 #include <math.h>
 #include <string.h>
@@ -11,12 +11,14 @@
 
 namespace XOR {
 
-
 /**
  * Represents a triangle in three dimensional space.
  * Considering a massive overhaul: Instead of specifying 4 points, have them specify
  * two points, then a dimension3D object (or 3 floats). Also, should be able to calculate center. The new 
  * specification will allow for auto-sizing of textures.
+ *
+ * @author John Magnotti, Everette Clemmer
+ * @version 1.0
  */
 class Triangle3D : public Object3D
 {
@@ -81,7 +83,7 @@ public:
     /**
      * Calls render on each point that comprises the triangle
      */
-	void draw(void);
+	void render(void);
 
 
 	/**
@@ -103,5 +105,5 @@ private:
 
 }
 
-#endif		// QUADRILATERAL3D_H
+#endif		// TRIANGLE3D_H
 

@@ -3,7 +3,7 @@
 
 
 #include "CollisionRenderable.h"
-#include "Point3D.h"
+#include "Vector3D.h"
 
 
 
@@ -22,7 +22,7 @@ class Particle : CollisionRenderable
 
 public:
 
-	Particle(Point3D*);
+	Particle(Vector3D*);
 
 	void nextPosition();
 

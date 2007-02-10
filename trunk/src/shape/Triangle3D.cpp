@@ -12,19 +12,26 @@ Triangle3D::Triangle3D()
 
 /*
  * Explicit Constructor.
- * Four corners and a default white paint.
+ * Three corners and a default white paint.
  */
 Triangle3D::Triangle3D(Vector3D * p0, Vector3D * p1, Vector3D * p2)
 {
+    _vertices[0] = p0;
+    _vertices[1] = p1;
+    _vertices[2] = p2;
     _paint = new Paint(Color::WHITE);
 }
 
 
 /*
  * Explicit Constructor.
- * Four corners and a paint.  */
+ * Three corners and a paint.
+ */
 Triangle3D::Triangle3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Paint * paint)
 {
+    _vertices[0] = p0;
+    _vertices[1] = p1;
+    _vertices[2] = p2;
 	_paint = paint;
 }
 
@@ -94,9 +101,10 @@ char * Triangle3D::toString()
 	return "Not Implemented";
 }
 
-void Triangle3D::draw()
+void Triangle3D::render()
 {
-	glBegin(GL_TRIANGLES);
+	glColor3f(1,1,1);
+    glBegin(GL_TRIANGLES);
 		glVertex3fv(_vertices[0]->toArray());	
 		glVertex3fv(_vertices[1]->toArray());	
 		glVertex3fv(_vertices[2]->toArray());	
