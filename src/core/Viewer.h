@@ -43,6 +43,9 @@ public:
 	static const int        DEFAULT_COLOR_DEPTH;
 	static const Uint32     DEFAULT_VIDEO_FLAGS;
 
+	static const int		WALL_MODE_STANDARD;
+	static const int		WALL_MODE_IMMERSIVE;
+
 
     /**
      * default constructor. Uses constants above.
@@ -163,6 +166,24 @@ public:
     void forceReshape();
 
 
+	/**
+	 * Change the video wall offset by a given increment.
+	 */
+	void incrementWallOffset(int x, int y);
+	
+
+	/**
+	 * Change the video wall offset.
+	 */
+	void setWallOffset(int x, int y);
+
+
+	/**
+	 * Change the wall view partitioning mode.
+	 */
+	void setWallMode(int mode);
+	
+
 private:
 
     // set all state vars
@@ -172,6 +193,10 @@ private:
     double			_nearClippingPlane;	
     double			_farClippingPlane;
 	double			_fieldOfView;
+
+	int				_wallXoffset;
+	int				_wallYoffset;
+	int				_wallMode;
 
 	bool			_fullscreen;
 
