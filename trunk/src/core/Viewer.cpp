@@ -18,6 +18,9 @@ const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;    			// use the OS default
 const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
+const int Viewer::WALL_MODE_STANDARD  = 1;
+const int Viewer::WALL_MODE_IMMERSIVE = 2;
+
 
 /*
  * default constructor
@@ -56,6 +59,10 @@ void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, i
 	_fieldOfView		= fov;
 	_nearClippingPlane	= nearCP;
 	_farClippingPlane	= farCP;
+
+	_wallXoffset		= 0;
+	_wallYoffset		= 0;
+	_wallMode			= WALL_MODE_STANDARD;
 
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
@@ -111,8 +118,33 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
     glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
-    gluPerspective(_fieldOfView, (double)_size->getWidth()/
-            (double)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
+
+	// METHOD #1 : tiled display wall adjustment
+	if (_wallMode == WALL_MODE_STANDARD) {
+		double moffset = 0.025;
+		double aoffset = moffset / 2.0;
+
+		glFrustum(	(double)_wallXoffset * moffset - aoffset,
+					(double)_wallXoffset * moffset + aoffset,
+					(double)_wallYoffset * moffset - aoffset,
+					(double)_wallYoffset * moffset + aoffset,
+					_nearClippingPlane,
+					_farClippingPlane
+				);
+	}
+
+	// METHOD #2 : perspective-based wall adjustment
+	else if (_wallMode == WALL_MODE_IMMERSIVE) {
+		double fovmodifier = 0.25;
+		double rotmodifier = _fieldOfView*fovmodifier*2.0;
+
+		gluPerspective(_fieldOfView*fovmodifier, (double)_size->getWidth()/
+				(double)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
+
+		glPushMatrix();
+		glRotatef(-(double)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
+		glRotatef( (double)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
+	}
 
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
@@ -125,7 +157,7 @@ void Viewer::handleReshape(ReshapeEvent * event)
  */
 void Viewer::setupSDLVideo()
 {
-    cout << "SetVIdeoMode" << endl;
+    cout << "SetVideoMode" << endl;
 
     // at some point we need to have variables to hold things like current video
     // flags, etc.
@@ -133,6 +165,7 @@ void Viewer::setupSDLVideo()
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
                      
     setWindowTitle(NULL);
+
 }
 
 
@@ -253,6 +286,46 @@ void Viewer::forceReshape()
 
     SDL_PushEvent(&reshape);
 }
+
+
+/*
+ * increment wall node position
+ */
+void Viewer::incrementWallOffset(int x, int y)
+{
+	setWallOffset(_wallXoffset + x, _wallYoffset + y);
+}
+
+
+/*
+ * set wall node position
+ */
+void Viewer::setWallOffset(int x, int y)
+{
+	_wallXoffset = x;
+	_wallYoffset = y;
+	cout << "new x offset: " << _wallXoffset << endl;
+	cout << "new y offset: " << _wallYoffset << endl;
+	ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
+	handleReshape(evt);
+}
+
+
+/*
+ * set wall mode
+ */
+void Viewer::setWallMode(int mode)
+{
+	if (mode == WALL_MODE_IMMERSIVE)
+	{
+		_wallMode = WALL_MODE_IMMERSIVE;
+	}
+	else
+	{
+		_wallMode = WALL_MODE_STANDARD;
+	}
+}
+
 
 }
 
