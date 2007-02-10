@@ -952,7 +952,7 @@ src/shape/Particle.o: include/SDL_mouse.h include/SDL_video.h
 src/shape/Particle.o: include/SDL_mutex.h include/SDL_quit.h
 src/shape/Particle.o: include/SDL_version.h src/../include/SDL_image.h
 src/shape/Particle.o: include/SDL.h src/paint/Color.h src/geometry/Vector3D.h
-src/shape/Particle.o: src/shape/Object3D.h
+src/shape/Particle.o: src/shape/Object3D.h src/Geometry/Vector3D.h
 src/shape/Point3D.o: src/shape/Point3D.h /usr/include/math.h
 src/shape/Point3D.o: src/../include/SDL_opengl.h /usr/include/stddef.h
 src/shape/Point3D.o: /usr/include/_types.h /usr/include/sys/_types.h

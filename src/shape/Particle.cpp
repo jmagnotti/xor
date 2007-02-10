@@ -5,13 +5,13 @@ namespace XOR {
 /*
  * Explicit Constructor
  */
-Particle::Particle(Point3D * position)
+Particle::Particle(Vector3D * position)
 {
 	currentPosition = position;
 }
 
 
-bool Particle::checkCollision(Point3D*)
+bool Particle::checkCollision(Vector3D*)
 {
 	return false;
 }
