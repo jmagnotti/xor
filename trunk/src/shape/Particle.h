@@ -3,7 +3,7 @@
 
 
 #include "CollisionRenderable.h"
-#include "Vector3D.h"
+#include "../Geometry/Vector3D.h"
 
 
 
@@ -26,13 +26,13 @@ public:
 
 	void nextPosition();
 
-	bool checkCollision(Point3D*);
+	bool checkCollision(Vector3D*);
 
 
 protected:
 
-	Point3D *	currentPosition;
-	Point3D *	previousPosition;
+	Vector3D *	currentPosition;
+	Vector3D *	previousPosition;
 
 	float		velocity[3];
 	bool		alive;
