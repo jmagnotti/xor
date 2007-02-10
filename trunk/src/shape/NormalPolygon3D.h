@@ -4,40 +4,41 @@
 
 #include "../util/GraphicsConversionUtility.h"
 #include "../paint/Paint.h"
-#include "Point3D.h"
-#include "Renderable.h"
+#include "../geometry/Vector3D.h"
+#include "Object3D.h"
+
 
 namespace XOR {
 
 
-class NormalPolygon3D : public Renderable
+/**
+ *
+ */
+class NormalPolygon3D : public Object3D
 {
 
 public:
 
 
 	/**
-	 * Default Constructor
+	 * Create it with the number of sides, centered around the given point. The
+	 * NormalPolygon3D will always be created along the line z=0. Since
+	 * NormalPolygon3D is an Object3D, transforms can be applied to position
+	 * it.
 	 */
-	NormalPolygon3D();
+	NormalPolygon3D(Vector3D * center, int numSides);
 
 
 	/**
-	 * Create it with the number of sides
+	 * Draws the NormalPolygon3D.
 	 */
-	NormalPolygon3D(int);
+	void render();
 
 
 	/**
-	 * Calls render on the underlying renderer
+	 * Set the paint to be used on the curren object.
 	 */
-	void render(void);
-
-
-	/**
-	 * Should do tricky stuff if the paint is a gradient or texture
-	 */
-	void setPaint(Paint*);
+	void setPaint(Paint * paint);
 	
 	
 	/**
@@ -48,13 +49,11 @@ public:
 
 protected:
 
-	bool		compiled;
-	
-	void recalculateSides(void);
-
+	void calculateSides(void);
 
 	void updatePaint(void);
 
+	NormalPolygon3D();
 
 };
 

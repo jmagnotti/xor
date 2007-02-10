@@ -6,9 +6,9 @@
 
 #include "../util/GraphicsConversionUtility.h"
 #include "../paint/Paint.h"
+#include "Object3D.h"
 #include "Quadrilateral3D.h"
 #include "../geometry/RectangularVolume.h"
-#include "../transform/Positionable.h"
 
 
 namespace XOR {
@@ -17,29 +17,27 @@ namespace XOR {
 /**
  * A three-dimensional object with six quadrilateral sides.
  */
-class RectangularPrism : public Renderable, public Positionable
+class RectangularPrism : public Object3D
 {
 
 public:
 
-	const static int FRONT	= 0;
-	const static int REAR	= 1;
-	const static int RIGHT	= 2;
-	const static int LEFT	= 3;
-	const static int TOP	= 4;
-	const static int BOTTOM	= 5;
-
-
 	/**
-	 * Default Constructor
+	 * Face constants.
 	 */
-	RectangularPrism();
+	static const int FRONT	= 0;
+	static const int REAR	= 1;
+	static const int RIGHT	= 2;
+	static const int LEFT	= 3;
+	static const int TOP	= 4;
+	static const int BOTTOM	= 5;
 
 
 	/**
 	 * Full control of specs
 	 */
-	RectangularPrism(Point3D * point, float sizeX, float sizeY, float sizeZ, Paint * p);
+	RectangularPrism(Vector3D * point, float sizeX, float sizeY, float sizeZ,
+			Paint * paint);
 
 
 	/**
@@ -57,20 +55,19 @@ public:
 	/**
 	 * returns if the point is within the rect prism
 	 */
-	bool checkCollision(Point3D * position);
+	bool checkCollision(Vector3D * position);
 
 
 	/** 
 	 * Returns the registration point of the rect prism
 	 */
-	virtual Point3D * getRegistrationPoint();
+	Vector3D * getOrigin() const;
 
 
 	/**
-	 * This is a high level rendering command. Most of the actual work will
-	 * be delegated to the Quadrilateral3D object (which in turn delegates to Point3D).
+	 * Returns the dimension for the object
 	 */
-	void render(void);
+	Dimension3D * getDimension() const;
 
 
 	/**
@@ -81,49 +78,61 @@ public:
 
 
 	/**
-	 * Set the _paint attributes
+	 * Set the paint attributes
 	 */
 	void setPaint(Paint * p);
 
 
     /**
-     *
+     * Prints information about the prism
      */
     void printInfo();
 
-protected:
-	
-	Paint *				_paint;
-	Point3D *			_points[8];			//storing the key points makes things faster
-	Point3D *			_normals[6];
-	RectangularVolume *	_volume;
-	
-	
+
 	/**
-	 * We need an ordered collection, so a vector is used
+	 * This is a high level render command. Most of the actual work will
+	 * be delegated to the Quadrilateral3D object (which in turn delegates to
+	 * Point3D).
 	 */
-	vector<Quadrilateral3D*>	_faces;
+	void render();
 
+
+protected:
 
 	/**
-	 * Puts the created quads into the vector. This is done in a seperate in case we want 
-	 * to return to a default RectPrism.
+	 * Puts the created quads into the vector. This is done in a seperate
+	 * method in case we want to return to a default RectPrism.
 	 * NOTE: occluded faces will be reset here
 	 */
 	void setFaces(void);
 	
 	
 	/**
-	 * Calls on the underlying RectangularVolume object to generate the quads of the prism
+	 * Calls on the underlying RectangularVolume object to generate the quads
+	 * of the prism
 	 */
 	void setup(void);
-
 
 
 	/**
 	 * updates the paint of the faces by giving them new colored points
 	 */
 	void updatePaint(void);
+
+
+private:
+
+	RectangularPrism();
+	
+	Paint *				_paint;
+	Vector3D *			_points[8];
+	Vector3D *			_normals[6];
+	RectangularVolume *	_volume;
+	
+	/**
+	 * We need an ordered collection, so a vector is used
+	 */
+	vector<Quadrilateral3D*> _faces;
 
 };
 

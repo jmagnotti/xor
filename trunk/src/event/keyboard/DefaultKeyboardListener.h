@@ -5,6 +5,7 @@
 
 #include "KeyboardListener.h"
 #include "KeyEvent.h"
+#include "../../interpolation/TimedInterpolation.h"
 #include "../../core/Controller.h"
 #include "../../core/World.h"
 
@@ -43,9 +44,9 @@ public:
 
 protected:
 
-	/*
 	virtual void handleKey_w();
 	virtual void handleKey_s();
+	/*
 	virtual void handleKey_q();
 	virtual void handleKey_e();
 	virtual void handleKey_a();

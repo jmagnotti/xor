@@ -1,13 +1,10 @@
-#ifndef GRAPHICSCONUTIL_H
-#define GRAPHICSCONUTIL_H
-
+#ifndef GRAPHICSCONVERSIONUTILITY_H
+#define GRAPHICSCONVERSIONUTILITY_H
 
 #include <math.h>
-#include <map>
 
 #include "../../include/SDL_opengl.h"
-
-#include "../shape/Point3D.h"
+#include "../geometry/Vector3D.h"
 
 
 using namespace std;
@@ -38,34 +35,13 @@ public:
 	/**
 	 * Returns the cross product [vecA-vecB] x [vecB - vecC] 
 	 */
-	Point3D * crossProduct(Point3D * vecA, Point3D * vecB, Point3D * vecC);
+	Vector3D * crossProduct(Vector3D * vecA, Vector3D * vecB, Vector3D * vecC);
 	
 
 	/**
 	 * Converts the given float degree in to radians RAD*PI/180
 	 */
     inline float degressToRadians(float degree);
-
-
-    /**
-     * Just a pass through
-     */
-	float getCosine(int deg);
-
-
-	/**
-     * Just a pass through
-	 */
-	float getSine(int deg);
-
-
-    /**
-     * Compiles the object (and all subobjects) to OpenGL display lists. This
-     * should be called after object creation but before initial rendering.
-     * Note that this does go through the render method, but nothing is drawn
-     * to the screen.
-     */
-    void generateDisplayList(GLuint & displayListID, Renderable * renderable); 
 
 	
 	/** 
@@ -86,7 +62,8 @@ public:
 	 * Calls sqrtf, so it is kind of slow, and should only be done once
 	 * for a given surface.
 	 */
-	void normalize(Point3D * points[6]);
+	void normalize(Vector3D * points[6]);
+
 
     /**
      * Performs c = a % b
@@ -94,24 +71,15 @@ public:
     float floatModulus(float a, int b);
 
 
-protected:
-	GraphicsConversionUtility(void);
-
 private:
+
+	GraphicsConversionUtility();
 
 	static GraphicsConversionUtility * _graphicsConversionUtility;
 	
-	/**
-	 * store commonly used values in hashtables for 
-	 * fast and efficient usage
-     * This may not be fast or efficient. Test this.
-	 */
-    //	map<int, float>cosineValues;
-    //	map<int, float>sineValues;
-
 };
 
 }
 
-#endif			//GRAPHICSCONUTIL_H
+#endif			// GRAPHICSCONVERSIONUTILITY_H
 

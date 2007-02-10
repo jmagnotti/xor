@@ -2,10 +2,19 @@
 
 namespace XOR {
 
+
+/*
+ * explicit constructor
+ */
+AdornablePrism::AdornablePrism(RectangularVolume * volume) :
+	RectangularPrism(volume)
+{}
+
+
 /*
  * Sets the renderable to "attach" to a wall
  */
-void AdornablePrism::setAdornment(Renderable * rend, int wall)
+void AdornablePrism::setAdornment(Object3D * adornment, const int face)
 {
     // think about how this should be implemented
 }

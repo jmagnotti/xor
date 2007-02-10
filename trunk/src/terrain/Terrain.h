@@ -2,49 +2,44 @@
 #define TERRAIN_H
 
 
-#include "../shape/Renderable.h"
-#include "../shape/Point3D.h"
+#include "../shape/Object3D.h"
+#include "../geometry/Vector3D.h"
 #include "../shape/Quadrilateral3D.h"
 #include "../texture/TextureFactory.h"
 
-/*
- * A lot of work is going to be done here
- */
 
 namespace XOR {
 
 /**
- * This class represents a terrain object. It is basically a 2D array of points. 
- * More functionality should come later, like putting objects "on" the terrain
- * then saying terrain->render() which would render everything that was on the 
+ * This class represents a terrain object. It is basically a 2D array of
+ * points. More functionality should come later, like putting objects "on" the
  * terrain.
  * **NOT COMPLETE**
  */
-class Terrain : public Renderable
+class Terrain : public Object3D
 {
 
 public:
 
-	////int detailLevel;
-	//Quadrilateral3D * terrain[];		// these are the points that actually define the terrain
-
-
 	/**
 	 * Explicit Constructor
 	 */
-	Terrain(Point3D * point, int diameter);
+	Terrain(Vector3D * point, int diameter);
 
+
+protected:
 
 	/**
 	 * Render the terrain
 	 */
-	void render(void);
+	void draw();
 
 
 protected:
 	
 	int					_size;
 	Quadrilateral3D *	_terrain;
+	//Quadrilateral3D *	_terrain[]; // should be closer to a height field
 
 };
 

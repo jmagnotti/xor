@@ -16,19 +16,16 @@ recursivePyramid(origin, base, counter)
         recursivePyramid(originWorking, base, counter);
 
         //second pyramid
-        delete originWorking;
         originWorking = new Point3D(origin.getX() - base, origin.getY(), origin.getZ() - base);
 
         recursivePyramid(originWorking, base, counter);
 
         //third pyramid
-        delete originWorking;
         originWorking = new Point3D(origin.getX() + base, origin.getY(), origin.getZ() - base);
 
         recursivePyramid(originWorking, base, counter);
 
         //fourth pyramid
-        delete originWorking;
         originWorking = new Point3D(origin.getX(), origin.getY() + base, origin.getZ());
 
         recursivePyramid(originWorking, base, counter);

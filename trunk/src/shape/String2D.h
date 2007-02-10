@@ -5,6 +5,7 @@
 #include <string.h>
 #include "../util/BitmapFontUtil.h"
 #include "../geometry/Dimension2D.h"
+#include "../geometry/Dimension3D.h"
 #include "../paint/Paint.h"
 #include "Renderable.h"
 #include "../core/Controller.h"
@@ -15,7 +16,7 @@
 using namespace std;
 
 namespace XOR {
-
+//FIXME
 
 /**
  * Used to create 2D text(can not change z-position, always 0)
@@ -29,7 +30,7 @@ namespace XOR {
  * It is correct to think that the String2D class should not be changing the world
  * projection. At some point this will be refactored into a more appropriate place.
  */
-class String2D : public Renderable
+class String2D : public Object3D
 {
 
 public:
@@ -101,10 +102,14 @@ public:
      */
     void setText(char*);
 
+	Dimension3D * getDimension() const;
+	Vector3D * getOrigin() const;
+
 
 protected:
 
 	GLuint			_stringDL;
+
 	char *			_text;
 	int				_xpos, _ypos;
     float           _color[3];

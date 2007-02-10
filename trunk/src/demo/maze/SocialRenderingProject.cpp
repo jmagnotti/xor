@@ -49,8 +49,8 @@ int main(int argc, char **argv)
 	// are rotating the entire world, so the translation will even effect objects added later, like the Terrain.
 	// Also note that we had to invert the starting point to get the desired effect.
 	//world->setTranslation(new Translate(_maze->getStartingPoint()->invert()));
-	//ctrl->getViewer()->getOrientation()->incrementPosition(_maze->getStartingPoint());
-	//ctrl->getViewer()->getOrientation()->incrementRotation(Orientate::THETA, 180);
+	ctrl->getViewer()->getOrientation()->incrementPosition(_maze->getStartingPoint());
+	ctrl->getViewer()->getOrientation()->incrementRotation(Orientate::THETA, 180);
 
 	// add the world to the controller
 	// note that since the world is a renderable no cast is necessary

@@ -5,29 +5,33 @@ using namespace std;
 using namespace XOR;
 
 
-class PhotoAlbum : public DefaultKeyboardListener, public Renderable, 
+class PhotoAlbum : public DefaultKeyboardListener, public Object3D,
                    public InterpolationListener
 {
 
 public:
+
+
+	Dimension3D * getDimension() const {return NULL;}
+	Vector3D * getOrigin() const {return NULL;}
 
    /* 
   	* Constructor
  	*/
 	PhotoAlbum()
 	{
-        Controller * ctrl =
-            Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
+        Controller * ctrl = Controller::GetInstance();
 
         ctrl->defaultConfiguration();
         ctrl->removeDefaultKeyboardListener();
 
         ctrl->getKeyboard()->addListener(this);
+/*
+        ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
+                TimedInterpolation(3000, this));
 
-        //ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
-                //TimedInterpolation(3000, this));
-
-        //ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+        ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+*/
         ctrl->getViewer()->incrementTranslation(
 				new Dimension3D(0,0,2), new TimedInterpolation(3000, this));
 
@@ -41,22 +45,30 @@ public:
         ctrl->setModel(this);
 
 		new FramesPerSecondCounter();
+cout << "Passing control" << endl;
 
-        cout << "Passing control" << endl;
+
+		glDisable(GL_DEPTH_TEST);
         ctrl->run();
 	}
 
 
     void interpolationComplete()
     {
-        //cout << "Interpolation complete" << endl;
+        cout << "Interpolation complete" << endl;
     }
 
+	void render()
+	{
+		draw();
+	}
+
     
-    void render()
+    void draw()
     {
-        vector<RectangularPrism*>::iterator iter = pics.begin();
-        vector<RectangularPrism*>::iterator end = pics.end();
+
+        vector<Object3D*>::iterator iter = pics.begin();
+        vector<Object3D*>::iterator end = pics.end();
 
         while (iter != end) { 
             (*iter)->render();
@@ -92,8 +104,8 @@ public:
 	 */
 	void handleKey_0()
 	{
-        vector<RectangularPrism*>::iterator iter = pics.begin();
-        vector<RectangularPrism*>::iterator end  = pics.end();
+        vector<Object3D*>::iterator iter = pics.begin();
+        vector<Object3D*>::iterator end  = pics.end();
 
         int i=0;
         while (iter != end )
@@ -114,8 +126,8 @@ public:
 	
 	void handleKey_3()
 	{
-        vector<RectangularPrism*>::iterator iter = pics.begin();
-        vector<RectangularPrism*>::iterator end  = pics.end();
+        vector<Object3D*>::iterator iter = pics.begin();
+        vector<Object3D*>::iterator end  = pics.end();
 
         int i=0;
         while (iter != end ) {
@@ -258,11 +270,11 @@ public:
 		double newXshift;
 		double newYshift;
 
-		Point3D * currentPoint;
+		Vector3D * currentPoint;
 			
 		// Get a copy of the point so we can 
 		// extract the x and y values to work on
-		currentPoint = pics[index]->getRegistrationPoint();
+		currentPoint = pics[index]->getOrigin();
        
         x = currentPoint->getX();
         y = currentPoint->getY();
@@ -282,6 +294,12 @@ public:
         pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
         pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
     }
+
+
+	void handleKey_7()
+	{
+		pics[currentPic]->incrementRotation(Positionable::THETA, 90, new TimedInterpolation(1000, this));
+	}
     
 protected:
 
@@ -323,12 +341,14 @@ protected:
 	   		for (double j = -3; j<3; j++) {
 				numOfPics++;  // keep track of number of pics
                 cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
-			   	pics.push_back(new RectangularPrism(
-					new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
-					squareDiameter, squareDiameter, squareDiameter,
-					new Paint(Color::BLACK, Paint::HEIGHT_BASED, factory->createTexture("monkey.png"))
+				pics.push_back(new CompiledObject3D(new RectangularPrism( new
+								Vector3D(i*squareDiameter + offset*i,
+									j*squareDiameter + offset*j, z),
+								squareDiameter, squareDiameter, squareDiameter,
+								new Paint(Color::WHITE, Paint::HEIGHT_BASED,
+									factory->createTexture("monkey.png"))
                         //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
-				));
+				)));
                 /*```pics.push_back(new RectangularPrism(
                             new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
                             squareDiameter, squareDiameter, squareDiameter,
@@ -337,11 +357,16 @@ protected:
                 ++ii;
 			}
 		}
+
+		//compilePics();
 	}
+
+
 
 private:
     
-    vector<RectangularPrism*> pics; RectangularPrism *a,*b,*c;
+    vector<Object3D*> pics; 
+	RectangularPrism *a,*b,*c;
     String2D * s;
     int currentPic;  // the index of the currently selected pic    
     int numOfPics;   // the actual number of pics (not highest index)
