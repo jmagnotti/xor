@@ -27,11 +27,12 @@ int main(int argc, char** argv)
     ctrl->defaultConfiguration();
 
     // We are creating the object as a pointer for greater effecincy
-    Quadrilateral3D * hello = new Quadrilateral3D(  new Vector3D(-.25,-.25,-1),
+    
+    Triangle3D * hello = new Triangle3D(  new Vector3D(-.25,-.25,-1),
 													new Vector3D(.25,-.25,-1),
-													new Vector3D(.25,.25,-1),
-													new Vector3D(-.25,.25,-1), 
-													new Paint());
+													new Vector3D(.25,.25,-1));
+   
+    //NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(0,.5,0), 0.5, 10);
 
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)

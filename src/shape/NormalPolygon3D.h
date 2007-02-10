@@ -6,16 +6,26 @@
 #include "../paint/Paint.h"
 #include "../geometry/Vector3D.h"
 #include "Object3D.h"
-
-
+#include <vector>
+#include <math.h>
 namespace XOR {
 
 
 /**
+ * An n-sided polygon
  *
+ * @author John Magnotti, Everette Clemmer
+ * @version 1.0
  */
 class NormalPolygon3D : public Object3D
 {
+
+private:
+    int                 _sides;
+    float               _radius;
+    Vector3D *          _center;
+    vector<Vector3D *>  _vertices;
+    Paint *             _paint;
 
 public:
 
@@ -26,7 +36,7 @@ public:
 	 * NormalPolygon3D is an Object3D, transforms can be applied to position
 	 * it.
 	 */
-	NormalPolygon3D(Vector3D * center, int numSides);
+	NormalPolygon3D(Vector3D * center, float radius, int numSides);
 
 
 	/**
@@ -38,20 +48,12 @@ public:
 	/**
 	 * Set the paint to be used on the curren object.
 	 */
-	void setPaint(Paint * paint);
-	
-	
-	/**
-	 * is this needed?
-	 */
-	void resetNumSides(int);
+	void setPaint(Paint * paint);	
 
-
+    Dimension3D * getDimension() const {}
+    Vector3D * getOrigin() const {}
+	
 protected:
-
-	void calculateSides(void);
-
-	void updatePaint(void);
 
 	NormalPolygon3D();
 

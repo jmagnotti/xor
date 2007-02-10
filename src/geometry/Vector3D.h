@@ -92,7 +92,7 @@ public:
 
 
     /**
-     * Multiplication operation
+     * Division operation
 	 * Returns a new Vector representing the product of the two vectors.
      */
 	Vector3D * operator / (Vector3D * other);
