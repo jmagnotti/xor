@@ -10,7 +10,6 @@
 #include "Rotate.h"
 
 #include "../interpolation/InterpolationEngine.h"
-#include "../shape/Point3D.h"
 #include "../util/GraphicsConversionUtility.h"
 
 
@@ -102,9 +101,8 @@ public:
 
 	/**
 	 * Get the current value of a rotation
-	 * Dimensions: 0=theta,1=phi, 2=roll;
 	 */
-	float getRotation(int dimension);
+	float getRotation(const int dimension);
 
 
     /**
@@ -119,7 +117,6 @@ public:
      */
     void setRotation(const int axis, float angle);
     void setRotation(const int axis, float angle, InterpolationEngine * interpolation);
-
 
     /** 
      * Increments the rotation for the given axis. axis must be one of
@@ -166,34 +163,13 @@ public:
     void incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
 
 
-	/**
-	 * Generates a display list to use for rendering the object.
-	 */
-	virtual void compile()
-{}
-	
-	
-	/**
-	 * Returns whether the object is compiled
-	 */
-	void isCompiled();
-
-
     /**
-     * Returns the state of the transformed variable, which is set to TRUE when
+	 * Returns the state of the transformed variable, which is set to TRUE when
+	 * all transforms are at their default state.
      * 
-     * @return Whether or not the object has been transformed.
+     * @return Whether or not any of the transforms have been changed
      */
     bool isTransformed();
-
-
-    /**
-     * Used to support primitive Reflection.
-     *
-     * @return A string representing the type of the renderable (i.e.
-     *         "POSITIONABLE").
-     */
-    virtual char * getRenderableType();
 
 
 	/**
@@ -250,10 +226,12 @@ public:
 	 */
 	void printDebugInfo();
 	
+
     /**
      * remove the effect of all of the transform objects
      */
     void clear();
+
 
 protected:
     

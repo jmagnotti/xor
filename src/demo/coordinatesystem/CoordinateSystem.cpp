@@ -29,10 +29,10 @@ public:
 		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));
 		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
         
-        ctrl->getModel()->addRenderable("white", new Cube(new Point3D(.5,.5,.5), 1, new Paint(Color::WHITE)));
-        ctrl->getModel()->addRenderable("blue", new Cube(new Point3D(0,0,5), 1, new Paint(Color::BLUE)));
-        ctrl->getModel()->addRenderable("green", new Cube(new Point3D(0,5,0), 1, new Paint(Color::GREEN)));
-        ctrl->getModel()->addRenderable("red", new Cube(new Point3D(5,0,0), 1, new Paint(Color::RED)));
+		ctrl->getModel()->addObject("white", new CompiledObject3D(new Cube(new Vector3D(.5,.5,.5), 1, new Paint(Color::WHITE))));
+		ctrl->getModel()->addObject("blue",	 new CompiledObject3D(new Cube(new Vector3D(0,0,5), 1, new Paint(Color::BLUE))));
+		ctrl->getModel()->addObject("green", new CompiledObject3D(new Cube(new Vector3D(0,5,0), 1, new Paint(Color::GREEN))));
+		ctrl->getModel()->addObject("red", 	 new CompiledObject3D(new Cube(new Vector3D(5,0,0), 1, new Paint(Color::RED))));
 
         ctrl->run();
 	}

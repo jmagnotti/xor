@@ -92,10 +92,10 @@ void Model::render()
 			glMaterialf( GL_FRONT, GL_SHININESS, m_pMaterials[materialIndex].m_shininess );
 			*/
 
-			if ( m_pMaterials[materialIndex].m_texture > 0 )
-			{
+			//if ( m_pMaterials[materialIndex].m_texture > 0 )
+			//{
 				glBindTexture( GL_TEXTURE_2D, m_pMaterials[materialIndex].m_texture );
-			}
+			//}
 		}
 
 		glBegin( GL_TRIANGLES );

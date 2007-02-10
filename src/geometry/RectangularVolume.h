@@ -4,23 +4,17 @@
 
 #include <iostream>
 #include "Dimension3D.h"
-#include "../shape/Point3D.h"
+#include "Vector3D.h"
 
 using namespace std;
 
 namespace XOR {
 
 /**
- * Encapsulates the volume of an object. Contains information about _radii 
+ * Encapsulates the volume of an object. Contains information about radii 
  * in three directions and the front bottom left corner of an object
  * the main purpose of this object is collision detection, and is meant to be contained 
- * by a rectangularprism if painting is required. NOTE: RectangularVolume is NOT a Renderable.
- * 
- * Also, allows a rectangularprism to switch out its volumes, or for multiple 
- * RectangularPrisms to share the same volume. Then, just use glTranslate to move their
- * position. Consider this implementation for the maze program, using display lists once the 
- * cubes are generated. HOWEVER, the idea is to move away from the state machine. Using glTranslate is a 
- * move in the wrong direction.
+ * by a rectangularprism if painting is required. RectangularVolume is not a Renderable.
  */
 class RectangularVolume
 {
@@ -37,7 +31,7 @@ public:
 	 * Explicit Constructor.
 	 * This is the preferred method of creation, as it directly mimics the structure of the rectvol.
 	 */
-	RectangularVolume(Point3D * point, Dimension3D * size);
+	RectangularVolume(Vector3D * point, Dimension3D * size);
 
 
 	/**
@@ -53,14 +47,14 @@ public:
 	 * Explicit Constructor
 	 * Easy cube constructor
 	 */
-	RectangularVolume(Point3D * corner, float radius);
+	RectangularVolume(Vector3D * corner, float radius);
 
 
 	/**
 	 * Tests if the given point is contained (intersected) by the 
 	 * rectangular volume object
 	 */
-	bool contains(Point3D * p);
+	bool contains(Vector3D * point);
 
 
 	/**
@@ -68,28 +62,27 @@ public:
 	 * The idea is that this is faster than checking all planes
 	 * each time
 	 */
-	bool contains(Point3D * p, int plane);
+	bool contains(Vector3D * point, int plane);
 	
 
 	/**
 	 * Generates a set of points that uniquely define the given volume
 	 */
-	void generatePoints(Point3D * points[8]);
+	void generatePoints(Vector3D * points[8]);
 
 
-	//--GETTERS FOR DIAMETERS--//
+	//--getters for diameters--//
 	float getXDiameter();
 	float getYDiameter();
 	float getZDiameter();
 
-	Point3D * getRegistrationPoint();
+	Vector3D * getOrigin();
 
 
-protected:
+private:
 
 	Dimension3D * _radii;
-	Point3D		* frontBottomLeftCorner;
-
+	Vector3D	* _origin;
 
 };
 

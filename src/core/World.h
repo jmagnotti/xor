@@ -5,13 +5,7 @@
 #include <stdlib.h>
 #include <map>
 
-#include "../shape/Point3D.h"
-#include "../shape/Renderable.h"
-#include "../transform/Rotate.h"
-#include "../transform/Positionable.h"
-#include "../event/timer/TimerListener.h"
-#include "../transform/Transform.h"
-#include "../transform/Translate.h"
+#include "../shape/Object3D.h"
 
 
 using namespace std;
@@ -22,18 +16,16 @@ namespace XOR {
 /**
  * This is the highest-level model in the GOR framework
  */
-class World : //public Positionable, 
-                public TimerListener,
-                public Renderable
+class World : public Object3D
 {
 
 public:
 
+
 	/** 
 	 * Destructor
 	 */
-	virtual ~World()
-	{}
+	virtual ~World();
 
 
 	/**
@@ -45,17 +37,17 @@ public:
 	/**
 	 * Singleton accessor that also sets the high-level model. This removes all other renderables.
 	 * Transforms are NOT changed. If you want to get a fresh start, call this GetInstance method, 
-	 * then call setDefaults(). Note that calling setDefaults() will trash any World configuration 
+	 * then call clear. Note that calling setDefaults() will trash any World configuration 
 	 * set by Controller.setDefaultConfiguration().
 	 */
-	static World * GetInstance(Renderable *);
+	static World * GetInstance(Object3D *);
 
 
 	/**
 	 * Determines if the given renderable 
 	 * is the world obejct itself
 	 */
-	static bool IsWorldObject(Renderable *);
+	static bool IsWorldObject(Object3D * world);
 
 
 	/**
@@ -63,7 +55,7 @@ public:
 	 * The idea is that now you can get the renderables back out
 	 * of the world to perform operations on them
 	 */
-	void addRenderable(char * name, Renderable * rend);
+	void addObject(char * name, Object3D * object);
 
 
 	/**
@@ -73,94 +65,42 @@ public:
 
 
 	/**
-	 * Get the current rotation
-	 */
-	Rotate * getRotation();
-
-
-	/**
-	 * Get the current translation
-	 */
-	Translate * getTranslation();
-
-
-	/**
-	 * Returns the current Rotational Velocity of the world
-	 */
-	Point3D * getRotationalVelocity();
-
-
-	/**
-	 * Returns the current Velocity of the world
-	 */
-	Point3D * getVelocity();
-
-	
-	/**
-	 * Performs per-step changes when activated by the timer object
-	 * Shouldn't be called by non-timer objects
-	 */
-	void handleTick();
-
-
-	/**
 	 * Returns a reference to a named renderable.
 	 */
-	Renderable * getRenderable(char *);
+	Object3D * getObject(char *);
 
 
 	/**
 	 * Removes a renderable from the worlds vector
 	 */
-	void removeRenderable(char *);
+	void removeObject(char *);
 
 
 	/**
-	 * Calls render on all of its subelements
+	 * Display the world
 	 */
-	void render(void);
+	void render();
 
 
 	/**
-	 * Sets the global world rotation
+	 * soon to be handled by Obj3D?
 	 */
-	void setRotation(Rotate *);
+	Dimension3D * getDimension() const {return new Dimension3D(0,0,0);}
 
 
 	/**
-	 * Sets the global world translation
+	 * soon to be handled by Obj3D?
 	 */
-	void setTranslation(Translate *);
+	Vector3D * getOrigin() const {return new Vector3D(0,0,0);}
 
-
-protected:
-
-	
-	Point3D *   _position;
-	Point3D *   _rotationalVelocity;
-	Point3D *   _velocity;
-
-	Rotate *        _rotate;
-	Translate *     _translate;
-
-	map<char*, Renderable*> renderables;
-
-	World();
-	World(Renderable * rend);
-
-
-    /**
-	 * Sets all of the transforms to 0.
-     * Does not delete old values!
-	 */
-	virtual void setDefaults();
-
-	virtual void popTransforms();
-	virtual void pushTransforms();
 
 private:
 
+	World();
+	World(Object3D * object);
+
 	static World * _world;
+	map<char*, Object3D*> _objects;
 
 };
 

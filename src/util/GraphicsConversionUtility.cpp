@@ -3,7 +3,8 @@
 using namespace XOR;
 
 //set the static instance to null.
-GraphicsConversionUtility * GraphicsConversionUtility::_graphicsConversionUtility = 0;
+GraphicsConversionUtility *
+GraphicsConversionUtility::_graphicsConversionUtility = 0;
 
 //set pi
 const float GraphicsConversionUtility::PI = 3.14159265358979323846;
@@ -13,26 +14,18 @@ const float GraphicsConversionUtility::PI = 3.14159265358979323846;
  */
 GraphicsConversionUtility * GraphicsConversionUtility::GetInstance()
 {
-    if (_graphicsConversionUtility == NULL)
-        _graphicsConversionUtility = new GraphicsConversionUtility();
+	if (_graphicsConversionUtility == NULL)
+		_graphicsConversionUtility = new GraphicsConversionUtility();
 
-    return _graphicsConversionUtility;
+	return _graphicsConversionUtility;
 }
 
 
 /*
- * protected constructor.
+ * private constructor.
  */
 GraphicsConversionUtility::GraphicsConversionUtility()
-{
-//    //fill the (co)sine tables
-//    for (int i = 0; i<360; i++) {
-//        float j = degressToRadians(i);
-//
-//        cosineValues[i] = cos(j);
-//        sineValues[i]   = sin(j);
-//    }
-}
+{}
 
 
 /*
@@ -49,16 +42,18 @@ bool GraphicsConversionUtility::compare_f(float a, float b, float epsilon)
     return result;
 }
 
+
 /*
  * evaluates the cross product of a-b X b-c.
  */
-Point3D * GraphicsConversionUtility::crossProduct(Point3D * vecA, Point3D * vecB, Point3D * vecC)
+Vector3D * GraphicsConversionUtility::crossProduct(Vector3D * vecA, Vector3D *
+		vecB, Vector3D * vecC)
 {
-    Point3D * vecU = *vecA - vecB;
-    Point3D * vecV = *vecB - vecC;
+    Vector3D * vecU = *vecA - vecB;
+    Vector3D * vecV = *vecB - vecC;
 
     // the resultant is the cross product of vecU and vecV
-    Point3D * resultant = new Point3D(
+    Vector3D * resultant = new Vector3D(
         (vecU->getY() * vecV->getZ()) - (vecU->getZ() * vecV->getY()),
         (vecU->getZ() * vecV->getX()) - (vecU->getX() * vecV->getZ()),
         (vecU->getX() * vecV->getY()) - (vecU->getY() * vecV->getX()) );
@@ -75,45 +70,6 @@ float GraphicsConversionUtility::degressToRadians(float degree)
     degree *= M_PI/180.0;
 
     return degree;
-}
-
-
-/*
- * get cosine value (or 0).
- */
-float GraphicsConversionUtility::getCosine(int deg)
-{
-//    deg = deg % 360;
-//    float result = cosineValues[deg];
-
-    return cos((double)deg);
-}
-
-
-/*
- * get sine value (or 0).
- */
-float GraphicsConversionUtility::getSine(int deg)
-{
-//    float result = 0;
-//
-//    deg = deg % 360;
-//    result = sineValues[deg];
-
-    return sin((double)deg);
-}
-
-
-/*
- * generate DL
- */
-void GraphicsConversionUtility::generateDisplayList(GLuint & displayListID, Renderable * renderable)
-{
-    displayListID = glGenLists(1);
-
-    glNewList(displayListID, GL_COMPILE);
-        renderable->render();
-    glEndList();
 }
 
 
@@ -144,19 +100,19 @@ float GraphicsConversionUtility::floatModulus(float a, int b)
 /*
  * normalizes the point array.
  */
-void GraphicsConversionUtility::normalize(Point3D* points[])
+void GraphicsConversionUtility::normalize(Vector3D * points[])
 {
     for (int i = 0; i<6; i++) {
-        Point3D * tempPoint = points[i];
+        Vector3D * tempVector = points[i];
 
-        float len = sqrtf(	tempPoint->getX() * tempPoint->getX() +
-                            tempPoint->getY() * tempPoint->getY() +
-                            tempPoint->getZ() * tempPoint->getZ()	);
+        float len = sqrtf(	tempVector->getX() * tempVector->getX() +
+                            tempVector->getY() * tempVector->getY() +
+                            tempVector->getZ() * tempVector->getZ()	);
 
-        points[i] = new Point3D(tempPoint->getX()/len,
-                                tempPoint->getY()/len,
-                                tempPoint->getZ()/len   );
-        delete tempPoint;
+        points[i] = new Vector3D(tempVector->getX()/len,
+                                tempVector->getY()/len,
+                                tempVector->getZ()/len   );
+        delete tempVector;
     }
 }
 

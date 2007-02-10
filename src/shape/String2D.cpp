@@ -8,6 +8,7 @@ namespace XOR {
  */
 String2D::String2D(char * string)
 {
+
 	_size = new Dimension2D(400,300);
 	_text = string;
 
@@ -84,10 +85,12 @@ void String2D::render()
 {
 	glColor3fv(_color);
 
+	//FIXME this needs to be in Object2D::render()
 	BitmapFontUtil::beginRenderText((int)_size->getWidth(), (int)_size->getHeight());
 	
 	BitmapFontUtil::renderText(_xpos, _ypos, BITMAP_FONT_TYPE_HELVETICA_12, _text);
 	
+	//FIXME this needs to be in Object2D::render()
 	BitmapFontUtil::endRenderText();
 }
 
@@ -98,6 +101,16 @@ void String2D::render()
 void String2D::setText(char *text)
 {
 	_text = text;
+}
+
+Dimension3D * String2D::getDimension() const
+{
+	return new Dimension3D(_size->getWidth(), _size->getHeight(), 0);
+}
+
+Vector3D * String2D::getOrigin() const
+{
+	return new Vector3D(_xpos, _ypos, 0);
 }
 
 }

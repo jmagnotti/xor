@@ -21,6 +21,7 @@
 #include "World.h"
 #include "../shape/Point3D.h"
 #include "../shape/Renderable.h"
+#include "../shape/Object3D.h"
 
 // view
 #include "Viewer.h"
@@ -153,7 +154,7 @@ public:
      * exists at a time. World could be refactored into a Universe if you want
      * to have multiple worlds.  
      */
-	void setModel(Renderable*);
+	void setModel(Object3D*);
 
 
 	/**
@@ -192,7 +193,7 @@ private:
 	Reshape *	    _reshape;
 	Timer *		    _timer;
 
-	Renderable *    _model;
+	Object3D *    _model;
 	Viewer *	    _viewer;
 
 	Controller();

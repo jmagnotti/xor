@@ -199,17 +199,19 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 }
 
 
-/*
 void DefaultKeyboardListener::handleKey_w()
 {
-	Controller::GetInstance()->getViewer()->walk(0.5f);
+	Controller::GetInstance()->getViewer()->walk(0.5f, new
+			TimedInterpolation(1000,NULL));
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-	Controller::GetInstance()->getViewer()->walk(-0.5f);
+	Controller::GetInstance()->getViewer()->walk(-0.5f, new
+			TimedInterpolation(1000, NULL));
 }
 
+/*
 void DefaultKeyboardListener::handleKey_q()
 {
 	Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);

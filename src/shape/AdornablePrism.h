@@ -3,50 +3,49 @@
 
 
 #include "RectangularPrism.h"
-#include "Renderable.h"
+#include "Object3D.h"
+
 
 namespace XOR {
 
 
+/**
+ * Represents a solid that can have other 3D objects attached to it.
+ */
 class AdornablePrism : public RectangularPrism
 {
 
 public:
-
-    /**
-     * Default Constructor
-     */
-    AdornablePrism()
-    {
-        RectangularPrism::RectangularPrism();
-    }
-
     
     /**
      * Explicit Constructor
      */
-    AdornablePrism(RectangularVolume * vol)
-    {
-      //  RectangularPrism::RectangularPrism(vol);
-    }
+    AdornablePrism(RectangularVolume * volume);
 
 
     /**
      * Sets the decoration on the given wall
      */
-    void setAdornment(Renderable *, int);
+    void setAdornment(Object3D * adornment, const int face);
 
+
+protected:
 
     /**
      * Renders the adorned prism
      */
-    void render(void);
-    
+    void render();
 
-protected:
+
+	/**
+	 * Convenience for specializations, like AdornableCube
+	 */
+	AdornablePrism();
+
+private:
 
     // Will store pointers to the renderables that need to be drawn on the walls
-    Renderable * _adornments[6];
+    Object3D * _adornments[6];
 
 };
 

@@ -163,6 +163,7 @@ void Controller::defaultGLConfiguration()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// enable anti-aliasing
+
 /*
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
@@ -173,6 +174,7 @@ void Controller::defaultGLConfiguration()
 	glEnable(GL_DEPTH_TEST);
 
 	// enable fog
+
 /*
 	glEnable(GL_FOG);
 
@@ -264,16 +266,16 @@ void Controller::run(void)
 /* 
  * sets the model for the controller
  */
-void Controller::setModel(Renderable* rend)
+void Controller::setModel(Object3D * model)
 {
 	// In order to do proper rendering, we need a world object
 	// we don't want to force people to do all that though, so we do a quick check
 	// and wrap the renderable inside a world object if it isn't a world object
 	// note that if the object IS a world object, then we don't apply our special rotation
-	if (! (World::IsWorldObject(rend)) )
-		_model = World::GetInstance(rend);
+	if (! (World::IsWorldObject(model)) )
+		_model = World::GetInstance(model);
 	else // it already is a world object
-		_model = rend;
+		_model = model;
 
 	_viewer->setModel((World*)_model);
 }

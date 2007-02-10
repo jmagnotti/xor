@@ -24,8 +24,8 @@ MazeDriver::MazeDriver()
     // translation will even effect objects added later, like the Terrain.
     // Also note that we had to invert the starting point to get the desired
     // effect.
-    //ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
-    //ctrl->getViewer()->incrementRotation(Positionable::THETA, 180);
+    ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
+    ctrl->getViewer()->incrementRotation(Positionable::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary

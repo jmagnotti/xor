@@ -7,9 +7,10 @@
 #include <string>
 #include <math.h>
 
-#include "../paint/Paint.h"
-#include "Renderable.h"
 #include "../../include/SDL_opengl.h"
+#include "../paint/Paint.h"
+#include "../geometry/Vector3D.h"
+#include "Object3D.h"
 
 using namespace std;
 
@@ -33,19 +34,18 @@ public:
 
 
 	/**
-	 * Default Constructor
-	 * 
-	 * Construct a point at 0,0,0, colored white
-	 */
-	Point3D();
-
-
-	/**
 	 * Explicit Constructor
 	 * 
 	 * Construct a point at x,y,z
 	 */
 	Point3D(float x, float y, float z);
+
+/**
+	 * Explicit Constructor
+	 * 
+	 * Create a point from the float array
+	 */
+	Point3D(float p[3]);
 
 
 	/**
@@ -53,7 +53,7 @@ public:
 	 * 
 	 * Create a point from the float array
 	 */
-	Point3D(float p[3]);
+	Point3D(Vector3D * position);
 
 
 	/**
@@ -92,37 +92,13 @@ public:
     void clonePosition(Point3D * p);
 
 
-    /** 
-     * Required by Interpolable.h.
-     * Returns if the given points position matches this points position
-     */
-    //bool compare(Interpolable * interp);
-
-
     /**
 	 * This is a really important method that should be used more often. Any 
      * time you need the exact opposite of this point, call this function. 
-     * Quadrilateral3D::setNormal(Point3D*) is an example of using invert, 
-     * as well as some of the collision detection routines.
 	 */
 	Point3D * invert();
 
 
-    /**
-     * Finds the min and max of the two points and stores the minimum values in a, and the maximum
-     * values in b. Retains respective color values.
-     */
-//    void minAndMax(Point3D * a, Point3D * b);
-
-
-    /**
-     * Required by Interpolable.h.
-     * Increments the position of the point according to the values of the 
-     * given interpolable.
-     */
-    //void next(Interpolable * interp);
-    
-    
     /**
 	 * Sets the color, then renders the point.
 	 * No delegation occurs at this level, only a glColor and a glVertex are used.
@@ -130,63 +106,32 @@ public:
 	void render(void);
 
 
-    /*
-     * Required by Interpolable.h.
-     * Returns a point that represents one step of "steps" sections between the 
-     * two given points.
-     */
-    //Interpolable * scale(Interpolable * begin, Interpolable * finsh, int steps);
-
-    
-    /**
-	 * Multiplies each point by the specified value
-	 */
-//	void scale(float);
-
-
-    /**
-     * Required by Interpolable.h
-     */
-    //void set(Interpolable * interp);
-
-
-	/**
-	 * Adds the two points and returns a new
-	 * point
-	 */
-	Point3D * operator +(Point3D * point);
-
-
-	/**
-	 * Subtracts the two points and returns a new
-	 * point
-	 */
-	Point3D * operator -(Point3D * point);
-
-
     char * toString();
 
 
-	//--- GETTERS ---//
-    float   get(int);
-    float	getX();
-	float	getY();
-	float	getZ();
+    Vector3D * getPosition();
 
-    float * getPosition();
+	/**
+	 * Returns the specified position, or 0 if position > 3 || position < 0
+	 */
+    float get(int position);
+
+	/**
+	 * Returns a float representation of the color
+	 */
     float * getColor();
 
 
     //--- SETTERS ---//
 	void setColor(float c[3]);
-    void setColor(Paint*);
-    void setPosition(float pos[3]);
+    void setColor(Paint * paint);
+    void setPosition(float position[3]);
+    void setPosition(Vector3D * position);
 
-protected:
+private:
 
-	float * _position;
-    //Translate * _position;
- 
+	Point3D();
+	Vector3D * _position;
 	float * _color;
     
 };

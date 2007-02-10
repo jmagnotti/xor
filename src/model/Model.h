@@ -14,7 +14,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "../transform/Positionable.h"
+#include "../shape/Object3D.h"
 #include "../texture/Texture.h"
 #include "../texture/TextureFactory.h"
 
@@ -26,7 +26,7 @@ typedef struct {
     unsigned char *data;
 } textureImage;
 
-class Model : public Renderable, public Positionable
+class Model : public Object3D
 {
 	public:
 		//	Mesh
@@ -78,6 +78,11 @@ class Model : public Renderable, public Positionable
 			Draw the model.
 		*/
 		void render(void);
+
+
+		Dimension3D * getDimension() const {}
+		Vector3D * getOrigin() const {return new Vector3D(0,0,0);}
+
 
 		/*
 			Called if OpenGL context was lost and we need to reload textures, display lists, etc.

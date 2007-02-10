@@ -2,20 +2,6 @@
 
 namespace XOR {
 
-/*
- * Default Constructor
- */
-Point3D::Point3D()
-{
-    _color       = new float[3];
-    _position    = new float[3];
-
-	for(int i=0; i<3; i++) {
-		_color[i]       = 1.0f;
-		_position[i]    = 0.0f;
-	}
-}
-
 
 /* 
  * Explicit Constructor
@@ -23,7 +9,7 @@ Point3D::Point3D()
 Point3D::Point3D(float p[])
 {
     _color       = new float[3];
-    _position    = new float[3];
+	_position = new Vector3D(p);
 
     for (int i=0; i<3; i++) {
 		_color[i]	    = 1.0f;
@@ -38,11 +24,11 @@ Point3D::Point3D(float p[])
 Point3D::Point3D(float p[], float c[])
 {
     _color       = new float[3];
-    _position    = new float[3];
+
+	_position = new Vector3D(p);
 
     for (int i=0; i<3; i++) {
 		_color[i]	    = c[i];
-		_position[i]	= p[i];
 	}
 }
 
@@ -52,10 +38,7 @@ Point3D::Point3D(float p[], float c[])
  */
 Point3D::Point3D(float x, float y, float z)
 {
-    _position    = new float[3];
-    _position[0] = x;
-	_position[1] = y;
-	_position[2] = z;
+	_position = new Vector3D(x,y,z);
 
     _color = new float[3];
     for (int i=0; i<3; i++)
@@ -68,14 +51,17 @@ Point3D::Point3D(float x, float y, float z)
  */
 Point3D::Point3D(float x, float y, float z, float c[3])
 {
-    _position       = new float[3];
-    _position[0]	= x;
-	_position[1]	= y;		
-	_position[2]	= z;		
+	_position = new Vector3D(x,y,z);
 
     _color = new float[3];
 	for (int i=0; i<3; i++)
 		_color[i] = c[i];
+}
+
+
+Point3D::Point3D(Vector3D * position)
+{
+	_position = position;
 }
 
 
@@ -84,19 +70,9 @@ Point3D::Point3D(float x, float y, float z, float c[3])
  */
 Point3D::~Point3D()
 {
-    delete[] _position;
+    delete _position;
     delete[] _color;
 }
-
-
-/*
- * Sets the position to the given position
- */
-void Point3D::clonePosition(Point3D * p)
-{
-    setPosition(p->getPosition());
-}
-
 
 /*
  * Returns true if the points position is the same as this ones
@@ -121,8 +97,7 @@ bool Point3D::compare(Interpolable * interp)
  */
 void Point3D::increment(float pos[3])
 {
-    for (int i=0; i<3; i++)
-        _position[i] += pos[i];
+	_position->increment(pos);
 }
  
 
@@ -132,44 +107,14 @@ void Point3D::increment(float pos[3])
  */
 float Point3D::get(int position)
 {
-    if (position >= 0 && position <= 2)
-        return _position[position];
-    else
-        return 0;
-}
-
-
-/*
- * Returns the X position
- */
-float Point3D::getX()
-{ 
-    return _position[0];	
-}
-
-
-/*
- * Returns the Y position
- */
-float Point3D::getY()			
-{ 
-    return _position[1];
-}
-
-
-/*
- * Returns the Z position
- */
-float Point3D::getZ()
-{ 
-    return _position[2];	
+	return _position->get(position);
 }
 
 
 /*
  * Returns the position
  */
-float * Point3D::getPosition()	
+Vector3D * Point3D::getPosition()	
 { 
     return _position;
 }
@@ -189,31 +134,7 @@ float * Point3D::getColor()
  */
 Point3D * Point3D::invert()
 {
-	return new Point3D( - _position[0],
-						- _position[1],
-						- _position[2] );
-}
-
-
-/*
- * addition
- */
-Point3D * Point3D::operator +(Point3D * point)
-{
-	return new Point3D( getX() + point->getX(),
-                        getY() + point->getY(),
-                        getZ() + point->getZ()  );
-}
-
-
-/*
- * subtraction
- */
-Point3D * Point3D::operator -(Point3D * point)
-{
-	return new Point3D( getX() - point->getX(),
-	                    getY() - point->getY(),
-	                    getZ() - point->getZ()  );
+	return new Point3D(_position->invert());
 }
 
 
@@ -226,8 +147,7 @@ void Point3D::render(void)
     //cout << "render at " << getX() << " "<< getY() << " "<< getZ() << endl;
 
 	glColor3fv(getColor());
-	glVertex3fv(getPosition());	
-    //glVertex3f(getX(), getY(), getZ());
+	glVertex3fv(_position->toArray());	
 }
 
 
@@ -242,22 +162,21 @@ void Point3D::setColor(float c[3])
 
 
 /*
- * Scales each point by the specified amount
-void Point3D::scale(float scaleAmount)
-{
-   for (int i=0; i<3; i++)
-       _position[i] *= scaleAmount;
-}
+ * Updates the position array
  */
+void Point3D::setPosition(float position[3])
+{
+	_position->setPosition(position);
+}
 
 /*
  * Updates the position array
  */
-void Point3D::setPosition(float pos[])
+void Point3D::setPosition(Vector3D * position)
 {
-    for (int i=0; i<3; i++)
-        _position[i] = pos[i];
+	_position->clone(position);
 }
+
 
 /*
  * Printing
@@ -265,7 +184,9 @@ void Point3D::setPosition(float pos[])
 char * Point3D::toString()
 {
     char * buffer = new char[60];
-    sprintf(buffer, "%f %f %f\tr: %f g: %f b: %f", getX(), getY(), getZ(), _color[0], _color[1], _color[2] );   
+	sprintf(buffer, "%f %f %f\tr: %f g: %f b: %f", _position->getX(),
+			_position->getY(), _position->getZ(), _color[0], _color[1],
+			_color[2] );   
 
     return buffer;
 }

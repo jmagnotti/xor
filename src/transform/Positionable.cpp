@@ -77,7 +77,6 @@ void Positionable::push()
 	_roll->push();
 	_phi->push();
 	_theta->push();
-
 }
 
 
@@ -397,14 +396,6 @@ void Positionable::updateFromFocalPoint()
             GraphicsConversionUtility::PI * 180.0f) - 180.0f;
 }
 
-
-/*
- * return type
- */
-char * Positionable::getRenderableType()
-{
-    return "POSITIONABLE";
-}
 
 /*
  * print member info

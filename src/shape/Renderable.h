@@ -2,6 +2,9 @@
 #define RENDERABLE_H
 
 
+#include "../geometry/Dimension3D.h"
+
+
 namespace XOR {
 
 /**
@@ -14,22 +17,12 @@ class Renderable
 public:
 
 	/**
-     * Code in here should be strictly limited to either delegating further
-     * rendering or drawing (e.g., OpenGL) calls. Calculation work should be
-     * done outside of the this method. By adhering to this convention,
-     * generating display lists is much easier.
+	 * Calls the display list for an object. If a list has not been
+	 * created, nothing will be drawn. This will only be the case if
+	 * isCompiled() is false. When renderables are added to the
+	 * World, they are automatically compiled. 
 	 */
 	virtual void render(void)=0;
-
-
-	/**
-     * Returns the class type. This should be used by sub-interfaces of
-     * renderable to disambiguate themselves. 
-	 */
-	virtual char * getRenderableType()
-	{
-		return "RENDERABLE";
-	}
 
 };
 

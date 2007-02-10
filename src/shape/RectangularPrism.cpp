@@ -6,21 +6,17 @@ namespace XOR {
 /*
  * Default Constructor
  */
-RectangularPrism::RectangularPrism() {
-    /*
-        _paint	= new Paint(Color::WHITE);
-        _volume	= new RectangularVolume();
-        setup();
-    */
-}
+RectangularPrism::RectangularPrism() 
+{}
 
 
 /*
  * Full control of specs
  */
-RectangularPrism::RectangularPrism(Point3D * point, float sizeX, float sizeY, float sizeZ, Paint * p)
+RectangularPrism::RectangularPrism(Vector3D * point, float sizeX, float sizeY,
+		float sizeZ, Paint * paint)
 {
-	_paint	= p;
+	_paint	= paint;
 	_volume	= new RectangularVolume(point, new Dimension3D(sizeX, sizeY, sizeZ));
 	setup();
 }
@@ -64,9 +60,9 @@ void RectangularPrism::calculateNormals()
 /*
  * Sets the color of the RectangularPrism
  */
-void RectangularPrism::setPaint(Paint *p)
+void RectangularPrism::setPaint(Paint * paint)
 {
-	_paint = p;
+	_paint = paint;
    
 	updatePaint();
 }
@@ -87,26 +83,15 @@ void RectangularPrism::removeFace(int faceToRemove)
 /*
  * calls render on _faces
  */
-void RectangularPrism::render(void)
+void RectangularPrism::render()
 {
-    push();
-
-	if (true) {
-        int i=0;
-		vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
-		vector<Quadrilateral3D*>::iterator finish = _faces.end();
-		
-		while (iter != finish) {
-			(*iter)->render();
-			++iter;
-            ++i;
-		}
+	vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
+	vector<Quadrilateral3D*>::iterator finish = _faces.end();
+	
+	while (iter != finish) {
+		(*iter)->render();
+		++iter;
 	}
-	else {
-		//glCallList(_displayListID);
-	}
-
-    pop();
 }
 
 
@@ -161,6 +146,7 @@ void RectangularPrism::setup()
  */
 void RectangularPrism::updatePaint()
 {
+	/*
 	// painting order depends on gradient style
 	int type = _paint->getGradientStyle();
 
@@ -198,22 +184,23 @@ void RectangularPrism::updatePaint()
 		default:
 			break;
 	}
+	*/
 }
 
 
 /*
  * returns registration point
  */
-Point3D * RectangularPrism::getRegistrationPoint()
+Vector3D * RectangularPrism::getOrigin() const
 { 
-	return _volume->getRegistrationPoint();	
+	return _volume->getOrigin();	
 }
 
 
 /*
  * returns if the point is within the rect prism
  */
-bool RectangularPrism::checkCollision(Point3D * position)
+bool RectangularPrism::checkCollision(Vector3D * position)
 {
 	return _volume->contains(position);
 }
@@ -229,6 +216,12 @@ void RectangularPrism::printInfo()
         ++iter;
     }
 
+}
+
+
+Dimension3D * RectangularPrism::getDimension() const
+{
+	return new Dimension3D(0,0,0);
 }
 
 }

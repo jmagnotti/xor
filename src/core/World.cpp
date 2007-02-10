@@ -3,7 +3,7 @@
 
 namespace XOR {
 
-// set the static instance to null
+// set the static instance to null 
 World *	World::_world = 0;
 
 
@@ -11,18 +11,17 @@ World *	World::_world = 0;
  * Default Constructor
  */
 World::World()
-{
-	setDefaults();
-}
+{}
 
+World::~World()
+{}
 
 /* 
  * Explicit Constructor
  */
-World::World(Renderable * rend)
+World::World(Object3D * object)
 {
-	setDefaults();
-	addRenderable("world", rend);
+	addObject("world", object);
 }
 
 
@@ -40,17 +39,12 @@ World * World::GetInstance()
 
 /*
  * Returns an instance initialized with
- * the given renderable
+ * the given objects, unless the world has already been initialized
  */
-World * World::GetInstance(Renderable *rend)
+World * World::GetInstance(Object3D * object)
 {
-	if (! (_world == NULL)) {
-		_world->clean();
-		_world->addRenderable("world", rend);
-	}
-	else {
-		_world = new World(rend);
-	}
+	if (_world == NULL)
+		_world = new World(object);
 
 	return _world;
 }
@@ -59,27 +53,27 @@ World * World::GetInstance(Renderable *rend)
 /*
  * Adds a renderable to the world
  */
-void World::addRenderable(char * name, Renderable * rend)
+void World::addObject(char * name, Object3D * object)
 {
-	renderables[name] = rend;
+	_objects[name] = object;
 }
 
 
 /*
  * Get a reference to an object in the world
  */
-Renderable * World::getRenderable(char * name)
+Object3D * World::getObject(char * name)
 {
-	return renderables[name];
+	return _objects[name];
 }
 
 
 /*
  * Remove an object from the world
  */
-void World::removeRenderable(char * name)
+void World::removeObject(char * name)
 {
-	renderables.erase(name);
+	_objects.erase(name);
 }
 
 
@@ -88,124 +82,33 @@ void World::removeRenderable(char * name)
  */
 void World::clean()
 {
-	renderables.clear();
-}
-
-
-/* 
- * return global rotation
- */
-Rotate * World::getRotation()
-{
-	return _rotate;
-}
-
-
-/*
- * return global translation
- */
-Translate * World::getTranslation()
-{
-	return _translate;
-}
-
-
-/* 
- * Handles timer updates
- */
-void World::handleTick()
-{
-	//_translate->increment(_velocity);
-	//_rotate->increment(_rotationalVelocity);
+	_objects.clear();
 }
 
 
 /*
  * Returns if the given object is the world object
  */
-bool World::IsWorldObject(Renderable *rend)
+bool World::IsWorldObject(Object3D * world)
 {
-	bool result;
-
-	if (_world == NULL)
-		result = false;
-	else
-		result = (rend == _world);
-
-	return result;
-}
-
-
-/* 
- * Removes transforms
- */
-void World::popTransforms()
-{
-	_translate->pop();
-	_rotate->pop();
+	return (world == _world);
 }
 
 
 /*
- * applies transforms
+ * render method
  */
-void World::pushTransforms()
+void World::render()
 {
-	// order does matter
-	_rotate->push();
-	_translate->push();
-}
+	map<char*, Object3D*>::iterator iter   = _objects.begin();
+	map<char*, Object3D*>::iterator finish = _objects.end();
 
-
-/* 
- * calls render
- */
-void World::render(void)
-{
-	pushTransforms();
-
-	map<char*, Renderable*>::iterator iter	 = renderables.begin();
-	map<char*, Renderable*>::iterator finish = renderables.end();
-
-	while(iter != finish) {
-		iter->second->render();
-		++iter;
-	}
-
-	popTransforms();
-}
-
-
-/* 
- * Returns the world to a pleasant default state
- */
-void World::setDefaults()
-{
-	_position			= new Point3D	(0,0,0);
-
-	_rotationalVelocity = new Point3D	(0,0,0);
-	_velocity			= new Point3D	(0,0,0);
-
-	_rotate				= new Rotate	(0,0,0,0);
-	_translate			= new Translate	(0,0,0);
-}
-
-
-/*
- * set rotation
- */
-void World::setRotation(Rotate *rot)
-{
-	_rotate = rot;
-}
-
-
-/* 
- * set translation
- */
-void World::setTranslation(Translate *tran)
-{
-	_translate = tran;
+	push();
+		while(iter != finish) {
+			iter->second->render();
+			++iter;
+		}
+	pop();
 }
 
 }
