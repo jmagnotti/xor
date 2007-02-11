@@ -6,7 +6,7 @@ namespace XOR {
 /*
  * constructor
  */
-MouseButtonDown::MouseButtonDown(const int button, int x, int y)
+MouseButtonDown::MouseButtonDown(int x, int y, const int button)
 {
 	_button	= button;
 

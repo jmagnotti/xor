@@ -2,6 +2,8 @@
 #define KEYEVENTFACTORY_H
 
 
+#include <stdlib.h>
+#include <string>
 #include "../../../include/SDL.h"
 
 #include "KeyEvent.h"
@@ -28,10 +30,11 @@ class KeyEventFactory
          * Factory constructor
          * Using both type & state, although they are basically the same thing. Should decide if this matters.
          */
-        static KeyEvent * ConstructInstance(Uint8  * type, Uint8 * state, SDL_keysym * keysym);
+		static KeyEvent * ConstructInstance(Uint8 * type, Uint8 * state, SDL_keysym * keysym);
 
+		static KeyEvent * ConstructInstance(string event);
 
-    protected:
+    private:
 
         KeyEventFactory();
 

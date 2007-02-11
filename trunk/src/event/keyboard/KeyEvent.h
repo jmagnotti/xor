@@ -3,11 +3,9 @@
 
 
 #include "../../../include/SDL.h"
-#include <string>
-
+#include <string.h>
 
 using namespace std;
-
 
 namespace XOR {
 
@@ -18,7 +16,7 @@ namespace XOR {
  * This would speed things up as we aren't creating and deleting objects all over the place. 
  * We can't reflect on the KeyboardListener to find out which methods it has implemented, but 
  * there should be another way to find out what keys they are using and create a bunch of them.
- * A fun side effect is that we can ignore keypresses that the listeners don't care about.
+ * A fun consequence is that we can ignore keypresses that the listeners don't care about.
  */
 class KeyEvent 
 {
@@ -54,8 +52,7 @@ class KeyEvent
         bool isCtrlPressed();
 
 
-        string toString();
-
+        char * toString();
 
         /**
          * Returns the type of event, either "KEYUP" or "KEYDOWN"
@@ -65,8 +62,8 @@ class KeyEvent
 
     protected:
     
-        KeyEvent()
-        {}
+        KeyEvent();
+		char * _eventString;
 
         SDLKey  _key;
         SDLMod  _modifiers;

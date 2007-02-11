@@ -4,7 +4,8 @@
 
 #include "MouseEvent.h"
 #include "Mouse.h"
-
+#include "../../multicast/MulticastSocketPool.h"
+#include "../../multicast/MulticastSocket.h"
 
 using namespace std;
 
@@ -17,6 +18,12 @@ class MouseStub : public Mouse
 {
 
 public:
+
+
+	/**
+	 * Destructor
+	 */
+    virtual ~MouseStub();
 
 	/**
 	 * Fires an event to listeners
@@ -33,8 +40,9 @@ public:
 private:
 
     MouseStub();
-
 	static MouseStub * _mouseStub;
+
+	MulticastSocket  * _socket;
 
 };
 

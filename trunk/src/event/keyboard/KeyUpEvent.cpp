@@ -12,6 +12,15 @@ KeyUpEvent::KeyUpEvent(SDL_keysym * keysym)
     _key        = keysym->sym;
 }
 
+/*
+ * exp cstr
+ */
+KeyUpEvent::KeyUpEvent(int key, int mods)
+{
+	_key = (SDLKey)key;
+	_modifiers = (SDLMod)mods;
+}
+
 
 /*
  *

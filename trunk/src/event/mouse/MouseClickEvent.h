@@ -2,6 +2,7 @@
 #define MOUSECLICKEVENT_H
 
 
+#include <string>
 #include "../../../include/SDL.h"
 
 #include "MouseEvent.h"
@@ -35,6 +36,12 @@ public:
      */
 	const int getState();
 
+	/**
+	 * String representation of the event
+	 */
+	char * toString();
+
+	virtual const int getType()=0;
 
 protected:
 

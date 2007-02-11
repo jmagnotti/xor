@@ -2,16 +2,18 @@
 #define MOUSEEVENTFACTORY_H
 
 
-#include "../../../include/SDL.h"
+#include "../../../include/SDL_events.h"
 
+#include <string>
 #include "MouseEvent.h"
 #include "MouseButtonDown.h"
 #include "MouseButtonUp.h"
 #include "MouseMotionEvent.h"
 
 
-namespace XOR {
+using namespace std;
 
+namespace XOR {
 
 /**
  * Convenience class for constructing mouse events. Can take raw SDL_Events of 
@@ -22,11 +24,16 @@ class MouseEventFactory
 {
     public:
 
-
         /**
          * Factory constructor
          */
         static MouseEvent * ConstructInstance(SDL_Event * event);
+
+
+		/**
+		 * factory constructor
+		 */
+		static MouseEvent * ConstructInstance(string event);
 
 
         /**

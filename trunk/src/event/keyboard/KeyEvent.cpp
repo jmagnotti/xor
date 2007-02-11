@@ -6,6 +6,8 @@ namespace XOR {
 const int KeyEvent::KEY_DOWN_EVENT    = 0;
 const int KeyEvent::KEY_UP_EVENT      = 1;
 
+KeyEvent::KeyEvent()
+{}
 
 /*
  * Returns the SDLKey that was activated
@@ -60,10 +62,13 @@ bool KeyEvent::isCtrlPressed()
     return  (KMOD_RCTRL & _modifiers) || (KMOD_LCTRL & _modifiers);
 }
 
-string KeyEvent::toString()
+char * KeyEvent::toString()
 {
-    string event = "";//getType() + " " + _key + " " + _modifiers;
-    return event;
+	_eventString = new char[20];
+	memset(_eventString, 0, sizeof(_eventString));
+	sprintf(_eventString, "%d %d %d", getType(), getKey(), getModifiers());
+
+    return _eventString;
 }
 
 }

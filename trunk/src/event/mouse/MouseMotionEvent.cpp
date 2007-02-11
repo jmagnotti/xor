@@ -20,6 +20,19 @@ const int MouseMotionEvent::getType()
 
 
 /*
+ * string representation
+ */
+char * MouseMotionEvent::toString()
+{
+	_eventString = new char[30];
+	memset(_eventString, 0, sizeof(_eventString));
+	sprintf(_eventString, "%d %d %d %d %d", getType(), getXPosition(), getYPosition(), getRelativeXPosition(), getRelativeYPosition());
+
+	return _eventString;
+}
+
+
+/*
  * Explicit constructor
  */
 MouseMotionEvent::MouseMotionEvent(int xpos, int ypos, int xrel, int yrel)

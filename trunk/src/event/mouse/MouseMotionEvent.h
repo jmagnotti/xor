@@ -2,8 +2,10 @@
 #define MOUSEMOTIONEVENT_H
 
 
-#include "MouseEvent.h"
+#include <string>
 #include "../../../include/SDL.h"
+
+#include "MouseEvent.h"
 
 
 namespace XOR {
@@ -40,13 +42,13 @@ public:
      */
     int getRelativeYPosition();
 
+	char * toString();
+
 
 protected:
 
-
     // relative positions
     int _xrel, _yrel;
-
 
 };
 

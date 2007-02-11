@@ -38,6 +38,9 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
         handleKeyDown((KeyDownEvent*)ke);
     else
         handleKeyUp((KeyUpEvent*)ke);
+
+	cout << ke->toString() << endl;
+
 /*
     cout << "Key stats"             << endl;
     cout << "Shift held down: "     << ke->isShiftPressed()     << endl; 
