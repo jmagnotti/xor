@@ -10,7 +10,7 @@ LIBS = -lGL -lGLU -lSDL -lSDL_image -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/event/timer/TimerSkeleton.cpp src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/reshape/Reshape.cpp src/event/reshape/ReshapeEvent.cpp src/event/reshape/ReshapeSkeleton.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/RemoteEventHandlerFactory.cpp src/event/LocalEventHandlerFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/Vector3D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/shape/CompiledObject3D.cpp src/shape/Triangle3D.cpp src/shape/Object3D.cpp src/shape/NormalPolygon3D.cpp src/terrain/Terrain.cpp src/multicast/MulticastSocketPool.cpp src/multicast/MulticastSocket.cpp src/multicast/mcsend.cpp src/transform/Rotate.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Transform.cpp src/transform/Scale.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Translate.cpp src/transform/Stretch.cpp src/transform/Transformable.cpp src/paint/Color.cpp src/paint/Paint.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp 
+SRCS = src/event/timer/TimerSkeleton.cpp src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/keyboard/temp.cpp src/event/reshape/Reshape.cpp src/event/reshape/ReshapeEvent.cpp src/event/reshape/ReshapeSkeleton.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/RemoteEventHandlerFactory.cpp src/event/LocalEventHandlerFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/core/Controller.cpp src/core/Viewer.cpp src/core/World.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/Vector3D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Cube.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/Arc3D.cpp src/shape/String2D.cpp src/shape/CompiledObject3D.cpp src/shape/Triangle3D.cpp src/shape/Object3D.cpp src/shape/NormalPolygon3D.cpp src/terrain/Terrain.cpp src/multicast/MulticastSocketPool.cpp src/multicast/MulticastSocket.cpp src/multicast/mcsend.cpp src/transform/Rotate.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/MathCoordinateSystem.cpp src/transform/CoordinateSystem.cpp src/transform/Transform.cpp src/transform/Scale.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Translate.cpp src/transform/Stretch.cpp src/transform/Transformable.cpp src/paint/Color.cpp src/paint/Paint.cpp src/util/GraphicsConversionUtility.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/BehaviorParser.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -215,6 +215,7 @@ src/event/keyboard/KeyUpEvent.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/keyboard/KeyUpEvent.o: include/SDL_video.h include/SDL_mutex.h
 src/event/keyboard/KeyUpEvent.o: include/SDL_quit.h include/SDL_version.h
 src/event/keyboard/KeyUpEvent.o: src/event/keyboard/KeyEvent.h
+src/event/keyboard/KeyUpEvent.o: /usr/include/string.h
 src/event/keyboard/Keyboard.o: src/event/keyboard/Keyboard.h
 src/event/keyboard/Keyboard.o: /usr/include/stdlib.h /usr/include/features.h
 src/event/keyboard/Keyboard.o: /usr/include/sys/cdefs.h
@@ -251,6 +252,7 @@ src/event/keyboard/Keyboard.o: include/SDL_getenv.h include/SDL_error.h
 src/event/keyboard/Keyboard.o: include/SDL_timer.h include/SDL_audio.h
 src/event/keyboard/Keyboard.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/event/keyboard/Keyboard.o: include/SDL_events.h include/SDL_version.h
+src/event/keyboard/Keyboard.o: /usr/include/string.h
 src/event/keyboard/Keyboard.o: src/event/keyboard/KeyEventFactory.h
 src/event/keyboard/Keyboard.o: src/event/keyboard/KeyDownEvent.h
 src/event/keyboard/Keyboard.o: src/event/keyboard/KeyUpEvent.h
@@ -274,6 +276,11 @@ src/event/keyboard/KeyboardSkeleton.o: /usr/include/sys/sysmacros.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/bits/pthreadtypes.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/bits/sched.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/alloca.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_thread.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_main.h include/SDL_types.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_mutex.h
+src/event/keyboard/KeyboardSkeleton.o: include/begin_code.h
+src/event/keyboard/KeyboardSkeleton.o: include/close_code.h
 src/event/keyboard/KeyboardSkeleton.o: src/multicast/MulticastSocket.h
 src/event/keyboard/KeyboardSkeleton.o: src/multicast/Multicast.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/stdio.h
@@ -310,30 +317,26 @@ src/event/keyboard/KeyboardSkeleton.o: /usr/include/bits/confname.h
 src/event/keyboard/KeyboardSkeleton.o: /usr/include/getopt.h
 src/event/keyboard/KeyboardSkeleton.o: src/multicast/MulticastSocketPool.h
 src/event/keyboard/KeyboardSkeleton.o: src/multicast/MulticastSocket.h
-src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyboardListener.h
-src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyEvent.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL.h include/SDL_main.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_types.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_getenv.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_error.h
-src/event/keyboard/KeyboardSkeleton.o: include/begin_code.h
-src/event/keyboard/KeyboardSkeleton.o: include/close_code.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_rwops.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_timer.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_audio.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_byteorder.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_cdrom.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_joystick.h
+src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/Keyboard.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_events.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_active.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_keyboard.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_keysym.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_mouse.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_video.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_mutex.h include/SDL_quit.h
-src/event/keyboard/KeyboardSkeleton.o: include/SDL_version.h
-src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/Keyboard.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_rwops.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_joystick.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_quit.h
+src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyboardListener.h
+src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyEvent.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL.h include/SDL_getenv.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_error.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_timer.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_audio.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_byteorder.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_cdrom.h
 src/event/keyboard/KeyboardSkeleton.o: include/SDL_events.h
+src/event/keyboard/KeyboardSkeleton.o: include/SDL_version.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyEventFactory.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyDownEvent.h
 src/event/keyboard/KeyboardSkeleton.o: src/event/keyboard/KeyUpEvent.h
@@ -377,6 +380,7 @@ src/event/keyboard/DefaultKeyboardListener.o: include/SDL_video.h
 src/event/keyboard/DefaultKeyboardListener.o: include/SDL_mutex.h
 src/event/keyboard/DefaultKeyboardListener.o: include/SDL_quit.h
 src/event/keyboard/DefaultKeyboardListener.o: include/SDL_version.h
+src/event/keyboard/DefaultKeyboardListener.o: /usr/include/string.h
 src/event/keyboard/DefaultKeyboardListener.o: src/interpolation/TimedInterpolation.h
 src/event/keyboard/DefaultKeyboardListener.o: src/event/timer/Timer.h
 src/event/keyboard/DefaultKeyboardListener.o: src/event/timer/TimerListener.h
@@ -420,9 +424,9 @@ src/event/keyboard/DefaultKeyboardListener.o: src/event/reshape/ReshapeListener.
 src/event/keyboard/DefaultKeyboardListener.o: src/event/LocalEventHandlerFactory.h
 src/event/keyboard/DefaultKeyboardListener.o: src/event/EventHandlerFactory.h
 src/event/keyboard/DefaultKeyboardListener.o: src/event/keyboard/KeyboardSkeleton.h
+src/event/keyboard/DefaultKeyboardListener.o: include/SDL_thread.h
 src/event/keyboard/DefaultKeyboardListener.o: src/multicast/MulticastSocket.h
 src/event/keyboard/DefaultKeyboardListener.o: src/multicast/Multicast.h
-src/event/keyboard/DefaultKeyboardListener.o: /usr/include/string.h
 src/event/keyboard/DefaultKeyboardListener.o: /usr/include/sys/socket.h
 src/event/keyboard/DefaultKeyboardListener.o: /usr/include/sys/uio.h
 src/event/keyboard/DefaultKeyboardListener.o: /usr/include/bits/uio.h
@@ -507,20 +511,32 @@ src/event/keyboard/DefaultKeyboardListener.o: src/core/Controller.h
 src/event/keyboard/DefaultKeyboardListener.o: src/interpolation/InterpolationEngine.h
 src/event/keyboard/DefaultKeyboardListener.o: src/core/World.h
 src/event/keyboard/KeyEventFactory.o: src/event/keyboard/KeyEventFactory.h
-src/event/keyboard/KeyEventFactory.o: include/SDL.h include/SDL_main.h
-src/event/keyboard/KeyEventFactory.o: include/SDL_types.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/stdlib.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/features.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/sys/cdefs.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/gnu/stubs.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/sys/types.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/types.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/wordsize.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/typesizes.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/time.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/endian.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/endian.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/sys/select.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/select.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/sigset.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/time.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/sys/sysmacros.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/pthreadtypes.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/bits/sched.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/alloca.h include/SDL.h
+src/event/keyboard/KeyEventFactory.o: include/SDL_main.h include/SDL_types.h
 src/event/keyboard/KeyEventFactory.o: include/SDL_getenv.h
 src/event/keyboard/KeyEventFactory.o: include/SDL_error.h
 src/event/keyboard/KeyEventFactory.o: include/begin_code.h
 src/event/keyboard/KeyEventFactory.o: include/close_code.h
 src/event/keyboard/KeyEventFactory.o: include/SDL_rwops.h
 src/event/keyboard/KeyEventFactory.o: /usr/include/stdio.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/features.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/sys/cdefs.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/gnu/stubs.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/bits/types.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/bits/wordsize.h
-src/event/keyboard/KeyEventFactory.o: /usr/include/bits/typesizes.h
 src/event/keyboard/KeyEventFactory.o: /usr/include/libio.h
 src/event/keyboard/KeyEventFactory.o: /usr/include/_G_config.h
 src/event/keyboard/KeyEventFactory.o: /usr/include/wchar.h
@@ -540,6 +556,7 @@ src/event/keyboard/KeyEventFactory.o: include/SDL_mouse.h include/SDL_video.h
 src/event/keyboard/KeyEventFactory.o: include/SDL_mutex.h include/SDL_quit.h
 src/event/keyboard/KeyEventFactory.o: include/SDL_version.h
 src/event/keyboard/KeyEventFactory.o: src/event/keyboard/KeyEvent.h
+src/event/keyboard/KeyEventFactory.o: /usr/include/string.h
 src/event/keyboard/KeyEventFactory.o: src/event/keyboard/KeyDownEvent.h
 src/event/keyboard/KeyEventFactory.o: src/event/keyboard/KeyUpEvent.h
 src/event/keyboard/KeyDownEvent.o: src/event/keyboard/KeyDownEvent.h
@@ -570,6 +587,7 @@ src/event/keyboard/KeyDownEvent.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/keyboard/KeyDownEvent.o: include/SDL_video.h include/SDL_mutex.h
 src/event/keyboard/KeyDownEvent.o: include/SDL_quit.h include/SDL_version.h
 src/event/keyboard/KeyDownEvent.o: src/event/keyboard/KeyEvent.h
+src/event/keyboard/KeyDownEvent.o: /usr/include/string.h
 src/event/keyboard/KeyEvent.o: src/event/keyboard/KeyEvent.h include/SDL.h
 src/event/keyboard/KeyEvent.o: include/SDL_main.h include/SDL_types.h
 src/event/keyboard/KeyEvent.o: include/SDL_getenv.h include/SDL_error.h
@@ -593,6 +611,7 @@ src/event/keyboard/KeyEvent.o: include/SDL_active.h include/SDL_keyboard.h
 src/event/keyboard/KeyEvent.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/keyboard/KeyEvent.o: include/SDL_video.h include/SDL_mutex.h
 src/event/keyboard/KeyEvent.o: include/SDL_quit.h include/SDL_version.h
+src/event/keyboard/KeyEvent.o: /usr/include/string.h
 src/event/keyboard/SpecialKeyEvent.o: src/event/keyboard/SpecialKeyEvent.h
 src/event/keyboard/SpecialKeyEvent.o: /usr/include/stdlib.h
 src/event/keyboard/SpecialKeyEvent.o: /usr/include/features.h
@@ -613,6 +632,8 @@ src/event/keyboard/SpecialKeyEvent.o: /usr/include/sys/sysmacros.h
 src/event/keyboard/SpecialKeyEvent.o: /usr/include/bits/pthreadtypes.h
 src/event/keyboard/SpecialKeyEvent.o: /usr/include/bits/sched.h
 src/event/keyboard/SpecialKeyEvent.o: /usr/include/alloca.h
+src/event/keyboard/temp.o: /usr/include/string.h /usr/include/features.h
+src/event/keyboard/temp.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
 src/event/reshape/Reshape.o: src/event/reshape/Reshape.h
 src/event/reshape/ReshapeEvent.o: src/event/reshape/ReshapeEvent.h
 src/event/reshape/ReshapeEvent.o: include/SDL.h include/SDL_main.h
@@ -778,7 +799,6 @@ src/event/mouse/MouseButtonDown.o: include/SDL_quit.h include/SDL_version.h
 src/event/mouse/MouseButtonDown.o: src/event/mouse/MouseEvent.h
 src/event/mouse/MouseButtonDown.o: src/event/mouse/Mouse.h
 src/event/mouse/MouseMotionEvent.o: src/event/mouse/MouseMotionEvent.h
-src/event/mouse/MouseMotionEvent.o: src/event/mouse/MouseEvent.h
 src/event/mouse/MouseMotionEvent.o: include/SDL.h include/SDL_main.h
 src/event/mouse/MouseMotionEvent.o: include/SDL_types.h include/SDL_getenv.h
 src/event/mouse/MouseMotionEvent.o: include/SDL_error.h include/begin_code.h
@@ -806,12 +826,15 @@ src/event/mouse/MouseMotionEvent.o: include/SDL_keyboard.h
 src/event/mouse/MouseMotionEvent.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/mouse/MouseMotionEvent.o: include/SDL_video.h include/SDL_mutex.h
 src/event/mouse/MouseMotionEvent.o: include/SDL_quit.h include/SDL_version.h
+src/event/mouse/MouseMotionEvent.o: src/event/mouse/MouseEvent.h
 src/event/mouse/MouseEventFactory.o: src/event/mouse/MouseEventFactory.h
-src/event/mouse/MouseEventFactory.o: include/SDL.h include/SDL_main.h
-src/event/mouse/MouseEventFactory.o: include/SDL_types.h include/SDL_getenv.h
-src/event/mouse/MouseEventFactory.o: include/SDL_error.h include/begin_code.h
-src/event/mouse/MouseEventFactory.o: include/close_code.h include/SDL_rwops.h
-src/event/mouse/MouseEventFactory.o: /usr/include/stdio.h
+src/event/mouse/MouseEventFactory.o: include/SDL_events.h include/SDL_types.h
+src/event/mouse/MouseEventFactory.o: include/SDL_active.h
+src/event/mouse/MouseEventFactory.o: include/begin_code.h
+src/event/mouse/MouseEventFactory.o: include/close_code.h
+src/event/mouse/MouseEventFactory.o: include/SDL_keyboard.h
+src/event/mouse/MouseEventFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/mouse/MouseEventFactory.o: include/SDL_video.h /usr/include/stdio.h
 src/event/mouse/MouseEventFactory.o: /usr/include/features.h
 src/event/mouse/MouseEventFactory.o: /usr/include/sys/cdefs.h
 src/event/mouse/MouseEventFactory.o: /usr/include/gnu/stubs.h
@@ -825,17 +848,17 @@ src/event/mouse/MouseEventFactory.o: /usr/include/bits/wchar.h
 src/event/mouse/MouseEventFactory.o: /usr/include/gconv.h
 src/event/mouse/MouseEventFactory.o: /usr/include/bits/stdio_lim.h
 src/event/mouse/MouseEventFactory.o: /usr/include/bits/sys_errlist.h
-src/event/mouse/MouseEventFactory.o: include/SDL_timer.h include/SDL_audio.h
-src/event/mouse/MouseEventFactory.o: include/SDL_byteorder.h
-src/event/mouse/MouseEventFactory.o: include/SDL_cdrom.h
+src/event/mouse/MouseEventFactory.o: include/SDL_mutex.h include/SDL_main.h
+src/event/mouse/MouseEventFactory.o: include/SDL_rwops.h
 src/event/mouse/MouseEventFactory.o: include/SDL_joystick.h
-src/event/mouse/MouseEventFactory.o: include/SDL_events.h
-src/event/mouse/MouseEventFactory.o: include/SDL_active.h
-src/event/mouse/MouseEventFactory.o: include/SDL_keyboard.h
-src/event/mouse/MouseEventFactory.o: include/SDL_keysym.h include/SDL_mouse.h
-src/event/mouse/MouseEventFactory.o: include/SDL_video.h include/SDL_mutex.h
-src/event/mouse/MouseEventFactory.o: include/SDL_quit.h include/SDL_version.h
+src/event/mouse/MouseEventFactory.o: include/SDL_quit.h
 src/event/mouse/MouseEventFactory.o: src/event/mouse/MouseEvent.h
+src/event/mouse/MouseEventFactory.o: include/SDL.h include/SDL_getenv.h
+src/event/mouse/MouseEventFactory.o: include/SDL_error.h include/SDL_timer.h
+src/event/mouse/MouseEventFactory.o: include/SDL_audio.h
+src/event/mouse/MouseEventFactory.o: include/SDL_byteorder.h
+src/event/mouse/MouseEventFactory.o: include/SDL_cdrom.h include/SDL_events.h
+src/event/mouse/MouseEventFactory.o: include/SDL_version.h
 src/event/mouse/MouseEventFactory.o: src/event/mouse/MouseButtonDown.h
 src/event/mouse/MouseEventFactory.o: src/event/mouse/MouseClickEvent.h
 src/event/mouse/MouseEventFactory.o: src/event/mouse/Mouse.h
@@ -865,6 +888,39 @@ src/event/mouse/MouseStub.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/mouse/MouseStub.o: include/SDL_video.h include/SDL_mutex.h
 src/event/mouse/MouseStub.o: include/SDL_quit.h include/SDL_version.h
 src/event/mouse/MouseStub.o: src/event/mouse/Mouse.h
+src/event/mouse/MouseStub.o: src/multicast/MulticastSocketPool.h
+src/event/mouse/MouseStub.o: src/multicast/Multicast.h
+src/event/mouse/MouseStub.o: /usr/include/sys/types.h /usr/include/time.h
+src/event/mouse/MouseStub.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/event/mouse/MouseStub.o: /usr/include/sys/select.h
+src/event/mouse/MouseStub.o: /usr/include/bits/select.h
+src/event/mouse/MouseStub.o: /usr/include/bits/sigset.h
+src/event/mouse/MouseStub.o: /usr/include/bits/time.h
+src/event/mouse/MouseStub.o: /usr/include/sys/sysmacros.h
+src/event/mouse/MouseStub.o: /usr/include/bits/pthreadtypes.h
+src/event/mouse/MouseStub.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+src/event/mouse/MouseStub.o: /usr/include/alloca.h /usr/include/string.h
+src/event/mouse/MouseStub.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+src/event/mouse/MouseStub.o: /usr/include/bits/uio.h
+src/event/mouse/MouseStub.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/event/mouse/MouseStub.o: /usr/include/bits/posix1_lim.h
+src/event/mouse/MouseStub.o: /usr/include/bits/local_lim.h
+src/event/mouse/MouseStub.o: /usr/include/linux/limits.h
+src/event/mouse/MouseStub.o: /usr/include/bits/posix2_lim.h
+src/event/mouse/MouseStub.o: /usr/include/bits/sockaddr.h
+src/event/mouse/MouseStub.o: /usr/include/asm/socket.h
+src/event/mouse/MouseStub.o: /usr/include/asm-i386/socket.h
+src/event/mouse/MouseStub.o: /usr/include/asm/sockios.h
+src/event/mouse/MouseStub.o: /usr/include/asm-i386/sockios.h
+src/event/mouse/MouseStub.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/event/mouse/MouseStub.o: /usr/include/bits/in.h
+src/event/mouse/MouseStub.o: /usr/include/bits/byteswap.h
+src/event/mouse/MouseStub.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/event/mouse/MouseStub.o: /usr/include/bits/posix_opt.h
+src/event/mouse/MouseStub.o: /usr/include/bits/confname.h
+src/event/mouse/MouseStub.o: /usr/include/getopt.h
+src/event/mouse/MouseStub.o: src/multicast/MulticastSocket.h
+src/event/mouse/MouseStub.o: src/multicast/MulticastSocket.h
 src/event/mouse/Mouse.o: src/event/mouse/Mouse.h
 src/event/mouse/MouseButtonUp.o: src/event/mouse/MouseButtonUp.h
 src/event/mouse/MouseButtonUp.o: src/event/mouse/MouseClickEvent.h
@@ -918,33 +974,15 @@ src/event/mouse/MouseEvent.o: include/SDL_keysym.h include/SDL_mouse.h
 src/event/mouse/MouseEvent.o: include/SDL_video.h include/SDL_mutex.h
 src/event/mouse/MouseEvent.o: include/SDL_quit.h include/SDL_version.h
 src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseSkeleton.h
-src/event/mouse/MouseSkeleton.o: include/SDL.h include/SDL_main.h
-src/event/mouse/MouseSkeleton.o: include/SDL_types.h include/SDL_getenv.h
-src/event/mouse/MouseSkeleton.o: include/SDL_error.h include/begin_code.h
-src/event/mouse/MouseSkeleton.o: include/close_code.h include/SDL_rwops.h
-src/event/mouse/MouseSkeleton.o: /usr/include/stdio.h /usr/include/features.h
+src/event/mouse/MouseSkeleton.o: /usr/include/stdlib.h
+src/event/mouse/MouseSkeleton.o: /usr/include/features.h
 src/event/mouse/MouseSkeleton.o: /usr/include/sys/cdefs.h
 src/event/mouse/MouseSkeleton.o: /usr/include/gnu/stubs.h
+src/event/mouse/MouseSkeleton.o: /usr/include/sys/types.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/types.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/wordsize.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/typesizes.h
-src/event/mouse/MouseSkeleton.o: /usr/include/libio.h
-src/event/mouse/MouseSkeleton.o: /usr/include/_G_config.h
-src/event/mouse/MouseSkeleton.o: /usr/include/wchar.h
-src/event/mouse/MouseSkeleton.o: /usr/include/bits/wchar.h
-src/event/mouse/MouseSkeleton.o: /usr/include/gconv.h
-src/event/mouse/MouseSkeleton.o: /usr/include/bits/stdio_lim.h
-src/event/mouse/MouseSkeleton.o: /usr/include/bits/sys_errlist.h
-src/event/mouse/MouseSkeleton.o: include/SDL_timer.h include/SDL_audio.h
-src/event/mouse/MouseSkeleton.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/event/mouse/MouseSkeleton.o: include/SDL_joystick.h include/SDL_events.h
-src/event/mouse/MouseSkeleton.o: include/SDL_active.h include/SDL_keyboard.h
-src/event/mouse/MouseSkeleton.o: include/SDL_keysym.h include/SDL_mouse.h
-src/event/mouse/MouseSkeleton.o: include/SDL_video.h include/SDL_mutex.h
-src/event/mouse/MouseSkeleton.o: include/SDL_quit.h include/SDL_version.h
-src/event/mouse/MouseSkeleton.o: /usr/include/stdlib.h
-src/event/mouse/MouseSkeleton.o: /usr/include/sys/types.h /usr/include/time.h
-src/event/mouse/MouseSkeleton.o: /usr/include/endian.h
+src/event/mouse/MouseSkeleton.o: /usr/include/time.h /usr/include/endian.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/endian.h
 src/event/mouse/MouseSkeleton.o: /usr/include/sys/select.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/select.h
@@ -953,14 +991,60 @@ src/event/mouse/MouseSkeleton.o: /usr/include/bits/time.h
 src/event/mouse/MouseSkeleton.o: /usr/include/sys/sysmacros.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/pthreadtypes.h
 src/event/mouse/MouseSkeleton.o: /usr/include/bits/sched.h
-src/event/mouse/MouseSkeleton.o: /usr/include/alloca.h
-src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseEvent.h
-src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseEventFactory.h
-src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseButtonDown.h
-src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseClickEvent.h
+src/event/mouse/MouseSkeleton.o: /usr/include/alloca.h include/SDL_thread.h
+src/event/mouse/MouseSkeleton.o: include/SDL_main.h include/SDL_types.h
+src/event/mouse/MouseSkeleton.o: include/SDL_mutex.h include/begin_code.h
+src/event/mouse/MouseSkeleton.o: include/close_code.h
+src/event/mouse/MouseSkeleton.o: src/multicast/MulticastSocket.h
+src/event/mouse/MouseSkeleton.o: src/multicast/Multicast.h
+src/event/mouse/MouseSkeleton.o: /usr/include/stdio.h /usr/include/libio.h
+src/event/mouse/MouseSkeleton.o: /usr/include/_G_config.h
+src/event/mouse/MouseSkeleton.o: /usr/include/wchar.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/wchar.h
+src/event/mouse/MouseSkeleton.o: /usr/include/gconv.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/stdio_lim.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/sys_errlist.h
+src/event/mouse/MouseSkeleton.o: /usr/include/string.h
+src/event/mouse/MouseSkeleton.o: /usr/include/sys/socket.h
+src/event/mouse/MouseSkeleton.o: /usr/include/sys/uio.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/uio.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/socket.h
+src/event/mouse/MouseSkeleton.o: /usr/include/limits.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/posix1_lim.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/local_lim.h
+src/event/mouse/MouseSkeleton.o: /usr/include/linux/limits.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/posix2_lim.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/sockaddr.h
+src/event/mouse/MouseSkeleton.o: /usr/include/asm/socket.h
+src/event/mouse/MouseSkeleton.o: /usr/include/asm-i386/socket.h
+src/event/mouse/MouseSkeleton.o: /usr/include/asm/sockios.h
+src/event/mouse/MouseSkeleton.o: /usr/include/asm-i386/sockios.h
+src/event/mouse/MouseSkeleton.o: /usr/include/netinet/in.h
+src/event/mouse/MouseSkeleton.o: /usr/include/stdint.h /usr/include/bits/in.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/byteswap.h
+src/event/mouse/MouseSkeleton.o: /usr/include/arpa/inet.h
+src/event/mouse/MouseSkeleton.o: /usr/include/unistd.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/posix_opt.h
+src/event/mouse/MouseSkeleton.o: /usr/include/bits/confname.h
+src/event/mouse/MouseSkeleton.o: /usr/include/getopt.h
+src/event/mouse/MouseSkeleton.o: src/multicast/MulticastSocketPool.h
+src/event/mouse/MouseSkeleton.o: src/multicast/MulticastSocket.h
 src/event/mouse/MouseSkeleton.o: src/event/mouse/Mouse.h
-src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseButtonUp.h
+src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseEvent.h include/SDL.h
+src/event/mouse/MouseSkeleton.o: include/SDL_getenv.h include/SDL_error.h
+src/event/mouse/MouseSkeleton.o: include/SDL_rwops.h include/SDL_timer.h
+src/event/mouse/MouseSkeleton.o: include/SDL_audio.h include/SDL_byteorder.h
+src/event/mouse/MouseSkeleton.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/event/mouse/MouseSkeleton.o: include/SDL_events.h include/SDL_active.h
+src/event/mouse/MouseSkeleton.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/event/mouse/MouseSkeleton.o: include/SDL_mouse.h include/SDL_video.h
+src/event/mouse/MouseSkeleton.o: include/SDL_quit.h include/SDL_version.h
+src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseClickEvent.h
 src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseMotionEvent.h
+src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseEventFactory.h
+src/event/mouse/MouseSkeleton.o: include/SDL_events.h
+src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseButtonDown.h
+src/event/mouse/MouseSkeleton.o: src/event/mouse/MouseButtonUp.h
 src/event/RemoteEventHandlerFactory.o: src/event/RemoteEventHandlerFactory.h
 src/event/RemoteEventHandlerFactory.o: src/event/EventHandlerFactory.h
 src/event/RemoteEventHandlerFactory.o: src/event/reshape/Reshape.h
@@ -1021,13 +1105,13 @@ src/event/RemoteEventHandlerFactory.o: /usr/include/alloca.h
 src/event/RemoteEventHandlerFactory.o: include/SDL_events.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyboardListener.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyEvent.h
+src/event/RemoteEventHandlerFactory.o: /usr/include/string.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyEventFactory.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyDownEvent.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyUpEvent.h
 src/event/RemoteEventHandlerFactory.o: src/event/keyboard/KeyboardStub.h
 src/event/RemoteEventHandlerFactory.o: src/multicast/MulticastSocket.h
 src/event/RemoteEventHandlerFactory.o: src/multicast/Multicast.h
-src/event/RemoteEventHandlerFactory.o: /usr/include/string.h
 src/event/RemoteEventHandlerFactory.o: /usr/include/sys/socket.h
 src/event/RemoteEventHandlerFactory.o: /usr/include/sys/uio.h
 src/event/RemoteEventHandlerFactory.o: /usr/include/bits/uio.h
@@ -1119,13 +1203,14 @@ src/event/LocalEventHandlerFactory.o: include/SDL_byteorder.h
 src/event/LocalEventHandlerFactory.o: include/SDL_cdrom.h
 src/event/LocalEventHandlerFactory.o: include/SDL_events.h
 src/event/LocalEventHandlerFactory.o: include/SDL_version.h
+src/event/LocalEventHandlerFactory.o: /usr/include/string.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyEventFactory.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyDownEvent.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyUpEvent.h
 src/event/LocalEventHandlerFactory.o: src/event/keyboard/KeyboardSkeleton.h
+src/event/LocalEventHandlerFactory.o: include/SDL_thread.h
 src/event/LocalEventHandlerFactory.o: src/multicast/MulticastSocket.h
 src/event/LocalEventHandlerFactory.o: src/multicast/Multicast.h
-src/event/LocalEventHandlerFactory.o: /usr/include/string.h
 src/event/LocalEventHandlerFactory.o: /usr/include/sys/socket.h
 src/event/LocalEventHandlerFactory.o: /usr/include/sys/uio.h
 src/event/LocalEventHandlerFactory.o: /usr/include/bits/uio.h
@@ -1215,6 +1300,7 @@ src/interpolation/CameraRoller.o: include/SDL_getenv.h include/SDL_error.h
 src/interpolation/CameraRoller.o: include/SDL_timer.h include/SDL_audio.h
 src/interpolation/CameraRoller.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/interpolation/CameraRoller.o: include/SDL_events.h include/SDL_version.h
+src/interpolation/CameraRoller.o: /usr/include/string.h
 src/interpolation/CameraRoller.o: src/event/keyboard/KeyEventFactory.h
 src/interpolation/CameraRoller.o: src/event/keyboard/KeyDownEvent.h
 src/interpolation/CameraRoller.o: src/event/keyboard/KeyUpEvent.h
@@ -1236,9 +1322,9 @@ src/interpolation/CameraRoller.o: src/event/reshape/ReshapeListener.h
 src/interpolation/CameraRoller.o: src/event/LocalEventHandlerFactory.h
 src/interpolation/CameraRoller.o: src/event/EventHandlerFactory.h
 src/interpolation/CameraRoller.o: src/event/keyboard/KeyboardSkeleton.h
+src/interpolation/CameraRoller.o: include/SDL_thread.h
 src/interpolation/CameraRoller.o: src/multicast/MulticastSocket.h
 src/interpolation/CameraRoller.o: src/multicast/Multicast.h
-src/interpolation/CameraRoller.o: /usr/include/string.h
 src/interpolation/CameraRoller.o: /usr/include/sys/socket.h
 src/interpolation/CameraRoller.o: /usr/include/sys/uio.h
 src/interpolation/CameraRoller.o: /usr/include/bits/uio.h
@@ -1390,6 +1476,7 @@ src/interpolation/TimedInterpolation.o: src/event/keyboard/Keyboard.h
 src/interpolation/TimedInterpolation.o: include/SDL_events.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyboardListener.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyEvent.h
+src/interpolation/TimedInterpolation.o: /usr/include/string.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyEventFactory.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyDownEvent.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyUpEvent.h
@@ -1411,9 +1498,9 @@ src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeListener.h
 src/interpolation/TimedInterpolation.o: src/event/LocalEventHandlerFactory.h
 src/interpolation/TimedInterpolation.o: src/event/EventHandlerFactory.h
 src/interpolation/TimedInterpolation.o: src/event/keyboard/KeyboardSkeleton.h
+src/interpolation/TimedInterpolation.o: include/SDL_thread.h
 src/interpolation/TimedInterpolation.o: src/multicast/MulticastSocket.h
 src/interpolation/TimedInterpolation.o: src/multicast/Multicast.h
-src/interpolation/TimedInterpolation.o: /usr/include/string.h
 src/interpolation/TimedInterpolation.o: /usr/include/sys/socket.h
 src/interpolation/TimedInterpolation.o: /usr/include/sys/uio.h
 src/interpolation/TimedInterpolation.o: /usr/include/bits/uio.h
@@ -1539,6 +1626,7 @@ src/core/Controller.o: include/SDL_getenv.h include/SDL_error.h
 src/core/Controller.o: include/SDL_timer.h include/SDL_audio.h
 src/core/Controller.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/core/Controller.o: include/SDL_events.h include/SDL_version.h
+src/core/Controller.o: /usr/include/string.h
 src/core/Controller.o: src/event/keyboard/KeyEventFactory.h
 src/core/Controller.o: src/event/keyboard/KeyDownEvent.h
 src/core/Controller.o: src/event/keyboard/KeyUpEvent.h
@@ -1557,11 +1645,11 @@ src/core/Controller.o: src/event/reshape/ReshapeListener.h
 src/core/Controller.o: src/event/LocalEventHandlerFactory.h
 src/core/Controller.o: src/event/EventHandlerFactory.h
 src/core/Controller.o: src/event/keyboard/KeyboardSkeleton.h
-src/core/Controller.o: src/multicast/MulticastSocket.h
-src/core/Controller.o: src/multicast/Multicast.h /usr/include/string.h
-src/core/Controller.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
-src/core/Controller.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
-src/core/Controller.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+src/core/Controller.o: include/SDL_thread.h src/multicast/MulticastSocket.h
+src/core/Controller.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/core/Controller.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/core/Controller.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/core/Controller.o: /usr/include/bits/posix1_lim.h
 src/core/Controller.o: /usr/include/bits/local_lim.h
 src/core/Controller.o: /usr/include/linux/limits.h
 src/core/Controller.o: /usr/include/bits/posix2_lim.h
@@ -1738,6 +1826,7 @@ src/texture/TextureFactory.o: include/SDL_getenv.h include/SDL_error.h
 src/texture/TextureFactory.o: include/SDL_timer.h include/SDL_audio.h
 src/texture/TextureFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/texture/TextureFactory.o: include/SDL_events.h include/SDL_version.h
+src/texture/TextureFactory.o: /usr/include/string.h
 src/texture/TextureFactory.o: src/event/keyboard/KeyEventFactory.h
 src/texture/TextureFactory.o: src/event/keyboard/KeyDownEvent.h
 src/texture/TextureFactory.o: src/event/keyboard/KeyUpEvent.h
@@ -1759,8 +1848,9 @@ src/texture/TextureFactory.o: src/event/reshape/ReshapeListener.h
 src/texture/TextureFactory.o: src/event/LocalEventHandlerFactory.h
 src/texture/TextureFactory.o: src/event/EventHandlerFactory.h
 src/texture/TextureFactory.o: src/event/keyboard/KeyboardSkeleton.h
+src/texture/TextureFactory.o: include/SDL_thread.h
 src/texture/TextureFactory.o: src/multicast/MulticastSocket.h
-src/texture/TextureFactory.o: src/multicast/Multicast.h /usr/include/string.h
+src/texture/TextureFactory.o: src/multicast/Multicast.h
 src/texture/TextureFactory.o: /usr/include/sys/socket.h
 src/texture/TextureFactory.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
 src/texture/TextureFactory.o: /usr/include/bits/socket.h
@@ -1994,7 +2084,7 @@ src/shape/String2D.o: src/event/reshape/ReshapeListener.h
 src/shape/String2D.o: src/event/LocalEventHandlerFactory.h
 src/shape/String2D.o: src/event/EventHandlerFactory.h
 src/shape/String2D.o: src/event/keyboard/KeyboardSkeleton.h
-src/shape/String2D.o: src/multicast/MulticastSocket.h
+src/shape/String2D.o: include/SDL_thread.h src/multicast/MulticastSocket.h
 src/shape/String2D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
 src/shape/String2D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
 src/shape/String2D.o: /usr/include/bits/socket.h /usr/include/limits.h
@@ -2152,7 +2242,7 @@ src/terrain/Terrain.o: src/event/reshape/ReshapeListener.h
 src/terrain/Terrain.o: src/event/LocalEventHandlerFactory.h
 src/terrain/Terrain.o: src/event/EventHandlerFactory.h
 src/terrain/Terrain.o: src/event/keyboard/KeyboardSkeleton.h
-src/terrain/Terrain.o: src/multicast/MulticastSocket.h
+src/terrain/Terrain.o: include/SDL_thread.h src/multicast/MulticastSocket.h
 src/terrain/Terrain.o: src/multicast/Multicast.h /usr/include/sys/socket.h
 src/terrain/Terrain.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
 src/terrain/Terrain.o: /usr/include/bits/socket.h /usr/include/limits.h
@@ -2749,6 +2839,7 @@ src/util/FramesPerSecondCounter.o: src/event/keyboard/Keyboard.h
 src/util/FramesPerSecondCounter.o: include/SDL_events.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyboardListener.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyEvent.h
+src/util/FramesPerSecondCounter.o: /usr/include/string.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyEventFactory.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyDownEvent.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyUpEvent.h
@@ -2770,9 +2861,9 @@ src/util/FramesPerSecondCounter.o: src/event/reshape/ReshapeListener.h
 src/util/FramesPerSecondCounter.o: src/event/LocalEventHandlerFactory.h
 src/util/FramesPerSecondCounter.o: src/event/EventHandlerFactory.h
 src/util/FramesPerSecondCounter.o: src/event/keyboard/KeyboardSkeleton.h
+src/util/FramesPerSecondCounter.o: include/SDL_thread.h
 src/util/FramesPerSecondCounter.o: src/multicast/MulticastSocket.h
 src/util/FramesPerSecondCounter.o: src/multicast/Multicast.h
-src/util/FramesPerSecondCounter.o: /usr/include/string.h
 src/util/FramesPerSecondCounter.o: /usr/include/sys/socket.h
 src/util/FramesPerSecondCounter.o: /usr/include/sys/uio.h
 src/util/FramesPerSecondCounter.o: /usr/include/bits/uio.h
@@ -2977,6 +3068,7 @@ src/model/MilkshapeModel.o: src/event/reshape/ReshapeListener.h
 src/model/MilkshapeModel.o: src/event/LocalEventHandlerFactory.h
 src/model/MilkshapeModel.o: src/event/EventHandlerFactory.h
 src/model/MilkshapeModel.o: src/event/keyboard/KeyboardSkeleton.h
+src/model/MilkshapeModel.o: include/SDL_thread.h
 src/model/MilkshapeModel.o: src/multicast/MulticastSocket.h
 src/model/MilkshapeModel.o: src/multicast/Multicast.h
 src/model/MilkshapeModel.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
@@ -3072,7 +3164,7 @@ src/model/Model.o: include/SDL_getenv.h include/SDL_error.h
 src/model/Model.o: include/SDL_timer.h include/SDL_audio.h
 src/model/Model.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/model/Model.o: include/SDL_events.h include/SDL_version.h
-src/model/Model.o: src/event/keyboard/KeyEventFactory.h
+src/model/Model.o: /usr/include/string.h src/event/keyboard/KeyEventFactory.h
 src/model/Model.o: src/event/keyboard/KeyDownEvent.h
 src/model/Model.o: src/event/keyboard/KeyUpEvent.h src/event/mouse/Mouse.h
 src/model/Model.o: src/event/mouse/MouseListener.h
@@ -3087,12 +3179,11 @@ src/model/Model.o: src/event/reshape/ReshapeEvent.h
 src/model/Model.o: src/event/reshape/ReshapeListener.h
 src/model/Model.o: src/event/LocalEventHandlerFactory.h
 src/model/Model.o: src/event/EventHandlerFactory.h
-src/model/Model.o: src/event/keyboard/KeyboardSkeleton.h
+src/model/Model.o: src/event/keyboard/KeyboardSkeleton.h include/SDL_thread.h
 src/model/Model.o: src/multicast/MulticastSocket.h src/multicast/Multicast.h
-src/model/Model.o: /usr/include/string.h /usr/include/sys/socket.h
-src/model/Model.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-src/model/Model.o: /usr/include/bits/socket.h /usr/include/limits.h
-src/model/Model.o: /usr/include/bits/posix1_lim.h
+src/model/Model.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+src/model/Model.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+src/model/Model.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
 src/model/Model.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
 src/model/Model.o: /usr/include/bits/posix2_lim.h
 src/model/Model.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
@@ -3181,6 +3272,7 @@ src/model/ModelFactory.o: include/SDL_getenv.h include/SDL_error.h
 src/model/ModelFactory.o: include/SDL_timer.h include/SDL_audio.h
 src/model/ModelFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
 src/model/ModelFactory.o: include/SDL_events.h include/SDL_version.h
+src/model/ModelFactory.o: /usr/include/string.h
 src/model/ModelFactory.o: src/event/keyboard/KeyEventFactory.h
 src/model/ModelFactory.o: src/event/keyboard/KeyDownEvent.h
 src/model/ModelFactory.o: src/event/keyboard/KeyUpEvent.h
@@ -3200,11 +3292,11 @@ src/model/ModelFactory.o: src/event/reshape/ReshapeListener.h
 src/model/ModelFactory.o: src/event/LocalEventHandlerFactory.h
 src/model/ModelFactory.o: src/event/EventHandlerFactory.h
 src/model/ModelFactory.o: src/event/keyboard/KeyboardSkeleton.h
+src/model/ModelFactory.o: include/SDL_thread.h
 src/model/ModelFactory.o: src/multicast/MulticastSocket.h
-src/model/ModelFactory.o: src/multicast/Multicast.h /usr/include/string.h
-src/model/ModelFactory.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
-src/model/ModelFactory.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
-src/model/ModelFactory.o: /usr/include/limits.h
+src/model/ModelFactory.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/model/ModelFactory.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/model/ModelFactory.o: /usr/include/bits/socket.h /usr/include/limits.h
 src/model/ModelFactory.o: /usr/include/bits/posix1_lim.h
 src/model/ModelFactory.o: /usr/include/bits/local_lim.h
 src/model/ModelFactory.o: /usr/include/linux/limits.h

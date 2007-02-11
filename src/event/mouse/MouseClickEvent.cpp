@@ -24,5 +24,14 @@ const int MouseClickEvent::getState()
     return _state;
 }
 
+char * MouseClickEvent::toString()
+{
+	_eventString = new char[30];
+	memset(_eventString, 0, sizeof(_eventString));
+	sprintf(_eventString, "%d %d %d %d", getType(), getXPosition(), getYPosition(), getButton());
+
+	return _eventString;
+}
+
 }
 

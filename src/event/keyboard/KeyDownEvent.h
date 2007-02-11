@@ -20,6 +20,7 @@ class KeyDownEvent : public KeyEvent
          * Explicit constructor.
          */
         KeyDownEvent(SDL_keysym * keysym);
+        KeyDownEvent(int state, int mods);
 
 
         /**

@@ -19,9 +19,7 @@ public:
         glClearColor(0.0, 0.0, 0.0, 0.0);
         glShadeModel(GL_SMOOTH);
 
-        glEnable(GL_TEXTURE_2D);
-
-        glEnable(GL_BLEND);
+        glEnable(GL_TEXTURE_2D); glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         SDL_Surface * tex = NULL;
@@ -128,7 +126,7 @@ public:
  */
 int main(int argc, char **argv)
 {
-    Controller * ctrl = Controller::GetInstance();
+    Controller * ctrl = Controller::GetInstance(RemoteEventHandlerFactory::GetInstance());
     ctrl->defaultConfiguration();
 
     Texture * t = TextureFactory::GetInstance()->createTexture("monkey.png");

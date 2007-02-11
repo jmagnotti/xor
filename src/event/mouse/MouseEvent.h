@@ -21,18 +21,23 @@ public:
     static const int MOUSE_BUTTON_DOWN; 
     static const int MOUSE_BUTTON_UP; 
 
+	virtual const int getType()=0;
 
 
 	//-- GETTERS --//
 	int     getXPosition();
 	int     getYPosition();
 
-	virtual const int getType()=0;
+	/**
+	 * Returns a string representation of the event.
+	 */
+	virtual char * toString()=0;
 
 
 protected:
 
     int _xpos, _ypos;
+	char * _eventString;
 
 };
 

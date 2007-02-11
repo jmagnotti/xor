@@ -3,36 +3,58 @@
 
 namespace XOR {
 
-MouseEvent * MouseEventFactory::_mouseEvent = 0;
-
 
 /*
  * Factory constructor.
  */
 MouseEvent * MouseEventFactory::ConstructInstance(SDL_Event * event)
 {
+	MouseEvent * mouseEvent;
+
     if (event->type == SDL_MOUSEMOTION)
-        _mouseEvent =  new MouseMotionEvent(event->motion.x, event->motion.y,
+        mouseEvent =  new MouseMotionEvent(event->motion.x, event->motion.y,
                                     event->motion.xrel, event->motion.yrel);
 
     else if (event->type == SDL_MOUSEBUTTONDOWN)
-        _mouseEvent =  new MouseButtonDown(event->button.button,
+        mouseEvent =  new MouseButtonDown(event->button.button,
                 event->button.x, event->button.y);
     else 
-        _mouseEvent =  new MouseButtonUp(event->button.button, event->button.x,
+        mouseEvent =  new MouseButtonUp(event->button.button, event->button.x,
                 event->button.y);
 
-    return _mouseEvent;
+    return mouseEvent;
 }
 
 
 /*
- * Returns the last event that was constructed by the factory. Here more for 
- * convenience than anything else. If there hasn't been a last event, NULL is _mouseEvent = ed.
+ * 
  */
-MouseEvent * MouseEventFactory::getLastEventConstructed()
+MouseEvent * MouseEventFactory::ConstructInstance(string event)
 {
-    return  _mouseEvent;
+	MouseEvent * mouseEvent;
+
+	char * result = NULL;
+	char delims[] = " ";
+
+	result = strtok((char *)event.c_str(), delims);
+	int type   = atoi(result);
+
+	int xpos   = atoi(strtok(NULL, delims));
+	int ypos   = atoi(strtok(NULL, delims));
+	int param3 = atoi(strtok(NULL, delims));
+
+	if (type == MouseEvent::MOUSE_MOTION) {
+		int param4 = atoi(strtok(NULL, delims));
+		mouseEvent =  new MouseMotionEvent(xpos, ypos, param3, param4);
+	}
+    else if (type == MouseEvent::MOUSE_BUTTON_UP) {
+		mouseEvent =  new MouseButtonUp(xpos, ypos, param3);
+	}
+    else {
+        mouseEvent =  new MouseButtonDown(xpos, ypos, param3);
+	}
+
+	return mouseEvent;
 }
 
 
@@ -41,7 +63,6 @@ MouseEvent * MouseEventFactory::getLastEventConstructed()
  */
 MouseEventFactory::MouseEventFactory()
 {}
-
 
 }
 

@@ -1,16 +1,34 @@
 #include "MouseSkeleton.h"
 #include <iostream>
-using namespace std;
+
 
 namespace XOR {
 
 MouseSkeleton * MouseSkeleton::_mouseSkeleton = NULL;
+MulticastSocket * MouseSkeleton::_socket = NULL;
+
+bool MouseSkeleton::_keepGoing = true;
 
 /*
  * private constructor
  */
 MouseSkeleton::MouseSkeleton()
-{}
+{
+	_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+			  MulticastSocketPool::MOUSE_SOCKET);
+
+	_thread = SDL_CreateThread(& MouseSkeleton::Listen, NULL);
+}
+
+
+/*
+ * destructor
+ */
+MouseSkeleton::~MouseSkeleton()
+{
+	_keepGoing = false;
+	delete _socket;
+}
 
 
 /*
@@ -18,16 +36,13 @@ MouseSkeleton::MouseSkeleton()
  */
 void MouseSkeleton::fireEvent(MouseEvent * me)
 {
+	cout << "getting the fire event" << endl;
     if (me->getType() == MouseEvent::MOUSE_MOTION)
         updateFromEvent((MouseMotionEvent*)me);
     else 
         updateFromEvent((MouseClickEvent *)me);
 
-    //cout << "Notifiying listeners of event type: " << me->getType() << endl;
-
     notifyListeners(me);
-
-    //TODO multicast receiver
 }
 
 
@@ -42,6 +57,18 @@ MouseSkeleton * MouseSkeleton::GetInstance()
     return _mouseSkeleton;
 }
 
+int MouseSkeleton::Listen(void * data)
+{
+	cout << "Mouse Skeleton thread created." << endl;
+
+	string msg; 
+	MouseSkeleton * ms = MouseSkeleton::GetInstance();
+
+	while(_keepGoing) {
+		msg = _socket->receive();	
+		ms->fireEvent(MouseEventFactory::ConstructInstance(msg));
+	}
+}
 
 }
 

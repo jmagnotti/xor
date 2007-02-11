@@ -21,6 +21,7 @@ class KeyUpEvent : public KeyEvent
          * Explicit constructor.
          */
         KeyUpEvent(SDL_keysym * keysym);
+        KeyUpEvent(int state, int mods);
 
 
         /**

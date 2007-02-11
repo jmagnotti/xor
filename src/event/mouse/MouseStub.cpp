@@ -6,10 +6,22 @@ namespace XOR {
 MouseStub * MouseStub::_mouseStub = 0;
 
 /*
+ * destructor
+ */
+MouseStub::~MouseStub()
+{
+	delete _socket;
+}
+
+
+/*
  * private constructor
  */
 MouseStub::MouseStub()
-{}
+{
+	MulticastSocketPool * msp =	MulticastSocketPool::GetInstance();
+	_socket = msp->getMulticastSocket(MulticastSocketPool::MOUSE_SOCKET);
+}
 
 
 /*
@@ -29,6 +41,9 @@ MouseStub * MouseStub::GetInstance()
  */
 void MouseStub::fireEvent(MouseEvent * me)
 {
+	cout << "from stub: " << me->toString() << endl;
+
+	_socket->send(me->toString());
     notifyListeners(me);
 }
 
