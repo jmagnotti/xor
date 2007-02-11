@@ -83,7 +83,7 @@ void RectangularPrism::removeFace(int faceToRemove)
 /*
  * calls render on _faces
  */
-void RectangularPrism::render()
+void RectangularPrism::renderObject()
 {
 	vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
 	vector<Quadrilateral3D*>::iterator finish = _faces.end();
@@ -191,7 +191,7 @@ void RectangularPrism::updatePaint()
 /*
  * returns registration point
  */
-Vector3D * RectangularPrism::getOrigin() const
+Vector3D * RectangularPrism::getBaseVector()
 { 
 	return _volume->getOrigin();	
 }
@@ -219,9 +219,12 @@ void RectangularPrism::printInfo()
 }
 
 
-Dimension3D * RectangularPrism::getDimension() const
+/*
+ *
+ */
+Dimension3D * RectangularPrism::getDimension()
 {
-	return new Dimension3D(0,0,0);
+	return _volume->getDimension();
 }
 
 }

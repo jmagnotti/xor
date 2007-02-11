@@ -11,7 +11,7 @@ class ModelDemo : public DefaultKeyboardListener, DefaultMouseListener
 
 public:
 
-	Model *tModels[4];
+	Object3D * tModels[3];
 
    /* 
   	* Constructor
@@ -28,23 +28,25 @@ public:
 
         ctrl->setModel(new String2D("Model Test"));
 
-		ctrl->getViewer()->incrementTranslation(new Dimension3D(50,50,50));
-		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,25,30));
+		ctrl->getViewer()->incrementTranslation(new Vector3D(50,50,50));
+		ctrl->getViewer()->setFocalPoint(new Vector3D(0,25,30));
 		
-		tModels[0] = ModelFactory::GetInstance()->createModel("models/ant01.ms3d");
+		tModels[0] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/ant01.ms3d"));
+		tModels[0]->incrementStretch(new Vector3D(5,5,5));
+
 		/*
 		tModels[1] = ModelFactory::GetInstance()->createModel("models/dwarf1.ms3d");
-		tModels[1]->incrementTranslation(new Dimension3D(-50,0,0));
+		tModels[1]->incrementTranslation(new Vector3D(-50,0,0));
 		*/
-		tModels[1] = ModelFactory::GetInstance()->createModel("models/turtle1.ms3d");
-		tModels[1]->incrementTranslation(new Dimension3D(0,0,50));
-		tModels[2] = ModelFactory::GetInstance()->createModel("models/f360.ms3d");
-		tModels[2]->incrementTranslation(new Dimension3D(-100,0,50));
-		tModels[2]->incrementRotation(Positionable::THETA, 90.0f);
+		tModels[1] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/turtle1.ms3d"));
+		tModels[1]->incrementTranslation(new Vector3D(0,0,50));
+		tModels[2] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/f360.ms3d"));
+		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
+		tModels[2]->incrementRotation(Transformable::THETA, 90.0f);
 
-		ctrl->getModel()->addObject("model1", new CompiledObject3D(tModels[0]));
-		ctrl->getModel()->addObject("model2", new CompiledObject3D(tModels[1]));
-		ctrl->getModel()->addObject("model3", new CompiledObject3D(tModels[2]));
+		ctrl->getModel()->addObject("model1", tModels[0]);
+		ctrl->getModel()->addObject("model2", tModels[1]);
+		ctrl->getModel()->addObject("model3", tModels[2]);
 		//ctrl->getModel()->addRenderable("model4", tModels[3]);
 
         ctrl->run();
@@ -101,26 +103,26 @@ public:
 	void handleKey_g()
 	{
 		tModels[0]->incrementRotation(
-				Positionable::THETA,-360.0f, new TimedInterpolation(1000,NULL));
+				Transformable::THETA,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_h()
 	{
 		tModels[0]->incrementRotation(
-				Positionable::PHI,-360.0f, new TimedInterpolation(1000,NULL));
+				Transformable::PHI,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_j()
 	{
 		tModels[0]->incrementRotation(
-				Positionable::ROLL,-360.0f, new TimedInterpolation(1000,NULL));
+				Transformable::ROLL,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_k()
 	{
-		int m = rand()%4;			// random model
+		int m = rand()%3;			// random model
 		int a = rand()%3;			// random axis
 		float r = 360.0f;			// fixed rotation
 		int t = (rand()%3+2)*750;	// random time
-		tModels[m]->incrementRotation(
-				a, r, new TimedInterpolation(t,NULL));
+		cout << a <<  "---" << m << endl;
+		tModels[m]->incrementRotation( a, r, new TimedInterpolation(t,NULL));
 	}
 
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -133,9 +135,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

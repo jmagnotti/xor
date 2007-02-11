@@ -1,4 +1,4 @@
-#include "Positionable.h"
+#include "Transformable.h"
 
 namespace XOR {
 
@@ -6,35 +6,36 @@ namespace XOR {
  * Must be declared in the header file so they can be used in a switch. see
  * the discussion in Paint.h
  * 
- * const int Positionable::THETA = 0;
- * const int Positionable::PHI   = 1;
- * const int Positionable::ROLL  = 2;
+ * const int Transformable::THETA = 0;
+ * const int Transformable::PHI   = 1;
+ * const int Transformable::ROLL  = 2;
  */
 
 
 /*
  * Default constructor
  */
-Positionable::Positionable()
+Transformable::Transformable()
 {
-	_position   = new Translate(0.0f, 0.0f, 0.0f);
+	_position   = new Translate();
 	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
 
 	_phi        = new Rotate(0.0f, 1, 0, 0);
 	_theta      = new Rotate(0.0f, 0, 1, 0);
 	_roll       = new Rotate(0.0f, 0, 0, 1);
 
-    // the default scale is 1,1,1
-    _scale       = new Scale();
+    _scale      = new Scale();
+    _stretch    = new Stretch();
 
 	_focalDistance = 1.0f;
+	_transformed = false;
 }
 
 
 /*
  * Destructor
  */
-Positionable::~Positionable()
+Transformable::~Transformable()
 {
 	delete _position;
 	delete _focalPoint;
@@ -44,13 +45,14 @@ Positionable::~Positionable()
 	delete _roll;
 
     delete _scale;
+    delete _stretch;
 }
 
 
 /*
  * Clone the other obj's values, no referencing
  */
-void Positionable::clone(Positionable * other)
+void Transformable::clone(Transformable * other)
 {
     _position->clone(other->_position);
     _focalPoint->clone(other->_focalPoint);
@@ -61,14 +63,18 @@ void Positionable::clone(Positionable * other)
 
     _scale->clone(other->_scale);
     _focalDistance = other->_focalDistance;
+
+	_transformed = other->_transformed;
 }
 
 
 /*
  * pushes all subtransforms
  */
-void Positionable::push()
+void Transformable::push()
 {
+	_stretch->push();
+
     _scale->push();
 
 	_position->push();
@@ -84,7 +90,7 @@ void Positionable::push()
  * pushes reverse of all subtransforms
  * handles _scale with bool
  */
-void Positionable::pushInverse(bool invertScale)
+void Transformable::pushInverse(bool invertScale)
 {
     if (invertScale)
         _scale->pushInverse();
@@ -103,9 +109,8 @@ void Positionable::pushInverse(bool invertScale)
 /*
  * pops all subtransforms
  */
-void Positionable::pop()
+void Transformable::pop()
 {
-
 	// reverse of push
 	_theta->pop();
 	_phi->pop();
@@ -114,53 +119,25 @@ void Positionable::pop()
 	_position->pop();
 
     _scale->pop();
+
+    _stretch->pop();
 }
 
 
-/* 
- * increment the position values
+/*
+ * return the translation as a vector
  */
-void Positionable::setTranslation(Dimension3D * position, InterpolationEngine * interpolation)
+Vector3D * Transformable::getTranslation()
 {
-    cout << "hosing focal point" << endl;
-    _position->set(position, interpolation);
-}
-
-
-/* 
- * increment the position values
- */
-void Positionable::setTranslation(Dimension3D * position)
-{
-    _position->set(position);
-    updateFocalPoint();
-}
-
-void Positionable::incrementScalar(Dimension3D * scalar)
-{
-    _scale->increment(scalar);
-}
-
-void Positionable::incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation)
-{
-    _scale->increment(scalar, interpolation);
-}
-
-void Positionable::setScalar(Dimension3D * scalar)
-{
-    _scale->set(scalar);
-}
-
-void Positionable::setScalar(Dimension3D * scalar, InterpolationEngine * interpolation)
-{
-    _scale->set(scalar, interpolation);
+	return _position->toVector();
 }
 
 /* 
  * increment the position values
  */
-void Positionable::incrementTranslation(Dimension3D * position, InterpolationEngine * interpolation)
+void Transformable::incrementTranslation(Vector3D * position, InterpolationEngine * interpolation)
 {
+	_transformed = true;
     cout << "hosing focal point" << endl;
    _position->increment(position, interpolation); 
 }
@@ -169,29 +146,121 @@ void Positionable::incrementTranslation(Dimension3D * position, InterpolationEng
 /* 
  * increment the position values
  */
-void Positionable::incrementTranslation(Dimension3D * position)
+void Transformable::incrementTranslation(Vector3D * position)
 {
+	_transformed = true;
     _position->increment(position);
     updateFocalPoint();
+}
+
+
+/* 
+ * set the position values
+ */
+void Transformable::setTranslation(Vector3D * position, InterpolationEngine * interpolation)
+{
+	_transformed = true;
+    cout << "hosing focal point" << endl;
+    _position->set(position, interpolation);
+}
+
+
+/* 
+ * set the position values
+ */
+void Transformable::setTranslation(Vector3D * position)
+{
+	_transformed = true;
+    _position->set(position);
+    updateFocalPoint();
+}
+
+
+void Transformable::incrementScalar(Vector3D * scalar)
+{
+	_transformed = true;
+    _scale->increment(scalar);
+}
+
+
+void Transformable::incrementScalar(Vector3D * scalar, InterpolationEngine * interpolation)
+{
+	_transformed = true;
+    _scale->increment(scalar, interpolation);
+}
+
+
+void Transformable::setScalar(Vector3D * scalar)
+{
+	_transformed = true;
+    _scale->set(scalar);
+}
+
+
+void Transformable::setScalar(Vector3D * scalar, InterpolationEngine * interpolation)
+{
+	_transformed = true;
+    _scale->set(scalar, interpolation);
+}
+
+
+Vector3D * Transformable::getStrech()
+{
+	return _stretch->toVector();
+}
+
+
+void Transformable::setStretch(Vector3D * stretch, InterpolationEngine * interpolation) 
+{
+	_stretch->setOrigin(getBaseVector());
+
+	_transformed = true;
+	_stretch->set(stretch, interpolation);
+}
+
+void Transformable::setStretch(Vector3D * stretch)
+{
+	_stretch->setOrigin(getBaseVector());
+
+	_transformed = true;
+	_stretch->set(stretch);
+}
+
+void Transformable::incrementStretch(Vector3D * stretch, InterpolationEngine * interpolation) 
+{
+	_stretch->setOrigin(getBaseVector());
+
+	_transformed = true;
+	_stretch->increment(stretch, interpolation);
+}
+
+void Transformable::incrementStretch(Vector3D * stretch)
+{
+	_stretch->setOrigin(getBaseVector());
+
+	_transformed = true;
+	_stretch->increment(stretch);
 }
 
 
 /*
  * increment the rotation value
  */
-void Positionable::incrementRotation(const int dimension, float angle, InterpolationEngine *  interpolation)
+void Transformable::incrementRotation(const int dimension, float angle, InterpolationEngine *  interpolation)
 {
+	_transformed = true;
     switch (dimension) {
         
-        case Positionable::THETA:
+        case Transformable::THETA:
             _theta->increment(angle, interpolation);
             break;
             
-        case Positionable::PHI:
+        case Transformable::PHI:
             _phi->increment(angle, interpolation);
             break;
             
-        case Positionable::ROLL: 
+        case Transformable::ROLL: 
+			cout << "ang: " << angle << endl;
             _roll->increment(angle, interpolation);
             break;
     }
@@ -203,19 +272,20 @@ void Positionable::incrementRotation(const int dimension, float angle, Interpola
 /*
  * increment the rotation value
  */
-void Positionable::incrementRotation(const int dimension, float angle)
+void Transformable::incrementRotation(const int dimension, float angle)
 {
+	_transformed = true;
     switch (dimension) {
         
-        case Positionable::THETA:
+        case Transformable::THETA:
             _theta->increment(angle);
             break;
             
-        case Positionable::PHI:
+        case Transformable::PHI:
             _phi->increment(angle);
             break;
             
-        case Positionable::ROLL: 
+        case Transformable::ROLL: 
             _roll->increment(angle);
             break;
     }
@@ -223,22 +293,24 @@ void Positionable::incrementRotation(const int dimension, float angle)
     updateFocalPoint();
 }
 
+
 /*
  * set the rotation value
  */
-void Positionable::setRotation(const int dimension, float angle, InterpolationEngine * interpolation)
+void Transformable::setRotation(const int dimension, float angle, InterpolationEngine * interpolation)
 {
+	_transformed = true;
     switch (dimension) {
         
-        case Positionable::THETA:
+        case Transformable::THETA:
             _theta->set(angle, interpolation);
             break;
             
-        case Positionable::PHI:
+        case Transformable::PHI:
             _phi->set(angle, interpolation);
             break;
             
-        case Positionable::ROLL: 
+        case Transformable::ROLL: 
             _roll->set(angle, interpolation);
             break;
     }
@@ -246,22 +318,24 @@ void Positionable::setRotation(const int dimension, float angle, InterpolationEn
     updateFocalPoint();
 }
 
+
 /*
  * set the rotation value
  */
-void Positionable::setRotation(const int dimension, float angle)
+void Transformable::setRotation(const int dimension, float angle)
 {
+	_transformed = true;
     switch (dimension) {
         
-        case Positionable::THETA:
+        case Transformable::THETA:
             _theta->set(angle);
             break;
             
-        case Positionable::PHI:
+        case Transformable::PHI:
             _phi->set(angle);
             break;
             
-        case Positionable::ROLL: 
+        case Transformable::ROLL: 
             _roll->set(angle);
             break;
     }
@@ -273,17 +347,21 @@ void Positionable::setRotation(const int dimension, float angle)
 /*
  * change focus and adjust transforms
  */
-void Positionable::setFocalPoint(Dimension3D * point, InterpolationEngine * interpolation)
+void Transformable::setFocalPoint(Vector3D * point, InterpolationEngine * interpolation)
 {
+	_transformed = true;
+
     cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
     setFocalPoint(point);
 }
 
 
-void Positionable::setFocalPoint(Dimension3D * point)
+/*
+ * set fp
+ */
+void Transformable::setFocalPoint(Vector3D * point)
 {
-    
-    
+	_transformed = true;
 	printDebugInfo();
 
 	_focalPoint->_xShift = point->getX();
@@ -303,18 +381,18 @@ void Positionable::setFocalPoint(Dimension3D * point)
 /*
  * return the rotation value
  */
-float Positionable::getRotation(const int dimension)
+float Transformable::getRotation(const int dimension)
 {
 	float angle = 0.0f;
 
 	switch (dimension) {
-        case Positionable::THETA:
+        case Transformable::THETA:
             angle = _theta->_angle;
             break;
-        case Positionable::PHI:
+        case Transformable::PHI:
             angle = _phi->_angle;
             break;
-        case Positionable::ROLL:
+        case Transformable::ROLL:
             angle = _roll->_angle;
             break;
 	}
@@ -325,9 +403,9 @@ float Positionable::getRotation(const int dimension)
 /*
  * return a clone of the focus point
  */
-Dimension3D * Positionable::getFocalPoint()
+Vector3D * Transformable::getFocalPoint()
 {
-    return new Dimension3D(_focalPoint->_xShift, _focalPoint->_yShift,
+    return new Vector3D(_focalPoint->_xShift, _focalPoint->_yShift,
             _focalPoint->_zShift);
 }
 
@@ -335,8 +413,9 @@ Dimension3D * Positionable::getFocalPoint()
 /*
  * move camera along focal vector
  */
-void Positionable::walk(float distance, InterpolationEngine * interpolation)
+void Transformable::walk(float distance, InterpolationEngine * interpolation)
 {
+	_transformed = true;
 	updateFocalPoint();
 
 	// calculate new position by obtaining focus vector and multiplying
@@ -346,7 +425,7 @@ void Positionable::walk(float distance, InterpolationEngine * interpolation)
 	coords[1] = (_focalPoint->_yShift - _position->_yShift) * distance;
 	coords[2] = (_focalPoint->_zShift - _position->_zShift) * distance;
 
-	_position->increment(new Dimension3D(coords), interpolation);
+	_position->increment(new Vector3D(coords), interpolation);
 
 	updateFocalPoint();
 }
@@ -355,7 +434,7 @@ void Positionable::walk(float distance, InterpolationEngine * interpolation)
 /*
  * transforms --> _focus
  */
-void Positionable::updateFocalPoint()
+void Transformable::updateFocalPoint()
 {
 	// theta and phi in radians
 	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
@@ -376,7 +455,7 @@ void Positionable::updateFocalPoint()
 /*
  * _focus --> transforms
  */
-void Positionable::updateFromFocalPoint()
+void Transformable::updateFromFocalPoint()
 {
 	// the camera can be rotated to the given focal point in
 	// only two axes of rotations: theta and phi (not roll)
@@ -400,14 +479,14 @@ void Positionable::updateFromFocalPoint()
 /*
  * print member info
  */
-void Positionable::printDebugInfo()
+void Transformable::printDebugInfo()
 {
 	float distance = sqrt(
 	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
 	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
 
-	cout << endl << "Positionable Information: " << this << endl;
+	cout << endl << "Transformable Information: " << this << endl;
 
 	cout << " focal distance=" << _focalDistance << endl;
 	cout << " real distance="  << distance << endl;
@@ -429,7 +508,7 @@ void Positionable::printDebugInfo()
 /*
  * reset the transforms
  */
-void Positionable::clear()
+void Transformable::clear()
 {
     _phi->clear();
     _roll->clear();
@@ -438,6 +517,17 @@ void Positionable::clear()
     _focalPoint->clear();
     _scale->clear();
     _position->clear();
+
+	_transformed = false;
+}
+
+
+/*
+ * true if any Transforms have been modified
+ */
+bool Transformable::isTransformed()
+{
+	return _transformed;
 }
 
 }

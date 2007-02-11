@@ -3,6 +3,20 @@
 
 namespace XOR {
 
+
+/*
+ * Def. Constructor
+ */
+Translate::Translate()
+{
+	_xShift = _yShift = _zShift = 0;
+
+    _values.push_back(& _xShift);
+    _values.push_back(& _yShift);
+    _values.push_back(& _zShift);
+}
+
+
 /* 
  * explicit constructor
  */
@@ -11,9 +25,6 @@ Translate::Translate(float x, float y, float z)
 	_xShift = x;
 	_yShift = y;
 	_zShift = z;
-
-    //_values = new vector<float*>(); 
-    //_out    = new vector<float*>(); 
 
     _values.push_back(& _xShift);
     _values.push_back(& _yShift);
@@ -24,27 +35,15 @@ Translate::Translate(float x, float y, float z)
 /*
  * Explicit Constructor
  */
-Translate::Translate(Dimension3D *p)
+Translate::Translate(Vector3D * p)
 {
 	_xShift = p->getX();
 	_yShift = p->getY();
 	_zShift = p->getZ();
 
-    //_values = new vector<float*>(); 
-    //_out    = new vector<float*>(); 
-
     _values.push_back(& _xShift);
     _values.push_back(& _yShift);
     _values.push_back(& _zShift);
-}
-
-
-/*
- * Static constructor
- */
-Translate * Translate::CreateTranslation(float x, float y, float z)
-{
-	return new Translate(x,y,z);
 }
 
 
@@ -62,7 +61,7 @@ void Translate::clone(Translate * other)
 /* 
  * Add the point to the current translate
  */
-void Translate::increment(Dimension3D * point, InterpolationEngine * interpolation)
+void Translate::increment(Vector3D * point, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
         _out.clear();
@@ -84,7 +83,7 @@ void Translate::increment(Dimension3D * point, InterpolationEngine * interpolati
 /*
  * Set the translation coordinates
  */
-void Translate::set(Dimension3D * point, InterpolationEngine * interpolation)
+void Translate::set(Vector3D * point, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
         _out.clear();
@@ -128,6 +127,11 @@ void Translate::pushInverse()
 void Translate::clear()
 {
     _xShift = _yShift = _zShift = 0.0f;
+}
+
+Vector3D * Translate::toVector()
+{
+	return new Vector3D(_xShift, _yShift, _zShift);
 }
 
 

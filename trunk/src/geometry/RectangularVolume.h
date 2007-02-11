@@ -71,6 +71,8 @@ public:
 	void generatePoints(Vector3D * points[8]);
 
 
+	Dimension3D * getDimension();
+
 	//--getters for diameters--//
 	float getXDiameter();
 	float getYDiameter();

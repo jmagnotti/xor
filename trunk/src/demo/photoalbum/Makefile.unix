@@ -117,11 +117,11 @@ PhotoAlbum.o: ../../event/reshape/ReshapeSkeleton.h
 PhotoAlbum.o: ../../event/reshape/Reshape.h ../../event/timer/TimerSkeleton.h
 PhotoAlbum.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 PhotoAlbum.o: ../../event/reshape/Reshape.h ../../core/World.h
-PhotoAlbum.o: ../../shape/Object3D.h ../../shape/Renderable.h
-PhotoAlbum.o: ../../geometry/Dimension3D.h ../../transform/Positionable.h
+PhotoAlbum.o: ../../shape/Object3D.h ../../transform/Transformable.h
 PhotoAlbum.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 PhotoAlbum.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 PhotoAlbum.o: ../../transform/Transform.h ../../transform/Scale.h
+PhotoAlbum.o: ../../geometry/Vector3D.h
 PhotoAlbum.o: ../../interpolation/InterpolationEngine.h
 PhotoAlbum.o: ../../interpolation/InterpolationListener.h
 PhotoAlbum.o: ../../interpolation/Interpolator.h
@@ -129,14 +129,15 @@ PhotoAlbum.o: ../../interpolation/InterpolatorFactory.h
 PhotoAlbum.o: ../../interpolation/LinearInterpolator.h
 PhotoAlbum.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
 PhotoAlbum.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-PhotoAlbum.o: /usr/include/bits/mathcalls.h ../../geometry/Vector3D.h
+PhotoAlbum.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 PhotoAlbum.o: ../../transform/Translate.h ../../transform/Rotate.h
+PhotoAlbum.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
 PhotoAlbum.o: ../../shape/Point3D.h ../../paint/Paint.h
 PhotoAlbum.o: ../../texture/Texture.h ../../../include/SDL_image.h
 PhotoAlbum.o: ../../../include/SDL.h ../../paint/Color.h
 PhotoAlbum.o: ../../shape/Object3D.h ../../shape/Renderable.h
-PhotoAlbum.o: ../../core/Viewer.h ../../geometry/Dimension2D.h
-PhotoAlbum.o: ../../transform/CoordinateSystem.h
+PhotoAlbum.o: ../../core/Viewer.h ../../paint/Color.h
+PhotoAlbum.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
 PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
 PhotoAlbum.o: ../../transform/CoordinateSystem.h
 PhotoAlbum.o: ../../transform/OpenGLCoordinateSystem.h
@@ -197,11 +198,11 @@ PhotoAlbum.o: ../../shape/Cube.h ../../shape/RectangularPrismFactory.h
 PhotoAlbum.o: ../../shape/Point2D.h ../../shape/Point3D.h
 PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 PhotoAlbum.o: ../../shape/NormalPolygon3D.h ../../shape/Triangle3D.h
-PhotoAlbum.o: ../../shape/Object3D.h ../../terrain/Terrain.h
-PhotoAlbum.o: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
-PhotoAlbum.o: ../../terrain/TerrainStrategy.h ../../multicast/mcreceive.h
-PhotoAlbum.o: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
-PhotoAlbum.o: ../../multicast/Multicast.h
+PhotoAlbum.o: ../../shape/Object3D.h ../../shape/CompiledObject3D.h
+PhotoAlbum.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+PhotoAlbum.o: ../../texture/TextureFactory.h ../../terrain/TerrainStrategy.h
+PhotoAlbum.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PhotoAlbum.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 PhotoAlbum.o: ../../multicast/MulticastSocketPool.h
 PhotoAlbum.o: ../../transform/Transformable.h ../../transform/Translate.h
 PhotoAlbum.o: ../../transform/Rotate.h ../../transform/CoordinateSystem.h
@@ -212,7 +213,7 @@ PhotoAlbum.o: ../../transform/MathCoordinateSystem.h
 PhotoAlbum.o: ../../transform/Transform.h ../../transform/Scale.h
 PhotoAlbum.o: ../../transform/LeftOpenGLCoordinateSystem.h
 PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
-PhotoAlbum.o: ../../transform/Positionable.h ../../paint/Paint.h
+PhotoAlbum.o: ../../transform/Stretch.h ../../paint/Paint.h
 PhotoAlbum.o: ../../paint/Color.h ../../util/GraphicsConversionUtility.h
 PhotoAlbum.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 PhotoAlbum.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h

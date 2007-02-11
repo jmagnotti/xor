@@ -62,9 +62,9 @@ void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 		float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
         Controller::GetInstance()->getViewer()->incrementRotation(
-                Positionable::THETA, -xChange);
+                Transformable::THETA, -xChange);
         Controller::GetInstance()->getViewer()->incrementRotation(
-                Positionable::PHI, -yChange);
+                Transformable::PHI, -yChange);
 	}
 }
 

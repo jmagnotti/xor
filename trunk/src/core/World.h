@@ -80,18 +80,20 @@ public:
 	 * Display the world
 	 */
 	void render();
+	
+	void renderObject(){render();}
 
 
 	/**
 	 * soon to be handled by Obj3D?
 	 */
-	Dimension3D * getDimension() const {return new Dimension3D(0,0,0);}
+	Dimension3D * getDimension() {return new Dimension3D(0,0,0);}
 
 
 	/**
 	 * soon to be handled by Obj3D?
 	 */
-	Vector3D * getOrigin() const {return new Vector3D(0,0,0);}
+	Vector3D * getBaseVector() {return new Vector3D(0,0,0);}
 
 
 private:

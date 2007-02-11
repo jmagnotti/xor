@@ -58,8 +58,8 @@ public:
     /**
      * Returns the dimension associated with this object
      */
-    Vector3D * getOrigin() const;
-    Dimension3D * getDimension() const;
+    Vector3D * getBaseVector();
+    Dimension3D * getDimension();
 
 
 	/**
@@ -83,7 +83,7 @@ public:
     /**
      * Calls render on each point that comprises the triangle
      */
-	void render(void);
+	void renderObject();
 
 
 	/**

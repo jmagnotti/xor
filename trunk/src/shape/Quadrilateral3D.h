@@ -56,13 +56,13 @@ public:
     /**
      * Returns the dimension associated with this object
      */
-    Dimension3D * getDimension() const;
+    Dimension3D * getDimension();
 
 
 	/**
 	 * Returns the front bottom left corner
 	 */
-	Vector3D * getOrigin() const;
+	Vector3D * getBaseVector();
 
 
 	/**
@@ -93,7 +93,7 @@ public:
     /**
      * Calls render on each point that comprises the quad3d
      */
-	void render(void);
+	void renderObject(void);
 
 
 protected:

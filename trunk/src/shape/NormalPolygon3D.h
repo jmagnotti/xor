@@ -8,11 +8,12 @@
 #include "Object3D.h"
 #include <vector>
 #include <math.h>
+
 namespace XOR {
 
 
 /**
- * An n-sided polygon
+ * An n-sided polygon.
  *
  * @author John Magnotti, Everette Clemmer
  * @version 1.0
@@ -20,13 +21,7 @@ namespace XOR {
 class NormalPolygon3D : public Object3D
 {
 
-private:
-    int                 _sides;
-    float               _radius;
-    Vector3D *          _center;
-    vector<Vector3D *>  _vertices;
-    Paint *             _paint;
-
+	
 public:
 
 
@@ -42,7 +37,7 @@ public:
 	/**
 	 * Draws the NormalPolygon3D.
 	 */
-	void render();
+	void renderObject();
 
 
 	/**
@@ -50,12 +45,28 @@ public:
 	 */
 	void setPaint(Paint * paint);	
 
-    Dimension3D * getDimension() const {}
-    Vector3D * getOrigin() const {}
-	
-protected:
+	/**
+	 * Returns the center point of the NormalPolygon3D.
+	 */
+	Vector3D * getBaseVector();
+
+	/**
+	 * returns the bounding box for this polygon
+	 */
+	Dimension3D * getDimension();
+
+
+private:
 
 	NormalPolygon3D();
+
+    vector<Vector3D*>  _vertices;
+
+    Vector3D *          _center;
+    Paint *             _paint;
+
+    int                 _sides;
+    float               _radius;
 
 };
 

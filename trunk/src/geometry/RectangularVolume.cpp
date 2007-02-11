@@ -108,6 +108,11 @@ void RectangularVolume::generatePoints(Vector3D * points[8])
 }
 
 
+Dimension3D * RectangularVolume::getDimension()
+{
+	return new Dimension3D(getXDiameter(), getYDiameter(), getZDiameter());
+}
+
 //--getters for diameters--//
 float RectangularVolume::getXDiameter()
 {

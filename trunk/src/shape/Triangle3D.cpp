@@ -50,7 +50,7 @@ Vector3D * Triangle3D::getNormal()
 /*
  * Returns the dimension object associated with the quad3D
  */
-Vector3D * Triangle3D::getOrigin() const
+Vector3D * Triangle3D::getBaseVector()
 {
     return _vertices[0];
 }
@@ -58,7 +58,7 @@ Vector3D * Triangle3D::getOrigin() const
 /*
  * Returns the dimension object associated with the quad3D
  */
-Dimension3D * Triangle3D::getDimension() const
+Dimension3D * Triangle3D::getDimension()
 {
     return _dimension;
 }
@@ -101,7 +101,7 @@ char * Triangle3D::toString()
 	return "Not Implemented";
 }
 
-void Triangle3D::render()
+void Triangle3D::renderObject()
 {
 	glColor3f(1,1,1);
     glBegin(GL_TRIANGLES);

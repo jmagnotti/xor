@@ -3,7 +3,7 @@
 
 
 #include "CollisionRenderable.h"
-#include "../Geometry/Vector3D.h"
+#include "../geometry/Vector3D.h"
 
 
 

@@ -1,11 +1,12 @@
-#ifndef POSITIONABLE_H
-#define POSITIONABLE_H
+#ifndef TRANSFORMABLE_H
+#define TRANSFORMABLE_H
 
 
 #include "../../include/SDL_opengl.h"
 
 #include "Transform.h"
 #include "Scale.h"
+#include "Stretch.h"
 #include "Translate.h"
 #include "Rotate.h"
 
@@ -16,21 +17,19 @@
 namespace XOR {
 
 /**
- * Positionable is an abstract parent class for objects that need to have
+ * Transformable is an abstract parent class for objects that need to have
  * accurate positioning in 3D space. This class is a conglomeration of the old
- * Positionable and Orientate classes. It provides three-way rotation,
- * translation, and interpolation (activated by providing an
- * InterpolationEngine to any of the methods below).
+ * Transformable and Orientate classes. It provides three-way rotation,
+ * translation, scaling, stretching, and interpolation (activated by providing an
+ * InterpolationEngine to any of the mutation methods below).
  *
- * For efficiency reasons, Positionable is a declared as a friend class in both
+ * For efficiency reasons, Transformable is a declared as a friend class in both
  * Translate and Rotate
  *
- * I hate default parameters, which is why there are overloaded mutation methods.
- * 
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class Positionable : public Transform
+class Transformable
 {
 
 public:
@@ -50,25 +49,39 @@ public:
 	/**
 	 * Default Constructor
 	 */
-	Positionable();
+	Transformable();
 
 
 	/**
 	 * Destructor
 	 */
-	virtual ~Positionable();
+	virtual ~Transformable();
 
 
     /**
-     * Copies the values from the other Positionable, no aliasing
+     * Copies the values from the other Transformable, no aliasing
      */
-    void clone(Positionable *);
+    void clone(Transformable *);
+
+
+	/**
+	 * Returns the 3D rectangular bounds of the object.
+	 */
+	virtual Dimension3D * getDimension()=0;
+
+
+	/**
+	 * Returns a point that defines Min(x,y,z) for a given Transformable.
+	 */
+	virtual Vector3D * getBaseVector()=0;
 
     
     /**
-     * returns a clone of the translation
+	 * returns a clone of the translation. The calling method is
+	 * responsible for freeing memory associated with the returned
+	 * Vector3D.
      */
-    Dimension3D * getTranslation();
+    Vector3D * getTranslation();
 
 
     /**
@@ -81,9 +94,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change
      */
-    void setTranslation(Dimension3D * position);
-    void setTranslation(Dimension3D * position, InterpolationEngine * interpolation);
-            
+    void setTranslation(Vector3D * position);
+    void setTranslation(Vector3D * position, InterpolationEngine * interpolation);
 
 
     /**
@@ -95,8 +107,8 @@ public:
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change
      */
-    void incrementTranslation(Dimension3D * position);
-    void incrementTranslation(Dimension3D * position, InterpolationEngine * interpolation);
+    void incrementTranslation(Vector3D * position);
+    void incrementTranslation(Vector3D * position, InterpolationEngine * interpolation);
 
 
 	/**
@@ -107,7 +119,7 @@ public:
 
     /**
      * Sets the rotation for the given axis. axis must be one of 
-     * Positionable::THETA, Positionable::PHI, or Positionable::ROLL. 
+     * Transformable::THETA, Transformable::PHI, or Transformable::ROLL. 
      * This is NOT a concatenation routine.
      *
      * @param angle         The new rotation angle.
@@ -118,9 +130,10 @@ public:
     void setRotation(const int axis, float angle);
     void setRotation(const int axis, float angle, InterpolationEngine * interpolation);
 
+
     /** 
      * Increments the rotation for the given axis. axis must be one of
-     * Positionable::THETA, Positionable::PHI, or Positionable::ROLL.
+     * Transformable::THETA, Transformable::PHI, or Transformable::ROLL.
      * This is the concatenation routine.
      *
      * @param angle         The new rotation angle.
@@ -133,9 +146,11 @@ public:
 
 
     /**
-     * Returns the scalar
+	 * Returns a Vector3D representation of the Scalar. Modifying this vector
+	 * does not modify the Scale transform. The calling method is repsonsible
+	 * for proper disposal of the Vector3D.
      */
-    float getScalar();
+    Vector3D * getScalar();
 
 
     /**
@@ -143,24 +158,58 @@ public:
      * does not modify the actual parameters. 
      * This is NOT a concatenation routine.
      *
-     * @param scalar        A dimension3D object with scalar values.
+     * @param scalar        A Vector3D object with scalar values.
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void setScalar(Dimension3D * scalar);
-    void setScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
+    void setScalar(Vector3D * scalar);
+    void setScalar(Vector3D * scalar, InterpolationEngine * interpolation);
 
 
     /**
      * Increments the scalar value.
      * This is the concatenation routine.
      *
-     * @param scalar        A dimension3D object with scalar values.
+     * @param scalar        A Vector3D object with scalar values.
      * @param interpolation An interapolation engine to be used to interpolate
      *                      the model change.
      */
-    void incrementScalar(Dimension3D * scalar);
-    void incrementScalar(Dimension3D * scalar, InterpolationEngine * interpolation);
+    void incrementScalar(Vector3D * scalar);
+    void incrementScalar(Vector3D * scalar, InterpolationEngine * interpolation);
+
+
+    /**
+	 * Returns a Vector3D representation of the Stretch. Modifying this vector
+	 * does not modify the Stretch transform. The calling method is repsonsible
+	 * for proper disposal of the Vector3D.
+     */
+    Vector3D * getStrech();
+
+
+    /**
+     * Sets the stretch transformation. Note that this, like other transforms,
+     * does not modify the actual parameters. 
+     * This is NOT a concatenation routine.
+     *
+     * @param stretch        A Vector3D object with stretch values.
+     * @param interpolation An interapolation engine to be used to interpolate
+     *                      the model change.
+     */
+    void setStretch(Vector3D * stretch);
+    void setStretch(Vector3D * stretch, InterpolationEngine * interpolation);
+
+
+    /**
+     * Increments the stretch vector.
+     * This is the concatenation routine.
+     *
+     * @param stretch        A Vector3D object with stretch values.
+     * @param interpolation An interapolation engine to be used to interpolate
+     *                      the model change.
+     */
+    void incrementStretch(Vector3D * stretch);
+    void incrementStretch(Vector3D * stretch, InterpolationEngine * interpolation);
+
 
 
     /**
@@ -197,21 +246,23 @@ public:
 
 	
 	/**
-	 * Get a clone of the local focal point
+	 * Returns a Vector3D representation of the FocalPoint. Modifying this vector
+	 * does not modify the FocalPoint. The calling method is repsonsible
+	 * for proper disposal of the Vector3D.
 	 */
-	Dimension3D * getFocalPoint();
+	Vector3D * getFocalPoint();
 
 
 	/**
 	 * Easy way to set the focus point.
 	 * Automatically adjusts rotations to match given point.
 	 */
-    void setFocalPoint(Dimension3D * point);
-    void setFocalPoint(Dimension3D * point, InterpolationEngine * interpolable);
+    void setFocalPoint(Vector3D * point);
+    void setFocalPoint(Vector3D * point, InterpolationEngine * interpolable);
 
 
-    void incrementFocalPoint(Dimension3D * point);
-    void incrementFocalPoint(Dimension3D * point, InterpolationEngine * interpolable);
+    void incrementFocalPoint(Vector3D * point);
+    void incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolable);
 
 
 	/**
@@ -233,22 +284,8 @@ public:
     void clear();
 
 
-protected:
-    
-	Rotate * _phi;
-	Rotate * _roll;
-	Rotate * _theta;
-	
-    Scale * _scale;
-
-	Translate * _position;
-	Translate * _focalPoint;
-
-	float       _focalDistance;
-
-    
 private:
-
+    
 	/**
 	 * Update _focalPoint from translation
 	 * and rotations.
@@ -261,9 +298,24 @@ private:
 	 */
 	void updateFromFocalPoint();
 
+
+	Rotate * _phi;
+	Rotate * _roll;
+	Rotate * _theta;
+	
+    Scale * _scale;
+
+	Stretch * _stretch;
+
+	Translate * _position;
+	Translate * _focalPoint;
+
+	float _focalDistance;
+	bool _transformed;
+    
 };
 
 }
 
-#endif			// POSITIONABLE_H
+#endif			// TRANSFORMABLE_H
 

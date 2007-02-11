@@ -82,6 +82,7 @@ public:
 	 * Takes care of rendering the string
 	 */
     void render(void);
+    void renderObject(void){render();}
 
 
 	/** 
@@ -102,8 +103,8 @@ public:
      */
     void setText(char*);
 
-	Dimension3D * getDimension() const;
-	Vector3D * getOrigin() const;
+	Dimension3D * getDimension();
+	Vector3D * getBaseVector();
 
 
 protected:

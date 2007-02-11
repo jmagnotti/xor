@@ -19,6 +19,13 @@ namespace XOR {
  * after display list creation, and just store dimension and origin data
  * separately since it would be much more efficient.
  *
+ * Because CompiledObject3D still inherits from Transformable, transforms can
+ * still be applied. These transforms will be effectively concatenated with the
+ * Transforms from the underlying Object3D. Once an Object3D has been compiled,
+ * only the Transforms associated with the CompiledObject3D can be manipulated,
+ * the Transforms associated with the underlying Object3D have been effectively
+ * burned in.
+ *
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
@@ -39,7 +46,8 @@ public:
 	 * @param store		Whether a reference to the object should be stored
 	 * 					after compilation, defaults to true.
 	 */
-	CompiledObject3D(Object3D * object, bool store=true);	
+	CompiledObject3D(Object3D * object);
+	CompiledObject3D(Object3D * object, bool store);	
 
 
 	/**
@@ -52,24 +60,32 @@ public:
 
 	/**
 	 * Calls the display list for the underlying renderable
+	 * @overrides Render from Object3D
 	 */
 	void render();
 
 
+
 	/**
 	 * delegates to the underlying renderable
 	 */
-	Dimension3D * getDimension() const;
+	Dimension3D * getDimension();
 
 
 	/**
 	 * delegates to the underlying renderable
 	 */
-	Vector3D * getOrigin() const;
+	Vector3D * getBaseVector();
+
+protected:
+
+	/**
+	 * Does nothing
+	 */
+	void renderObject();
 
 
 private:
-
 
 	/**
 	 * Only makes sense to create with the Object3D.

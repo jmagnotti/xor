@@ -89,12 +89,9 @@ public:
     void printInfo();
 
 
-	/**
-	 * This is a high level render command. Most of the actual work will
-	 * be delegated to the Quadrilateral3D object (which in turn delegates to
-	 * Point3D).
-	 */
-	void render();
+
+	Dimension3D * getDimension();
+	Vector3D * getBaseVector();	
 
 
 protected:
@@ -118,6 +115,12 @@ protected:
 	 * updates the paint of the faces by giving them new colored points
 	 */
 	void updatePaint(void);
+
+	/**
+	 * This is a high level render command. Most of the actual work will
+	 * be delegated to the Quadrilateral3D object.
+	 */
+	void renderObject();
 
 
 private:
