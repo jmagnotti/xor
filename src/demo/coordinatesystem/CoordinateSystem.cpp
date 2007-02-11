@@ -26,8 +26,8 @@ public:
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));
-		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
+		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
         
 		ctrl->getModel()->addObject("white", new CompiledObject3D(new Cube(new Vector3D(.5,.5,.5), 1, new Paint(Color::WHITE))));
 		ctrl->getModel()->addObject("blue",	 new CompiledObject3D(new Cube(new Vector3D(0,0,5), 1, new Paint(Color::BLUE))));
@@ -40,7 +40,7 @@ public:
 	void handleKey_l()
 	{
 		cout << "LOOK AT ORIGIN" << endl;
-		Controller::GetInstance()->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		Controller::GetInstance()->getViewer()->setFocalPoint(new Vector3D(0,0,0));
 	}
 
 	void handleKey_x()
@@ -121,12 +121,12 @@ public:
 
     void handleKey_RBracket()
     {
-        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,1));
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Vector3D(0,0,1));
     }
 
     void handleKey_LBracket()
     {
-        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,-1));
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Vector3D(0,0,-1));
     }
 	
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -139,9 +139,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

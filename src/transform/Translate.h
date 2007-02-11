@@ -7,7 +7,7 @@
 
 #include "Transform.h"
 #include "../interpolation/InterpolationEngine.h"
-#include "../geometry/Dimension3D.h"
+#include "../geometry/Vector3D.h"
 
 
 using namespace std;
@@ -20,9 +20,15 @@ namespace XOR {
  */
 class Translate : public Transform
 {
-	friend class Positionable;
+	friend class Transformable;
 
 public:
+
+	/*
+	 * Creates an Identity Translation.
+	 */
+	Translate();
+
 
 	/**
 	 * Explicit Constructor
@@ -33,14 +39,8 @@ public:
 	/**
 	 * Explicit Constructor
 	 */
-	Translate(Dimension3D *);
+	Translate(Vector3D *);
 
-
-	/**
-	 * Static Constructor for your convenience
-	 */
-	static Translate * CreateTranslation(float x, float y, float z);
-    
 
     /**
      * Copies the value of the other translates, no aliasing 
@@ -70,13 +70,15 @@ public:
 	 * Easy way to increment a translation
 	 * to decrement, just increment by a negative amount
 	 */
-    void increment(Dimension3D *, InterpolationEngine * interpolation=NULL);
-    void set(Dimension3D *, InterpolationEngine * interpolation=NULL);
+    void increment(Vector3D *, InterpolationEngine * interpolation=NULL);
+    void set(Vector3D *, InterpolationEngine * interpolation=NULL);
 
+	Vector3D * toVector();
 
-protected:
+private:
 	
 	float _xShift, _yShift, _zShift;
+
     vector<float*> _values;
     vector<float> _out;
 

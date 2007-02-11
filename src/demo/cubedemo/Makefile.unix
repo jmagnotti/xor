@@ -117,11 +117,11 @@ HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h
 HelloWorld.o: ../../event/reshape/Reshape.h ../../event/timer/TimerSkeleton.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 HelloWorld.o: ../../event/reshape/Reshape.h ../../core/World.h
-HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../transform/Positionable.h
+HelloWorld.o: ../../shape/Object3D.h ../../transform/Transformable.h
 HelloWorld.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 HelloWorld.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 HelloWorld.o: ../../transform/Transform.h ../../transform/Scale.h
+HelloWorld.o: ../../geometry/Vector3D.h
 HelloWorld.o: ../../interpolation/InterpolationEngine.h
 HelloWorld.o: ../../interpolation/InterpolationListener.h
 HelloWorld.o: ../../interpolation/Interpolator.h
@@ -129,12 +129,14 @@ HelloWorld.o: ../../interpolation/InterpolatorFactory.h
 HelloWorld.o: ../../interpolation/LinearInterpolator.h
 HelloWorld.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
 HelloWorld.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-HelloWorld.o: /usr/include/bits/mathcalls.h ../../geometry/Vector3D.h
+HelloWorld.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
-HelloWorld.o: ../../shape/Renderable.h ../../shape/Point3D.h
-HelloWorld.o: ../../paint/Paint.h ../../texture/Texture.h
-HelloWorld.o: ../../../include/SDL_image.h ../../../include/SDL.h
-HelloWorld.o: ../../paint/Color.h ../../shape/Object3D.h ../../core/Viewer.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
+HelloWorld.o: ../../shape/Point3D.h ../../paint/Paint.h
+HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
+HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
+HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
+HelloWorld.o: ../../core/Viewer.h ../../paint/Color.h
 HelloWorld.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
 HelloWorld.o: ../../transform/CoordinateSystem.h
@@ -196,7 +198,9 @@ HelloWorld.o: ../../shape/Cube.h ../../shape/RectangularPrismFactory.h
 HelloWorld.o: ../../shape/Point2D.h ../../shape/Point3D.h
 HelloWorld.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Triangle3D.h
-HelloWorld.o: ../../shape/Object3D.h ../../terrain/Terrain.h
+HelloWorld.o: ../../shape/Object3D.h ../../shape/CompiledObject3D.h
+HelloWorld.o: ../../shape/ExtrudedNormalPolygon.h
+HelloWorld.o: ../../shape/NormalPolygon3D.h ../../terrain/Terrain.h
 HelloWorld.o: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
 HelloWorld.o: ../../terrain/TerrainStrategy.h ../../multicast/mcreceive.h
 HelloWorld.o: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
@@ -211,7 +215,7 @@ HelloWorld.o: ../../transform/MathCoordinateSystem.h
 HelloWorld.o: ../../transform/Transform.h ../../transform/Scale.h
 HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
-HelloWorld.o: ../../transform/Positionable.h ../../paint/Paint.h
+HelloWorld.o: ../../transform/Stretch.h ../../paint/Paint.h
 HelloWorld.o: ../../paint/Color.h ../../util/GraphicsConversionUtility.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h

@@ -61,7 +61,7 @@ Vector3D * Quadrilateral3D::getNormal() const
  * Draws the quadrilateral.
  * Is doing texture stuff right now, which I may be mixing burdens.
  */
-void Quadrilateral3D::render()
+void Quadrilateral3D::renderObject()
 {
 	glColor3fv(_paint->getColorTo());
 
@@ -84,16 +84,16 @@ void Quadrilateral3D::render()
 			glBegin(GL_QUADS);
 
 				//texture coords in CCW
-				glTexCoord2f(0, 1);
-				glVertex3fv(_vertices[0]->toArray());
-
-				glTexCoord2f(0, 0);
-				glVertex3fv(_vertices[1]->toArray());
+				glTexCoord2f(1, 1);
+				glVertex3fv(_vertices[0]->toArray()); 
 
 				glTexCoord2f(1, 0);
+				glVertex3fv(_vertices[1]->toArray());
+
+				glTexCoord2f(0, 0);
 				glVertex3fv(_vertices[2]->toArray());
 
-				glTexCoord2f(1, 1);
+				glTexCoord2f(0, 1);
 				glVertex3fv(_vertices[3]->toArray());
 
 			glEnd();
@@ -130,7 +130,7 @@ void Quadrilateral3D::setVertex(int vertexNumber, Vector3D * newVertex)
 
 
 /*
- * Broken paint method
+ * set the paint for the object
  */
 void Quadrilateral3D::setPaint(Paint * paint)
 {
@@ -145,15 +145,23 @@ void Quadrilateral3D::print()
 }
 
 
-Vector3D * Quadrilateral3D::getOrigin() const
+/**
+ * return a clone of the base point
+ */
+Vector3D * Quadrilateral3D::getBaseVector()
 {
-	return _vertices[0];
+	return new Vector3D(_vertices[0]->getX(), _vertices[0]->getY(),
+			_vertices[0]->getZ());
 }
 
 
-Dimension3D * Quadrilateral3D::getDimension() const
+/*
+ * return a clone of the size
+ */
+Dimension3D * Quadrilateral3D::getDimension()
 {
-	return _dimension;
+	return new Dimension3D(_dimension->getWidth(), _dimension->getHeight(),
+			_dimension->getDepth());
 }
 
 

@@ -15,7 +15,7 @@ const int Viewer::DEFAULT_WINDOW_Y		= 100;
 const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
 const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 
-const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;    			// use the OS default
+const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;
 const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
 const int Viewer::WALL_MODE_STANDARD  = 1;
@@ -205,7 +205,6 @@ void Viewer::view()
  */
 void Viewer::setWindowTitle(char * text)
 {
-	//cout << "Window title arguments ignored in this version" << endl;
     SDL_WM_SetCaption(DEFAULT_WINDOW_TITLE, "XOR");
 }
 
@@ -215,7 +214,7 @@ void Viewer::setWindowTitle(char * text)
  */
 void Viewer::setFullScreen(bool status)
 {
-	// TODO: implement turning fullscreen OFF
+	// TODO: implement turning fullscreen ON/OFF
 
 	if (status != _fullscreen)
         int i=0;
@@ -304,10 +303,15 @@ void Viewer::setWallOffset(int x, int y)
 {
 	_wallXoffset = x;
 	_wallYoffset = y;
+
 	cout << "new x offset: " << _wallXoffset << endl;
 	cout << "new y offset: " << _wallYoffset << endl;
+
+	// We have the force reshape method above that was created for Controller to for an initial reshape
+	// without having to know how to constrct events.
 	ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
 	handleReshape(evt);
+	//forceReshape();
 }
 
 
@@ -316,12 +320,10 @@ void Viewer::setWallOffset(int x, int y)
  */
 void Viewer::setWallMode(int mode)
 {
-	if (mode == WALL_MODE_IMMERSIVE)
-	{
+	if (mode == WALL_MODE_IMMERSIVE) {
 		_wallMode = WALL_MODE_IMMERSIVE;
 	}
-	else
-	{
+	else {
 		_wallMode = WALL_MODE_STANDARD;
 	}
 }

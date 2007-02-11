@@ -8,7 +8,7 @@ using namespace std;
 /**
  * Shows the simplicity of XOR
  */
-int main(int argc, char** argv)
+int main()
 {
 
     // we need a reference to the controller, get it through the static
@@ -28,15 +28,12 @@ int main(int argc, char** argv)
 
     // We are creating the object as a pointer for greater effecincy
     
-    Triangle3D * hello = new Triangle3D(  new Vector3D(-.25,-.25,-1),
-													new Vector3D(.25,-.25,-1),
-													new Vector3D(.25,.25,-1));
-   
-    //NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(0,.5,0), 0.5, 10);
+    Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
+    //NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(0,.5,-10), 0.5, 10);
 
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)
-    ctrl->setModel(hello);
+    ctrl->setModel(new CompiledObject3D(hello));
 
     // this call runs the demo.
     ctrl->run();

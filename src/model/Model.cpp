@@ -74,7 +74,7 @@ Model::~Model()
 
 void Model::render() 
 {
-	push();
+	//push();
 
 	glEnable( GL_TEXTURE_2D );
 
@@ -130,7 +130,7 @@ void Model::render()
 
 	glDisable( GL_TEXTURE_2D );
 
-	pop();
+	//pop();
 }
 
 void Model::reloadTextures()

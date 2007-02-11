@@ -23,7 +23,7 @@ void MouseSkeleton::fireEvent(MouseEvent * me)
     else 
         updateFromEvent((MouseClickEvent *)me);
 
-    cout << "Notifiying listeners of event type: " << me->getType() << endl;
+    //cout << "Notifiying listeners of event type: " << me->getType() << endl;
 
     notifyListeners(me);
 

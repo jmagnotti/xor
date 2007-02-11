@@ -19,6 +19,17 @@ CompiledObject3D::CompiledObject3D(Object3D * object, bool store)
 
 
 /*
+ * exp cstr
+ */
+CompiledObject3D::CompiledObject3D(Object3D * object)
+{
+	_object3D = object;
+	compile();
+}
+
+
+
+/*
  * destructor
  */
 CompiledObject3D::~CompiledObject3D()
@@ -30,7 +41,7 @@ CompiledObject3D::~CompiledObject3D()
 /*
  * pass-through
  */
-Dimension3D * CompiledObject3D::getDimension() const
+Dimension3D * CompiledObject3D::getDimension()
 {
 	return _object3D->getDimension();
 }
@@ -39,9 +50,9 @@ Dimension3D * CompiledObject3D::getDimension() const
 /*
  * pass-through
  */
-Vector3D * CompiledObject3D::getOrigin() const
+Vector3D * CompiledObject3D::getBaseVector()
 {
-	return _object3D->getOrigin();
+	return _object3D->getBaseVector();
 }
 
 
@@ -62,9 +73,16 @@ void CompiledObject3D::compile()
  */
 void CompiledObject3D::render()
 {
-	push();
+	
+	if (isTransformed()) {
+		push();
+			glCallList(_displayListID);
+		pop();
+	}
+	else {
 		glCallList(_displayListID);
-	pop();
+	}
+		
 }
 
 
@@ -83,6 +101,9 @@ void CompiledObject3D::clean()
 	*/
 }
 
+
+void CompiledObject3D::renderObject()
+{}
 
 }
 

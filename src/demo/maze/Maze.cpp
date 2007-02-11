@@ -25,7 +25,7 @@ void Maze::addRenderable(RectangularPrism* rend)
 /*
  * Checks for collisions
  */
-bool Maze::checkCollision(Point3D* position)
+bool Maze::checkCollision(Vector3D * position)
 {
 	bool collision = false;
 
@@ -49,7 +49,7 @@ void Maze::compile()
 	mazeDL_ID = glGenLists(1);
 
 	glNewList(mazeDL_ID, GL_COMPILE);
-		render();
+		renderObject();
 	glEndList();
 
 	compiled = true;
@@ -68,7 +68,7 @@ void Maze::decompile()
 /* 
  * returns the ending point
  */
-Dimension3D * Maze::getFinishingPoint()
+Vector3D * Maze::getFinishingPoint()
 {
 	return _finish;
 }
@@ -77,7 +77,7 @@ Dimension3D * Maze::getFinishingPoint()
 /* 
  * returns the starting point
  */
-Dimension3D * Maze::getStartingPoint()
+Vector3D * Maze::getStartingPoint()
 {
 	return _start;
 }
@@ -135,10 +135,10 @@ void Maze::pushTransforms()
 /*
  * Calls render on all of its renderables
  */
-void Maze::render(void)
+void Maze::renderObject(void)
 {
 
-	if (!compiled) {
+	//if (!compiled) {
 		//		pushTransforms();
 
 		//get an iterator then loop through the renderables, rendering
@@ -151,9 +151,9 @@ void Maze::render(void)
 		}
 
 		//		popTransforms();
-	} else {
-		glCallList(mazeDL_ID);
-	}
+	//} else {
+		//glCallList(mazeDL_ID);
+	//}
 
 }
 
@@ -161,7 +161,7 @@ void Maze::render(void)
 /**
  * Sets the finishing position
  */
-void Maze::setFinishingPoint(Dimension3D * p)
+void Maze::setFinishingPoint(Vector3D * p)
 {
 	_finish = p;
 }
@@ -170,7 +170,7 @@ void Maze::setFinishingPoint(Dimension3D * p)
 /**
  * Sets the starting position
  */
-void Maze::setStartingPoint(Dimension3D * p)
+void Maze::setStartingPoint(Vector3D * p)
 {
 	_start = p;
 }

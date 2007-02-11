@@ -175,8 +175,7 @@ void Controller::defaultGLConfiguration()
 
 	// enable fog
 
-/*
-	glEnable(GL_FOG);
+	//glEnable(GL_FOG);
 
 	glFogi(GL_FOG_MODE, GL_LINEAR);
 
@@ -186,7 +185,6 @@ void Controller::defaultGLConfiguration()
 	glFogi(GL_FOG_END, 25);
 	GLfloat fogColor[4] = {0.0, 0.0, 0.0, 1.0};
 	glFogfv(GL_FOG_COLOR, fogColor);
-*/
 }
 
 

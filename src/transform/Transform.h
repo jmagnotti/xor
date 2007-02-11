@@ -34,6 +34,10 @@ public:
 	 */
 	virtual void push(void)=0;
 
+	/**
+	 * Applies the transform
+	virtual void pushInverse(void)=0;
+	 */
 
 	/**
 	 * Removes the transform.

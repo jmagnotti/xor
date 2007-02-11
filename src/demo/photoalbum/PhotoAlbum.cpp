@@ -12,8 +12,9 @@ class PhotoAlbum : public DefaultKeyboardListener, public Object3D,
 public:
 
 
-	Dimension3D * getDimension() const {return NULL;}
-	Vector3D * getOrigin() const {return NULL;}
+	Dimension3D * getDimension() {return NULL;}
+	Vector3D * getBaseVector() {return NULL;}
+	void renderObject() {render();}
 
    /* 
   	* Constructor
@@ -33,7 +34,7 @@ public:
         ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
 */
         ctrl->getViewer()->incrementTranslation(
-				new Dimension3D(0,0,2), new TimedInterpolation(3000, this));
+				new Vector3D(0,0,2), new TimedInterpolation(3000, this));
 
         loadPics();
 		
@@ -89,13 +90,13 @@ cout << "Passing control" << endl;
     void handleKey_S()
     {
         Controller::GetInstance()->getViewer()->incrementTranslation(
-                new Dimension3D(0,0,1), new TimedInterpolation(1000, this));
+                new Vector3D(0,0,1), new TimedInterpolation(1000, this));
     }
 
 	void handleKey_A()
 	{
 		Controller::GetInstance()->getViewer()->incrementTranslation(
-				new Dimension3D(0,0,-1), new TimedInterpolation(1000, this));
+				new Vector3D(0,0,-1), new TimedInterpolation(1000, this));
 	}
 	
 	/** 
@@ -112,7 +113,7 @@ cout << "Passing control" << endl;
         {
             ++i;
             if (i == 9) {
-                (*iter)->incrementScalar(new Dimension3D(1, 0, 0), new TimedInterpolation(1000, this));
+                (*iter)->incrementScalar(new Vector3D(1, 0, 0), new TimedInterpolation(1000, this));
                 //(*iter)->setTranslation(new Dimension3D(0, 0, 0), new TimedInterpolation(1000, this));
             }
 
@@ -132,9 +133,9 @@ cout << "Passing control" << endl;
         int i=0;
         while (iter != end ) {
 	    ++i;
-            (*iter)->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600*i, this));
-            (*iter)->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600*i, this));
-            (*iter)->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600*i, this));
+            (*iter)->incrementRotation(Transformable::ROLL,		360, new TimedInterpolation(600*i, this));
+            (*iter)->incrementRotation(Transformable::THETA,	360, new TimedInterpolation(600*i, this));
+            (*iter)->incrementRotation(Transformable::PHI,		360, new TimedInterpolation(600*i, this));
 
             ++iter; 
         }
@@ -262,7 +263,6 @@ cout << "Passing control" << endl;
 
     void bringToFront(int index)
     {
-        
         // grab x and y from the picture in question
         double x;   // original x position
         double y;
@@ -274,7 +274,7 @@ cout << "Passing control" << endl;
 			
 		// Get a copy of the point so we can 
 		// extract the x and y values to work on
-		currentPoint = pics[index]->getOrigin();
+		currentPoint = pics[index]->getBaseVector();
        
         x = currentPoint->getX();
         y = currentPoint->getY();
@@ -282,23 +282,22 @@ cout << "Passing control" << endl;
 		// want to shift to the right spot
 		newXshift = -0.101 - x;
 		newYshift = -0.1 - y;
-
         //need to move about .53 in the x and about -0.3 in the y
 
         // need scale the pic back to it's original form before messing with it
 	   	revertPic(index);
 	   	
-        pics[index]->setScalar(new Dimension3D(6, 6, 1), new TimedInterpolation(300, this));
-        pics[index]->incrementTranslation(new Dimension3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
-        pics[index]->incrementRotation(Positionable::ROLL,	360, new TimedInterpolation(600, this));
-        pics[index]->incrementRotation(Positionable::THETA,	360, new TimedInterpolation(600, this));
-        pics[index]->incrementRotation(Positionable::PHI,	360, new TimedInterpolation(600, this));
+        pics[index]->setScalar(new Vector3D(6, 6, 1), new TimedInterpolation(300, this));
+        pics[index]->setTranslation(new Vector3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
+        pics[index]->incrementRotation(Transformable::ROLL,		360, new TimedInterpolation(600, this));
+        pics[index]->incrementRotation(Transformable::THETA,	360, new TimedInterpolation(600, this));
+        pics[index]->incrementRotation(Transformable::PHI,		360, new TimedInterpolation(600, this));
     }
 
 
 	void handleKey_7()
 	{
-		pics[currentPic]->incrementRotation(Positionable::THETA, 90, new TimedInterpolation(1000, this));
+		pics[currentPic]->incrementRotation(Transformable::THETA, 90, new TimedInterpolation(1000, this));
 	}
     
 protected:
@@ -316,7 +315,7 @@ protected:
 		// change the current picture
 		currentPic = index;	
 		// scale up
-        pics[currentPic]->incrementScalar(new Dimension3D(.2, .2, .2), new TimedInterpolation(300, this));
+        pics[currentPic]->incrementScalar(new Vector3D(.2, .2, .2), new TimedInterpolation(300, this));
 	}
 
 	/*
@@ -324,7 +323,7 @@ protected:
 	 */
 	void revertPic(int index)
 	{		
-		pics[index]->incrementScalar(new Dimension3D(-.2,-.2,-.2), new TimedInterpolation(300,this));
+		pics[index]->incrementScalar(new Vector3D(-.2,-.2,-.2), new TimedInterpolation(300,this));
 	}
 	
 	void loadPics()
@@ -341,12 +340,10 @@ protected:
 	   		for (double j = -3; j<3; j++) {
 				numOfPics++;  // keep track of number of pics
                 cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
-				pics.push_back(new CompiledObject3D(new RectangularPrism( new
-								Vector3D(i*squareDiameter + offset*i,
-									j*squareDiameter + offset*j, z),
+				pics.push_back(new CompiledObject3D(new RectangularPrism( 
+								new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
 								squareDiameter, squareDiameter, squareDiameter,
-								new Paint(Color::WHITE, Paint::HEIGHT_BASED,
-									factory->createTexture("monkey.png"))
+								new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture("photos/duke_dog.jpg"))
                         //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
 				)));
                 /*```pics.push_back(new RectangularPrism(

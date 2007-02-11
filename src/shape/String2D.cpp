@@ -103,12 +103,12 @@ void String2D::setText(char *text)
 	_text = text;
 }
 
-Dimension3D * String2D::getDimension() const
+Dimension3D * String2D::getDimension()
 {
 	return new Dimension3D(_size->getWidth(), _size->getHeight(), 0);
 }
 
-Vector3D * String2D::getOrigin() const
+Vector3D * String2D::getBaseVector()
 {
 	return new Vector3D(_xpos, _ypos, 0);
 }

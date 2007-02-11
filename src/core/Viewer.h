@@ -8,9 +8,9 @@
 
 #include "World.h"
 
+#include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
-#include "../shape/Point3D.h"
-#include "../transform/Positionable.h"
+#include "../transform/Transformable.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
 #include "../event/reshape/ReshapeListener.h"
@@ -23,7 +23,7 @@ namespace XOR {
  * Designed to maintain the state of the camera of the world.
  * The Viewer is doing a little bit too much windowing at the moment.
  */
-class Viewer : public ReshapeListener, public Positionable
+class Viewer : public ReshapeListener, public Transformable
 {
 
 public:
@@ -52,6 +52,7 @@ public:
      */
     Viewer();
 
+
 	/**
      * Explicit Constructor
      * 
@@ -67,6 +68,9 @@ public:
 	 */
 	~Viewer();
 
+
+	Dimension3D * getDimension() {}
+	Vector3D * getBaseVector() {}
 
 	/**
 	 * Adds a renderable to the viewer's list

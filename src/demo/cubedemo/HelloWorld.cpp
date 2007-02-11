@@ -4,7 +4,7 @@ using namespace XOR;
 
 GLuint monkey;
 
-class RenderTest : public Renderable, public Positionable
+class RenderTest : public Renderable, public Transformable
 {
 
 public:
@@ -12,8 +12,8 @@ public:
     RenderTest()
     {
         /*
-        setRotation(Positionable::PHI, -20);
-        setRotation(Positionable::THETA, 20);
+        setRotation(Transformable::PHI, -20);
+        setRotation(Transformable::THETA, 20);
         */
 
         glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -139,9 +139,9 @@ int main(int argc, char **argv)
     Cube * hello = new Cube(new Vector3D(-.5, -.5, -2.5), 1.0f, p);
         //new Paint(Color::WHITE, Paint::HEIGHT_BASED));
 
-    //hello->setTranslation(new Dimension3D(0,0,2));
-    //hello->setRotation(Positionable::PHI, -20);
-    //hello->setRotation(Positionable::THETA, 20);
+    hello->setTranslation(new Vector3D(0,0,2));
+    hello->setRotation(Transformable::PHI, -20);
+    hello->setRotation(Transformable::THETA, 20);
     
     //ctrl->setModel(new RenderTest());
     ctrl->setModel(hello);
