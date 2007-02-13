@@ -57,14 +57,16 @@ void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
     Mouse * mouse = Controller::GetInstance()->getMouse();
 
 	if (mouse->isLeftButtonDown()) {
+        //cout << "handling mme with LBD" << endl;
+
 		// rotate camera
 		float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 		float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-        Controller::GetInstance()->getViewer()->incrementRotation(
-                Transformable::THETA, -xChange);
-        Controller::GetInstance()->getViewer()->incrementRotation(
-                Transformable::PHI, -yChange);
+        Controller::GetInstance()->getViewer()->incrementRotation(Transformable::THETA,
+-xChange, new TimedInterpolation(100, NULL));
+        Controller::GetInstance()->getViewer()->incrementRotation(Transformable::PHI,
+-yChange, new TimedInterpolation(100, NULL));
 	}
 }
 

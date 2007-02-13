@@ -9,9 +9,7 @@ namespace XOR {
  * const int Transformable::THETA = 0;
  * const int Transformable::PHI   = 1;
  * const int Transformable::ROLL  = 2;
- */
-
-
+ */ 
 /*
  * Default constructor
  */
@@ -138,7 +136,7 @@ Vector3D * Transformable::getTranslation()
 void Transformable::incrementTranslation(Vector3D * position, InterpolationEngine * interpolation)
 {
 	_transformed = true;
-    cout << "hosing focal point" << endl;
+    //cout << "hosing focal point" << endl;
    _position->increment(position, interpolation); 
 }
 
@@ -160,7 +158,7 @@ void Transformable::incrementTranslation(Vector3D * position)
 void Transformable::setTranslation(Vector3D * position, InterpolationEngine * interpolation)
 {
 	_transformed = true;
-    cout << "hosing focal point" << endl;
+    //cout << "hosing focal point" << endl;
     _position->set(position, interpolation);
 }
 
@@ -260,12 +258,12 @@ void Transformable::incrementRotation(const int dimension, float angle, Interpol
             break;
             
         case Transformable::ROLL: 
-			cout << "ang: " << angle << endl;
+			//cout << "ang: " << angle << endl;
             _roll->increment(angle, interpolation);
             break;
     }
     
-    cout << "hosing focal point" << endl;
+    //cout << "hosing focal point" << endl;
 }
 
 
@@ -351,7 +349,7 @@ void Transformable::setFocalPoint(Vector3D * point, InterpolationEngine * interp
 {
 	_transformed = true;
 
-    cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
+    //cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
     setFocalPoint(point);
 }
 

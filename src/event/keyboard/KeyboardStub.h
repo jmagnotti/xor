@@ -3,7 +3,6 @@
 
 
 #include <stdlib.h>
-#include <list>
 
 #include "../../multicast/MulticastSocket.h"
 #include "../../multicast/MulticastSocketPool.h"
@@ -26,6 +25,8 @@ class KeyboardStub : public Keyboard
 
 public:
 
+    virtual ~KeyboardStub();
+
     /**
      * Singleton Accessor
      */
@@ -43,7 +44,7 @@ private:
     KeyboardStub();
     static KeyboardStub * _keyboardStub;
 
-    MulticastSocket * _socket;
+    static MulticastSocket * _socket;
 
 };
 

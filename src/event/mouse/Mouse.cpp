@@ -1,5 +1,7 @@
 #include "Mouse.h"
 
+#include <iostream>
+using namespace std;
 
 namespace XOR {
 
@@ -60,23 +62,29 @@ void Mouse::updateFromEvent(MouseMotionEvent * mme)
  */
 void Mouse::updateFromEvent(MouseClickEvent * mce)
 {
-    int button = ((MouseClickEvent*)mce)->getButton();
+    int button = mce->getButton();
 
 	if (mce->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
+        cout << "Mouse Down: " << button << endl;
+
         if (button == MouseClickEvent::LEFT_MOUSE_BUTTON)
 			_leftButtonDown = true;
 		else if (button == MouseClickEvent::RIGHT_MOUSE_BUTTON)
 			_rightButtonDown = true;
 		else if (button == MouseClickEvent::MIDDLE_MOUSE_BUTTON)
 			_middleButtonDown = true;
+
 	}
 	else {
+        cout << "Mouse Up: " << button << endl;
+
 		if (button == MouseClickEvent::LEFT_MOUSE_BUTTON)
 			_leftButtonDown = false;
 		else if (button == MouseClickEvent::RIGHT_MOUSE_BUTTON)
 			_rightButtonDown = false;
 		else if (button == MouseClickEvent::MIDDLE_MOUSE_BUTTON)
 			_middleButtonDown = false;
+
 	}
 }
 

@@ -38,6 +38,7 @@ Controller::Controller(EventHandlerFactory * factory)
 	_viewer = new Viewer();
 
 	_reshape->addListener(_viewer);
+    _timer->addListener(_viewer);
 }
 
 
@@ -346,7 +347,6 @@ void Controller::EventLoop()
             case SDL_USEREVENT:
                 if (event.user.code == Timer::TIMER_TICK_EVENT) {
                     ctrl->getTimer()->tickTock();
-                    ctrl->getViewer()->view();
                 }
                 else {
                     // establish user event system here

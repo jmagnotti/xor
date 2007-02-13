@@ -2,6 +2,10 @@
 #define TIMERSKELETON_H
 
 
+#include "../../../include/SDL_thread.h"
+#include "../../multicast/MulticastSocket.h"
+#include "../../multicast/MulticastSocketPool.h"
+
 #include "Timer.h"
 
 
@@ -19,6 +23,9 @@ class TimerSkeleton : public Timer
 
 public:
 
+    // Destructor
+	virtual ~TimerSkeleton();
+
 
     /**
      * Static singleton constructor with interval setting.
@@ -33,18 +40,25 @@ public:
     void tickTock();
 
 
-protected:
-    
-    // Default constructor
-	TimerSkeleton();
+    /**
+     * Waits for multicast broadcasts and pushes them onto the event queue
+     */
+    static int Listen(void * data);
 
-    // Destructor
-	virtual ~TimerSkeleton();
 
 private:
+    
+	TimerSkeleton();
 
-    //MulticastReceiver * receiver;
+    SDL_Thread * _thread;
+
+    static bool _keepGoing;
+
+    static MulticastSocket * _socket;
+
     static TimerSkeleton *  _timerSkeleton;
+
+    void start();
 
 };
 

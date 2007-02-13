@@ -7,6 +7,13 @@ SDL_Event   Timer::_sdlTimerEvent = {SDL_USEREVENT};
 
 unsigned int Timer::_interval = DEFAULT_TIMER_INTERVAL;
 
+Timer::Timer()
+{
+    _sdlTimerEvent.type = SDL_USEREVENT;
+    _sdlTimerEvent.user.code = TIMER_TICK_EVENT;
+    _sdlTimerEvent.user.data1 = 0;
+    _sdlTimerEvent.user.data2 = 0;
+}
 
 /*
  * Default Constructor
@@ -71,7 +78,7 @@ void Timer::removeListener(TimerListener *tl)
 /*
  * Sets the firing rate
  */
-void Timer::setInterval(unsigned int time)
+void Timer::SetInterval(unsigned int time)
 {
 	_interval  = time;
 }
@@ -168,7 +175,6 @@ Uint32 Timer::TickTock(Uint32 interval, void * param)
     // set the next timer tick interval. note that we are using the class var as the source.
     interval = getInterval();
 
-    // we need to push a tick event into the queue 
     SDL_PushEvent(&_sdlTimerEvent);
 
     // this is the value that will be used for the next timer interval

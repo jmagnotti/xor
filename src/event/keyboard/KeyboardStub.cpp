@@ -2,12 +2,22 @@
 namespace XOR {
 
 
-KeyboardStub * KeyboardStub::_keyboardStub = 0;
+KeyboardStub * KeyboardStub::_keyboardStub = NULL;
+MulticastSocket * KeyboardStub::_socket = NULL;
 
+KeyboardStub::~KeyboardStub()
+{
+    delete _socket;
+}
+
+
+/*
+ * 
+ */
 KeyboardStub::KeyboardStub()
 {
-	MulticastSocketPool * msp =	MulticastSocketPool::GetInstance();
-	_socket = msp->getMulticastSocket(MulticastSocketPool::KEYBOARD_SOCKET);
+	_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+              MulticastSocketPool::KEYBOARD_SOCKET);
 }
 
 
@@ -28,7 +38,6 @@ void KeyboardStub::fireKeyEvent(KeyEvent * ke)
 	_socket->send(ke->toString());
     notifyListeners(ke);
 }
-
 
 
 }

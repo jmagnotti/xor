@@ -23,6 +23,7 @@ public:
 
 		ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
+
 		ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->addListener(this);
 

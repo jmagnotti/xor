@@ -27,6 +27,10 @@ public:
         ctrl->removeDefaultKeyboardListener();
 
         ctrl->getKeyboard()->addListener(this);
+
+
+        ctrl->getMouse()->addListener(DefaultMouseListener::GetInstance());
+
 /*
         ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
                 TimedInterpolation(3000, this));
@@ -46,7 +50,7 @@ public:
         ctrl->setModel(this);
 
 		new FramesPerSecondCounter();
-cout << "Passing control" << endl;
+//cout << "Passing control" << endl;
 
 
 		glDisable(GL_DEPTH_TEST);
@@ -56,7 +60,7 @@ cout << "Passing control" << endl;
 
     void interpolationComplete()
     {
-        cout << "Interpolation complete" << endl;
+        //cout << "Interpolation complete" << endl;
     }
 
 	void render()
@@ -339,11 +343,11 @@ protected:
 		for(double i = -3; i<3; i++) {
 	   		for (double j = -3; j<3; j++) {
 				numOfPics++;  // keep track of number of pics
-                cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
+                //cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
 				pics.push_back(new CompiledObject3D(new RectangularPrism( 
 								new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
 								squareDiameter, squareDiameter, squareDiameter,
-								new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture("photos/duke_dog.jpg"))
+								new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture("photos/monkey.png"))
                         //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
 				)));
                 /*```pics.push_back(new RectangularPrism(
