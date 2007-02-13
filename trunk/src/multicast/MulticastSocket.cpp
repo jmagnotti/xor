@@ -80,7 +80,7 @@ MulticastSocket::MulticastSocket(const char * group, unsigned short port)
  */
 void MulticastSocket::send(string message)
 {
-    cout << message.size() << endl;
+    //cout << message.size() << endl;
 
     int length = sendto(_socket, message.c_str(), strlen(message.c_str()), 0,
 (struct sockaddr *)& _multicastAddress, sizeof(_multicastAddress));
@@ -101,8 +101,6 @@ string MulticastSocket::receive()
 
     unsigned int from_len;
 
-    from_len = sizeof(_remoteAddress);
-    memset(&_remoteAddress, 0, from_len);
 
     if (! _bound) {
         bind(_socket, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
@@ -110,18 +108,20 @@ string MulticastSocket::receive()
         _bound = true;
     }
 
-    perror("From top of receive");
+    //perror("From top of receive");
 
 	/* clear the receive buffers & structs */
-	memset(buffer, 0, MAX_LENGTH+1);
+	memset(buffer, 0, sizeof(buffer));
+    from_len = sizeof(_remoteAddress);
+    memset(&_remoteAddress, 0, from_len);
 
 	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*) &_remoteAddress, (socklen_t *) &from_len);
 
-    cout << "Receive " <<  length << " bytes" << endl;
-    perror("From Receive");
+    //cout << "Receive " <<  length << " bytes" << endl;
+    //perror("From Receive");
 
 	message = string(buffer);
-    cout << "returning: " << message << endl;
+    //cout << "returning: " << message << endl;
 
     return message;
 }

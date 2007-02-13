@@ -40,6 +40,11 @@ public:
 	 */
 	static const int			DEFAULT_TIMER_STATE		= 1;
 
+    /*
+     * Destructor
+     */
+	virtual ~Timer();
+
 
     /*
      * Adds a listener
@@ -71,7 +76,7 @@ public:
 	/** 
 	 * Sets the timer interval in milliseconds
 	 */
-	static void setInterval(unsigned int time);
+	static void SetInterval(unsigned int time);
 
 
 	/**
@@ -85,10 +90,11 @@ public:
      */
     void removeListener(TimerListener * tl);
 
+
     /*
      * allocates and starts  timer
      */
-    void start();
+    virtual void start();
     
 
     /*
@@ -124,16 +130,11 @@ protected:
 	Timer(unsigned int interval);
 
 
-    /**
-     * Destructor
-     */
-	~Timer();
-
+    // Timers can only be created with an interval 
+	Timer();
 
 private:
 
-    // Timers can only be created with an interval 
-	Timer();
 
 	list<TimerListener*> listeners;
 
@@ -147,11 +148,6 @@ private:
 };
 
 }
-
-    /**
-     * Removes the listener from the vector.
-     */
-    void notifyListeners();
 
 #endif			//TIMER_H
 

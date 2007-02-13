@@ -36,7 +36,7 @@ MouseSkeleton::~MouseSkeleton()
  */
 void MouseSkeleton::fireEvent(MouseEvent * me)
 {
-	cout << "getting the fire event" << endl;
+    //cout << "Firing event" << endl;
     if (me->getType() == MouseEvent::MOUSE_MOTION)
         updateFromEvent((MouseMotionEvent*)me);
     else 

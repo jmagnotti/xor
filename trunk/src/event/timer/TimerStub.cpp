@@ -3,14 +3,21 @@
 
 namespace XOR {
 
-TimerStub * TimerStub::_timerStub = 0;
+TimerStub * TimerStub::_timerStub = NULL;
+MulticastSocket * TimerStub::_socket = NULL;
+string TimerStub::_eventString = "Tick";
 
 TimerStub::TimerStub() : Timer(DEFAULT_TIMER_INTERVAL)
-{}
+{
+    _socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+    MulticastSocketPool::TIMER_SOCKET);
+}
 
 
 TimerStub::~TimerStub()
-{}
+{
+    delete _socket;
+}
 
 
 /*
@@ -30,7 +37,7 @@ TimerStub * TimerStub::GetInstance()
  */
 void TimerStub::tickTock()
 {
-    //TODO multicast the timer event
+    _socket->send(_eventString);
     notifyListeners();
 }
 

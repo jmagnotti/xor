@@ -16,11 +16,11 @@ MouseEvent * MouseEventFactory::ConstructInstance(SDL_Event * event)
                                     event->motion.xrel, event->motion.yrel);
 
     else if (event->type == SDL_MOUSEBUTTONDOWN)
-        mouseEvent =  new MouseButtonDown(event->button.button,
-                event->button.x, event->button.y);
+        mouseEvent =  new MouseButtonDown(event->button.x, event->button.y,
+                                          event->button.button);
     else 
-        mouseEvent =  new MouseButtonUp(event->button.button, event->button.x,
-                event->button.y);
+        mouseEvent =  new MouseButtonUp(event->button.x, event->button.y,
+                                        event->button.button);
 
     return mouseEvent;
 }

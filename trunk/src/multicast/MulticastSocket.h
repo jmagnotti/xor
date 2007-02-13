@@ -22,6 +22,7 @@ public:
 	 */
 	static const short MAX_LENGTH;
 
+
     /**
      * Multicast group
      */

@@ -66,6 +66,7 @@ void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, i
 
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
+    cout << "init bg color" << endl;
     for(int i=0; i<3; i++)
         _backgroundColor[i] = Color::DARK_NAVY[i];
 }
@@ -97,6 +98,16 @@ void Viewer::setModel(World * rend)
 Dimension2D * Viewer::getWindowSize()
 {
 	return _size;
+}
+
+
+
+/*
+ * timer tick
+ */
+void Viewer::handleTick()
+{
+    view();
 }
 
 

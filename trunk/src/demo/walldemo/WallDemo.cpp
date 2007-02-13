@@ -20,7 +20,7 @@ public:
 		char buffer[100];
 		sprintf(buffer, "i = %d  j = %d", i, j);
 
-        Controller * ctrl = Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
+        Controller * ctrl = Controller::GetInstance();
         ctrl->defaultConfiguration();
 
 		ctrl->removeDefaultKeyboardListener();
@@ -52,8 +52,8 @@ public:
 #endif
 		}
 
-		ctrl->getViewer()->incrementTranslation(new Dimension3D(10,10,10));
-		ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
+		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
  
         ctrl->getModel()->addObject("white", 
 				new Cube(new Vector3D(.5,.5,.5), 1, new Paint(Color::WHITE)));
@@ -68,11 +68,11 @@ public:
 				"../modeldemo/models/ant01.ms3d");
 		tModels[1] = ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/turtle1.ms3d");
-		tModels[1]->incrementTranslation(new Dimension3D(0,0,50));
+		tModels[1]->incrementTranslation(new Vector3D(0,0,50));
 		tModels[2] = ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/f360.ms3d");
-		tModels[2]->incrementTranslation(new Dimension3D(-100,0,50));
-		tModels[2]->incrementRotation(Positionable::THETA, 90.0f, NULL);
+		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
+		tModels[2]->incrementRotation(Transformable::THETA, 90.0f, NULL);
 
 		ctrl->getModel()->addObject("model1", tModels[0]);
 		ctrl->getModel()->addObject("model2", tModels[1]);
@@ -84,7 +84,7 @@ public:
 	void handleKey_l()
 	{
 		cout << "LOOK AT ORIGIN" << endl;
-		Controller::GetInstance()->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		Controller::GetInstance()->getViewer()->setFocalPoint(new Vector3D(0,0,0));
 	}
 
 	void handleKey_p()
@@ -159,12 +159,12 @@ public:
 
     void handleKey_RBracket()
     {
-        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,1));
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Vector3D(0,0,1));
     }
 
     void handleKey_LBracket()
     {
-        Controller::GetInstance()->getViewer()->incrementTranslation(new Dimension3D(0,0,-1));
+        Controller::GetInstance()->getViewer()->incrementTranslation(new Vector3D(0,0,-1));
     }
 	
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -177,9 +177,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
 			Controller::GetInstance()->getViewer()->incrementRotation(
-					Positionable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

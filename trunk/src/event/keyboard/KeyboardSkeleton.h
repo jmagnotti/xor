@@ -3,7 +3,6 @@
 
 
 #include <stdlib.h>
-#include <list>
 
 #include "../../../include/SDL_thread.h"
 #include "../../multicast/MulticastSocket.h"

@@ -2,7 +2,11 @@
 #define TIMERSTUB_H
 
 
+#include <string>
 #include "Timer.h"
+
+#include "../../multicast/MulticastSocket.h"
+#include "../../multicast/MulticastSocketPool.h"
 
 
 using namespace std;
@@ -19,6 +23,10 @@ class TimerStub : public Timer
 
 public:
 
+    // Destructor
+	virtual ~TimerStub();
+
+
     /**
      * Static singleton constructor with interval setting.
      */
@@ -32,19 +40,14 @@ public:
     void tickTock();
 
 
-protected:
-    
-    // Default constructor
-	TimerStub();
-
-
-    // Destructor
-	virtual ~TimerStub();
-
 private:
 
-    //MulticastSender * sender;
-    static TimerStub *  _timerStub;
+	TimerStub();
+
+    static TimerStub * _timerStub;
+    static string _eventString;
+
+    static MulticastSocket  * _socket;
 
 };
 

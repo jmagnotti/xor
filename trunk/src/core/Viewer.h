@@ -13,6 +13,7 @@
 #include "../transform/Transformable.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
+#include "../event/timer/TimerListener.h"
 #include "../event/reshape/ReshapeListener.h"
 #include "../event/reshape/ReshapeEvent.h"
 
@@ -23,7 +24,7 @@ namespace XOR {
  * Designed to maintain the state of the camera of the world.
  * The Viewer is doing a little bit too much windowing at the moment.
  */
-class Viewer : public ReshapeListener, public Transformable
+class Viewer : public ReshapeListener, public TimerListener, public Transformable
 {
 
 public:
@@ -94,6 +95,12 @@ public:
      * Simple reshape handler
      */
     void handleReshape(int width, int height);
+
+
+    /**
+     * redraw the screen on tick events
+     */
+     void handleTick();
 
 
 	/** 

@@ -39,7 +39,7 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
     else
         handleKeyUp((KeyUpEvent*)ke);
 
-	cout << ke->toString() << endl;
+	//cout << ke->toString() << endl;
 
 /*
     cout << "Key stats"             << endl;

@@ -8,10 +8,10 @@ namespace XOR {
  */
 MouseButtonDown::MouseButtonDown(int x, int y, const int button)
 {
-	_button	= button;
-
 	_xpos	= x;
 	_ypos	= y;
+
+	_button	= button;
 }
 
 
