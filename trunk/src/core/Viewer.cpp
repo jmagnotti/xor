@@ -121,6 +121,7 @@ void Viewer::handleReshape(ReshapeEvent * event)
 	_size->setHeight(event->getHeight());
 
     // reset clear color
+	cout << "Setting up clear color" << endl;
     setupClearColor(); 
 
     glMatrixMode(GL_PROJECTION);
@@ -195,6 +196,9 @@ void Viewer::setupClearColor()
  */
 void Viewer::view()
 {
+	SDL_Surface * surface = SDL_GetVideoSurface();
+	if (SDL_MUSTLOCK(surface)) SDL_LockSurface(surface);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
     glLoadIdentity();
@@ -206,8 +210,11 @@ void Viewer::view()
         _coordinateSystem->pop();
     pop();
 
+	if (SDL_MUSTLOCK(surface)) SDL_UnlockSurface(surface);
+
     // SDL call to swap the off screen buffer with the on screen buffer
     SDL_GL_SwapBuffers(); 
+
 }
 
 

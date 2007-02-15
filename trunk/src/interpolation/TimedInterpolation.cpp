@@ -10,7 +10,7 @@ TimedInterpolation::TimedInterpolation(int milliseconds, InterpolationListener *
 {
     //cout << "Amount of time for interpolating: " << milliseconds << endl;
 
-    Timer * timer = Controller::GetInstance()->getTimer();
+    Timer * timer = Controller::GetInstance(NULL)->getTimer();
 
     _time = milliseconds;
     _size = _iterationsRemaining = (int)(_time/(double)timer->getInterval());
@@ -37,7 +37,7 @@ void TimedInterpolation::handleTick()
 void TimedInterpolation::notifyAll()
 {
     InterpolationEngine::notifyAll();
-    Controller::GetInstance()->getTimer()->removeListener(this);
+    Controller::GetInstance(NULL)->getTimer()->removeListener(this);
 }
 
 
@@ -46,7 +46,7 @@ void TimedInterpolation::notifyAll()
  */
 void TimedInterpolation::start()
 {
-    Controller::GetInstance()->getTimer()->addListener(this);
+    Controller::GetInstance(NULL)->getTimer()->addListener(this);
 }
 
 }

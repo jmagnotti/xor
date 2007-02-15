@@ -15,30 +15,31 @@ public:
 	Dimension3D * getDimension() {return NULL;}
 	Vector3D * getBaseVector() {return NULL;}
 	void renderObject() {render();}
+	Controller * ctrl;
 
    /* 
   	* Constructor
  	*/
 	PhotoAlbum()
 	{
-        Controller * ctrl = Controller::GetInstance();
+		ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
 
         ctrl->defaultConfiguration();
-        ctrl->removeDefaultKeyboardListener();
+        //ctrl->removeDefaultKeyboardListener();
 
         ctrl->getKeyboard()->addListener(this);
-
-
-        ctrl->getMouse()->addListener(DefaultMouseListener::GetInstance());
+        ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());
 
 /*
         ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
                 TimedInterpolation(3000, this));
 
         ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
+		cout << "inc t on viewer" << endl;
 */
         ctrl->getViewer()->incrementTranslation(
 				new Vector3D(0,0,2), new TimedInterpolation(3000, this));
+//		cout << "done inc t on viewer" << endl;
 
         loadPics();
 		
@@ -87,19 +88,19 @@ public:
 
     void handleKey_R()
     {
-        Controller::GetInstance()->getViewer()->clear();
+        ctrl->getViewer()->clear();
     }
 
 
     void handleKey_S()
     {
-        Controller::GetInstance()->getViewer()->incrementTranslation(
+        ctrl->getViewer()->incrementTranslation(
                 new Vector3D(0,0,1), new TimedInterpolation(1000, this));
     }
 
 	void handleKey_A()
 	{
-		Controller::GetInstance()->getViewer()->incrementTranslation(
+		ctrl->getViewer()->incrementTranslation(
 				new Vector3D(0,0,-1), new TimedInterpolation(1000, this));
 	}
 	
@@ -164,47 +165,47 @@ public:
 
 	void handleKey_p()
 	{
-		Controller::GetInstance()->getViewer()->printDebugInfo();
+		ctrl->getViewer()->printDebugInfo();
 	}
 
 	void handleKey_a()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(0, -10.0f);
+		ctrl->getViewer()->incrementRotation(0, -10.0f);
 	}
 
 	void handleKey_d()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(0, 10.0f);
+		ctrl->getViewer()->incrementRotation(0, 10.0f);
 	}
 
 	void handleKey_w()
 	{
-		Controller::GetInstance()->getViewer()->walk(0.15f, new TimedInterpolation(200,NULL));
+		ctrl->getViewer()->walk(0.15f, new TimedInterpolation(200,NULL));
 	}
 
 	void handleKey_s()
 	{
-		Controller::GetInstance()->getViewer()->walk(-0.15f, new TimedInterpolation(200,NULL));
+		ctrl->getViewer()->walk(-0.15f, new TimedInterpolation(200,NULL));
 	}
 
 	void handleKey_q()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);
+		ctrl->getViewer()->incrementRotation(2, 5.0f);
 	}
 
 	void handleKey_e()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f);
+		ctrl->getViewer()->incrementRotation(2, -5.0f);
 	}
 
 	void handleKey_c()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(1, 5.0f);
+		ctrl->getViewer()->incrementRotation(1, 5.0f);
 	}
 
 	void handleKey_z()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(1, -5.0f);
+		ctrl->getViewer()->incrementRotation(1, -5.0f);
 	}
 
 	void handleKey_Down()

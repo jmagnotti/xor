@@ -63,21 +63,15 @@ CoordinateSystem.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
 CoordinateSystem.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
 CoordinateSystem.o: ../../../include/SDL_version.h
 CoordinateSystem.o: ../../event/timer/TimerListener.h
-CoordinateSystem.o: ../../event/timer/Timer.h
-CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
-CoordinateSystem.o: ../../event/timer/TimerListener.h
-CoordinateSystem.o: ../../event/keyboard/SpecialKeyEvent.h
-CoordinateSystem.o: /usr/include/stdlib.h /usr/include/sys/types.h
+CoordinateSystem.o: ../../multicast/MulticastSocket.h
+CoordinateSystem.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 CoordinateSystem.o: /usr/include/time.h /usr/include/endian.h
 CoordinateSystem.o: /usr/include/bits/endian.h /usr/include/sys/select.h
 CoordinateSystem.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 CoordinateSystem.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
 CoordinateSystem.o: /usr/include/bits/pthreadtypes.h
-CoordinateSystem.o: /usr/include/bits/sched.h /usr/include/alloca.h
-CoordinateSystem.o: ../../event/keyboard/KeyEvent.h
-CoordinateSystem.o: ../../event/keyboard/KeyboardStub.h
-CoordinateSystem.o: ../../multicast/MulticastSocket.h
-CoordinateSystem.o: ../../multicast/Multicast.h /usr/include/string.h
+CoordinateSystem.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+CoordinateSystem.o: /usr/include/alloca.h /usr/include/string.h
 CoordinateSystem.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
 CoordinateSystem.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
 CoordinateSystem.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
@@ -92,6 +86,13 @@ CoordinateSystem.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
 CoordinateSystem.o: /usr/include/bits/confname.h /usr/include/getopt.h
 CoordinateSystem.o: ../../multicast/MulticastSocketPool.h
 CoordinateSystem.o: ../../multicast/MulticastSocket.h
+CoordinateSystem.o: ../../event/timer/Timer.h
+CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
+CoordinateSystem.o: ../../../include/SDL_thread.h
+CoordinateSystem.o: ../../event/timer/TimerListener.h
+CoordinateSystem.o: ../../event/keyboard/SpecialKeyEvent.h
+CoordinateSystem.o: ../../event/keyboard/KeyEvent.h
+CoordinateSystem.o: ../../event/keyboard/KeyboardStub.h
 CoordinateSystem.o: ../../event/keyboard/Keyboard.h
 CoordinateSystem.o: ../../../include/SDL_events.h
 CoordinateSystem.o: ../../event/keyboard/KeyboardListener.h
@@ -111,7 +112,7 @@ CoordinateSystem.o: ../../event/timer/TimerListener.h ../../core/Controller.h
 CoordinateSystem.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 CoordinateSystem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/mouse/MouseListener.h
-CoordinateSystem.o: ../../event/mouse/MouseEvent.h ../../event/mouse/Mouse.h
+CoordinateSystem.o: ../../event/mouse/MouseEvent.h
 CoordinateSystem.o: ../../event/mouse/MouseEventFactory.h
 CoordinateSystem.o: ../../event/mouse/MouseButtonDown.h
 CoordinateSystem.o: ../../event/mouse/MouseClickEvent.h
@@ -121,13 +122,6 @@ CoordinateSystem.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
 CoordinateSystem.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
 CoordinateSystem.o: ../../event/reshape/ReshapeEvent.h
 CoordinateSystem.o: ../../event/reshape/ReshapeListener.h
-CoordinateSystem.o: ../../event/LocalEventHandlerFactory.h
-CoordinateSystem.o: ../../event/EventHandlerFactory.h
-CoordinateSystem.o: ../../event/keyboard/KeyboardSkeleton.h
-CoordinateSystem.o: ../../event/mouse/MouseSkeleton.h
-CoordinateSystem.o: ../../event/reshape/ReshapeSkeleton.h
-CoordinateSystem.o: ../../event/reshape/Reshape.h
-CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
 CoordinateSystem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/reshape/Reshape.h ../../core/World.h
 CoordinateSystem.o: ../../shape/Object3D.h ../../transform/Transformable.h
@@ -160,13 +154,12 @@ CoordinateSystem.o: ../../transform/LeftOpenGLCoordinateSystem.h
 CoordinateSystem.o: ../../transform/EngineerCoordinateSystem.h
 CoordinateSystem.o: ../../event/reshape/ReshapeListener.h
 CoordinateSystem.o: ../../event/reshape/ReshapeEvent.h
-CoordinateSystem.o: ../../event/keyboard/DefaultKeyboardListener.h
-CoordinateSystem.o: ../../event/mouse/DefaultMouseListener.h
-CoordinateSystem.o: ../../core/Controller.h
 CoordinateSystem.o: ../../interpolation/InterpolationEngine.h
-CoordinateSystem.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+CoordinateSystem.o: ../../core/Controller.h ../../core/World.h
+CoordinateSystem.o: ../../event/keyboard/KeyDownEvent.h
 CoordinateSystem.o: ../../event/keyboard/KeyEventFactory.h
 CoordinateSystem.o: ../../event/reshape/ReshapeSkeleton.h
+CoordinateSystem.o: ../../event/reshape/Reshape.h
 CoordinateSystem.o: ../../event/reshape/ReshapeEvent.h
 CoordinateSystem.o: ../../event/reshape/ReshapeListener.h
 CoordinateSystem.o: ../../event/reshape/Reshape.h
@@ -174,19 +167,28 @@ CoordinateSystem.o: ../../event/mouse/MouseButtonUp.h
 CoordinateSystem.o: ../../event/mouse/MouseEvent.h
 CoordinateSystem.o: ../../event/mouse/MouseClickEvent.h
 CoordinateSystem.o: ../../event/mouse/MouseSkeleton.h
+CoordinateSystem.o: ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/mouse/MouseListener.h
 CoordinateSystem.o: ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/mouse/DefaultMouseListener.h
+CoordinateSystem.o: ../../transform/Transformable.h
 CoordinateSystem.o: ../../event/mouse/MouseButtonDown.h
 CoordinateSystem.o: ../../event/mouse/MouseMotionEvent.h
 CoordinateSystem.o: ../../event/mouse/MouseEventFactory.h
 CoordinateSystem.o: ../../event/mouse/MouseStub.h
-CoordinateSystem.o: ../../event/LocalEventHandlerFactory.h
-CoordinateSystem.o: ../../event/RemoteEventHandlerFactory.h
+CoordinateSystem.o: ../../event/InputEventHandlerFactory.h
+CoordinateSystem.o: ../../event/EventHandlerFactory.h
+CoordinateSystem.o: ../../event/keyboard/KeyboardSkeleton.h
+CoordinateSystem.o: ../../event/mouse/MouseSkeleton.h
+CoordinateSystem.o: ../../event/reshape/ReshapeSkeleton.h
+CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
+CoordinateSystem.o: ../../event/FullEventHandlerFactory.h
+CoordinateSystem.o: ../../event/EventHandlerFactory.h
+CoordinateSystem.o: ../../event/FullEventProxyFactory.h
 CoordinateSystem.o: ../../event/keyboard/KeyboardStub.h
 CoordinateSystem.o: ../../event/mouse/MouseStub.h
-CoordinateSystem.o: ../../event/timer/TimerStub.h ../../event/TimerListener.h
-CoordinateSystem.o: ../../event/EventHandlerFactory.h
+CoordinateSystem.o: ../../event/timer/TimerStub.h
+CoordinateSystem.o: ../../event/InputEventProxyFactory.h
 CoordinateSystem.o: ../../interpolation/InterpolatorFactory.h
 CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
 CoordinateSystem.o: ../../interpolation/ContinuousInterpolation.h

@@ -26,7 +26,7 @@ String2D::String2D(char * string)
 String2D::String2D(char * string, int xpos, int ypos, const float color [3])
 {
     
-    _size = Controller::GetInstance()->getViewer()->getWindowSize();
+    _size = Controller::GetInstance(NULL)->getViewer()->getWindowSize();
     
     _text = string;
     _xpos = xpos;

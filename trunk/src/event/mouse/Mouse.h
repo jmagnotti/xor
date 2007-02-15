@@ -2,10 +2,10 @@
 #define MOUSE_H
 
 
-#include "../../../include/SDL.h"
-
 #include <stdlib.h>
 #include <list>
+
+#include "../../../include/SDL.h"
 
 #include "MouseListener.h"
 #include "MouseEvent.h"
@@ -18,26 +18,38 @@ using namespace std;
 
 namespace XOR {
 
-
 /**
- * A place for all the mouse events. Maintains state information.
- * Justification: you can easily swap MouseListeners during program execution
- * to get different behavior. Only one mouse can be used though, to simply event handling
+ * The generator of all the mouse events. Maintains state information. You can
+ * easily swap MouseListeners during program execution to get different
+ * behavior. 
  *
- * I want to make portions of the mouse static, specifically for getX and getY.
- * this would allow for classes to have access to the mouse without having to be 
- * listeners or containers
+ * @author John Magnotti, Michael Lam
+ * @version 1.0
  */
 class Mouse
 {
 
 public:
 
+	/**
+	 * Upon construction, a default listener should be set up for the mouse.
+	 * This will typically be a DefaultMouseListener or a custom child class of
+	 * DefaultMouseListener.
+	 *
+	 * @param defaultListener A default handler for the mouse events.  
+	 *
+	 * @returns The previously set DefaultMouseListener or NULL if there was no
+	 * previous handler (unlikely) or if defaultListener is equal to NULL (more
+	 * likely). The caller should delete the returned instance if it is not
+	 * needed.
+	 */
+	MouseListener * setDefaultMouseListener(MouseListener * defaultListener);
+
 
     /**
 	 * Add a listener to the pool
 	 */
-    void addListener(MouseListener*);
+    void addListener(MouseListener * listener);
 
 
 	/**
@@ -59,7 +71,7 @@ public:
 
 
 	/**
-	 * Fires an event to listeners
+	 * Fires an event to listeners. Delegated to implementing classes.
 	 */
 	virtual void fireEvent(MouseEvent * me)=0;
 
@@ -115,7 +127,7 @@ public:
 protected:
 	
     /**
-     * Needed for subclasses
+     * Needed for subclasses.
      */
     Mouse();
 
@@ -124,6 +136,7 @@ protected:
      * Notify the listeners of the specific mouse event
      */
     void notifyListeners(MouseEvent *me);
+
 
     /**
      * Easy way to store the values from the latest mouse event
@@ -134,7 +147,8 @@ protected:
 
 private:
 
-	list <MouseListener*> listeners;
+	list <MouseListener*>  _listeners;
+	MouseListener * _defaultMouseListener;
 
     bool    _cursorVisible;
 

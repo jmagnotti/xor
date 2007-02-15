@@ -11,7 +11,6 @@
 
 // sub-controllers
 #include "../event/EventHandlerFactory.h"
-#include "../event/LocalEventHandlerFactory.h"
 #include "../event/keyboard/Keyboard.h"
 #include "../event/mouse/Mouse.h"
 #include "../event/timer/Timer.h"
@@ -25,11 +24,6 @@
 
 // view
 #include "Viewer.h"
-
-// default listeners
-//#include "../event/reshape/ReshapeListener.h"
-#include "../event/keyboard/DefaultKeyboardListener.h"
-#include "../event/mouse/DefaultMouseListener.h"
 
 
 using namespace std;
@@ -51,14 +45,18 @@ public:
 	virtual ~Controller();
 
 
+	//TODO this caused insurmountable problems with circular dependencies. The
+	//XavierConfiguration object will always supply an EventHandlerFactory, so
+	//should you for now.
     /**
+	 *
      * Used internally by other classes to get a handle on the active
      * controller instance. This is seen as cleaner than a global instance, but
      * is functinally equivalent. Application developers should prefer the
      * parameterized version of this accessor unless you can guarantee it has
      * already been called.
-     */
 	static Controller * GetInstance();
+     */
 
 
 	/**
@@ -169,15 +167,15 @@ public:
     /**
      * Since the controller is setting up a key listener, we need to have a way
      * for the user to override this guy.
-     */
     void removeDefaultKeyboardListener();
+     */
 
 
     /**
      * Since the controller is setting up a mouse listener, we need to have a
      * way for the user to override this guy.
-     */
     void removeDefaultMouseListener();
+     */
 
 
     /**

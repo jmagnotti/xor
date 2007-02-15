@@ -28,9 +28,17 @@ public:
 
 
     /**
-     * Static singleton constructor with interval setting.
-     */
+	 * Singleton Accessor.
     static TimerSkeleton * GetInstance();
+     */
+
+	/**
+	 * Singleton Accessor.
+	 *
+	 * @param listen. Whether the timer should spawn a mutlicast listen thread.
+	 * Defaults to true.
+	 */
+    static TimerSkeleton * GetInstance(bool listen=true);
 
 
     /**
@@ -48,6 +56,8 @@ public:
 
 private:
     
+	// no imp.
+	TimerSkeleton(bool listen);
 	TimerSkeleton();
 
     SDL_Thread * _thread;
