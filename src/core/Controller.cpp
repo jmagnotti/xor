@@ -29,12 +29,11 @@ Controller::Controller(EventHandlerFactory * factory)
 	_keyboard    = factory->getKeyboard();
 
 	//set the default keyboard listener
-    _keyboard->addListener(DefaultKeyboardListener::GetInstance());
+    //_keyboard->addListener(DefaultKeyboardListener::GetInstance());
 
 	//set the default mouse listener
-	_mouse->addListener(DefaultMouseListener::GetInstance());
+	//_mouse->addListener(DefaultMouseListener::GetInstance());
 
-    //cout << "Constructing viewer" << endl;
 	_viewer = new Viewer();
 
 	_reshape->addListener(_viewer);
@@ -58,22 +57,20 @@ Controller::~Controller()
     delete _mouse;
 
     delete _reshape;
-
-    // timer is special 
-    _timer->stop();
+    delete _timer;
 }
 
 
 /* 
  * Singleton Accessor
- */
 Controller * Controller::GetInstance()
 {
 	if (_controller == NULL)
-		_controller = new Controller(LocalEventHandlerFactory::GetInstance());
+		_controller = new Controller(EventHandlerFactory::GetDefaultFactory());
 
 	return _controller;
 }
+ */
 
 Controller * Controller::GetInstance(EventHandlerFactory * factory)
 {
@@ -89,8 +86,12 @@ Controller * Controller::GetInstance(EventHandlerFactory * factory)
  */
 void Controller::exit()
 {
-	Controller * control = Controller::GetInstance();
-	//delete control;
+	//FIXME
+	Controller * control = Controller::GetInstance(NULL);
+	delete control;
+
+	//TODO need a <list> of shutdown listeners so controller doesn't have to do
+	//it all
 
     // clean up SDL, and exit
     SDL_Quit(); 
@@ -113,7 +114,7 @@ void Controller::CleanUpAndExit()
 void Controller::defaultSDLGLConfiguration()
 {
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); 
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,  16);
 
     // supposedly this is only needed on non-OS X setups
     // set the framebuffer size for R,G,B, & A
@@ -136,13 +137,6 @@ void Controller::defaultConfiguration(bool configGL)
 
     defaultSDLGLConfiguration();
 
-    // no joystick suport yet
-    SDL_EventState(SDL_JOYAXISMOTION, SDL_IGNORE); 
-    SDL_EventState(SDL_JOYBALLMOTION, SDL_IGNORE); 
-    SDL_EventState(SDL_JOYHATMOTION,  SDL_IGNORE); 
-    SDL_EventState(SDL_JOYBUTTONDOWN, SDL_IGNORE); 
-    SDL_EventState(SDL_JOYBUTTONUP,   SDL_IGNORE); 
-
     if (configGL)
         defaultGLConfiguration();
 }
@@ -164,14 +158,11 @@ void Controller::defaultGLConfiguration()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// enable anti-aliasing
-
-/*
 	glEnable(GL_LINE_SMOOTH);
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
-*/
-
 
 	// enable depth testings
+	// this messes some things up with Alpha blended objects
 	glEnable(GL_DEPTH_TEST);
 
 	// enable fog
@@ -282,35 +273,33 @@ void Controller::setModel(Object3D * model)
 
 /**
  * set mouse listener
- */
 void Controller::removeDefaultMouseListener()
 {
     _mouse->removeListener(DefaultMouseListener::GetInstance()); 
 }
+ */
 
 
 /**
  * set keyboard listener
- */
 void Controller::removeDefaultKeyboardListener()
 {
     _keyboard->removeListener(DefaultKeyboardListener::GetInstance());
 }
+ */
 
 
 /*
- * Okay, so I hate big case statements, but this is just how SDL works, I
- * think. I am more than open to enhancements of this situations, GLUT-style
- * callbacks?
+ * Monolithic event loop.
  */
 void Controller::EventLoop()
 {
     SDL_Event event;
-    Controller * ctrl = Controller::GetInstance();
+	//FIXME
+    Controller * ctrl = Controller::GetInstance(NULL);
 
     // we are using WaitEvent(...) because we want everything to be called
-    // off timer ticks or other events. I am still not 100% sure where to 
-    // put the call to render...
+    // off timer ticks or other events.
     while(SDL_WaitEvent(&event)) {
 
         switch(event.type) {
@@ -343,7 +332,6 @@ void Controller::EventLoop()
                 exit();
                 break;
 
-            // this is where I am doing repaints, not sure if that is correct
             case SDL_USEREVENT:
                 if (event.user.code == Timer::TIMER_TICK_EVENT) {
                     ctrl->getTimer()->tickTock();
@@ -354,7 +342,7 @@ void Controller::EventLoop()
                 }
                 break;
 
-            default: break;
+			default: cout << "Unknown event occured" << endl;	break;
         }
 
     }   // end while 

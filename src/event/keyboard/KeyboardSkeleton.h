@@ -28,7 +28,7 @@ public:
     /**
      * Singleton Accessor
      */
-    static KeyboardSkeleton * GetInstance();
+    static KeyboardSkeleton * GetInstance(bool listen=true);
 
 	/**
 	 * notify listeners of a  key event
@@ -46,6 +46,7 @@ public:
 private:
 
     KeyboardSkeleton();
+    KeyboardSkeleton(bool listen);
 
 	static bool _keepGoing;
     static KeyboardSkeleton * _keyboardSkeleton;

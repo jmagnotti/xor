@@ -13,13 +13,18 @@
 #include "timer/Timer.h"
 #include "timer/TimerSkeleton.h"
 
+
 namespace XOR {
 
 /**
+ * This factory receives mouse and keyboard input from the multicast socket.
+ * The timer and reshaper are local and do not listen to their respective
+ * multicast groups. This factory should be paired with the InputEventProxyFactory.
+ *
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class LocalEventHandlerFactory : public EventHandlerFactory 
+class InputEventHandlerFactory : public EventHandlerFactory 
 {
 
 public:
@@ -27,38 +32,38 @@ public:
     /**
      * Singleton Accessor
      */
-    static LocalEventHandlerFactory * GetInstance();
+    static InputEventHandlerFactory * GetInstance();
 
 
     /**
-     *
+     * Returns a multicast receiving KeyboardSkeleton
      */
     Keyboard * getKeyboard();
 
 
     /**
-     *
+     * Returns a multicast receiving MouseSkeleton
      */
     Mouse * getMouse();
 
 
     /**
-     *
+     * Returns a local, multicast agnostic TimerSkeleton
      */
     Timer * getTimer();
 
 
     /**
-     *
+     * Returns a local, multicast agnostic ReshapeSkeleton
      */
     Reshape * getReshape();
 
 
 private:
 
-    LocalEventHandlerFactory();
+    InputEventHandlerFactory();
 
-    static LocalEventHandlerFactory * _localEventHandlerFactory;
+    static InputEventHandlerFactory * _inputEventHandlerFactory;
 
 };
 

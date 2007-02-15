@@ -3,7 +3,6 @@
 
 
 #include "MouseEvent.h"
-#include "Mouse.h"
 
 
 namespace XOR {
@@ -22,7 +21,7 @@ public:
      * Implement this method to receive a high level mouse event.
      * Implement DefaultMouseListener if you want to pick which events to be notified of.
      */
-	virtual void handleMouseEvent(MouseEvent *)=0;
+	virtual void handleMouseEvent(MouseEvent * me)=0;
 
 
 };

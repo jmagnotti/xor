@@ -22,10 +22,12 @@ class DefaultKeyboardListener : public KeyboardListener
 public:
 
 
+	DefaultKeyboardListener();
+
 	/**
 	 * Singleton Accessor  
-	 */
 	static DefaultKeyboardListener * GetInstance();
+	 */
 	
 
 	void handleKeyEvent(KeyEvent * ke);
@@ -56,9 +58,6 @@ protected:
 	virtual void handleKeyAscii_27();
 
 	
-	DefaultKeyboardListener();
-
-
 private:
 
 	static DefaultKeyboardListener * _defaultKeyboardListener;

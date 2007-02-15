@@ -114,7 +114,10 @@ void Timer::start()
  */
 void Timer::stop()
 {
-//FIXME    delete _timer;
+	if (_started) {
+		SDL_RemoveTimer(_timerHandle);
+		_started = false;
+	}
 }
 
 

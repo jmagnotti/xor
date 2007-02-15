@@ -3,7 +3,6 @@
 
 
 #include "MouseClickEvent.h"
-#include "Mouse.h"
 
 
 namespace XOR {
@@ -15,12 +14,22 @@ namespace XOR {
 class MouseButtonDown : public MouseClickEvent
 {
 
-    public:
+public:
 
-        MouseButtonDown(int x, int y, const int button);
+	/**
+	 * Explicit Constructor
+	 *
+	 * @param x	The x-position of the mouse
+	 * @param y	The y-position of the mouse
+	 * @param button The button index
+	 */
+	MouseButtonDown(int x, int y, const int button);
 
-        const int getType();
 
+	/**
+	 * Returns the value of MOUSE_BUTTON_DOWN
+	 */
+	const int getType();
 
 };
 

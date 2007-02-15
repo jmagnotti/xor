@@ -4,29 +4,14 @@ namespace XOR {
 
 // set the static instance to 0
 DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener =
-    0;
+    NULL;
 
 
 /* 
  * Protected Constructor
  */
 DefaultKeyboardListener::DefaultKeyboardListener()
-{
-    //cout << "INFO: Debugging output is on. See DefaultKeyboardListener.cpp:42
-    //for printouts" << endl;
-}
-
-
-/*
- * Singleton accessor
- */
-DefaultKeyboardListener * DefaultKeyboardListener::GetInstance()
-{
-	if (_defaultKeyboardListener == NULL)
-		_defaultKeyboardListener = new DefaultKeyboardListener();
-
-	return _defaultKeyboardListener;
-}
+{}
 
 
 /*
@@ -40,7 +25,6 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
         handleKeyUp((KeyUpEvent*)ke);
 
 	//cout << ke->toString() << endl;
-
 /*
     cout << "Key stats"             << endl;
     cout << "Shift held down: "     << ke->isShiftPressed()     << endl; 
@@ -59,10 +43,12 @@ void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
      
 void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 {
-    if (    kde->getKey() == SDLK_ESCAPE ||
-           (kde->getKey() == SDLK_q && kde->isMetaPressed())) {
-
-        Controller::GetInstance()->CleanUpAndExit();
+	// Exit on Esc or Window+q
+    if ((kde->getKey() == SDLK_ESCAPE) ||
+        (kde->getKey() == SDLK_q && kde->isMetaPressed())) 
+	{
+		//FIXME
+        Controller::GetInstance(NULL)->CleanUpAndExit();
     }
 }
 
@@ -204,13 +190,15 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	Controller::GetInstance()->getViewer()->walk(0.5f, new
+	//FIXME
+	Controller::GetInstance(NULL)->getViewer()->walk(0.5f, new
 			TimedInterpolation(1000,NULL));
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-	Controller::GetInstance()->getViewer()->walk(-0.5f, new
+	//FIXME
+	Controller::GetInstance(NULL)->getViewer()->walk(-0.5f, new
 			TimedInterpolation(1000, NULL));
 }
 
@@ -239,11 +227,13 @@ void DefaultKeyboardListener::handleKey_d()
 void DefaultKeyboardListener::handleKey_F()
 {
     cout << "Toggle Full Screen" << endl;
-	Controller::GetInstance()->getViewer()->toggleFullScreen();
+	//FIXME
+	Controller::GetInstance(NULL)->getViewer()->toggleFullScreen();
 }
 
 void DefaultKeyboardListener::handleKeyAscii_27()
 {
+	//FIXME
 	Controller::CleanUpAndExit();
 }
 

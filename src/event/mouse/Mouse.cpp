@@ -21,24 +21,48 @@ Mouse::Mouse()
 	_middleButtonDown = false;
 
     setCursorVisibility(_cursorVisible);
+	_defaultMouseListener = NULL;
+}
+
+/*
+ * set the default listener, return the old one or NULL on bad input or no
+ * current listener
+ */
+MouseListener * Mouse::setDefaultMouseListener(MouseListener * defaultListener)
+{
+	MouseListener * returnVal = _defaultMouseListener;
+
+	if (defaultListener != NULL)
+		_defaultMouseListener = defaultListener;
+	else
+		returnVal = NULL;
+
+	return returnVal;
 }
 
 
 /*
  * adds a listener
  */
-void Mouse::addListener(MouseListener * ml)
+void Mouse::addListener(MouseListener * listener)
 {
-    listeners.push_back(ml);
+	if (listener != NULL)
+		_listeners.push_back(listener);
 }
 
 
+/*
+ * fire a click event
+ */
 void Mouse::click(SDL_Event * event)
 {
     fireEvent(MouseEventFactory::ConstructInstance(event));
 }
 
 
+/*
+ * fire a move event
+ */
 void Mouse::move(SDL_Event * event)
 {
     fireEvent(MouseEventFactory::ConstructInstance(event));
@@ -52,6 +76,7 @@ void Mouse::updateFromEvent(MouseMotionEvent * mme)
 {
     _previousX = _currentX;
     _previousY = _currentY;
+
     _currentX = mme->getXPosition();
     _currentY = mme->getYPosition();
 }
@@ -65,26 +90,20 @@ void Mouse::updateFromEvent(MouseClickEvent * mce)
     int button = mce->getButton();
 
 	if (mce->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
-        cout << "Mouse Down: " << button << endl;
-
         if (button == MouseClickEvent::LEFT_MOUSE_BUTTON)
 			_leftButtonDown = true;
 		else if (button == MouseClickEvent::RIGHT_MOUSE_BUTTON)
 			_rightButtonDown = true;
 		else if (button == MouseClickEvent::MIDDLE_MOUSE_BUTTON)
 			_middleButtonDown = true;
-
 	}
 	else {
-        cout << "Mouse Up: " << button << endl;
-
 		if (button == MouseClickEvent::LEFT_MOUSE_BUTTON)
 			_leftButtonDown = false;
 		else if (button == MouseClickEvent::RIGHT_MOUSE_BUTTON)
 			_rightButtonDown = false;
 		else if (button == MouseClickEvent::MIDDLE_MOUSE_BUTTON)
 			_middleButtonDown = false;
-
 	}
 }
 
@@ -94,9 +113,13 @@ void Mouse::updateFromEvent(MouseClickEvent * mce)
  */
 void Mouse::notifyListeners(MouseEvent * me)
 {
-    list<MouseListener*>::iterator iter   = listeners.begin();
-    list<MouseListener*>::iterator next   = listeners.begin();
-    list<MouseListener*>::iterator finish = listeners.end();
+	// let the default handler have the event first
+	if (_defaultMouseListener != NULL)
+		_defaultMouseListener->handleMouseEvent(me);
+
+    list<MouseListener*>::iterator iter   = _listeners.begin();
+    list<MouseListener*>::iterator next   = _listeners.begin();
+    list<MouseListener*>::iterator finish = _listeners.end();
 
     while (iter != finish) {
         ++next;
@@ -113,12 +136,12 @@ void Mouse::removeListener(MouseListener * ml)
 {
     bool removed = false;
 
-    list<MouseListener*>::iterator iter   = listeners.begin();
-    list<MouseListener*>::iterator finish = listeners.end();
+    list<MouseListener*>::iterator iter   = _listeners.begin();
+    list<MouseListener*>::iterator finish = _listeners.end();
 
     while (iter != finish && !removed) {
         if (*iter == ml) {
-            listeners.erase(iter);
+            _listeners.erase(iter);
             removed = true;
         }
         ++iter;

@@ -8,13 +8,15 @@ MulticastSocket * TimerSkeleton::_socket = NULL;
 
 bool TimerSkeleton::_keepGoing = true;
 
-TimerSkeleton::TimerSkeleton()
+TimerSkeleton::TimerSkeleton(bool listen) :
+	Timer(DEFAULT_TIMER_INTERVAL)
 {
-    cout << "Creating Skeleton" << endl;
-    _socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
-              MulticastSocketPool::TIMER_SOCKET);
+	if (listen) {
+		_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+				  MulticastSocketPool::TIMER_SOCKET);
 
-    _thread = SDL_CreateThread(& TimerSkeleton::Listen, NULL);
+		_thread = SDL_CreateThread(& TimerSkeleton::Listen, NULL);
+	}
 }
 
 
@@ -23,6 +25,7 @@ TimerSkeleton::TimerSkeleton()
  */
 TimerSkeleton::~TimerSkeleton()
 {
+	stop();
     _keepGoing = false;
     delete _socket;
 }
@@ -31,10 +34,10 @@ TimerSkeleton::~TimerSkeleton()
 /*
  * Singleton Accessor
  */
-TimerSkeleton * TimerSkeleton::GetInstance()
+TimerSkeleton * TimerSkeleton::GetInstance(bool listen)
 {
     if (_timerSkeleton == NULL)
-        _timerSkeleton = new TimerSkeleton();
+        _timerSkeleton = new TimerSkeleton(listen);
 
     return _timerSkeleton;
 }
@@ -66,8 +69,12 @@ int TimerSkeleton::Listen(void * data)
 }
 
 void TimerSkeleton::start()
-{}
-
+{
+	// if we aren't listening on the socket, then we should start the timer.
+	// this should probably be a _listen boolean value
+	if (_socket == NULL)
+		Timer::start();
+}
 
 }
 

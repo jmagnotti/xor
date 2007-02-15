@@ -39,21 +39,15 @@ class MouseEventFactory
         /**
          * Returns the last event that was constructed by the factory. 
          * Here more for convenience than anything else.
-         */
         static MouseEvent * getLastEventConstructed();
+         */
 
 
-    protected:
+    private:
 
         // no real need to create click factory, just a utility class
         MouseEventFactory();
  
-
-    private:
-
-        // stores the latest event
-        static MouseEvent * _mouseEvent;
-
 };
 
 }

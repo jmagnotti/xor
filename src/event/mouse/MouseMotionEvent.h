@@ -42,6 +42,10 @@ public:
      */
     int getRelativeYPosition();
 
+
+	/**
+	 * Returns a string representation of the object.
+	 */
 	char * toString();
 
 

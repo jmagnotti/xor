@@ -14,25 +14,29 @@ bool KeyboardSkeleton::_keepGoing = true;
 
 KeyboardSkeleton::~KeyboardSkeleton()
 {
-	_keepGoing = false;
-	delete	_socket;
+	if (_socket != NULL) {
+		_keepGoing = false;
+		delete	_socket;
+	}
 }
 
-KeyboardSkeleton::KeyboardSkeleton()
+KeyboardSkeleton::KeyboardSkeleton(bool listen)
 {
-	_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
-			  MulticastSocketPool::KEYBOARD_SOCKET);
+	if (listen) {
+		_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+				  MulticastSocketPool::KEYBOARD_SOCKET);
 
-	_thread = SDL_CreateThread(& KeyboardSkeleton::Listen, NULL);
+		_thread = SDL_CreateThread(& KeyboardSkeleton::Listen, NULL);
+	}
 }
 
 /*
  *
  */
-KeyboardSkeleton * KeyboardSkeleton::GetInstance()
+KeyboardSkeleton * KeyboardSkeleton::GetInstance(bool listen)
 {
     if (_keyboardSkeleton == NULL)
-        _keyboardSkeleton = new KeyboardSkeleton();
+        _keyboardSkeleton = new KeyboardSkeleton(listen);
 
     return _keyboardSkeleton;
 }

@@ -3,26 +3,11 @@
 
 namespace XOR {
 
-DefaultMouseListener * DefaultMouseListener::_defaultMouseListener = 0;
-
-
 /*
  * Protected Constructor
  */
 DefaultMouseListener::DefaultMouseListener()
 {}
-
-
-/*
- * Singleton Accessor
- */
-DefaultMouseListener * DefaultMouseListener::GetInstance()
-{
-	if (_defaultMouseListener == NULL)
-		_defaultMouseListener = new DefaultMouseListener();
-
-	return _defaultMouseListener;
-}
 
 
 /*
@@ -40,34 +25,39 @@ void DefaultMouseListener::handleMouseEvent(MouseEvent * me)
 }
 
 
+/*
+ * do nothing on MouseButtonDown
+ */
 void DefaultMouseListener::handleMouseButtonPressed(MouseButtonDown * mbd)
 {}
 
 
+/*
+ * do nothing on MouseButtonUp
+ */
 void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
 {}
 
 
 /*
- * Receives motion events from the default handler. This method will usually be
- * overriden.
+ * Receives motion events from the default handler 
  */
 void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 {
-    Mouse * mouse = Controller::GetInstance()->getMouse();
-
+	Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
+	// rotate camera
 	if (mouse->isLeftButtonDown()) {
-        //cout << "handling mme with LBD" << endl;
+		float xChange = - (mme->getRelativeXPosition() / 2.0f);
+		float yChange = - (mme->getRelativeYPosition() / 2.0f);
 
-		// rotate camera
-		float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
-		float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
+		//FIXME this is relying on Controller already having been constructed.
+		//Which is a good bet, but not guaranteed. The empty GetInstance was
+		//removed to prevent abuse.
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Transformable
+				::THETA, xChange, new TimedInterpolation(100, NULL));
 
-        Controller::GetInstance()->getViewer()->incrementRotation(Transformable::THETA,
--xChange, new TimedInterpolation(100, NULL));
-        Controller::GetInstance()->getViewer()->incrementRotation(Transformable::PHI,
--yChange, new TimedInterpolation(100, NULL));
-	}
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Transformable
+				::PHI, yChange, new TimedInterpolation(100, NULL)); }
 }
 
 }
