@@ -5,11 +5,11 @@ CC = g++ -g
 LIBS = -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32 -lXOR -lm -mwindows
 
 #Packages
-SRCS = HelloWorld.cpp
+SRCS = CubeDemo.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = HelloWorld
+MAIN = CubeDemo
 
 # 
 # The following part of the makefile is generic; it can be used to 
@@ -35,111 +35,185 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-HelloWorldo: ../../xor.h ../../core/Controller.h ../../../include/SDL.h
-HelloWorldo: ../../../include/SDL_main.h ../../../include/SDL_types.h
-HelloWorldo: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-HelloWorldo: ../../../include/begin_code.h ../../../include/close_code.h
-HelloWorldo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
-HelloWorldo: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-HelloWorldo: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-HelloWorldo: ../../../include/SDL_events.h ../../../include/SDL_active.h
-HelloWorldo: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-HelloWorldo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-HelloWorldo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-HelloWorldo: ../../../include/SDL_version.h ../../event/Keyboard.h
-HelloWorldo: ../../event/KeyboardListener.h ../../event/Timer.h
-HelloWorldo: ../../event/TimerListener.h ../../event/Keyboard.h
-HelloWorldo: ../../event/KeyUpEvent.h ../../event/KeyEvent.h
-HelloWorldo: ../../event/KeyDownEvent.h ../../event/KeyEventFactory.h
-HelloWorldo: ../../event/Mouse.h ../../event/MouseListener.h
-HelloWorldo: ../../event/MouseEvent.h ../../event/Mouse.h
-HelloWorldo: ../../event/MouseEventFactory.h ../../event/MouseButtonDown.h
-HelloWorldo: ../../event/MouseClickEvent.h ../../event/MouseButtonUp.h
-HelloWorldo: ../../event/MouseMotionEvent.h ../../event/Timer.h
-HelloWorldo: ../../core/World.h ../../shape/Point3D.h ../../paint/Paint.h
-HelloWorldo: ../../texture/Texture.h ../../paint/Color.h
-HelloWorldo: ../../shape/Renderable.h ../../../include/SDL_opengl.h
-HelloWorldo: ../../shape/Renderable.h ../../transform/Rotate.h
-HelloWorldo: ../../transform/Transform.h ../../geometry/Dimension3D.h
-HelloWorldo: ../../geometry/Dimension.h
-HelloWorldo: ../../interpolation/InterpolationEngine.h
-HelloWorldo: ../../interpolation/InterpolationListener.h
-HelloWorldo: ../../interpolation/Interpolator.h
-HelloWorldo: ../../interpolation/InterpolatorFactory.h
-HelloWorldo: ../../interpolation/LinearInterpolator.h
-HelloWorldo: ../../util/GraphicsConversionUtility.h
-HelloWorldo: ../../transform/Positionable.h ../../transform/Scale.h
-HelloWorldo: ../../transform/Translate.h ../../transform/Rotate.h
-HelloWorldo: ../../event/TimerListener.h ../../transform/Transform.h
-HelloWorldo: ../../transform/Translate.h ../../core/Viewer.h
-HelloWorldo: ../../geometry/Dimension2D.h
-HelloWorldo: ../../transform/CoordinateSystem.h
-HelloWorldo: ../../transform/CoordinateSystemFactory.h
-HelloWorldo: ../../transform/CoordinateSystem.h
-HelloWorldo: ../../transform/OpenGLCoordinateSystem.h
-HelloWorldo: ../../transform/MathCoordinateSystem.h
-HelloWorldo: ../../event/ReshapeListener.h
-HelloWorldo: ../../event/DefaultKeyboardListener.h ../../core/Controller.h
-HelloWorldo: ../../core/World.h ../../event/DefaultMouseListener.h
-HelloWorldo: ../../core/Viewer.h ../../core/World.h
-HelloWorldo: ../../event/DefaultKeyboardListener.h
-HelloWorldo: ../../event/DefaultMouseListener.h ../../event/Keyboard.h
-HelloWorldo: ../../event/KeyboardListener.h ../../event/KeyDownEvent.h
-HelloWorldo: ../../event/KeyEvent.h ../../event/KeyEventFactory.h
-HelloWorldo: ../../event/KeyUpEvent.h ../../event/Mouse.h
-HelloWorldo: ../../event/MouseButtonDown.h ../../event/MouseButtonUp.h
-HelloWorldo: ../../event/MouseClickEvent.h ../../event/MouseEvent.h
-HelloWorldo: ../../event/MouseEventFactory.h ../../event/MouseListener.h
-HelloWorldo: ../../event/MouseMotionEvent.h ../../event/RegularKeyEvent.h
-HelloWorldo: ../../event/ReshapeListener.h ../../event/SpecialKeyEvent.h
-HelloWorldo: ../../event/Timer.h ../../event/TimerListener.h
-HelloWorldo: ../../geometry/CylindricalVolume.h
-HelloWorldo: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
-HelloWorldo: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-HelloWorldo: ../../geometry/Dimension3D.h
-HelloWorldo: ../../geometry/RectangularVolume.h
-HelloWorldo: ../../geometry/Dimension3D.h
-HelloWorldo: ../../interpolation/CameraRoller.h
-HelloWorldo: ../../interpolation/ContinuousInterpolation.h
-HelloWorldo: ../../interpolation/TimedInterpolation.h
-HelloWorldo: ../../interpolation/InterpolationEngine.h
-HelloWorldo: ../../interpolation/InterpolationEngine.h
-HelloWorldo: ../../interpolation/InterpolationListener.h
-HelloWorldo: ../../interpolation/Interpolator.h
-HelloWorldo: ../../interpolation/InterpolatorFactory.h
-HelloWorldo: ../../interpolation/LinearInterpolator.h
-HelloWorldo: ../../interpolation/TimedInterpolation.h ../../paint/Color.h
-HelloWorldo: ../../paint/Paint.h ../../shape/AdornableCube.h
-HelloWorldo: ../../shape/Cube.h ../../shape/RectangularPrism.h
-HelloWorldo: ../../shape/Quadrilateral3D.h ../../paint/Color.h
-HelloWorldo: ../../geometry/RectangularVolume.h
-HelloWorldo: ../../shape/AdornablePrism.h ../../shape/AdornablePrism.h
-HelloWorldo: ../../shape/Arc3D.h ../../shape/CollisionRenderable.h
-HelloWorldo: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
-HelloWorldo: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HelloWorldo: ../../shape/Point.h ../../shape/Point2D.h
-HelloWorldo: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-HelloWorldo: ../../shape/Quadrilateral3DConstants.h
-HelloWorldo: ../../shape/RectangularPrism.h
-HelloWorldo: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
-HelloWorldo: ../../shape/Square3D.h ../../shape/String2D.h
-HelloWorldo: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-HelloWorldo: ../../core/Viewer.h ../../terrain/Terrain.h
-HelloWorldo: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
-HelloWorldo: ../../texture/Texture.h ../../texture/TexturePPM.h
-HelloWorldo: ../../texture/TextureBMP.h ../../texture/TextureTGA.h
-HelloWorldo: ../../terrain/TerrainStrategy.h ../../texture/Texture.h
-HelloWorldo: ../../texture/TextureBMP.h ../../texture/TextureFactory.h
-HelloWorldo: ../../texture/TexturePPM.h ../../texture/TextureSDL.h
-HelloWorldo: ../../texture/TextureTGA.h ../../transform/CoordinateSystem.h
-HelloWorldo: ../../transform/CoordinateSystemFactory.h
-HelloWorldo: ../../transform/MathCoordinateSystem.h
-HelloWorldo: ../../transform/OpenGLCoordinateSystem.h
-HelloWorldo: ../../transform/Positionable.h ../../transform/Rotate.h
-HelloWorldo: ../../transform/Scale.h ../../transform/Transform.h
-HelloWorldo: ../../transform/Transformable.h
-HelloWorldo: ../../transform/TransformFactory.h ../../transform/Translate.h
-HelloWorldo: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
-HelloWorldo: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-HelloWorldo: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-HelloWorldo: ../../util/GraphicsConversionUtility.h
+CubeDemo.o: ../../xor.h ../../event/timer/TimerStub.h
+CubeDemo.o: ../../event/timer/Timer.h ../../../include/SDL.h
+CubeDemo.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+CubeDemo.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+CubeDemo.o: ../../../include/begin_code.h ../../../include/close_code.h
+CubeDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+CubeDemo.o: /usr/include/features.h /usr/include/sys/cdefs.h
+CubeDemo.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+CubeDemo.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+CubeDemo.o: /usr/include/libio.h /usr/include/_G_config.h
+CubeDemo.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+CubeDemo.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+CubeDemo.o: /usr/include/bits/sys_errlist.h ../../../include/SDL_timer.h
+CubeDemo.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+CubeDemo.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+CubeDemo.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+CubeDemo.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+CubeDemo.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+CubeDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+CubeDemo.o: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
+CubeDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CubeDemo.o: /usr/include/sys/types.h /usr/include/time.h
+CubeDemo.o: /usr/include/endian.h /usr/include/bits/endian.h
+CubeDemo.o: /usr/include/sys/select.h /usr/include/bits/select.h
+CubeDemo.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+CubeDemo.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+CubeDemo.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+CubeDemo.o: /usr/include/alloca.h /usr/include/string.h
+CubeDemo.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+CubeDemo.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+CubeDemo.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+CubeDemo.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+CubeDemo.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
+CubeDemo.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
+CubeDemo.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
+CubeDemo.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CubeDemo.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+CubeDemo.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CubeDemo.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+CubeDemo.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
+CubeDemo.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+CubeDemo.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+CubeDemo.o: ../../event/timer/TimerListener.h
+CubeDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+CubeDemo.o: ../../event/keyboard/KeyEvent.h
+CubeDemo.o: ../../event/keyboard/KeyboardStub.h
+CubeDemo.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+CubeDemo.o: ../../event/keyboard/KeyboardListener.h
+CubeDemo.o: ../../event/keyboard/KeyEvent.h
+CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
+CubeDemo.o: ../../event/keyboard/KeyDownEvent.h
+CubeDemo.o: ../../event/keyboard/KeyUpEvent.h
+CubeDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
+CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+CubeDemo.o: ../../event/keyboard/KeyboardListener.h
+CubeDemo.o: ../../event/keyboard/RegularKeyEvent.h
+CubeDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+CubeDemo.o: ../../interpolation/TimedInterpolation.h
+CubeDemo.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+CubeDemo.o: ../../core/Controller.h ../../../include/SDL.h
+CubeDemo.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
+CubeDemo.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+CubeDemo.o: ../../event/mouse/MouseEvent.h
+CubeDemo.o: ../../event/mouse/MouseEventFactory.h
+CubeDemo.o: ../../event/mouse/MouseButtonDown.h
+CubeDemo.o: ../../event/mouse/MouseClickEvent.h
+CubeDemo.o: ../../event/mouse/MouseButtonUp.h
+CubeDemo.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CubeDemo.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
+CubeDemo.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
+CubeDemo.o: ../../event/reshape/ReshapeListener.h
+CubeDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CubeDemo.o: ../../event/reshape/Reshape.h ../../core/World.h
+CubeDemo.o: ../../shape/Object3D.h ../../transform/Transformable.h
+CubeDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+CubeDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+CubeDemo.o: ../../transform/Transform.h ../../transform/Scale.h
+CubeDemo.o: ../../geometry/Vector3D.h
+CubeDemo.o: ../../interpolation/InterpolationEngine.h
+CubeDemo.o: ../../interpolation/InterpolationListener.h
+CubeDemo.o: ../../interpolation/Interpolator.h
+CubeDemo.o: ../../interpolation/InterpolatorFactory.h
+CubeDemo.o: ../../interpolation/LinearInterpolator.h
+CubeDemo.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+CubeDemo.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+CubeDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
+CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
+CubeDemo.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
+CubeDemo.o: ../../shape/Point3D.h ../../paint/Paint.h ../../texture/Texture.h
+CubeDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
+CubeDemo.o: ../../paint/Color.h ../../shape/Object3D.h
+CubeDemo.o: ../../shape/Renderable.h ../../core/Viewer.h ../../paint/Color.h
+CubeDemo.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
+CubeDemo.o: ../../transform/CoordinateSystemFactory.h
+CubeDemo.o: ../../transform/CoordinateSystem.h
+CubeDemo.o: ../../transform/OpenGLCoordinateSystem.h
+CubeDemo.o: ../../transform/MathCoordinateSystem.h
+CubeDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CubeDemo.o: ../../transform/EngineerCoordinateSystem.h
+CubeDemo.o: ../../event/reshape/ReshapeListener.h
+CubeDemo.o: ../../event/reshape/ReshapeEvent.h
+CubeDemo.o: ../../interpolation/InterpolationEngine.h ../../core/Controller.h
+CubeDemo.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
+CubeDemo.o: ../../event/reshape/ReshapeSkeleton.h
+CubeDemo.o: ../../event/reshape/Reshape.h ../../event/reshape/ReshapeEvent.h
+CubeDemo.o: ../../event/reshape/ReshapeListener.h
+CubeDemo.o: ../../event/reshape/Reshape.h ../../event/mouse/MouseButtonUp.h
+CubeDemo.o: ../../event/mouse/MouseEvent.h
+CubeDemo.o: ../../event/mouse/MouseClickEvent.h
+CubeDemo.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+CubeDemo.o: ../../event/mouse/MouseListener.h ../../event/mouse/Mouse.h
+CubeDemo.o: ../../event/mouse/DefaultMouseListener.h
+CubeDemo.o: ../../transform/Transformable.h
+CubeDemo.o: ../../event/mouse/MouseButtonDown.h
+CubeDemo.o: ../../event/mouse/MouseMotionEvent.h
+CubeDemo.o: ../../event/mouse/MouseEventFactory.h
+CubeDemo.o: ../../event/mouse/MouseStub.h
+CubeDemo.o: ../../event/InputEventHandlerFactory.h
+CubeDemo.o: ../../event/EventHandlerFactory.h
+CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+CubeDemo.o: ../../event/mouse/MouseSkeleton.h
+CubeDemo.o: ../../event/reshape/ReshapeSkeleton.h
+CubeDemo.o: ../../event/timer/TimerSkeleton.h
+CubeDemo.o: ../../event/FullEventHandlerFactory.h
+CubeDemo.o: ../../event/EventHandlerFactory.h
+CubeDemo.o: ../../event/FullEventProxyFactory.h
+CubeDemo.o: ../../event/keyboard/KeyboardStub.h ../../event/mouse/MouseStub.h
+CubeDemo.o: ../../event/timer/TimerStub.h
+CubeDemo.o: ../../event/InputEventProxyFactory.h
+CubeDemo.o: ../../interpolation/InterpolatorFactory.h
+CubeDemo.o: ../../interpolation/TimedInterpolation.h
+CubeDemo.o: ../../interpolation/ContinuousInterpolation.h
+CubeDemo.o: ../../interpolation/TimedInterpolation.h
+CubeDemo.o: ../../interpolation/InterpolationEngine.h
+CubeDemo.o: ../../interpolation/LinearInterpolator.h
+CubeDemo.o: ../../interpolation/InterpolationListener.h
+CubeDemo.o: ../../interpolation/Interpolator.h
+CubeDemo.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
+CubeDemo.o: ../../core/Controller.h ../../core/World.h
+CubeDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../geometry/Vector3D.h ../../geometry/Dimension.h
+CubeDemo.o: ../../geometry/CylindricalVolume.h
+CubeDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+CubeDemo.o: ../../geometry/Vector3D.h ../../texture/TextureFactory.h
+CubeDemo.o: ../../texture/Texture.h ../../texture/Texture.h
+CubeDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+CubeDemo.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+CubeDemo.o: ../../shape/Point.h ../../shape/Arc3D.h
+CubeDemo.o: ../../shape/CollisionRenderable.h ../../shape/AdornablePrism.h
+CubeDemo.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+CubeDemo.o: ../../geometry/RectangularVolume.h ../../shape/Particle.h
+CubeDemo.o: ../../shape/CollisionRenderable.h ../../shape/Renderable.h
+CubeDemo.o: ../../shape/Cube.h ../../shape/RectangularPrismFactory.h
+CubeDemo.o: ../../shape/Point2D.h ../../shape/Point3D.h
+CubeDemo.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
+CubeDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Triangle3D.h
+CubeDemo.o: ../../shape/Object3D.h ../../shape/CompiledObject3D.h
+CubeDemo.o: ../../shape/ExtrudedNormalPolygon.h ../../shape/NormalPolygon3D.h
+CubeDemo.o: ../../terrain/Terrain.h ../../shape/Quadrilateral3D.h
+CubeDemo.o: ../../texture/TextureFactory.h ../../terrain/TerrainStrategy.h
+CubeDemo.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CubeDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CubeDemo.o: ../../multicast/MulticastSocketPool.h
+CubeDemo.o: ../../transform/Transformable.h ../../transform/Translate.h
+CubeDemo.o: ../../transform/Rotate.h ../../transform/CoordinateSystem.h
+CubeDemo.o: ../../transform/OpenGLCoordinateSystem.h
+CubeDemo.o: ../../transform/TransformFactory.h
+CubeDemo.o: ../../transform/EngineerCoordinateSystem.h
+CubeDemo.o: ../../transform/MathCoordinateSystem.h
+CubeDemo.o: ../../transform/Transform.h ../../transform/Scale.h
+CubeDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CubeDemo.o: ../../transform/CoordinateSystemFactory.h
+CubeDemo.o: ../../transform/Stretch.h ../../paint/Paint.h ../../paint/Color.h
+CubeDemo.o: ../../util/GraphicsConversionUtility.h
+CubeDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+CubeDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+CubeDemo.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CubeDemo.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CubeDemo.o: ../../model/Model.h ../../model/ModelFactory.h
+CubeDemo.o: ../../model/MilkshapeModel.h

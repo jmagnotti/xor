@@ -5,11 +5,11 @@ CC = g++
 LIBS = -framework Cocoa -framework OpenGL -lSDL -lSDLMain -lSDL_image -lXOR
 
 #Packages
-SRCS = HelloWorld.cpp
+SRCS = CubeDemo.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = HelloWorld
+MAIN = CubeDemo
 
 # 
 # The following part of the makefile is generic; it can be used to 
