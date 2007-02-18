@@ -31,6 +31,8 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
+			wget -nc http://xor.googlecode.com/files/ComputerGiants.tar.gz
+			tar zxvf ComputerGiants.tar.gz
 			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
@@ -224,3 +226,20 @@ PhotoAlbum.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 PhotoAlbum.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
 PhotoAlbum.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 PhotoAlbum.o: xmlParser/xmlParser.h
+xmlParser/xmlParser.o: /usr/include/memory.h /usr/include/features.h
+xmlParser/xmlParser.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+xmlParser/xmlParser.o: /usr/include/string.h /usr/include/assert.h
+xmlParser/xmlParser.o: /usr/include/stdio.h /usr/include/bits/types.h
+xmlParser/xmlParser.o: /usr/include/bits/wordsize.h
+xmlParser/xmlParser.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+xmlParser/xmlParser.o: /usr/include/_G_config.h /usr/include/wchar.h
+xmlParser/xmlParser.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+xmlParser/xmlParser.o: /usr/include/bits/stdio_lim.h
+xmlParser/xmlParser.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+xmlParser/xmlParser.o: /usr/include/sys/types.h /usr/include/time.h
+xmlParser/xmlParser.o: /usr/include/endian.h /usr/include/bits/endian.h
+xmlParser/xmlParser.o: /usr/include/sys/select.h /usr/include/bits/select.h
+xmlParser/xmlParser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+xmlParser/xmlParser.o: /usr/include/sys/sysmacros.h
+xmlParser/xmlParser.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+xmlParser/xmlParser.o: xmlParser/xmlParser.h
