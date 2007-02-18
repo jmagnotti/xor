@@ -1,5 +1,6 @@
 #include "../../xor.h"
-//#include <OPENGL/glpng.h>
+#include <string>
+#include "xmlParser/xmlParser.h"
 
 using namespace std;
 using namespace XOR;
@@ -17,7 +18,7 @@ public:
 	void renderObject() {render();}
 	Controller * ctrl;
 
-   /* 
+	/* 
   	* Constructor
  	*/
 	PhotoAlbum()
@@ -28,21 +29,9 @@ public:
         //ctrl->removeDefaultKeyboardListener();
 
         ctrl->getKeyboard()->addListener(this);
-        ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());
-
-/*
-        ctrl->getViewer()->setTranslation(new Dimension3D(5,5,5), new
-                TimedInterpolation(3000, this));
-
-        ctrl->getViewer()->setFocalPoint(new Dimension3D(0,0,0));
-		cout << "inc t on viewer" << endl;
-*/
-        ctrl->getViewer()->incrementTranslation(
-				new Vector3D(0,0,2), new TimedInterpolation(3000, this));
-//		cout << "done inc t on viewer" << endl;
-
-        loadPics();
+		ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());
 		
+        parseXML();
 		spaceFlag = false;
 		currentPic = 0;  // select first picture by default
 		setCurrentPic(currentPic);
@@ -51,8 +40,7 @@ public:
         ctrl->setModel(this);
 
 		new FramesPerSecondCounter();
-//cout << "Passing control" << endl;
-
+		cout << "Passing control" << endl;
 
 		glDisable(GL_DEPTH_TEST);
         ctrl->run();
@@ -159,7 +147,10 @@ public:
 
     void handleKey_F5()
     {
-        pics[4]->clear();
+    	for(int i = 0; i < 36; i++)
+        	pics[i]->clear();
+
+	setCurrentPic(currentPic);
     }
 
 
@@ -331,40 +322,6 @@ protected:
 		pics[index]->incrementScalar(new Vector3D(-.2,-.2,-.2), new TimedInterpolation(300,this));
 	}
 	
-	void loadPics()
-	{
-        
-        TextureFactory * factory = TextureFactory::GetInstance();
-
-		float squareDiameter = .20;
-		float z = 0;
-		float offset = .01;
-				
-		int ii=0;
-		for(double i = -3; i<3; i++) {
-	   		for (double j = -3; j<3; j++) {
-				numOfPics++;  // keep track of number of pics
-                //cout << "Adding square " << ii << " at: " << i * squareDiameter + offset*i<< ", " << j * squareDiameter + offset*j<< ", " << z << endl;
-				pics.push_back(new CompiledObject3D(new RectangularPrism( 
-								new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
-								squareDiameter, squareDiameter, squareDiameter,
-								new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture("photos/monkey.png"))
-                        //.1,.1f*(i+2), .1f*(i+3), Paint::HEIGHT_BASED)
-				)));
-                /*```pics.push_back(new RectangularPrism(
-                            new Point3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
-                            squareDiameter, squareDiameter, squareDiameter,
-                            new Paint(loadPic(NULL))
-                            ));*/
-                ++ii;
-			}
-		}
-
-		//compilePics();
-	}
-
-
-
 private:
     
     vector<Object3D*> pics; 
@@ -374,18 +331,78 @@ private:
     int numOfPics;   // the actual number of pics (not highest index)
 	bool spaceFlag;  // are we in view mode? 
 	
-	//vector<TimedInterpolation*> _interpolation
-    /*  
-    GLuint loadPic(char * filename)
-    {
-        GLuint texture;
-        pngInfo info;
-        //glEnable(GL_TEXTURE_2D); 
-        texture = pngBind("babytux.png", PNG_NOMIPMAP, PNG_ALPHA, &info, GL_REPEAT, GL_NEAREST, GL_NEAREST);
-        
-    }
-   */ 
-    
+	void parseXML()
+	{
+		XMLNode xDemoNode  = XMLNode::openFileHelper("ComputerGiants/ComputerGiants.xml", "demo");
+		XMLNode xAlbumNode = xDemoNode.getChildNode("albums").getChildNode("album");
+		
+		
+		int numCubes; // number of cubes we'll need to create
+
+		numCubes = 0;
+		// get the number of cube sub objects (height * width)
+
+		// this doesn't actually work because getAttribute returns character arrays
+		/*if(xAlbumNode.getAttribute("width") * xAlbumNode.getAttribute("height") == xAlbumNode.nChildNode("cube")) 
+		{
+			numCubes = xAlbumNode.nChildNode("cube");
+		}*/
+
+		numCubes = xAlbumNode.nChildNode("cube");
+
+		int cubeIterator = 0; // the XML library uses this to iterate through child nodes of the same type
+		//-------------------------------------------------------------------------------------------------	
+        TextureFactory * factory = TextureFactory::GetInstance();
+
+		float squareDiameter = .20;
+		float z = 0;
+		float offset = .01;
+
+		string fileNames[numCubes]; 
+		
+		for(int i = 0; i < numCubes; i++)
+		{
+			int faceIterator = 0;
+			int faceCount = 0;
+
+			XMLNode xCubeNode = xAlbumNode.getChildNode("cube", &cubeIterator);
+			cout << "Parsing cube " << i + 1 << "..." << endl;
+			
+			faceCount = xCubeNode.nChildNode("face");
+			// loop through all of the faces
+			for(int j = 0; j < faceCount; j++)
+			{
+				XMLNode xFaceNode = xCubeNode.getChildNode("face", &faceIterator);
+				cout << "Parsing face " << j + 1 << " on cube " << i + 1 << endl;
+				cout << "Filename: " << xFaceNode.getAttribute("image") << endl;
+				if(j == 0)
+				{
+					fileNames[i] = xFaceNode.getAttribute("image");
+				}
+			
+			
+			}
+
+		}
+		
+
+		for(double i = -3; i < 3; i++)
+		{
+			for(double j = -3; j < 3; j++)
+			{
+			
+                		cout << "Adding square " << numOfPics << " at: " << i * squareDiameter + offset*i<< ", " 
+					<< j * squareDiameter + offset*j<< ", " << z << endl;
+				
+				pics.push_back(new CompiledObject3D(new RectangularPrism( 
+						new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
+						squareDiameter, squareDiameter, squareDiameter,
+						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
+						factory->createTexture(fileNames[numOfPics].c_str())))));
+				numOfPics++;  // keep track of number of pics
+			}
+		}
+	}
 };	
 
 	
