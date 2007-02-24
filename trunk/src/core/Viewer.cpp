@@ -18,6 +18,7 @@ const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
 const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;
 const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
+const int Viewer::WALL_MODE_NONE      = 0;
 const int Viewer::WALL_MODE_STANDARD  = 1;
 const int Viewer::WALL_MODE_IMMERSIVE = 2;
 
@@ -62,7 +63,7 @@ void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, i
 
 	_wallXoffset		= 0;
 	_wallYoffset		= 0;
-	_wallMode			= WALL_MODE_STANDARD;
+	_wallMode			= WALL_MODE_NONE;
 
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
@@ -156,6 +157,13 @@ void Viewer::handleReshape(ReshapeEvent * event)
 		glPushMatrix();
 		glRotatef(-(double)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
 		glRotatef( (double)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
+	}
+	
+	// no wall adjustment
+	else {
+		gluPerspective(_fieldOfView, 
+				(double)_size->getWidth()/ (double)_size->getHeight(), 
+				_nearClippingPlane, _farClippingPlane);
 	}
 
     glMatrixMode(GL_MODELVIEW);
@@ -338,11 +346,14 @@ void Viewer::setWallOffset(int x, int y)
  */
 void Viewer::setWallMode(int mode)
 {
-	if (mode == WALL_MODE_IMMERSIVE) {
+	if (mode == WALL_MODE_STANDARD) {
+		_wallMode = WALL_MODE_STANDARD;
+	}
+	else if (mode == WALL_MODE_IMMERSIVE) {
 		_wallMode = WALL_MODE_IMMERSIVE;
 	}
 	else {
-		_wallMode = WALL_MODE_STANDARD;
+		_wallMode = WALL_MODE_NONE;
 	}
 }
 

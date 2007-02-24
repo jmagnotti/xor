@@ -77,8 +77,7 @@ class Model : public Object3D
 		/*
 			Draw the model.
 		*/
-		void render(void);
-		void renderObject(void){render();}
+		void renderObject(void);
 
 
 		Dimension3D * getDimension() {return new Dimension3D(0,0,0);}

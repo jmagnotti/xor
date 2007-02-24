@@ -44,6 +44,7 @@ public:
 	static const int        DEFAULT_COLOR_DEPTH;
 	static const Uint32     DEFAULT_VIDEO_FLAGS;
 
+	static const int		WALL_MODE_NONE;
 	static const int		WALL_MODE_STANDARD;
 	static const int		WALL_MODE_IMMERSIVE;
 

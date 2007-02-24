@@ -72,10 +72,8 @@ Model::~Model()
 	}
 }
 
-void Model::render() 
+void Model::renderObject() 
 {
-	//push();
-
 	glEnable( GL_TEXTURE_2D );
 
 	// Draw by group
@@ -129,8 +127,6 @@ void Model::render()
 	}
 
 	glDisable( GL_TEXTURE_2D );
-
-	//pop();
 }
 
 void Model::reloadTextures()
