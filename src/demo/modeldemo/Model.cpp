@@ -18,13 +18,13 @@ public:
  	*/
 	ModelDemo()
 	{
-        Controller * ctrl = Controller::GetInstance(LocalEventHandlerFactory::GetInstance());
+        Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
         ctrl->defaultConfiguration();
 
-		ctrl->removeDefaultKeyboardListener();
+		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
 
-		ctrl->removeDefaultMouseListener();
+		//ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Model Test"));
@@ -55,49 +55,49 @@ public:
 
 	void handleKey_a()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				0, 10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_d()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				0, -10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_w()
 	{
-		Controller::GetInstance()->getViewer()->walk
+		Controller::GetInstance(NULL)->getViewer()->walk
 			(0.5f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_s()
 	{
-		Controller::GetInstance()->getViewer()->walk(
+		Controller::GetInstance(NULL)->getViewer()->walk(
 				-0.5f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_q()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				2, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_e()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				2, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_c()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				1, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_z()
 	{
-		Controller::GetInstance()->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 				1, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
@@ -128,16 +128,16 @@ public:
 
 	void handleMouseMotion(MouseMotionEvent * mme)
 	{
-		Mouse * mouse = Controller::GetInstance()->getMouse();
+		Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
 
 		if (mouse->isLeftButtonDown()) {
 			// rotate camera
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			Controller::GetInstance()->getViewer()->incrementRotation(
+			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
-			Controller::GetInstance()->getViewer()->incrementRotation(
+			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
 					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}

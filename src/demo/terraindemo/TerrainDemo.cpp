@@ -4,7 +4,24 @@
 using namespace XOR;
 
 
-class CoordinateSystemDemo : public DefaultKeyboardListener, DefaultMouseListener
+class SineFunctionHF : public FunctionHeightFieldStrategy
+{
+	public:
+
+		SineFunctionHF(double xmin, double xmax,
+						double ymin, double ymax,
+						double xres, double yres)
+			: FunctionHeightFieldStrategy(xmin, xmax, ymin, ymax, xres, yres)
+		{ }
+
+
+		double f(double x, double y)
+		{
+			return sin(x) * cos(y);
+		}
+};
+
+class TerrainDemo : public DefaultKeyboardListener, DefaultMouseListener
 {
 
 public:
@@ -14,19 +31,15 @@ public:
    /* 
   	* Constructor
  	*/
-	CoordinateSystemDemo()
+	TerrainDemo()
 	{
-		_systype = 0;
-
         ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
         ctrl->defaultConfiguration();
 
-		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
-		//ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->setDefaultMouseListener(this);
 
-        ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
+        ctrl->setModel(new String2D("Heightfield Test"));
 
 		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
 		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
@@ -34,25 +47,37 @@ public:
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
 		ctrl->getModel()->addObject("white", 
-				new CompiledObject3D(new Cube(
-						new Vector3D(.5,.5,.5), 1, 
-						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-							factory->createTexture("images/white.png")))));
+		       new CompiledObject3D(new Cube(
+		               new Vector3D(0,0,0), 1, 
+		               new Paint(Color::WHITE))));
 		ctrl->getModel()->addObject("blue",	 
-				new CompiledObject3D(new Cube(
-						new Vector3D(0,0,5), 1, 
-						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-							factory->createTexture("images/z_blue.png")))));
+			   new CompiledObject3D(new Cube(
+					   new Vector3D(0,0,5), 1, 
+					   new Paint(Color::BLUE))));
 		ctrl->getModel()->addObject("green", 
-				new CompiledObject3D(new Cube(
-						new Vector3D(0,5,0), 1, 
-						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-							factory->createTexture("images/y_green.png")))));
+			   new CompiledObject3D(new Cube(
+					   new Vector3D(0,5,0), 1, 
+					   new Paint(Color::GREEN))));
 		ctrl->getModel()->addObject("red", 	 
-				new CompiledObject3D(new Cube(
-						new Vector3D(5,0,0), 1, 
-						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-							factory->createTexture("images/x_red.png")))));
+			   new CompiledObject3D(new Cube(
+					   new Vector3D(5,0,0), 1, 
+					   new Paint(Color::RED))));
+
+		double m[5][5];
+		m[0][0] = 4.0; m[0][1] = 0.0; m[0][2] = 4.0; m[0][3] = 0.0; m[0][4] = 0.0;
+		m[1][0] = 0.0; m[1][1] = 0.0; m[1][2] = 4.0; m[1][3] = 0.0; m[1][4] = 0.0;
+		m[2][0] = 2.0; m[2][1] = 2.0; m[2][2] = 4.0; m[2][3] = 2.0; m[2][4] = 2.0;
+		m[3][0] = 0.0; m[3][1] = 0.0; m[3][2] = 4.0; m[3][3] = 0.0; m[3][4] = 0.0;
+		m[4][0] = 0.0; m[4][1] = 0.0; m[4][2] = 4.0; m[4][3] = 0.0; m[4][4] = 0.0;
+
+		HeightField * hf = HeightFieldFactory::GetInstance()->
+			//buildHeightField(new NullHeightFieldStrategy());
+			//buildHeightField(new FunctionHeightFieldStrategy(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
+			buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
+			//buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
+			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
+		hf->setHeightScale(5.0);
+		ctrl->getModel()->addObject("field", hf);
 
         ctrl->run();
 	}
@@ -61,32 +86,6 @@ public:
 	{
 		cout << "LOOK AT ORIGIN" << endl;
 		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
-	}
-
-	void handleKey_x()
-	{
-		_systype = (_systype+1)%4;
-
-		if (_systype == 1)
-		{
-			std::cout << "SWITCH COORD SYSTEM: MATH" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
-		}
-		else if (_systype == 2)
-		{
-			std::cout << "SWITCH COORD SYSTEM: LEFT OPENGL" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::LEFT_OPENGL_COORDINATE_SYSTEM));
-		}
-		else if (_systype == 3)
-		{
-			std::cout << "SWITCH COORD SYSTEM: ENGINEER" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::ENGINEER_COORDINATE_SYSTEM));
-		}
-		else
-		{
-			std::cout << "SWITCH COORD SYSTEM: DEFAULT" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetDefaultCoordinateSystem());
-		}
 	}
 
 	void handleKey_p()
@@ -177,8 +176,6 @@ public:
 	
 private:
 
-	int _systype;
-
 	static const float ROTATE_CHANGE = 5.0f;
 	static const float TRANSLATE_CHANGE = 0.2f;
 };
@@ -189,7 +186,7 @@ private:
  */
 int main(int argc, char **argv)
 {
-	CoordinateSystemDemo * demo = new CoordinateSystemDemo(); 
+	TerrainDemo * demo = new TerrainDemo(); 
     return 0;
 }
 

@@ -5,11 +5,11 @@
 
 rows=3
 cols=3
-width=320
+width=200
 height=200
 
-let "max_x = rows/2"
-let "max_y = cols/2"
+let "max_x = cols/2"
+let "max_y = rows/2"
 
 let "x=0"
 for i in `seq -$max_x 1 $max_x`; do
