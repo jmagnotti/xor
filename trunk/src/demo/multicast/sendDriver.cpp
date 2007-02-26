@@ -13,7 +13,7 @@ int main(int argc, char * argv[])
 	out->send(msg);
 
 
-//	pool->cleanUpAndExit();
+	pool->cleanUpAndExit();
 
 	return 0;
 }

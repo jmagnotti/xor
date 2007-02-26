@@ -18,7 +18,8 @@ public:
 	{
 		// the InputEventProxyFactory will send out Keyboard and Mouse events
 		// over multicast
-		Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
+		Controller * ctrl = Controller::GetInstance(
+                InputEventProxyFactory::GetInstance());
 		ctrl->defaultConfiguration();
 
 		ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());

@@ -9,12 +9,15 @@
 #include "Stretch.h"
 #include "Translate.h"
 #include "Rotate.h"
+#include "FocusUpdater.h"
 
 #include "../interpolation/InterpolationEngine.h"
 #include "../util/GraphicsConversionUtility.h"
 
 
 namespace XOR {
+
+class FocusUpdater;
 
 /**
  * Transformable is an abstract parent class for objects that need to have
@@ -31,6 +34,7 @@ namespace XOR {
  */
 class Transformable
 {
+    friend class FocusUpdater;
 
 public:
 
@@ -258,11 +262,11 @@ public:
 	 * Automatically adjusts rotations to match given point.
 	 */
     void setFocalPoint(Vector3D * point);
-    void setFocalPoint(Vector3D * point, InterpolationEngine * interpolable);
+    void setFocalPoint(Vector3D * point, InterpolationEngine * interpolation);
 
 
     void incrementFocalPoint(Vector3D * point);
-    void incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolable);
+    void incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolation);
 
 
 	/**
@@ -275,7 +279,7 @@ public:
 	/**
 	 * Print all member info for debug purposes.
 	 */
-	void printDebugInfo();
+	void print();
 	
 
     /**
@@ -297,6 +301,7 @@ private:
 	 * Update transforms from _focalPoint.
 	 */
 	void updateFromFocalPoint();
+	void updateFromFocalPoint(InterpolationEngine * interpolation);
 
 
 	Rotate * _phi;
@@ -312,6 +317,8 @@ private:
 
 	float _focalDistance;
 	bool _transformed;
+
+    FocusUpdater * _updater;
     
 };
 

@@ -5,9 +5,9 @@ namespace XOR {
 // initialize static defaults
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
-const double   Viewer::DEFAULT_FOV			= 60;
-const double   Viewer::DEFAULT_NEAR_CLIP	= 0.1f;
-const double   Viewer::DEFAULT_FAR_CLIP	= 1000;
+const double Viewer::DEFAULT_FOV		= 60;
+const double Viewer::DEFAULT_NEAR_CLIP	= 1.0f;
+const double Viewer::DEFAULT_FAR_CLIP	= 10.0f;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
 const int Viewer::DEFAULT_WINDOW_Y		= 100;
@@ -50,7 +50,6 @@ Viewer::Viewer(double fov, double nearCP, double farCP)
 void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, int
         winHeight, bool fullscreen, const char * windowTitle)
 {
-    //cout << "constructing D2D from viewer" << endl;
 	_size = new Dimension2D(winWidth, winHeight);
 
 	_title = windowTitle;
@@ -67,7 +66,6 @@ void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, i
 
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
-    cout << "init bg color" << endl;
     for(int i=0; i<3; i++)
         _backgroundColor[i] = Color::DARK_NAVY[i];
 }
@@ -102,7 +100,6 @@ Dimension2D * Viewer::getWindowSize()
 }
 
 
-
 /*
  * timer tick
  */
@@ -122,14 +119,13 @@ void Viewer::handleReshape(ReshapeEvent * event)
 	_size->setHeight(event->getHeight());
 
     // reset clear color
-	cout << "Setting up clear color" << endl;
     setupClearColor(); 
+
+    glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
     glMatrixMode(GL_PROJECTION);
     glPushMatrix();
     glLoadIdentity();
-
-    glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
 
 	// METHOD #1 : tiled display wall adjustment
@@ -177,15 +173,14 @@ void Viewer::handleReshape(ReshapeEvent * event)
  */
 void Viewer::setupSDLVideo()
 {
-    cout << "SetVideoMode" << endl;
-
     // at some point we need to have variables to hold things like current video
     // flags, etc.
+    if (_size == NULL)
+        cout << "woops" << endl;
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
                      
     setWindowTitle(NULL);
-
 }
 
 
@@ -204,12 +199,7 @@ void Viewer::setupClearColor()
  */
 void Viewer::view()
 {
-	SDL_Surface * surface = SDL_GetVideoSurface();
-	if (SDL_MUSTLOCK(surface)) SDL_LockSurface(surface);
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-    glLoadIdentity();
 
 	// since we're technically moving the whole world, push the inverse
     pushInverse();
@@ -218,11 +208,8 @@ void Viewer::view()
         _coordinateSystem->pop();
     pop();
 
-	if (SDL_MUSTLOCK(surface)) SDL_UnlockSurface(surface);
-
     // SDL call to swap the off screen buffer with the on screen buffer
     SDL_GL_SwapBuffers(); 
-
 }
 
 
@@ -252,9 +239,12 @@ void Viewer::setFullScreen(bool status)
 /*
  * Change user coordinate system.
  */
-void Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
+CoordinateSystem * Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 {
+    CoordinateSystem * old = _coordinateSystem;
     _coordinateSystem = coordinateSystem;
+
+    return old;
 }
 
 
@@ -264,6 +254,47 @@ void Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 bool Viewer::isFullScreen()
 {
     return _fullscreen;
+}
+
+Vector3D * Viewer::toScreenCoordinates(Vector3D * worldCoord)
+{
+    GLint viewport[4];
+    GLdouble mvmatrix[16], projmatrix[16];
+    GLdouble sx, sy, sz;
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glGetDoublev(GL_MODELVIEW_MATRIX, mvmatrix);
+    glGetDoublev(GL_PROJECTION_MATRIX, projmatrix);
+
+    gluProject((GLdouble) worldCoord->getX(), worldCoord->getY(),
+               (GLdouble) worldCoord->getZ(), mvmatrix, projmatrix, viewport,
+               &sx, &sy, &sz);
+
+    return new Vector3D((float) sx, (float) sy, (float) sz);
+}
+
+
+/*
+ * 
+ */
+Vector3D * Viewer::toWorldCoordinates(Vector3D * screenCoord)
+{
+    GLint real_y;
+    GLdouble wx, wy, wz;
+    GLint viewport[4];
+    GLdouble mvmatrix[16], projmatrix[16];
+
+    glGetIntegerv(GL_VIEWPORT, viewport);
+    glGetDoublev(GL_MODELVIEW_MATRIX, mvmatrix);
+    glGetDoublev(GL_PROJECTION_MATRIX, projmatrix);
+
+    //real_y = viewport[3] - (GLint) screenCoord->getY() - 1;
+
+    gluUnProject((GLdouble) screenCoord->getX(), screenCoord->getY(),
+                (GLdouble) screenCoord->getZ(), mvmatrix, projmatrix, viewport,
+                &wx, &wy, &wz);
+
+    return new Vector3D((float) wx, (float) wy, (float) wz);
 }
 
 
@@ -335,9 +366,9 @@ void Viewer::setWallOffset(int x, int y)
 
 	// We have the force reshape method above that was created for Controller to for an initial reshape
 	// without having to know how to constrct events.
-	ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
-	handleReshape(evt);
-	//forceReshape();
+	//ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
+	//handleReshape(evt);
+	forceReshape();
 }
 
 

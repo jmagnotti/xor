@@ -144,6 +144,7 @@ protected:
 	inline virtual void handleKey_Greater() {}
 	inline virtual void handleKey_Question() {}
 	inline virtual void handleKey_At() {}
+	inline virtual void handleKey_Percent() {}
 	inline virtual void handleKey_LBracket() {}
 	inline virtual void handleKey_RBracket() {}
 	inline virtual void handleKey_BackSlash() {}

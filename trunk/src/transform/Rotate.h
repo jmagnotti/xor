@@ -2,11 +2,14 @@
 #define ROTATE_H
 
 #include <vector>
+#include <iostream>
+#include <stdio.h>
 
 #include "Transform.h"
 #include "../geometry/Dimension3D.h"
 #include "../interpolation/InterpolationEngine.h"
 
+using namespace std;
 
 namespace XOR {
 
@@ -25,6 +28,7 @@ public:
      * Default Constructor
      */
     Rotate();
+    ~Rotate();
 
 
 	/**
@@ -69,6 +73,12 @@ public:
      * reset the rotate to have no effect
      */
     void clear();
+
+
+    /**
+     * 
+     */
+    void print();
 
 protected:
 

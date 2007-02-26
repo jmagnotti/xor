@@ -3,6 +3,7 @@
 
 
 #include <list>
+#include <iostream>
 
 #include "../../geometry/Dimension2D.h"
 #include "ReshapeEvent.h"

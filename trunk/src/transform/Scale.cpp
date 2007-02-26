@@ -146,5 +146,11 @@ void Scale::clear()
     _xScale = _yScale = _zScale = 1.0f;
 }
 
+void Scale::print()
+{
+    cout << "x: " << _xScale << ", y: " << _yScale 
+         << ", z: " << _zScale << endl;
+}
+
 }
 

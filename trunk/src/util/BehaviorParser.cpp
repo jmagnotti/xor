@@ -47,7 +47,7 @@ vector<Transform*> BehaviorParser::parse()
 	ifstream fin(_pathToFile);
 
     if (!fin) {
-		cout << "COULD NOT FIND BEHAVIOR FILE" << endl;
+		cout << "could not find behavior file" << endl;
     }
 	else {
 		while (! fin.eof()) {

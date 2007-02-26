@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <stdio.h>
 #include <vector>
 
 #include "Transform.h"
@@ -24,10 +25,12 @@ class Translate : public Transform
 
 public:
 
+
 	/*
 	 * Creates an Identity Translation.
 	 */
 	Translate();
+	~Translate();
 
 
 	/**
@@ -74,6 +77,8 @@ public:
     void set(Vector3D *, InterpolationEngine * interpolation=NULL);
 
 	Vector3D * toVector();
+
+    void print();
 
 private:
 	

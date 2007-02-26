@@ -3,13 +3,22 @@
 
 namespace XOR {
 
+/*
+ * Destructor
+ */
+Translate::~Translate()
+{
+    _values.clear();
+    _out.clear();
+}
+
 
 /*
  * Def. Constructor
  */
 Translate::Translate()
 {
-	_xShift = _yShift = _zShift = 0;
+	_xShift = _yShift = _zShift = 0.0f;
 
     _values.push_back(& _xShift);
     _values.push_back(& _yShift);
@@ -134,6 +143,11 @@ Vector3D * Translate::toVector()
 	return new Vector3D(_xShift, _yShift, _zShift);
 }
 
+void Translate::print()
+{
+    cout << "x: " << _xShift << ", y: " << _yShift 
+         << ", z: " << _zShift << endl;
+}
 
 }
 

@@ -148,7 +148,10 @@ void Vector3D::clone(Vector3D * other)
 
 char * Vector3D::toString()
 {
-	return "hi";
+    char * buffer = new char[60];
+	sprintf(buffer, "%f %f %f", getX(), getY(), getZ());
+
+    return buffer;
 }
 
 

@@ -43,6 +43,12 @@ public:
 
 		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
 		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+
+#ifdef __ppc__
+        ctrl->getViewer()->setCoordinateSystem(
+            CoordinateSystemFactory::GetCoordinateSystem(
+            CoordinateSystemFactory::MAC_COORDINATE_SYSTEM));
+#endif
         
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
@@ -90,7 +96,7 @@ public:
 
 	void handleKey_p()
 	{
-		ctrl->getViewer()->printDebugInfo();
+		ctrl->getViewer()->print();
 	}
 
 	void handleKey_a()

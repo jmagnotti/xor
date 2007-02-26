@@ -1,5 +1,6 @@
 #include "Transformable.h"
 
+
 namespace XOR {
 
 /*
@@ -15,6 +16,8 @@ namespace XOR {
  */
 Transformable::Transformable()
 {
+    _updater    = new FocusUpdater(this);
+
 	_position   = new Translate();
 	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
 
@@ -95,12 +98,13 @@ void Transformable::pushInverse(bool invertScale)
     else
         _scale->push();
 
+	_position->pushInverse();
+
 	// order is important: roll, phi, theta
 	_roll->pushInverse();
 	_phi->pushInverse();
 	_theta->pushInverse();
 
-	_position->pushInverse();
 }
 
 
@@ -136,7 +140,6 @@ Vector3D * Transformable::getTranslation()
 void Transformable::incrementTranslation(Vector3D * position, InterpolationEngine * interpolation)
 {
 	_transformed = true;
-    //cout << "hosing focal point" << endl;
    _position->increment(position, interpolation); 
 }
 
@@ -158,7 +161,6 @@ void Transformable::incrementTranslation(Vector3D * position)
 void Transformable::setTranslation(Vector3D * position, InterpolationEngine * interpolation)
 {
 	_transformed = true;
-    //cout << "hosing focal point" << endl;
     _position->set(position, interpolation);
 }
 
@@ -348,11 +350,47 @@ void Transformable::setRotation(const int dimension, float angle)
 void Transformable::setFocalPoint(Vector3D * point, InterpolationEngine * interpolation)
 {
 	_transformed = true;
+	_focalPoint->_xShift = point->getX();
+	_focalPoint->_yShift = point->getY();
+	_focalPoint->_zShift = point->getZ();
 
-    //cout << "Interpolation for the Focal Point is not yet implemented!" << endl;
-    setFocalPoint(point);
+	_focalDistance = sqrt(
+	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
+	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
+				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+
+    updateFromFocalPoint(interpolation);
 }
 
+void Transformable::incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolation)
+{
+    _transformed = true;
+
+	_focalPoint->_xShift += point->getX();
+	_focalPoint->_yShift += point->getY();
+	_focalPoint->_zShift += point->getZ();
+
+	_focalDistance = sqrt(
+	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
+	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
+				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+
+    updateFromFocalPoint(interpolation);
+}
+
+void Transformable::incrementFocalPoint(Vector3D * point)
+{
+	_focalPoint->_xShift += point->getX();
+	_focalPoint->_yShift += point->getY();
+	_focalPoint->_zShift += point->getZ();
+
+	_focalDistance = sqrt(
+	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
+	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
+				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+
+    updateFromFocalPoint();
+}
 
 /*
  * set fp
@@ -360,7 +398,8 @@ void Transformable::setFocalPoint(Vector3D * point, InterpolationEngine * interp
 void Transformable::setFocalPoint(Vector3D * point)
 {
 	_transformed = true;
-	printDebugInfo();
+    cout << "setting focal point from Vec3D" << endl;
+	print();
 
 	_focalPoint->_xShift = point->getX();
 	_focalPoint->_yShift = point->getY();
@@ -372,7 +411,7 @@ void Transformable::setFocalPoint(Vector3D * point)
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
 
 	updateFromFocalPoint();
-	printDebugInfo();
+	print();
 }
 
 
@@ -434,6 +473,8 @@ void Transformable::walk(float distance, InterpolationEngine * interpolation)
  */
 void Transformable::updateFocalPoint()
 {
+    cout << "Updating the focal point" << endl;
+
 	// theta and phi in radians
 	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
 	float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
@@ -445,8 +486,7 @@ void Transformable::updateFocalPoint()
     _focalPoint->_yShift = _position->_yShift - 
         (_focalDistance * sin(p));
 
-    _focalPoint->_zShift = _position->_zShift - 
-        (_focalDistance * cos(p) * cos(t));
+    _focalPoint->_zShift = _position->_zShift - (_focalDistance * cos(p) * cos(t));
 }
 
 
@@ -475,31 +515,60 @@ void Transformable::updateFromFocalPoint()
 
 
 /*
+ * update with interp
+ */
+void Transformable::updateFromFocalPoint(InterpolationEngine * interpolation)
+{
+	// the camera can be rotated to the given focal point in
+	// only two axes of rotations: theta and phi (not roll)
+	// current behavior is to preserve roll upon focus reset
+	// uncomment the following line to reset roll upon reset
+	//_roll = 0.0;
+
+	// focal vector relative to position
+	float x = _focalPoint->_xShift - _position->_xShift;
+	float y = _focalPoint->_yShift - _position->_yShift;
+	float z = _focalPoint->_zShift - _position->_zShift;
+
+	// new rotation
+    _phi->set((asin (y / _focalDistance)) / GraphicsConversionUtility::PI * 180.0f, interpolation);
+    _theta->set((atan2(x , z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f, interpolation);
+            
+    //_angle = (asin(y / _focalDistance)) / GraphicsConversionUtility::PI * 180.0f;
+    //_angle = (atan2(x , z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f;
+}
+
+
+/*
  * print member info
  */
-void Transformable::printDebugInfo()
+void Transformable::print()
 {
 	float distance = sqrt(
 	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
 	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
 				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
 
-	cout << endl << "Transformable Information: " << this << endl;
+	cout << endl << "---Transformable Information " << this << " ---" << endl;
 
-	cout << " focal distance=" << _focalDistance << endl;
-	cout << " real distance="  << distance << endl;
+	cout << "focal distance=" << _focalDistance << endl;
+	cout << "real distance="  << distance << endl;
 
-	cout << " pos_x="     << _position->_xShift << 
-		    " pos_y="     << _position->_yShift <<
-		    " pos_z="     << _position->_zShift << endl;
+	cout << "pos_x="     << _position->_xShift << 
+		    "pos_y="     << _position->_yShift <<
+		    "pos_z="     << _position->_zShift << endl;
 
-	cout << " focus_x="     << _focalPoint->_xShift << 
-		    " focus_y="     << _focalPoint->_yShift <<
-		    " focus_z="     << _focalPoint->_zShift << endl;
+	cout << "focus_x="     << _focalPoint->_xShift << 
+		    "focus_y="     << _focalPoint->_yShift <<
+		    "focus_z="     << _focalPoint->_zShift << endl;
 
-	cout << " theta="   << _theta->_angle << 
-		    " phi="     << _phi->_angle   <<
-		    " roll="    << _roll->_angle  << endl;;
+	cout << "theta="   << _theta->_angle << 
+		    "phi="     << _phi->_angle   <<
+		    "roll="    << _roll->_angle  << endl;;
+
+	cout << "scale_x="   << _scale->_xScale << 
+		    "scale_y="   << _scale->_xScale   <<
+		    "scale_z="   << _scale->_xScale  << endl;;
 }
 
 

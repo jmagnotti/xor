@@ -35,6 +35,9 @@ public:
     void clear();
 
 
+    void print();
+
+
 protected:
 
     Rotate  * _rotations[3];

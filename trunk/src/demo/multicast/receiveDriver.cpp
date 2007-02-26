@@ -1,9 +1,11 @@
 #include "../../xor.h"
 #include <iostream>
 
+using namespace std;
+
 using namespace XOR;
 
-int main(int argc, char * argv[])
+int main(int argc, char ** argv)
 {
 	MulticastSocketPool * pool = MulticastSocketPool::GetInstance();
 

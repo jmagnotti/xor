@@ -55,7 +55,6 @@ protected:
 	virtual void handleKey_d();
 	*/
 	virtual void handleKey_F();
-	virtual void handleKeyAscii_27();
 
 	
 private:

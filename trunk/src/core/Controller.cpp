@@ -4,7 +4,7 @@
 namespace XOR {
 
 // Set the static instances to null
-Controller * Controller::_controller = 0;
+Controller * Controller::_controller = NULL;
 
 /*
  * Private Default Constructor
@@ -194,6 +194,8 @@ World * Controller::getModel()
  */
 Viewer * Controller::getViewer()
 {
+    if (_viewer == NULL)
+        cout << "NULL VIEWER" << endl;
 	return _viewer;
 }
 
@@ -256,8 +258,10 @@ void Controller::run(void)
 /* 
  * sets the model for the controller
  */
-void Controller::setModel(Object3D * model)
+Object3D * Controller::setModel(Object3D * model)
 {
+    Object3D * old_model = _model;
+
 	// In order to do proper rendering, we need a world object
 	// we don't want to force people to do all that though, so we do a quick check
 	// and wrap the renderable inside a world object if it isn't a world object
@@ -268,6 +272,28 @@ void Controller::setModel(Object3D * model)
 		_model = model;
 
 	_viewer->setModel((World*)_model);
+
+    return old_model;
+}
+
+/*
+ * sets the viewer for the controller
+ */
+Viewer * Controller::setViewer(Viewer * viewer)
+{
+    Viewer * old_viewer = _viewer;
+
+    viewer->setModel(getModel());
+
+    getTimer()->removeListener(_viewer);
+    getReshape()->removeListener(_viewer);
+
+    _viewer = viewer;
+
+    getTimer()->addListener(_viewer);
+    getReshape()->addListener(_viewer);
+
+    return old_viewer;
 }
 
 

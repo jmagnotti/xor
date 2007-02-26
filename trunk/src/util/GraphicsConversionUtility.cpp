@@ -1,6 +1,10 @@
 #include "GraphicsConversionUtility.h"
+#include <iostream>
 
-using namespace XOR;
+
+using namespace std;
+
+namespace XOR {
 
 //set the static instance to null.
 GraphicsConversionUtility *
@@ -88,12 +92,16 @@ float GraphicsConversionUtility::mapValue(float value, float min, float max,
 
 float GraphicsConversionUtility::floatModulus(float a, int b)
 {
-    float c = a;
+    if (a > 0.0) {
+        while (a > b) 
+            a -= b;
+    }
+    else {
+        while (a < -b)
+            a += b;
+    }
 
-    while (c > b) 
-        c -= b;
-
-    return c;
+    return a;
 }
 
 
@@ -116,4 +124,5 @@ void GraphicsConversionUtility::normalize(Vector3D * points[])
     }
 }
 
+}
 

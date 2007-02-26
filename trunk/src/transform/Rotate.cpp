@@ -3,6 +3,15 @@
 
 namespace XOR {
 
+/*
+ * Destructor
+ */
+Rotate::~Rotate()
+{
+    _values.clear();
+    _out.clear();
+}
+
 
 /*
  * Default Constructor
@@ -105,6 +114,12 @@ void Rotate::pushInverse()
 void Rotate::clear()
 {
     _angle = 0;
+}
+
+void Rotate::print()
+{
+    cout << "ang: " << _angle << ", x: " << _xCoord << ", y: " << _yCoord 
+         << ", z: " << _zCoord << endl;
 }
 
 }

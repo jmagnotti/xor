@@ -4,6 +4,16 @@
 namespace XOR {
 
 /*
+ * destructor
+ */
+Stretch::~Stretch()
+{
+    delete _translate;
+    delete _scale;
+}
+
+
+/*
  * def cstr.
  */
 Stretch::Stretch()

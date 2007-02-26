@@ -7,11 +7,7 @@ namespace XOR {
  */
 CoordinateSystem::CoordinateSystem()
 {
-#ifdef __ppc__
-	_zInvertScale = new Scale(1,1,-1);
-#else
 	_zInvertScale = new Scale();
-#endif
 }
 
 
@@ -48,4 +44,28 @@ void CoordinateSystem::clear()
 }
 
 
+/*
+ * string representation of the component transforms
+ */
+void CoordinateSystem::print()
+{
+    /*
+    char * buffer = new char[200];
+    sprintf(buffer, "rot 0: %s, rot 1: %s, rot 2: %s, scale: %s, zinvert: %s",
+            _rotations[0]->toString(), _rotations[1]->toString(),
+            _rotations[2]->toString(), _scale->toString(),
+            _zInvertScale->toString());
+
+    */
+    _zInvertScale->print();
+
+    _scale->print();
+
+    for(int i=0; i<3; i++)
+        _rotations[i]->print();
+
 }
+
+
+}
+
