@@ -40,6 +40,7 @@ void Reshape::addListener(ReshapeListener * rl)
  */
 void Reshape::removeListener(ReshapeListener * rl)
 {
+    cout << "Removing: " << rl << endl;
     bool removed = false;
 
     list<ReshapeListener*>::iterator iter   = listeners.begin();

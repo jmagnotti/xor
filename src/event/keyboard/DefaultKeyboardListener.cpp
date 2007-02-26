@@ -47,8 +47,7 @@ void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
     if ((kde->getKey() == SDLK_ESCAPE) ||
         (kde->getKey() == SDLK_q && kde->isMetaPressed())) 
 	{
-		//FIXME
-        Controller::GetInstance(NULL)->CleanUpAndExit();
+        Controller::CleanUpAndExit();
     }
 }
 
@@ -90,16 +89,17 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 		case SDLK_z: if (shift) handleKey_Z(); else handleKey_z(); break; 
 
 		/* regular numbers */
-		case SDLK_0: handleKey_0(); break;
-		case SDLK_1: handleKey_1(); break;
-		case SDLK_2: handleKey_2(); break;
-		case SDLK_3: handleKey_3(); break;
-		case SDLK_4: handleKey_4(); break;
-		case SDLK_5: handleKey_5(); break;
-		case SDLK_6: handleKey_6(); break;
-		case SDLK_7: handleKey_7(); break;
-		case SDLK_8: handleKey_8(); break;
-		case SDLK_9: handleKey_9(); break;
+        // note that we have to handle the shift case ourselves 
+		case SDLK_0: if (shift) handleKey_LParen();    else handleKey_0(); break;
+		case SDLK_1: if (shift) handleKey_Exclaim();   else handleKey_1(); break;
+		case SDLK_2: if (shift) handleKey_At();        else handleKey_2(); break;
+		case SDLK_3: if (shift) handleKey_Hash();      else handleKey_3(); break;
+		case SDLK_4: if (shift) handleKey_Dollar();    else handleKey_4(); break;
+		case SDLK_5: if (shift) handleKey_Percent();   else handleKey_5(); break;
+		case SDLK_6: if (shift) handleKey_Caret();     else handleKey_6(); break;
+		case SDLK_7: if (shift) handleKey_Ampersand(); else handleKey_7(); break;
+		case SDLK_8: if (shift) handleKey_Asterisk();  else handleKey_8(); break;
+		case SDLK_9: if (shift) handleKey_RParen();    else handleKey_9(); break;
 		
 		/* keypad keys */
 		case SDLK_KP0: handleKey_Keypad0(); break;
@@ -140,15 +140,23 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 		case SDLK_RETURN:		handleKey_Return();		break;
 		case SDLK_ESCAPE:		handleKey_Escape();		break;
 		case SDLK_SPACE:		handleKey_Space();		break;
-		case SDLK_EXCLAIM:		handleKey_Exclaim();	break;
+
+		case SDLK_QUOTE:		handleKey_SnglQuote();	break;
 		case SDLK_QUOTEDBL:		handleKey_DblQuote();	break;
+
+        // Do these ever get called?
+		case SDLK_BACKQUOTE:	handleKey_BackQuote();	break;
+		case SDLK_EXCLAIM:		handleKey_Exclaim();	break;
+		case SDLK_AT:			handleKey_At();			break;
 		case SDLK_HASH:			handleKey_Hash();		break;
 		case SDLK_DOLLAR:		handleKey_Dollar();		break;
+		case SDLK_CARET:		handleKey_Caret();		break;
 		case SDLK_AMPERSAND:	handleKey_Ampersand();	break;
-		case SDLK_QUOTE:		handleKey_SnglQuote();	break;
+		case SDLK_ASTERISK:		handleKey_Asterisk();	break;
 		case SDLK_LEFTPAREN:	handleKey_LParen();		break;
 		case SDLK_RIGHTPAREN:	handleKey_RParen();		break;
-		case SDLK_ASTERISK:		handleKey_Asterisk();	break;
+        //--
+
 		case SDLK_PLUS:			handleKey_Plus();		break;
 		case SDLK_COMMA:		handleKey_Comma();		break;
 		case SDLK_MINUS:		handleKey_Minus();		break;
@@ -160,13 +168,10 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 		case SDLK_EQUALS:		handleKey_Equal();		break;
 		case SDLK_GREATER:		handleKey_Greater();	break;
 		case SDLK_QUESTION:		handleKey_Question();	break;
-		case SDLK_AT:			handleKey_At();			break;
 		case SDLK_LEFTBRACKET:	handleKey_LBracket();	break;
 		case SDLK_RIGHTBRACKET:	handleKey_RBracket();	break;
 		case SDLK_BACKSLASH:	handleKey_BackSlash();	break;
-		case SDLK_CARET:		handleKey_Caret();		break;
 		case SDLK_UNDERSCORE:	handleKey_Underscore();	break;
-		case SDLK_BACKQUOTE:	handleKey_BackQuote();	break;
 		case SDLK_DELETE:		handleKey_Delete();		break;
 		case SDLK_UP:			handleKey_Up();			break;
 		case SDLK_DOWN:			handleKey_Down();		break;
@@ -231,11 +236,6 @@ void DefaultKeyboardListener::handleKey_F()
 	Controller::GetInstance(NULL)->getViewer()->toggleFullScreen();
 }
 
-void DefaultKeyboardListener::handleKeyAscii_27()
-{
-	//FIXME
-	Controller::CleanUpAndExit();
-}
 
 }
 

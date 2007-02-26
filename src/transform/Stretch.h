@@ -18,6 +18,7 @@ class Stretch : public Transform
 public:
 
 	Stretch();
+	~Stretch();
 	Stretch(Vector3D * origin, Vector3D * stretch);
 
 	void push();
@@ -44,6 +45,7 @@ private:
 
 	Translate * _translate;
 	Scale 	  * _scale;
+    char * buffer;
 
 };
 

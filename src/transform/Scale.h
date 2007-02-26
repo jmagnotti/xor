@@ -3,6 +3,7 @@
 
 
 #include <vector>
+#include <stdio.h>
 #include "../../include/SDL_opengl.h"
 
 #include "../geometry/Vector3D.h"
@@ -23,6 +24,8 @@ namespace XOR {
  */
 class Scale : public Transform
 {
+
+    friend class Transformable;
 
 public:
 
@@ -50,7 +53,9 @@ public:
 
 	Vector3D * toVector();
 
-private:
+    void print();
+
+protected:
 
 	/*
 	 * fill the _values vector
@@ -58,6 +63,8 @@ private:
 	void fillVector();
 
     float _xScale, _yScale, _zScale;
+
+    char * buffer;
 
     vector<float*> _values;
     vector<float>  _out;

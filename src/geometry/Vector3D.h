@@ -2,6 +2,11 @@
 #define VECTOR3D_H
 
 
+#include <string>
+
+
+using namespace std;
+
 namespace XOR {
 
 /**

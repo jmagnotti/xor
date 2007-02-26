@@ -65,8 +65,7 @@ void Quadrilateral3D::renderObject()
 {
 	glColor3fv(_paint->getColorTo());
 
-	if(_paint->isTextured())
-	{
+	if(_paint->isTextured()) {
        	// need to determine if lighting is on and if the object is textured 
 		//if (isLit()){
 		//	glNormal3fv(getNormal()->getPosition());
@@ -75,6 +74,7 @@ void Quadrilateral3D::renderObject()
         glEnable(GL_TEXTURE_2D);
 
 			//activate the texture
+            // this must be set before the call th glBegin
             _paint->getTexture()->setActive();
 			
             //get the coords from the quad, and use them to create a proper texture spread 

@@ -3,14 +3,11 @@
 
 namespace XOR {
 
-/*
- * defined in CoordinateSystemFactory.h
-    const int CoordinateSystemFactory::OPENGL_COORDINATE_SYSTEM  = 0;
-    const int CoordinateSystemFactory::MATH_COORDINATE_SYSTEM    = 1;
-*/
-
 CoordinateSystem * CoordinateSystemFactory::_defaultCoordinateSystem = NULL;
 
+/*
+ * set the defualt CS
+ */
 void CoordinateSystemFactory::SetDefaultCoordinateSystem(const int coordinateSystem)
 {
     CoordinateSystemFactory::_defaultCoordinateSystem =
@@ -48,6 +45,10 @@ CoordinateSystem * CoordinateSystemFactory::GetCoordinateSystem(const int coordi
 		case ENGINEER_COORDINATE_SYSTEM :
 			return EngineerCoordinateSystem::GetInstance();
 			break;
+
+        case MAC_COORDINATE_SYSTEM : 
+            return MacCoordinateSystem::GetInstance();
+            break;
 
         default:
             return OpenGLCoordinateSystem::GetInstance();

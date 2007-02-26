@@ -1,0 +1,294 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
+
+#Packages
+SRCS = ProjectUnProjectTest.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = ProjectUnProjectTest
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+ProjectUnProjectTest:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+ProjectUnProjectTest.o: ../../../xor.h ../../../core/Controller.h
+ProjectUnProjectTest.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+ProjectUnProjectTest.o: /usr/include/_types.h /usr/include/sys/_types.h
+ProjectUnProjectTest.o: /usr/include/machine/_types.h
+ProjectUnProjectTest.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
+ProjectUnProjectTest.o: /usr/include/sys/signal.h
+ProjectUnProjectTest.o: /usr/include/sys/appleapiopts.h
+ProjectUnProjectTest.o: /usr/include/machine/signal.h
+ProjectUnProjectTest.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+ProjectUnProjectTest.o: /usr/include/machine/endian.h
+ProjectUnProjectTest.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+ProjectUnProjectTest.o: /usr/include/stdint.h
+ProjectUnProjectTest.o: /usr/include/libkern/OSByteOrder.h
+ProjectUnProjectTest.o: /usr/include/libkern/ppc/OSByteOrder.h
+ProjectUnProjectTest.o: /usr/include/alloca.h /usr/include/machine/types.h
+ProjectUnProjectTest.o: /usr/include/ppc/types.h ../../../../include/SDL.h
+ProjectUnProjectTest.o: ../../../../include/SDL_main.h
+ProjectUnProjectTest.o: ../../../../include/SDL_types.h
+ProjectUnProjectTest.o: ../../../../include/SDL_getenv.h
+ProjectUnProjectTest.o: ../../../../include/SDL_error.h
+ProjectUnProjectTest.o: ../../../../include/begin_code.h
+ProjectUnProjectTest.o: ../../../../include/close_code.h
+ProjectUnProjectTest.o: ../../../../include/SDL_rwops.h /usr/include/stdio.h
+ProjectUnProjectTest.o: ../../../../include/SDL_timer.h
+ProjectUnProjectTest.o: ../../../../include/SDL_audio.h
+ProjectUnProjectTest.o: ../../../../include/SDL_byteorder.h
+ProjectUnProjectTest.o: ../../../../include/SDL_cdrom.h
+ProjectUnProjectTest.o: ../../../../include/SDL_joystick.h
+ProjectUnProjectTest.o: ../../../../include/SDL_events.h
+ProjectUnProjectTest.o: ../../../../include/SDL_active.h
+ProjectUnProjectTest.o: ../../../../include/SDL_keyboard.h
+ProjectUnProjectTest.o: ../../../../include/SDL_keysym.h
+ProjectUnProjectTest.o: ../../../../include/SDL_mouse.h
+ProjectUnProjectTest.o: ../../../../include/SDL_video.h
+ProjectUnProjectTest.o: ../../../../include/SDL_mutex.h
+ProjectUnProjectTest.o: ../../../../include/SDL_quit.h
+ProjectUnProjectTest.o: ../../../../include/SDL_version.h
+ProjectUnProjectTest.o: ../../../event/EventHandlerFactory.h
+ProjectUnProjectTest.o: ../../../event/keyboard/Keyboard.h
+ProjectUnProjectTest.o: ../../../../include/SDL_events.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardListener.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyEvent.h
+ProjectUnProjectTest.o: ../../../../include/SDL.h /usr/include/string.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyEventFactory.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyDownEvent.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyUpEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/Mouse.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseListener.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseEventFactory.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseButtonDown.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseClickEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseButtonUp.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseMotionEvent.h
+ProjectUnProjectTest.o: ../../../event/timer/Timer.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerListener.h
+ProjectUnProjectTest.o: ../../../event/reshape/Reshape.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension2D.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeEvent.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeListener.h
+ProjectUnProjectTest.o: ../../../event/keyboard/Keyboard.h
+ProjectUnProjectTest.o: ../../../event/mouse/Mouse.h
+ProjectUnProjectTest.o: ../../../event/timer/Timer.h
+ProjectUnProjectTest.o: ../../../event/reshape/Reshape.h
+ProjectUnProjectTest.o: ../../../core/World.h ../../../shape/Object3D.h
+ProjectUnProjectTest.o: ../../../transform/Transformable.h
+ProjectUnProjectTest.o: ../../../../include/SDL_opengl.h
+ProjectUnProjectTest.o: /usr/include/stddef.h ../../../transform/Transform.h
+ProjectUnProjectTest.o: ../../../transform/Scale.h
+ProjectUnProjectTest.o: ../../../geometry/Vector3D.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolationEngine.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolationListener.h
+ProjectUnProjectTest.o: ../../../interpolation/Interpolator.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolatorFactory.h
+ProjectUnProjectTest.o: ../../../interpolation/LinearInterpolator.h
+ProjectUnProjectTest.o: ../../../util/GraphicsConversionUtility.h
+ProjectUnProjectTest.o: /usr/include/math.h
+ProjectUnProjectTest.o: /usr/include/architecture/ppc/math.h
+ProjectUnProjectTest.o: ../../../transform/Stretch.h
+ProjectUnProjectTest.o: ../../../transform/Translate.h
+ProjectUnProjectTest.o: ../../../transform/Rotate.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension3D.h
+ProjectUnProjectTest.o: ../../../shape/Renderable.h ../../../shape/Point3D.h
+ProjectUnProjectTest.o: ../../../paint/Paint.h ../../../texture/Texture.h
+ProjectUnProjectTest.o: ../../../../include/SDL_image.h
+ProjectUnProjectTest.o: ../../../../include/SDL.h ../../../paint/Color.h
+ProjectUnProjectTest.o: ../../../shape/Object3D.h ../../../shape/Renderable.h
+ProjectUnProjectTest.o: ../../../core/Viewer.h ../../../paint/Color.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension2D.h
+ProjectUnProjectTest.o: ../../../transform/CoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/CoordinateSystemFactory.h
+ProjectUnProjectTest.o: ../../../transform/CoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/OpenGLCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/MathCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/LeftOpenGLCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/EngineerCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerListener.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeListener.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeEvent.h
+ProjectUnProjectTest.o: ../../../core/DebugViewer.h
+ProjectUnProjectTest.o: ../../../core/Controller.h ../../../core/Viewer.h
+ProjectUnProjectTest.o: ../../../core/World.h
+ProjectUnProjectTest.o: ../../../core/XavierConfiguration.h
+ProjectUnProjectTest.o: ../../../event/EventHandlerFactory.h
+ProjectUnProjectTest.o: ../../../event/FullEventHandlerFactory.h
+ProjectUnProjectTest.o: ../../../event/EventHandlerFactory.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeSkeleton.h
+ProjectUnProjectTest.o: ../../../event/reshape/Reshape.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardSkeleton.h
+ProjectUnProjectTest.o: ../../../../include/SDL_thread.h
+ProjectUnProjectTest.o: ../../../multicast/MulticastSocket.h
+ProjectUnProjectTest.o: ../../../multicast/Multicast.h
+ProjectUnProjectTest.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+ProjectUnProjectTest.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+ProjectUnProjectTest.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+ProjectUnProjectTest.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+ProjectUnProjectTest.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+ProjectUnProjectTest.o: /usr/include/machine/limits.h
+ProjectUnProjectTest.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+ProjectUnProjectTest.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+ProjectUnProjectTest.o: /usr/include/sys/select.h /usr/include/signal.h
+ProjectUnProjectTest.o: /usr/include/sys/time.h /usr/include/time.h
+ProjectUnProjectTest.o: /usr/include/machine/_limits.h
+ProjectUnProjectTest.o: ../../../multicast/MulticastSocketPool.h
+ProjectUnProjectTest.o: ../../../multicast/MulticastSocket.h
+ProjectUnProjectTest.o: ../../../event/keyboard/Keyboard.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseSkeleton.h
+ProjectUnProjectTest.o: ../../../event/mouse/Mouse.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerSkeleton.h
+ProjectUnProjectTest.o: ../../../event/timer/Timer.h
+ProjectUnProjectTest.o: ../../../event/FullEventProxyFactory.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardStub.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseStub.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerStub.h
+ProjectUnProjectTest.o: ../../../event/InputEventHandlerFactory.h
+ProjectUnProjectTest.o: ../../../event/InputEventProxyFactory.h
+ProjectUnProjectTest.o: ../../../event/keyboard/DefaultKeyboardListener.h
+ProjectUnProjectTest.o: ../../../interpolation/TimedInterpolation.h
+ProjectUnProjectTest.o: ../../../core/Controller.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolationEngine.h
+ProjectUnProjectTest.o: ../../../core/Controller.h ../../../core/World.h
+ProjectUnProjectTest.o: ../../../event/keyboard/Keyboard.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardListener.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardSkeleton.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyboardStub.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyDownEvent.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyEvent.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyEventFactory.h
+ProjectUnProjectTest.o: ../../../event/keyboard/KeyUpEvent.h
+ProjectUnProjectTest.o: ../../../event/keyboard/RegularKeyEvent.h
+ProjectUnProjectTest.o: ../../../event/keyboard/SpecialKeyEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/DefaultMouseListener.h
+ProjectUnProjectTest.o: ../../../transform/Transformable.h
+ProjectUnProjectTest.o: ../../../event/mouse/Mouse.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseButtonDown.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseButtonUp.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseClickEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseEventFactory.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseListener.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseMotionEvent.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseSkeleton.h
+ProjectUnProjectTest.o: ../../../event/mouse/MouseStub.h
+ProjectUnProjectTest.o: ../../../event/reshape/Reshape.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeEvent.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeListener.h
+ProjectUnProjectTest.o: ../../../event/reshape/ReshapeSkeleton.h
+ProjectUnProjectTest.o: ../../../event/timer/Timer.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerListener.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerSkeleton.h
+ProjectUnProjectTest.o: ../../../event/timer/TimerStub.h
+ProjectUnProjectTest.o: ../../../geometry/CylindricalVolume.h
+ProjectUnProjectTest.o: ../../../shape/CollisionRenderable.h
+ProjectUnProjectTest.o: ../../../shape/Point3D.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension2D.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension3D.h
+ProjectUnProjectTest.o: ../../../geometry/RectangularVolume.h
+ProjectUnProjectTest.o: ../../../geometry/Dimension3D.h
+ProjectUnProjectTest.o: ../../../geometry/Vector3D.h
+ProjectUnProjectTest.o: ../../../geometry/Vector3D.h
+ProjectUnProjectTest.o: ../../../interpolation/CameraRoller.h
+ProjectUnProjectTest.o: ../../../interpolation/ContinuousInterpolation.h
+ProjectUnProjectTest.o: ../../../interpolation/TimedInterpolation.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolationEngine.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolationListener.h
+ProjectUnProjectTest.o: ../../../interpolation/Interpolator.h
+ProjectUnProjectTest.o: ../../../interpolation/InterpolatorFactory.h
+ProjectUnProjectTest.o: ../../../interpolation/LinearInterpolator.h
+ProjectUnProjectTest.o: ../../../interpolation/TimedInterpolation.h
+ProjectUnProjectTest.o: ../../../model/MilkshapeModel.h
+ProjectUnProjectTest.o: ../../../model/Model.h
+ProjectUnProjectTest.o: ../../../texture/TextureFactory.h
+ProjectUnProjectTest.o: ../../../texture/Texture.h ../../../model/Model.h
+ProjectUnProjectTest.o: ../../../model/ModelFactory.h
+ProjectUnProjectTest.o: ../../../model/MilkshapeModel.h
+ProjectUnProjectTest.o: ../../../multicast/mcreceive.h
+ProjectUnProjectTest.o: ../../../multicast/mcsend.h
+ProjectUnProjectTest.o: ../../../multicast/Multicast.h
+ProjectUnProjectTest.o: ../../../multicast/MulticastSocket.h
+ProjectUnProjectTest.o: ../../../multicast/MulticastSocketPool.h
+ProjectUnProjectTest.o: ../../../paint/Color.h ../../../paint/Paint.h
+ProjectUnProjectTest.o: ../../../shape/AdornablePrism.h
+ProjectUnProjectTest.o: ../../../shape/RectangularPrism.h
+ProjectUnProjectTest.o: ../../../shape/Quadrilateral3D.h
+ProjectUnProjectTest.o: ../../../geometry/RectangularVolume.h
+ProjectUnProjectTest.o: ../../../shape/Arc3D.h
+ProjectUnProjectTest.o: ../../../shape/CollisionRenderable.h
+ProjectUnProjectTest.o: ../../../shape/CompiledObject3D.h
+ProjectUnProjectTest.o: ../../../shape/Cube.h
+ProjectUnProjectTest.o: ../../../shape/NormalPolygon3D.h
+ProjectUnProjectTest.o: ../../../shape/Object3D.h ../../../shape/Particle.h
+ProjectUnProjectTest.o: ../../../shape/CollisionRenderable.h
+ProjectUnProjectTest.o: ../../../shape/Point.h ../../../shape/Point2D.h
+ProjectUnProjectTest.o: ../../../shape/Point3D.h
+ProjectUnProjectTest.o: ../../../shape/Quadrilateral3D.h
+ProjectUnProjectTest.o: ../../../shape/RectangularPrism.h
+ProjectUnProjectTest.o: ../../../shape/RectangularPrismFactory.h
+ProjectUnProjectTest.o: ../../../shape/Renderable.h ../../../shape/String2D.h
+ProjectUnProjectTest.o: ../../../util/BitmapFontUtil.h
+ProjectUnProjectTest.o: ../../../util/BitmapFontConstants.h
+ProjectUnProjectTest.o: ../../../core/Viewer.h ../../../shape/Triangle3D.h
+ProjectUnProjectTest.o: ../../../terrain/FunctionHeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../terrain/HeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../terrain/HeightField.h
+ProjectUnProjectTest.o: ../../../shape/Quadrilateral3D.h
+ProjectUnProjectTest.o: ../../../terrain/HeightField.h
+ProjectUnProjectTest.o: ../../../terrain/HeightFieldFactory.h
+ProjectUnProjectTest.o: ../../../terrain/HeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../terrain/ImageHeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../terrain/MatrixHeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../terrain/NullHeightFieldStrategy.h
+ProjectUnProjectTest.o: ../../../texture/Texture.h
+ProjectUnProjectTest.o: ../../../texture/TextureFactory.h
+ProjectUnProjectTest.o: ../../../transform/CoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/CoordinateSystemFactory.h
+ProjectUnProjectTest.o: ../../../transform/EngineerCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/LeftOpenGLCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/MathCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/OpenGLCoordinateSystem.h
+ProjectUnProjectTest.o: ../../../transform/Rotate.h
+ProjectUnProjectTest.o: ../../../transform/Scale.h
+ProjectUnProjectTest.o: ../../../transform/Stretch.h
+ProjectUnProjectTest.o: ../../../transform/Transform.h
+ProjectUnProjectTest.o: ../../../transform/Transformable.h
+ProjectUnProjectTest.o: ../../../transform/TransformFactory.h
+ProjectUnProjectTest.o: ../../../transform/Translate.h
+ProjectUnProjectTest.o: ../../../util/BehaviorParser.h
+ProjectUnProjectTest.o: ../../../transform/TransformFactory.h
+ProjectUnProjectTest.o: ../../../util/BitmapFontConstants.h
+ProjectUnProjectTest.o: ../../../util/BitmapFontUtil.h
+ProjectUnProjectTest.o: ../../../util/FramesPerSecondCounter.h
+ProjectUnProjectTest.o: ../../../shape/String2D.h
+ProjectUnProjectTest.o: ../../../util/GraphicsConversionUtility.h
+ProjectUnProjectTest.o: ../../../util/xmlParser.h /usr/include/wchar.h
+ProjectUnProjectTest.o: /usr/include/stdarg.h /usr/include/_wctype.h
+ProjectUnProjectTest.o: /usr/include/ctype.h /usr/include/runetype.h

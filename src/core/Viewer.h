@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "../../include/SDL.h"
+#include "../../include/SDL_opengl.h"
 
 #include "World.h"
 
@@ -71,8 +72,8 @@ public:
 	~Viewer();
 
 
-	Dimension3D * getDimension() {}
-	Vector3D * getBaseVector() {}
+	Dimension3D * getDimension() {return NULL;}
+	Vector3D * getBaseVector() {return NULL;}
 
 	/**
 	 * Adds a renderable to the viewer's list
@@ -107,7 +108,7 @@ public:
 	/** 
 	 * Calls render() on the model
 	 */
-	void view(void);
+	virtual void view(void);
 
 
     /**
@@ -150,7 +151,7 @@ public:
 	/**
 	 * Change user coordinate system 
 	 */
-	void setCoordinateSystem(CoordinateSystem * coordinateSystem);
+	CoordinateSystem * setCoordinateSystem(CoordinateSystem * coordinateSystem);
 	
 
     /**
@@ -194,7 +195,23 @@ public:
 	 * Change the wall view partitioning mode.
 	 */
 	void setWallMode(int mode);
+
+
+    /**
+     * Returns a vector representing the world position in Screen coordinates.
+     */
+    Vector3D * toScreenCoordinates(Vector3D * worldCoord);
+
+
+    /**
+     * Returns a vector representing the screen position in world coordinates.
+     */
+    Vector3D * toWorldCoordinates(Vector3D * screenCoor);
+    
 	
+protected:
+
+    CoordinateSystem * _coordinateSystem;
 
 private:
 
@@ -219,7 +236,6 @@ private:
 
 	World *	_model;
 
-    CoordinateSystem * _coordinateSystem;
 
 };
 

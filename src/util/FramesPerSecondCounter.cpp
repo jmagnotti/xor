@@ -68,8 +68,7 @@ void FramesPerSecondCounter::setLabel(String2D * text)
  */
 void FramesPerSecondCounter::handleTick()
 {
-        
-    //callback to the timer to get some info beyond just the tick event
+    // callback to the timer to get some info beyond just the tick event
     Timer * timer = Controller::GetInstance(NULL)->getTimer();
 
     char s [50];

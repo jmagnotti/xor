@@ -1,8 +1,13 @@
 #include "../../xor.h"
+#include "../../../include/SDL_opengl.h"
 #include <stdlib.h>
+#include <map>
 
+#include "PrintMousePosition.h"
+#include "KeyHandler.h"
 
 using namespace XOR;
+using namespace std;
 
 /**
  * Shows the simplicity of XOR
@@ -10,7 +15,7 @@ using namespace XOR;
 int main(int argc, char ** argv)
 {
     CoordinateSystemFactory::SetDefaultCoordinateSystem(
-           CoordinateSystemFactory::OPENGL_COORDINATE_SYSTEM);
+            CoordinateSystemFactory::MAC_COORDINATE_SYSTEM);
 
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
@@ -25,15 +30,21 @@ int main(int argc, char ** argv)
     // gets setup.
     ctrl->defaultConfiguration();
 
-    // Add a keyboard listener that has a small set of key handlers
-	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+    DebugViewer * view = new DebugViewer();
+    view->setDebugInterval(5000);
+    Viewer * old_view = ctrl->setViewer(view);
+
+    glDepthRange(0.0f, 1.0f);
+
+    new KeyHandler(ctrl);
+    new PrintMousePosition(ctrl);
 
     //Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
-    NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(.5,.5,.5), 0.5, 10);
+    Object3D * hello = new Cube(new Vector3D(0,.5,0), 0.5, new Paint(Color::LIGHT_BLUE , Paint::HEIGHT_BASED));
 
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)
-    ctrl->setModel(hello);
+    ctrl->setModel(hello);//new CompiledObject3D(hello));
 
     // this call runs the demo.
     ctrl->run();

@@ -152,7 +152,7 @@ public:
      * exists at a time. World could be refactored into a Universe if you want
      * to have multiple worlds.  
      */
-	void setModel(Object3D*);
+	Object3D *  setModel(Object3D*);
 
 
 	/**
@@ -161,7 +161,7 @@ public:
      * IS-A ReshapeListener), so be sure that the handleReshape() method
      * behaves appropriately
 	 */
-	void setView(Viewer *);
+	Viewer * setViewer(Viewer*);
 
 
     /**

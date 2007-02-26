@@ -4,6 +4,7 @@
 
 #include "CoordinateSystem.h"
 #include "OpenGLCoordinateSystem.h"
+#include "MacCoordinateSystem.h"
 #include "MathCoordinateSystem.h"
 #include "LeftOpenGLCoordinateSystem.h"
 #include "EngineerCoordinateSystem.h"
@@ -29,6 +30,7 @@ public:
     static const int MATH_COORDINATE_SYSTEM          = 1;
     static const int LEFT_OPENGL_COORDINATE_SYSTEM   = 2;
     static const int ENGINEER_COORDINATE_SYSTEM      = 3;
+    static const int MAC_COORDINATE_SYSTEM           = 4;
 
 
     /**
