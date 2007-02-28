@@ -35,6 +35,11 @@ void OpenGLCoordinateSystem::push()
     // nothing
 }
 
+void OpenGLCoordinateSystem::print()
+{
+    cout << "no coord sys transforms applied" << endl;
+}
+
 
 void OpenGLCoordinateSystem::pop()
 {

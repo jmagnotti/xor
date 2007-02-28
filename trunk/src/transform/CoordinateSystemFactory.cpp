@@ -32,6 +32,7 @@ CoordinateSystem * CoordinateSystemFactory::GetDefaultCoordinateSystem()
  */
 CoordinateSystem * CoordinateSystemFactory::GetCoordinateSystem(const int coordinateSystem)
 {
+    cout << "CSF Called with: " << coordinateSystem << endl;
     switch (coordinateSystem) {
 
         case MATH_COORDINATE_SYSTEM :

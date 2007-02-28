@@ -21,6 +21,7 @@ public:
 
     void push();
     void pop();
+    void print();
 
 
 protected:

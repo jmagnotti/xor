@@ -16,8 +16,6 @@ namespace XOR {
  */
 Transformable::Transformable()
 {
-    _updater    = new FocusUpdater(this);
-
 	_position   = new Translate();
 	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
 
