@@ -113,6 +113,8 @@ void Controller::CleanUpAndExit()
  */
 void Controller::defaultSDLGLConfiguration()
 {
+    _viewer->setupSDLVideo();
+
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); 
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,  16);
 
@@ -122,8 +124,6 @@ void Controller::defaultSDLGLConfiguration()
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,  8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-
-    _viewer->setupSDLVideo();
 }
 
 
@@ -241,7 +241,8 @@ Timer * Controller::getTimer()
  */
 void Controller::run(void)
 {
-    _viewer->forceReshape();
+    //moved this to the configuration method
+    //_viewer->forceReshape();
 
     // start ticking
     _timer->start();

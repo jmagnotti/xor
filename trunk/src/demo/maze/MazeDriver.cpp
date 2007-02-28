@@ -1,4 +1,5 @@
 #include "MazeDriver.h"
+#include "KeyHandler.h"
 
 
 /**
@@ -8,7 +9,7 @@ MazeDriver::MazeDriver()
 {
 
     // we need a controller object
-    Controller * ctrl = Controller::GetInstance();
+    Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
 
     // use the default configuration
     ctrl->defaultConfiguration();
@@ -16,8 +17,13 @@ MazeDriver::MazeDriver()
     // initialize the maze
     initializeMaze();
 
+    //ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+    new KeyHandler(ctrl);
+
     // we want a world object that is created around the maze
     //World * world = World::GetInstance(_maze);
+
+    ctrl->getMouse()->addListener(new DefaultMouseListener());
 
 	//ctrl->getTimer()->setInterval(100);
 	
@@ -26,12 +32,12 @@ MazeDriver::MazeDriver()
     // translation will even effect objects added later, like the Terrain.
     // Also note that we had to invert the starting point to get the desired
     // effect.
-    ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
+    //ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
     ctrl->getViewer()->incrementRotation(Transformable::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary
-    ctrl->setModel(new CompiledObject3D(_maze));
+    ctrl->setModel(_maze);//new CompiledObject3D(_maze));
 
     // just to show that we can, let's add a string to the world
     ctrl->getModel()->addObject("text", new String2D("Enjoy the show"));

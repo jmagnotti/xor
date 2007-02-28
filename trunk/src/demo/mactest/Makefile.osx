@@ -4,7 +4,7 @@ CC = g++
 LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
 
 #Packages
-SRCS = HelloWorld.cpp KeyHandler.cpp
+SRCS = HelloWorld.cpp KeyHandler.cpp PrintMousePosition.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -34,6 +34,396 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
+HelloWorld.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
+HelloWorld.o: /usr/include/sys/cdefs.h /usr/include/_types.h
+HelloWorld.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
+HelloWorld.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
+HelloWorld.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+HelloWorld.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+HelloWorld.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+HelloWorld.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+HelloWorld.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+HelloWorld.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+HelloWorld.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
+HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+HelloWorld.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+HelloWorld.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+HelloWorld.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+HelloWorld.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+HelloWorld.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+HelloWorld.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+HelloWorld.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+HelloWorld.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+HelloWorld.o: ../../../include/SDL_version.h
+HelloWorld.o: ../../event/EventHandlerFactory.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+HelloWorld.o: ../../event/keyboard/KeyboardListener.h
+HelloWorld.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
+HelloWorld.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/mouse/MouseListener.h
+HelloWorld.o: ../../event/mouse/MouseEvent.h
+HelloWorld.o: ../../event/mouse/MouseEventFactory.h
+HelloWorld.o: ../../event/mouse/MouseButtonDown.h
+HelloWorld.o: ../../event/mouse/MouseClickEvent.h
+HelloWorld.o: ../../event/mouse/MouseButtonUp.h
+HelloWorld.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+HelloWorld.o: ../../event/timer/TimerListener.h ../../event/reshape/Reshape.h
+HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h
+HelloWorld.o: ../../event/reshape/ReshapeListener.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+HelloWorld.o: ../../core/World.h ../../shape/Object3D.h
+HelloWorld.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
+HelloWorld.o: /usr/include/stddef.h ../../transform/Transform.h
+HelloWorld.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+HelloWorld.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
+HelloWorld.o: ../../shape/Point3D.h ../../paint/Paint.h
+HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
+HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
+HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
+HelloWorld.o: ../../core/Viewer.h ../../paint/Color.h
+HelloWorld.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/CoordinateSystemFactory.h
+HelloWorld.o: ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/MacCoordinateSystem.h
+HelloWorld.o: ../../transform/MathCoordinateSystem.h
+HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
+HelloWorld.o: ../../event/timer/TimerListener.h
+HelloWorld.o: ../../event/reshape/ReshapeListener.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
+HelloWorld.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
+HelloWorld.o: ../../core/XavierConfiguration.h
+HelloWorld.o: ../../event/EventHandlerFactory.h
+HelloWorld.o: ../../event/FullEventHandlerFactory.h
+HelloWorld.o: ../../event/EventHandlerFactory.h
+HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h
+HelloWorld.o: ../../event/reshape/Reshape.h
+HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
+HelloWorld.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
+HelloWorld.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+HelloWorld.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+HelloWorld.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+HelloWorld.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+HelloWorld.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+HelloWorld.o: /usr/include/limits.h /usr/include/machine/limits.h
+HelloWorld.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+HelloWorld.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+HelloWorld.o: /usr/include/sys/select.h /usr/include/signal.h
+HelloWorld.o: /usr/include/sys/time.h /usr/include/time.h
+HelloWorld.o: /usr/include/machine/_limits.h
+HelloWorld.o: ../../multicast/MulticastSocketPool.h
+HelloWorld.o: ../../multicast/MulticastSocket.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+HelloWorld.o: ../../event/FullEventProxyFactory.h
+HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
+HelloWorld.o: ../../event/InputEventHandlerFactory.h
+HelloWorld.o: ../../event/InputEventProxyFactory.h
+HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../core/Controller.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../core/Controller.h ../../core/World.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/keyboard/KeyboardListener.h
+HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
+HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
+HelloWorld.o: ../../event/keyboard/RegularKeyEvent.h
+HelloWorld.o: ../../event/keyboard/SpecialKeyEvent.h
+HelloWorld.o: ../../event/mouse/DefaultMouseListener.h
+HelloWorld.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/mouse/MouseButtonDown.h
+HelloWorld.o: ../../event/mouse/MouseButtonUp.h
+HelloWorld.o: ../../event/mouse/MouseClickEvent.h
+HelloWorld.o: ../../event/mouse/MouseEvent.h
+HelloWorld.o: ../../event/mouse/MouseEventFactory.h
+HelloWorld.o: ../../event/mouse/MouseListener.h
+HelloWorld.o: ../../event/mouse/MouseMotionEvent.h
+HelloWorld.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+HelloWorld.o: ../../event/reshape/Reshape.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h
+HelloWorld.o: ../../event/reshape/ReshapeListener.h
+HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h ../../event/timer/Timer.h
+HelloWorld.o: ../../event/timer/TimerListener.h
+HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+HelloWorld.o: ../../geometry/CylindricalVolume.h
+HelloWorld.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+HelloWorld.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+HelloWorld.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../model/MilkshapeModel.h ../../model/Model.h
+HelloWorld.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+HelloWorld.o: ../../model/Model.h ../../model/ModelFactory.h
+HelloWorld.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+HelloWorld.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+HelloWorld.o: ../../multicast/MulticastSocket.h
+HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+HelloWorld.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+HelloWorld.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+HelloWorld.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+HelloWorld.o: ../../shape/CollisionRenderable.h
+HelloWorld.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+HelloWorld.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+HelloWorld.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+HelloWorld.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
+HelloWorld.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+HelloWorld.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+HelloWorld.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+HelloWorld.o: ../../shape/Triangle3D.h
+HelloWorld.o: ../../terrain/FunctionHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+HelloWorld.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+HelloWorld.o: ../../terrain/HeightFieldFactory.h
+HelloWorld.o: ../../terrain/HeightFieldStrategy.h
+HelloWorld.o: ../../terrain/ImageHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/MatrixHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+HelloWorld.o: ../../texture/TextureFactory.h
+HelloWorld.o: ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/CoordinateSystemFactory.h
+HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
+HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/MacCoordinateSystem.h
+HelloWorld.o: ../../transform/MathCoordinateSystem.h
+HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/Rotate.h ../../transform/Scale.h
+HelloWorld.o: ../../transform/Stretch.h ../../transform/Transform.h
+HelloWorld.o: ../../transform/Transformable.h
+HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
+HelloWorld.o: /usr/include/wchar.h /usr/include/stdarg.h
+HelloWorld.o: /usr/include/_wctype.h /usr/include/ctype.h
+HelloWorld.o: /usr/include/runetype.h ../../../include/SDL_opengl.h
+HelloWorld.o: PrintMousePosition.h KeyHandler.h
+KeyHandler.o: KeyHandler.h ../../xor.h ../../core/Controller.h
+KeyHandler.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+KeyHandler.o: /usr/include/_types.h /usr/include/sys/_types.h
+KeyHandler.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+KeyHandler.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+KeyHandler.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+KeyHandler.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+KeyHandler.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+KeyHandler.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+KeyHandler.o: /usr/include/libkern/OSByteOrder.h
+KeyHandler.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+KeyHandler.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+KeyHandler.o: ../../../include/SDL.h ../../../include/SDL_main.h
+KeyHandler.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+KeyHandler.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+KeyHandler.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+KeyHandler.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+KeyHandler.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+KeyHandler.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+KeyHandler.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+KeyHandler.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+KeyHandler.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+KeyHandler.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+KeyHandler.o: ../../../include/SDL_version.h
+KeyHandler.o: ../../event/EventHandlerFactory.h
+KeyHandler.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+KeyHandler.o: ../../event/keyboard/KeyboardListener.h
+KeyHandler.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
+KeyHandler.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+KeyHandler.o: ../../event/keyboard/KeyDownEvent.h
+KeyHandler.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+KeyHandler.o: ../../event/mouse/MouseListener.h
+KeyHandler.o: ../../event/mouse/MouseEvent.h
+KeyHandler.o: ../../event/mouse/MouseEventFactory.h
+KeyHandler.o: ../../event/mouse/MouseButtonDown.h
+KeyHandler.o: ../../event/mouse/MouseClickEvent.h
+KeyHandler.o: ../../event/mouse/MouseButtonUp.h
+KeyHandler.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+KeyHandler.o: ../../event/timer/TimerListener.h ../../event/reshape/Reshape.h
+KeyHandler.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+KeyHandler.o: ../../event/reshape/ReshapeEvent.h
+KeyHandler.o: ../../event/reshape/ReshapeListener.h
+KeyHandler.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+KeyHandler.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+KeyHandler.o: ../../core/World.h ../../shape/Object3D.h
+KeyHandler.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
+KeyHandler.o: /usr/include/stddef.h ../../transform/Transform.h
+KeyHandler.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+KeyHandler.o: ../../interpolation/InterpolationEngine.h
+KeyHandler.o: ../../interpolation/InterpolationListener.h
+KeyHandler.o: ../../interpolation/Interpolator.h
+KeyHandler.o: ../../interpolation/InterpolatorFactory.h
+KeyHandler.o: ../../interpolation/LinearInterpolator.h
+KeyHandler.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+KeyHandler.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+KeyHandler.o: ../../transform/Translate.h ../../transform/Rotate.h
+KeyHandler.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
+KeyHandler.o: ../../shape/Point3D.h ../../paint/Paint.h
+KeyHandler.o: ../../texture/Texture.h ../../../include/SDL_image.h
+KeyHandler.o: ../../../include/SDL.h ../../paint/Color.h
+KeyHandler.o: ../../shape/Object3D.h ../../shape/Renderable.h
+KeyHandler.o: ../../core/Viewer.h ../../paint/Color.h
+KeyHandler.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
+KeyHandler.o: ../../transform/CoordinateSystemFactory.h
+KeyHandler.o: ../../transform/CoordinateSystem.h
+KeyHandler.o: ../../transform/OpenGLCoordinateSystem.h
+KeyHandler.o: ../../transform/MacCoordinateSystem.h
+KeyHandler.o: ../../transform/MathCoordinateSystem.h
+KeyHandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
+KeyHandler.o: ../../transform/EngineerCoordinateSystem.h
+KeyHandler.o: ../../event/timer/TimerListener.h
+KeyHandler.o: ../../event/reshape/ReshapeListener.h
+KeyHandler.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
+KeyHandler.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
+KeyHandler.o: ../../core/XavierConfiguration.h
+KeyHandler.o: ../../event/EventHandlerFactory.h
+KeyHandler.o: ../../event/FullEventHandlerFactory.h
+KeyHandler.o: ../../event/EventHandlerFactory.h
+KeyHandler.o: ../../event/reshape/ReshapeSkeleton.h
+KeyHandler.o: ../../event/reshape/Reshape.h
+KeyHandler.o: ../../event/keyboard/KeyboardSkeleton.h
+KeyHandler.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
+KeyHandler.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+KeyHandler.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+KeyHandler.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+KeyHandler.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+KeyHandler.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+KeyHandler.o: /usr/include/limits.h /usr/include/machine/limits.h
+KeyHandler.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+KeyHandler.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+KeyHandler.o: /usr/include/sys/select.h /usr/include/signal.h
+KeyHandler.o: /usr/include/sys/time.h /usr/include/time.h
+KeyHandler.o: /usr/include/machine/_limits.h
+KeyHandler.o: ../../multicast/MulticastSocketPool.h
+KeyHandler.o: ../../multicast/MulticastSocket.h
+KeyHandler.o: ../../event/keyboard/Keyboard.h
+KeyHandler.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+KeyHandler.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+KeyHandler.o: ../../event/FullEventProxyFactory.h
+KeyHandler.o: ../../event/keyboard/KeyboardStub.h
+KeyHandler.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
+KeyHandler.o: ../../event/InputEventHandlerFactory.h
+KeyHandler.o: ../../event/InputEventProxyFactory.h
+KeyHandler.o: ../../event/keyboard/DefaultKeyboardListener.h
+KeyHandler.o: ../../interpolation/TimedInterpolation.h
+KeyHandler.o: ../../core/Controller.h
+KeyHandler.o: ../../interpolation/InterpolationEngine.h
+KeyHandler.o: ../../core/Controller.h ../../core/World.h
+KeyHandler.o: ../../event/keyboard/Keyboard.h
+KeyHandler.o: ../../event/keyboard/KeyboardListener.h
+KeyHandler.o: ../../event/keyboard/KeyboardSkeleton.h
+KeyHandler.o: ../../event/keyboard/KeyboardStub.h
+KeyHandler.o: ../../event/keyboard/KeyDownEvent.h
+KeyHandler.o: ../../event/keyboard/KeyEvent.h
+KeyHandler.o: ../../event/keyboard/KeyEventFactory.h
+KeyHandler.o: ../../event/keyboard/KeyUpEvent.h
+KeyHandler.o: ../../event/keyboard/RegularKeyEvent.h
+KeyHandler.o: ../../event/keyboard/SpecialKeyEvent.h
+KeyHandler.o: ../../event/mouse/DefaultMouseListener.h
+KeyHandler.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+KeyHandler.o: ../../event/mouse/MouseButtonDown.h
+KeyHandler.o: ../../event/mouse/MouseButtonUp.h
+KeyHandler.o: ../../event/mouse/MouseClickEvent.h
+KeyHandler.o: ../../event/mouse/MouseEvent.h
+KeyHandler.o: ../../event/mouse/MouseEventFactory.h
+KeyHandler.o: ../../event/mouse/MouseListener.h
+KeyHandler.o: ../../event/mouse/MouseMotionEvent.h
+KeyHandler.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+KeyHandler.o: ../../event/reshape/Reshape.h
+KeyHandler.o: ../../event/reshape/ReshapeEvent.h
+KeyHandler.o: ../../event/reshape/ReshapeListener.h
+KeyHandler.o: ../../event/reshape/ReshapeSkeleton.h ../../event/timer/Timer.h
+KeyHandler.o: ../../event/timer/TimerListener.h
+KeyHandler.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+KeyHandler.o: ../../geometry/CylindricalVolume.h
+KeyHandler.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+KeyHandler.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+KeyHandler.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+KeyHandler.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+KeyHandler.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+KeyHandler.o: ../../interpolation/ContinuousInterpolation.h
+KeyHandler.o: ../../interpolation/TimedInterpolation.h
+KeyHandler.o: ../../interpolation/InterpolationEngine.h
+KeyHandler.o: ../../interpolation/InterpolationListener.h
+KeyHandler.o: ../../interpolation/Interpolator.h
+KeyHandler.o: ../../interpolation/InterpolatorFactory.h
+KeyHandler.o: ../../interpolation/LinearInterpolator.h
+KeyHandler.o: ../../interpolation/TimedInterpolation.h
+KeyHandler.o: ../../model/MilkshapeModel.h ../../model/Model.h
+KeyHandler.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+KeyHandler.o: ../../model/Model.h ../../model/ModelFactory.h
+KeyHandler.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+KeyHandler.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+KeyHandler.o: ../../multicast/MulticastSocket.h
+KeyHandler.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+KeyHandler.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+KeyHandler.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+KeyHandler.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+KeyHandler.o: ../../shape/CollisionRenderable.h
+KeyHandler.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+KeyHandler.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+KeyHandler.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+KeyHandler.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+KeyHandler.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
+KeyHandler.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+KeyHandler.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+KeyHandler.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+KeyHandler.o: ../../shape/Triangle3D.h
+KeyHandler.o: ../../terrain/FunctionHeightFieldStrategy.h
+KeyHandler.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+KeyHandler.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+KeyHandler.o: ../../terrain/HeightFieldFactory.h
+KeyHandler.o: ../../terrain/HeightFieldStrategy.h
+KeyHandler.o: ../../terrain/ImageHeightFieldStrategy.h
+KeyHandler.o: ../../terrain/MatrixHeightFieldStrategy.h
+KeyHandler.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+KeyHandler.o: ../../texture/TextureFactory.h
+KeyHandler.o: ../../transform/CoordinateSystem.h
+KeyHandler.o: ../../transform/CoordinateSystemFactory.h
+KeyHandler.o: ../../transform/EngineerCoordinateSystem.h
+KeyHandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
+KeyHandler.o: ../../transform/MacCoordinateSystem.h
+KeyHandler.o: ../../transform/MathCoordinateSystem.h
+KeyHandler.o: ../../transform/OpenGLCoordinateSystem.h
+KeyHandler.o: ../../transform/Rotate.h ../../transform/Scale.h
+KeyHandler.o: ../../transform/Stretch.h ../../transform/Transform.h
+KeyHandler.o: ../../transform/Transformable.h
+KeyHandler.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+KeyHandler.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+KeyHandler.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+KeyHandler.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+KeyHandler.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
+KeyHandler.o: /usr/include/wchar.h /usr/include/stdarg.h
+KeyHandler.o: /usr/include/_wctype.h /usr/include/ctype.h
+KeyHandler.o: /usr/include/runetype.h
 PrintMousePosition.o: PrintMousePosition.h ../../xor.h
 PrintMousePosition.o: ../../core/Controller.h /usr/include/stdlib.h
 PrintMousePosition.o: /usr/include/sys/cdefs.h /usr/include/_types.h
@@ -271,392 +661,3 @@ PrintMousePosition.o: ../../util/GraphicsConversionUtility.h
 PrintMousePosition.o: ../../util/xmlParser.h /usr/include/wchar.h
 PrintMousePosition.o: /usr/include/stdarg.h /usr/include/_wctype.h
 PrintMousePosition.o: /usr/include/ctype.h /usr/include/runetype.h
-HelloWorld.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
-HelloWorld.o: /usr/include/sys/cdefs.h /usr/include/_types.h
-HelloWorld.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-HelloWorld.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-HelloWorld.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-HelloWorld.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
-HelloWorld.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-HelloWorld.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-HelloWorld.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-HelloWorld.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-HelloWorld.o: /usr/include/machine/types.h /usr/include/ppc/types.h
-HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
-HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
-HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
-HelloWorld.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-HelloWorld.o: /usr/include/stdio.h ../../../include/SDL_timer.h
-HelloWorld.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-HelloWorld.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-HelloWorld.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-HelloWorld.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-HelloWorld.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-HelloWorld.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-HelloWorld.o: ../../../include/SDL_version.h
-HelloWorld.o: ../../event/EventHandlerFactory.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
-HelloWorld.o: ../../event/keyboard/KeyboardListener.h
-HelloWorld.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
-HelloWorld.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
-HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
-HelloWorld.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
-HelloWorld.o: ../../event/mouse/MouseListener.h
-HelloWorld.o: ../../event/mouse/MouseEvent.h
-HelloWorld.o: ../../event/mouse/MouseEventFactory.h
-HelloWorld.o: ../../event/mouse/MouseButtonDown.h
-HelloWorld.o: ../../event/mouse/MouseClickEvent.h
-HelloWorld.o: ../../event/mouse/MouseButtonUp.h
-HelloWorld.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
-HelloWorld.o: ../../event/timer/TimerListener.h ../../event/reshape/Reshape.h
-HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
-HelloWorld.o: ../../event/reshape/ReshapeEvent.h
-HelloWorld.o: ../../event/reshape/ReshapeListener.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-HelloWorld.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
-HelloWorld.o: ../../core/World.h ../../shape/Object3D.h
-HelloWorld.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-HelloWorld.o: /usr/include/stddef.h ../../transform/Transform.h
-HelloWorld.o: ../../transform/Scale.h ../../geometry/Vector3D.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../interpolation/InterpolationListener.h
-HelloWorld.o: ../../interpolation/Interpolator.h
-HelloWorld.o: ../../interpolation/InterpolatorFactory.h
-HelloWorld.o: ../../interpolation/LinearInterpolator.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-HelloWorld.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../shape/Point3D.h ../../paint/Paint.h
-HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
-HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
-HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../core/Viewer.h ../../paint/Color.h
-HelloWorld.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
-HelloWorld.o: ../../transform/CoordinateSystemFactory.h
-HelloWorld.o: ../../transform/CoordinateSystem.h
-HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
-HelloWorld.o: ../../transform/MacCoordinateSystem.h
-HelloWorld.o: ../../transform/MathCoordinateSystem.h
-HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
-HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
-HelloWorld.o: ../../event/timer/TimerListener.h
-HelloWorld.o: ../../event/reshape/ReshapeListener.h
-HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
-HelloWorld.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-HelloWorld.o: ../../core/XavierConfiguration.h
-HelloWorld.o: ../../event/EventHandlerFactory.h
-HelloWorld.o: ../../event/FullEventHandlerFactory.h
-HelloWorld.o: ../../event/EventHandlerFactory.h
-HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h
-HelloWorld.o: ../../event/reshape/Reshape.h
-HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
-HelloWorld.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
-HelloWorld.o: ../../multicast/Multicast.h /usr/include/sys/types.h
-HelloWorld.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-HelloWorld.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
-HelloWorld.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
-HelloWorld.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
-HelloWorld.o: /usr/include/limits.h /usr/include/machine/limits.h
-HelloWorld.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
-HelloWorld.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-HelloWorld.o: /usr/include/sys/select.h /usr/include/signal.h
-HelloWorld.o: /usr/include/sys/time.h /usr/include/time.h
-HelloWorld.o: /usr/include/machine/_limits.h
-HelloWorld.o: ../../multicast/MulticastSocketPool.h
-HelloWorld.o: ../../multicast/MulticastSocket.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h
-HelloWorld.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
-HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
-HelloWorld.o: ../../event/FullEventProxyFactory.h
-HelloWorld.o: ../../event/keyboard/KeyboardStub.h
-HelloWorld.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
-HelloWorld.o: ../../event/InputEventHandlerFactory.h
-HelloWorld.o: ../../event/InputEventProxyFactory.h
-HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../core/Controller.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../core/Controller.h ../../core/World.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h
-HelloWorld.o: ../../event/keyboard/KeyboardListener.h
-HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
-HelloWorld.o: ../../event/keyboard/KeyboardStub.h
-HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
-HelloWorld.o: ../../event/keyboard/KeyEvent.h
-HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
-HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
-HelloWorld.o: ../../event/keyboard/RegularKeyEvent.h
-HelloWorld.o: ../../event/keyboard/SpecialKeyEvent.h
-HelloWorld.o: ../../event/mouse/DefaultMouseListener.h
-HelloWorld.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
-HelloWorld.o: ../../event/mouse/MouseButtonDown.h
-HelloWorld.o: ../../event/mouse/MouseButtonUp.h
-HelloWorld.o: ../../event/mouse/MouseClickEvent.h
-HelloWorld.o: ../../event/mouse/MouseEvent.h
-HelloWorld.o: ../../event/mouse/MouseEventFactory.h
-HelloWorld.o: ../../event/mouse/MouseListener.h
-HelloWorld.o: ../../event/mouse/MouseMotionEvent.h
-HelloWorld.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
-HelloWorld.o: ../../event/reshape/Reshape.h
-HelloWorld.o: ../../event/reshape/ReshapeEvent.h
-HelloWorld.o: ../../event/reshape/ReshapeListener.h
-HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h ../../event/timer/Timer.h
-HelloWorld.o: ../../event/timer/TimerListener.h
-HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
-HelloWorld.o: ../../geometry/CylindricalVolume.h
-HelloWorld.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
-HelloWorld.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
-HelloWorld.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
-HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../interpolation/InterpolationListener.h
-HelloWorld.o: ../../interpolation/Interpolator.h
-HelloWorld.o: ../../interpolation/InterpolatorFactory.h
-HelloWorld.o: ../../interpolation/LinearInterpolator.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../model/MilkshapeModel.h ../../model/Model.h
-HelloWorld.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-HelloWorld.o: ../../model/Model.h ../../model/ModelFactory.h
-HelloWorld.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
-HelloWorld.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
-HelloWorld.o: ../../multicast/MulticastSocket.h
-HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
-HelloWorld.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-HelloWorld.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
-HelloWorld.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
-HelloWorld.o: ../../shape/CollisionRenderable.h
-HelloWorld.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-HelloWorld.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HelloWorld.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
-HelloWorld.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
-HelloWorld.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
-HelloWorld.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-HelloWorld.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
-HelloWorld.o: ../../shape/Triangle3D.h
-HelloWorld.o: ../../terrain/FunctionHeightFieldStrategy.h
-HelloWorld.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-HelloWorld.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
-HelloWorld.o: ../../terrain/HeightFieldFactory.h
-HelloWorld.o: ../../terrain/HeightFieldStrategy.h
-HelloWorld.o: ../../terrain/ImageHeightFieldStrategy.h
-HelloWorld.o: ../../terrain/MatrixHeightFieldStrategy.h
-HelloWorld.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
-HelloWorld.o: ../../texture/TextureFactory.h
-HelloWorld.o: ../../transform/CoordinateSystem.h
-HelloWorld.o: ../../transform/CoordinateSystemFactory.h
-HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
-HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
-HelloWorld.o: ../../transform/MacCoordinateSystem.h
-HelloWorld.o: ../../transform/MathCoordinateSystem.h
-HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
-HelloWorld.o: ../../transform/Rotate.h ../../transform/Scale.h
-HelloWorld.o: ../../transform/Stretch.h ../../transform/Transform.h
-HelloWorld.o: ../../transform/Transformable.h
-HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
-HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
-HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-HelloWorld.o: /usr/include/wchar.h /usr/include/stdarg.h
-HelloWorld.o: /usr/include/_wctype.h /usr/include/ctype.h
-HelloWorld.o: /usr/include/runetype.h PrintMousePosition.h KeyHandler.h
-Keyhandler.o: KeyHandler.h ../../xor.h ../../core/Controller.h
-Keyhandler.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
-Keyhandler.o: /usr/include/_types.h /usr/include/sys/_types.h
-Keyhandler.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-Keyhandler.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
-Keyhandler.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
-Keyhandler.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
-Keyhandler.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
-Keyhandler.o: /usr/include/sys/_endian.h /usr/include/stdint.h
-Keyhandler.o: /usr/include/libkern/OSByteOrder.h
-Keyhandler.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-Keyhandler.o: /usr/include/machine/types.h /usr/include/ppc/types.h
-Keyhandler.o: ../../../include/SDL.h ../../../include/SDL_main.h
-Keyhandler.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
-Keyhandler.o: ../../../include/SDL_error.h ../../../include/begin_code.h
-Keyhandler.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-Keyhandler.o: /usr/include/stdio.h ../../../include/SDL_timer.h
-Keyhandler.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-Keyhandler.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-Keyhandler.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-Keyhandler.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-Keyhandler.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-Keyhandler.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-Keyhandler.o: ../../../include/SDL_version.h
-Keyhandler.o: ../../event/EventHandlerFactory.h
-Keyhandler.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
-Keyhandler.o: ../../event/keyboard/KeyboardListener.h
-Keyhandler.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
-Keyhandler.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
-Keyhandler.o: ../../event/keyboard/KeyDownEvent.h
-Keyhandler.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
-Keyhandler.o: ../../event/mouse/MouseListener.h
-Keyhandler.o: ../../event/mouse/MouseEvent.h
-Keyhandler.o: ../../event/mouse/MouseEventFactory.h
-Keyhandler.o: ../../event/mouse/MouseButtonDown.h
-Keyhandler.o: ../../event/mouse/MouseClickEvent.h
-Keyhandler.o: ../../event/mouse/MouseButtonUp.h
-Keyhandler.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
-Keyhandler.o: ../../event/timer/TimerListener.h ../../event/reshape/Reshape.h
-Keyhandler.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
-Keyhandler.o: ../../event/reshape/ReshapeEvent.h
-Keyhandler.o: ../../event/reshape/ReshapeListener.h
-Keyhandler.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-Keyhandler.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
-Keyhandler.o: ../../core/World.h ../../shape/Object3D.h
-Keyhandler.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-Keyhandler.o: /usr/include/stddef.h ../../transform/Transform.h
-Keyhandler.o: ../../transform/Scale.h ../../geometry/Vector3D.h
-Keyhandler.o: ../../interpolation/InterpolationEngine.h
-Keyhandler.o: ../../interpolation/InterpolationListener.h
-Keyhandler.o: ../../interpolation/Interpolator.h
-Keyhandler.o: ../../interpolation/InterpolatorFactory.h
-Keyhandler.o: ../../interpolation/LinearInterpolator.h
-Keyhandler.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-Keyhandler.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-Keyhandler.o: ../../transform/Translate.h ../../transform/Rotate.h
-Keyhandler.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-Keyhandler.o: ../../shape/Point3D.h ../../paint/Paint.h
-Keyhandler.o: ../../texture/Texture.h ../../../include/SDL_image.h
-Keyhandler.o: ../../../include/SDL.h ../../paint/Color.h
-Keyhandler.o: ../../shape/Object3D.h ../../shape/Renderable.h
-Keyhandler.o: ../../core/Viewer.h ../../paint/Color.h
-Keyhandler.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
-Keyhandler.o: ../../transform/CoordinateSystemFactory.h
-Keyhandler.o: ../../transform/CoordinateSystem.h
-Keyhandler.o: ../../transform/OpenGLCoordinateSystem.h
-Keyhandler.o: ../../transform/MacCoordinateSystem.h
-Keyhandler.o: ../../transform/MathCoordinateSystem.h
-Keyhandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
-Keyhandler.o: ../../transform/EngineerCoordinateSystem.h
-Keyhandler.o: ../../event/timer/TimerListener.h
-Keyhandler.o: ../../event/reshape/ReshapeListener.h
-Keyhandler.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
-Keyhandler.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-Keyhandler.o: ../../core/XavierConfiguration.h
-Keyhandler.o: ../../event/EventHandlerFactory.h
-Keyhandler.o: ../../event/FullEventHandlerFactory.h
-Keyhandler.o: ../../event/EventHandlerFactory.h
-Keyhandler.o: ../../event/reshape/ReshapeSkeleton.h
-Keyhandler.o: ../../event/reshape/Reshape.h
-Keyhandler.o: ../../event/keyboard/KeyboardSkeleton.h
-Keyhandler.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
-Keyhandler.o: ../../multicast/Multicast.h /usr/include/sys/types.h
-Keyhandler.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-Keyhandler.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
-Keyhandler.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
-Keyhandler.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
-Keyhandler.o: /usr/include/limits.h /usr/include/machine/limits.h
-Keyhandler.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
-Keyhandler.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-Keyhandler.o: /usr/include/sys/select.h /usr/include/signal.h
-Keyhandler.o: /usr/include/sys/time.h /usr/include/time.h
-Keyhandler.o: /usr/include/machine/_limits.h
-Keyhandler.o: ../../multicast/MulticastSocketPool.h
-Keyhandler.o: ../../multicast/MulticastSocket.h
-Keyhandler.o: ../../event/keyboard/Keyboard.h
-Keyhandler.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
-Keyhandler.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
-Keyhandler.o: ../../event/FullEventProxyFactory.h
-Keyhandler.o: ../../event/keyboard/KeyboardStub.h
-Keyhandler.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
-Keyhandler.o: ../../event/InputEventHandlerFactory.h
-Keyhandler.o: ../../event/InputEventProxyFactory.h
-Keyhandler.o: ../../event/keyboard/DefaultKeyboardListener.h
-Keyhandler.o: ../../interpolation/TimedInterpolation.h
-Keyhandler.o: ../../core/Controller.h
-Keyhandler.o: ../../interpolation/InterpolationEngine.h
-Keyhandler.o: ../../core/Controller.h ../../core/World.h
-Keyhandler.o: ../../event/keyboard/Keyboard.h
-Keyhandler.o: ../../event/keyboard/KeyboardListener.h
-Keyhandler.o: ../../event/keyboard/KeyboardSkeleton.h
-Keyhandler.o: ../../event/keyboard/KeyboardStub.h
-Keyhandler.o: ../../event/keyboard/KeyDownEvent.h
-Keyhandler.o: ../../event/keyboard/KeyEvent.h
-Keyhandler.o: ../../event/keyboard/KeyEventFactory.h
-Keyhandler.o: ../../event/keyboard/KeyUpEvent.h
-Keyhandler.o: ../../event/keyboard/RegularKeyEvent.h
-Keyhandler.o: ../../event/keyboard/SpecialKeyEvent.h
-Keyhandler.o: ../../event/mouse/DefaultMouseListener.h
-Keyhandler.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
-Keyhandler.o: ../../event/mouse/MouseButtonDown.h
-Keyhandler.o: ../../event/mouse/MouseButtonUp.h
-Keyhandler.o: ../../event/mouse/MouseClickEvent.h
-Keyhandler.o: ../../event/mouse/MouseEvent.h
-Keyhandler.o: ../../event/mouse/MouseEventFactory.h
-Keyhandler.o: ../../event/mouse/MouseListener.h
-Keyhandler.o: ../../event/mouse/MouseMotionEvent.h
-Keyhandler.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
-Keyhandler.o: ../../event/reshape/Reshape.h
-Keyhandler.o: ../../event/reshape/ReshapeEvent.h
-Keyhandler.o: ../../event/reshape/ReshapeListener.h
-Keyhandler.o: ../../event/reshape/ReshapeSkeleton.h ../../event/timer/Timer.h
-Keyhandler.o: ../../event/timer/TimerListener.h
-Keyhandler.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
-Keyhandler.o: ../../geometry/CylindricalVolume.h
-Keyhandler.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
-Keyhandler.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-Keyhandler.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
-Keyhandler.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
-Keyhandler.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
-Keyhandler.o: ../../interpolation/ContinuousInterpolation.h
-Keyhandler.o: ../../interpolation/TimedInterpolation.h
-Keyhandler.o: ../../interpolation/InterpolationEngine.h
-Keyhandler.o: ../../interpolation/InterpolationListener.h
-Keyhandler.o: ../../interpolation/Interpolator.h
-Keyhandler.o: ../../interpolation/InterpolatorFactory.h
-Keyhandler.o: ../../interpolation/LinearInterpolator.h
-Keyhandler.o: ../../interpolation/TimedInterpolation.h
-Keyhandler.o: ../../model/MilkshapeModel.h ../../model/Model.h
-Keyhandler.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-Keyhandler.o: ../../model/Model.h ../../model/ModelFactory.h
-Keyhandler.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
-Keyhandler.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
-Keyhandler.o: ../../multicast/MulticastSocket.h
-Keyhandler.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
-Keyhandler.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-Keyhandler.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
-Keyhandler.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
-Keyhandler.o: ../../shape/CollisionRenderable.h
-Keyhandler.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-Keyhandler.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-Keyhandler.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-Keyhandler.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
-Keyhandler.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
-Keyhandler.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
-Keyhandler.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-Keyhandler.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
-Keyhandler.o: ../../shape/Triangle3D.h
-Keyhandler.o: ../../terrain/FunctionHeightFieldStrategy.h
-Keyhandler.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-Keyhandler.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
-Keyhandler.o: ../../terrain/HeightFieldFactory.h
-Keyhandler.o: ../../terrain/HeightFieldStrategy.h
-Keyhandler.o: ../../terrain/ImageHeightFieldStrategy.h
-Keyhandler.o: ../../terrain/MatrixHeightFieldStrategy.h
-Keyhandler.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
-Keyhandler.o: ../../texture/TextureFactory.h
-Keyhandler.o: ../../transform/CoordinateSystem.h
-Keyhandler.o: ../../transform/CoordinateSystemFactory.h
-Keyhandler.o: ../../transform/EngineerCoordinateSystem.h
-Keyhandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
-Keyhandler.o: ../../transform/MacCoordinateSystem.h
-Keyhandler.o: ../../transform/MathCoordinateSystem.h
-Keyhandler.o: ../../transform/OpenGLCoordinateSystem.h
-Keyhandler.o: ../../transform/Rotate.h ../../transform/Scale.h
-Keyhandler.o: ../../transform/Stretch.h ../../transform/Transform.h
-Keyhandler.o: ../../transform/Transformable.h
-Keyhandler.o: ../../transform/TransformFactory.h ../../transform/Translate.h
-Keyhandler.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
-Keyhandler.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-Keyhandler.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-Keyhandler.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-Keyhandler.o: /usr/include/wchar.h /usr/include/stdarg.h
-Keyhandler.o: /usr/include/_wctype.h /usr/include/ctype.h
-Keyhandler.o: /usr/include/runetype.h

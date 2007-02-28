@@ -32,6 +32,7 @@ public:
 	 * it.
 	 */
 	NormalPolygon3D(Vector3D * center, float radius, int numSides);
+	~NormalPolygon3D();
 
 
 	/**

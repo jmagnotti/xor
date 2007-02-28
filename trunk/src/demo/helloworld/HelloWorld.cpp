@@ -9,9 +9,6 @@ using namespace XOR;
  */
 int main(int argc, char ** argv)
 {
-    CoordinateSystemFactory::SetDefaultCoordinateSystem(
-           CoordinateSystemFactory::OPENGL_COORDINATE_SYSTEM);
-
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
     // controller object (note: Singleton Pattern).

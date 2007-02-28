@@ -124,10 +124,8 @@ void Viewer::handleReshape(ReshapeEvent * event)
     glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
 
     glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
     glLoadIdentity();
-
-
+/*
 	// METHOD #1 : tiled display wall adjustment
 	if (_wallMode == WALL_MODE_STANDARD) {
 		double moffset = 0.025;
@@ -161,9 +159,11 @@ void Viewer::handleReshape(ReshapeEvent * event)
 				(double)_size->getWidth()/ (double)_size->getHeight(), 
 				_nearClippingPlane, _farClippingPlane);
 	}
+*/
+    gluPerspective(45.0f, (double)_size->getWidth()/
+            (double)_size->getHeight(), 0.1f, 100.0f);
 
     glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
     glLoadIdentity();
 }
 
@@ -175,11 +175,11 @@ void Viewer::setupSDLVideo()
 {
     // at some point we need to have variables to hold things like current video
     // flags, etc.
-    if (_size == NULL)
-        cout << "woops" << endl;
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
-                     
+    
+    forceReshape();
+
     setWindowTitle(NULL);
 }
 
@@ -336,11 +336,15 @@ void Viewer::setBackground(const float color[3])
  */
 void Viewer::forceReshape()
 {
+    handleReshape(ReshapeEvent::ConstructInstance(_size));
+
+    /*
     SDL_Event reshape = { SDL_VIDEORESIZE };
     reshape.resize.w = (int) _size->getX();
     reshape.resize.h = (int) _size->getY();
 
     SDL_PushEvent(&reshape);
+    */
 }
 
 

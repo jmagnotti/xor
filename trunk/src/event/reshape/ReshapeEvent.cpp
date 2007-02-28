@@ -31,8 +31,10 @@ ReshapeEvent * ReshapeEvent::ConstructInstance(Dimension2D * size)
 {
     if (_reshapeEvent == NULL)
         _reshapeEvent = new ReshapeEvent(size);
-    else
+    else {
         _reshapeEvent->_size->clone(size);
+        delete size;
+    }
 
     return _reshapeEvent;
 }

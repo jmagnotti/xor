@@ -4,15 +4,24 @@
 namespace XOR {
 
 /*
+ * Destructor
+ */
+NormalPolygon3D::~NormalPolygon3D()
+{
+    _vertices.clear();
+}
+
+
+/*
  * Explicit Constructor
  */
 NormalPolygon3D::NormalPolygon3D(Vector3D * center, float radius, int
 		numSides){
     
     float x, y, z;
-    GraphicsConversionUtility * gcu;
+    GraphicsConversionUtility * gcu = 
+        GraphicsConversionUtility::GetInstance();
 
-    gcu = GraphicsConversionUtility::GetInstance();
     _sides = numSides;
 
 	if 		(_sides < 3) 	_sides = 3;

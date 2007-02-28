@@ -125,14 +125,12 @@ src/core/Controller.o: /usr/include/math.h
 src/core/Controller.o: /usr/include/architecture/ppc/math.h
 src/core/Controller.o: src/transform/Stretch.h src/transform/Translate.h
 src/core/Controller.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/core/Controller.o: src/transform/FocusUpdater.h
-src/core/Controller.o: src/transform/Transformable.h
-src/core/Controller.o: src/event/timer/TimerListener.h src/shape/Renderable.h
-src/core/Controller.o: src/shape/Point3D.h src/paint/Paint.h
-src/core/Controller.o: src/texture/Texture.h include/SDL_image.h
-src/core/Controller.o: include/SDL.h src/paint/Color.h src/shape/Object3D.h
-src/core/Controller.o: src/shape/Renderable.h src/core/Viewer.h
-src/core/Controller.o: src/paint/Color.h src/geometry/Dimension2D.h
+src/core/Controller.o: src/shape/Renderable.h src/shape/Point3D.h
+src/core/Controller.o: src/paint/Paint.h src/texture/Texture.h
+src/core/Controller.o: include/SDL_image.h include/SDL.h src/paint/Color.h
+src/core/Controller.o: src/shape/Object3D.h src/shape/Renderable.h
+src/core/Controller.o: src/core/Viewer.h src/paint/Color.h
+src/core/Controller.o: src/geometry/Dimension2D.h
 src/core/Controller.o: src/transform/CoordinateSystem.h
 src/core/Controller.o: src/transform/CoordinateSystemFactory.h
 src/core/Controller.o: src/transform/CoordinateSystem.h
@@ -141,6 +139,7 @@ src/core/Controller.o: src/transform/MacCoordinateSystem.h
 src/core/Controller.o: src/transform/MathCoordinateSystem.h
 src/core/Controller.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/core/Controller.o: src/transform/EngineerCoordinateSystem.h
+src/core/Controller.o: src/event/timer/TimerListener.h
 src/core/Controller.o: src/event/reshape/ReshapeListener.h
 src/core/Controller.o: src/event/reshape/ReshapeEvent.h
 src/core/DebugViewer.o: src/core/DebugViewer.h src/core/Viewer.h
@@ -185,11 +184,8 @@ src/core/DebugViewer.o: /usr/include/math.h
 src/core/DebugViewer.o: /usr/include/architecture/ppc/math.h
 src/core/DebugViewer.o: src/transform/Stretch.h src/transform/Translate.h
 src/core/DebugViewer.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/core/DebugViewer.o: src/geometry/Dimension.h src/transform/FocusUpdater.h
-src/core/DebugViewer.o: src/transform/Transformable.h
-src/core/DebugViewer.o: src/event/timer/TimerListener.h
-src/core/DebugViewer.o: src/shape/Renderable.h src/paint/Color.h
-src/core/DebugViewer.o: src/geometry/Dimension2D.h
+src/core/DebugViewer.o: src/geometry/Dimension.h src/shape/Renderable.h
+src/core/DebugViewer.o: src/paint/Color.h src/geometry/Dimension2D.h
 src/core/DebugViewer.o: src/transform/CoordinateSystem.h
 src/core/DebugViewer.o: src/transform/CoordinateSystemFactory.h
 src/core/DebugViewer.o: src/transform/CoordinateSystem.h
@@ -198,6 +194,7 @@ src/core/DebugViewer.o: src/transform/MacCoordinateSystem.h
 src/core/DebugViewer.o: src/transform/MathCoordinateSystem.h
 src/core/DebugViewer.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/core/DebugViewer.o: src/transform/EngineerCoordinateSystem.h
+src/core/DebugViewer.o: src/event/timer/TimerListener.h
 src/core/DebugViewer.o: src/event/reshape/ReshapeListener.h
 src/core/DebugViewer.o: src/event/reshape/ReshapeEvent.h
 src/core/DebugViewer.o: src/core/Controller.h src/event/EventHandlerFactory.h
@@ -263,9 +260,7 @@ src/core/Viewer.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
 src/core/Viewer.o: /usr/include/architecture/ppc/math.h
 src/core/Viewer.o: src/transform/Stretch.h src/transform/Translate.h
 src/core/Viewer.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/core/Viewer.o: src/geometry/Dimension.h src/transform/FocusUpdater.h
-src/core/Viewer.o: src/transform/Transformable.h
-src/core/Viewer.o: src/event/timer/TimerListener.h src/shape/Renderable.h
+src/core/Viewer.o: src/geometry/Dimension.h src/shape/Renderable.h
 src/core/Viewer.o: src/paint/Color.h src/geometry/Dimension2D.h
 src/core/Viewer.o: src/transform/CoordinateSystem.h
 src/core/Viewer.o: src/transform/CoordinateSystemFactory.h
@@ -275,6 +270,7 @@ src/core/Viewer.o: src/transform/MacCoordinateSystem.h
 src/core/Viewer.o: src/transform/MathCoordinateSystem.h
 src/core/Viewer.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/core/Viewer.o: src/transform/EngineerCoordinateSystem.h
+src/core/Viewer.o: src/event/timer/TimerListener.h
 src/core/Viewer.o: src/event/reshape/ReshapeListener.h
 src/core/Viewer.o: src/event/reshape/ReshapeEvent.h
 src/core/World.o: src/core/World.h /usr/include/stdlib.h
@@ -302,9 +298,7 @@ src/core/World.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
 src/core/World.o: /usr/include/architecture/ppc/math.h
 src/core/World.o: src/transform/Stretch.h src/transform/Translate.h
 src/core/World.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/core/World.o: src/geometry/Dimension.h src/transform/FocusUpdater.h
-src/core/World.o: src/transform/Transformable.h
-src/core/World.o: src/event/timer/TimerListener.h src/shape/Renderable.h
+src/core/World.o: src/geometry/Dimension.h src/shape/Renderable.h
 src/event/FullEventHandlerFactory.o: src/event/FullEventHandlerFactory.h
 src/event/FullEventHandlerFactory.o: src/event/EventHandlerFactory.h
 src/event/FullEventHandlerFactory.o: src/event/keyboard/Keyboard.h
@@ -729,8 +723,6 @@ src/event/keyboard/DefaultKeyboardListener.o: src/transform/Stretch.h
 src/event/keyboard/DefaultKeyboardListener.o: src/transform/Translate.h
 src/event/keyboard/DefaultKeyboardListener.o: src/transform/Rotate.h
 src/event/keyboard/DefaultKeyboardListener.o: src/geometry/Dimension3D.h
-src/event/keyboard/DefaultKeyboardListener.o: src/transform/FocusUpdater.h
-src/event/keyboard/DefaultKeyboardListener.o: src/transform/Transformable.h
 src/event/keyboard/DefaultKeyboardListener.o: src/shape/Renderable.h
 src/event/keyboard/DefaultKeyboardListener.o: src/shape/Point3D.h
 src/event/keyboard/DefaultKeyboardListener.o: src/paint/Paint.h
@@ -1034,8 +1026,6 @@ src/event/mouse/DefaultMouseListener.o: src/transform/Stretch.h
 src/event/mouse/DefaultMouseListener.o: src/transform/Translate.h
 src/event/mouse/DefaultMouseListener.o: src/transform/Rotate.h
 src/event/mouse/DefaultMouseListener.o: src/geometry/Dimension3D.h
-src/event/mouse/DefaultMouseListener.o: src/transform/FocusUpdater.h
-src/event/mouse/DefaultMouseListener.o: src/transform/Transformable.h
 src/event/mouse/DefaultMouseListener.o: src/shape/Renderable.h
 src/event/mouse/DefaultMouseListener.o: src/shape/Point3D.h src/paint/Paint.h
 src/event/mouse/DefaultMouseListener.o: src/texture/Texture.h
@@ -1369,9 +1359,6 @@ src/interpolation/CameraRoller.o: src/transform/Stretch.h
 src/interpolation/CameraRoller.o: src/transform/Translate.h
 src/interpolation/CameraRoller.o: src/transform/Rotate.h
 src/interpolation/CameraRoller.o: src/geometry/Dimension3D.h
-src/interpolation/CameraRoller.o: src/transform/FocusUpdater.h
-src/interpolation/CameraRoller.o: src/transform/Transformable.h
-src/interpolation/CameraRoller.o: src/event/timer/TimerListener.h
 src/interpolation/CameraRoller.o: src/shape/Renderable.h src/shape/Point3D.h
 src/interpolation/CameraRoller.o: src/paint/Paint.h src/texture/Texture.h
 src/interpolation/CameraRoller.o: include/SDL_image.h include/SDL.h
@@ -1387,6 +1374,7 @@ src/interpolation/CameraRoller.o: src/transform/MacCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/MathCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/EngineerCoordinateSystem.h
+src/interpolation/CameraRoller.o: src/event/timer/TimerListener.h
 src/interpolation/CameraRoller.o: src/event/reshape/ReshapeListener.h
 src/interpolation/CameraRoller.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/InterpolationEngine.o: src/interpolation/InterpolationEngine.h
@@ -1510,8 +1498,6 @@ src/interpolation/TimedInterpolation.o: src/transform/Stretch.h
 src/interpolation/TimedInterpolation.o: src/transform/Translate.h
 src/interpolation/TimedInterpolation.o: src/transform/Rotate.h
 src/interpolation/TimedInterpolation.o: src/geometry/Dimension3D.h
-src/interpolation/TimedInterpolation.o: src/transform/FocusUpdater.h
-src/interpolation/TimedInterpolation.o: src/transform/Transformable.h
 src/interpolation/TimedInterpolation.o: src/shape/Renderable.h
 src/interpolation/TimedInterpolation.o: src/shape/Point3D.h src/paint/Paint.h
 src/interpolation/TimedInterpolation.o: src/texture/Texture.h
@@ -1566,24 +1552,20 @@ src/model/MilkshapeModel.o: /usr/include/math.h
 src/model/MilkshapeModel.o: /usr/include/architecture/ppc/math.h
 src/model/MilkshapeModel.o: src/transform/Stretch.h src/transform/Translate.h
 src/model/MilkshapeModel.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/model/MilkshapeModel.o: src/geometry/Dimension.h
-src/model/MilkshapeModel.o: src/transform/FocusUpdater.h
-src/model/MilkshapeModel.o: src/transform/Transformable.h
-src/model/MilkshapeModel.o: src/event/timer/TimerListener.h
-src/model/MilkshapeModel.o: src/shape/Renderable.h src/texture/Texture.h
-src/model/MilkshapeModel.o: include/SDL.h include/SDL_main.h
-src/model/MilkshapeModel.o: include/SDL_types.h include/SDL_getenv.h
-src/model/MilkshapeModel.o: include/SDL_error.h include/begin_code.h
-src/model/MilkshapeModel.o: include/close_code.h include/SDL_rwops.h
-src/model/MilkshapeModel.o: include/SDL_timer.h include/SDL_audio.h
-src/model/MilkshapeModel.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/model/MilkshapeModel.o: include/SDL_joystick.h include/SDL_events.h
-src/model/MilkshapeModel.o: include/SDL_active.h include/SDL_keyboard.h
-src/model/MilkshapeModel.o: include/SDL_keysym.h include/SDL_mouse.h
-src/model/MilkshapeModel.o: include/SDL_video.h include/SDL_mutex.h
-src/model/MilkshapeModel.o: include/SDL_quit.h include/SDL_version.h
-src/model/MilkshapeModel.o: include/SDL_image.h include/SDL.h
-src/model/MilkshapeModel.o: src/texture/TextureFactory.h
+src/model/MilkshapeModel.o: src/geometry/Dimension.h src/shape/Renderable.h
+src/model/MilkshapeModel.o: src/texture/Texture.h include/SDL.h
+src/model/MilkshapeModel.o: include/SDL_main.h include/SDL_types.h
+src/model/MilkshapeModel.o: include/SDL_getenv.h include/SDL_error.h
+src/model/MilkshapeModel.o: include/begin_code.h include/close_code.h
+src/model/MilkshapeModel.o: include/SDL_rwops.h include/SDL_timer.h
+src/model/MilkshapeModel.o: include/SDL_audio.h include/SDL_byteorder.h
+src/model/MilkshapeModel.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/model/MilkshapeModel.o: include/SDL_events.h include/SDL_active.h
+src/model/MilkshapeModel.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/model/MilkshapeModel.o: include/SDL_mouse.h include/SDL_video.h
+src/model/MilkshapeModel.o: include/SDL_mutex.h include/SDL_quit.h
+src/model/MilkshapeModel.o: include/SDL_version.h include/SDL_image.h
+src/model/MilkshapeModel.o: include/SDL.h src/texture/TextureFactory.h
 src/model/MilkshapeModel.o: src/event/reshape/ReshapeListener.h
 src/model/MilkshapeModel.o: src/event/reshape/ReshapeEvent.h
 src/model/MilkshapeModel.o: src/core/Controller.h
@@ -1624,6 +1606,7 @@ src/model/MilkshapeModel.o: src/transform/MacCoordinateSystem.h
 src/model/MilkshapeModel.o: src/transform/MathCoordinateSystem.h
 src/model/MilkshapeModel.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/model/MilkshapeModel.o: src/transform/EngineerCoordinateSystem.h
+src/model/MilkshapeModel.o: src/event/timer/TimerListener.h
 src/model/MilkshapeModel.o: src/texture/Texture.h
 src/model/Model.o: /usr/include/float.h src/model/Model.h
 src/model/Model.o: src/shape/Object3D.h src/transform/Transformable.h
@@ -1650,9 +1633,7 @@ src/model/Model.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
 src/model/Model.o: /usr/include/architecture/ppc/math.h
 src/model/Model.o: src/transform/Stretch.h src/transform/Translate.h
 src/model/Model.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/model/Model.o: src/geometry/Dimension.h src/transform/FocusUpdater.h
-src/model/Model.o: src/transform/Transformable.h
-src/model/Model.o: src/event/timer/TimerListener.h src/shape/Renderable.h
+src/model/Model.o: src/geometry/Dimension.h src/shape/Renderable.h
 src/model/Model.o: src/texture/Texture.h include/SDL.h include/SDL_main.h
 src/model/Model.o: include/SDL_types.h include/SDL_getenv.h
 src/model/Model.o: include/SDL_error.h include/begin_code.h
@@ -1699,7 +1680,7 @@ src/model/Model.o: src/transform/MacCoordinateSystem.h
 src/model/Model.o: src/transform/MathCoordinateSystem.h
 src/model/Model.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/model/Model.o: src/transform/EngineerCoordinateSystem.h
-src/model/Model.o: src/texture/Texture.h
+src/model/Model.o: src/event/timer/TimerListener.h src/texture/Texture.h
 src/model/ModelFactory.o: src/model/ModelFactory.h src/model/Model.h
 src/model/ModelFactory.o: src/shape/Object3D.h src/transform/Transformable.h
 src/model/ModelFactory.o: include/SDL_opengl.h /usr/include/stddef.h
@@ -1731,24 +1712,20 @@ src/model/ModelFactory.o: /usr/include/math.h
 src/model/ModelFactory.o: /usr/include/architecture/ppc/math.h
 src/model/ModelFactory.o: src/transform/Stretch.h src/transform/Translate.h
 src/model/ModelFactory.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/model/ModelFactory.o: src/geometry/Dimension.h
-src/model/ModelFactory.o: src/transform/FocusUpdater.h
-src/model/ModelFactory.o: src/transform/Transformable.h
-src/model/ModelFactory.o: src/event/timer/TimerListener.h
-src/model/ModelFactory.o: src/shape/Renderable.h src/texture/Texture.h
-src/model/ModelFactory.o: include/SDL.h include/SDL_main.h
-src/model/ModelFactory.o: include/SDL_types.h include/SDL_getenv.h
-src/model/ModelFactory.o: include/SDL_error.h include/begin_code.h
-src/model/ModelFactory.o: include/close_code.h include/SDL_rwops.h
-src/model/ModelFactory.o: include/SDL_timer.h include/SDL_audio.h
-src/model/ModelFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/model/ModelFactory.o: include/SDL_joystick.h include/SDL_events.h
-src/model/ModelFactory.o: include/SDL_active.h include/SDL_keyboard.h
-src/model/ModelFactory.o: include/SDL_keysym.h include/SDL_mouse.h
-src/model/ModelFactory.o: include/SDL_video.h include/SDL_mutex.h
-src/model/ModelFactory.o: include/SDL_quit.h include/SDL_version.h
-src/model/ModelFactory.o: include/SDL_image.h include/SDL.h
-src/model/ModelFactory.o: src/texture/TextureFactory.h
+src/model/ModelFactory.o: src/geometry/Dimension.h src/shape/Renderable.h
+src/model/ModelFactory.o: src/texture/Texture.h include/SDL.h
+src/model/ModelFactory.o: include/SDL_main.h include/SDL_types.h
+src/model/ModelFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/model/ModelFactory.o: include/begin_code.h include/close_code.h
+src/model/ModelFactory.o: include/SDL_rwops.h include/SDL_timer.h
+src/model/ModelFactory.o: include/SDL_audio.h include/SDL_byteorder.h
+src/model/ModelFactory.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/model/ModelFactory.o: include/SDL_events.h include/SDL_active.h
+src/model/ModelFactory.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/model/ModelFactory.o: include/SDL_mouse.h include/SDL_video.h
+src/model/ModelFactory.o: include/SDL_mutex.h include/SDL_quit.h
+src/model/ModelFactory.o: include/SDL_version.h include/SDL_image.h
+src/model/ModelFactory.o: include/SDL.h src/texture/TextureFactory.h
 src/model/ModelFactory.o: src/event/reshape/ReshapeListener.h
 src/model/ModelFactory.o: src/event/reshape/ReshapeEvent.h
 src/model/ModelFactory.o: src/core/Controller.h
@@ -1789,6 +1766,7 @@ src/model/ModelFactory.o: src/transform/MacCoordinateSystem.h
 src/model/ModelFactory.o: src/transform/MathCoordinateSystem.h
 src/model/ModelFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/model/ModelFactory.o: src/transform/EngineerCoordinateSystem.h
+src/model/ModelFactory.o: src/event/timer/TimerListener.h
 src/model/ModelFactory.o: src/texture/Texture.h src/model/MilkshapeModel.h
 src/multicast/mcsend.o: src/multicast/mcsend.h src/multicast/Multicast.h
 src/multicast/mcsend.o: /usr/include/sys/types.h
@@ -2152,9 +2130,7 @@ src/shape/String2D.o: src/util/GraphicsConversionUtility.h
 src/shape/String2D.o: /usr/include/math.h
 src/shape/String2D.o: /usr/include/architecture/ppc/math.h
 src/shape/String2D.o: src/transform/Stretch.h src/transform/Translate.h
-src/shape/String2D.o: src/transform/Rotate.h src/transform/FocusUpdater.h
-src/shape/String2D.o: src/transform/Transformable.h
-src/shape/String2D.o: src/event/timer/TimerListener.h src/shape/Point3D.h
+src/shape/String2D.o: src/transform/Rotate.h src/shape/Point3D.h
 src/shape/String2D.o: src/shape/Object3D.h src/shape/Renderable.h
 src/shape/String2D.o: src/core/Viewer.h src/paint/Color.h
 src/shape/String2D.o: src/transform/CoordinateSystem.h
@@ -2165,6 +2141,7 @@ src/shape/String2D.o: src/transform/MacCoordinateSystem.h
 src/shape/String2D.o: src/transform/MathCoordinateSystem.h
 src/shape/String2D.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/shape/String2D.o: src/transform/EngineerCoordinateSystem.h
+src/shape/String2D.o: src/event/timer/TimerListener.h
 src/shape/String2D.o: src/event/reshape/ReshapeListener.h
 src/shape/String2D.o: src/event/reshape/ReshapeEvent.h src/core/Viewer.h
 src/shape/Triangle3D.o: src/shape/Triangle3D.h /usr/include/math.h
@@ -2234,9 +2211,6 @@ src/terrain/FunctionHeightFieldStrategy.o: src/transform/Translate.h
 src/terrain/FunctionHeightFieldStrategy.o: src/transform/Rotate.h
 src/terrain/FunctionHeightFieldStrategy.o: src/geometry/Dimension3D.h
 src/terrain/FunctionHeightFieldStrategy.o: src/geometry/Dimension.h
-src/terrain/FunctionHeightFieldStrategy.o: src/transform/FocusUpdater.h
-src/terrain/FunctionHeightFieldStrategy.o: src/transform/Transformable.h
-src/terrain/FunctionHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/FunctionHeightFieldStrategy.o: src/shape/Renderable.h
 src/terrain/FunctionHeightFieldStrategy.o: src/shape/Quadrilateral3D.h
 src/terrain/FunctionHeightFieldStrategy.o: /usr/include/string.h
@@ -2311,6 +2285,7 @@ src/terrain/FunctionHeightFieldStrategy.o: src/transform/MacCoordinateSystem.h
 src/terrain/FunctionHeightFieldStrategy.o: src/transform/MathCoordinateSystem.h
 src/terrain/FunctionHeightFieldStrategy.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/FunctionHeightFieldStrategy.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/FunctionHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/FunctionHeightFieldStrategy.o: src/texture/Texture.h
 src/terrain/HeightField.o: src/terrain/HeightField.h src/shape/Object3D.h
 src/terrain/HeightField.o: src/transform/Transformable.h include/SDL_opengl.h
@@ -2342,26 +2317,23 @@ src/terrain/HeightField.o: /usr/include/math.h
 src/terrain/HeightField.o: /usr/include/architecture/ppc/math.h
 src/terrain/HeightField.o: src/transform/Stretch.h src/transform/Translate.h
 src/terrain/HeightField.o: src/transform/Rotate.h src/geometry/Dimension3D.h
-src/terrain/HeightField.o: src/geometry/Dimension.h
-src/terrain/HeightField.o: src/transform/FocusUpdater.h
-src/terrain/HeightField.o: src/transform/Transformable.h
-src/terrain/HeightField.o: src/event/timer/TimerListener.h
-src/terrain/HeightField.o: src/shape/Renderable.h src/shape/Quadrilateral3D.h
-src/terrain/HeightField.o: /usr/include/string.h src/paint/Paint.h
-src/terrain/HeightField.o: src/texture/Texture.h include/SDL.h
-src/terrain/HeightField.o: include/SDL_main.h include/SDL_types.h
-src/terrain/HeightField.o: include/SDL_getenv.h include/SDL_error.h
-src/terrain/HeightField.o: include/begin_code.h include/close_code.h
-src/terrain/HeightField.o: include/SDL_rwops.h include/SDL_timer.h
-src/terrain/HeightField.o: include/SDL_audio.h include/SDL_byteorder.h
-src/terrain/HeightField.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/terrain/HeightField.o: include/SDL_events.h include/SDL_active.h
-src/terrain/HeightField.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/terrain/HeightField.o: include/SDL_mouse.h include/SDL_video.h
-src/terrain/HeightField.o: include/SDL_mutex.h include/SDL_quit.h
-src/terrain/HeightField.o: include/SDL_version.h include/SDL_image.h
-src/terrain/HeightField.o: include/SDL.h src/paint/Color.h
-src/terrain/HeightField.o: src/shape/Object3D.h src/texture/TextureFactory.h
+src/terrain/HeightField.o: src/geometry/Dimension.h src/shape/Renderable.h
+src/terrain/HeightField.o: src/shape/Quadrilateral3D.h /usr/include/string.h
+src/terrain/HeightField.o: src/paint/Paint.h src/texture/Texture.h
+src/terrain/HeightField.o: include/SDL.h include/SDL_main.h
+src/terrain/HeightField.o: include/SDL_types.h include/SDL_getenv.h
+src/terrain/HeightField.o: include/SDL_error.h include/begin_code.h
+src/terrain/HeightField.o: include/close_code.h include/SDL_rwops.h
+src/terrain/HeightField.o: include/SDL_timer.h include/SDL_audio.h
+src/terrain/HeightField.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/terrain/HeightField.o: include/SDL_joystick.h include/SDL_events.h
+src/terrain/HeightField.o: include/SDL_active.h include/SDL_keyboard.h
+src/terrain/HeightField.o: include/SDL_keysym.h include/SDL_mouse.h
+src/terrain/HeightField.o: include/SDL_video.h include/SDL_mutex.h
+src/terrain/HeightField.o: include/SDL_quit.h include/SDL_version.h
+src/terrain/HeightField.o: include/SDL_image.h include/SDL.h
+src/terrain/HeightField.o: src/paint/Color.h src/shape/Object3D.h
+src/terrain/HeightField.o: src/texture/TextureFactory.h
 src/terrain/HeightField.o: src/event/reshape/ReshapeListener.h
 src/terrain/HeightField.o: src/event/reshape/ReshapeEvent.h
 src/terrain/HeightField.o: src/core/Controller.h
@@ -2400,6 +2372,7 @@ src/terrain/HeightField.o: src/transform/MacCoordinateSystem.h
 src/terrain/HeightField.o: src/transform/MathCoordinateSystem.h
 src/terrain/HeightField.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/HeightField.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/HeightField.o: src/event/timer/TimerListener.h
 src/terrain/HeightField.o: src/texture/Texture.h
 src/terrain/HeightFieldFactory.o: src/terrain/HeightFieldFactory.h
 src/terrain/HeightFieldFactory.o: src/terrain/HeightFieldStrategy.h
@@ -2444,9 +2417,6 @@ src/terrain/HeightFieldFactory.o: src/transform/Translate.h
 src/terrain/HeightFieldFactory.o: src/transform/Rotate.h
 src/terrain/HeightFieldFactory.o: src/geometry/Dimension3D.h
 src/terrain/HeightFieldFactory.o: src/geometry/Dimension.h
-src/terrain/HeightFieldFactory.o: src/transform/FocusUpdater.h
-src/terrain/HeightFieldFactory.o: src/transform/Transformable.h
-src/terrain/HeightFieldFactory.o: src/event/timer/TimerListener.h
 src/terrain/HeightFieldFactory.o: src/shape/Renderable.h
 src/terrain/HeightFieldFactory.o: src/shape/Quadrilateral3D.h
 src/terrain/HeightFieldFactory.o: /usr/include/string.h src/paint/Paint.h
@@ -2506,6 +2476,7 @@ src/terrain/HeightFieldFactory.o: src/transform/MacCoordinateSystem.h
 src/terrain/HeightFieldFactory.o: src/transform/MathCoordinateSystem.h
 src/terrain/HeightFieldFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/HeightFieldFactory.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/HeightFieldFactory.o: src/event/timer/TimerListener.h
 src/terrain/HeightFieldFactory.o: src/texture/Texture.h
 src/terrain/ImageHeightFieldStrategy.o: src/terrain/ImageHeightFieldStrategy.h
 src/terrain/ImageHeightFieldStrategy.o: src/terrain/HeightFieldStrategy.h
@@ -2552,9 +2523,6 @@ src/terrain/ImageHeightFieldStrategy.o: src/transform/Translate.h
 src/terrain/ImageHeightFieldStrategy.o: src/transform/Rotate.h
 src/terrain/ImageHeightFieldStrategy.o: src/geometry/Dimension3D.h
 src/terrain/ImageHeightFieldStrategy.o: src/geometry/Dimension.h
-src/terrain/ImageHeightFieldStrategy.o: src/transform/FocusUpdater.h
-src/terrain/ImageHeightFieldStrategy.o: src/transform/Transformable.h
-src/terrain/ImageHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/ImageHeightFieldStrategy.o: src/shape/Renderable.h
 src/terrain/ImageHeightFieldStrategy.o: src/shape/Quadrilateral3D.h
 src/terrain/ImageHeightFieldStrategy.o: /usr/include/string.h
@@ -2627,6 +2595,7 @@ src/terrain/ImageHeightFieldStrategy.o: src/transform/MacCoordinateSystem.h
 src/terrain/ImageHeightFieldStrategy.o: src/transform/MathCoordinateSystem.h
 src/terrain/ImageHeightFieldStrategy.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/ImageHeightFieldStrategy.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/ImageHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/ImageHeightFieldStrategy.o: src/texture/Texture.h
 src/terrain/MatrixHeightFieldStrategy.o: src/terrain/MatrixHeightFieldStrategy.h
 src/terrain/MatrixHeightFieldStrategy.o: src/terrain/HeightFieldStrategy.h
@@ -2673,9 +2642,6 @@ src/terrain/MatrixHeightFieldStrategy.o: src/transform/Translate.h
 src/terrain/MatrixHeightFieldStrategy.o: src/transform/Rotate.h
 src/terrain/MatrixHeightFieldStrategy.o: src/geometry/Dimension3D.h
 src/terrain/MatrixHeightFieldStrategy.o: src/geometry/Dimension.h
-src/terrain/MatrixHeightFieldStrategy.o: src/transform/FocusUpdater.h
-src/terrain/MatrixHeightFieldStrategy.o: src/transform/Transformable.h
-src/terrain/MatrixHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/MatrixHeightFieldStrategy.o: src/shape/Renderable.h
 src/terrain/MatrixHeightFieldStrategy.o: src/shape/Quadrilateral3D.h
 src/terrain/MatrixHeightFieldStrategy.o: /usr/include/string.h
@@ -2748,6 +2714,7 @@ src/terrain/MatrixHeightFieldStrategy.o: src/transform/MacCoordinateSystem.h
 src/terrain/MatrixHeightFieldStrategy.o: src/transform/MathCoordinateSystem.h
 src/terrain/MatrixHeightFieldStrategy.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/MatrixHeightFieldStrategy.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/MatrixHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/MatrixHeightFieldStrategy.o: src/texture/Texture.h
 src/terrain/NullHeightFieldStrategy.o: src/terrain/NullHeightFieldStrategy.h
 src/terrain/NullHeightFieldStrategy.o: src/terrain/HeightFieldStrategy.h
@@ -2794,9 +2761,6 @@ src/terrain/NullHeightFieldStrategy.o: src/transform/Translate.h
 src/terrain/NullHeightFieldStrategy.o: src/transform/Rotate.h
 src/terrain/NullHeightFieldStrategy.o: src/geometry/Dimension3D.h
 src/terrain/NullHeightFieldStrategy.o: src/geometry/Dimension.h
-src/terrain/NullHeightFieldStrategy.o: src/transform/FocusUpdater.h
-src/terrain/NullHeightFieldStrategy.o: src/transform/Transformable.h
-src/terrain/NullHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/NullHeightFieldStrategy.o: src/shape/Renderable.h
 src/terrain/NullHeightFieldStrategy.o: src/shape/Quadrilateral3D.h
 src/terrain/NullHeightFieldStrategy.o: /usr/include/string.h
@@ -2866,6 +2830,7 @@ src/terrain/NullHeightFieldStrategy.o: src/transform/MacCoordinateSystem.h
 src/terrain/NullHeightFieldStrategy.o: src/transform/MathCoordinateSystem.h
 src/terrain/NullHeightFieldStrategy.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/terrain/NullHeightFieldStrategy.o: src/transform/EngineerCoordinateSystem.h
+src/terrain/NullHeightFieldStrategy.o: src/event/timer/TimerListener.h
 src/terrain/NullHeightFieldStrategy.o: src/texture/Texture.h
 src/texture/Texture.o: src/texture/Texture.h
 src/texture/TextureFactory.o: src/texture/TextureFactory.h
@@ -2946,9 +2911,6 @@ src/texture/TextureFactory.o: src/transform/Stretch.h
 src/texture/TextureFactory.o: src/transform/Translate.h
 src/texture/TextureFactory.o: src/transform/Rotate.h
 src/texture/TextureFactory.o: src/geometry/Dimension3D.h
-src/texture/TextureFactory.o: src/transform/FocusUpdater.h
-src/texture/TextureFactory.o: src/transform/Transformable.h
-src/texture/TextureFactory.o: src/event/timer/TimerListener.h
 src/texture/TextureFactory.o: src/shape/Renderable.h src/shape/Point3D.h
 src/texture/TextureFactory.o: src/paint/Paint.h src/texture/Texture.h
 src/texture/TextureFactory.o: include/SDL_image.h include/SDL.h
@@ -2963,6 +2925,7 @@ src/texture/TextureFactory.o: src/transform/MacCoordinateSystem.h
 src/texture/TextureFactory.o: src/transform/MathCoordinateSystem.h
 src/texture/TextureFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/texture/TextureFactory.o: src/transform/EngineerCoordinateSystem.h
+src/texture/TextureFactory.o: src/event/timer/TimerListener.h
 src/texture/TextureFactory.o: src/texture/Texture.h
 src/transform/CoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/CoordinateSystemFactory.o: src/transform/CoordinateSystemFactory.h
@@ -3050,9 +3013,6 @@ src/transform/EngineerCoordinateSystem.o: /usr/include/math.h
 src/transform/EngineerCoordinateSystem.o: /usr/include/architecture/ppc/math.h
 src/transform/EngineerCoordinateSystem.o: src/geometry/Vector3D.h
 src/transform/EngineerCoordinateSystem.o: src/transform/Scale.h
-src/transform/FocusUpdater.o: src/transform/FocusUpdater.h
-src/transform/FocusUpdater.o: src/transform/Transformable.h
-src/transform/FocusUpdater.o: src/event/timer/TimerListener.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Rotate.h
@@ -3273,6 +3233,42 @@ src/transform/Transform.o: /usr/include/alloca.h /usr/include/machine/types.h
 src/transform/Transform.o: /usr/include/ppc/types.h include/SDL_opengl.h
 src/transform/Transform.o: /usr/include/stddef.h
 src/transform/Transformable.o: src/transform/Transformable.h
+src/transform/Transformable.o: include/SDL_opengl.h /usr/include/stddef.h
+src/transform/Transformable.o: /usr/include/_types.h
+src/transform/Transformable.o: /usr/include/sys/_types.h
+src/transform/Transformable.o: /usr/include/sys/cdefs.h
+src/transform/Transformable.o: /usr/include/machine/_types.h
+src/transform/Transformable.o: /usr/include/ppc/_types.h
+src/transform/Transformable.o: src/transform/Transform.h
+src/transform/Transformable.o: /usr/include/stdlib.h /usr/include/sys/wait.h
+src/transform/Transformable.o: /usr/include/sys/signal.h
+src/transform/Transformable.o: /usr/include/sys/appleapiopts.h
+src/transform/Transformable.o: /usr/include/machine/signal.h
+src/transform/Transformable.o: /usr/include/ppc/signal.h
+src/transform/Transformable.o: /usr/include/sys/resource.h
+src/transform/Transformable.o: /usr/include/machine/endian.h
+src/transform/Transformable.o: /usr/include/ppc/endian.h
+src/transform/Transformable.o: /usr/include/sys/_endian.h
+src/transform/Transformable.o: /usr/include/stdint.h
+src/transform/Transformable.o: /usr/include/libkern/OSByteOrder.h
+src/transform/Transformable.o: /usr/include/libkern/ppc/OSByteOrder.h
+src/transform/Transformable.o: /usr/include/alloca.h
+src/transform/Transformable.o: /usr/include/machine/types.h
+src/transform/Transformable.o: /usr/include/ppc/types.h src/transform/Scale.h
+src/transform/Transformable.o: /usr/include/stdio.h src/geometry/Vector3D.h
+src/transform/Transformable.o: src/interpolation/InterpolationEngine.h
+src/transform/Transformable.o: src/interpolation/InterpolationListener.h
+src/transform/Transformable.o: src/interpolation/Interpolator.h
+src/transform/Transformable.o: src/interpolation/InterpolatorFactory.h
+src/transform/Transformable.o: src/interpolation/LinearInterpolator.h
+src/transform/Transformable.o: src/util/GraphicsConversionUtility.h
+src/transform/Transformable.o: /usr/include/math.h
+src/transform/Transformable.o: /usr/include/architecture/ppc/math.h
+src/transform/Transformable.o: src/transform/Stretch.h
+src/transform/Transformable.o: src/transform/Translate.h
+src/transform/Transformable.o: src/transform/Rotate.h
+src/transform/Transformable.o: src/geometry/Dimension3D.h
+src/transform/Transformable.o: src/geometry/Dimension.h
 src/transform/TransformFactory.o: src/transform/TransformFactory.h
 src/transform/TransformFactory.o: src/transform/Transform.h
 src/transform/TransformFactory.o: /usr/include/stdlib.h
@@ -3470,8 +3466,6 @@ src/util/FramesPerSecondCounter.o: src/transform/Stretch.h
 src/util/FramesPerSecondCounter.o: src/transform/Translate.h
 src/util/FramesPerSecondCounter.o: src/transform/Rotate.h
 src/util/FramesPerSecondCounter.o: src/geometry/Dimension3D.h
-src/util/FramesPerSecondCounter.o: src/transform/FocusUpdater.h
-src/util/FramesPerSecondCounter.o: src/transform/Transformable.h
 src/util/FramesPerSecondCounter.o: src/shape/Renderable.h src/shape/Point3D.h
 src/util/FramesPerSecondCounter.o: src/paint/Paint.h src/texture/Texture.h
 src/util/FramesPerSecondCounter.o: include/SDL_image.h include/SDL.h
