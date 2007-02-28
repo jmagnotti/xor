@@ -9,15 +9,12 @@
 #include "Stretch.h"
 #include "Translate.h"
 #include "Rotate.h"
-#include "FocusUpdater.h"
 
 #include "../interpolation/InterpolationEngine.h"
 #include "../util/GraphicsConversionUtility.h"
 
 
 namespace XOR {
-
-class FocusUpdater;
 
 /**
  * Transformable is an abstract parent class for objects that need to have
@@ -34,7 +31,6 @@ class FocusUpdater;
  */
 class Transformable
 {
-    friend class FocusUpdater;
 
 public:
 
@@ -318,8 +314,6 @@ private:
 	float _focalDistance;
 	bool _transformed;
 
-    FocusUpdater * _updater;
-    
 };
 
 }

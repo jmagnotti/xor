@@ -35,7 +35,7 @@ public:
     void clear();
 
 
-    void print();
+    virtual void print();
 
 
 protected:
