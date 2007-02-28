@@ -6,8 +6,8 @@ namespace XOR {
 const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
 
 const double Viewer::DEFAULT_FOV		= 60;
-const double Viewer::DEFAULT_NEAR_CLIP	= 1.0f;
-const double Viewer::DEFAULT_FAR_CLIP	= 10.0f;
+const double Viewer::DEFAULT_NEAR_CLIP	= 0.01f;
+const double Viewer::DEFAULT_FAR_CLIP	= 10000.0f;
 
 const int Viewer::DEFAULT_WINDOW_X		= 200;
 const int Viewer::DEFAULT_WINDOW_Y		= 100;
@@ -125,7 +125,7 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-/*
+
 	// METHOD #1 : tiled display wall adjustment
 	if (_wallMode == WALL_MODE_STANDARD) {
 		double moffset = 0.025;
@@ -159,9 +159,6 @@ void Viewer::handleReshape(ReshapeEvent * event)
 				(double)_size->getWidth()/ (double)_size->getHeight(), 
 				_nearClippingPlane, _farClippingPlane);
 	}
-*/
-    gluPerspective(45.0f, (double)_size->getWidth()/
-            (double)_size->getHeight(), 0.1f, 100.0f);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
