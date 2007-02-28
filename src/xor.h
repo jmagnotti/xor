@@ -94,7 +94,6 @@
 #include "transform/CoordinateSystem.h"
 #include "transform/CoordinateSystemFactory.h"
 #include "transform/EngineerCoordinateSystem.h"
-#include "transform/FocusUpdater.h"
 #include "transform/LeftOpenGLCoordinateSystem.h"
 #include "transform/MacCoordinateSystem.h"
 #include "transform/MathCoordinateSystem.h"

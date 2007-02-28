@@ -14,9 +14,6 @@ using namespace std;
  */
 int main(int argc, char ** argv)
 {
-    CoordinateSystemFactory::SetDefaultCoordinateSystem(
-            CoordinateSystemFactory::MAC_COORDINATE_SYSTEM);
-
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
     // controller object (note: Singleton Pattern).
@@ -30,11 +27,9 @@ int main(int argc, char ** argv)
     // gets setup.
     ctrl->defaultConfiguration();
 
-    DebugViewer * view = new DebugViewer();
-    view->setDebugInterval(5000);
-    Viewer * old_view = ctrl->setViewer(view);
-
-    glDepthRange(0.0f, 1.0f);
+    //DebugViewer * view = new DebugViewer();
+    //view->setDebugInterval(5000);
+    //Viewer * old_view = ctrl->setViewer(view);
 
     new KeyHandler(ctrl);
     new PrintMousePosition(ctrl);
