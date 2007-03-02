@@ -91,7 +91,7 @@ public:
 
 	void handleKey_p()
 	{
-		ctrl->getViewer()->printDebugInfo();
+		ctrl->getViewer()->print();
 	}
 
 	void handleKey_a()

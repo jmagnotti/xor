@@ -96,12 +96,14 @@ void Transformable::pushInverse(bool invertScale)
     else
         _scale->push();
 
-	_position->pushInverse();
+	//_position->pushInverse();
 
 	// order is important: roll, phi, theta
 	_roll->pushInverse();
 	_phi->pushInverse();
 	_theta->pushInverse();
+
+	_position->pushInverse();
 
 }
 

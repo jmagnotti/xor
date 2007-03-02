@@ -128,7 +128,7 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
 	// METHOD #1 : tiled display wall adjustment
 	if (_wallMode == WALL_MODE_STANDARD) {
-		double moffset = 0.025;
+		double moffset = 0.0025;
 		double aoffset = moffset / 2.0;
 
 		glFrustum(	(double)_wallXoffset * moffset - aoffset,
