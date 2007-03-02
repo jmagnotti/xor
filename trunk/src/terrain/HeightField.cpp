@@ -84,8 +84,6 @@ void HeightField::setHeight(int row, int col, double height)
 		_max = height;
 	else if (height < _min)
 		_min = height;
-
-	refreshQuads();
 }
 
 
@@ -115,10 +113,10 @@ void HeightField::refreshQuads()
 		for (c = 0; c < _cols-1; c++)
 		{
 			_quads[r][c] = new Quadrilateral3D(
-					new Vector3D(c,getNormalHeight(c,r),r),
-					new Vector3D(c+1,getNormalHeight(c+1,r),r),
-					new Vector3D(c+1,getNormalHeight(c+1,r+1),r+1),
-					new Vector3D(c,getNormalHeight(c,r+1),r+1),
+					new Vector3D(r,getNormalHeight(c,r),c),
+					new Vector3D(r+1,getNormalHeight(c,r+1),c),
+					new Vector3D(r+1,getNormalHeight(c+1,r+1),c+1),
+					new Vector3D(r,getNormalHeight(c+1,r),c+1),
 					new Paint(Color::BLACK, 
 						Color::DARK_KHAKI,
 						Paint::HEIGHT_BASED));

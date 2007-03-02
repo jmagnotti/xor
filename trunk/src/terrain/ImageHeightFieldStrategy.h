@@ -18,7 +18,8 @@ class ImageHeightFieldStrategy : public HeightFieldStrategy
 		ImageHeightFieldStrategy(char *path);
 
 		/**
-		 * Returns a function-based heightfield
+		 * Returns an image-based heightfield
+		 * NOTE: currently only works with 32-bit RGBA color
 		 */
 		void build(HeightField *target);
 
