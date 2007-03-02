@@ -89,7 +89,7 @@ public:
 
 	void handleKey_p()
 	{
-		Controller::GetInstance(NULL)->getViewer()->printDebugInfo();
+		Controller::GetInstance(NULL)->getViewer()->print();
 	}
 
 	void handleKey_a()
