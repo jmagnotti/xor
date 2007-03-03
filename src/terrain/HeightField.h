@@ -80,8 +80,16 @@ public:
 	 */
 	Dimension3D * getDimension();
 
+
+	/**
+	 * Set the paint object for the heightfield
+	 */
+	void setPaint(Paint * paint);
+
+
 protected:
 
+	Paint					* _paint;
 
 	int						_cols;
 	int						_rows;

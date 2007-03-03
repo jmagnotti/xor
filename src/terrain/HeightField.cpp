@@ -17,6 +17,9 @@ HeightField::HeightField()
 	_heights = NULL;
 	_quads = NULL;
 	_heightScale = 1.0;
+	_paint = new Paint(Color::BLACK, 
+		Color::DARK_KHAKI,
+		Paint::HEIGHT_BASED);
 }
 
 
@@ -117,9 +120,7 @@ void HeightField::refreshQuads()
 					new Vector3D(r+1,getNormalHeight(c,r+1),c),
 					new Vector3D(r+1,getNormalHeight(c+1,r+1),c+1),
 					new Vector3D(r,getNormalHeight(c+1,r),c+1),
-					new Paint(Color::BLACK, 
-						Color::DARK_KHAKI,
-						Paint::HEIGHT_BASED));
+					_paint);
 		}
 	}
 
@@ -137,6 +138,21 @@ Dimension3D * HeightField::getDimension()
 	return new Dimension3D(_cols,_rows,1);
 }
 
+
+void HeightField::setPaint(Paint * paint)
+{
+	if (_quads == NULL) return;
+
+	int r, c;
+	for (r = 0; r < _rows-1; r++)
+	{
+		for (c = 0; c < _cols-1; c++)
+		{
+			_quads[r][c]->setPaint(paint);
+		}
+	}
+	_paint = paint;
+}
 
 }
 
