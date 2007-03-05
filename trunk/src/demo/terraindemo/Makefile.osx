@@ -1,0 +1,232 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
+
+#Packages
+SRCS = TerrainDemo.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = TerrainDemo
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+TerrainDemo:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+TerrainDemo.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
+TerrainDemo.o: /usr/include/sys/cdefs.h /usr/include/_types.h
+TerrainDemo.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
+TerrainDemo.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
+TerrainDemo.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+TerrainDemo.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+TerrainDemo.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+TerrainDemo.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+TerrainDemo.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+TerrainDemo.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+TerrainDemo.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+TerrainDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
+TerrainDemo.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+TerrainDemo.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+TerrainDemo.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+TerrainDemo.o: /usr/include/stdio.h ../../../include/SDL_timer.h
+TerrainDemo.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+TerrainDemo.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+TerrainDemo.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+TerrainDemo.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+TerrainDemo.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+TerrainDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+TerrainDemo.o: ../../../include/SDL_version.h
+TerrainDemo.o: ../../event/EventHandlerFactory.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+TerrainDemo.o: ../../event/keyboard/KeyboardListener.h
+TerrainDemo.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
+TerrainDemo.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+TerrainDemo.o: ../../event/keyboard/KeyDownEvent.h
+TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+TerrainDemo.o: ../../event/mouse/MouseListener.h
+TerrainDemo.o: ../../event/mouse/MouseEvent.h
+TerrainDemo.o: ../../event/mouse/MouseEventFactory.h
+TerrainDemo.o: ../../event/mouse/MouseButtonDown.h
+TerrainDemo.o: ../../event/mouse/MouseClickEvent.h
+TerrainDemo.o: ../../event/mouse/MouseButtonUp.h
+TerrainDemo.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+TerrainDemo.o: ../../event/timer/TimerListener.h
+TerrainDemo.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
+TerrainDemo.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
+TerrainDemo.o: ../../event/reshape/ReshapeListener.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+TerrainDemo.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+TerrainDemo.o: ../../core/World.h ../../shape/Object3D.h
+TerrainDemo.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
+TerrainDemo.o: /usr/include/stddef.h ../../transform/Transform.h
+TerrainDemo.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+TerrainDemo.o: ../../interpolation/InterpolationEngine.h
+TerrainDemo.o: ../../interpolation/InterpolationListener.h
+TerrainDemo.o: ../../interpolation/Interpolator.h
+TerrainDemo.o: ../../interpolation/InterpolatorFactory.h
+TerrainDemo.o: ../../interpolation/LinearInterpolator.h
+TerrainDemo.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+TerrainDemo.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+TerrainDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
+TerrainDemo.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
+TerrainDemo.o: ../../shape/Point3D.h ../../paint/Paint.h
+TerrainDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+TerrainDemo.o: ../../../include/SDL.h ../../paint/Color.h
+TerrainDemo.o: ../../shape/Object3D.h ../../shape/Renderable.h
+TerrainDemo.o: ../../core/Viewer.h ../../paint/Color.h
+TerrainDemo.o: ../../geometry/Dimension2D.h
+TerrainDemo.o: ../../transform/CoordinateSystem.h
+TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
+TerrainDemo.o: ../../transform/CoordinateSystem.h
+TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/MathCoordinateSystem.h
+TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/EngineerCoordinateSystem.h
+TerrainDemo.o: ../../event/timer/TimerListener.h
+TerrainDemo.o: ../../event/reshape/ReshapeListener.h
+TerrainDemo.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
+TerrainDemo.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
+TerrainDemo.o: ../../core/XavierConfiguration.h
+TerrainDemo.o: ../../event/EventHandlerFactory.h
+TerrainDemo.o: ../../event/FullEventHandlerFactory.h
+TerrainDemo.o: ../../event/EventHandlerFactory.h
+TerrainDemo.o: ../../event/reshape/ReshapeSkeleton.h
+TerrainDemo.o: ../../event/reshape/Reshape.h
+TerrainDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+TerrainDemo.o: ../../../include/SDL_thread.h
+TerrainDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+TerrainDemo.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+TerrainDemo.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+TerrainDemo.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+TerrainDemo.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+TerrainDemo.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+TerrainDemo.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+TerrainDemo.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+TerrainDemo.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+TerrainDemo.o: /usr/include/signal.h /usr/include/sys/time.h
+TerrainDemo.o: /usr/include/time.h /usr/include/machine/_limits.h
+TerrainDemo.o: ../../multicast/MulticastSocketPool.h
+TerrainDemo.o: ../../multicast/MulticastSocket.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h
+TerrainDemo.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+TerrainDemo.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+TerrainDemo.o: ../../event/FullEventProxyFactory.h
+TerrainDemo.o: ../../event/keyboard/KeyboardStub.h
+TerrainDemo.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
+TerrainDemo.o: ../../event/InputEventHandlerFactory.h
+TerrainDemo.o: ../../event/InputEventProxyFactory.h
+TerrainDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+TerrainDemo.o: ../../interpolation/TimedInterpolation.h
+TerrainDemo.o: ../../core/Controller.h
+TerrainDemo.o: ../../interpolation/InterpolationEngine.h
+TerrainDemo.o: ../../core/Controller.h ../../core/World.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h
+TerrainDemo.o: ../../event/keyboard/KeyboardListener.h
+TerrainDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+TerrainDemo.o: ../../event/keyboard/KeyboardStub.h
+TerrainDemo.o: ../../event/keyboard/KeyDownEvent.h
+TerrainDemo.o: ../../event/keyboard/KeyEvent.h
+TerrainDemo.o: ../../event/keyboard/KeyEventFactory.h
+TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h
+TerrainDemo.o: ../../event/keyboard/RegularKeyEvent.h
+TerrainDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+TerrainDemo.o: ../../event/mouse/DefaultMouseListener.h
+TerrainDemo.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+TerrainDemo.o: ../../event/mouse/MouseButtonDown.h
+TerrainDemo.o: ../../event/mouse/MouseButtonUp.h
+TerrainDemo.o: ../../event/mouse/MouseClickEvent.h
+TerrainDemo.o: ../../event/mouse/MouseEvent.h
+TerrainDemo.o: ../../event/mouse/MouseEventFactory.h
+TerrainDemo.o: ../../event/mouse/MouseListener.h
+TerrainDemo.o: ../../event/mouse/MouseMotionEvent.h
+TerrainDemo.o: ../../event/mouse/MouseSkeleton.h
+TerrainDemo.o: ../../event/mouse/MouseStub.h ../../event/reshape/Reshape.h
+TerrainDemo.o: ../../event/reshape/ReshapeEvent.h
+TerrainDemo.o: ../../event/reshape/ReshapeListener.h
+TerrainDemo.o: ../../event/reshape/ReshapeSkeleton.h
+TerrainDemo.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+TerrainDemo.o: ../../event/timer/TimerSkeleton.h
+TerrainDemo.o: ../../event/timer/TimerStub.h
+TerrainDemo.o: ../../geometry/CylindricalVolume.h
+TerrainDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+TerrainDemo.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+TerrainDemo.o: ../../geometry/Dimension3D.h
+TerrainDemo.o: ../../geometry/RectangularVolume.h
+TerrainDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+TerrainDemo.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+TerrainDemo.o: ../../interpolation/ContinuousInterpolation.h
+TerrainDemo.o: ../../interpolation/TimedInterpolation.h
+TerrainDemo.o: ../../interpolation/InterpolationEngine.h
+TerrainDemo.o: ../../interpolation/InterpolationListener.h
+TerrainDemo.o: ../../interpolation/Interpolator.h
+TerrainDemo.o: ../../interpolation/InterpolatorFactory.h
+TerrainDemo.o: ../../interpolation/LinearInterpolator.h
+TerrainDemo.o: ../../interpolation/TimedInterpolation.h
+TerrainDemo.o: ../../model/MilkshapeModel.h ../../model/Model.h
+TerrainDemo.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+TerrainDemo.o: ../../model/Model.h ../../model/ModelFactory.h
+TerrainDemo.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+TerrainDemo.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+TerrainDemo.o: ../../multicast/MulticastSocket.h
+TerrainDemo.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+TerrainDemo.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+TerrainDemo.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+TerrainDemo.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+TerrainDemo.o: ../../shape/CollisionRenderable.h
+TerrainDemo.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+TerrainDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+TerrainDemo.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+TerrainDemo.o: ../../shape/Point.h ../../shape/Point2D.h
+TerrainDemo.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+TerrainDemo.o: ../../shape/RectangularPrism.h
+TerrainDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+TerrainDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+TerrainDemo.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+TerrainDemo.o: ../../shape/Triangle3D.h
+TerrainDemo.o: ../../terrain/FunctionHeightFieldStrategy.h
+TerrainDemo.o: ../../terrain/HeightFieldStrategy.h
+TerrainDemo.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+TerrainDemo.o: ../../terrain/HeightField.h ../../terrain/HeightFieldFactory.h
+TerrainDemo.o: ../../terrain/HeightFieldStrategy.h
+TerrainDemo.o: ../../terrain/ImageHeightFieldStrategy.h
+TerrainDemo.o: ../../terrain/MatrixHeightFieldStrategy.h
+TerrainDemo.o: ../../terrain/NullHeightFieldStrategy.h
+TerrainDemo.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+TerrainDemo.o: ../../transform/CoordinateSystem.h
+TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
+TerrainDemo.o: ../../transform/EngineerCoordinateSystem.h
+TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/MathCoordinateSystem.h
+TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/Rotate.h ../../transform/Scale.h
+TerrainDemo.o: ../../transform/Stretch.h ../../transform/Transform.h
+TerrainDemo.o: ../../transform/Transformable.h
+TerrainDemo.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+TerrainDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+TerrainDemo.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+TerrainDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+TerrainDemo.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
+TerrainDemo.o: /usr/include/wchar.h /usr/include/stdarg.h
+TerrainDemo.o: /usr/include/_wctype.h /usr/include/ctype.h
+TerrainDemo.o: /usr/include/runetype.h

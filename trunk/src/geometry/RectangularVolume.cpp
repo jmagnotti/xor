@@ -104,10 +104,12 @@ void RectangularVolume::generatePoints(Vector3D * points[8])
 
 	points[7] = new Vector3D(_origin->getX() + getXDiameter(), _origin->getY()
 							 + getYDiameter(), _origin->getZ() );
-
 }
 
 
+/*
+ * dimension clone
+ */
 Dimension3D * RectangularVolume::getDimension()
 {
 	return new Dimension3D(getXDiameter(), getYDiameter(), getZDiameter());

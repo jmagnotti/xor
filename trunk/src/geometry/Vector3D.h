@@ -38,26 +38,26 @@ public:
 	/**
 	 * Return the X dimension
 	 */
-    float getX() const;
+    float getX();
 
 
 	/**
 	 * Return the Y dimension
 	 */
-	float getY() const;
+	float getY();
 
 
 	/**
 	 * Return the Z dimension
 	 */
-	float getZ() const;
+	float getZ();
 
 
 	/**
 	 * Return the specified dimension. Performs checking -1 <
 	 * dimension < 3. Returns 0 on failure.
 	 */
-    float get(int dimension) const;
+    float get(int dimension);
 
 	/*
 	 * Returns the vec3d in array form
@@ -126,6 +126,12 @@ public:
 	 * Clone the position from the other vector to this one.
 	 */
 	void clone(Vector3D * other);
+
+
+    /**
+     * Returns a clone of the current vector. Modifications to the returned Vector3D will not affect this vector.
+     */
+	Vector3D * clone();
 
 
 private:

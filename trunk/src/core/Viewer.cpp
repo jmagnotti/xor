@@ -85,9 +85,13 @@ Viewer::~Viewer()
  * Sets the model to be viewed.
  * This is substitutive, not additive.
  */
-void Viewer::setModel(World * rend)
+World * Viewer::setModel(World * rend)
 {
+    World * old_model = _model;
+
 	_model = rend;
+
+    return old_model;
 }
 
 

@@ -14,21 +14,23 @@ class CubeDemo
 
 public:
 
+    Controller * ctrl;
+
 	CubeDemo()
 	{
-		// the InputEventProxyFactory will send out Keyboard and Mouse events
-		// over multicast
-		Controller * ctrl = Controller::GetInstance(
-                InputEventProxyFactory::GetInstance());
+        // the InputEventProxyFactory will send out Keyboard and Mouse events
+        // over multicast
+		ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
 		ctrl->defaultConfiguration();
 
-		ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());
+		ctrl->getMouse()->addListener(new DefaultMouseListener());
 		ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 
 		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED); 
 		Cube  * c = new Cube(new Vector3D(-.25, -.25, -4.5), 1.0f, p);
-		ctrl->setModel(c);
+		ctrl->setModel(new CompiledObject3D(c));
 	}
+
 
 	/**
 	 * Tells the Controller to take charge. All interaction is now delegated to
@@ -48,7 +50,7 @@ public:
  * are not included in the method signature. This has more to do with the SDL
  * implementation than anything else.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	CubeDemo * demo = new CubeDemo();
 	demo->play();

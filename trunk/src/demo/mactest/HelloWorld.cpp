@@ -1,7 +1,4 @@
 #include "../../xor.h"
-#include "../../../include/SDL_opengl.h"
-#include <stdlib.h>
-#include <map>
 
 #include "PrintMousePosition.h"
 #include "KeyHandler.h"
@@ -12,7 +9,7 @@ using namespace std;
 /**
  * Shows the simplicity of XOR
  */
-int main(int argc, char ** argv)
+int main(int argc, char * argv[])
 {
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
@@ -33,14 +30,12 @@ int main(int argc, char ** argv)
 
     new KeyHandler(ctrl);
     new PrintMousePosition(ctrl);
+    Paint * p = new Paint(Color::RED, Color::BLACK, Paint::HEIGHT_BASED);
+    p->setColorFromAlpha(1.0f);
 
     //Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
-    Object3D * hello = new Cube(new Vector3D(0,.5,0), 0.5, new Paint(Color::LIGHT_BLUE , Paint::HEIGHT_BASED));
-
-    // the controller will detect this is not a "WORLD" object
-    // and automatically wrap it inside of one (how convenient!)
+    Object3D * hello = new Cube(new Vector3D(0,.5,0), 0.5, p);
     ctrl->setModel(hello);//new CompiledObject3D(hello));
-
     // this call runs the demo.
     ctrl->run();
 

@@ -45,8 +45,10 @@ void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
 void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 {
 	Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
+
 	// rotate camera
 	if (mouse->isLeftButtonDown()) {
+        cout << "Mouse Event: " << mme->getType() << endl;
 		float xChange = - (mme->getRelativeXPosition() / 2.0f);
 		float yChange = - (mme->getRelativeYPosition() / 2.0f);
 

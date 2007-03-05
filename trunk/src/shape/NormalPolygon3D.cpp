@@ -19,8 +19,7 @@ NormalPolygon3D::NormalPolygon3D(Vector3D * center, float radius, int
 		numSides){
     
     float x, y, z;
-    GraphicsConversionUtility * gcu = 
-        GraphicsConversionUtility::GetInstance();
+    GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
 
     _sides = numSides;
 
@@ -33,12 +32,22 @@ NormalPolygon3D::NormalPolygon3D(Vector3D * center, float radius, int
     // x defined by r*cos(theta)
     // y defined by r*sin(theta)
 	z = center->getZ();
+
     for(double theta = 0; theta < 360.0; theta+= 360.0/_sides){
         x = center->getX() + radius * cos(theta * gcu->PI/180.0);
         y = center->getY() + radius * sin(theta * gcu->PI/180.0);
                 
         _vertices.push_back(new Vector3D(x,y,z));
     }
+}
+
+
+/*
+ * Return the vector vector
+ */
+vector<Vector3D*> NormalPolygon3D::getVertices()
+{
+    return _vertices;
 }
 
 

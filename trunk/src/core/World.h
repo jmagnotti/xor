@@ -14,7 +14,7 @@ namespace XOR {
 
 
 /**
- * This is the highest-level model in the GOR framework
+ * This is the highest-level model in the XOR framework.
  */
 class World : public Object3D
 {
@@ -35,17 +35,17 @@ public:
 
 	
 	/**
-	 * Singleton accessor that also sets the high-level model. This removes all other renderables.
-	 * Transforms are NOT changed. If you want to get a fresh start, call this GetInstance method, 
-	 * then call clear. Note that calling setDefaults() will trash any World configuration 
-	 * set by Controller.setDefaultConfiguration().
+     * Singleton accessor that also sets the high-level model. This removes all
+     * other renderables. Transforms are NOT changed. If you want to get a
+     * fresh start, call this GetInstance method, then call clear. Note that
+     * calling setDefaults() will trash any World configuration set by
+     * Controller.setDefaultConfiguration().
 	 */
 	static World * GetInstance(Object3D *);
 
 
 	/**
-	 * Determines if the given renderable 
-	 * is the world obejct itself
+     * Determines if the given renderable is the world obejct itself
 	 */
 	static bool IsWorldObject(Object3D * world);
 
@@ -77,14 +77,6 @@ public:
 
 
 	/**
-	 * Display the world
-	 */
-	void render();
-	
-	void renderObject(){render();}
-
-
-	/**
 	 * soon to be handled by Obj3D?
 	 */
 	Dimension3D * getDimension() {return new Dimension3D(0,0,0);}
@@ -94,6 +86,12 @@ public:
 	 * soon to be handled by Obj3D?
 	 */
 	Vector3D * getBaseVector() {return new Vector3D(0,0,0);}
+
+
+	/**
+	 * Display the world. A call to Render() will invoke renderObject
+	 */
+	void renderObject();
 
 
 private:

@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "../texture/Texture.h"
+#include "../geometry/Vector3D.h"
 #include "Color.h"
 
 
@@ -44,17 +45,20 @@ public:
 
 	//---CONSTRUCTORS---//
 	Paint(void);
+	Paint(Paint * paint);
     Paint(float red, float green, float blue);
+    Paint(float red, float green, float blue, float alpha);
     Paint(float red, float green, float blue, const int gradientType);
+    Paint(float red, float green, float blue, float alpha, const int gradientType);
 
-    Paint(const float color[3]);
-    Paint(const float startColor[3],	int gradientType);
-    Paint(const float startColor[3],	const float endColor[3],	const int gradientType);
+    Paint(const float color[4]);
+    Paint(const float startColor[4], const int gradientType);
+    Paint(const float startColor[4], const float endColor[4], const int gradientType);
 
 	Paint(Texture * tex);
-	Paint(const float color[3],		    Texture * tex);
-	Paint(const float startColor[3],	const int gradientType,     Texture *  tex);
-	Paint(const float startColor[3],	const float endColor[3],	const int gradientType,	Texture * tex);
+	Paint(const float color[4], Texture * tex);
+	Paint(const float startColor[4], const int gradientType, Texture *  tex);
+	Paint(const float startColor[4], const float endColor[4], const int gradientType, Texture * tex);
 
 
 	/**
@@ -68,10 +72,43 @@ public:
 	//---GETTERS---//
 	bool		isTextured();
 	float		getAutoGradient();
+	int 		getGradientType();
 	float	*	getColorFrom();
 	float	*	getColorTo();
-	int			getGradientStyle();
 	Texture	*	getTexture();
+
+
+    /**
+     * Sets the current color context as a scaled value between ColorFrom and
+     * ColorTo. For example, consider a Square from [0,0,0] to [1,1,0] with a
+     * Black to White, Height-based gradient. Black will be set for all
+     * positions in which the Y coordinate is 0. Concordantly, White will be
+     * set for all positions in which the Y coordinate is 1. 
+     *
+     * @param scale The amount, relative to the object's maximum, of extent for
+     * a given vertex.
+     */
+    void activateColorAtPosition(Vector3D * scale);
+
+
+    /**
+     * Texture coordinate mapping
+     */
+    void activateTextureAtPosition(Vector3D * scale);
+
+
+    /**
+     * Returns a paint with copies of the values for each member except for a
+     * Texture if one is present.
+     */
+    Paint * clone();
+    
+
+    /*
+     * copy values from other paint object, if present, a reference will be
+     * made to the other Paint's Texture object.
+     */
+    void clone(Paint * other);
     
     
     void print();
@@ -79,26 +116,36 @@ public:
 
 	//---SETTERS---//
 	void setAutoGradient	(float autoGrad);
-	void setColorFrom		(const float cf [3]);
-	void setColorTo			(const float ct [3]);
+	void setColorToAlpha	(float alpha);
+	void setColorFromAlpha	(float alpha);
+	void setColorFrom		(const float cf [4]);
+	void setColorTo			(const float ct [4]);
 	void setGradient		(int  grad);
 	void setTexture			(Texture * tex);
 
 
-protected:
+private:
 
     /**
      * Resets colorTo and colorFrom values based on autoGradient.
      */
 	void recalculateGradient();
+	void buildDifferenceArray();
+
+
+    /**
+     * common area to build the paint object
+     */
+    void buildPaint(const float cf[4], const float ct[4], const int gradientType, float autoGrad, Texture * texture);
 
     
     Texture	*	_texture;
     
     bool		_textured;
 
-	float		_colorFrom[3];
-	float		_colorTo[3];	
+	float		_colorFrom[4];
+	float		_colorTo[4];	
+	float		_colorDiff[4];	
 
     float		_autoGradient;	
     int			_gradientType;

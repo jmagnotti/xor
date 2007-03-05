@@ -4,6 +4,7 @@
 #include "../transform/Transformable.h"
 #include "../geometry/Vector3D.h"
 #include "../geometry/Dimension3D.h"
+#include "../paint/Paint.h"
 #include "Renderable.h"
 
 
@@ -39,21 +40,38 @@ public:
 
 	/**
 	 * Default implementation of rendering. Pushes Transforms if they are
-	 * available, calls renderObject, then pops the transforms.
+     * available, calls renderObject, then pops the transforms. Calling classes
+     * should always use this method.
 	 */
 	virtual void render();
 
 
-protected:
+    /**
+     * Sets the paint object associated with this object. The memory associated
+     * with this paint object is wholy owned by the object. If you want to
+     * share paint objects between several Object3Ds, then an aggregate type
+     * should be used that properly handles the allocation and deallocation of
+     * memory.
+     */
+    virtual void setPaint(Paint * paint);
+
+
+    /**
+     * Returns a clone of the paint associated with this object.
+     */
+    Paint * getPaint();
+
 
 	/**
 	 * Child classes should perform their drawing in this method.
-	 * Code in here should be strictly limited to either delegating further
-	 * rendering or drawing (e.g., OpenGL) calls. Calculation work should be
-	 * done outside of the this method. By adhering to this convention,
-	 * generating display lists is much cleaner.
+     * Code here should be strictly limited to either actual drawing calls
+     * (e.g., OpenGL), or further delegation. Calculation work should not be
+     * done in this method. By adhering to this convention, generating display
+     * lists is much cleaner.
 	 */
 	virtual void renderObject()=0;
+
+    Paint * _paint;
 
 };
 

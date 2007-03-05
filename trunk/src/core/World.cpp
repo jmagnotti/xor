@@ -14,7 +14,19 @@ World::World()
 {}
 
 World::~World()
-{}
+{
+	map<char*, Object3D*>::iterator iter   = _objects.begin();
+	map<char*, Object3D*>::iterator finish = _objects.end();
+	map<char*, Object3D*>::iterator prev;
+
+    while(iter != finish) {
+        prev = iter;
+        ++iter;
+        delete prev->second;
+    }
+
+    _objects.clear();
+}
 
 /* 
  * Explicit Constructor
@@ -38,8 +50,8 @@ World * World::GetInstance()
 
 
 /*
- * Returns an instance initialized with
- * the given objects, unless the world has already been initialized
+ * Returns an instance initialized with the given object, unless the world has
+ * already been initialized
  */
 World * World::GetInstance(Object3D * object)
 {
@@ -98,17 +110,15 @@ bool World::IsWorldObject(Object3D * world)
 /*
  * render method
  */
-void World::render()
+void World::renderObject()
 {
 	map<char*, Object3D*>::iterator iter   = _objects.begin();
 	map<char*, Object3D*>::iterator finish = _objects.end();
 
-	push();
-		while(iter != finish) {
-			iter->second->render();
-			++iter;
-		}
-	pop();
+    while(iter != finish) {
+        iter->second->render();
+        ++iter;
+    }
 }
 
 }
