@@ -52,6 +52,7 @@ public:
 #endif
         
 		TextureFactory * factory = TextureFactory::GetInstance();
+        glDisable(GL_DEPTH_TEST);
 		
 		ctrl->getModel()->addObject("white", 
 		       new CompiledObject3D(new Cube(
@@ -68,7 +69,7 @@ public:
 		ctrl->getModel()->addObject("red", 	 
 			   new CompiledObject3D(new Cube(
 					   new Vector3D(5,0,0), 1, 
-					   new Paint(Color::YELLOW))));
+					   new Paint(Color::RED))));
 
 		double m[5][5];
 		m[0][0] = 4.0; m[0][1] = 0.0; m[0][2] = 4.0; m[0][3] = 0.0; m[0][4] = 0.0;
@@ -84,9 +85,11 @@ public:
 			//buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
 			buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
 			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
-		hf->setHeightScale(5.0);
+		hf->setHeightScale(15.0f);
+
 		hf->setPaint(new Paint(Color::WHITE, Paint::HEIGHT_BASED,
 					TextureFactory::GetInstance()->createTexture("images/grass.png")));
+
 		ctrl->getModel()->addObject("field", new CompiledObject3D(hf));
 
         ctrl->run();
@@ -101,6 +104,7 @@ public:
 	void handleKey_p()
 	{
 		ctrl->getViewer()->print();
+
 	}
 
 	void handleKey_a()

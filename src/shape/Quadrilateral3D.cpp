@@ -69,6 +69,7 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Ve
 	_vertices[0] = p0; _vertices[1] = p1;
 
     PointScale * ps = new PointScale(0,1,1);
+
     buildWeights(ps);
     delete ps;
 }
@@ -147,15 +148,19 @@ void Quadrilateral3D::renderObject()
 
 				//texture coords in CCW
 				glTexCoord2f(1, 1);
+                _paint->activateColorAtPosition(_vertexWeights[0]);
 				glVertex3fv(_vertices[0]->toArray()); 
 
 				glTexCoord2f(1, 0);
+                _paint->activateColorAtPosition(_vertexWeights[1]);
 				glVertex3fv(_vertices[1]->toArray());
 
 				glTexCoord2f(0, 0);
+                _paint->activateColorAtPosition(_vertexWeights[2]);
 				glVertex3fv(_vertices[2]->toArray());
 
 				glTexCoord2f(0, 1);
+                _paint->activateColorAtPosition(_vertexWeights[3]);
 				glVertex3fv(_vertices[3]->toArray());
 
 			glEnd();

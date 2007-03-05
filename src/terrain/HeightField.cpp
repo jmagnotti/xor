@@ -17,9 +17,7 @@ HeightField::HeightField()
 	_heights = NULL;
 	_quads = NULL;
 	_heightScale = 1.0;
-	_paint = new Paint(Color::BLACK, 
-		Color::DARK_KHAKI,
-		Paint::HEIGHT_BASED);
+	_paint = new Paint(Color::DARK_KHAKI, Color::BLACK, Paint::HEIGHT_BASED);
 }
 
 
@@ -31,10 +29,8 @@ void HeightField::renderObject(void)
 	if (_quads == NULL) return;
 
 	int r, c;
-	for (r = 0; r < _rows-1; r++)
-	{
-		for (c = 0; c < _cols-1; c++)
-		{
+	for (r = 0; r < _rows-1; r++) {
+		for (c = 0; c < _cols-1; c++) {
 			_quads[r][c]->render();
 		}
 	}
@@ -51,10 +47,10 @@ void HeightField::resizeField(int rows, int cols)
 	int y;
 	_rows = rows;
 	_cols = cols;
-	_heights = new double * [rows];
+	_heights = new float * [rows];
 	for (y = 0; y < rows; y++)
 	{
-		_heights[y] = new double[cols];
+		_heights[y] = new float[cols];
 	}
 }
 
@@ -62,7 +58,7 @@ void HeightField::resizeField(int rows, int cols)
 /*
  * get height
  */
-double HeightField::getHeight(int row, int col)
+float HeightField::getHeight(int row, int col)
 {
 	return _heights[row][col];
 }
@@ -71,7 +67,7 @@ double HeightField::getHeight(int row, int col)
 /*
  * get normalized height
  */
-double HeightField::getNormalHeight(int row, int col)
+float HeightField::getNormalHeight(int row, int col)
 {
 	return ((_heights[row][col] - _min) / (_max-_min)) * _heightScale;
 }
@@ -79,7 +75,7 @@ double HeightField::getNormalHeight(int row, int col)
 /*
  * set height
  */
-void HeightField::setHeight(int row, int col, double height)
+void HeightField::setHeight(int row, int col, float height)
 {
 	_heights[row][col] = height;
 
@@ -93,7 +89,7 @@ void HeightField::setHeight(int row, int col, double height)
 /*
  * change height field scale
  */
-void HeightField::setHeightScale(double factor)
+void HeightField::setHeightScale(float factor)
 {
 	_heightScale = factor;
 	refreshQuads();
@@ -106,24 +102,52 @@ void HeightField::setHeightScale(double factor)
 void HeightField::refreshQuads()
 {
 	// TODO: clean old memory
-	
+    float pts[4];//,p1,p2,p3; 
+    float min, max;
+
+    PointScale * ps      = new PointScale(0,1,1);
+
+    float scale = _heightScale;
+
 	int r, c;
 
 	_quads = new Quadrilateral3D ** [_rows-1];
-	for (r = 0; r < _rows-1; r++)
-	{
+	for (r = 0; r < _rows-1; r++) {
 		_quads[r] = new Quadrilateral3D * [_cols-1];
-		for (c = 0; c < _cols-1; c++)
-		{
+
+		for (c = 0; c < _cols-1; c++) {
+            _heightScale = 1.0f;
+
+            pts[0] = getNormalHeight(c,r);
+            pts[1] = getNormalHeight(c,r+1);
+            pts[2] = getNormalHeight(c+1,r+1);
+            pts[3] = getNormalHeight(c+1,r);
+
+            max = min = pts[0];
+            for (int i=1; i<4; i++) {
+                min = pts[i] < min ? pts[i] : min;
+                max = pts[i] > max ? pts[i] : max;
+            }
+
+            ps->setSystemBounds(min, max);
+
+            _heightScale = scale;
+
+            pts[0] = getNormalHeight(c,r);
+            pts[1] = getNormalHeight(c,r+1);
+            pts[2] = getNormalHeight(c+1,r+1);
+            pts[3] = getNormalHeight(c+1,r);
+
 			_quads[r][c] = new Quadrilateral3D(
-					new Vector3D(r,getNormalHeight(c,r),c),
-					new Vector3D(r+1,getNormalHeight(c,r+1),c),
-					new Vector3D(r+1,getNormalHeight(c+1,r+1),c+1),
-					new Vector3D(r,getNormalHeight(c+1,r),c+1),
-					_paint);
+                                new Vector3D(r,     pts[0], c),
+                                new Vector3D(r+1,   pts[1], c),
+                                new Vector3D(r+1,   pts[2], c+1),
+                                new Vector3D(r,     pts[3], c+1),
+                                _paint, ps);
 		}
 	}
 
+    delete ps;
 }
 
 
@@ -144,10 +168,8 @@ void HeightField::setPaint(Paint * paint)
 	if (_quads == NULL) return;
 
 	int r, c;
-	for (r = 0; r < _rows-1; r++)
-	{
-		for (c = 0; c < _cols-1; c++)
-		{
+	for (r = 0; r < _rows-1; r++) {
+		for (c = 0; c < _cols-1; c++) {
 			_quads[r][c]->setPaint(paint);
 		}
 	}
