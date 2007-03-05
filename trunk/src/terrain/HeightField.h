@@ -42,25 +42,25 @@ public:
 	/**
 	 * Get the height at a particular location
 	 */
-	double getHeight(int row, int col);
+	float getHeight(int row, int col);
 
 
 	/**
 	 * Gets normalized (0..1) height at a particular location
 	 */
-	double getNormalHeight(int row, int col);
+	float getNormalHeight(int row, int col);
 
 
 	/**
 	 * Change the height at a particular location
 	 */
-	void setHeight(int row, int col, double height);
+	void setHeight(int row, int col, float height);
 
 
 	/**
 	 * Change the scale factor for the height field
 	 */
-	void setHeightScale(double factor);
+	void setHeightScale(float factor);
 
 
 	/**
@@ -93,11 +93,11 @@ protected:
 
 	int						_cols;
 	int						_rows;
-	double **				_heights;
+	float **				_heights;
 	Quadrilateral3D ***		_quads;
-	double					_min;
-	double					_max;
-	double					_heightScale;
+	float					_min;
+	float					_max;
+	float					_heightScale;
 
 };
 

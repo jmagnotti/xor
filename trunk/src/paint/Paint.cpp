@@ -165,7 +165,6 @@ void Paint::activateColorAtPosition(Vector3D * scale)
             break;
 
         case HEIGHT_BASED:
-
             glColor4f(  scale->getY() * _colorDiff[0] + _colorFrom[0],
                         scale->getY() * _colorDiff[1] + _colorFrom[1], 
                         scale->getY() * _colorDiff[2] + _colorFrom[2],

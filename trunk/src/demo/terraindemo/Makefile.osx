@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++ 
-LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
+LIBS = -framework Cocoa -framework OpenGL -lSDL -lSDLmain -lXOR 
 
 #Packages
 SRCS = TerrainDemo.cpp
