@@ -18,7 +18,6 @@ Controller::Controller()
  */
 Controller::Controller(EventHandlerFactory * factory)
 {
-    //cout << "Building Controller" << endl;
     // reshape must be created before Viewer, since viewer is going to add
     // itself as a listener
 	_reshape     = factory->getReshape();
@@ -261,8 +260,6 @@ void Controller::run(void)
  */
 Object3D * Controller::setModel(Object3D * model)
 {
-    Object3D * old_model = _model;
-
 	// In order to do proper rendering, we need a world object
 	// we don't want to force people to do all that though, so we do a quick check
 	// and wrap the renderable inside a world object if it isn't a world object
@@ -272,9 +269,7 @@ Object3D * Controller::setModel(Object3D * model)
 	else // it already is a world object
 		_model = model;
 
-	_viewer->setModel((World*)_model);
-
-    return old_model;
+	return _viewer->setModel((World*)_model);
 }
 
 /*

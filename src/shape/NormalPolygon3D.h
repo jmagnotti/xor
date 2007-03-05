@@ -32,7 +32,12 @@ public:
 	 * it.
 	 */
 	NormalPolygon3D(Vector3D * center, float radius, int numSides);
-	~NormalPolygon3D();
+
+
+    /**
+     * Destructor
+     */
+	virtual ~NormalPolygon3D();
 
 
 	/**
@@ -46,10 +51,31 @@ public:
 	 */
 	void setPaint(Paint * paint);	
 
+
 	/**
 	 * Returns the center point of the NormalPolygon3D.
 	 */
 	Vector3D * getBaseVector();
+
+
+    /**
+     * Returns the radius of the normal polygon.
+     */
+    float getRadius();
+
+
+    /**
+     * Returns an ordered collection of the vertices. This collection should be
+     * treated as read-only. 
+     */
+    vector<Vector3D*> getVertices();
+
+
+    /**
+     * Returns the nuumber of sides of the normal polygon
+     */
+    int numberOfSides();
+
 
 	/**
 	 * returns the bounding box for this polygon

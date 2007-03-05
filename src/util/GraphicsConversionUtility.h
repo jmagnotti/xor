@@ -55,7 +55,7 @@ public:
 	 * Converts a given ratio value to a ratio value in another system. I think
 	 * ratio value is the right phrase.
 	 */
-	inline float mapValue(float value, float min, float max, float targetmin, float targetmax);
+	float mapValue(float value, float min, float max, float targetmin, float targetmax);
 
 
 	/**

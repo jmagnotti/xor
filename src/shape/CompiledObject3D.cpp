@@ -52,7 +52,7 @@ Dimension3D * CompiledObject3D::getDimension()
  */
 Vector3D * CompiledObject3D::getBaseVector()
 {
-	return _object3D->getBaseVector();
+	return new Vector3D(0,0,0);
 }
 
 

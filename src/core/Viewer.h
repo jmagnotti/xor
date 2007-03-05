@@ -72,13 +72,21 @@ public:
 	~Viewer();
 
 
+    /**
+     * This could return the screen coordinates or something cool
+     */
 	Dimension3D * getDimension() {return NULL;}
+
+
+    /**
+     * this could return the bottom left world coord.
+     */
 	Vector3D * getBaseVector() {return NULL;}
 
 	/**
 	 * Adds a renderable to the viewer's list
 	 */
-	void setModel(World*);
+	World * setModel(World*);
 
 
 	/**

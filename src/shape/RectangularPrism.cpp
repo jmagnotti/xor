@@ -101,22 +101,25 @@ void RectangularPrism::renderObject()
  */
 void RectangularPrism::setFaces()
 {
+    // we need a a PointScale that will default to 0 for the Quads that are on
+    // the "low" end of the dimension
+    PointScale * ps = new PointScale(0,1,0);
+
 	// clear any existing faces
 	if (! _faces.empty())
         _faces.clear();
 
-    // FRONT AND BACK
-    _faces.push_back(new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint));		//highZ side
-    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint));		//lowZ side
+    // TOP AND BOTTOM
+    _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint));		//highYside
+    _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, ps));	//lowYside
 
     // RIGHT AND LEFT
     _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint));		//highXside
-    _faces.push_back(new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint));		//lowXside
+    _faces.push_back(new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, ps));	//lowXside
 
-    // TOP AND BOTTOM
-    _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint));		//highYside
-    _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint));		//lowYside
-
+    // FRONT AND BACK
+    _faces.push_back(new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint));		//highZ side
+    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, ps));	//lowZ side
 }
 
 

@@ -6,6 +6,7 @@
 
 #include "../geometry/Vector3D.h"
 #include "../geometry/Dimension3D.h"
+#include "../util/PointScale.h"
 #include "../paint/Paint.h"
 #include "Object3D.h"
 
@@ -29,6 +30,7 @@ public:
 	 * Set each of the corners explicitly. The Quad will use a WHITE paint.
 	 */
 	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3);
+	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, PointScale * scale);
 
     
     /**
@@ -37,6 +39,8 @@ public:
 	 * Set each of the corners explicitly.
 	 */
 	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, Paint * paint);
+	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, Paint * paint, PointScale * scale);
+    
 
 
 	/**
@@ -113,8 +117,11 @@ protected:
 	virtual void calculateDimension();
 	 */
 
+    virtual void buildWeights(PointScale * scale);
+
 
 private:
+
 
 	Quadrilateral3D();
 
@@ -124,6 +131,7 @@ private:
 
 	Paint *		_paint;
 	Vector3D *	_vertices[4];
+	Vector3D *	_vertexWeights[4];
 
 };
 

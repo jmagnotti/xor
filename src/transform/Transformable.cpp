@@ -473,7 +473,7 @@ void Transformable::walk(float distance, InterpolationEngine * interpolation)
  */
 void Transformable::updateFocalPoint()
 {
-    cout << "Updating the focal point" << endl;
+    //cout << "Updating the focal point" << endl;
 
 	// theta and phi in radians
 	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);

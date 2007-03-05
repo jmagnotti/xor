@@ -68,7 +68,7 @@ public:
 		ctrl->getModel()->addObject("red", 	 
 			   new CompiledObject3D(new Cube(
 					   new Vector3D(5,0,0), 1, 
-					   new Paint(Color::RED))));
+					   new Paint(Color::YELLOW))));
 
 		double m[5][5];
 		m[0][0] = 4.0; m[0][1] = 0.0; m[0][2] = 4.0; m[0][3] = 0.0; m[0][4] = 0.0;
@@ -80,14 +80,14 @@ public:
 		HeightField * hf = HeightFieldFactory::GetInstance()->
 			//buildHeightField(new NullHeightFieldStrategy());
 			//buildHeightField(new FunctionHeightFieldStrategy(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
+			//buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
 			//buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
-			//buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
+			buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
 			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
 		hf->setHeightScale(5.0);
 		hf->setPaint(new Paint(Color::WHITE, Paint::HEIGHT_BASED,
 					TextureFactory::GetInstance()->createTexture("images/grass.png")));
-		ctrl->getModel()->addObject("field", hf);
+		ctrl->getModel()->addObject("field", new CompiledObject3D(hf));
 
         ctrl->run();
 	}

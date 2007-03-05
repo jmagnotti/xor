@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "../util/GraphicsConversionUtility.h"
+#include "../util/PointScale.h"
 #include "../paint/Paint.h"
 #include "Object3D.h"
 #include "Quadrilateral3D.h"

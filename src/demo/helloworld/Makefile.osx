@@ -89,10 +89,10 @@ HelloWorld.o: ../../interpolation/LinearInterpolator.h
 HelloWorld.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
 HelloWorld.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
 HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../shape/Point3D.h ../../paint/Paint.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../paint/Paint.h
 HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
 HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
+HelloWorld.o: ../../shape/Renderable.h ../../shape/Point3D.h
 HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
 HelloWorld.o: ../../core/Viewer.h ../../paint/Color.h
 HelloWorld.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
@@ -189,13 +189,16 @@ HelloWorld.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 HelloWorld.o: ../../multicast/MulticastSocket.h
 HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 HelloWorld.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-HelloWorld.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+HelloWorld.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+HelloWorld.o: ../../shape/Quadrilateral3D.h
 HelloWorld.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 HelloWorld.o: ../../shape/CollisionRenderable.h
 HelloWorld.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-HelloWorld.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HelloWorld.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+HelloWorld.o: ../../shape/ExtrudedNormalPolygon3D.h
+HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/NormalPolygon3D.h
+HelloWorld.o: ../../shape/Object3D.h ../../shape/Particle.h
+HelloWorld.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+HelloWorld.o: ../../shape/Point2D.h ../../shape/Point3D.h
 HelloWorld.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 HelloWorld.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 HelloWorld.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
@@ -224,7 +227,7 @@ HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-HelloWorld.o: /usr/include/wchar.h /usr/include/stdarg.h
-HelloWorld.o: /usr/include/_wctype.h /usr/include/ctype.h
-HelloWorld.o: /usr/include/runetype.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+HelloWorld.o: ../../util/xmlParser.h /usr/include/wchar.h
+HelloWorld.o: /usr/include/stdarg.h /usr/include/_wctype.h
+HelloWorld.o: /usr/include/ctype.h /usr/include/runetype.h

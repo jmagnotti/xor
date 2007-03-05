@@ -71,7 +71,7 @@ Vector3D * Vector3D::operator + (Vector3D * other)
                          _position[2] + other->getZ() );
 }
 
-float Vector3D::get(int dimension) const
+float Vector3D::get(int dimension) 
 {
 	if (dimension < 3 && dimension >= 0)
 		return _position[dimension];
@@ -79,18 +79,18 @@ float Vector3D::get(int dimension) const
 		return 0;
 }
 
-float Vector3D::getX() const
+float Vector3D::getX() 
 {
    	return _position[0];
 }
 
-float Vector3D::getY() const
+float Vector3D::getY() 
 {
    	return _position[1];
 }
 
 
-float Vector3D::getZ() const
+float Vector3D::getZ() 
 {
    	return _position[2];
 }
@@ -143,6 +143,15 @@ void Vector3D::clone(Vector3D * other)
 {
 	for(int i=0; i<3; i++)
 		_position[i] = other->_position[i];
+}
+
+
+/*
+ * returns a cloned instance
+ */
+Vector3D * Vector3D::clone()
+{
+    return new Vector3D(_position);
 }
 
 

@@ -22,5 +22,23 @@ void Object3D::render()
 	}
 }
 
+
+/*
+ * set the paint
+ */
+void Object3D::setPaint(Paint * paint)
+{
+    _paint = paint;
+}
+
+
+/*
+ * return a clone of the paint
+ */ 
+Paint * Object3D::getPaint()
+{
+    return _paint->clone();
+}
+
 }
 
