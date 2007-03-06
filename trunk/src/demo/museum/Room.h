@@ -1,10 +1,9 @@
-#if 0
+#ifndef ROOM_H
 #define ROOM_H
 
-#include "Paint.h"
-#include "Renderable.h"
-#include "RectangularPrism.h"
-#include "RectangularVolume.h"
+
+#include "../../xor.h"
+
 
 using namespace XOR;
 
@@ -13,7 +12,7 @@ using namespace XOR;
  * onto an arbitrary surface
  * Ex. You can render a picture on a wall.
  */
-class Room : public Renderable
+class Room : public Object3D
 {
 
 public:
@@ -28,34 +27,20 @@ public:
 	 * Explicit Constructor
 	 * Creates a room, using the given Volume for dimension
 	 */
-	Room(RectangularVolume *);
+	Room(RectangularVolume * volume);
 
 
 	/**
 	 * Explicit Constructor
 	 * Creates a room, using the given Prism for dimension & paint
 	 */
-	Room(RectangularPrism *);
+	Room(RectangularPrism * prism);
 
 
 	/**
 	 * Renders the room
 	 */
-	void render(void);
-
-
-	/**
-	 * Sets the volume for the room
-	 * Note: This causes a lot of recalculation
-	 */
-	void setVolume(RectangularVolume *);
-
-
-	/**
-	 * Sets the prism for the room
-	 * Note: This causes a lot of recalculation
-	 */
-	void setPrism(RectangularPrism *);
+	void renderObject(void);
 
 
 	/**
@@ -68,16 +53,21 @@ public:
 	 * For now this is going to be used to put "paintings" on a wall
 	 * You specify the Renderable and the wall to put it on.
 	 */
-	void setWallDecoration(Renderable *, int);
+	void setWallDecoration(Object3D *, int);
+
+
+	Dimension3D * getDimension();
+
+	Vector3D * getBaseVector();
 
 
 protected:
 
 	vector<Renderable*>	_decorations;
+	Object3D * _renderable;
 
 	Paint *				_paint;
-	RectangularPrism	_renderable;
-	
+		
 };
 
 #endif			// ROOM_H

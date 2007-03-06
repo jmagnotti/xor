@@ -241,7 +241,7 @@ Timer * Controller::getTimer()
 void Controller::run(void)
 {
     //moved this to the configuration method
-    //_viewer->forceReshape();
+    _viewer->forceReshape();
 
     // start ticking
     _timer->start();

@@ -24,13 +24,16 @@ int main(int argc, char ** argv)
 
     // Add a keyboard listener that has a small set of key handlers
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
     //Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
     NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(.5,.5,-2.5), 0.5, 10);
 
+	CompiledObject3D * co = new CompiledObject3D(new ExtrudedNormalPolygon3D(hello, 5.0f));
+	
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)
-    ctrl->setModel(hello);
+    ctrl->setModel(co);
 
     // this call runs the demo.
     ctrl->run();
