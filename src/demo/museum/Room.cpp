@@ -11,7 +11,7 @@ Room::Room()
 /*
  * Explicit Constructor.
  */
-Room::Room(AdornablePrism * prism)
+Room::Room(RectangularPrism * prism)
 {
     _renderable = prism;
 }
@@ -20,9 +20,9 @@ Room::Room(AdornablePrism * prism)
 /*
  * Explicit Constructor.
  */
-Room::Room(RectangularVolume * vol)
+Room::Room(RectangularVolume * volume)
 {
-    _renderable = new AdornablePrism(vol);
+    _renderable = new RectangularPrism(volume);
 }
 
 
@@ -38,44 +38,35 @@ Dimension3D * Room::getDimension()
 /*
  * Delegates to the underlying AdornablePrism.
  */
-Point3D * Room::getRegistrationPoint()
+Vector3D * Room::getBaseVector()
 {
-    return _renderable->getRegistrationPoint();
+    return _renderable->getBaseVector();
 }
 
 
 /*
  * Does special stuff with rendering so it can make doorways.
  */
-void Room::render(void)
+void Room::renderObject(void)
 {
     _renderable->render();
 }
 
 
 /*
- * Sets the underlying prism
- */
-void Room::setAdornablePrism(AdornablePrism * prism)
-{
-    _renderable = prism;
-}
-
-
-/*
  * Sets the underlying paint object
  */
-void Room::setPaint(Paint *p)
+void Room::setPaint(Paint * paint)
 {
-    _renderable->setPaint(p);
+    _renderable->setPaint(paint);
 }
 
 
 /*
  * Delegates to the underlying AdornablePrism.
  */
-void Room::setWallAdornment(Renderable * rend, int wall)
+void Room::setWallDecoration(Object3D * rend, int wall)
 {
-    _renderable->setAdornment(rend, wall);
+    //_renderable->setAdornment(rend, wall);
 }
 

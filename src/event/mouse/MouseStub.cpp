@@ -41,7 +41,7 @@ MouseStub * MouseStub::GetInstance()
  */
 void MouseStub::fireEvent(MouseEvent * me)
 {
-//	cout << "from stub: " << me->toString() << endl;
+	cout << "from stub: " << me->toString() << endl;
 
 	_socket->send(me->toString());
     notifyListeners(me);

@@ -179,8 +179,6 @@ void Viewer::setupSDLVideo()
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
                      DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
     
-    forceReshape();
-
     setWindowTitle(NULL);
 }
 

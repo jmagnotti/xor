@@ -42,27 +42,27 @@ WallDemo.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
 WallDemo.o: ../../../include/begin_code.h ../../../include/close_code.h
 WallDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
 WallDemo.o: /usr/include/features.h /usr/include/sys/cdefs.h
-WallDemo.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-WallDemo.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
-WallDemo.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-WallDemo.o: /usr/include/_G_config.h /usr/include/wchar.h
-WallDemo.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-WallDemo.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-WallDemo.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
-WallDemo.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
-WallDemo.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
-WallDemo.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
-WallDemo.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
-WallDemo.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
-WallDemo.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
-WallDemo.o: ../../event/timer/TimerListener.h
+WallDemo.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+WallDemo.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+WallDemo.o: /usr/include/libio.h /usr/include/_G_config.h
+WallDemo.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+WallDemo.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+WallDemo.o: /usr/include/bits/sys_errlist.h ../../../include/SDL_timer.h
+WallDemo.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+WallDemo.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+WallDemo.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+WallDemo.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+WallDemo.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+WallDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+WallDemo.o: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
 WallDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 WallDemo.o: /usr/include/sys/types.h /usr/include/time.h
 WallDemo.o: /usr/include/endian.h /usr/include/bits/endian.h
 WallDemo.o: /usr/include/sys/select.h /usr/include/bits/select.h
 WallDemo.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 WallDemo.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
-WallDemo.o: /usr/include/stdlib.h /usr/include/alloca.h /usr/include/string.h
+WallDemo.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+WallDemo.o: /usr/include/alloca.h /usr/include/string.h
 WallDemo.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
 WallDemo.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
 WallDemo.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
@@ -131,6 +131,7 @@ WallDemo.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
 WallDemo.o: ../../transform/CoordinateSystemFactory.h
 WallDemo.o: ../../transform/CoordinateSystem.h
 WallDemo.o: ../../transform/OpenGLCoordinateSystem.h
+WallDemo.o: ../../transform/MacCoordinateSystem.h
 WallDemo.o: ../../transform/MathCoordinateSystem.h
 WallDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 WallDemo.o: ../../transform/EngineerCoordinateSystem.h
@@ -153,17 +154,18 @@ WallDemo.o: ../../event/mouse/MouseButtonDown.h
 WallDemo.o: ../../event/mouse/MouseMotionEvent.h
 WallDemo.o: ../../event/mouse/MouseEventFactory.h
 WallDemo.o: ../../event/mouse/MouseStub.h
-WallDemo.o: ../../event/FullEventHandlerFactory.h
+WallDemo.o: ../../event/InputEventHandlerFactory.h
 WallDemo.o: ../../event/EventHandlerFactory.h
-WallDemo.o: ../../event/reshape/ReshapeSkeleton.h
 WallDemo.o: ../../event/keyboard/KeyboardSkeleton.h
 WallDemo.o: ../../event/mouse/MouseSkeleton.h
+WallDemo.o: ../../event/reshape/ReshapeSkeleton.h
 WallDemo.o: ../../event/timer/TimerSkeleton.h
-WallDemo.o: ../../event/InputEventProxyFactory.h
-WallDemo.o: ../../event/keyboard/KeyboardStub.h ../../event/mouse/MouseStub.h
-WallDemo.o: ../../event/FullEventProxyFactory.h ../../event/timer/TimerStub.h
+WallDemo.o: ../../event/FullEventHandlerFactory.h
 WallDemo.o: ../../event/EventHandlerFactory.h
-WallDemo.o: ../../event/InputEventHandlerFactory.h
+WallDemo.o: ../../event/FullEventProxyFactory.h
+WallDemo.o: ../../event/keyboard/KeyboardStub.h ../../event/mouse/MouseStub.h
+WallDemo.o: ../../event/timer/TimerStub.h
+WallDemo.o: ../../event/InputEventProxyFactory.h
 WallDemo.o: ../../interpolation/InterpolatorFactory.h
 WallDemo.o: ../../interpolation/TimedInterpolation.h
 WallDemo.o: ../../interpolation/ContinuousInterpolation.h
@@ -174,50 +176,54 @@ WallDemo.o: ../../interpolation/InterpolationListener.h
 WallDemo.o: ../../interpolation/Interpolator.h
 WallDemo.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
 WallDemo.o: ../../core/Controller.h ../../core/World.h
+WallDemo.o: ../../core/DebugViewer.h ../../core/Controller.h
 WallDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 WallDemo.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
 WallDemo.o: ../../geometry/Vector3D.h ../../geometry/Dimension.h
 WallDemo.o: ../../geometry/CylindricalVolume.h
 WallDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
-WallDemo.o: ../../geometry/Vector3D.h ../../shape/String2D.h
-WallDemo.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-WallDemo.o: ../../core/Viewer.h ../../shape/Point.h ../../shape/Arc3D.h
+WallDemo.o: ../../geometry/Vector3D.h ../../texture/TextureFactory.h
+WallDemo.o: ../../texture/Texture.h ../../texture/Texture.h
+WallDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+WallDemo.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+WallDemo.o: ../../shape/Point.h ../../shape/Arc3D.h
 WallDemo.o: ../../shape/CollisionRenderable.h ../../shape/AdornablePrism.h
 WallDemo.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
-WallDemo.o: ../../geometry/RectangularVolume.h ../../shape/Renderable.h
-WallDemo.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+WallDemo.o: ../../geometry/RectangularVolume.h ../../shape/Particle.h
+WallDemo.o: ../../shape/CollisionRenderable.h ../../shape/Renderable.h
 WallDemo.o: ../../shape/Cube.h ../../shape/RectangularPrismFactory.h
 WallDemo.o: ../../shape/Point2D.h ../../shape/Point3D.h
 WallDemo.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
-WallDemo.o: ../../shape/Triangle3D.h ../../shape/Object3D.h
-WallDemo.o: ../../shape/NormalPolygon3D.h ../../shape/CompiledObject3D.h
-WallDemo.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-WallDemo.o: ../../texture/Texture.h ../../terrain/HeightFieldStrategy.h
-WallDemo.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
-WallDemo.o: ../../texture/TextureFactory.h ../../terrain/HeightField.h
-WallDemo.o: ../../terrain/ImageHeightFieldStrategy.h
-WallDemo.o: ../../terrain/HeightFieldStrategy.h
+WallDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Triangle3D.h
+WallDemo.o: ../../shape/Object3D.h ../../shape/CompiledObject3D.h
+WallDemo.o: ../../shape/ExtrudedNormalPolygon.h ../../shape/NormalPolygon3D.h
 WallDemo.o: ../../terrain/NullHeightFieldStrategy.h
+WallDemo.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+WallDemo.o: ../../shape/Quadrilateral3D.h ../../texture/TextureFactory.h
+WallDemo.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
+WallDemo.o: ../../terrain/ImageHeightFieldStrategy.h
 WallDemo.o: ../../terrain/HeightFieldFactory.h
-WallDemo.o: ../../terrain/FunctionHeightFieldStrategy.h
 WallDemo.o: ../../terrain/MatrixHeightFieldStrategy.h
+WallDemo.o: ../../terrain/FunctionHeightFieldStrategy.h
 WallDemo.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
-WallDemo.o: ../../multicast/Multicast.h ../../multicast/MulticastSocketPool.h
-WallDemo.o: ../../multicast/MulticastSocket.h ../../paint/Paint.h
-WallDemo.o: ../../paint/Color.h ../../transform/Transformable.h
-WallDemo.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
-WallDemo.o: ../../transform/Rotate.h ../../transform/OpenGLCoordinateSystem.h
+WallDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+WallDemo.o: ../../multicast/MulticastSocketPool.h
+WallDemo.o: ../../transform/Transformable.h ../../transform/Translate.h
+WallDemo.o: ../../transform/Rotate.h ../../transform/CoordinateSystem.h
+WallDemo.o: ../../transform/OpenGLCoordinateSystem.h
 WallDemo.o: ../../transform/TransformFactory.h
 WallDemo.o: ../../transform/EngineerCoordinateSystem.h
 WallDemo.o: ../../transform/MathCoordinateSystem.h
-WallDemo.o: ../../transform/Transform.h
+WallDemo.o: ../../transform/Transform.h ../../transform/Scale.h
 WallDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
-WallDemo.o: ../../transform/Scale.h ../../transform/CoordinateSystemFactory.h
-WallDemo.o: ../../transform/Stretch.h ../../util/GraphicsConversionUtility.h
+WallDemo.o: ../../transform/CoordinateSystemFactory.h
+WallDemo.o: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
+WallDemo.o: ../../paint/Paint.h ../../paint/Color.h
+WallDemo.o: ../../util/GraphicsConversionUtility.h
 WallDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 WallDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
 WallDemo.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-WallDemo.o: ../../model/Model.h ../../model/MilkshapeModel.h
+WallDemo.o: ../../model/MilkshapeModel.h ../../model/Model.h
 WallDemo.o: ../../model/Model.h ../../model/ModelFactory.h
 WallDemo.o: ../../model/MilkshapeModel.h ../../../include/SDL_syswm.h
 WallDemo.o: /usr/include/X11/Xlib.h /usr/include/X11/X.h
