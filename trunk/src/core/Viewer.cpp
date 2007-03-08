@@ -100,7 +100,7 @@ World * Viewer::setModel(World * rend)
  */
 Dimension2D * Viewer::getWindowSize()
 {
-	return _size;
+	return _size->clone();
 }
 
 
@@ -311,7 +311,8 @@ void Viewer::toggleFullScreen()
  */ 
 void Viewer::setWindowDimension(Dimension2D * size)
 {
-    _size->clone(size);
+	delete _size;
+    _size = size->clone();
 
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(),
             DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);

@@ -25,6 +25,12 @@ public:
 	 * Explicit Constructor
 	 */
 	Dimension2D(float width, float height);
+
+	
+	/**
+	 * Returns a clone of the dimension
+	 */
+	Dimension2D * clone();
     
 
     // Getters //
