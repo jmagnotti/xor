@@ -19,8 +19,8 @@ ReshapeEvent::ReshapeEvent(Dimension2D * size)
  */
 ReshapeEvent * ReshapeEvent::ConstructInstance(SDL_Event * event)
 {
-    return ReshapeEvent::ConstructInstance(new Dimension2D(event->resize.w,
-                event->resize.h));
+	return ReshapeEvent::ConstructInstance(
+			new Dimension2D(event->resize.w, event->resize.h));
 }
 
 
@@ -29,14 +29,7 @@ ReshapeEvent * ReshapeEvent::ConstructInstance(SDL_Event * event)
  */
 ReshapeEvent * ReshapeEvent::ConstructInstance(Dimension2D * size)
 {
-    if (_reshapeEvent == NULL)
-        _reshapeEvent = new ReshapeEvent(size);
-    else {
-        _reshapeEvent->_size->clone(size);
-        delete size;
-    }
-
-    return _reshapeEvent;
+    return new ReshapeEvent(size);
 }
 
 

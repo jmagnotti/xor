@@ -120,6 +120,7 @@ public:
 	 * change the position of the vector
 	 */
 	void setPosition(float position[3]);
+	void setPosition(int position, float value);
 
 
 	/**

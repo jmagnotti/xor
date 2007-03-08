@@ -3,20 +3,18 @@
 
 
 #include <string.h>
-#include "../util/BitmapFontUtil.h"
+#include "../geometry/Vector2D.h"
 #include "../geometry/Dimension2D.h"
-#include "../geometry/Dimension3D.h"
 #include "../paint/Paint.h"
-#include "Renderable.h"
+#include "../util/BitmapFontUtil.h"
 #include "../core/Controller.h"
 #include "../core/Viewer.h"
-
+#include "Object2D.h"
 
 
 using namespace std;
 
 namespace XOR {
-//FIXME
 
 /**
  * Used to create 2D text(can not change z-position, always 0)
@@ -27,16 +25,16 @@ namespace XOR {
  * instead of the 3D Projection. If you want exact screen coordinates, get them from
  * the view object (Controller.getView()).
  *
- * It is correct to think that the String2D class should not be changing the world
- * projection. At some point this will be refactored into a more appropriate place.
+ * @author John Magnotti
  */
-class String2D : public Object3D
+class String2D : public Object2D
 {
 
 public:
 
 	/**
 	 * Explicit Constructor.
+	 *
 	 * Note that this doesn't set the position, so it is more for status 
      * messages. The text will be displayed in the upper left region.
 	 */
@@ -55,15 +53,7 @@ public:
 	 * Explicit Constructor
 	 * This is the more recommended way to draw strings. 
 	 */
-	String2D(char*, int, int, int, int);
-
-
-	/**
-	 * Explicit Constructor
-	 * This is the same as the above constructor, except it uses a Dimension2D 
-     * object to specify size
-	 */
-	String2D(char*, Dimension2D*, int, int);
+	String2D(char*, int, int);
 
 
 	/**
@@ -81,21 +71,12 @@ public:
     /**
 	 * Takes care of rendering the string
 	 */
-    void render(void);
-    void renderObject(void){render();}
+    void renderObject(void);
 
 
 	/** 
-	 * Set the paint of the object
-	 *
-	 * This paint SHOULD NOT have a gradient. The underlying
-	 * implementation will only use Paint.getColorTo(). Future versions may allow for
-	 * a choppy gradient in which each letter is progressively colored, this might be
-	 * really resource intensive, and a display list would have to be created, but
-	 * that isn't horrible.
+	 * Sets the color of the text.
 	 */
-	//void setPaint(Paint*);
-
     void setColor(const float color[3]);
 
     /**
@@ -103,23 +84,25 @@ public:
      */
     void setText(char*);
 
-	Dimension3D * getDimension();
-	Vector3D * getBaseVector();
+	Dimension2D * getDimension();
+
+	Vector2D * getBaseVector();
 
 
-protected:
+private:
 
-	GLuint			_stringDL;
+	/**
+	 * Set the string attributes
+	 */
+	void build(char * string, int xpos, int ypos, const float color [3]);
 
 	char *			_text;
 	int				_xpos, _ypos;
     float           _color[3];
-
-	Dimension2D *	_size;
-	//Paint *			_paint;
 
 };
 
 }
 
 #endif          //STRING2D_H
+

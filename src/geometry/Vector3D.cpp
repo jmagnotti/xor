@@ -126,6 +126,12 @@ void Vector3D::setPosition(float position[3])
 		_position[i] = position[i];
 }
 
+void Vector3D::setPosition(int position, float value)
+{
+	if (position >= 0 && position <= 2)
+		_position[position] = value;
+}
+
 
 /*
  * toArray

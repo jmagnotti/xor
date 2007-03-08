@@ -117,6 +117,13 @@ void Vector2D::setPosition(float position[2])
 }
 
 
+void Vector2D::setPosition(int position, float value)
+{
+	if (position == 0 || position == 1)
+		_position[position] = value;
+}
+
+
 /*
  * toArray
  */

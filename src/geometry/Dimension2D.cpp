@@ -22,7 +22,6 @@ Dimension2D::Dimension2D()
  */
 Dimension2D::Dimension2D(float width, float height)
 {
-    //cout << "Exp Constr in D_2D" << endl;
     _dimension = new float[2];
 
     _dimension[0] = width;
@@ -30,8 +29,17 @@ Dimension2D::Dimension2D(float width, float height)
 }
 
 
+/*
+ * returns a clone of the dimension
+ */
+Dimension2D * Dimension2D::clone()
+{
+	return new Dimension2D(getWidth(), getHeight());
+}
+
+
 // Getters //
-int Dimension2D::getDimensionality() { return 2;             }
+int Dimension2D::getDimensionality() { return 2; }
 
 float Dimension2D::getWidth()	    { return _dimension[0];	}
 float Dimension2D::getHeight()	    { return _dimension[1];	}
@@ -40,8 +48,8 @@ float Dimension2D::getX()	    { return _dimension[0];	}
 float Dimension2D::getY()	    { return _dimension[1];	}
 
 // Setters //
+void Dimension2D::setWidth(float width)   { _dimension[0] = width;  }
 void Dimension2D::setHeight(float height) {	_dimension[1] = height; }
-void Dimension2D::setWidth(float width)   { _dimension[0] = width;   }
 
 }
 

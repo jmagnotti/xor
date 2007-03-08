@@ -71,6 +71,9 @@ public:
 	 */
 	virtual void renderObject()=0;
 
+
+protected:
+
     Paint * _paint;
 
 };
