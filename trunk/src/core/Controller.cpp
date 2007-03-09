@@ -258,7 +258,7 @@ void Controller::run(void)
 /* 
  * sets the model for the controller
  */
-Object3D * Controller::setModel(Object3D * model)
+Renderable * Controller::setModel(Renderable * model)
 {
 	// In order to do proper rendering, we need a world object
 	// we don't want to force people to do all that though, so we do a quick check
