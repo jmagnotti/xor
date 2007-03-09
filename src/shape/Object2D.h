@@ -5,13 +5,14 @@
 #include "../../include/SDL_opengl.h"
 #include "../core/Controller.h"
 #include "../core/Viewer.h"
+#include "Renderable.h"
 
 namespace XOR {
 
 /**
  *
  */
-class Object2D
+class Object2D : public Renderable
 {
 
 public:

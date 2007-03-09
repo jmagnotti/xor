@@ -15,9 +15,9 @@ World::World()
 
 World::~World()
 {
-	map<char*, Object3D*>::iterator iter   = _objects.begin();
-	map<char*, Object3D*>::iterator finish = _objects.end();
-	map<char*, Object3D*>::iterator prev;
+	map<char*, Renderable*>::iterator iter   = _objects.begin();
+	map<char*, Renderable*>::iterator finish = _objects.end();
+	map<char*, Renderable*>::iterator prev;
 
     while(iter != finish) {
         prev = iter;
@@ -31,7 +31,7 @@ World::~World()
 /* 
  * Explicit Constructor
  */
-World::World(Object3D * object)
+World::World(Renderable * object)
 {
 	addObject("world", object);
 }
@@ -53,7 +53,7 @@ World * World::GetInstance()
  * Returns an instance initialized with the given object, unless the world has
  * already been initialized
  */
-World * World::GetInstance(Object3D * object)
+World * World::GetInstance(Renderable * object)
 {
 	if (_world == NULL)
 		_world = new World(object);
@@ -65,7 +65,7 @@ World * World::GetInstance(Object3D * object)
 /*
  * Adds a renderable to the world
  */
-void World::addObject(char * name, Object3D * object)
+void World::addObject(char * name, Renderable * object)
 {
 	_objects[name] = object;
 }
@@ -74,7 +74,7 @@ void World::addObject(char * name, Object3D * object)
 /*
  * Get a reference to an object in the world
  */
-Object3D * World::getObject(char * name)
+Renderable * World::getObject(char * name)
 {
 	return _objects[name];
 }
@@ -101,7 +101,7 @@ void World::clean()
 /*
  * Returns if the given object is the world object
  */
-bool World::IsWorldObject(Object3D * world)
+bool World::IsWorldObject(Renderable * world)
 {
 	return (world == _world);
 }
@@ -112,8 +112,8 @@ bool World::IsWorldObject(Object3D * world)
  */
 void World::renderObject()
 {
-	map<char*, Object3D*>::iterator iter   = _objects.begin();
-	map<char*, Object3D*>::iterator finish = _objects.end();
+	map<char*, Renderable*>::iterator iter   = _objects.begin();
+	map<char*, Renderable*>::iterator finish = _objects.end();
 
     while(iter != finish) {
         iter->second->render();

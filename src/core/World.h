@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <map>
 
+#include "../shape/Renderable.h"
 #include "../shape/Object3D.h"
 
 
@@ -41,13 +42,13 @@ public:
      * calling setDefaults() will trash any World configuration set by
      * Controller.setDefaultConfiguration().
 	 */
-	static World * GetInstance(Object3D *);
+	static World * GetInstance(Renderable *);
 
 
 	/**
      * Determines if the given renderable is the world obejct itself
 	 */
-	static bool IsWorldObject(Object3D * world);
+	static bool IsWorldObject(Renderable * world);
 
 
 	/**
@@ -55,7 +56,7 @@ public:
 	 * The idea is that now you can get the renderables back out
 	 * of the world to perform operations on them
 	 */
-	void addObject(char * name, Object3D * object);
+	void addObject(char * name, Renderable * object);
 
 
 	/**
@@ -67,7 +68,7 @@ public:
 	/**
 	 * Returns a reference to a named renderable.
 	 */
-	Object3D * getObject(char *);
+	Renderable * getObject(char *);
 
 
 	/**
@@ -97,10 +98,10 @@ public:
 private:
 
 	World();
-	World(Object3D * object);
+	World(Renderable * object);
 
 	static World * _world;
-	map<char*, Object3D*> _objects;
+	map<char*, Renderable*> _objects;
 
 };
 
