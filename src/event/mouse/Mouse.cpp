@@ -139,7 +139,7 @@ void Mouse::removeListener(MouseListener * ml)
     list<MouseListener*>::iterator iter   = _listeners.begin();
     list<MouseListener*>::iterator finish = _listeners.end();
 
-    while (iter != finish && !removed) {
+    while (!removed && iter != finish) {
         if (*iter == ml) {
             _listeners.erase(iter);
             removed = true;

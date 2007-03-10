@@ -41,7 +41,10 @@ MouseStub * MouseStub::GetInstance()
  */
 void MouseStub::fireEvent(MouseEvent * me)
 {
-	cout << "from stub: " << me->toString() << endl;
+    if (me->getType() == MouseEvent::MOUSE_MOTION)
+        updateFromEvent((MouseMotionEvent*)me);
+    else 
+        updateFromEvent((MouseClickEvent *)me);
 
 	_socket->send(me->toString());
     notifyListeners(me);
