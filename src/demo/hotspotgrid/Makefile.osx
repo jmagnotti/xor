@@ -1,0 +1,435 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -framework Cocoa -framework OpenGL -lSDL -lSDLmain -lXOR 
+
+#Packages
+SRCS = HotspotGrid.cpp HotspotDriver.cpp PrintMousePosition.cpp Icon2D.cpp RectangularHull.cpp ActionItem.cpp PrintAction.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = HotspotGrid
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+HotspotGrid:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+HotspotGrid.o: HotspotGrid.h ../../xor.h ../../core/Controller.h
+HotspotGrid.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
+HotspotGrid.o: /usr/include/_types.h /usr/include/sys/_types.h
+HotspotGrid.o: /usr/include/machine/_types.h /usr/include/sys/wait.h
+HotspotGrid.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+HotspotGrid.o: /usr/include/machine/signal.h /usr/include/sys/resource.h
+HotspotGrid.o: /usr/include/machine/endian.h /usr/include/alloca.h
+HotspotGrid.o: /usr/include/machine/types.h ../../../include/SDL.h
+HotspotGrid.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+HotspotGrid.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+HotspotGrid.o: ../../../include/begin_code.h ../../../include/close_code.h
+HotspotGrid.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+HotspotGrid.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+HotspotGrid.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+HotspotGrid.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+HotspotGrid.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+HotspotGrid.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+HotspotGrid.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+HotspotGrid.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+HotspotGrid.o: ../../event/EventHandlerFactory.h
+HotspotGrid.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+HotspotGrid.o: ../../event/keyboard/KeyboardListener.h
+HotspotGrid.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
+HotspotGrid.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+HotspotGrid.o: ../../event/keyboard/KeyDownEvent.h
+HotspotGrid.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+HotspotGrid.o: ../../event/mouse/MouseListener.h
+HotspotGrid.o: ../../event/mouse/MouseEvent.h
+HotspotGrid.o: ../../event/mouse/MouseEventFactory.h
+HotspotGrid.o: ../../event/mouse/MouseButtonDown.h
+HotspotGrid.o: ../../event/mouse/MouseClickEvent.h
+HotspotGrid.o: ../../event/mouse/MouseButtonUp.h
+HotspotGrid.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+HotspotGrid.o: ../../event/timer/TimerListener.h
+HotspotGrid.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
+HotspotGrid.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
+HotspotGrid.o: ../../event/reshape/ReshapeListener.h
+HotspotGrid.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+HotspotGrid.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+HotspotGrid.o: ../../core/World.h ../../shape/Object3D.h
+HotspotGrid.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
+HotspotGrid.o: /usr/include/stddef.h ../../transform/Transform.h
+HotspotGrid.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+HotspotGrid.o: ../../interpolation/InterpolationEngine.h
+HotspotGrid.o: ../../interpolation/InterpolationListener.h
+HotspotGrid.o: ../../interpolation/Interpolator.h
+HotspotGrid.o: ../../interpolation/InterpolatorFactory.h
+HotspotGrid.o: ../../interpolation/LinearInterpolator.h
+HotspotGrid.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+HotspotGrid.o: ../../transform/Stretch.h ../../transform/Translate.h
+HotspotGrid.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+HotspotGrid.o: ../../paint/Paint.h ../../texture/Texture.h
+HotspotGrid.o: ../../../include/SDL_image.h ../../../include/SDL.h
+HotspotGrid.o: ../../paint/Color.h ../../shape/Renderable.h
+HotspotGrid.o: ../../shape/Point3D.h ../../shape/Object3D.h
+HotspotGrid.o: ../../shape/Renderable.h ../../core/Viewer.h
+HotspotGrid.o: ../../paint/Color.h ../../geometry/Dimension2D.h
+HotspotGrid.o: ../../transform/CoordinateSystem.h
+HotspotGrid.o: ../../transform/CoordinateSystemFactory.h
+HotspotGrid.o: ../../transform/CoordinateSystem.h
+HotspotGrid.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/MacCoordinateSystem.h
+HotspotGrid.o: ../../transform/MathCoordinateSystem.h
+HotspotGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/EngineerCoordinateSystem.h
+HotspotGrid.o: ../../event/timer/TimerListener.h
+HotspotGrid.o: ../../event/reshape/ReshapeListener.h
+HotspotGrid.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
+HotspotGrid.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
+HotspotGrid.o: ../../event/EventHandlerFactory.h
+HotspotGrid.o: ../../event/FullEventHandlerFactory.h
+HotspotGrid.o: ../../event/EventHandlerFactory.h
+HotspotGrid.o: ../../event/reshape/ReshapeSkeleton.h
+HotspotGrid.o: ../../event/reshape/Reshape.h
+HotspotGrid.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotGrid.o: ../../../include/SDL_thread.h
+HotspotGrid.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+HotspotGrid.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+HotspotGrid.o: /usr/include/machine/param.h /usr/include/netinet/in.h
+HotspotGrid.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+HotspotGrid.o: /usr/include/libkern/OSByteOrder.h
+HotspotGrid.o: /usr/include/libkern/machine/OSByteOrder.h
+HotspotGrid.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+HotspotGrid.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+HotspotGrid.o: /usr/include/limits.h /usr/include/machine/limits.h
+HotspotGrid.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+HotspotGrid.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+HotspotGrid.o: /usr/include/sys/time.h /usr/include/sys/time.h
+HotspotGrid.o: ../../multicast/MulticastSocketPool.h
+HotspotGrid.o: ../../multicast/MulticastSocket.h
+HotspotGrid.o: ../../event/keyboard/Keyboard.h
+HotspotGrid.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+HotspotGrid.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+HotspotGrid.o: ../../event/FullEventProxyFactory.h
+HotspotGrid.o: ../../event/keyboard/KeyboardStub.h
+HotspotGrid.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
+HotspotGrid.o: ../../event/InputEventHandlerFactory.h
+HotspotGrid.o: ../../event/InputEventProxyFactory.h
+HotspotGrid.o: ../../event/keyboard/DefaultKeyboardListener.h
+HotspotGrid.o: ../../interpolation/TimedInterpolation.h
+HotspotGrid.o: ../../core/Controller.h
+HotspotGrid.o: ../../interpolation/InterpolationEngine.h
+HotspotGrid.o: ../../core/Controller.h ../../core/World.h
+HotspotGrid.o: ../../event/keyboard/Keyboard.h
+HotspotGrid.o: ../../event/keyboard/KeyboardListener.h
+HotspotGrid.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotGrid.o: ../../event/keyboard/KeyboardStub.h
+HotspotGrid.o: ../../event/keyboard/KeyDownEvent.h
+HotspotGrid.o: ../../event/keyboard/KeyEvent.h
+HotspotGrid.o: ../../event/keyboard/KeyEventFactory.h
+HotspotGrid.o: ../../event/keyboard/KeyUpEvent.h
+HotspotGrid.o: ../../event/keyboard/RegularKeyEvent.h
+HotspotGrid.o: ../../event/keyboard/SpecialKeyEvent.h
+HotspotGrid.o: ../../event/mouse/DefaultMouseListener.h
+HotspotGrid.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+HotspotGrid.o: ../../event/mouse/MouseButtonDown.h
+HotspotGrid.o: ../../event/mouse/MouseButtonUp.h
+HotspotGrid.o: ../../event/mouse/MouseClickEvent.h
+HotspotGrid.o: ../../event/mouse/MouseEvent.h
+HotspotGrid.o: ../../event/mouse/MouseEventFactory.h
+HotspotGrid.o: ../../event/mouse/MouseListener.h
+HotspotGrid.o: ../../event/mouse/MouseMotionEvent.h
+HotspotGrid.o: ../../event/mouse/MouseSkeleton.h
+HotspotGrid.o: ../../event/mouse/MouseStub.h ../../event/reshape/Reshape.h
+HotspotGrid.o: ../../event/reshape/ReshapeEvent.h
+HotspotGrid.o: ../../event/reshape/ReshapeListener.h
+HotspotGrid.o: ../../event/reshape/ReshapeSkeleton.h
+HotspotGrid.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+HotspotGrid.o: ../../event/timer/TimerSkeleton.h
+HotspotGrid.o: ../../event/timer/TimerStub.h
+HotspotGrid.o: ../../geometry/CylindricalVolume.h
+HotspotGrid.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+HotspotGrid.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+HotspotGrid.o: ../../geometry/Dimension3D.h
+HotspotGrid.o: ../../geometry/RectangularVolume.h
+HotspotGrid.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+HotspotGrid.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+HotspotGrid.o: ../../interpolation/ContinuousInterpolation.h
+HotspotGrid.o: ../../interpolation/TimedInterpolation.h
+HotspotGrid.o: ../../interpolation/InterpolationEngine.h
+HotspotGrid.o: ../../interpolation/InterpolationListener.h
+HotspotGrid.o: ../../interpolation/Interpolator.h
+HotspotGrid.o: ../../interpolation/InterpolatorFactory.h
+HotspotGrid.o: ../../interpolation/LinearInterpolator.h
+HotspotGrid.o: ../../interpolation/TimedInterpolation.h
+HotspotGrid.o: ../../model/MilkshapeModel.h ../../model/Model.h
+HotspotGrid.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+HotspotGrid.o: ../../model/Model.h ../../model/ModelFactory.h
+HotspotGrid.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+HotspotGrid.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+HotspotGrid.o: ../../multicast/MulticastSocket.h
+HotspotGrid.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+HotspotGrid.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+HotspotGrid.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+HotspotGrid.o: ../../shape/Quadrilateral3D.h
+HotspotGrid.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+HotspotGrid.o: ../../shape/CollisionRenderable.h
+HotspotGrid.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+HotspotGrid.o: ../../shape/ExtrudedNormalPolygon3D.h
+HotspotGrid.o: ../../shape/NormalPolygon3D.h ../../shape/Line.h
+HotspotGrid.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+HotspotGrid.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+HotspotGrid.o: ../../shape/Point.h ../../shape/Point2D.h
+HotspotGrid.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+HotspotGrid.o: ../../shape/RectangularPrism.h
+HotspotGrid.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+HotspotGrid.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+HotspotGrid.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
+HotspotGrid.o: ../../shape/Triangle3D.h
+HotspotGrid.o: ../../terrain/FunctionHeightFieldStrategy.h
+HotspotGrid.o: ../../terrain/HeightFieldStrategy.h
+HotspotGrid.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+HotspotGrid.o: ../../terrain/HeightField.h ../../terrain/HeightFieldFactory.h
+HotspotGrid.o: ../../terrain/HeightFieldStrategy.h
+HotspotGrid.o: ../../terrain/ImageHeightFieldStrategy.h
+HotspotGrid.o: ../../terrain/MatrixHeightFieldStrategy.h
+HotspotGrid.o: ../../terrain/NullHeightFieldStrategy.h
+HotspotGrid.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+HotspotGrid.o: ../../transform/CoordinateSystem.h
+HotspotGrid.o: ../../transform/CoordinateSystemFactory.h
+HotspotGrid.o: ../../transform/EngineerCoordinateSystem.h
+HotspotGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/MacCoordinateSystem.h
+HotspotGrid.o: ../../transform/MathCoordinateSystem.h
+HotspotGrid.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/Rotate.h ../../transform/Scale.h
+HotspotGrid.o: ../../transform/Stretch.h ../../transform/Transform.h
+HotspotGrid.o: ../../transform/Transformable.h
+HotspotGrid.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+HotspotGrid.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+HotspotGrid.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+HotspotGrid.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+HotspotGrid.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+HotspotGrid.o: ../../util/xmlParser.h /usr/include/wchar.h
+HotspotGrid.o: /usr/include/stdarg.h /usr/include/_wctype.h
+HotspotGrid.o: /usr/include/ctype.h /usr/include/runetype.h
+HotspotDriver.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
+HotspotDriver.o: /usr/include/sys/cdefs.h /usr/include/_types.h
+HotspotDriver.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
+HotspotDriver.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+HotspotDriver.o: /usr/include/sys/appleapiopts.h
+HotspotDriver.o: /usr/include/machine/signal.h /usr/include/sys/resource.h
+HotspotDriver.o: /usr/include/machine/endian.h /usr/include/alloca.h
+HotspotDriver.o: /usr/include/machine/types.h ../../../include/SDL.h
+HotspotDriver.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+HotspotDriver.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+HotspotDriver.o: ../../../include/begin_code.h ../../../include/close_code.h
+HotspotDriver.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+HotspotDriver.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+HotspotDriver.o: ../../../include/SDL_byteorder.h
+HotspotDriver.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+HotspotDriver.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+HotspotDriver.o: ../../../include/SDL_keyboard.h
+HotspotDriver.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+HotspotDriver.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+HotspotDriver.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+HotspotDriver.o: ../../event/EventHandlerFactory.h
+HotspotDriver.o: ../../event/keyboard/Keyboard.h
+HotspotDriver.o: ../../../include/SDL_events.h
+HotspotDriver.o: ../../event/keyboard/KeyboardListener.h
+HotspotDriver.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
+HotspotDriver.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+HotspotDriver.o: ../../event/keyboard/KeyDownEvent.h
+HotspotDriver.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+HotspotDriver.o: ../../event/mouse/MouseListener.h
+HotspotDriver.o: ../../event/mouse/MouseEvent.h
+HotspotDriver.o: ../../event/mouse/MouseEventFactory.h
+HotspotDriver.o: ../../event/mouse/MouseButtonDown.h
+HotspotDriver.o: ../../event/mouse/MouseClickEvent.h
+HotspotDriver.o: ../../event/mouse/MouseButtonUp.h
+HotspotDriver.o: ../../event/mouse/MouseMotionEvent.h
+HotspotDriver.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+HotspotDriver.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
+HotspotDriver.o: ../../geometry/Dimension.h
+HotspotDriver.o: ../../event/reshape/ReshapeEvent.h
+HotspotDriver.o: ../../event/reshape/ReshapeListener.h
+HotspotDriver.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+HotspotDriver.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+HotspotDriver.o: ../../core/World.h ../../shape/Object3D.h
+HotspotDriver.o: ../../transform/Transformable.h
+HotspotDriver.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+HotspotDriver.o: ../../transform/Transform.h ../../transform/Scale.h
+HotspotDriver.o: ../../geometry/Vector3D.h
+HotspotDriver.o: ../../interpolation/InterpolationEngine.h
+HotspotDriver.o: ../../interpolation/InterpolationListener.h
+HotspotDriver.o: ../../interpolation/Interpolator.h
+HotspotDriver.o: ../../interpolation/InterpolatorFactory.h
+HotspotDriver.o: ../../interpolation/LinearInterpolator.h
+HotspotDriver.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+HotspotDriver.o: ../../transform/Stretch.h ../../transform/Translate.h
+HotspotDriver.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+HotspotDriver.o: ../../paint/Paint.h ../../texture/Texture.h
+HotspotDriver.o: ../../../include/SDL_image.h ../../../include/SDL.h
+HotspotDriver.o: ../../paint/Color.h ../../shape/Renderable.h
+HotspotDriver.o: ../../shape/Point3D.h ../../shape/Object3D.h
+HotspotDriver.o: ../../shape/Renderable.h ../../core/Viewer.h
+HotspotDriver.o: ../../paint/Color.h ../../geometry/Dimension2D.h
+HotspotDriver.o: ../../transform/CoordinateSystem.h
+HotspotDriver.o: ../../transform/CoordinateSystemFactory.h
+HotspotDriver.o: ../../transform/CoordinateSystem.h
+HotspotDriver.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/MacCoordinateSystem.h
+HotspotDriver.o: ../../transform/MathCoordinateSystem.h
+HotspotDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/EngineerCoordinateSystem.h
+HotspotDriver.o: ../../event/timer/TimerListener.h
+HotspotDriver.o: ../../event/reshape/ReshapeListener.h
+HotspotDriver.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
+HotspotDriver.o: ../../core/Controller.h ../../core/Viewer.h
+HotspotDriver.o: ../../core/World.h ../../event/EventHandlerFactory.h
+HotspotDriver.o: ../../event/FullEventHandlerFactory.h
+HotspotDriver.o: ../../event/EventHandlerFactory.h
+HotspotDriver.o: ../../event/reshape/ReshapeSkeleton.h
+HotspotDriver.o: ../../event/reshape/Reshape.h
+HotspotDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotDriver.o: ../../../include/SDL_thread.h
+HotspotDriver.o: ../../multicast/MulticastSocket.h
+HotspotDriver.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+HotspotDriver.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+HotspotDriver.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+HotspotDriver.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+HotspotDriver.o: /usr/include/libkern/machine/OSByteOrder.h
+HotspotDriver.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+HotspotDriver.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+HotspotDriver.o: /usr/include/limits.h /usr/include/machine/limits.h
+HotspotDriver.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+HotspotDriver.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+HotspotDriver.o: /usr/include/sys/time.h /usr/include/sys/time.h
+HotspotDriver.o: ../../multicast/MulticastSocketPool.h
+HotspotDriver.o: ../../multicast/MulticastSocket.h
+HotspotDriver.o: ../../event/keyboard/Keyboard.h
+HotspotDriver.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
+HotspotDriver.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+HotspotDriver.o: ../../event/FullEventProxyFactory.h
+HotspotDriver.o: ../../event/keyboard/KeyboardStub.h
+HotspotDriver.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
+HotspotDriver.o: ../../event/InputEventHandlerFactory.h
+HotspotDriver.o: ../../event/InputEventProxyFactory.h
+HotspotDriver.o: ../../event/keyboard/DefaultKeyboardListener.h
+HotspotDriver.o: ../../interpolation/TimedInterpolation.h
+HotspotDriver.o: ../../core/Controller.h
+HotspotDriver.o: ../../interpolation/InterpolationEngine.h
+HotspotDriver.o: ../../core/Controller.h ../../core/World.h
+HotspotDriver.o: ../../event/keyboard/Keyboard.h
+HotspotDriver.o: ../../event/keyboard/KeyboardListener.h
+HotspotDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotDriver.o: ../../event/keyboard/KeyboardStub.h
+HotspotDriver.o: ../../event/keyboard/KeyDownEvent.h
+HotspotDriver.o: ../../event/keyboard/KeyEvent.h
+HotspotDriver.o: ../../event/keyboard/KeyEventFactory.h
+HotspotDriver.o: ../../event/keyboard/KeyUpEvent.h
+HotspotDriver.o: ../../event/keyboard/RegularKeyEvent.h
+HotspotDriver.o: ../../event/keyboard/SpecialKeyEvent.h
+HotspotDriver.o: ../../event/mouse/DefaultMouseListener.h
+HotspotDriver.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+HotspotDriver.o: ../../event/mouse/MouseButtonDown.h
+HotspotDriver.o: ../../event/mouse/MouseButtonUp.h
+HotspotDriver.o: ../../event/mouse/MouseClickEvent.h
+HotspotDriver.o: ../../event/mouse/MouseEvent.h
+HotspotDriver.o: ../../event/mouse/MouseEventFactory.h
+HotspotDriver.o: ../../event/mouse/MouseListener.h
+HotspotDriver.o: ../../event/mouse/MouseMotionEvent.h
+HotspotDriver.o: ../../event/mouse/MouseSkeleton.h
+HotspotDriver.o: ../../event/mouse/MouseStub.h ../../event/reshape/Reshape.h
+HotspotDriver.o: ../../event/reshape/ReshapeEvent.h
+HotspotDriver.o: ../../event/reshape/ReshapeListener.h
+HotspotDriver.o: ../../event/reshape/ReshapeSkeleton.h
+HotspotDriver.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+HotspotDriver.o: ../../event/timer/TimerSkeleton.h
+HotspotDriver.o: ../../event/timer/TimerStub.h
+HotspotDriver.o: ../../geometry/CylindricalVolume.h
+HotspotDriver.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+HotspotDriver.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+HotspotDriver.o: ../../geometry/Dimension3D.h
+HotspotDriver.o: ../../geometry/RectangularVolume.h
+HotspotDriver.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+HotspotDriver.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+HotspotDriver.o: ../../interpolation/ContinuousInterpolation.h
+HotspotDriver.o: ../../interpolation/TimedInterpolation.h
+HotspotDriver.o: ../../interpolation/InterpolationEngine.h
+HotspotDriver.o: ../../interpolation/InterpolationListener.h
+HotspotDriver.o: ../../interpolation/Interpolator.h
+HotspotDriver.o: ../../interpolation/InterpolatorFactory.h
+HotspotDriver.o: ../../interpolation/LinearInterpolator.h
+HotspotDriver.o: ../../interpolation/TimedInterpolation.h
+HotspotDriver.o: ../../model/MilkshapeModel.h ../../model/Model.h
+HotspotDriver.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+HotspotDriver.o: ../../model/Model.h ../../model/ModelFactory.h
+HotspotDriver.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+HotspotDriver.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+HotspotDriver.o: ../../multicast/MulticastSocket.h
+HotspotDriver.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+HotspotDriver.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+HotspotDriver.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+HotspotDriver.o: ../../shape/Quadrilateral3D.h
+HotspotDriver.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+HotspotDriver.o: ../../shape/CollisionRenderable.h
+HotspotDriver.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+HotspotDriver.o: ../../shape/ExtrudedNormalPolygon3D.h
+HotspotDriver.o: ../../shape/NormalPolygon3D.h ../../shape/Line.h
+HotspotDriver.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+HotspotDriver.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+HotspotDriver.o: ../../shape/Point.h ../../shape/Point2D.h
+HotspotDriver.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
+HotspotDriver.o: ../../shape/RectangularPrism.h
+HotspotDriver.o: ../../shape/RectangularPrismFactory.h
+HotspotDriver.o: ../../shape/Renderable.h ../../shape/String2D.h
+HotspotDriver.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+HotspotDriver.o: ../../core/Viewer.h ../../shape/Triangle3D.h
+HotspotDriver.o: ../../terrain/FunctionHeightFieldStrategy.h
+HotspotDriver.o: ../../terrain/HeightFieldStrategy.h
+HotspotDriver.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+HotspotDriver.o: ../../terrain/HeightField.h
+HotspotDriver.o: ../../terrain/HeightFieldFactory.h
+HotspotDriver.o: ../../terrain/HeightFieldStrategy.h
+HotspotDriver.o: ../../terrain/ImageHeightFieldStrategy.h
+HotspotDriver.o: ../../terrain/MatrixHeightFieldStrategy.h
+HotspotDriver.o: ../../terrain/NullHeightFieldStrategy.h
+HotspotDriver.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+HotspotDriver.o: ../../transform/CoordinateSystem.h
+HotspotDriver.o: ../../transform/CoordinateSystemFactory.h
+HotspotDriver.o: ../../transform/EngineerCoordinateSystem.h
+HotspotDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/MacCoordinateSystem.h
+HotspotDriver.o: ../../transform/MathCoordinateSystem.h
+HotspotDriver.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/Rotate.h ../../transform/Scale.h
+HotspotDriver.o: ../../transform/Stretch.h ../../transform/Transform.h
+HotspotDriver.o: ../../transform/Transformable.h
+HotspotDriver.o: ../../transform/TransformFactory.h
+HotspotDriver.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+HotspotDriver.o: ../../transform/TransformFactory.h
+HotspotDriver.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+HotspotDriver.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+HotspotDriver.o: ../../util/GraphicsConversionUtility.h
+HotspotDriver.o: ../../util/PointScale.h ../../util/xmlParser.h
+HotspotDriver.o: /usr/include/wchar.h /usr/include/stdarg.h
+HotspotDriver.o: /usr/include/_wctype.h /usr/include/ctype.h
+HotspotDriver.o: /usr/include/runetype.h HotspotGrid.h
