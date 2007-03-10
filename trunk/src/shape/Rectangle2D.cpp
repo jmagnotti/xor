@@ -44,7 +44,7 @@ Rectangle2D::Rectangle2D(Vector2D * p0, Dimension2D * size, Paint * paint)
 {
     _paint = paint;
     _start = p0;
-    _finish = new Vector2D(_start->getX() + size->getWidth()  
+    _finish = new Vector2D(_start->getX() + size->getWidth(),
                            _start->getY() + size->getHeight());
 }
 
@@ -124,6 +124,12 @@ void Rectangle2D::renderObject()
 void Rectangle2D::setPaint(Paint * paint)
 {
 	_paint = paint;
+}
+
+
+Paint * Rectangle2D::getPaint()
+{
+    return _paint->clone();
 }
 
 
