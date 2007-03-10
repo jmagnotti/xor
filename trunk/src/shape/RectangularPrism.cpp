@@ -63,20 +63,25 @@ void RectangularPrism::calculateNormals()
 void RectangularPrism::setPaint(Paint * paint)
 {
 	_paint = paint;
-   
-	updatePaint();
+    for(int i=0; i<_faces.size(); i++)
+        _faces[i]->setPaint(paint);
 }
 
 
 /*
  * Removes a face from the rendering list
  */
-void RectangularPrism::removeFace(int faceToRemove)
+Quadrilateral3D * RectangularPrism::removeFace(int faceToRemove)
 {
+    Quadrilateral3D * removedFace = NULL;
     // make sure the int is valid, get an iterator to the vector, move to the
     // proper place erase from the vector
-	if (faceToRemove <= BOTTOM && faceToRemove >= FRONT)
+	if (faceToRemove <= REAR && faceToRemove >= TOP) {
+        removedFace = _faces[faceToRemove];
 		_faces.erase(_faces.begin() + faceToRemove);
+    }
+
+    return removedFace;
 }
 
 
@@ -131,63 +136,11 @@ void RectangularPrism::setup()
 	// use the volume to set the 8 points
 	_volume->generatePoints(_points);
 
-	// now apply paint to the points
-	updatePaint();
-
 	// initialize the Quad3D array with the points
 	setFaces();
 
 	// calculate normals for the quads
 	calculateNormals();
-}
-
-
-/*
- * Sets the _paint for the rect prism.
- * This is bad, as it circumvents the painting mechanism of Quad3D. It is necesasry since the 
- * Quad3D mechanism isn't aware of the overall paint of the RectPrism. This should be fixed at some point.
- */
-void RectangularPrism::updatePaint()
-{
-	/*
-	// painting order depends on gradient style
-	int type = _paint->getGradientStyle();
-
-    switch (type) {
-
-		// all verts get same _paint
-		case Paint::NO_GRADIENT:
-			for (int i=0; i<8; i++)
-				_points[i]->setColor(_paint->getColorTo());
-			break;
-
-		// paint based on Z
-		case Paint::DEPTH_BASED:	//think about this a bit more
-			break;
-
-		// paint based on Y
-		case Paint::HEIGHT_BASED:
-			for (int i=0; i<8; i++) {
-				if (i < 4)
-					_points[i]->setColor(_paint->getColorFrom());
-				else
-					_points[i]->setColor(_paint->getColorTo());
-			}
-			break;
-
-		// paint based on X
-		case Paint::LENGTH_BASED:
-			for (int i=0; i<8; i++) {
-				if (i == 2 || i == 3 || i == 6 || i == 7 )
-					_points[i]->setColor(_paint->getColorFrom());
-				else
-					_points[i]->setColor(_paint->getColorTo());
-			}
-			break;
-		default:
-			break;
-	}
-	*/
 }
 
 

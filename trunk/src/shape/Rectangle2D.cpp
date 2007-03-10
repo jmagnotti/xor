@@ -24,13 +24,28 @@ Rectangle2D::Rectangle2D(Vector2D * p0, Vector2D * p1)
 
 /*
  * Explicit Constructor.
- * Four corners and a paint.  */
+ * Four corners and a paint.  
+ */
 Rectangle2D::Rectangle2D(Vector2D * p0, Vector2D * p1, Paint * paint)
 {
 	_paint = paint;
 
 	_start  = p0;
 	_finish = p1;
+}
+
+
+
+/*
+ * Explicit Constructor.
+ * origin and a dimension
+ */
+Rectangle2D::Rectangle2D(Vector2D * p0, Dimension2D * size, Paint * paint)
+{
+    _paint = paint;
+    _start = p0;
+    _finish = new Vector2D(_start->getX() + size->getWidth()  
+                           _start->getY() + size->getHeight());
 }
 
 
