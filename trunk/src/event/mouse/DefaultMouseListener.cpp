@@ -16,8 +16,11 @@ DefaultMouseListener::DefaultMouseListener()
  */
 void DefaultMouseListener::handleMouseEvent(MouseEvent * me)
 {
-    if ( me->getType() == MouseEvent::MOUSE_BUTTON_DOWN)
+    cout << "type: " << me->getType() << endl;
+    if ( me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
         handleMouseButtonPressed((MouseButtonDown*)me);
+        cout << "button: " << ((MouseButtonDown*)me)->getButton() << endl;
+    }
     else if (me->getType() == MouseEvent::MOUSE_BUTTON_UP)
         handleMouseButtonReleased((MouseButtonUp*)me);
     else
@@ -45,6 +48,9 @@ void DefaultMouseListener::handleMouseButtonReleased(MouseButtonUp * mbu)
 void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 {
 	Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
+
+    cout << "Mouse Event: " << mme->getType() << endl;
+    cout << "Mouse button: " << mouse->isLeftButtonDown() << endl;
 
 	// rotate camera
 	if (mouse->isLeftButtonDown()) {

@@ -82,8 +82,8 @@ public:
 			//buildHeightField(new NullHeightFieldStrategy());
 			//buildHeightField(new FunctionHeightFieldStrategy(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
 			//buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			//buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
-			buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
+			buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
+			//buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
 			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
 		hf->setHeightScale(15.0f);
 

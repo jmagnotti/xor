@@ -37,14 +37,10 @@ depend: $(SRCS)
 TerrainDemo.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
 TerrainDemo.o: /usr/include/sys/cdefs.h /usr/include/_types.h
 TerrainDemo.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-TerrainDemo.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-TerrainDemo.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-TerrainDemo.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+TerrainDemo.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+TerrainDemo.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
 TerrainDemo.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-TerrainDemo.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-TerrainDemo.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-TerrainDemo.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-TerrainDemo.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+TerrainDemo.o: /usr/include/alloca.h /usr/include/machine/types.h
 TerrainDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
 TerrainDemo.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 TerrainDemo.o: ../../../include/SDL_error.h ../../../include/begin_code.h
@@ -87,19 +83,19 @@ TerrainDemo.o: ../../interpolation/Interpolator.h
 TerrainDemo.o: ../../interpolation/InterpolatorFactory.h
 TerrainDemo.o: ../../interpolation/LinearInterpolator.h
 TerrainDemo.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-TerrainDemo.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-TerrainDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
-TerrainDemo.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-TerrainDemo.o: ../../shape/Point3D.h ../../paint/Paint.h
-TerrainDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
-TerrainDemo.o: ../../../include/SDL.h ../../paint/Color.h
-TerrainDemo.o: ../../shape/Object3D.h ../../shape/Renderable.h
-TerrainDemo.o: ../../core/Viewer.h ../../paint/Color.h
-TerrainDemo.o: ../../geometry/Dimension2D.h
+TerrainDemo.o: ../../transform/Stretch.h ../../transform/Translate.h
+TerrainDemo.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+TerrainDemo.o: ../../paint/Paint.h ../../texture/Texture.h
+TerrainDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
+TerrainDemo.o: ../../paint/Color.h ../../shape/Renderable.h
+TerrainDemo.o: ../../shape/Point3D.h ../../shape/Object3D.h
+TerrainDemo.o: ../../shape/Renderable.h ../../core/Viewer.h
+TerrainDemo.o: ../../paint/Color.h ../../geometry/Dimension2D.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h
 TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h
 TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/MacCoordinateSystem.h
 TerrainDemo.o: ../../transform/MathCoordinateSystem.h
 TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 TerrainDemo.o: ../../transform/EngineerCoordinateSystem.h
@@ -107,7 +103,6 @@ TerrainDemo.o: ../../event/timer/TimerListener.h
 TerrainDemo.o: ../../event/reshape/ReshapeListener.h
 TerrainDemo.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
 TerrainDemo.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-TerrainDemo.o: ../../core/XavierConfiguration.h
 TerrainDemo.o: ../../event/EventHandlerFactory.h
 TerrainDemo.o: ../../event/FullEventHandlerFactory.h
 TerrainDemo.o: ../../event/EventHandlerFactory.h
@@ -117,15 +112,16 @@ TerrainDemo.o: ../../event/keyboard/KeyboardSkeleton.h
 TerrainDemo.o: ../../../include/SDL_thread.h
 TerrainDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 TerrainDemo.o: /usr/include/sys/types.h /usr/include/sys/socket.h
-TerrainDemo.o: /usr/include/machine/param.h /usr/include/ppc/param.h
-TerrainDemo.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
-TerrainDemo.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
-TerrainDemo.o: /usr/include/sys/syslimits.h /usr/include/limits.h
-TerrainDemo.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
-TerrainDemo.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
-TerrainDemo.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
-TerrainDemo.o: /usr/include/signal.h /usr/include/sys/time.h
-TerrainDemo.o: /usr/include/time.h /usr/include/machine/_limits.h
+TerrainDemo.o: /usr/include/machine/param.h /usr/include/netinet/in.h
+TerrainDemo.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+TerrainDemo.o: /usr/include/libkern/OSByteOrder.h
+TerrainDemo.o: /usr/include/libkern/machine/OSByteOrder.h
+TerrainDemo.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+TerrainDemo.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+TerrainDemo.o: /usr/include/limits.h /usr/include/machine/limits.h
+TerrainDemo.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+TerrainDemo.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+TerrainDemo.o: /usr/include/sys/time.h /usr/include/sys/time.h
 TerrainDemo.o: ../../multicast/MulticastSocketPool.h
 TerrainDemo.o: ../../multicast/MulticastSocket.h
 TerrainDemo.o: ../../event/keyboard/Keyboard.h
@@ -191,15 +187,17 @@ TerrainDemo.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 TerrainDemo.o: ../../multicast/MulticastSocket.h
 TerrainDemo.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 TerrainDemo.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-TerrainDemo.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+TerrainDemo.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+TerrainDemo.o: ../../shape/Quadrilateral3D.h
 TerrainDemo.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 TerrainDemo.o: ../../shape/CollisionRenderable.h
 TerrainDemo.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-TerrainDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-TerrainDemo.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-TerrainDemo.o: ../../shape/Point.h ../../shape/Point2D.h
-TerrainDemo.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-TerrainDemo.o: ../../shape/RectangularPrism.h
+TerrainDemo.o: ../../shape/ExtrudedNormalPolygon3D.h
+TerrainDemo.o: ../../shape/NormalPolygon3D.h ../../shape/NormalPolygon3D.h
+TerrainDemo.o: ../../shape/Object3D.h ../../shape/Particle.h
+TerrainDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+TerrainDemo.o: ../../shape/Point2D.h ../../shape/Point3D.h
+TerrainDemo.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 TerrainDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 TerrainDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
 TerrainDemo.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
@@ -217,6 +215,7 @@ TerrainDemo.o: ../../transform/CoordinateSystem.h
 TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
 TerrainDemo.o: ../../transform/EngineerCoordinateSystem.h
 TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
+TerrainDemo.o: ../../transform/MacCoordinateSystem.h
 TerrainDemo.o: ../../transform/MathCoordinateSystem.h
 TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
 TerrainDemo.o: ../../transform/Rotate.h ../../transform/Scale.h
@@ -226,7 +225,7 @@ TerrainDemo.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 TerrainDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 TerrainDemo.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 TerrainDemo.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-TerrainDemo.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-TerrainDemo.o: /usr/include/wchar.h /usr/include/stdarg.h
-TerrainDemo.o: /usr/include/_wctype.h /usr/include/ctype.h
-TerrainDemo.o: /usr/include/runetype.h
+TerrainDemo.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+TerrainDemo.o: ../../util/xmlParser.h /usr/include/wchar.h
+TerrainDemo.o: /usr/include/stdarg.h /usr/include/_wctype.h
+TerrainDemo.o: /usr/include/ctype.h /usr/include/runetype.h

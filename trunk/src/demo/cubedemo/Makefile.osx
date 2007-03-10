@@ -37,14 +37,10 @@ depend: $(SRCS)
 CubeDemo.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
 CubeDemo.o: /usr/include/sys/cdefs.h /usr/include/_types.h
 CubeDemo.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-CubeDemo.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-CubeDemo.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-CubeDemo.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+CubeDemo.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CubeDemo.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
 CubeDemo.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-CubeDemo.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-CubeDemo.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-CubeDemo.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-CubeDemo.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+CubeDemo.o: /usr/include/alloca.h /usr/include/machine/types.h
 CubeDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
 CubeDemo.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 CubeDemo.o: ../../../include/SDL_error.h ../../../include/begin_code.h
@@ -85,14 +81,13 @@ CubeDemo.o: ../../interpolation/Interpolator.h
 CubeDemo.o: ../../interpolation/InterpolatorFactory.h
 CubeDemo.o: ../../interpolation/LinearInterpolator.h
 CubeDemo.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-CubeDemo.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
-CubeDemo.o: ../../geometry/Dimension3D.h ../../paint/Paint.h
-CubeDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
-CubeDemo.o: ../../../include/SDL.h ../../paint/Color.h
-CubeDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
-CubeDemo.o: ../../shape/Object3D.h ../../shape/Renderable.h
-CubeDemo.o: ../../core/Viewer.h ../../paint/Color.h
+CubeDemo.o: ../../transform/Stretch.h ../../transform/Translate.h
+CubeDemo.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../paint/Paint.h ../../texture/Texture.h
+CubeDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
+CubeDemo.o: ../../paint/Color.h ../../shape/Renderable.h
+CubeDemo.o: ../../shape/Point3D.h ../../shape/Object3D.h
+CubeDemo.o: ../../shape/Renderable.h ../../core/Viewer.h ../../paint/Color.h
 CubeDemo.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
 CubeDemo.o: ../../transform/CoordinateSystemFactory.h
 CubeDemo.o: ../../transform/CoordinateSystem.h
@@ -105,7 +100,6 @@ CubeDemo.o: ../../event/timer/TimerListener.h
 CubeDemo.o: ../../event/reshape/ReshapeListener.h
 CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
 CubeDemo.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-CubeDemo.o: ../../core/XavierConfiguration.h
 CubeDemo.o: ../../event/EventHandlerFactory.h
 CubeDemo.o: ../../event/FullEventHandlerFactory.h
 CubeDemo.o: ../../event/EventHandlerFactory.h
@@ -115,15 +109,15 @@ CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
 CubeDemo.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
 CubeDemo.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 CubeDemo.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-CubeDemo.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+CubeDemo.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+CubeDemo.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+CubeDemo.o: /usr/include/libkern/machine/OSByteOrder.h
 CubeDemo.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 CubeDemo.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 CubeDemo.o: /usr/include/limits.h /usr/include/machine/limits.h
-CubeDemo.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 CubeDemo.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-CubeDemo.o: /usr/include/sys/select.h /usr/include/signal.h
-CubeDemo.o: /usr/include/sys/time.h /usr/include/time.h
-CubeDemo.o: /usr/include/machine/_limits.h
+CubeDemo.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+CubeDemo.o: /usr/include/sys/time.h /usr/include/sys/time.h
 CubeDemo.o: ../../multicast/MulticastSocketPool.h
 CubeDemo.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
 CubeDemo.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
