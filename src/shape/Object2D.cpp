@@ -4,9 +4,10 @@
 namespace XOR {
 
 Object2D::Object2D()
-{
-}
+{}
 
+Object2D::~Object2D()
+{}
 
 /*
  * Save state then push attributes needed for 2D rendering
@@ -36,7 +37,8 @@ void Object2D::push2DState()
 	glMatrixMode( GL_PROJECTION );
 	glPushMatrix();
 	glLoadIdentity();
-	glOrtho( 0, (double)windowSize->getWidth(), (double)windowSize->getHeight(), 0, -1, 1 );
+	glOrtho(0, (double)windowSize->getWidth(), 
+               (double)windowSize->getHeight(), 0, -1, 1);
 
 	glMatrixMode( GL_MODELVIEW );
 	glPushMatrix();

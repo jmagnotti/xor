@@ -5,6 +5,7 @@
 #include "../../include/SDL_opengl.h"
 #include "../core/Controller.h"
 #include "../core/Viewer.h"
+#include "../geometry/Dimension2D.h"
 #include "Renderable.h"
 
 namespace XOR {
@@ -16,6 +17,9 @@ class Object2D : public Renderable
 {
 
 public:
+
+
+    virtual ~Object2D();
 
     /*
 	 * Pop attributes used to render in 2D
@@ -31,8 +35,8 @@ public:
     
 	/**
 	 * Pushes a 2D state, then calls renderObject, then pops the 2D state. This
-	 * transition takes a while, so rendering groups of Object2D should be
-	 * preferred to rendering them each individually.
+     * transition takes more than no time at all, so rendering groups of
+     * Object2D should be preferred to rendering them each individually.
 	 */
     void render();
 
