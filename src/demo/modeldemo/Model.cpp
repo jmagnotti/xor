@@ -20,7 +20,7 @@ public:
 	{
         Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
         ctrl->defaultConfiguration();
-
+        
 		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
 
@@ -32,21 +32,24 @@ public:
 		ctrl->getViewer()->incrementTranslation(new Vector3D(50,50,50));
 		ctrl->getViewer()->setFocalPoint(new Vector3D(0,25,30));
 		
-		tModels[0] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/ant01.ms3d"));
+		tModels[0] = ModelFactory::GetInstance()->createModel("models/ant01.ms3d");
 		tModels[0]->incrementStretch(new Vector3D(5,5,5));
 
 		/*
 		tModels[1] = ModelFactory::GetInstance()->createModel("models/dwarf1.ms3d");
 		tModels[1]->incrementTranslation(new Vector3D(-50,0,0));
 		*/
-		tModels[1] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/turtle1.ms3d"));
+		tModels[1] = ModelFactory::GetInstance()->createModel("models/turtle1.ms3d");
 		tModels[1]->incrementTranslation(new Vector3D(0,0,50));
-		tModels[2] = new CompiledObject3D(ModelFactory::GetInstance()->createModel("models/f360.ms3d"));
+		tModels[2] = ModelFactory::GetInstance()->createModel("models/f360.ms3d");
 		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
 		tModels[2]->incrementRotation(Transformable::THETA, 90.0f);
 
-		ctrl->getModel()->addObject("model1", tModels[0]);
-		ctrl->getModel()->addObject("model2", tModels[1]);
+/*
+		ctrl->getModel()->addObject("model1", new CompiledObject3D(tModels[0]));
+		ctrl->getModel()->addObject("model2", new CompiledObject3D(tModels[1]));
+		ctrl->getModel()->addObject("model3", new CompiledObject3D(tModels[2]));
+*/
 		ctrl->getModel()->addObject("model3", tModels[2]);
 		//ctrl->getModel()->addRenderable("model4", tModels[3]);
 

@@ -37,14 +37,10 @@ depend: $(SRCS)
 HelloWorld.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
 HelloWorld.o: /usr/include/sys/cdefs.h /usr/include/_types.h
 HelloWorld.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-HelloWorld.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-HelloWorld.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-HelloWorld.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+HelloWorld.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+HelloWorld.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
 HelloWorld.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-HelloWorld.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-HelloWorld.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-HelloWorld.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-HelloWorld.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+HelloWorld.o: /usr/include/alloca.h /usr/include/machine/types.h
 HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
 HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
@@ -87,15 +83,15 @@ HelloWorld.o: ../../interpolation/Interpolator.h
 HelloWorld.o: ../../interpolation/InterpolatorFactory.h
 HelloWorld.o: ../../interpolation/LinearInterpolator.h
 HelloWorld.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-HelloWorld.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
-HelloWorld.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../shape/Point3D.h ../../paint/Paint.h
-HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
-HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
-HelloWorld.o: ../../shape/Object3D.h ../../shape/Renderable.h
-HelloWorld.o: ../../core/Viewer.h ../../paint/Color.h
-HelloWorld.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/Stretch.h ../../transform/Translate.h
+HelloWorld.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+HelloWorld.o: ../../paint/Paint.h ../../texture/Texture.h
+HelloWorld.o: ../../../include/SDL_image.h ../../../include/SDL.h
+HelloWorld.o: ../../paint/Color.h ../../shape/Renderable.h
+HelloWorld.o: ../../shape/Point3D.h ../../shape/Object3D.h
+HelloWorld.o: ../../shape/Renderable.h ../../core/Viewer.h
+HelloWorld.o: ../../paint/Color.h ../../geometry/Dimension2D.h
+HelloWorld.o: ../../transform/CoordinateSystem.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
 HelloWorld.o: ../../transform/CoordinateSystem.h
 HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
@@ -107,7 +103,6 @@ HelloWorld.o: ../../event/timer/TimerListener.h
 HelloWorld.o: ../../event/reshape/ReshapeListener.h
 HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
 HelloWorld.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-HelloWorld.o: ../../core/XavierConfiguration.h
 HelloWorld.o: ../../event/EventHandlerFactory.h
 HelloWorld.o: ../../event/FullEventHandlerFactory.h
 HelloWorld.o: ../../event/EventHandlerFactory.h
@@ -117,15 +112,15 @@ HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
 HelloWorld.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
 HelloWorld.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 HelloWorld.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-HelloWorld.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+HelloWorld.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+HelloWorld.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+HelloWorld.o: /usr/include/libkern/machine/OSByteOrder.h
 HelloWorld.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 HelloWorld.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 HelloWorld.o: /usr/include/limits.h /usr/include/machine/limits.h
-HelloWorld.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 HelloWorld.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-HelloWorld.o: /usr/include/sys/select.h /usr/include/signal.h
-HelloWorld.o: /usr/include/sys/time.h /usr/include/time.h
-HelloWorld.o: /usr/include/machine/_limits.h
+HelloWorld.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+HelloWorld.o: /usr/include/sys/time.h /usr/include/sys/time.h
 HelloWorld.o: ../../multicast/MulticastSocketPool.h
 HelloWorld.o: ../../multicast/MulticastSocket.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h
@@ -189,13 +184,16 @@ HelloWorld.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 HelloWorld.o: ../../multicast/MulticastSocket.h
 HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 HelloWorld.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-HelloWorld.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+HelloWorld.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+HelloWorld.o: ../../shape/Quadrilateral3D.h
 HelloWorld.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 HelloWorld.o: ../../shape/CollisionRenderable.h
 HelloWorld.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-HelloWorld.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HelloWorld.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+HelloWorld.o: ../../shape/ExtrudedNormalPolygon3D.h
+HelloWorld.o: ../../shape/NormalPolygon3D.h ../../shape/NormalPolygon3D.h
+HelloWorld.o: ../../shape/Object3D.h ../../shape/Particle.h
+HelloWorld.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+HelloWorld.o: ../../shape/Point2D.h ../../shape/Point3D.h
 HelloWorld.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 HelloWorld.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 HelloWorld.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
@@ -224,35 +222,30 @@ HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-HelloWorld.o: /usr/include/wchar.h /usr/include/stdarg.h
-HelloWorld.o: /usr/include/_wctype.h /usr/include/ctype.h
-HelloWorld.o: /usr/include/runetype.h ../../../include/SDL_opengl.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+HelloWorld.o: ../../util/xmlParser.h /usr/include/wchar.h
+HelloWorld.o: /usr/include/stdarg.h /usr/include/_wctype.h
+HelloWorld.o: /usr/include/ctype.h /usr/include/runetype.h
 HelloWorld.o: PrintMousePosition.h KeyHandler.h
 KeyHandler.o: KeyHandler.h ../../xor.h ../../core/Controller.h
 KeyHandler.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
 KeyHandler.o: /usr/include/_types.h /usr/include/sys/_types.h
-KeyHandler.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-KeyHandler.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
-KeyHandler.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
-KeyHandler.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
-KeyHandler.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
-KeyHandler.o: /usr/include/sys/_endian.h /usr/include/stdint.h
-KeyHandler.o: /usr/include/libkern/OSByteOrder.h
-KeyHandler.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-KeyHandler.o: /usr/include/machine/types.h /usr/include/ppc/types.h
-KeyHandler.o: ../../../include/SDL.h ../../../include/SDL_main.h
-KeyHandler.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
-KeyHandler.o: ../../../include/SDL_error.h ../../../include/begin_code.h
-KeyHandler.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-KeyHandler.o: /usr/include/stdio.h ../../../include/SDL_timer.h
-KeyHandler.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-KeyHandler.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-KeyHandler.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-KeyHandler.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-KeyHandler.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-KeyHandler.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-KeyHandler.o: ../../../include/SDL_version.h
+KeyHandler.o: /usr/include/machine/_types.h /usr/include/sys/wait.h
+KeyHandler.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+KeyHandler.o: /usr/include/machine/signal.h /usr/include/sys/resource.h
+KeyHandler.o: /usr/include/machine/endian.h /usr/include/alloca.h
+KeyHandler.o: /usr/include/machine/types.h ../../../include/SDL.h
+KeyHandler.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+KeyHandler.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+KeyHandler.o: ../../../include/begin_code.h ../../../include/close_code.h
+KeyHandler.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+KeyHandler.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+KeyHandler.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+KeyHandler.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+KeyHandler.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+KeyHandler.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+KeyHandler.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+KeyHandler.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
 KeyHandler.o: ../../event/EventHandlerFactory.h
 KeyHandler.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 KeyHandler.o: ../../event/keyboard/KeyboardListener.h
@@ -283,15 +276,15 @@ KeyHandler.o: ../../interpolation/Interpolator.h
 KeyHandler.o: ../../interpolation/InterpolatorFactory.h
 KeyHandler.o: ../../interpolation/LinearInterpolator.h
 KeyHandler.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-KeyHandler.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-KeyHandler.o: ../../transform/Translate.h ../../transform/Rotate.h
-KeyHandler.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-KeyHandler.o: ../../shape/Point3D.h ../../paint/Paint.h
-KeyHandler.o: ../../texture/Texture.h ../../../include/SDL_image.h
-KeyHandler.o: ../../../include/SDL.h ../../paint/Color.h
-KeyHandler.o: ../../shape/Object3D.h ../../shape/Renderable.h
-KeyHandler.o: ../../core/Viewer.h ../../paint/Color.h
-KeyHandler.o: ../../geometry/Dimension2D.h ../../transform/CoordinateSystem.h
+KeyHandler.o: ../../transform/Stretch.h ../../transform/Translate.h
+KeyHandler.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+KeyHandler.o: ../../paint/Paint.h ../../texture/Texture.h
+KeyHandler.o: ../../../include/SDL_image.h ../../../include/SDL.h
+KeyHandler.o: ../../paint/Color.h ../../shape/Renderable.h
+KeyHandler.o: ../../shape/Point3D.h ../../shape/Object3D.h
+KeyHandler.o: ../../shape/Renderable.h ../../core/Viewer.h
+KeyHandler.o: ../../paint/Color.h ../../geometry/Dimension2D.h
+KeyHandler.o: ../../transform/CoordinateSystem.h
 KeyHandler.o: ../../transform/CoordinateSystemFactory.h
 KeyHandler.o: ../../transform/CoordinateSystem.h
 KeyHandler.o: ../../transform/OpenGLCoordinateSystem.h
@@ -303,7 +296,6 @@ KeyHandler.o: ../../event/timer/TimerListener.h
 KeyHandler.o: ../../event/reshape/ReshapeListener.h
 KeyHandler.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
 KeyHandler.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-KeyHandler.o: ../../core/XavierConfiguration.h
 KeyHandler.o: ../../event/EventHandlerFactory.h
 KeyHandler.o: ../../event/FullEventHandlerFactory.h
 KeyHandler.o: ../../event/EventHandlerFactory.h
@@ -313,15 +305,15 @@ KeyHandler.o: ../../event/keyboard/KeyboardSkeleton.h
 KeyHandler.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
 KeyHandler.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 KeyHandler.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-KeyHandler.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+KeyHandler.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+KeyHandler.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+KeyHandler.o: /usr/include/libkern/machine/OSByteOrder.h
 KeyHandler.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 KeyHandler.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 KeyHandler.o: /usr/include/limits.h /usr/include/machine/limits.h
-KeyHandler.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 KeyHandler.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-KeyHandler.o: /usr/include/sys/select.h /usr/include/signal.h
-KeyHandler.o: /usr/include/sys/time.h /usr/include/time.h
-KeyHandler.o: /usr/include/machine/_limits.h
+KeyHandler.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+KeyHandler.o: /usr/include/sys/time.h /usr/include/sys/time.h
 KeyHandler.o: ../../multicast/MulticastSocketPool.h
 KeyHandler.o: ../../multicast/MulticastSocket.h
 KeyHandler.o: ../../event/keyboard/Keyboard.h
@@ -385,13 +377,16 @@ KeyHandler.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 KeyHandler.o: ../../multicast/MulticastSocket.h
 KeyHandler.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 KeyHandler.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-KeyHandler.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
+KeyHandler.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+KeyHandler.o: ../../shape/Quadrilateral3D.h
 KeyHandler.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 KeyHandler.o: ../../shape/CollisionRenderable.h
 KeyHandler.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
-KeyHandler.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-KeyHandler.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-KeyHandler.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+KeyHandler.o: ../../shape/ExtrudedNormalPolygon3D.h
+KeyHandler.o: ../../shape/NormalPolygon3D.h ../../shape/NormalPolygon3D.h
+KeyHandler.o: ../../shape/Object3D.h ../../shape/Particle.h
+KeyHandler.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+KeyHandler.o: ../../shape/Point2D.h ../../shape/Point3D.h
 KeyHandler.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 KeyHandler.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 KeyHandler.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
@@ -420,25 +415,20 @@ KeyHandler.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 KeyHandler.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 KeyHandler.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 KeyHandler.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-KeyHandler.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-KeyHandler.o: /usr/include/wchar.h /usr/include/stdarg.h
-KeyHandler.o: /usr/include/_wctype.h /usr/include/ctype.h
-KeyHandler.o: /usr/include/runetype.h
+KeyHandler.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+KeyHandler.o: ../../util/xmlParser.h /usr/include/wchar.h
+KeyHandler.o: /usr/include/stdarg.h /usr/include/_wctype.h
+KeyHandler.o: /usr/include/ctype.h /usr/include/runetype.h
 PrintMousePosition.o: PrintMousePosition.h ../../xor.h
 PrintMousePosition.o: ../../core/Controller.h /usr/include/stdlib.h
 PrintMousePosition.o: /usr/include/sys/cdefs.h /usr/include/_types.h
 PrintMousePosition.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-PrintMousePosition.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-PrintMousePosition.o: /usr/include/sys/signal.h
+PrintMousePosition.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 PrintMousePosition.o: /usr/include/sys/appleapiopts.h
-PrintMousePosition.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+PrintMousePosition.o: /usr/include/machine/signal.h
 PrintMousePosition.o: /usr/include/sys/resource.h
-PrintMousePosition.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
-PrintMousePosition.o: /usr/include/sys/_endian.h /usr/include/stdint.h
-PrintMousePosition.o: /usr/include/libkern/OSByteOrder.h
-PrintMousePosition.o: /usr/include/libkern/ppc/OSByteOrder.h
-PrintMousePosition.o: /usr/include/alloca.h /usr/include/machine/types.h
-PrintMousePosition.o: /usr/include/ppc/types.h ../../../include/SDL.h
+PrintMousePosition.o: /usr/include/machine/endian.h /usr/include/alloca.h
+PrintMousePosition.o: /usr/include/machine/types.h ../../../include/SDL.h
 PrintMousePosition.o: ../../../include/SDL_main.h
 PrintMousePosition.o: ../../../include/SDL_types.h
 PrintMousePosition.o: ../../../include/SDL_getenv.h
@@ -496,16 +486,15 @@ PrintMousePosition.o: ../../interpolation/Interpolator.h
 PrintMousePosition.o: ../../interpolation/InterpolatorFactory.h
 PrintMousePosition.o: ../../interpolation/LinearInterpolator.h
 PrintMousePosition.o: ../../util/GraphicsConversionUtility.h
-PrintMousePosition.o: /usr/include/math.h
-PrintMousePosition.o: /usr/include/architecture/ppc/math.h
-PrintMousePosition.o: ../../transform/Stretch.h ../../transform/Translate.h
-PrintMousePosition.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+PrintMousePosition.o: /usr/include/math.h ../../transform/Stretch.h
+PrintMousePosition.o: ../../transform/Translate.h ../../transform/Rotate.h
+PrintMousePosition.o: ../../geometry/Dimension3D.h ../../paint/Paint.h
+PrintMousePosition.o: ../../texture/Texture.h ../../../include/SDL_image.h
+PrintMousePosition.o: ../../../include/SDL.h ../../paint/Color.h
 PrintMousePosition.o: ../../shape/Renderable.h ../../shape/Point3D.h
-PrintMousePosition.o: ../../paint/Paint.h ../../texture/Texture.h
-PrintMousePosition.o: ../../../include/SDL_image.h ../../../include/SDL.h
-PrintMousePosition.o: ../../paint/Color.h ../../shape/Object3D.h
-PrintMousePosition.o: ../../shape/Renderable.h ../../core/Viewer.h
-PrintMousePosition.o: ../../paint/Color.h ../../geometry/Dimension2D.h
+PrintMousePosition.o: ../../shape/Object3D.h ../../shape/Renderable.h
+PrintMousePosition.o: ../../core/Viewer.h ../../paint/Color.h
+PrintMousePosition.o: ../../geometry/Dimension2D.h
 PrintMousePosition.o: ../../transform/CoordinateSystem.h
 PrintMousePosition.o: ../../transform/CoordinateSystemFactory.h
 PrintMousePosition.o: ../../transform/CoordinateSystem.h
@@ -519,7 +508,6 @@ PrintMousePosition.o: ../../event/reshape/ReshapeListener.h
 PrintMousePosition.o: ../../event/reshape/ReshapeEvent.h
 PrintMousePosition.o: ../../core/DebugViewer.h ../../core/Controller.h
 PrintMousePosition.o: ../../core/Viewer.h ../../core/World.h
-PrintMousePosition.o: ../../core/XavierConfiguration.h
 PrintMousePosition.o: ../../event/EventHandlerFactory.h
 PrintMousePosition.o: ../../event/FullEventHandlerFactory.h
 PrintMousePosition.o: ../../event/EventHandlerFactory.h
@@ -530,15 +518,16 @@ PrintMousePosition.o: ../../../include/SDL_thread.h
 PrintMousePosition.o: ../../multicast/MulticastSocket.h
 PrintMousePosition.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 PrintMousePosition.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-PrintMousePosition.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+PrintMousePosition.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+PrintMousePosition.o: /usr/include/stdint.h
+PrintMousePosition.o: /usr/include/libkern/OSByteOrder.h
+PrintMousePosition.o: /usr/include/libkern/machine/OSByteOrder.h
 PrintMousePosition.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 PrintMousePosition.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 PrintMousePosition.o: /usr/include/limits.h /usr/include/machine/limits.h
-PrintMousePosition.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 PrintMousePosition.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-PrintMousePosition.o: /usr/include/sys/select.h /usr/include/signal.h
-PrintMousePosition.o: /usr/include/sys/time.h /usr/include/time.h
-PrintMousePosition.o: /usr/include/machine/_limits.h
+PrintMousePosition.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+PrintMousePosition.o: /usr/include/sys/time.h /usr/include/sys/time.h
 PrintMousePosition.o: ../../multicast/MulticastSocketPool.h
 PrintMousePosition.o: ../../multicast/MulticastSocket.h
 PrintMousePosition.o: ../../event/keyboard/Keyboard.h
@@ -613,11 +602,13 @@ PrintMousePosition.o: ../../multicast/MulticastSocket.h
 PrintMousePosition.o: ../../multicast/MulticastSocketPool.h
 PrintMousePosition.o: ../../paint/Color.h ../../paint/Paint.h
 PrintMousePosition.o: ../../shape/AdornablePrism.h
-PrintMousePosition.o: ../../shape/RectangularPrism.h
+PrintMousePosition.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
 PrintMousePosition.o: ../../shape/Quadrilateral3D.h
 PrintMousePosition.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 PrintMousePosition.o: ../../shape/CollisionRenderable.h
 PrintMousePosition.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+PrintMousePosition.o: ../../shape/ExtrudedNormalPolygon3D.h
+PrintMousePosition.o: ../../shape/NormalPolygon3D.h
 PrintMousePosition.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
 PrintMousePosition.o: ../../shape/Particle.h
 PrintMousePosition.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
@@ -658,6 +649,7 @@ PrintMousePosition.o: ../../util/BitmapFontUtil.h
 PrintMousePosition.o: ../../util/FramesPerSecondCounter.h
 PrintMousePosition.o: ../../shape/String2D.h
 PrintMousePosition.o: ../../util/GraphicsConversionUtility.h
-PrintMousePosition.o: ../../util/xmlParser.h /usr/include/wchar.h
-PrintMousePosition.o: /usr/include/stdarg.h /usr/include/_wctype.h
-PrintMousePosition.o: /usr/include/ctype.h /usr/include/runetype.h
+PrintMousePosition.o: ../../util/PointScale.h ../../util/xmlParser.h
+PrintMousePosition.o: /usr/include/wchar.h /usr/include/stdarg.h
+PrintMousePosition.o: /usr/include/_wctype.h /usr/include/ctype.h
+PrintMousePosition.o: /usr/include/runetype.h

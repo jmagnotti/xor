@@ -34,7 +34,7 @@ int main(int argc, char * argv[])
     p->setColorFromAlpha(1.0f);
 
     //Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
-    Object3D * hello = new Cube(new Vector3D(0,.5,0), 0.5, p);
+    Object3D * hello = new Cube(new Vector3D(0,.5, -5), 0.5, p);
     ctrl->setModel(hello);//new CompiledObject3D(hello));
     // this call runs the demo.
     ctrl->run();

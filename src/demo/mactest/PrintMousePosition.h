@@ -10,7 +10,7 @@ using namespace XOR;
 /**
  *
  */
-class PrintMousePosition : MouseListener
+class PrintMousePosition : public MouseListener
 {
 
 public:

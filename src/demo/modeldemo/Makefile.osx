@@ -20,7 +20,6 @@ MAIN = Model
 .PHONY: depend clean
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
-			./$(MAIN)
 
 Model:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
@@ -38,14 +37,10 @@ depend: $(SRCS)
 
 Model.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h /usr/include/_types.h
 Model.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-Model.o: /usr/include/ppc/_types.h /usr/include/sys/wait.h
-Model.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-Model.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+Model.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+Model.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
 Model.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
-Model.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
-Model.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-Model.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
-Model.o: /usr/include/machine/types.h /usr/include/ppc/types.h ../../xor.h
+Model.o: /usr/include/alloca.h /usr/include/machine/types.h ../../xor.h
 Model.o: ../../core/Controller.h ../../../include/SDL.h
 Model.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
 Model.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
@@ -87,13 +82,13 @@ Model.o: ../../interpolation/Interpolator.h
 Model.o: ../../interpolation/InterpolatorFactory.h
 Model.o: ../../interpolation/LinearInterpolator.h
 Model.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-Model.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
-Model.o: ../../transform/Translate.h ../../transform/Rotate.h
-Model.o: ../../geometry/Dimension3D.h ../../shape/Renderable.h
-Model.o: ../../shape/Point3D.h ../../paint/Paint.h ../../texture/Texture.h
+Model.o: ../../transform/Stretch.h ../../transform/Translate.h
+Model.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+Model.o: ../../paint/Paint.h ../../texture/Texture.h
 Model.o: ../../../include/SDL_image.h ../../../include/SDL.h
-Model.o: ../../paint/Color.h ../../shape/Object3D.h ../../shape/Renderable.h
-Model.o: ../../core/Viewer.h ../../paint/Color.h ../../geometry/Dimension2D.h
+Model.o: ../../paint/Color.h ../../shape/Renderable.h ../../shape/Point3D.h
+Model.o: ../../shape/Object3D.h ../../shape/Renderable.h ../../core/Viewer.h
+Model.o: ../../paint/Color.h ../../geometry/Dimension2D.h
 Model.o: ../../transform/CoordinateSystem.h
 Model.o: ../../transform/CoordinateSystemFactory.h
 Model.o: ../../transform/CoordinateSystem.h
@@ -106,7 +101,7 @@ Model.o: ../../event/timer/TimerListener.h
 Model.o: ../../event/reshape/ReshapeListener.h
 Model.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
 Model.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
-Model.o: ../../core/XavierConfiguration.h ../../event/EventHandlerFactory.h
+Model.o: ../../event/EventHandlerFactory.h
 Model.o: ../../event/FullEventHandlerFactory.h
 Model.o: ../../event/EventHandlerFactory.h
 Model.o: ../../event/reshape/ReshapeSkeleton.h ../../event/reshape/Reshape.h
@@ -114,15 +109,16 @@ Model.o: ../../event/keyboard/KeyboardSkeleton.h
 Model.o: ../../../include/SDL_thread.h ../../multicast/MulticastSocket.h
 Model.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 Model.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-Model.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+Model.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
+Model.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+Model.o: /usr/include/libkern/machine/OSByteOrder.h
 Model.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 Model.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 Model.o: /usr/include/limits.h /usr/include/machine/limits.h
-Model.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 Model.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-Model.o: /usr/include/sys/select.h /usr/include/signal.h
-Model.o: /usr/include/sys/time.h /usr/include/time.h
-Model.o: /usr/include/machine/_limits.h ../../multicast/MulticastSocketPool.h
+Model.o: /usr/include/sys/select.h /usr/include/sys/signal.h
+Model.o: /usr/include/sys/time.h /usr/include/sys/time.h
+Model.o: ../../multicast/MulticastSocketPool.h
 Model.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
 Model.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
 Model.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
@@ -177,13 +173,14 @@ Model.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 Model.o: ../../multicast/MulticastSocket.h
 Model.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 Model.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
-Model.o: ../../shape/RectangularPrism.h ../../shape/Quadrilateral3D.h
-Model.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
-Model.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
-Model.o: ../../shape/Cube.h ../../shape/NormalPolygon3D.h
-Model.o: ../../shape/Object3D.h ../../shape/Particle.h
-Model.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
-Model.o: ../../shape/Point2D.h ../../shape/Point3D.h
+Model.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+Model.o: ../../shape/Quadrilateral3D.h ../../geometry/RectangularVolume.h
+Model.o: ../../shape/Arc3D.h ../../shape/CollisionRenderable.h
+Model.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+Model.o: ../../shape/ExtrudedNormalPolygon3D.h ../../shape/NormalPolygon3D.h
+Model.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
+Model.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+Model.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
 Model.o: ../../shape/Quadrilateral3D.h ../../shape/RectangularPrism.h
 Model.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 Model.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
@@ -209,6 +206,6 @@ Model.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 Model.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 Model.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 Model.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
-Model.o: ../../util/GraphicsConversionUtility.h ../../util/xmlParser.h
-Model.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/_wctype.h
-Model.o: /usr/include/ctype.h /usr/include/runetype.h
+Model.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+Model.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
+Model.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
