@@ -26,12 +26,12 @@ public:
 	/**
 	 * Face constants.
 	 */
-	static const int FRONT	= 0;
-	static const int REAR	= 1;
+	static const int TOP	= 0;
+	static const int BOTTOM	= 1;
 	static const int RIGHT	= 2;
 	static const int LEFT	= 3;
-	static const int TOP	= 4;
-	static const int BOTTOM	= 5;
+	static const int FRONT	= 4;
+	static const int REAR	= 5;
 
 
 	/**
@@ -75,7 +75,7 @@ public:
 	 * Removes a face from the cube. Ex. Remove BOTTOM so that the Cube floor and the terrain
 	 * do not overlap.
 	 */
-	void removeFace(int faceToRemove);
+	Quadrilateral3D * removeFace(int faceToRemove);
 
 
 	/**
@@ -90,8 +90,15 @@ public:
     void printInfo();
 
 
-
+    /**
+     * Returns the size of the prism
+     */
 	Dimension3D * getDimension();
+
+
+    /**
+     * Returns the registration point of the prism
+     */
 	Vector3D * getBaseVector();	
 
 
@@ -114,8 +121,9 @@ protected:
 
 	/**
 	 * updates the paint of the faces by giving them new colored points
-	 */
 	void updatePaint(void);
+	 */
+
 
 	/**
 	 * This is a high level render command. Most of the actual work will

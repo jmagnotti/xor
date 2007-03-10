@@ -117,21 +117,26 @@ protected:
 	virtual void calculateDimension();
 	 */
 
-    virtual void buildWeights(PointScale * scale);
-
+    virtual void buildWeights();
 
 private:
 
-
+    /**
+     * Private constructor
+     */
 	Quadrilateral3D();
 
+
+	Vector3D *	_vertices[4];
+	Vector3D *	_vertexWeights[4];
+
+	PointScale  * 	_pointScale;
 	Dimension3D *	_dimension;
 	Vector3D *		_center; 
 	Vector3D *		_normal;
 
 	Paint *		_paint;
-	Vector3D *	_vertices[4];
-	Vector3D *	_vertexWeights[4];
+	Vector3D *	_baseVector;
 
 };
 

@@ -6,7 +6,7 @@ namespace XOR {
 /*
  * find the relative weightings for each extent of each vertex
  */
-void Quadrilateral3D::buildWeights(PointScale * scale)
+void Quadrilateral3D::buildWeights()
 {
     float max[3]; float min[3];
 
@@ -24,13 +24,14 @@ void Quadrilateral3D::buildWeights(PointScale * scale)
 
     for (int i=0; i<4; i++) {
         _vertexWeights[i] = new Vector3D(
-            scale->scaleValue(_vertices[i]->getX(), min[0], max[0]),
-            scale->scaleValue(_vertices[i]->getY(), min[1], max[1]),
-            scale->scaleValue(_vertices[i]->getZ(), min[2], max[2]) 
+            _pointScale->scaleValue(_vertices[i]->getX(), min[0], max[0]),
+            _pointScale->scaleValue(_vertices[i]->getY(), min[1], max[1]),
+            _pointScale->scaleValue(_vertices[i]->getZ(), min[2], max[2]) 
         );
     }
 
     _dimension = new Dimension3D(max[0] - min[0], max[1] - min[1], max[2] - min[2]);
+    _baseVector = new Vector3D(min);
 }
 
 
@@ -47,13 +48,14 @@ Quadrilateral3D::Quadrilateral3D()
  */
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, PointScale * scale)
 {
+    _pointScale = scale;
     _paint = new Paint();
 
 	// winding order
 	_vertices[3] = p3; _vertices[2] = p2;
 	_vertices[0] = p0; _vertices[1] = p1;
 
-    buildWeights(scale);
+    buildWeights();
 }
 
 /*
@@ -62,16 +64,14 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Ve
  */
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3)
 {
+    _pointScale = new PointScale(0,1,1);
     _paint = new Paint();
 
 	// winding order
 	_vertices[3] = p3; _vertices[2] = p2;
 	_vertices[0] = p0; _vertices[1] = p1;
 
-    PointScale * ps = new PointScale(0,1,1);
-
-    buildWeights(ps);
-    delete ps;
+    buildWeights();
 }
 
 /*
@@ -80,13 +80,14 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Ve
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
 		Vector3D * p3, Paint * paint, PointScale * scale)
 {
+    _pointScale = scale;
 	_paint = paint;
 
 	// winding order
 	_vertices[3] = p3; _vertices[2] = p2;
 	_vertices[0] = p0; _vertices[1] = p1;
 
-    buildWeights(scale);
+    buildWeights();
 }
 
 
@@ -96,15 +97,14 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
 		Vector3D * p3, Paint * paint)
 {
+    _pointScale = new PointScale(0,1,1);
 	_paint = paint;
 
 	// winding order
 	_vertices[3] = p3; _vertices[2] = p2;
 	_vertices[0] = p0; _vertices[1] = p1;
 
-    PointScale * ps = new PointScale(0,1,1);
-    buildWeights(ps);
-    delete ps;
+    buildWeights();
 }
 
 
@@ -199,7 +199,14 @@ void Quadrilateral3D::setNormal(Vector3D * normal)
  */
 void Quadrilateral3D::setVertex(int vertexNumber, Vector3D * newVertex)
 {
-	_vertices[vertexNumber] = newVertex;
+    if (vertexNumber >= 0 && vertexNumber < 4) {
+        Vector3D * removed = _vertices[vertexNumber];
+        _vertices[vertexNumber] = newVertex;
+
+        delete removed;
+    }
+
+    buildWeights();
 }
 
 
@@ -224,8 +231,11 @@ void Quadrilateral3D::print()
  */
 Vector3D * Quadrilateral3D::getBaseVector()
 {
+    return _baseVector->clone();
+    /*
 	return new Vector3D(_vertices[0]->getX(), _vertices[0]->getY(),
 			_vertices[0]->getZ());
+    */
 }
 
 
