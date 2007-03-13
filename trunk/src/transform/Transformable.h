@@ -9,6 +9,7 @@
 #include "Stretch.h"
 #include "Translate.h"
 #include "Rotate.h"
+//#include "Orientation.h"
 
 #include "../interpolation/InterpolationEngine.h"
 #include "../util/GraphicsConversionUtility.h"
@@ -270,6 +271,19 @@ public:
 	 * along its focus vector.
 	 */
 	void walk(float distance, InterpolationEngine * interpolation);
+
+
+	/**
+	 * Gets a copy of 
+	 */
+	//Orientation * cloneOrientation();
+
+
+	/**
+	 * Set/increment transforms based on an Orientation object
+	 */
+	//void setOrientation(Orientation *, InterpolationEngine * interpolation);
+	//void incrementOrientation(Orientation *, InterpolationEngine * interpolation);
 
 
 	/**

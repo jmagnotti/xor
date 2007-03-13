@@ -75,6 +75,8 @@ public:
     void clear();
 
 
+	float getAngle();
+
     /**
      * 
      */

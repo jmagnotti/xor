@@ -116,6 +116,11 @@ void Rotate::clear()
     _angle = 0;
 }
 
+float Rotate::getAngle()
+{
+	return _angle;
+}
+
 void Rotate::print()
 {
     cout << "ang: " << _angle << ", x: " << _xCoord << ", y: " << _yCoord 
