@@ -17,7 +17,12 @@ class SineFunctionHF : public FunctionHeightFieldStrategy
 
 		double f(double x, double y)
 		{
-			return sin(x) * cos(y);
+			double a = 1.1;
+			double b = a;
+			double c = cos((x/a)*(x/a) + (y/b)*(y/b));
+			return c;
+			//return sin(x*2) * cos(y*2);
+			//return sin(fabs(x) + fabs(y));
 			//return x + 2*y;
 		}
 };
@@ -34,11 +39,12 @@ public:
  	*/
 	TerrainDemo()
 	{
-        ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
+        ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
         ctrl->defaultConfiguration();
 
         ctrl->getKeyboard()->addListener(this);
-		ctrl->getMouse()->setDefaultMouseListener(this);
+		ctrl->getMouse()->addListener(this);
+		//ctrl->getMouse()->setDefaultMouseListener(this);
 
         ctrl->setModel(new String2D("Heightfield Test"));
 
@@ -52,7 +58,7 @@ public:
 #endif
         
 		TextureFactory * factory = TextureFactory::GetInstance();
-        glDisable(GL_DEPTH_TEST);
+        //glDisable(GL_DEPTH_TEST);
 		
 		ctrl->getModel()->addObject("white", 
 		       new CompiledObject3D(new Cube(
@@ -81,14 +87,18 @@ public:
 		HeightField * hf = HeightFieldFactory::GetInstance()->
 			//buildHeightField(new NullHeightFieldStrategy());
 			//buildHeightField(new FunctionHeightFieldStrategy(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			//buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
+			buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
+			//buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
 			//buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
 			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
-		hf->setHeightScale(15.0f);
+		hf->setHeightScale(5.0f);
 
 		hf->setPaint(new Paint(Color::WHITE, Paint::HEIGHT_BASED,
-					TextureFactory::GetInstance()->createTexture("images/grass.png")));
+					//TextureFactory::GetInstance()->createTexture("images/plnt10M.jpg")));
+					//TextureFactory::GetInstance()->createTexture("images/ahul01M.jpg")));
+					TextureFactory::GetInstance()->createTexture("images/edhu08M.png")));
+					//TextureFactory::GetInstance()->createTexture("images/ahul08M.jpg")));
+					//TextureFactory::GetInstance()->createTexture("images/grass.png")));
 
 		ctrl->getModel()->addObject("field", new CompiledObject3D(hf));
 
@@ -161,6 +171,28 @@ public:
     {
         ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,-1));
     }
+
+	void handleKey_k()
+	{
+		cout << "handling..." << endl;
+
+		int speed = 2000;
+		int wait  = 2000;
+
+		Orientation * o1 = new Orientation(ctrl->getViewer());
+		o1->incrementTranslation(new Vector3D(15.0f,0.0f,0.0f), NULL);
+		Orientation * o2 = new Orientation(ctrl->getViewer());
+		o2->incrementTranslation(new Vector3D(15.0f,15.0f,0.0f), NULL);
+		Orientation * o3 = new Orientation(ctrl->getViewer());
+		o3->incrementTranslation(new Vector3D(15.0f,15.0f,15.0f), NULL);
+		o3->incrementRotation(Transformable::ROLL, 40.0f);
+
+		Waypoint * wp3 = new Waypoint(o3, speed, wait, NULL);
+		Waypoint * wp2 = new Waypoint(o2, speed, wait, wp3);
+		Waypoint * wp1 = new Waypoint(o1, speed, wait, wp2);
+
+		wp1->apply(ctrl->getViewer());
+	}
 	
 	void handleMouseMotion(MouseMotionEvent * mme)
 	{

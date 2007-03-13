@@ -540,6 +540,31 @@ void Transformable::updateFromFocalPoint(InterpolationEngine * interpolation)
 
 
 /*
+ * apply a given orientation to this object
+ */
+//void Transformable::setOrientation(Orientation *orient, InterpolationEngine * interpolation)
+//{
+	//setTranslation(orient->getTranslation()->toVector(), interpolation);
+	//setRotation(Transformable::THETA, orient->getRotation(Transformable::THETA)->getAngle(), interpolation);
+	//setRotation(Transformable::PHI, orient->getRotation(Transformable::PHI)->getAngle(), interpolation);
+	//setRotation(Transformable::ROLL, orient->getRotation(Transformable::ROLL)->getAngle(), interpolation);
+
+//}
+
+
+/*
+ * apply a given orientation to this object
+ */
+//void Transformable::incrementOrientation(Orientation *orient, InterpolationEngine * interpolation)
+//{
+	//incrementTranslation(orient->getTranslation()->toVector(), interpolation);
+	//incrementRotation(Transformable::THETA, orient->getRotation(Transformable::THETA)->getAngle(), interpolation);
+	//incrementRotation(Transformable::PHI, orient->getRotation(Transformable::PHI)->getAngle(), interpolation);
+	//incrementRotation(Transformable::ROLL, orient->getRotation(Transformable::ROLL)->getAngle(), interpolation);
+//}
+
+
+/*
  * print member info
  */
 void Transformable::print()
