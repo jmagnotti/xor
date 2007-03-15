@@ -72,7 +72,7 @@ public:
 		tModels[2] = new CompiledObject3D(ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/f360.ms3d"));
 		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
-		tModels[2]->incrementRotation(Transformable::THETA, 90.0f, NULL);
+		tModels[2]->incrementRotation(Orientation::THETA, 90.0f, NULL);
 
 		ctrl->getModel()->addObject("model1", tModels[0]);
 		ctrl->getModel()->addObject("model2", tModels[1]);
@@ -177,9 +177,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
-					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
 			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
-					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

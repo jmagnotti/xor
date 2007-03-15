@@ -1,5 +1,5 @@
 #include "MazeDriver.h"
-#include "KeyHandler.h"
+//#include "KeyHandler.h"
 
 
 /**
@@ -18,7 +18,7 @@ MazeDriver::MazeDriver()
     initializeMaze();
 
     //ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
-    new KeyHandler(ctrl);
+    //new KeyHandler(ctrl);
 
     // we want a world object that is created around the maze
     //World * world = World::GetInstance(_maze);
@@ -33,7 +33,7 @@ MazeDriver::MazeDriver()
     // Also note that we had to invert the starting point to get the desired
     // effect.
     //ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
-    ctrl->getViewer()->incrementRotation(Transformable::THETA, 180);
+    ctrl->getViewer()->incrementRotation(Orientation::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary

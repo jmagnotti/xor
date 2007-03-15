@@ -46,7 +46,7 @@ int main(int argc, char ** argv)
     //Triangle3D * hello = new Triangle3D(new Vector3D(-.25,-.25,-1), new Vector3D(.25,-.25,-1), new Vector3D(.25,.25,-1));
     NormalPolygon3D * hello = new NormalPolygon3D(new Vector3D(.5,.5,-2.5), 0.5, 10);
 
-	CompiledObject3D * co = new CompiledObject3D(new ExtrudedNormalPolygon3D(hello, 5.0f));
+	CompiledObject3D * co = new CompiledObject3D(new ExtrudedNormalPolygon3D(hello, 5));
 	
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)

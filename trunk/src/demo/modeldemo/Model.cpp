@@ -43,7 +43,7 @@ public:
 		tModels[1]->incrementTranslation(new Vector3D(0,0,50));
 		tModels[2] = ModelFactory::GetInstance()->createModel("models/f360.ms3d");
 		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
-		tModels[2]->incrementRotation(Transformable::THETA, 90.0f);
+		tModels[2]->incrementRotation(Orientation::THETA, 90.0f);
 
 /*
 		ctrl->getModel()->addObject("model1", new CompiledObject3D(tModels[0]));
@@ -107,17 +107,17 @@ public:
 	void handleKey_g()
 	{
 		tModels[0]->incrementRotation(
-				Transformable::THETA,-360.0f, new TimedInterpolation(1000,NULL));
+				Orientation::THETA,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_h()
 	{
 		tModels[0]->incrementRotation(
-				Transformable::PHI,-360.0f, new TimedInterpolation(1000,NULL));
+				Orientation::PHI,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_j()
 	{
 		tModels[0]->incrementRotation(
-				Transformable::ROLL,-360.0f, new TimedInterpolation(1000,NULL));
+				Orientation::ROLL,-360.0f, new TimedInterpolation(1000,NULL));
 	}
 	void handleKey_k()
 	{
@@ -139,9 +139,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
-					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
 			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
-					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

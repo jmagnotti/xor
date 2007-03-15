@@ -90,9 +90,9 @@ void PhotoAlbum::bringToFront(int index)
 
 	pics[index]->setScalar(new Vector3D(6, 6, 1), new TimedInterpolation(300, this));
 	pics[index]->setTranslation(new Vector3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
-	pics[index]->incrementRotation(Transformable::ROLL,		360, new TimedInterpolation(600, this));
-	pics[index]->incrementRotation(Transformable::THETA,	360, new TimedInterpolation(600, this));
-	pics[index]->incrementRotation(Transformable::PHI,		360, new TimedInterpolation(600, this));
+	pics[index]->incrementRotation(Orientation::ROLL,		360, new TimedInterpolation(600, this));
+	pics[index]->incrementRotation(Orientation::THETA,	360, new TimedInterpolation(600, this));
+	pics[index]->incrementRotation(Orientation::PHI,		360, new TimedInterpolation(600, this));
 }
 
 /**
@@ -228,9 +228,9 @@ void PhotoAlbum::magnottiTransform()
 	int i=0;
 	while (iter != end ) {
 		++i;
-		(*iter)->incrementRotation(Transformable::ROLL, 360, new TimedInterpolation(600*i, this));
-		(*iter)->incrementRotation(Transformable::THETA, 360, new TimedInterpolation(600*i, this));
-		(*iter)->incrementRotation(Transformable::PHI, 360, new TimedInterpolation(600*i, this));
+		(*iter)->incrementRotation(Orientation::ROLL, 360, new TimedInterpolation(600*i, this));
+		(*iter)->incrementRotation(Orientation::THETA, 360, new TimedInterpolation(600*i, this));
+		(*iter)->incrementRotation(Orientation::PHI, 360, new TimedInterpolation(600*i, this));
 		++iter; 
 	}*/
 	if(!keyboardLocked)
@@ -245,9 +245,9 @@ void PhotoAlbum::magnottiTransform()
 			numOfInterpolations += 3;
 			TimedInterpolation * tmpInterp;
 			tmpInterp = interpolationManager->getInterpolation(i);
-			(*iter)->incrementRotation(Transformable::ROLL, 360, tmpInterp);
-			(*iter)->incrementRotation(Transformable::THETA, 360, tmpInterp);
-			(*iter)->incrementRotation(Transformable::PHI, 360, tmpInterp);
+			(*iter)->incrementRotation(Orientation::ROLL, 360, tmpInterp);
+			(*iter)->incrementRotation(Orientation::THETA, 360, tmpInterp);
+			(*iter)->incrementRotation(Orientation::PHI, 360, tmpInterp);
 			++i;
 			++iter; 
 		}

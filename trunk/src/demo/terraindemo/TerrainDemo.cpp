@@ -76,6 +76,8 @@ public:
 			   new CompiledObject3D(new Cube(
 					   new Vector3D(5,0,0), 1, 
 					   new Paint(Color::RED))));
+						//new Paint(Color::WHITE, Paint::HEIGHT_BASED,
+						//TextureFactory::GetInstance()->createTexture("images/edhu08M.png")))));
 
 		double m[5][5];
 		m[0][0] = 4.0; m[0][1] = 0.0; m[0][2] = 4.0; m[0][3] = 0.0; m[0][4] = 0.0;
@@ -179,13 +181,13 @@ public:
 		int speed = 2000;
 		int wait  = 2000;
 
-		Orientation * o1 = new Orientation(ctrl->getViewer());
+		Orientation * o1 = ctrl->getViewer()->cloneOrientation();
 		o1->incrementTranslation(new Vector3D(15.0f,0.0f,0.0f), NULL);
-		Orientation * o2 = new Orientation(ctrl->getViewer());
+		Orientation * o2 = ctrl->getViewer()->cloneOrientation();
 		o2->incrementTranslation(new Vector3D(15.0f,15.0f,0.0f), NULL);
-		Orientation * o3 = new Orientation(ctrl->getViewer());
+		Orientation * o3 = ctrl->getViewer()->cloneOrientation();
 		o3->incrementTranslation(new Vector3D(15.0f,15.0f,15.0f), NULL);
-		o3->incrementRotation(Transformable::ROLL, 40.0f);
+		o3->incrementRotation(Orientation::ROLL, 40.0f);
 
 		Waypoint * wp3 = new Waypoint(o3, speed, wait, NULL);
 		Waypoint * wp2 = new Waypoint(o2, speed, wait, wp3);
@@ -204,9 +206,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			ctrl->getViewer()->incrementRotation(
-					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
 			ctrl->getViewer()->incrementRotation(
-					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	
