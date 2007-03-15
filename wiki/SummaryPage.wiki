@@ -7,19 +7,19 @@
 
 *Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list.*
 
-  * (J) Camera Listening
-  * (J) Separate Viewer into Window and Camera
+  * (J) Camera listening
+  * (J) Separate viewer into window and camera
   * (J) Non-depth tested quads
-  * (J) Texture weighting (similar to Color weightings)
+  * (J) Texture weighting (similar to color weightings)
   * (J/M) Numerous getDimension and getBaseVector improper returns
   * (E/J) Lightweight menus/dock
   * (T/J) Event driver front end
-  * (ML) Waypoint Collection
+  * (ML) Waypoint collection
   * (ML) Wall-mode back-end
-  * (ML) Simple Timer Listener
+  * (ML) Simple timer listener
   * (B/ML) Sound 2D
-  * (MR) Wall Imaging
-  * Timer Synchronization
+  * (MR) Wall imaging
+  * Timer synchronization
   * Configuration
   * Misc. bug fixes
 
