@@ -1,15 +1,27 @@
-#summary What's new with Project Xavier
+#summary Project Xavier Milestone 1
 #labels Phase-Requirements
 
-= Introduction =
+*Items in this list must be completed before Project Xavier can be tagged for release.*
 
-Check back here for a heads up on what features are being worked on and added
+*Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list*
+  
+  * Waypoint Collection
+  * Camera Listening
+  * Separate Viewer into Window and Camera
+  * Transition Package (paint interpolators)
+  * Lightweight menus/dock
+  * Non-depth tested quads
+  * Sound2D
+  * Numerous getDimension and getBaseVector improper returns
+  * User Event System
+  * Wall Imaging
+  * Wall-mode back-end
+  * Event driver front end
+  * Timer Synchronization
+  * Texture weighting (similar to Color weightings)
+  * Simple Timer Listener
 
-= Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
 
 
