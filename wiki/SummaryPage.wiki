@@ -9,7 +9,7 @@
 
   * (J) Camera listening
   * (J) Separate viewer into window and camera
-  * (J) Non-depth tested quads
+  * (J) Non-depth tested quads *DONE*
   * (J) Texture weighting (similar to color weightings)
   * (J) Swappable fonts and simple increase|decrease size function. *DONE*
   * (J/M) Numerous getDimension and getBaseVector improper returns
