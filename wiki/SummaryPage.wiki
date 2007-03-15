@@ -21,6 +21,7 @@
   * (MR) Wall Imaging
   * Timer Synchronization
   * Configuration
+  * Misc. bug fixes
 
 =Demos=
 
