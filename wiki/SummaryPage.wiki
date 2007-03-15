@@ -4,16 +4,14 @@
 *Items in this list must be completed before Project Xavier can be tagged for release.*
 
 *Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list*
-  
+
   * Waypoint Collection
   * Camera Listening
   * Separate Viewer into Window and Camera
-  * Transition Package (paint interpolators)
   * Lightweight menus/dock
   * Non-depth tested quads
-  * Sound2D
+  * Sound 2D
   * Numerous getDimension and getBaseVector improper returns
-  * User Event System
   * Wall Imaging
   * Wall-mode back-end
   * Event driver front end
@@ -21,7 +19,27 @@
   * Texture weighting (similar to Color weightings)
   * Simple Timer Listener
 
+#demos Demos
 
+  * Museum
+  * Car race
+  * Photo album
 
+#docs Documentation
 
+  * System
+  * Unit
 
+#cross Cross-Platform Support
+
+  * Linux
+  * Mac OS X 10.4 +
+  * Windows XP +
+
+#optional Optional Items
+
+*Items in this list will be completed as time and personnel become available, but will never pre-empt items in the above list
+
+  * Transition Package (paint interpolators)
+  * User Event System
+  * Fonts
