@@ -11,6 +11,7 @@
   * (J) Separate viewer into window and camera
   * (J) Non-depth tested quads
   * (J) Texture weighting (similar to color weightings)
+  * (J) Swappable fonts and simple increase|decrease size function. *DONE*
   * (J/M) Numerous getDimension and getBaseVector improper returns
   * (E/J) Lightweight menus/dock
   * (T/J) Event driver front end
