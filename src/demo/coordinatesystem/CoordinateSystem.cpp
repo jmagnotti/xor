@@ -159,9 +159,9 @@ public:
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
 			ctrl->getViewer()->incrementRotation(
-					Transformable::THETA, -xChange, new TimedInterpolation(100,NULL));
+					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
 			ctrl->getViewer()->incrementRotation(
-					Transformable::PHI, -yChange, new TimedInterpolation(100,NULL));
+					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
 	

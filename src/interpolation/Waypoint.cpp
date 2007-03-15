@@ -19,9 +19,9 @@ void Waypoint::apply(Transformable *object)
 	for (int i = 0; i < 4; i++) {
 		interpolators[i] = new TimedInterpolation(_interpolationTime, this);
 	}
-	_orientation->setTransformable(object, interpolators);
+	//_orientation->setTransformable(object, interpolators);
 	//_orientation->incrementTransformable(object, _transition);
-	//object->setOrientation(_orientation, _transition);
+	object->setOrientation(_orientation, interpolators);
 }
 
 void Waypoint::interpolationComplete()

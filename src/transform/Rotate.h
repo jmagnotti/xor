@@ -19,7 +19,7 @@ namespace XOR {
 class Rotate : public Transform
 {
     //trying to use this less and less. Performance tests should determine value    
-	friend class Transformable;
+	friend class Orientation;
 
 public:
 

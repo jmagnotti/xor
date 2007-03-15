@@ -21,7 +21,7 @@ namespace XOR {
  */
 class Translate : public Transform
 {
-	friend class Transformable;
+	friend class Orientation;
 
 public:
 

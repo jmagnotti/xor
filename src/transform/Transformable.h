@@ -9,7 +9,7 @@
 #include "Stretch.h"
 #include "Translate.h"
 #include "Rotate.h"
-//#include "Orientation.h"
+#include "Orientation.h"
 
 #include "../interpolation/InterpolationEngine.h"
 #include "../util/GraphicsConversionUtility.h"
@@ -42,9 +42,9 @@ public:
      *
      * @see Paint   For a discussion on static constant class members in switch statements.
      */
-	static const int THETA  = 0;
-	static const int PHI    = 1;
-	static const int ROLL   = 2;
+	//static const int THETA  = 0;
+	//static const int PHI    = 1;
+	//static const int ROLL   = 2;
 
 
 	/**
@@ -120,7 +120,7 @@ public:
 
     /**
      * Sets the rotation for the given axis. axis must be one of 
-     * Transformable::THETA, Transformable::PHI, or Transformable::ROLL. 
+     * Orientation::THETA, Orientation::PHI, or Orientation::ROLL. 
      * This is NOT a concatenation routine.
      *
      * @param angle         The new rotation angle.
@@ -134,7 +134,7 @@ public:
 
     /** 
      * Increments the rotation for the given axis. axis must be one of
-     * Transformable::THETA, Transformable::PHI, or Transformable::ROLL.
+     * Orientation::THETA, Orientation::PHI, or Orientation::ROLL.
      * This is the concatenation routine.
      *
      * @param angle         The new rotation angle.
@@ -184,7 +184,7 @@ public:
 	 * does not modify the Stretch transform. The calling method is repsonsible
 	 * for proper disposal of the Vector3D.
      */
-    Vector3D * getStrech();
+    Vector3D * getStretch();
 
 
     /**
@@ -265,7 +265,6 @@ public:
     void incrementFocalPoint(Vector3D * point);
     void incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolation);
 
-
 	/**
 	 * Easy way to move the camera a certain distance
 	 * along its focus vector.
@@ -276,14 +275,14 @@ public:
 	/**
 	 * Gets a copy of 
 	 */
-	//Orientation * cloneOrientation();
+	Orientation * cloneOrientation();
 
 
 	/**
 	 * Set/increment transforms based on an Orientation object
 	 */
-	//void setOrientation(Orientation *, InterpolationEngine * interpolation);
-	//void incrementOrientation(Orientation *, InterpolationEngine * interpolation);
+	void setOrientation(Orientation *, InterpolationEngine * interpolation[4]);
+	void incrementOrientation(Orientation *, InterpolationEngine * interpolation[4]);
 
 
 	/**
@@ -299,34 +298,11 @@ public:
 
 
 private:
-    
-	/**
-	 * Update _focalPoint from translation
-	 * and rotations.
-	 */
-	void updateFocalPoint();
 
-
-	/**
-	 * Update transforms from _focalPoint.
-	 */
-	void updateFromFocalPoint();
-	void updateFromFocalPoint(InterpolationEngine * interpolation);
-
-
-	Rotate * _phi;
-	Rotate * _roll;
-	Rotate * _theta;
-	
-    Scale * _scale;
-
-	Stretch * _stretch;
-
-	Translate * _position;
-	Translate * _focalPoint;
-
-	float _focalDistance;
-	bool _transformed;
+	Orientation * _orientation;
+	Scale       * _scale;
+	Stretch     * _stretch;
+	bool          _transformed;
 
 };
 

@@ -20,17 +20,17 @@ public:
  	 */
 	InterpolationDemo()
 	{
-		Controller * ctrl = Controller::GetInstance();
+		Controller * ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
 	    ctrl->defaultConfiguration();
 
         // need a cleaner way to do this, override the get instance method or something
-        ctrl->removeDefaultKeyboardListener();
+        //ctrl->removeDefaultKeyboardListener();
 
-        yellowCube = new RectangularPrism(new Point3D(-.5f,0.0f,-1.0f), 1.0f,
+        yellowCube = new RectangularPrism(new Vector3D(-.5f,0.0f,-1.0f), 1.0f,
                 1.0f, 1.0f, new Paint(Color::YELLOW, Paint::HEIGHT_BASED));
 
-        yellowCube->incrementRotation(Positionable::THETA, 20);
-        yellowCube->incrementRotation(Positionable::PHI, -40);
+        yellowCube->incrementRotation(Orientation::THETA, 20);
+        yellowCube->incrementRotation(Orientation::PHI, -40);
 
 	    ctrl->setModel(this);
 

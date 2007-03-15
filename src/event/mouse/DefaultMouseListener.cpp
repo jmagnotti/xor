@@ -60,10 +60,10 @@ void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 		//FIXME this is relying on Controller already having been constructed.
 		//Which is a good bet, but not guaranteed. The empty GetInstance was
 		//removed to prevent abuse.
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Transformable
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Orientation
 				::THETA, xChange, new TimedInterpolation(100, NULL));
 
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Transformable
+		Controller::GetInstance(NULL)->getViewer()->incrementRotation(Orientation
 				::PHI, yChange, new TimedInterpolation(100, NULL)); }
 }
 
