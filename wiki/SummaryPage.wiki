@@ -1,9 +1,11 @@
 #summary Project Xavier Milestone 1
 #labels Phase-Requirements
 
-*Items in this list must be completed before Project Xavier can be tagged for release.*
+=v2.0 TODO=
 
-*Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list*
+*Items in this list must be completed before Project Xavier can be tagged for v2.0 release.*
+
+*Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list.*
 
   * Waypoint Collection
   * Camera Listening
@@ -19,27 +21,29 @@
   * Texture weighting (similar to Color weightings)
   * Simple Timer Listener
 
-#demos Demos
+=Demos=
 
   * Museum
   * Car race
   * Photo album
 
-#docs Documentation
+=Documentation=
 
   * System
   * Unit
 
-#cross Cross-Platform Support
+=Cross-Platform Support=
 
   * Linux
   * Mac OS X 10.4 +
   * Windows XP +
 
-#optional Optional Items
+=Optional Items=
 
-*Items in this list will be completed as time and personnel become available, but will never pre-empt items in the above list
+*Items in this list will be completed as time and personnel become available, but will never pre-empt items in the above list*
 
   * Transition Package (paint interpolators)
   * User Event System
   * Fonts
+
+
