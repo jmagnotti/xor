@@ -7,27 +7,29 @@
 
 *Submit an "Issue" if you want to modify an item on this list. Anyone can add to this list.*
 
-  * Waypoint Collection
-  * Camera Listening
-  * Separate Viewer into Window and Camera
-  * Lightweight menus/dock
-  * Non-depth tested quads
-  * Sound 2D
-  * Numerous getDimension and getBaseVector improper returns
-  * Wall Imaging
-  * Wall-mode back-end
-  * Event driver front end
-  * Timer Synchronization
-  * Texture weighting (similar to Color weightings)
-  * Simple Timer Listener
+  * (J) Camera Listening
+  * (J) Separate Viewer into Window and Camera
+  * (J) Non-depth tested quads
+  * (J) Timer Synchronization
+  * (J) Texture weighting (similar to Color weightings)
+  * (J/M) Numerous getDimension and getBaseVector improper returns
+  * (E/J) Lightweight menus/dock
+  * (T/J) Event driver front end
+  * (ML) Waypoint Collection
+  * (ML) Wall-mode back-end
+  * (ML) Simple Timer Listener
+  * (B/ML) Sound 2D
+  * (MR) Wall Imaging
 
 =Demos=
 
-  * Museum
-  * Car race
-  * Photo album
+  * (J) Museum
+  * (ML) Car race
+  * (K) Photo album
 
 =Documentation=
+
+Editor: Mike Lam
 
   * System
   * Unit
@@ -45,5 +47,4 @@
   * Transition Package (paint interpolators)
   * User Event System
   * Fonts
-
 
