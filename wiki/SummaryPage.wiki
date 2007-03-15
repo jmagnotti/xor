@@ -28,7 +28,7 @@
 
   * (J) Museum
   * (ML) Car race
-  * (K) Photo album
+  * (K/MR) Photo album
 
 =Documentation=
 
