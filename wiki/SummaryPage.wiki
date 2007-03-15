@@ -29,7 +29,7 @@
 
 =Documentation=
 
-Editor: Mike Lam
+Editor: (ML)
 
   * System
   * Unit
@@ -47,4 +47,3 @@ Editor: Mike Lam
   * Transition Package (paint interpolators)
   * User Event System
   * Fonts
-
