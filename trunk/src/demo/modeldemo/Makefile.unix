@@ -75,24 +75,15 @@ Model.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
 Model.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 Model.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 Model.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
-Model.o: ../../event/timer/TimerListener.h
-Model.o: ../../event/keyboard/SpecialKeyEvent.h
-Model.o: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyboardStub.h
-Model.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+Model.o: ../../event/timer/TimerListener.h ../../event/timer/IntervalTimer.h
+Model.o: ../../core/Controller.h ../../../include/SDL.h
+Model.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
+Model.o: ../../../include/SDL_events.h
 Model.o: ../../event/keyboard/KeyboardListener.h
 Model.o: ../../event/keyboard/KeyEvent.h
 Model.o: ../../event/keyboard/KeyEventFactory.h
 Model.o: ../../event/keyboard/KeyDownEvent.h
-Model.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/KeyUpEvent.h
-Model.o: ../../event/keyboard/Keyboard.h
-Model.o: ../../event/keyboard/KeyboardSkeleton.h
-Model.o: ../../event/keyboard/KeyboardListener.h
-Model.o: ../../event/keyboard/RegularKeyEvent.h
-Model.o: ../../event/keyboard/DefaultKeyboardListener.h
-Model.o: ../../interpolation/TimedInterpolation.h ../../event/timer/Timer.h
-Model.o: ../../event/timer/TimerListener.h ../../core/Controller.h
-Model.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
-Model.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+Model.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 Model.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
 Model.o: ../../event/mouse/MouseEventFactory.h
 Model.o: ../../event/mouse/MouseButtonDown.h
@@ -103,8 +94,8 @@ Model.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 Model.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 Model.o: ../../event/reshape/ReshapeListener.h
 Model.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-Model.o: ../../event/reshape/Reshape.h ../../core/World.h
-Model.o: ../../shape/Renderable.h ../../shape/Object3D.h
+Model.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+Model.o: ../../core/World.h ../../shape/Renderable.h ../../shape/Object3D.h
 Model.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
 Model.o: /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/GL/glu.h
 Model.o: ../../transform/Transform.h ../../transform/Scale.h
@@ -130,10 +121,20 @@ Model.o: ../../transform/MacCoordinateSystem.h
 Model.o: ../../transform/MathCoordinateSystem.h
 Model.o: ../../transform/LeftOpenGLCoordinateSystem.h
 Model.o: ../../transform/EngineerCoordinateSystem.h
+Model.o: ../../event/timer/TimerListener.h
 Model.o: ../../event/reshape/ReshapeListener.h
 Model.o: ../../event/reshape/ReshapeEvent.h
-Model.o: ../../interpolation/InterpolationEngine.h ../../core/Controller.h
-Model.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+Model.o: ../../event/keyboard/SpecialKeyEvent.h
+Model.o: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyboardStub.h
+Model.o: ../../event/keyboard/Keyboard.h ../../event/keyboard/KeyUpEvent.h
+Model.o: ../../event/keyboard/Keyboard.h
+Model.o: ../../event/keyboard/KeyboardSkeleton.h
+Model.o: ../../event/keyboard/KeyboardListener.h
+Model.o: ../../event/keyboard/RegularKeyEvent.h
+Model.o: ../../event/keyboard/DefaultKeyboardListener.h
+Model.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Model.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Model.o: ../../event/keyboard/KeyDownEvent.h
 Model.o: ../../event/keyboard/KeyEventFactory.h
 Model.o: ../../event/reshape/ReshapeSkeleton.h ../../event/reshape/Reshape.h
 Model.o: ../../event/reshape/ReshapeEvent.h

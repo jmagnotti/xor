@@ -94,9 +94,9 @@ InterpolationDemo.o: ../../event/timer/Timer.h
 InterpolationDemo.o: ../../event/timer/TimerSkeleton.h
 InterpolationDemo.o: ../../../include/SDL_thread.h
 InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../event/keyboard/SpecialKeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardStub.h
+InterpolationDemo.o: ../../event/timer/IntervalTimer.h
+InterpolationDemo.o: ../../core/Controller.h ../../../include/SDL.h
+InterpolationDemo.o: ../../event/EventHandlerFactory.h
 InterpolationDemo.o: ../../event/keyboard/Keyboard.h
 InterpolationDemo.o: ../../../include/SDL_events.h
 InterpolationDemo.o: ../../event/keyboard/KeyboardListener.h
@@ -104,18 +104,6 @@ InterpolationDemo.o: ../../event/keyboard/KeyEvent.h
 InterpolationDemo.o: ../../event/keyboard/KeyEventFactory.h
 InterpolationDemo.o: ../../event/keyboard/KeyDownEvent.h
 InterpolationDemo.o: ../../event/keyboard/KeyUpEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyUpEvent.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardListener.h
-InterpolationDemo.o: ../../event/keyboard/RegularKeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
-InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
-InterpolationDemo.o: ../../event/timer/Timer.h
-InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../core/Controller.h ../../../include/SDL.h
-InterpolationDemo.o: ../../event/EventHandlerFactory.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
 InterpolationDemo.o: ../../event/mouse/Mouse.h
 InterpolationDemo.o: ../../event/mouse/MouseListener.h
 InterpolationDemo.o: ../../event/mouse/MouseEvent.h
@@ -129,9 +117,10 @@ InterpolationDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
 InterpolationDemo.o: ../../event/reshape/ReshapeEvent.h
 InterpolationDemo.o: ../../event/reshape/ReshapeListener.h
 InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/mouse/Mouse.h ../../event/reshape/Reshape.h
-InterpolationDemo.o: ../../core/World.h ../../shape/Renderable.h
-InterpolationDemo.o: ../../shape/Object3D.h ../../transform/Transformable.h
+InterpolationDemo.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+InterpolationDemo.o: ../../event/reshape/Reshape.h ../../core/World.h
+InterpolationDemo.o: ../../shape/Renderable.h ../../shape/Object3D.h
+InterpolationDemo.o: ../../transform/Transformable.h
 InterpolationDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 InterpolationDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 InterpolationDemo.o: ../../transform/Transform.h ../../transform/Scale.h
@@ -161,11 +150,23 @@ InterpolationDemo.o: ../../transform/MacCoordinateSystem.h
 InterpolationDemo.o: ../../transform/MathCoordinateSystem.h
 InterpolationDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 InterpolationDemo.o: ../../transform/EngineerCoordinateSystem.h
+InterpolationDemo.o: ../../event/timer/TimerListener.h
 InterpolationDemo.o: ../../event/reshape/ReshapeListener.h
 InterpolationDemo.o: ../../event/reshape/ReshapeEvent.h
+InterpolationDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+InterpolationDemo.o: ../../event/keyboard/KeyEvent.h
+InterpolationDemo.o: ../../event/keyboard/KeyboardStub.h
+InterpolationDemo.o: ../../event/keyboard/Keyboard.h
+InterpolationDemo.o: ../../event/keyboard/KeyUpEvent.h
+InterpolationDemo.o: ../../event/keyboard/Keyboard.h
+InterpolationDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+InterpolationDemo.o: ../../event/keyboard/KeyboardListener.h
+InterpolationDemo.o: ../../event/keyboard/RegularKeyEvent.h
+InterpolationDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
+InterpolationDemo.o: ../../core/Controller.h
 InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
-InterpolationDemo.o: ../../core/Controller.h ../../core/World.h
-InterpolationDemo.o: ../../event/keyboard/KeyDownEvent.h
+InterpolationDemo.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
 InterpolationDemo.o: ../../event/keyboard/KeyEventFactory.h
 InterpolationDemo.o: ../../event/reshape/ReshapeSkeleton.h
 InterpolationDemo.o: ../../event/reshape/Reshape.h

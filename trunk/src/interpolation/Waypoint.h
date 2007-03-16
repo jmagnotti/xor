@@ -43,7 +43,6 @@ class Waypoint : public InterpolationListener, public TimerListener
 		void interpolationComplete();
 
 		Orientation         * _orientation;
-		//InterpolationEngine * _transition;
 		int                   _interpolationTime;
 		int                   _waitTime;
 		Waypoint            * _next;

@@ -45,12 +45,10 @@ public:
 		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
 		tModels[2]->incrementRotation(Orientation::THETA, 90.0f);
 
-/*
 		ctrl->getModel()->addObject("model1", new CompiledObject3D(tModels[0]));
 		ctrl->getModel()->addObject("model2", new CompiledObject3D(tModels[1]));
+		//ctrl->getModel()->addObject("model3", new CompiledObject3D(tModels[2]));
 		ctrl->getModel()->addObject("model3", new CompiledObject3D(tModels[2]));
-*/
-		ctrl->getModel()->addObject("model3", tModels[2]);
 		//ctrl->getModel()->addRenderable("model4", tModels[3]);
 
         ctrl->run();

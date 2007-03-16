@@ -79,26 +79,14 @@ HelloWorld.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 HelloWorld.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
 HelloWorld.o: ../../event/timer/TimerListener.h
-HelloWorld.o: ../../event/keyboard/SpecialKeyEvent.h
-HelloWorld.o: ../../event/keyboard/KeyEvent.h
-HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+HelloWorld.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 HelloWorld.o: ../../event/keyboard/KeyboardListener.h
 HelloWorld.o: ../../event/keyboard/KeyEvent.h
 HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
 HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
-HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
-HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h
-HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
-HelloWorld.o: ../../event/keyboard/KeyboardListener.h
-HelloWorld.o: ../../event/keyboard/RegularKeyEvent.h
-HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
-HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-HelloWorld.o: ../../core/Controller.h ../../../include/SDL.h
-HelloWorld.o: ../../event/EventHandlerFactory.h
-HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 HelloWorld.o: ../../event/mouse/MouseListener.h
 HelloWorld.o: ../../event/mouse/MouseEvent.h
 HelloWorld.o: ../../event/mouse/MouseEventFactory.h
@@ -110,12 +98,13 @@ HelloWorld.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 HelloWorld.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 HelloWorld.o: ../../event/reshape/ReshapeListener.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-HelloWorld.o: ../../event/reshape/Reshape.h ../../core/World.h
-HelloWorld.o: ../../shape/Renderable.h ../../shape/Object3D.h
-HelloWorld.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-HelloWorld.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-HelloWorld.o: /usr/include/GL/glu.h ../../transform/Transform.h
-HelloWorld.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+HelloWorld.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+HelloWorld.o: ../../core/World.h ../../shape/Renderable.h
+HelloWorld.o: ../../shape/Object3D.h ../../transform/Transformable.h
+HelloWorld.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+HelloWorld.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+HelloWorld.o: ../../transform/Transform.h ../../transform/Scale.h
+HelloWorld.o: ../../geometry/Vector3D.h
 HelloWorld.o: ../../interpolation/InterpolationEngine.h
 HelloWorld.o: ../../interpolation/InterpolationListener.h
 HelloWorld.o: ../../interpolation/Interpolator.h
@@ -139,10 +128,22 @@ HelloWorld.o: ../../transform/MacCoordinateSystem.h
 HelloWorld.o: ../../transform/MathCoordinateSystem.h
 HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
+HelloWorld.o: ../../event/timer/TimerListener.h
 HelloWorld.o: ../../event/reshape/ReshapeListener.h
 HelloWorld.o: ../../event/reshape/ReshapeEvent.h
-HelloWorld.o: ../../interpolation/InterpolationEngine.h
-HelloWorld.o: ../../core/Controller.h ../../core/World.h
+HelloWorld.o: ../../event/keyboard/SpecialKeyEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEvent.h
+HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
+HelloWorld.o: ../../event/keyboard/KeyboardListener.h
+HelloWorld.o: ../../event/keyboard/RegularKeyEvent.h
+HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../core/Controller.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
 HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
 HelloWorld.o: ../../event/reshape/ReshapeSkeleton.h

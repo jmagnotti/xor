@@ -90,9 +90,8 @@ CoordinateSystem.o: ../../event/timer/Timer.h
 CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
 CoordinateSystem.o: ../../../include/SDL_thread.h
 CoordinateSystem.o: ../../event/timer/TimerListener.h
-CoordinateSystem.o: ../../event/keyboard/SpecialKeyEvent.h
-CoordinateSystem.o: ../../event/keyboard/KeyEvent.h
-CoordinateSystem.o: ../../event/keyboard/KeyboardStub.h
+CoordinateSystem.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+CoordinateSystem.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 CoordinateSystem.o: ../../event/keyboard/Keyboard.h
 CoordinateSystem.o: ../../../include/SDL_events.h
 CoordinateSystem.o: ../../event/keyboard/KeyboardListener.h
@@ -100,17 +99,7 @@ CoordinateSystem.o: ../../event/keyboard/KeyEvent.h
 CoordinateSystem.o: ../../event/keyboard/KeyEventFactory.h
 CoordinateSystem.o: ../../event/keyboard/KeyDownEvent.h
 CoordinateSystem.o: ../../event/keyboard/KeyUpEvent.h
-CoordinateSystem.o: ../../event/keyboard/KeyUpEvent.h
-CoordinateSystem.o: ../../event/keyboard/Keyboard.h
-CoordinateSystem.o: ../../event/keyboard/KeyboardSkeleton.h
-CoordinateSystem.o: ../../event/keyboard/KeyboardListener.h
-CoordinateSystem.o: ../../event/keyboard/RegularKeyEvent.h
-CoordinateSystem.o: ../../event/keyboard/DefaultKeyboardListener.h
-CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
-CoordinateSystem.o: ../../event/timer/Timer.h
-CoordinateSystem.o: ../../event/timer/TimerListener.h ../../core/Controller.h
-CoordinateSystem.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
-CoordinateSystem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CoordinateSystem.o: ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/mouse/MouseListener.h
 CoordinateSystem.o: ../../event/mouse/MouseEvent.h
 CoordinateSystem.o: ../../event/mouse/MouseEventFactory.h
@@ -123,9 +112,9 @@ CoordinateSystem.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
 CoordinateSystem.o: ../../event/reshape/ReshapeEvent.h
 CoordinateSystem.o: ../../event/reshape/ReshapeListener.h
 CoordinateSystem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-CoordinateSystem.o: ../../event/reshape/Reshape.h ../../core/World.h
-CoordinateSystem.o: ../../shape/Renderable.h ../../shape/Object3D.h
-CoordinateSystem.o: ../../transform/Transformable.h
+CoordinateSystem.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+CoordinateSystem.o: ../../core/World.h ../../shape/Renderable.h
+CoordinateSystem.o: ../../shape/Object3D.h ../../transform/Transformable.h
 CoordinateSystem.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 CoordinateSystem.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 CoordinateSystem.o: ../../transform/Transform.h ../../transform/Scale.h
@@ -154,11 +143,23 @@ CoordinateSystem.o: ../../transform/MacCoordinateSystem.h
 CoordinateSystem.o: ../../transform/MathCoordinateSystem.h
 CoordinateSystem.o: ../../transform/LeftOpenGLCoordinateSystem.h
 CoordinateSystem.o: ../../transform/EngineerCoordinateSystem.h
+CoordinateSystem.o: ../../event/timer/TimerListener.h
 CoordinateSystem.o: ../../event/reshape/ReshapeListener.h
 CoordinateSystem.o: ../../event/reshape/ReshapeEvent.h
+CoordinateSystem.o: ../../event/keyboard/SpecialKeyEvent.h
+CoordinateSystem.o: ../../event/keyboard/KeyEvent.h
+CoordinateSystem.o: ../../event/keyboard/KeyboardStub.h
+CoordinateSystem.o: ../../event/keyboard/Keyboard.h
+CoordinateSystem.o: ../../event/keyboard/KeyUpEvent.h
+CoordinateSystem.o: ../../event/keyboard/Keyboard.h
+CoordinateSystem.o: ../../event/keyboard/KeyboardSkeleton.h
+CoordinateSystem.o: ../../event/keyboard/KeyboardListener.h
+CoordinateSystem.o: ../../event/keyboard/RegularKeyEvent.h
+CoordinateSystem.o: ../../event/keyboard/DefaultKeyboardListener.h
+CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
+CoordinateSystem.o: ../../core/Controller.h
 CoordinateSystem.o: ../../interpolation/InterpolationEngine.h
-CoordinateSystem.o: ../../core/Controller.h ../../core/World.h
-CoordinateSystem.o: ../../event/keyboard/KeyDownEvent.h
+CoordinateSystem.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
 CoordinateSystem.o: ../../event/keyboard/KeyEventFactory.h
 CoordinateSystem.o: ../../event/reshape/ReshapeSkeleton.h
 CoordinateSystem.o: ../../event/reshape/Reshape.h

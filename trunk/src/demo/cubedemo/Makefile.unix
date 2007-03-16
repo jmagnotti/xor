@@ -78,26 +78,15 @@ CubeDemo.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 CubeDemo.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 CubeDemo.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
 CubeDemo.o: ../../event/timer/TimerListener.h
-CubeDemo.o: ../../event/keyboard/SpecialKeyEvent.h
-CubeDemo.o: ../../event/keyboard/KeyEvent.h
-CubeDemo.o: ../../event/keyboard/KeyboardStub.h
+CubeDemo.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+CubeDemo.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 CubeDemo.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 CubeDemo.o: ../../event/keyboard/KeyboardListener.h
 CubeDemo.o: ../../event/keyboard/KeyEvent.h
 CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
 CubeDemo.o: ../../event/keyboard/KeyDownEvent.h
-CubeDemo.o: ../../event/keyboard/KeyUpEvent.h
-CubeDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
-CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-CubeDemo.o: ../../event/keyboard/KeyboardListener.h
-CubeDemo.o: ../../event/keyboard/RegularKeyEvent.h
-CubeDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
-CubeDemo.o: ../../interpolation/TimedInterpolation.h
-CubeDemo.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-CubeDemo.o: ../../core/Controller.h ../../../include/SDL.h
-CubeDemo.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
-CubeDemo.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
-CubeDemo.o: ../../event/mouse/MouseEvent.h
+CubeDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CubeDemo.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
 CubeDemo.o: ../../event/mouse/MouseEventFactory.h
 CubeDemo.o: ../../event/mouse/MouseButtonDown.h
 CubeDemo.o: ../../event/mouse/MouseClickEvent.h
@@ -107,12 +96,13 @@ CubeDemo.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 CubeDemo.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 CubeDemo.o: ../../event/reshape/ReshapeListener.h
 CubeDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-CubeDemo.o: ../../event/reshape/Reshape.h ../../core/World.h
-CubeDemo.o: ../../shape/Renderable.h ../../shape/Object3D.h
-CubeDemo.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-CubeDemo.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-CubeDemo.o: /usr/include/GL/glu.h ../../transform/Transform.h
-CubeDemo.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+CubeDemo.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+CubeDemo.o: ../../core/World.h ../../shape/Renderable.h
+CubeDemo.o: ../../shape/Object3D.h ../../transform/Transformable.h
+CubeDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+CubeDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+CubeDemo.o: ../../transform/Transform.h ../../transform/Scale.h
+CubeDemo.o: ../../geometry/Vector3D.h
 CubeDemo.o: ../../interpolation/InterpolationEngine.h
 CubeDemo.o: ../../interpolation/InterpolationListener.h
 CubeDemo.o: ../../interpolation/Interpolator.h
@@ -136,10 +126,21 @@ CubeDemo.o: ../../transform/MacCoordinateSystem.h
 CubeDemo.o: ../../transform/MathCoordinateSystem.h
 CubeDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 CubeDemo.o: ../../transform/EngineerCoordinateSystem.h
+CubeDemo.o: ../../event/timer/TimerListener.h
 CubeDemo.o: ../../event/reshape/ReshapeListener.h
 CubeDemo.o: ../../event/reshape/ReshapeEvent.h
-CubeDemo.o: ../../interpolation/InterpolationEngine.h ../../core/Controller.h
-CubeDemo.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+CubeDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+CubeDemo.o: ../../event/keyboard/KeyEvent.h
+CubeDemo.o: ../../event/keyboard/KeyboardStub.h
+CubeDemo.o: ../../event/keyboard/Keyboard.h ../../event/keyboard/KeyUpEvent.h
+CubeDemo.o: ../../event/keyboard/Keyboard.h
+CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+CubeDemo.o: ../../event/keyboard/KeyboardListener.h
+CubeDemo.o: ../../event/keyboard/RegularKeyEvent.h
+CubeDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+CubeDemo.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+CubeDemo.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CubeDemo.o: ../../event/keyboard/KeyDownEvent.h
 CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
 CubeDemo.o: ../../event/reshape/ReshapeSkeleton.h
 CubeDemo.o: ../../event/reshape/Reshape.h ../../event/reshape/ReshapeEvent.h

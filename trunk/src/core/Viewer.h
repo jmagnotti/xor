@@ -200,6 +200,30 @@ public:
 
 
 	/**
+	 * Change the wall setup offset base
+	 */
+	void incrementWallViewOffsetBase(float change);
+
+
+	/**
+	 * Change the wall setup offset modifier
+	 */
+	void incrementWallViewOffsetModifier(float change);
+
+
+	/**
+	 * Change the wall setup field of view base
+	 */
+	void incrementWallViewFovBase(float change);
+
+
+	/**
+	 * Change the wall setup field of view modifier
+	 */
+	void incrementWallViewFovModifier(float change);
+
+
+	/**
 	 * Change the wall view partitioning mode.
 	 */
 	void setWallMode(int mode);
@@ -234,6 +258,11 @@ private:
 	int				_wallXoffset;
 	int				_wallYoffset;
 	int				_wallMode;
+
+	double			_offsetBase;
+	double			_offsetModifier;
+	double			_fovBase;
+	double			_fovModifier;
 
 	bool			_fullscreen;
 
