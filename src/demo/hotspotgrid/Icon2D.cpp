@@ -10,7 +10,8 @@ Icon2D::Icon2D(Vector2D * origin, Dimension2D * size, char * iconPath)
 {
     TextureFactory * factory = TextureFactory::GetInstance();
     _paint = new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(iconPath));     
-    _icon = new Rectangle2D(origin, size, _paint);
+    _icon   = new Rectangle2D(origin, size, _paint);
+
     _bounds = new RectangularHull(origin, size);
 }
 
@@ -26,34 +27,7 @@ Dimension2D * Icon2D::getIconHull(){
  */
 void Icon2D::renderObject()
 {
-    //icon dimensions
-    Vector2D * origin;
-    Dimension2D * dimension;
-
-    origin = _bounds->getOrigin();
-    dimension = _bounds->getDimension();
-
-    //enable textures
-    glEnable(GL_TEXTURE_2D);
-
-    _paint->getTexture()->setActive();
-    
-    //define quad verts and tex verts
-    glBegin(GL_QUADS);
-
-    glTexCoord2f(0,0);
-    glVertex2f(origin->getX(), origin->getY());
-
-    glTexCoord2f(1,0);
-    glVertex2f(origin->getX() + dimension->getWidth(), origin->getY());
-    
-    glTexCoord2f(1,1);
-    glVertex2f(origin->getX() + dimension->getWidth(), origin->getY() + dimension->getHeight());
-
-    glTexCoord2f(0,1);
-    glVertex2f(origin->getX(), origin->getY() + dimension->getHeight());    
-
-    glEnd();    
+    _icon->render();
 }
 
 /**

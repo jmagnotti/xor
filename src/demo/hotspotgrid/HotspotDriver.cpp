@@ -14,8 +14,8 @@ int main(int argc, char * argv[])
     ctrl->defaultConfiguration();
     ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
     
-    Vector2D * gridOrigin = new Vector2D(100,100);
-    Dimension2D * gridSize = new Dimension2D(500,20);
+    Vector2D * gridOrigin = new Vector2D(500,500);
+    Dimension2D * gridSize = new Dimension2D(200,50);
 
     PrintAction * pa;    
     pa = new PrintAction(100,100);
@@ -23,7 +23,7 @@ int main(int argc, char * argv[])
     new PrintMousePosition(ctrl);
    
     Dimension2D * iconSize;
-    iconSize = new Dimension2D(20,20);
+    iconSize = new Dimension2D(50,50);
 
     Icon2D * icon;
     icon = new Icon2D(gridOrigin, iconSize, "./images/x_red.png");
@@ -34,8 +34,24 @@ int main(int argc, char * argv[])
     HotspotGrid * hsg = new HotspotGrid(gridOrigin, gridSize);
 
     hsg->addAction(ai);
+    
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/y_green.png");
+   
+    ai = new ActionItem(icon, pa);
 
-    //ctrl->getMouse()->addListener(hsg);
+    hsg->addAction(ai);    
+
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/z_blue.png");
+   
+    ai = new ActionItem(icon, pa);
+    hsg->addAction(ai);    
+    
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/white.png");
+   
+    ai = new ActionItem(icon, pa);
+    hsg->addAction(ai);    
+
+    ctrl->getMouse()->addListener(hsg);
 
     ctrl->setModel(hsg);
 
