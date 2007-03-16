@@ -80,26 +80,14 @@ TerrainDemo.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 TerrainDemo.o: ../../event/timer/TimerSkeleton.h
 TerrainDemo.o: ../../../include/SDL_thread.h
 TerrainDemo.o: ../../event/timer/TimerListener.h
-TerrainDemo.o: ../../event/keyboard/SpecialKeyEvent.h
-TerrainDemo.o: ../../event/keyboard/KeyEvent.h
-TerrainDemo.o: ../../event/keyboard/KeyboardStub.h
+TerrainDemo.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+TerrainDemo.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 TerrainDemo.o: ../../event/keyboard/KeyboardListener.h
 TerrainDemo.o: ../../event/keyboard/KeyEvent.h
 TerrainDemo.o: ../../event/keyboard/KeyEventFactory.h
 TerrainDemo.o: ../../event/keyboard/KeyDownEvent.h
-TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h
-TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h
-TerrainDemo.o: ../../event/keyboard/Keyboard.h
-TerrainDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-TerrainDemo.o: ../../event/keyboard/KeyboardListener.h
-TerrainDemo.o: ../../event/keyboard/RegularKeyEvent.h
-TerrainDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
-TerrainDemo.o: ../../interpolation/TimedInterpolation.h
-TerrainDemo.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-TerrainDemo.o: ../../core/Controller.h ../../../include/SDL.h
-TerrainDemo.o: ../../event/EventHandlerFactory.h
-TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 TerrainDemo.o: ../../event/mouse/MouseListener.h
 TerrainDemo.o: ../../event/mouse/MouseEvent.h
 TerrainDemo.o: ../../event/mouse/MouseEventFactory.h
@@ -111,12 +99,13 @@ TerrainDemo.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 TerrainDemo.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 TerrainDemo.o: ../../event/reshape/ReshapeListener.h
 TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-TerrainDemo.o: ../../event/reshape/Reshape.h ../../core/World.h
-TerrainDemo.o: ../../shape/Renderable.h ../../shape/Object3D.h
-TerrainDemo.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-TerrainDemo.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-TerrainDemo.o: /usr/include/GL/glu.h ../../transform/Transform.h
-TerrainDemo.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+TerrainDemo.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+TerrainDemo.o: ../../core/World.h ../../shape/Renderable.h
+TerrainDemo.o: ../../shape/Object3D.h ../../transform/Transformable.h
+TerrainDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+TerrainDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+TerrainDemo.o: ../../transform/Transform.h ../../transform/Scale.h
+TerrainDemo.o: ../../geometry/Vector3D.h
 TerrainDemo.o: ../../interpolation/InterpolationEngine.h
 TerrainDemo.o: ../../interpolation/InterpolationListener.h
 TerrainDemo.o: ../../interpolation/Interpolator.h
@@ -141,10 +130,22 @@ TerrainDemo.o: ../../transform/MacCoordinateSystem.h
 TerrainDemo.o: ../../transform/MathCoordinateSystem.h
 TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 TerrainDemo.o: ../../transform/EngineerCoordinateSystem.h
+TerrainDemo.o: ../../event/timer/TimerListener.h
 TerrainDemo.o: ../../event/reshape/ReshapeListener.h
 TerrainDemo.o: ../../event/reshape/ReshapeEvent.h
-TerrainDemo.o: ../../interpolation/InterpolationEngine.h
-TerrainDemo.o: ../../core/Controller.h ../../core/World.h
+TerrainDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+TerrainDemo.o: ../../event/keyboard/KeyEvent.h
+TerrainDemo.o: ../../event/keyboard/KeyboardStub.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h
+TerrainDemo.o: ../../event/keyboard/KeyUpEvent.h
+TerrainDemo.o: ../../event/keyboard/Keyboard.h
+TerrainDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+TerrainDemo.o: ../../event/keyboard/KeyboardListener.h
+TerrainDemo.o: ../../event/keyboard/RegularKeyEvent.h
+TerrainDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+TerrainDemo.o: ../../interpolation/TimedInterpolation.h
+TerrainDemo.o: ../../core/Controller.h
+TerrainDemo.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 TerrainDemo.o: ../../event/keyboard/KeyDownEvent.h
 TerrainDemo.o: ../../event/keyboard/KeyEventFactory.h
 TerrainDemo.o: ../../event/reshape/ReshapeSkeleton.h

@@ -78,26 +78,15 @@ WallDemo.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 WallDemo.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 WallDemo.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
 WallDemo.o: ../../event/timer/TimerListener.h
-WallDemo.o: ../../event/keyboard/SpecialKeyEvent.h
-WallDemo.o: ../../event/keyboard/KeyEvent.h
-WallDemo.o: ../../event/keyboard/KeyboardStub.h
+WallDemo.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+WallDemo.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 WallDemo.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 WallDemo.o: ../../event/keyboard/KeyboardListener.h
 WallDemo.o: ../../event/keyboard/KeyEvent.h
 WallDemo.o: ../../event/keyboard/KeyEventFactory.h
 WallDemo.o: ../../event/keyboard/KeyDownEvent.h
-WallDemo.o: ../../event/keyboard/KeyUpEvent.h
-WallDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
-WallDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-WallDemo.o: ../../event/keyboard/KeyboardListener.h
-WallDemo.o: ../../event/keyboard/RegularKeyEvent.h
-WallDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
-WallDemo.o: ../../interpolation/TimedInterpolation.h
-WallDemo.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-WallDemo.o: ../../core/Controller.h ../../../include/SDL.h
-WallDemo.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
-WallDemo.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
-WallDemo.o: ../../event/mouse/MouseEvent.h
+WallDemo.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+WallDemo.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
 WallDemo.o: ../../event/mouse/MouseEventFactory.h
 WallDemo.o: ../../event/mouse/MouseButtonDown.h
 WallDemo.o: ../../event/mouse/MouseClickEvent.h
@@ -107,12 +96,13 @@ WallDemo.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 WallDemo.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 WallDemo.o: ../../event/reshape/ReshapeListener.h
 WallDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-WallDemo.o: ../../event/reshape/Reshape.h ../../core/World.h
-WallDemo.o: ../../shape/Renderable.h ../../shape/Object3D.h
-WallDemo.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-WallDemo.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-WallDemo.o: /usr/include/GL/glu.h ../../transform/Transform.h
-WallDemo.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+WallDemo.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+WallDemo.o: ../../core/World.h ../../shape/Renderable.h
+WallDemo.o: ../../shape/Object3D.h ../../transform/Transformable.h
+WallDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+WallDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+WallDemo.o: ../../transform/Transform.h ../../transform/Scale.h
+WallDemo.o: ../../geometry/Vector3D.h
 WallDemo.o: ../../interpolation/InterpolationEngine.h
 WallDemo.o: ../../interpolation/InterpolationListener.h
 WallDemo.o: ../../interpolation/Interpolator.h
@@ -136,10 +126,21 @@ WallDemo.o: ../../transform/MacCoordinateSystem.h
 WallDemo.o: ../../transform/MathCoordinateSystem.h
 WallDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 WallDemo.o: ../../transform/EngineerCoordinateSystem.h
+WallDemo.o: ../../event/timer/TimerListener.h
 WallDemo.o: ../../event/reshape/ReshapeListener.h
 WallDemo.o: ../../event/reshape/ReshapeEvent.h
-WallDemo.o: ../../interpolation/InterpolationEngine.h ../../core/Controller.h
-WallDemo.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+WallDemo.o: ../../event/keyboard/SpecialKeyEvent.h
+WallDemo.o: ../../event/keyboard/KeyEvent.h
+WallDemo.o: ../../event/keyboard/KeyboardStub.h
+WallDemo.o: ../../event/keyboard/Keyboard.h ../../event/keyboard/KeyUpEvent.h
+WallDemo.o: ../../event/keyboard/Keyboard.h
+WallDemo.o: ../../event/keyboard/KeyboardSkeleton.h
+WallDemo.o: ../../event/keyboard/KeyboardListener.h
+WallDemo.o: ../../event/keyboard/RegularKeyEvent.h
+WallDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
+WallDemo.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+WallDemo.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+WallDemo.o: ../../event/keyboard/KeyDownEvent.h
 WallDemo.o: ../../event/keyboard/KeyEventFactory.h
 WallDemo.o: ../../event/reshape/ReshapeSkeleton.h
 WallDemo.o: ../../event/reshape/Reshape.h ../../event/reshape/ReshapeEvent.h

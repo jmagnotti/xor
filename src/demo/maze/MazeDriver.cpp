@@ -1,5 +1,5 @@
 #include "MazeDriver.h"
-//#include "KeyHandler.h"
+#include "KeyHandler.h"
 
 
 /**
@@ -18,7 +18,7 @@ MazeDriver::MazeDriver()
     initializeMaze();
 
     //ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
-    //new KeyHandler(ctrl);
+    new KeyHandler(ctrl);
 
     // we want a world object that is created around the maze
     //World * world = World::GetInstance(_maze);

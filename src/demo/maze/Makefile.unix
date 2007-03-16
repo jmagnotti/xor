@@ -5,7 +5,7 @@ CC = g++
 LIBS = -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
-SRCS = Maze.cpp MazeParser.cpp MazeDriver.cpp
+SRCS = KeyHandler.cpp Maze.cpp MazeParser.cpp MazeDriver.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -76,33 +76,24 @@ Maze.o: /usr/include/bits/confname.h /usr/include/getopt.h
 Maze.o: ../../multicast/MulticastSocketPool.h
 Maze.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 Maze.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
-Maze.o: ../../event/timer/TimerListener.h
-Maze.o: ../../event/keyboard/SpecialKeyEvent.h
-Maze.o: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyboardStub.h
-Maze.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
-Maze.o: ../../event/keyboard/KeyboardListener.h
+Maze.o: ../../event/timer/TimerListener.h ../../event/timer/IntervalTimer.h
+Maze.o: ../../core/Controller.h ../../../include/SDL.h
+Maze.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
+Maze.o: ../../../include/SDL_events.h ../../event/keyboard/KeyboardListener.h
 Maze.o: ../../event/keyboard/KeyEvent.h
 Maze.o: ../../event/keyboard/KeyEventFactory.h
 Maze.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyUpEvent.h
-Maze.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
-Maze.o: ../../event/keyboard/KeyboardSkeleton.h
-Maze.o: ../../event/keyboard/KeyboardListener.h
-Maze.o: ../../event/keyboard/RegularKeyEvent.h
-Maze.o: ../../event/keyboard/DefaultKeyboardListener.h
-Maze.o: ../../interpolation/TimedInterpolation.h ../../event/timer/Timer.h
-Maze.o: ../../event/timer/TimerListener.h ../../core/Controller.h
-Maze.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
-Maze.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-Maze.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
-Maze.o: ../../event/mouse/MouseEventFactory.h
+Maze.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+Maze.o: ../../event/mouse/MouseEvent.h ../../event/mouse/MouseEventFactory.h
 Maze.o: ../../event/mouse/MouseButtonDown.h
 Maze.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseButtonUp.h
 Maze.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
 Maze.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 Maze.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 Maze.o: ../../event/reshape/ReshapeListener.h ../../event/keyboard/Keyboard.h
-Maze.o: ../../event/mouse/Mouse.h ../../event/reshape/Reshape.h
-Maze.o: ../../core/World.h ../../shape/Renderable.h ../../shape/Object3D.h
+Maze.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+Maze.o: ../../event/reshape/Reshape.h ../../core/World.h
+Maze.o: ../../shape/Renderable.h ../../shape/Object3D.h
 Maze.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
 Maze.o: /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/GL/glu.h
 Maze.o: ../../transform/Transform.h ../../transform/Scale.h
@@ -128,10 +119,20 @@ Maze.o: ../../transform/MacCoordinateSystem.h
 Maze.o: ../../transform/MathCoordinateSystem.h
 Maze.o: ../../transform/LeftOpenGLCoordinateSystem.h
 Maze.o: ../../transform/EngineerCoordinateSystem.h
+Maze.o: ../../event/timer/TimerListener.h
 Maze.o: ../../event/reshape/ReshapeListener.h
 Maze.o: ../../event/reshape/ReshapeEvent.h
-Maze.o: ../../interpolation/InterpolationEngine.h ../../core/Controller.h
-Maze.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+Maze.o: ../../event/keyboard/SpecialKeyEvent.h
+Maze.o: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyboardStub.h
+Maze.o: ../../event/keyboard/Keyboard.h ../../event/keyboard/KeyUpEvent.h
+Maze.o: ../../event/keyboard/Keyboard.h
+Maze.o: ../../event/keyboard/KeyboardSkeleton.h
+Maze.o: ../../event/keyboard/KeyboardListener.h
+Maze.o: ../../event/keyboard/RegularKeyEvent.h
+Maze.o: ../../event/keyboard/DefaultKeyboardListener.h
+Maze.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Maze.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Maze.o: ../../event/keyboard/KeyDownEvent.h
 Maze.o: ../../event/keyboard/KeyEventFactory.h
 Maze.o: ../../event/reshape/ReshapeSkeleton.h ../../event/reshape/Reshape.h
 Maze.o: ../../event/reshape/ReshapeEvent.h
@@ -258,26 +259,14 @@ MazeParser.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 MazeParser.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 MazeParser.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
 MazeParser.o: ../../event/timer/TimerListener.h
-MazeParser.o: ../../event/keyboard/SpecialKeyEvent.h
-MazeParser.o: ../../event/keyboard/KeyEvent.h
-MazeParser.o: ../../event/keyboard/KeyboardStub.h
+MazeParser.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+MazeParser.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 MazeParser.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 MazeParser.o: ../../event/keyboard/KeyboardListener.h
 MazeParser.o: ../../event/keyboard/KeyEvent.h
 MazeParser.o: ../../event/keyboard/KeyEventFactory.h
 MazeParser.o: ../../event/keyboard/KeyDownEvent.h
-MazeParser.o: ../../event/keyboard/KeyUpEvent.h
-MazeParser.o: ../../event/keyboard/KeyUpEvent.h
-MazeParser.o: ../../event/keyboard/Keyboard.h
-MazeParser.o: ../../event/keyboard/KeyboardSkeleton.h
-MazeParser.o: ../../event/keyboard/KeyboardListener.h
-MazeParser.o: ../../event/keyboard/RegularKeyEvent.h
-MazeParser.o: ../../event/keyboard/DefaultKeyboardListener.h
-MazeParser.o: ../../interpolation/TimedInterpolation.h
-MazeParser.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-MazeParser.o: ../../core/Controller.h ../../../include/SDL.h
-MazeParser.o: ../../event/EventHandlerFactory.h
-MazeParser.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+MazeParser.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 MazeParser.o: ../../event/mouse/MouseListener.h
 MazeParser.o: ../../event/mouse/MouseEvent.h
 MazeParser.o: ../../event/mouse/MouseEventFactory.h
@@ -289,12 +278,13 @@ MazeParser.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 MazeParser.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 MazeParser.o: ../../event/reshape/ReshapeListener.h
 MazeParser.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-MazeParser.o: ../../event/reshape/Reshape.h ../../core/World.h
-MazeParser.o: ../../shape/Renderable.h ../../shape/Object3D.h
-MazeParser.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-MazeParser.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-MazeParser.o: /usr/include/GL/glu.h ../../transform/Transform.h
-MazeParser.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+MazeParser.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+MazeParser.o: ../../core/World.h ../../shape/Renderable.h
+MazeParser.o: ../../shape/Object3D.h ../../transform/Transformable.h
+MazeParser.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+MazeParser.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+MazeParser.o: ../../transform/Transform.h ../../transform/Scale.h
+MazeParser.o: ../../geometry/Vector3D.h
 MazeParser.o: ../../interpolation/InterpolationEngine.h
 MazeParser.o: ../../interpolation/InterpolationListener.h
 MazeParser.o: ../../interpolation/Interpolator.h
@@ -318,10 +308,22 @@ MazeParser.o: ../../transform/MacCoordinateSystem.h
 MazeParser.o: ../../transform/MathCoordinateSystem.h
 MazeParser.o: ../../transform/LeftOpenGLCoordinateSystem.h
 MazeParser.o: ../../transform/EngineerCoordinateSystem.h
+MazeParser.o: ../../event/timer/TimerListener.h
 MazeParser.o: ../../event/reshape/ReshapeListener.h
 MazeParser.o: ../../event/reshape/ReshapeEvent.h
-MazeParser.o: ../../interpolation/InterpolationEngine.h
-MazeParser.o: ../../core/Controller.h ../../core/World.h
+MazeParser.o: ../../event/keyboard/SpecialKeyEvent.h
+MazeParser.o: ../../event/keyboard/KeyEvent.h
+MazeParser.o: ../../event/keyboard/KeyboardStub.h
+MazeParser.o: ../../event/keyboard/Keyboard.h
+MazeParser.o: ../../event/keyboard/KeyUpEvent.h
+MazeParser.o: ../../event/keyboard/Keyboard.h
+MazeParser.o: ../../event/keyboard/KeyboardSkeleton.h
+MazeParser.o: ../../event/keyboard/KeyboardListener.h
+MazeParser.o: ../../event/keyboard/RegularKeyEvent.h
+MazeParser.o: ../../event/keyboard/DefaultKeyboardListener.h
+MazeParser.o: ../../interpolation/TimedInterpolation.h
+MazeParser.o: ../../core/Controller.h
+MazeParser.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 MazeParser.o: ../../event/keyboard/KeyDownEvent.h
 MazeParser.o: ../../event/keyboard/KeyEventFactory.h
 MazeParser.o: ../../event/reshape/ReshapeSkeleton.h
@@ -464,26 +466,14 @@ MazeDriver.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 MazeDriver.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
 MazeDriver.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
 MazeDriver.o: ../../event/timer/TimerListener.h
-MazeDriver.o: ../../event/keyboard/SpecialKeyEvent.h
-MazeDriver.o: ../../event/keyboard/KeyEvent.h
-MazeDriver.o: ../../event/keyboard/KeyboardStub.h
+MazeDriver.o: ../../event/timer/IntervalTimer.h ../../core/Controller.h
+MazeDriver.o: ../../../include/SDL.h ../../event/EventHandlerFactory.h
 MazeDriver.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 MazeDriver.o: ../../event/keyboard/KeyboardListener.h
 MazeDriver.o: ../../event/keyboard/KeyEvent.h
 MazeDriver.o: ../../event/keyboard/KeyEventFactory.h
 MazeDriver.o: ../../event/keyboard/KeyDownEvent.h
-MazeDriver.o: ../../event/keyboard/KeyUpEvent.h
-MazeDriver.o: ../../event/keyboard/KeyUpEvent.h
-MazeDriver.o: ../../event/keyboard/Keyboard.h
-MazeDriver.o: ../../event/keyboard/KeyboardSkeleton.h
-MazeDriver.o: ../../event/keyboard/KeyboardListener.h
-MazeDriver.o: ../../event/keyboard/RegularKeyEvent.h
-MazeDriver.o: ../../event/keyboard/DefaultKeyboardListener.h
-MazeDriver.o: ../../interpolation/TimedInterpolation.h
-MazeDriver.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-MazeDriver.o: ../../core/Controller.h ../../../include/SDL.h
-MazeDriver.o: ../../event/EventHandlerFactory.h
-MazeDriver.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+MazeDriver.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 MazeDriver.o: ../../event/mouse/MouseListener.h
 MazeDriver.o: ../../event/mouse/MouseEvent.h
 MazeDriver.o: ../../event/mouse/MouseEventFactory.h
@@ -495,12 +485,13 @@ MazeDriver.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
 MazeDriver.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
 MazeDriver.o: ../../event/reshape/ReshapeListener.h
 MazeDriver.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-MazeDriver.o: ../../event/reshape/Reshape.h ../../core/World.h
-MazeDriver.o: ../../shape/Renderable.h ../../shape/Object3D.h
-MazeDriver.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-MazeDriver.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-MazeDriver.o: /usr/include/GL/glu.h ../../transform/Transform.h
-MazeDriver.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+MazeDriver.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
+MazeDriver.o: ../../core/World.h ../../shape/Renderable.h
+MazeDriver.o: ../../shape/Object3D.h ../../transform/Transformable.h
+MazeDriver.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+MazeDriver.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+MazeDriver.o: ../../transform/Transform.h ../../transform/Scale.h
+MazeDriver.o: ../../geometry/Vector3D.h
 MazeDriver.o: ../../interpolation/InterpolationEngine.h
 MazeDriver.o: ../../interpolation/InterpolationListener.h
 MazeDriver.o: ../../interpolation/Interpolator.h
@@ -524,10 +515,22 @@ MazeDriver.o: ../../transform/MacCoordinateSystem.h
 MazeDriver.o: ../../transform/MathCoordinateSystem.h
 MazeDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
 MazeDriver.o: ../../transform/EngineerCoordinateSystem.h
+MazeDriver.o: ../../event/timer/TimerListener.h
 MazeDriver.o: ../../event/reshape/ReshapeListener.h
 MazeDriver.o: ../../event/reshape/ReshapeEvent.h
-MazeDriver.o: ../../interpolation/InterpolationEngine.h
-MazeDriver.o: ../../core/Controller.h ../../core/World.h
+MazeDriver.o: ../../event/keyboard/SpecialKeyEvent.h
+MazeDriver.o: ../../event/keyboard/KeyEvent.h
+MazeDriver.o: ../../event/keyboard/KeyboardStub.h
+MazeDriver.o: ../../event/keyboard/Keyboard.h
+MazeDriver.o: ../../event/keyboard/KeyUpEvent.h
+MazeDriver.o: ../../event/keyboard/Keyboard.h
+MazeDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+MazeDriver.o: ../../event/keyboard/KeyboardListener.h
+MazeDriver.o: ../../event/keyboard/RegularKeyEvent.h
+MazeDriver.o: ../../event/keyboard/DefaultKeyboardListener.h
+MazeDriver.o: ../../interpolation/TimedInterpolation.h
+MazeDriver.o: ../../core/Controller.h
+MazeDriver.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 MazeDriver.o: ../../event/keyboard/KeyDownEvent.h
 MazeDriver.o: ../../event/keyboard/KeyEventFactory.h
 MazeDriver.o: ../../event/reshape/ReshapeSkeleton.h

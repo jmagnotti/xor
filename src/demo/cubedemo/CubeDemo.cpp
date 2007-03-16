@@ -2,6 +2,35 @@
 
 using namespace XOR;
 
+
+class PrintAllTicks : public TimerListener
+{
+public:
+	int counter;
+	PrintAllTicks() { counter = 0; Controller::GetInstance(NULL)->getTimer()->addListener(this); }
+	void handleTick() { cout << "timer tick: " << ++counter << endl; }
+};
+
+
+class PrintOccasionalTicks : public TimerListener
+{
+public:
+	int counter;
+	PrintOccasionalTicks() { counter = 0; IntervalTimer::GetInstance()->addRegularListener(this, 1000); }
+	void handleTick() { cout << "  occasional tick [" << ++counter << "]" << endl; }
+};
+
+
+class PrintUniqueTick : public TimerListener
+{
+public:
+	PrintUniqueTick() { IntervalTimer::GetInstance()->addCallbackListener(this, 5000); }
+	void handleTick() { cout << "    unique tick !!!!!" << endl; }
+};
+
+
+
+
 /**
  * Demonstrates creation of an InputEventProxyFactory to multicast Keyboard and
  * Mouse events over the wire. Allows uses a Paint with a gradient.
@@ -29,6 +58,11 @@ public:
 		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED); 
 		Cube  * c = new Cube(new Vector3D(-.25, -.25, -4.5), 1.0f, p);
 		ctrl->setModel(new CompiledObject3D(c));
+
+		// timer tests
+		PrintAllTicks *			pat = new PrintAllTicks();
+		PrintOccasionalTicks *	pot = new PrintOccasionalTicks();
+		PrintUniqueTick *		put = new PrintUniqueTick();
 	}
 
 
@@ -42,7 +76,6 @@ public:
 	}
 
 };
-
 
 /**
  * Entry point of the application. All input parameters are ignored.

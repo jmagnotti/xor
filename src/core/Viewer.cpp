@@ -64,6 +64,11 @@ void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, i
 	_wallYoffset		= 0;
 	_wallMode			= WALL_MODE_NONE;
 
+	_offsetBase			= 0.0025;
+	_offsetModifier		= 2.0;
+	_fovBase			= 0.25;
+	_fovModifier		= 2.0;
+
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
     for(int i=0; i<3; i++)
@@ -132,13 +137,13 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
 	// METHOD #1 : tiled display wall adjustment
 	if (_wallMode == WALL_MODE_STANDARD) {
-		double moffset = 0.0025;
-		double aoffset = moffset / 2.0;
+		float moffset = _offsetBase;
+		float aoffset = moffset / _offsetModifier;
 
-		glFrustum(	(double)_wallXoffset * moffset - aoffset,
-					(double)_wallXoffset * moffset + aoffset,
-					(double)_wallYoffset * moffset - aoffset,
-					(double)_wallYoffset * moffset + aoffset,
+		glFrustum(	(float)_wallXoffset * moffset - aoffset,
+					(float)_wallXoffset * moffset + aoffset,
+					(float)_wallYoffset * moffset - aoffset,
+					(float)_wallYoffset * moffset + aoffset,
 					_nearClippingPlane,
 					_farClippingPlane
 				);
@@ -146,21 +151,21 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
 	// METHOD #2 : perspective-based wall adjustment
 	else if (_wallMode == WALL_MODE_IMMERSIVE) {
-		double fovmodifier = 0.25;
-		double rotmodifier = _fieldOfView*fovmodifier*2.0;
+		float fovmodifier = _fovBase;
+		float rotmodifier = _fieldOfView*fovmodifier*_fovModifier;
 
-		gluPerspective(_fieldOfView*fovmodifier, (double)_size->getWidth()/
-				(double)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
+		gluPerspective(_fieldOfView*fovmodifier, (float)_size->getWidth()/
+				(float)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
 
 		glPushMatrix();
-		glRotatef(-(double)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
-		glRotatef( (double)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
+		glRotatef(-(float)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
+		glRotatef( (float)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
 	}
 	
 	// no wall adjustment
 	else {
 		gluPerspective(_fieldOfView, 
-				(double)_size->getWidth()/ (double)_size->getHeight(), 
+				(float)_size->getWidth()/ (double)_size->getHeight(), 
 				_nearClippingPlane, _farClippingPlane);
 	}
 
@@ -376,6 +381,50 @@ void Viewer::setWallOffset(int x, int y)
 }
 
 
+/**
+ * Change the wall setup offset base
+ */
+void Viewer::incrementWallViewOffsetBase(float change)
+{
+	_offsetBase += change;
+	forceReshape();
+	cout << "  offset base: " << _offsetBase << endl;
+}
+
+
+/**
+ * Change the wall setup offset modifier
+ */
+void Viewer::incrementWallViewOffsetModifier(float change)
+{
+	_offsetModifier += change;
+	forceReshape();
+	cout << "  offset modifier: " << _offsetModifier << endl;
+}
+
+
+/**
+ * Change the wall setup field of view base
+ */
+void Viewer::incrementWallViewFovBase(float change)
+{
+	_fovBase += change;
+	forceReshape();
+	cout << "  fov base: " << _fovBase << endl;
+}
+
+
+/**
+ * Change the wall setup field of view modifier
+ */
+void Viewer::incrementWallViewFovModifier(float change)
+{
+	_fovModifier += change;
+	forceReshape();
+	cout << "  fov modifier: " << _fovModifier << endl;
+}
+
+
 /*
  * set wall mode
  */
@@ -383,13 +432,17 @@ void Viewer::setWallMode(int mode)
 {
 	if (mode == WALL_MODE_STANDARD) {
 		_wallMode = WALL_MODE_STANDARD;
+		cout << "  new wall mode: standard" << endl;
 	}
 	else if (mode == WALL_MODE_IMMERSIVE) {
 		_wallMode = WALL_MODE_IMMERSIVE;
+		cout << "  new wall mode: immersive" << endl;
 	}
 	else {
 		_wallMode = WALL_MODE_NONE;
+		cout << "  new wall mode: none" << endl;
 	}
+	forceReshape();
 }
 
 

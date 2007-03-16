@@ -1,5 +1,6 @@
 # !/bin/bash
 
 ln -sf Makefile.unix Makefile
-java makehelp.Make
+cd src/demo && ln -sf Makefile.unix Makefile
+cd ../.. && java makehelp.Make
 
