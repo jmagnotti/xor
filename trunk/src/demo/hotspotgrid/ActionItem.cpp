@@ -13,7 +13,7 @@ ActionItem::ActionItem(Icon2D * icon, Action * action)
 /**
  * Returns the hull of the item's icon
  */
- Dimension2D * ActionItem::getIconHull()
+Dimension2D * ActionItem::getIconHull()
 {
     return _icon->getIconHull();
 }
@@ -30,8 +30,10 @@ void ActionItem::handleMouseEvent(MouseEvent * me)
         //mouse over
         if(_icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY()))
             _icon->mouseEnter();
-        else
+        else {
             _icon->mouseLeave();
+            _downInBounds = false;
+        }
     }
     // mouse button down event
     else if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN)

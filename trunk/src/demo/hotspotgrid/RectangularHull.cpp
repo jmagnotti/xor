@@ -1,4 +1,7 @@
 #include "RectangularHull.h"
+#include <iostream>
+
+using namespace std;
 
 /**
  * Explicit Constructori. Takes the origin point of the hull and its
@@ -66,15 +69,14 @@ Dimension2D * RectangularHull::getDimension()
  * Determine if the x and y are inside the hull
  */
 bool RectangularHull::inHull(int xPos, int yPos)
-{
-   if(xPos >= _origin->getX() && xPos <= (_origin->getX() + _dimension->getWidth()))
+{     if(xPos >= _origin->getX() && xPos <= (_origin->getX() + _dimension->getWidth())
+        && yPos >= _origin->getY() && yPos <= (_origin->getY() + _dimension->getHeight()))
     {
-        if(yPos >= _origin->getY() && yPos <= (_origin->getY() + _dimension->getHeight()))
-            return true;
+        return true;
     }
 
     else
-        return false;
+         return false;
 }
 
 /**

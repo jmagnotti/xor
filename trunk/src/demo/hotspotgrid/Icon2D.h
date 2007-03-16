@@ -10,7 +10,7 @@ using namespace XOR;
 /**
  * A 2 Dimensional Icon class
  */
-class Icon2D
+class Icon2D : public Object2D
 {
 
 public:

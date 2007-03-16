@@ -45,6 +45,7 @@ void Object2D::push2DState()
 	glLoadIdentity();
 
 	delete windowSize;
+    
 }
 
 
