@@ -4,23 +4,6 @@
 
 using namespace XOR;
 
-class Render2DObject : public Object3D
-{
-	void render()
-	{
-		Object2D * rect = new Rectangle2D(new Vector2D(300,300), new Vector2D(500,500), new Paint(Color::RED, Color::WHITE, Paint::HEIGHT_BASED));
-		rect->render();
-	}
-
-	void renderObject()
-	{}
-
-	Dimension3D* getDimension(){return NULL;}
-	Vector3D* getBaseVector(){return NULL;}
-
-};
-
-
 /**
  * Shows the simplicity of XOR
  */
@@ -50,9 +33,17 @@ int main(int argc, char ** argv)
 	
     // the controller will detect this is not a "WORLD" object
     // and automatically wrap it inside of one (how convenient!)
-    ctrl->setModel(new Render2DObject());
+    String2D * str  = new String2D("Hello", 200,200);
+    //str->increaseFontSize();
+    str->setFont(BITMAP_FONT_TYPE_TIMES_ROMAN_24);
+    ctrl->setModel(new Rectangle2D(new Vector2D(300,300), 
+                   new Vector2D(500,500), 
+                   new Paint(Color::RED, Color::WHITE, Paint::HEIGHT_BASED)));
 
 	ctrl->getModel()->addObject("I hate C++", co);
+
+
+	ctrl->getModel()->addObject("I still hate C++", str);
 
     // this call runs the demo.
     ctrl->run();

@@ -7,7 +7,9 @@
 #include "../geometry/Vector3D.h"
 #include "../geometry/Dimension3D.h"
 #include "../util/PointScale.h"
+#include "../texture/TextureScale.h"
 #include "../paint/Paint.h"
+
 #include "Object3D.h"
 
 
@@ -30,16 +32,18 @@ public:
 	 * Set each of the corners explicitly. The Quad will use a WHITE paint.
 	 */
 	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3);
-	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, PointScale * scale);
 
-    
+
     /**
 	 * Explicit Constructor
 	 *
-	 * Set each of the corners explicitly.
+     * Set each of the corners explicitly. If you want to use a texture, you
+     * must supply a TextureScale.
 	 */
-	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, Paint * paint);
-	Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, Paint * paint, PointScale * scale);
+    Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3,
+            Paint * paint);
+    Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3,
+            Paint * paint, PointScale * colorScale, TextureScale * texScale);
     
 
 
@@ -57,7 +61,7 @@ public:
 	Vector3D * getNormal() const;
 
     
-    /**
+    /*
      * Returns the dimension associated with this object
      */
     Dimension3D * getDimension();
@@ -81,6 +85,11 @@ public:
 	 */
 	void setPaint(Paint * paint);
 
+    /**
+     * Returns the paint object associated with this Quadrilateral3D. 
+     */
+	Paint * getPaint() const;
+
 
 	/**
 	 * This flips the sign of the X and Z 
@@ -102,22 +111,8 @@ public:
 
 protected:
 
-	/**
-	 * Calculates the center of the quadrilateral.
-	 * The result is stored in _center.
-	 * This is virtual so special case Quads (maybe an equilateral one?) can be optimized.
-	virtual void calculateCenter();
-	 */
-
-
-	/**
-     * Calculates the length and width of the quadrilateral.
-	 * The results are stored in _dimension;
-	 * This is virtual so special case Quads (maybe an equilateral one?) can be optimized.
-	virtual void calculateDimension();
-	 */
-
     virtual void buildWeights();
+
 
 private:
 
@@ -127,10 +122,12 @@ private:
 	Quadrilateral3D();
 
 
-	Vector3D *	_vertices[4];
-	Vector3D *	_vertexWeights[4];
+	Vector3D * _vertices[4];
+	Vector3D * _vertexColorWeights[4];
+    Vector2D * _vertexTextureWeights[4];
 
-	PointScale  * 	_pointScale;
+	PointScale  * 	_colorScale;
+    TextureScale *  _textureScale;
 	Dimension3D *	_dimension;
 	Vector3D *		_center; 
 	Vector3D *		_normal;

@@ -31,6 +31,18 @@ public:
 
 
     /*
+     * enables texturing if they are not already enabled
+     */
+    static void EnableTextures();
+
+
+    /*
+     * disables the textures if they are not already disabled
+     */
+    static void DisableTextures();
+
+
+    /*
      * Returns the height, in pixels, of the texture object. Note that this has
      * nothing to do with the final rendered version, only the image as it was
      * read from the file.

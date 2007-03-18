@@ -3,6 +3,7 @@
 
 
 #include "Dimension.h"
+#include "Vector3D.h"
 
 
 namespace XOR {
@@ -29,9 +30,11 @@ public:
 	// Getters //
 	int     getDimensionality();
 
+    /*
     float   getX();
 	float   getY();
 	float   getZ();
+    */
 
     float   getWidth();
 	float   getHeight();
@@ -39,7 +42,7 @@ public:
 
     float get(int dimension);
 
-    float * getTranslation();
+    Vector3D * toVector();
 
     void increment(Dimension3D * other);
 
@@ -47,14 +50,14 @@ public:
 
     /**
      * Addition operation
-     */
 	Dimension3D * operator + (Dimension3D * dim);
+     */
 
 
     /**
      * Subtraction operation
-     */
 	Dimension3D * operator - (Dimension3D * dim);
+     */
 
 };
 

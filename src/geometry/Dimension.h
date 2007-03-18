@@ -34,12 +34,14 @@ public:
      * Returns the largest value in the dimension.
      */
     float getLargestSize();
+    int getLargestSide();
 
 
     /**
      * Returns the smallest value in the dimension.
      */
     float getSmallestSize();
+    int getSmallestSide();
 
 
     /**

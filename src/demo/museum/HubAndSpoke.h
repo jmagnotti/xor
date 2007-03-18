@@ -3,6 +3,7 @@
 
 
 #include "MuseumLayout.h"
+#include "Lobby.h"
 
 
 /**
@@ -16,27 +17,25 @@ public:
 	/**
 	 * Singleton Accessor
 	 */
-	static HubAndSpoke * GetInstance(Museum *);
+	static HubAndSpoke * GetInstance()
 
 
 	/**
-	 * Performs the layout of the museum, and returns the museum, 
-	 * in case different objects are sowing and reaping.
+     * Performs the layout of the museum, and returns the Lobby object which
+     * will render all the rooms accordingly.
 	 */
-	Museum * performLayout();
-
-
-protected:
-	
-	HubAndSpoke();
+	Lobby * performLayout(Museum * museum);
 
 
 private:
 
+	HubAndSpoke();
+    
 	static HubAndSpoke _hubAndSpoke;
-
+    
+    Museum * _museum;
 
 };
 
-
 #endif			// HUBANDSPOKE_H
+

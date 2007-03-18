@@ -372,7 +372,9 @@ void PhotoAlbum::parseXML()
 					new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
 					squareDiameter, squareDiameter, squareDiameter,
 					new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-					factory->createTexture(fileNames[numOfPics].c_str())))));
+					factory->createTexture("monkey.png"
+                       // fileNames[numOfPics].c_str()
+                        )))));
 			numOfPics++;  // keep track of number of pics
 		}
 	}

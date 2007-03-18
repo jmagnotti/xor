@@ -98,7 +98,7 @@ public:
 		hf->setPaint(new Paint(Color::WHITE, Paint::HEIGHT_BASED,
 					//TextureFactory::GetInstance()->createTexture("images/plnt10M.jpg")));
 					//TextureFactory::GetInstance()->createTexture("images/ahul01M.jpg")));
-					TextureFactory::GetInstance()->createTexture("images/edhu08M.png")));
+					TextureFactory::GetInstance()->createTexture("images/big_texture.jpg")));
 					//TextureFactory::GetInstance()->createTexture("images/ahul08M.jpg")));
 					//TextureFactory::GetInstance()->createTexture("images/grass.png")));
 

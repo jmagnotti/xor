@@ -166,14 +166,14 @@ void Controller::defaultGLConfiguration()
 
 	// enable fog
 
-	//glEnable(GL_FOG);
+	glEnable(GL_FOG);
 
 	glFogi(GL_FOG_MODE, GL_LINEAR);
 
 	// the hint has to be GL_NICEST, else large quads aren't shaded correctly
 	glHint(GL_FOG_HINT, GL_NICEST);
-	glFogi(GL_FOG_START, 0);
-	glFogi(GL_FOG_END, 25);
+	glFogi(GL_FOG_START, -5);
+	glFogi(GL_FOG_END, 30);
 	GLfloat fogColor[4] = {0.0, 0.0, 0.0, 1.0};
 	glFogfv(GL_FOG_COLOR, fogColor);
 }

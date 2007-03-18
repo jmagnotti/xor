@@ -3,6 +3,8 @@
 
 
 #include "Museum.h"
+#include "Lobby .h"
+
 
 /**
  * Abstract parent for layouts
@@ -12,8 +14,13 @@ class MuseumLayout
 
 public:
 
-	virtual void PerformLayout(Museum *);
+    /**
+     * Modifies the transforms of the rooms accordingly.
+     */
+	virtual Lobby * performLayout(Museum * museum);
 
-}
+
+};
 
 #endif			// MUSEUMLAYOUT_H
+
