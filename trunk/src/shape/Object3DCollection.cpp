@@ -59,9 +59,21 @@ Vector3D * Object3DCollection::getBaseVector()
 }
 
 
-void Object3DCollection::compile()
+void Object3DCollection::compile(bool destroy)
 {
     CompiledObject3D * obj = new CompiledObject3D(this);
+
+    if (destroy) {
+        Object3D * temp;
+        map<Object3D*,Object3D*>::iterator iter   = _objects.begin();
+        map<Object3D*,Object3D*>::iterator finish = _objects.end();
+
+        while(iter != finish) {
+            temp = iter->first;
+            ++iter;
+            delete temp;
+        }
+    }
     _objects.clear();
     _objects[obj] = obj;
 }

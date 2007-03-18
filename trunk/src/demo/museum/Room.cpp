@@ -1,8 +1,7 @@
 #include "Room.h"
 
-
 /*
- * Explicit Constructor.
+ * Private Constructor.
  */
 Room::Room()
 {}
@@ -13,6 +12,7 @@ Room::Room()
  */
 Room::Room(RectangularPrism * prism)
 {
+    _entranceWay = new Object3DCollection();
     _renderable = prism;
 }
 
@@ -22,6 +22,7 @@ Room::Room(RectangularPrism * prism)
  */
 Room::Room(RectangularVolume * volume)
 {
+    _entranceWay = new Object3DCollection();
     _renderable = new RectangularPrism(volume);
 }
 
@@ -45,11 +46,26 @@ Vector3D * Room::getBaseVector()
 
 
 /*
+ * extract a door from the rear face of the cube
+ */
+void Room::extractDoor(const int face)
+{
+    Quadrilateral3D * quad = _renderable->removeFace(face);
+
+    if (quad != NULL) {
+        _entranceWay->addObject3D(DoorExtracter::ExtractDoor(quad));
+        delete quad;
+    }
+}
+
+
+/*
  * Does special stuff with rendering so it can make doorways.
  */
 void Room::renderObject(void)
 {
     _renderable->render();
+    _entranceWay->render();
 }
 
 

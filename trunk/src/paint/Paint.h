@@ -6,6 +6,7 @@
 
 #include "../texture/Texture.h"
 #include "../geometry/Vector3D.h"
+#include "../geometry/Vector2D.h"
 #include "Color.h"
 
 
@@ -72,10 +73,17 @@ public:
 	//---GETTERS---//
 	bool		isTextured();
 	float		getAutoGradient();
-	int 		getGradientType();
+	const int 	getGradientType();
 	float	*	getColorFrom();
 	float	*	getColorTo();
 	Texture	*	getTexture();
+
+
+    /**
+     * Activates state properties necessary for this particular paint
+     * This should be called before the other activation methods
+     */
+    void activate();
 
 
     /**
@@ -94,7 +102,13 @@ public:
     /**
      * Texture coordinate mapping
      */
-    void activateTextureAtPosition(Vector3D * scale);
+    void activateTextureAtPosition(Vector2D * scale);
+
+
+    /**
+     * Deactivates state properties for this paint
+     */
+    void deactivate();
 
 
     /**

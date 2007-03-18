@@ -3,6 +3,13 @@
 
 namespace XOR {
 
+	const int RectangularPrism::TOP	    = 0;
+	const int RectangularPrism::BOTTOM	= 1;
+	const int RectangularPrism::RIGHT	= 2;
+	const int RectangularPrism::LEFT	= 3;
+	const int RectangularPrism::FRONT	= 4;
+	const int RectangularPrism::REAR	= 5;
+
 /*
  * Default Constructor
  */
@@ -19,6 +26,13 @@ RectangularPrism::RectangularPrism(Vector3D * point, float sizeX, float sizeY,
 	_paint	= paint;
 	_volume	= new RectangularVolume(point, new Dimension3D(sizeX, sizeY, sizeZ));
 	setup();
+}
+
+RectangularPrism::RectangularPrism(Vector3D * point, Dimension3D * size, Paint * paint)
+{
+    _paint = paint;
+    _volume = new RectangularVolume(point, size);
+    setup();
 }
 
 
@@ -40,20 +54,24 @@ void RectangularPrism::calculateNormals()
 {	
     GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
 
-	_normals[0] = gcu->crossProduct(_points[3], _points[7], _points[4]);
-	_normals[1] = gcu->crossProduct(_points[2], _points[6], _points[5]);
+	_normals[FRONT]  = gcu->crossProduct(_points[3], _points[7], _points[4]);
+	_normals[REAR]   = gcu->crossProduct(_points[2], _points[6], _points[5]);
 
-	_normals[2] = gcu->crossProduct(_points[2], _points[6], _points[7]);
-	_normals[3] = gcu->crossProduct(_points[1], _points[5], _points[4]);
+	_normals[RIGHT]  = gcu->crossProduct(_points[2], _points[6], _points[7]);
+	_normals[LEFT]   = gcu->crossProduct(_points[1], _points[5], _points[4]);
 
-	_normals[4] = gcu->crossProduct(_points[7], _points[6], _points[5]);
-	_normals[5] = gcu->crossProduct(_points[3], _points[2], _points[1]);
+	_normals[TOP]    = gcu->crossProduct(_points[7], _points[6], _points[5]);
+	_normals[BOTTOM] = gcu->crossProduct(_points[3], _points[2], _points[1]);
 
 	gcu->normalize(_normals);
 
-	// set the normal for each quad 
-	for (int i=0; i<6; i++)
-		_faces[i]->setNormal(_normals[i]);
+    map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
+    map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+
+    while (iter != end) {
+        iter->second->setNormal(_normals[iter->first]);
+        ++iter;
+    }
 }
 
 
@@ -63,22 +81,29 @@ void RectangularPrism::calculateNormals()
 void RectangularPrism::setPaint(Paint * paint)
 {
 	_paint = paint;
-    for(int i=0; i<_faces.size(); i++)
-        _faces[i]->setPaint(paint);
+
+    map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
+    map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+
+    while (iter != end) {
+        iter->second->setPaint(paint);
+        ++iter;
+    }
+
 }
 
 
 /*
- * Removes a face from the rendering list
+ * Removes a face from the rendering collection
  */
 Quadrilateral3D * RectangularPrism::removeFace(int faceToRemove)
 {
     Quadrilateral3D * removedFace = NULL;
-    // make sure the int is valid, get an iterator to the vector, move to the
-    // proper place erase from the vector
+
+    // make sure the int is a valid face
 	if (faceToRemove <= REAR && faceToRemove >= TOP) {
         removedFace = _faces[faceToRemove];
-		_faces.erase(_faces.begin() + faceToRemove);
+		_faces.erase(faceToRemove);
     }
 
     return removedFace;
@@ -90,13 +115,22 @@ Quadrilateral3D * RectangularPrism::removeFace(int faceToRemove)
  */
 void RectangularPrism::renderObject()
 {
-	vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
-	vector<Quadrilateral3D*>::iterator finish = _faces.end();
+    /*
+     * Rendering order is important
+	map<const int, Quadrilateral3D*>::iterator iter   = _faces.begin();
+	map<const int, Quadrilateral3D*>::iterator finish = _faces.end();
 	
 	while (iter != finish) {
-		(*iter)->render();
+		iter->second->render();
 		++iter;
 	}
+    */
+
+    for (int i=0; i<6; i++) {
+        if (_faces[_order[i]] != NULL) 
+            _faces[_order[i]]->render();
+    }
+
 }
 
 
@@ -108,31 +142,95 @@ void RectangularPrism::setFaces()
 {
     // we need a a PointScale that will default to 0 for the Quads that are on
     // the "low" end of the dimension
-    PointScale * ps = new PointScale(0,1,0);
+    PointScale   * ps = new PointScale(0,1,0);
+
+    // a texture scaler for the sides that should be mapped according to their
+    // XY. These quad has no Z extent.
+    TextureScale * tsXY = new TextureScale(
+            new Vector2D(_points[0]->getX(),  _points[0]->getY()), 
+
+            new Dimension2D(_points[7]->getX() - _points[0]->getX(), 
+                            _points[7]->getY() - _points[0]->getY()),
+
+            TextureScale::X_AND_Y, 
+            TextureScale::STRETCHED);
+
+    // a texture scaler for the sides that should be mapped according to their
+    // XZ. These quad has no Y extent.
+    TextureScale * tsXZ = new TextureScale(
+            new Vector2D(_points[0]->getX(),  _points[0]->getZ()), 
+
+            new Dimension2D(_points[2]->getX() - _points[0]->getX(), 
+                            _points[2]->getZ() - _points[0]->getZ()),
+
+            TextureScale::X_AND_Y, 
+            TextureScale::STRETCHED);
+
+    // a texture scaler for the sides that should be mapped according to their
+    // YZ. These quad has no X extent.
+    TextureScale * tsYZ = new TextureScale(
+            new Vector2D(_points[0]->getY(),  _points[0]->getZ()), 
+
+            new Dimension2D(_points[5]->getY() - _points[0]->getY(), 
+                            _points[5]->getZ() - _points[0]->getZ()),
+
+            TextureScale::X_AND_Y, 
+            TextureScale::STRETCHED);
 
 	// clear any existing faces
+    // #FIXME memory leak potential
 	if (! _faces.empty())
         _faces.clear();
 
+
+    /* Cube Configuration:
+
+       5---------6     
+      /         /|
+     4---------7 |
+     |         | |
+     | 1-------|-2
+     |/        |/
+     0---------3
+
+    */
+
+
     // TOP AND BOTTOM
-    _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint));		//highYside
-    _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, ps));	//lowYside
+    _faces[TOP]    = new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint);	    	//highYside
+    _faces[BOTTOM] = new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, ps, tsXZ);	//lowYside
 
     // RIGHT AND LEFT
-    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint));		//highXside
-    _faces.push_back(new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, ps));	//lowXside
+    _faces[RIGHT]  = new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint);  	      	//highXside
+    _faces[LEFT]   = new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, ps, tsYZ);	//lowXside
 
     // FRONT AND BACK
-    _faces.push_back(new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint));		//highZ side
-    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, ps));	//lowZ side
+    _faces[FRONT]  = new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint);    		//highZ side
+    _faces[REAR]   = new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, ps, tsXY);	//lowZ side
 }
 
+
+/*
+ * sets the rendering order. 
+ */
+void RectangularPrism::setRenderingOrder(int order [6])
+{
+    for (int i=0; i<6; i++)
+        _order[i] = order[i];
+}
 
 /*
  * Control function that Generates _points, applies _paint, and sets up the individual quads
  */
 void RectangularPrism::setup()
 {
+    _order[0] = BOTTOM;
+    _order[1] = REAR;
+    _order[2] = RIGHT;
+    _order[3] = LEFT;
+    _order[4] = FRONT;
+    _order[5] = TOP;
+    
 	// use the volume to set the 8 points
 	_volume->generatePoints(_points);
 
@@ -164,11 +262,11 @@ bool RectangularPrism::checkCollision(Vector3D * position)
 
 void RectangularPrism::printInfo()
 {
-    vector<Quadrilateral3D*>::iterator iter   = _faces.begin();
-    vector<Quadrilateral3D*>::iterator finish = _faces.end();
+    map<const int, Quadrilateral3D*>::iterator iter   = _faces.begin();
+    map<const int, Quadrilateral3D*>::iterator finish = _faces.end();
     
     while (iter != finish) {
-        (*iter)->print();
+        iter->second->print();
         ++iter;
     }
 

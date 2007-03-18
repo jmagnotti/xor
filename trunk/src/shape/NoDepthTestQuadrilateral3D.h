@@ -33,9 +33,6 @@ public:
 	NoDepthTestQuadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D *
 			p2, Vector3D * p3);
 
-	NoDepthTestQuadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D *
-			p2, Vector3D * p3, PointScale * scale);
-
     
     /**
 	 * Explicit Constructor
@@ -45,13 +42,14 @@ public:
 	NoDepthTestQuadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D *
 			p2, Vector3D * p3, Paint * paint);
 
-	NoDepthTestQuadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D *
-			p2, Vector3D * p3, Paint * paint, PointScale * scale);
+	NoDepthTestQuadrilateral3D( Vector3D * p0, Vector3D * p1, 
+            Vector3D * p2, Vector3D * p3, Paint * paint, 
+            PointScale * colorScale, TextureScale * textureScale);
     
 
     /**
-     * Disables depth testing, renders, then renables depth testing (if
-	 * it was enabled before).
+     * Disables depth testing, renders, then renables depth testing, if
+	 * it was enabled before.
      */
 	void render(void);
 
@@ -59,8 +57,6 @@ public:
 private:
 
 	NoDepthTestQuadrilateral3D();
-
-	Quadrilateral3D * _quad;
 
 };
 

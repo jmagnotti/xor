@@ -52,8 +52,9 @@ public:
      * Compiles the list into a holistic display list. Objects that were in the
      * collection are discarded. The memory associated with those objects
      * remains.
+     * @destroy If the enderables in the collection should be 'deleted'
      */
-    void compile();
+    void compile(bool destroy=false);
 
 
     Vector3D * getBaseVector();

@@ -83,13 +83,11 @@ while line = gets();
     if line
 
         if (line.length > 0) 
-            if line.include?("{") 
-                block_level += 1
 
-            elsif line.include?("}")
-                block_level -= 1 
+            block_level -= 1 if line.include?("}")
+            block_level += 1 if line.include?("{") 
 
-            elsif block_level == 0 
+            if block_level == 0 
 
                 if line.include?("::")
                     signatures << MethodSignature.new(comments, line)

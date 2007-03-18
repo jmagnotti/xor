@@ -38,15 +38,29 @@ public:
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class CubeDemo
+class CubeDemo : public DefaultKeyboardListener
 {
 
 public:
 
     Controller * ctrl;
+    Object3D * object3D; 
+
+    void handleKey_0()
+    {
+        object3D->incrementTranslation(new Vector3D(10, 0, 0), new TimedInterpolation(1000, NULL));
+    }
+
+
+    void handleKey_9()
+    {
+        object3D->incrementTranslation(new Vector3D(-5, 0, 0), new TimedInterpolation(1000, NULL));
+        object3D->incrementRotation(Transformable::PHI, 90, new TimedInterpolation(1000, NULL));
+    }
+
 
 	CubeDemo()
-	{
+    {
         // the InputEventProxyFactory will send out Keyboard and Mouse events
         // over multicast
 		ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
@@ -54,10 +68,12 @@ public:
 
 		ctrl->getMouse()->addListener(new DefaultMouseListener());
 		ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+		ctrl->getKeyboard()->addListener(this);
 
-		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED); 
+		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED, TextureFactory::GetInstance()->createTexture("monkey.png")); 
 		Cube  * c = new Cube(new Vector3D(-.25, -.25, -4.5), 1.0f, p);
-		ctrl->setModel(new CompiledObject3D(c));
+        object3D = new CompiledObject3D(c);
+		ctrl->setModel(object3D);
 
 		// timer tests
 		PrintAllTicks *			pat = new PrintAllTicks();

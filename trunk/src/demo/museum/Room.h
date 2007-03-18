@@ -2,9 +2,13 @@
 #define ROOM_H
 
 
+#include <vector>
 #include "../../xor.h"
 
+#include "DoorExtracter.h"
 
+
+using namespace std;
 using namespace XOR;
 
 /**
@@ -17,15 +21,10 @@ class Room : public Object3D
 
 public:
 
-	/**
-	 * Default Constructor
-	 */
-	Room();
-
 
 	/**
 	 * Explicit Constructor
-	 * Creates a room, using the given Volume for dimension
+	 * Creates a room, using the given Volume for dimension. 
 	 */
 	Room(RectangularVolume * volume);
 
@@ -46,7 +45,22 @@ public:
 	/**
 	 * Sets the paint for the room
 	 */
-	void setPaint(Paint *);
+	void setPaint(Paint * paint);
+
+
+    /**
+     * Make an entrance to this room on a given wall
+     *
+     * @param face  The wall to create a door on. Valid constants are defined
+     *              in RectangularPrism.h
+     */
+    void extractDoor(const int face);
+
+
+    /*
+     * returns a clone of the current paint object
+     */
+	Paint * getPaint();
 
 	
 	/**
@@ -61,12 +75,19 @@ public:
 	Vector3D * getBaseVector();
 
 
-protected:
+private:
 
-	vector<Renderable*>	_decorations;
-	Object3D * _renderable;
+	/**
+	 * Private Constructor
+	 */
+	Room();
 
-	Paint *				_paint;
+	vector<Object3D*>	 _decorations;
+	Object3DCollection * _entranceWay;
+
+	Paint *	_paint;
+	RectangularPrism * _renderable;
+
 		
 };
 

@@ -2,7 +2,7 @@
 #define RECTANGULARPRISM_H
 
 
-#include <vector>
+#include <map>
 
 #include "../util/GraphicsConversionUtility.h"
 #include "../util/PointScale.h"
@@ -14,9 +14,9 @@
 
 namespace XOR {
 
-
 /**
- * A three-dimensional object with six quadrilateral sides.
+ * A three-dimensional object with six quadrilateral sides. Should be six Rectangular sides. #FIXME
+ *
  */
 class RectangularPrism : public Object3D
 {
@@ -26,12 +26,12 @@ public:
 	/**
 	 * Face constants.
 	 */
-	static const int TOP	= 0;
-	static const int BOTTOM	= 1;
-	static const int RIGHT	= 2;
-	static const int LEFT	= 3;
-	static const int FRONT	= 4;
-	static const int REAR	= 5;
+	static const int TOP;
+	static const int BOTTOM;
+	static const int RIGHT;
+	static const int LEFT;
+	static const int FRONT;
+	static const int REAR;
 
 
 	/**
@@ -39,6 +39,11 @@ public:
 	 */
 	RectangularPrism(Vector3D * point, float sizeX, float sizeY, float sizeZ,
 			Paint * paint);
+
+    /**
+     * Explicit constructor
+     */
+	RectangularPrism(Vector3D * point, Dimension3D * size, Paint * paint);
 
 
 	/**
@@ -76,6 +81,21 @@ public:
 	 * do not overlap.
 	 */
 	Quadrilateral3D * removeFace(int faceToRemove);
+
+
+    /**
+     * Set the order in which the quads are being rendered. This is useful is
+     * depth testing is enabled. This could also be used to implement culling
+     * by padding the array with -1.
+     */
+    void setRenderingOrder(int order[6]);
+
+
+	/**
+	 * This is a high level render command. Most of the actual work will
+	 * be delegated to the Quadrilateral3D object.
+	 */
+	void renderObject();
 
 
 	/**
@@ -125,26 +145,17 @@ protected:
 	 */
 
 
-	/**
-	 * This is a high level render command. Most of the actual work will
-	 * be delegated to the Quadrilateral3D object.
-	 */
-	void renderObject();
-
-
 private:
 
 	RectangularPrism();
 	
+    int                 _order[6];
 	Paint *				_paint;
 	Vector3D *			_points[8];
 	Vector3D *			_normals[6];
 	RectangularVolume *	_volume;
 	
-	/**
-	 * We need an ordered collection, so a vector is used
-	 */
-	vector<Quadrilateral3D*> _faces;
+	map<const int, Quadrilateral3D*> _faces;
 
 };
 

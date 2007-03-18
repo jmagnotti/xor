@@ -3,9 +3,19 @@
 
 
 #include "../shape/Object3D.h"
-#include "../geometry/Vector3D.h"
 #include "../shape/Quadrilateral3D.h"
-#include "../texture/TextureFactory.h"
+
+#include "../geometry/Vector3D.h"
+#include "../geometry/Vector2D.h"
+#include "../geometry/Dimension2D.h"
+#include "../geometry/Dimension3D.h"
+
+#include "../util/PointScale.h"
+
+#include "../paint/Paint.h"
+#include "../paint/Color.h"
+
+#include "../texture/TextureScale.h"
 
 
 namespace XOR {

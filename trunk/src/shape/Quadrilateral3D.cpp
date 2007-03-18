@@ -19,18 +19,53 @@ void Quadrilateral3D::buildWeights()
                 max[j] = _vertices[i]->get(j);
             else if (_vertices[i]->get(j) < min[j])
                 min[j] = _vertices[i]->get(j);  
-      } 
+        }
     } 
 
+    _dimension = new Dimension3D(
+            max[0] - min[0], max[1] - min[1], max[2] - min[2]);
+
     for (int i=0; i<4; i++) {
-        _vertexWeights[i] = new Vector3D(
-            _pointScale->scaleValue(_vertices[i]->getX(), min[0], max[0]),
-            _pointScale->scaleValue(_vertices[i]->getY(), min[1], max[1]),
-            _pointScale->scaleValue(_vertices[i]->getZ(), min[2], max[2]) 
+        _vertexColorWeights[i] = new Vector3D(
+            _colorScale->scaleValue(_vertices[i]->getX(), min[0], max[0]),
+            _colorScale->scaleValue(_vertices[i]->getY(), min[1], max[1]),
+            _colorScale->scaleValue(_vertices[i]->getZ(), min[2], max[2]) 
         );
     }
 
-    _dimension = new Dimension3D(max[0] - min[0], max[1] - min[1], max[2] - min[2]);
+    if (_textureScale != NULL) {
+        switch (_textureScale->getMappingRule()) {
+
+            case TextureScale::X_AND_Y:
+                for (int i=0; i<4; i++) {
+                    _vertexTextureWeights[i] = new Vector2D( 
+                            _textureScale->scaleU(_vertices[i]->getX()),
+                            _textureScale->scaleV(_vertices[i]->getY()));
+                }
+                break;
+
+            case TextureScale::X_AND_Z:
+                for (int i=0; i<4; i++) {
+                    _vertexTextureWeights[i] = new Vector2D( 
+                            _textureScale->scaleU(_vertices[i]->getX()),
+                            _textureScale->scaleV(_vertices[i]->getZ()));
+                }
+                break;
+
+            case TextureScale::Y_AND_Z:
+                for (int i=0; i<4; i++) {
+                    _vertexTextureWeights[i] = new Vector2D( 
+                            _textureScale->scaleU(_vertices[i]->getY()),
+                            _textureScale->scaleV(_vertices[i]->getZ()));
+                }
+                break;
+        }    
+    }
+    else { // this feels dirty
+        for (int i=0; i<4; i++)
+            _vertexTextureWeights[i] = new Vector2D(0,0);
+    }
+
     _baseVector = new Vector3D(min);
 }
 
@@ -46,25 +81,11 @@ Quadrilateral3D::Quadrilateral3D()
  * Explicit Constructor.
  * Four corners and a default white paint.
  */
-Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3, PointScale * scale)
-{
-    _pointScale = scale;
-    _paint = new Paint();
-
-	// winding order
-	_vertices[3] = p3; _vertices[2] = p2;
-	_vertices[0] = p0; _vertices[1] = p1;
-
-    buildWeights();
-}
-
-/*
- * Explicit Constructor.
- * Four corners and a default white paint.
- */
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Vector3D * p3)
 {
-    _pointScale = new PointScale(0,1,1);
+    _colorScale   = new PointScale(0,1,1);
+    _textureScale = NULL;
+
     _paint = new Paint();
 
 	// winding order
@@ -76,11 +97,14 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2, Ve
 
 /*
  * Explicit Constructor.
- * Four corners and a paint.  */
+ * Four corners and a paint.  
+ */
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
-		Vector3D * p3, Paint * paint, PointScale * scale)
+		Vector3D * p3, Paint * paint, PointScale * colorScale, TextureScale * textureScale)
 {
-    _pointScale = scale;
+    _colorScale   = colorScale;
+    _textureScale = textureScale;
+
 	_paint = paint;
 
 	// winding order
@@ -93,11 +117,14 @@ Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
 
 /*
  * Explicit Constructor.
- * Four corners and a paint.  */
+ * Four corners and a paint.  
+ */
 Quadrilateral3D::Quadrilateral3D(Vector3D * p0, Vector3D * p1, Vector3D * p2,
 		Vector3D * p3, Paint * paint)
 {
-    _pointScale = new PointScale(0,1,1);
+    _colorScale   = new PointScale(0,1,1);
+    _textureScale = NULL;
+
 	_paint = paint;
 
 	// winding order
@@ -123,64 +150,23 @@ Vector3D * Quadrilateral3D::getNormal() const
 
 /*
  * Draws the quadrilateral.
- * Is doing texture stuff right now, which I may be mixing burdens.
  */
 void Quadrilateral3D::renderObject()
 {
+    _paint->activate();
+    
+    //if(isLit())  
+        //glNormal3fv(_normals[i]->toArray());
 
-	if(_paint->isTextured()) {
-       	// need to determine if lighting is on and if the object is textured 
-		//if (isLit()){
-		//	glNormal3fv(getNormal()->getPosition());
-		//}
+    glBegin(GL_QUADS);
+        for(int i=0; i<4; i++) {
+            _paint->activateTextureAtPosition(_vertexTextureWeights[i]);
+            _paint->activateColorAtPosition(_vertexColorWeights[i]);
+            glVertex3fv(_vertices[i]->toArray()); 
+        }
+    glEnd();
 
-        glEnable(GL_TEXTURE_2D);
-
-			//activate the texture
-            // this must be set before the call th glBegin
-            _paint->getTexture()->setActive();
-			
-            //get the coords from the quad, and use them to create a proper texture spread 
-            //fool around with the stretching values
-			//should do something like finding the proper values for the quad
-			//just take the min of vert[0] and the max of vert[2]. that should work...
-			glBegin(GL_QUADS);
-
-				//texture coords in CCW
-				glTexCoord2f(1, 1);
-                _paint->activateColorAtPosition(_vertexWeights[0]);
-				glVertex3fv(_vertices[0]->toArray()); 
-
-				glTexCoord2f(1, 0);
-                _paint->activateColorAtPosition(_vertexWeights[1]);
-				glVertex3fv(_vertices[1]->toArray());
-
-				glTexCoord2f(0, 0);
-                _paint->activateColorAtPosition(_vertexWeights[2]);
-				glVertex3fv(_vertices[2]->toArray());
-
-				glTexCoord2f(0, 1);
-                _paint->activateColorAtPosition(_vertexWeights[3]);
-				glVertex3fv(_vertices[3]->toArray());
-
-			glEnd();
-        glDisable(GL_TEXTURE_2D);
-    }
-    else {
-        glBegin(GL_QUADS);
-            _paint->activateColorAtPosition(_vertexWeights[0]);
-            glVertex3fv(_vertices[0]->toArray());
-
-            _paint->activateColorAtPosition(_vertexWeights[1]);
-            glVertex3fv(_vertices[1]->toArray());
-
-            _paint->activateColorAtPosition(_vertexWeights[2]);
-            glVertex3fv(_vertices[2]->toArray());
-
-            _paint->activateColorAtPosition(_vertexWeights[3]);
-            glVertex3fv(_vertices[3]->toArray());
-        glEnd();
-	}
+    _paint->deactivate();
 }
 
 
@@ -206,7 +192,9 @@ void Quadrilateral3D::setVertex(int vertexNumber, Vector3D * newVertex)
         delete removed;
     }
 
-    buildWeights();
+    // without the PointScale and TextureScale this is impossible, we need to
+    // clone & save them
+    //buildWeights();
 }
 
 
@@ -219,10 +207,22 @@ void Quadrilateral3D::setPaint(Paint * paint)
 }
 
 
+/*
+ * return a clone of the paint
+ */
+Paint * Quadrilateral3D::getPaint() const
+{
+    return _paint;
+}
+
+
+/*
+ * Print vertex data from Quadrilateral3D
+ */
 void Quadrilateral3D::print()
 {
     for (int i=0; i<4; i++)
-	   cout << "vert " << i << ": " << _vertices[i]->toString() << endl; 
+       cout << "vert " << i << ": " << _vertices[i]->toString() << endl; 
 }
 
 
@@ -232,10 +232,6 @@ void Quadrilateral3D::print()
 Vector3D * Quadrilateral3D::getBaseVector()
 {
     return _baseVector->clone();
-    /*
-	return new Vector3D(_vertices[0]->getX(), _vertices[0]->getY(),
-			_vertices[0]->getZ());
-    */
 }
 
 
@@ -244,8 +240,8 @@ Vector3D * Quadrilateral3D::getBaseVector()
  */
 Dimension3D * Quadrilateral3D::getDimension()
 {
-	return new Dimension3D(_dimension->getWidth(), _dimension->getHeight(),
-			_dimension->getDepth());
+    return new Dimension3D(_dimension->getWidth(), _dimension->getHeight(),
+                           _dimension->getDepth());
 }
 
 }

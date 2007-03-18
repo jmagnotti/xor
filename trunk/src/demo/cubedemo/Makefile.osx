@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++ 
-LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
+LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR -framework OpenGL
 
 #Packages
 SRCS = CubeDemo.cpp

@@ -84,6 +84,17 @@ public:
      */
     void setText(char*);
 
+
+    /**
+     * Sets the font to use for rendering.
+     * At some point using TTF would be nice.
+     */
+    void setFont(BitmapFontType font);
+
+    void decreaseFontSize();
+    void increaseFontSize();
+
+
 	Dimension2D * getDimension();
 
 	Vector2D * getBaseVector();
@@ -99,6 +110,8 @@ private:
 	char *			_text;
 	int				_xpos, _ypos;
     float           _color[3];
+
+    BitmapFontType * _font;
 
 };
 

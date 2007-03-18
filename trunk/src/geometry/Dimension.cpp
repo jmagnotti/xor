@@ -37,6 +37,28 @@ float Dimension::getLargestSize()
     return max;
 }
 
+int Dimension::getLargestSide()
+{
+    int max = 0;
+
+    for (int i=1; i < getDimensionality(); i++)
+        if (_dimension[i] > max)
+            max = i;
+        
+    return max;
+}
+
+int Dimension::getSmallestSide()
+{
+    int min = 0;
+
+    for (int i=1; i < getDimensionality(); i++)
+        if (_dimension[i] < min)
+            min = i;
+        
+    return min;
+}
+
 
 /*
  * Returns the largest value in the dimension

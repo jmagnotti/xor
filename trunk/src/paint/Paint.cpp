@@ -12,7 +12,8 @@ Paint::Paint(Paint * paint)
 /*
  * paint initializer
  */
-void Paint::buildPaint(const float colorTo[4], const float colorFrom[4], const int gradientType, float autoGrad, Texture * texture)
+void Paint::buildPaint(const float colorTo[4], const float colorFrom[4], 
+        const int gradientType, float autoGrad, Texture * texture)
 {
     for(int i=0; i<4; i++) {
         _colorTo[i]   = colorTo[i];
@@ -39,9 +40,11 @@ void Paint::buildPaint(const float colorTo[4], const float colorFrom[4], const i
             _colorDiff[i] = _colorTo[i] - _colorFrom[i];
     }
 
+    /*
     cout    << "Paint built with: "
             << _colorFrom[0] << " " <<  _colorFrom[1] << " " << _colorFrom[2] << " " <<  _colorFrom[3] << ", to : " 
             << _colorTo[0] << " " <<  _colorTo[1] << " " << _colorTo[2] << " " <<  _colorTo[3] << endl;
+    */
 }
 
 
@@ -177,6 +180,7 @@ void Paint::activateColorAtPosition(Vector3D * scale)
                         scale->getZ() * _colorDiff[2] + _colorFrom[2],
                         scale->getZ() * _colorDiff[3] + _colorFrom[3] );
             break; 
+
         default:
             glColor4fv(_colorTo);
             break;
@@ -187,11 +191,35 @@ void Paint::activateColorAtPosition(Vector3D * scale)
 /*
  *
  */
-void Paint::activateTextureAtPosition(Vector3D * scale)
+void Paint::activateTextureAtPosition(Vector2D * scale)
 {
-    
+    if (! _textured)
+        return;
+
+    glTexCoord2f(scale->getX(), scale->getY());    
 }
 
+
+/*
+ * disable texture if need be
+ */
+void Paint::deactivate()
+{
+    if (_textured) 
+        Texture::DisableTextures();
+}
+
+
+/*
+ * enable texture if need be
+ */
+void Paint::activate()
+{
+    if (_textured) {
+        Texture::EnableTextures();
+        _texture->setActive();
+    }
+}
 
 /*
  * basic info
@@ -331,7 +359,7 @@ void Paint::clone(Paint * other)
  */
 Paint * Paint::clone()
 {
-    return new Paint(this);
+    return new Paint(getColorTo(), getColorFrom(), _gradientType, getTexture());
 }
 
 
@@ -348,7 +376,7 @@ void Paint::buildDifferenceArray()
 //---GETTERS---//
 bool		Paint::isTextured()			{	return _textured;		}
 float		Paint::getAutoGradient()	{	return _autoGradient;	}
-int 		Paint::getGradientType()	{	return _gradientType;	}
+const int 	Paint::getGradientType()	{	return _gradientType;	}
 float	*	Paint::getColorFrom()		{	return _colorFrom;		}
 float	*	Paint::getColorTo()			{	return _colorTo;		}
 Texture	*	Paint::getTexture()			{	return _texture;		}

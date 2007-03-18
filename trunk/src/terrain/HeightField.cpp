@@ -48,10 +48,9 @@ void HeightField::resizeField(int rows, int cols)
 	_rows = rows;
 	_cols = cols;
 	_heights = new float * [rows];
+
 	for (y = 0; y < rows; y++)
-	{
 		_heights[y] = new float[cols];
-	}
 }
 
 
@@ -105,10 +104,13 @@ void HeightField::refreshQuads()
     float pts[4];//,p1,p2,p3; 
     float min, max;
 
-    PointScale * ps      = new PointScale(0,1,1);
+    PointScale * ps   = new PointScale(0,1,1);
+
+    TextureScale * ts = new TextureScale(new Vector2D(0.0f, 0.0f), 
+            new Dimension2D(_rows, _cols), TextureScale::X_AND_Z,
+            TextureScale::STRETCHED);
 
     float scale = _heightScale;
-
 	int r, c;
 
 	_quads = new Quadrilateral3D ** [_rows-1];
@@ -124,6 +126,7 @@ void HeightField::refreshQuads()
             pts[3] = getNormalHeight(c+1,r);
 
             max = min = pts[0];
+
             for (int i=1; i<4; i++) {
                 min = pts[i] < min ? pts[i] : min;
                 max = pts[i] > max ? pts[i] : max;
@@ -133,21 +136,21 @@ void HeightField::refreshQuads()
 
             _heightScale = scale;
 
-            pts[0] = getNormalHeight(c,r);
-            pts[1] = getNormalHeight(c,r+1);
-            pts[2] = getNormalHeight(c+1,r+1);
-            pts[3] = getNormalHeight(c+1,r);
+            pts[0] = getNormalHeight(c,   r);
+            pts[1] = getNormalHeight(c,   r+1);
+            pts[2] = getNormalHeight(c+1, r+1);
+            pts[3] = getNormalHeight(c+1, r);
 
 			_quads[r][c] = new Quadrilateral3D(
                                 new Vector3D(r,     pts[0], c),
                                 new Vector3D(r+1,   pts[1], c),
                                 new Vector3D(r+1,   pts[2], c+1),
                                 new Vector3D(r,     pts[3], c+1),
-                                _paint, ps);
+                                _paint, ps, ts);
 		}
 	}
-
-    delete ps;
+    //#FIXME mem leak?
+    //delete ps;
 }
 
 
@@ -159,7 +162,7 @@ Vector3D * HeightField::getBaseVector()
 
 Dimension3D * HeightField::getDimension()
 {
-	return new Dimension3D(_cols,_rows,1);
+	return new Dimension3D(_rows, _heightScale, _cols);
 }
 
 

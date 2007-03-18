@@ -106,5 +106,21 @@ void Texture::setActive()
 	glBindTexture(GL_TEXTURE_2D, _id);
 }
 
+/*
+ * glDisable
+ */
+void Texture::DisableTextures()
+{
+    glDisable(GL_TEXTURE_2D);
+}
+
+/*
+ * glEnable
+ */
+void Texture::EnableTextures()
+{
+    glEnable(GL_TEXTURE_2D);
+}
+
 }
 
