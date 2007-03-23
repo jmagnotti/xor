@@ -20,23 +20,21 @@ KeyboardSkeleton::~KeyboardSkeleton()
 	}
 }
 
-KeyboardSkeleton::KeyboardSkeleton(bool listen)
+KeyboardSkeleton::KeyboardSkeleton()
 {
-	if (listen) {
 		_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
 				  MulticastSocketPool::KEYBOARD_SOCKET);
 
 		_thread = SDL_CreateThread(& KeyboardSkeleton::Listen, NULL);
-	}
 }
 
 /*
  *
  */
-KeyboardSkeleton * KeyboardSkeleton::GetInstance(bool listen)
+KeyboardSkeleton * KeyboardSkeleton::GetInstance()
 {
     if (_keyboardSkeleton == NULL)
-        _keyboardSkeleton = new KeyboardSkeleton(listen);
+        _keyboardSkeleton = new KeyboardSkeleton();
 
     return _keyboardSkeleton;
 }
@@ -50,14 +48,11 @@ void KeyboardSkeleton::fireKeyEvent(KeyEvent * ke)
 
 int KeyboardSkeleton::Listen(void * data)
 {
-	cout << "Keyboard Skeleton thread created." << endl;
-
 	string msg; 
-	KeyboardSkeleton * ks = KeyboardSkeleton::GetInstance();
 
 	while(_keepGoing) {
 		msg = _socket->receive();	
-		ks->fireKeyEvent(KeyEventFactory::ConstructInstance(msg));
+        Keyboard::FireSDLEvent(KeyEventFactory::ConstructSDLEvent(msg));
 	}
 }
 

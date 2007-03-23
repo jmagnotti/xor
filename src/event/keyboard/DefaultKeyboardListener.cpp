@@ -47,6 +47,8 @@ void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
     if ((kde->getKey() == SDLK_ESCAPE) ||
         (kde->getKey() == SDLK_q && kde->isMetaPressed())) 
 	{
+        // seems like this should push an exit event
+        // #FIXME
         Controller::CleanUpAndExit();
     }
 }

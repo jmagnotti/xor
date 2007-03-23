@@ -31,7 +31,8 @@ Keyboard * InputEventProxyFactory::getKeyboard()
  */
 Timer * InputEventProxyFactory::getTimer()
 {
-    return TimerSkeleton::GetInstance(false);
+//#FIXME
+    return TimerStub::GetInstance();
 }
 
 

@@ -8,16 +8,8 @@ MulticastSocket * TimerSkeleton::_socket = NULL;
 
 bool TimerSkeleton::_keepGoing = true;
 
-TimerSkeleton::TimerSkeleton(bool listen) :
-	Timer(DEFAULT_TIMER_INTERVAL)
-{
-	if (listen) {
-		_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
-				  MulticastSocketPool::TIMER_SOCKET);
-
-		_thread = SDL_CreateThread(& TimerSkeleton::Listen, NULL);
-	}
-}
+TimerSkeleton::TimerSkeleton() : Timer(DEFAULT_TIMER_INTERVAL)
+{}
 
 
 /*
@@ -34,10 +26,10 @@ TimerSkeleton::~TimerSkeleton()
 /*
  * Singleton Accessor
  */
-TimerSkeleton * TimerSkeleton::GetInstance(bool listen)
+TimerSkeleton * TimerSkeleton::GetInstance()
 {
     if (_timerSkeleton == NULL)
-        _timerSkeleton = new TimerSkeleton(listen);
+        _timerSkeleton = new TimerSkeleton();
 
     return _timerSkeleton;
 }
@@ -59,22 +51,27 @@ int TimerSkeleton::Listen(void * data)
 {
     string msg;
 
-    TimerSkeleton * ts = TimerSkeleton::GetInstance();
-
     while(_keepGoing) {
-        msg = _socket->receive();
-        ts->tickTock();
-    }
+        _socket->receive();
 
+        // we are pushing a TimerEvent onto the event queue. This has to be
+        // done since this socket is listening in a sepearate thread.
+        SDL_PushEvent(&_sdlTimerEvent);
+    }
 }
 
+
+/**
+ * only starts the timer if the socket has not been created
+ */
 void TimerSkeleton::start()
 {
-	// if we aren't listening on the socket, then we should start the timer.
-	// this should probably be a _listen boolean value
-	if (_socket == NULL)
-		Timer::start();
+		_socket = MulticastSocketPool::GetInstance()->getMulticastSocket(
+				  MulticastSocketPool::TIMER_SOCKET);
+
+		_thread = SDL_CreateThread(& TimerSkeleton::Listen, this);
 }
+
 
 }
 

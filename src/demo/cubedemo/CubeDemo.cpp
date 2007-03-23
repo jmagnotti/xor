@@ -63,7 +63,7 @@ public:
     {
         // the InputEventProxyFactory will send out Keyboard and Mouse events
         // over multicast
-		ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
+		ctrl = Controller::GetInstance(FullEventProxyFactory::GetInstance());
 		ctrl->defaultConfiguration();
 
 		ctrl->getMouse()->addListener(new DefaultMouseListener());
@@ -75,10 +75,12 @@ public:
         object3D = new CompiledObject3D(c);
 		ctrl->setModel(object3D);
 
-		// timer tests
+        // timer tests
+/*
 		PrintAllTicks *			pat = new PrintAllTicks();
 		PrintOccasionalTicks *	pot = new PrintOccasionalTicks();
 		PrintUniqueTick *		put = new PrintUniqueTick();
+*/
 	}
 
 
@@ -90,8 +92,8 @@ public:
 	{
 		Controller::GetInstance(NULL)->run();
 	}
-
 };
+
 
 /**
  * Entry point of the application. All input parameters are ignored.

@@ -3,12 +3,18 @@
 
 namespace XOR {
 
+/**
+ * Set the 'inner type' of the SDL_Events
+ */
+SDL_Event KeyEventFactory::_sdlKeyDownEvent = {SDL_KEYDOWN};
+SDL_Event KeyEventFactory::_sdlKeyUpEvent   = {SDL_KEYUP};
+
 /*
  * Constructs the proper keyevent
  */
-KeyEvent * KeyEventFactory::ConstructInstance(Uint8 * type, Uint8 * state, SDL_keysym * keysym)
+KeyEvent * KeyEventFactory::ConstructInstance(Uint8 * type, SDL_keysym * keysym)
 {
-    if ( *type == SDL_KEYDOWN || *state == SDL_PRESSED)
+    if (*type == SDL_KEYDOWN)
         return new KeyDownEvent(keysym);
     else
         return new KeyUpEvent(keysym);
@@ -17,6 +23,7 @@ KeyEvent * KeyEventFactory::ConstructInstance(Uint8 * type, Uint8 * state, SDL_k
 
 /*
  * Returns an instance from the string
+ * #TODO needs error handling
  */
 KeyEvent * KeyEventFactory::ConstructInstance(string event)
 {
@@ -40,11 +47,37 @@ KeyEvent * KeyEventFactory::ConstructInstance(string event)
 
 
 /*
- * Default Constructor
+ * Returns an instance from the string.
+ * #TODO needs error handling
  */
-KeyEventFactory::KeyEventFactory()
-{}
+SDL_Event * KeyEventFactory::ConstructSDLEvent(string event)
+{
+	char * result = NULL;
+	char delims[] = " ";
 
+	result = strtok((char *)event.c_str(), delims);
+	int type = atoi(result);
+
+	result = strtok(NULL, delims);
+	int key = atoi(result); 
+	
+	result = strtok(NULL, delims);
+	int mod = atoi(result);
+
+	if (type == SDL_KEYDOWN) {
+        _sdlKeyDownEvent.key.keysym.sym = (SDLKey)key;
+        _sdlKeyDownEvent.key.keysym.mod = (SDLMod)mod;
+
+        return & _sdlKeyDownEvent;
+    }
+    else {
+        _sdlKeyUpEvent.key.keysym.sym = (SDLKey)key;
+        _sdlKeyUpEvent.key.keysym.mod = (SDLMod)mod;
+
+        return & _sdlKeyUpEvent;
+    }
+
+}
 
 }
 

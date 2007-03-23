@@ -7,11 +7,10 @@ int main(int argc, char * argv[])
 	MulticastSocketPool * pool = MulticastSocketPool::GetInstance();
 
 	MulticastSocket * out =
-		pool->getMulticastSocket(MulticastSocketPool::KEYBOARD_SOCKET);
+		pool->getMulticastSocket(MulticastSocketPool::TIMER_SOCKET);
 
 	string msg = "Hello";
 	out->send(msg);
-
 
 	pool->cleanUpAndExit();
 

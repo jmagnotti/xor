@@ -11,7 +11,7 @@
 #include "reshape/Reshape.h"
 #include "reshape/ReshapeSkeleton.h"
 #include "timer/Timer.h"
-#include "timer/TimerSkeleton.h"
+#include "timer/TimerStub.h"
 
 
 namespace XOR {
