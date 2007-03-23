@@ -77,6 +77,28 @@ public:
 
 
     /**
+     * Push the event onto the SDL Event queue
+     * @param event An event where type == SDL_MOUSEMOTION
+     */
+    static void FireSDLMove(SDL_Event * event);
+
+
+    /**
+     * Easier way to access mouse motion. Also fires a mouse move event.
+     */
+    static void SetMousePosition(int xpos, int ypos);
+
+
+    /**
+     * Push the event onto the SDL Event queue
+     *
+     * @param event An event where type == SDL_MOUSEBUTTONUP || 
+     *              type == SDL_MOUSEBUTTONDOWN
+     */
+    static void FireSDLClick(SDL_Event * event);
+
+
+    /**
      * Show/hide the cursor.
      */
     void setCursorVisibility(bool show);
@@ -160,6 +182,10 @@ private:
 	bool	_leftButtonDown;
 	bool	_rightButtonDown;
 	bool	_middleButtonDown;
+
+    static SDL_Event * _sdlCLickEvent;
+    static SDL_Event * _sdlMoveEvent;
+
 };
 
 }

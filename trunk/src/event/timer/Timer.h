@@ -133,6 +133,8 @@ protected:
     // Timers can only be created with an interval 
 	Timer();
 
+    static SDL_Event    _sdlTimerEvent;
+
 private:
 
 
@@ -142,7 +144,6 @@ private:
 	int                    _state;
 	static unsigned int    _interval;
     
-    static SDL_Event    _sdlTimerEvent;
     SDL_TimerID         _timerHandle;
     
 };

@@ -5,6 +5,7 @@
 #include "../../../include/SDL_thread.h"
 #include "../../multicast/MulticastSocket.h"
 #include "../../multicast/MulticastSocketPool.h"
+#include "../../core/Controller.h"
 
 #include "Timer.h"
 
@@ -38,7 +39,7 @@ public:
 	 * @param listen. Whether the timer should spawn a mutlicast listen thread.
 	 * Defaults to true.
 	 */
-    static TimerSkeleton * GetInstance(bool listen=true);
+    static TimerSkeleton * GetInstance();
 
 
     /**
@@ -54,10 +55,13 @@ public:
     static int Listen(void * data);
 
 
+    void start();
+
 private:
     
-	// no imp.
-	TimerSkeleton(bool listen);
+    /**
+     * delegates to the parent
+     */
 	TimerSkeleton();
 
     SDL_Thread * _thread;
@@ -68,7 +72,6 @@ private:
 
     static TimerSkeleton *  _timerSkeleton;
 
-    void start();
 
 };
 

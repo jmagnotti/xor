@@ -44,6 +44,12 @@ public:
      * turn an sdl event into a key event
      */
     void generateKeyEvent(SDL_Event * event);
+
+
+    /**
+     * Access to the SDL Event queue
+     */
+    static void FireSDLEvent(SDL_Event * event);
     
 
 	/**

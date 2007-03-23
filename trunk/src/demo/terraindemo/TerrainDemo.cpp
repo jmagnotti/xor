@@ -214,12 +214,12 @@ public:
 	
 	void handleMouseButtonPressed(MouseButtonDown * mbd)
 	{
-		cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
+        //cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
 	}
 
 	void handleMouseButtonReleased(MouseButtonUp * mbu)
 	{
-		cout << "MOUSE UP: button=" << mbu->getButton() << endl;
+//cout << "MOUSE UP: button=" << mbu->getButton() << endl;
 	}
 	
 private:

@@ -28,12 +28,14 @@ public:
     /**
      * Singleton Accessor
      */
-    static KeyboardSkeleton * GetInstance(bool listen=true);
+    static KeyboardSkeleton * GetInstance();
+
 
 	/**
 	 * notify listeners of a  key event
 	 */
 	void fireKeyEvent(KeyEvent * ke);
+
 
 	/**
 	 * 
@@ -46,9 +48,9 @@ public:
 private:
 
     KeyboardSkeleton();
-    KeyboardSkeleton(bool listen);
 
 	static bool _keepGoing;
+
     static KeyboardSkeleton * _keyboardSkeleton;
 
 	SDL_Thread * _thread;

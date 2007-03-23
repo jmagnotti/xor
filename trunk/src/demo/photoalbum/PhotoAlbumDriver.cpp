@@ -11,7 +11,7 @@ using namespace XOR;
  */
 int main(int argc, char * argv[])
 {
-	Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
+	Controller * ctrl = Controller::GetInstance(FullEventHandlerFactory::GetInstance());
 
 	ctrl->defaultConfiguration();
 	ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());

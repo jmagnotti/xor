@@ -28,16 +28,22 @@ class KeyEventFactory
 
         /**
          * Factory constructor
-         * Using both type & state, although they are basically the same thing. Should decide if this matters.
+         * Using both type & state, although they are basically the same thing.
+         * Should decide if this matters.
+         * @ImmutableReturn
          */
-		static KeyEvent * ConstructInstance(Uint8 * type, Uint8 * state, SDL_keysym * keysym);
+		static KeyEvent * ConstructInstance(Uint8 * type, SDL_keysym * keysym);
 
 		static KeyEvent * ConstructInstance(string event);
+
+		static SDL_Event * ConstructSDLEvent(string event);
 
     private:
 
         KeyEventFactory();
 
+        static SDL_Event _sdlKeyUpEvent;
+        static SDL_Event _sdlKeyDownEvent;
 };
 
 }

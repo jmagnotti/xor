@@ -40,7 +40,16 @@ void Keyboard::notifyListeners(KeyEvent * ke)
 void Keyboard::generateKeyEvent(SDL_Event * event)
 {
     fireKeyEvent(KeyEventFactory::ConstructInstance(&(event->key.type),
-                &(event->key.state), &(event->key.keysym))) ;
+                 &(event->key.keysym)));
+}
+
+
+/*
+ * Push an event onto the SDL Event queue -- useful to call from other threads
+ */
+void Keyboard::FireSDLEvent(SDL_Event * event)
+{
+    SDL_PushEvent(event);
 }
 
 
