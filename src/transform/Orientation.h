@@ -275,6 +275,12 @@ public:
 	void print();
 	
 
+	/**
+	 * Print waypoint info only
+	 */
+	void printWaypoint();
+	
+
     /**
      * Remove the effect of all of the transform objects
      */

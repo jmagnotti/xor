@@ -125,6 +125,7 @@ void HeightField::refreshQuads()
             pts[2] = getNormalHeight(c+1,r+1);
             pts[3] = getNormalHeight(c+1,r);
 
+            ps->setScaleDefault(pts[0]);
             max = min = pts[0];
 
             for (int i=1; i<4; i++) {

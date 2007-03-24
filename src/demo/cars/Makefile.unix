@@ -1,0 +1,218 @@
+#Makefile for car race demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS = Cars.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Cars
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Cars:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+Cars.o: ../../xor.h ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+Cars.o: ../../../include/SDL.h ../../../include/SDL_main.h
+Cars.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+Cars.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+Cars.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+Cars.o: /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h
+Cars.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+Cars.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+Cars.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+Cars.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+Cars.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+Cars.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+Cars.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+Cars.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+Cars.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+Cars.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+Cars.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+Cars.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+Cars.o: ../../event/timer/TimerListener.h ../../multicast/MulticastSocket.h
+Cars.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+Cars.o: /usr/include/time.h /usr/include/endian.h /usr/include/bits/endian.h
+Cars.o: /usr/include/sys/select.h /usr/include/bits/select.h
+Cars.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+Cars.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+Cars.o: /usr/include/bits/sched.h /usr/include/stdlib.h /usr/include/alloca.h
+Cars.o: /usr/include/string.h /usr/include/sys/socket.h
+Cars.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+Cars.o: /usr/include/bits/socket.h /usr/include/limits.h
+Cars.o: /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h
+Cars.o: /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h
+Cars.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+Cars.o: /usr/include/asm-i386/socket.h /usr/include/asm/sockios.h
+Cars.o: /usr/include/asm-i386/sockios.h /usr/include/netinet/in.h
+Cars.o: /usr/include/stdint.h /usr/include/bits/in.h
+Cars.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
+Cars.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+Cars.o: /usr/include/bits/confname.h /usr/include/getopt.h
+Cars.o: ../../multicast/MulticastSocketPool.h
+Cars.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+Cars.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+Cars.o: ../../event/timer/TimerListener.h ../../event/timer/IntervalTimer.h
+Cars.o: ../../core/Controller.h ../../../include/SDL.h
+Cars.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
+Cars.o: ../../../include/SDL_events.h ../../event/keyboard/KeyboardListener.h
+Cars.o: ../../event/keyboard/KeyEvent.h
+Cars.o: ../../event/keyboard/KeyEventFactory.h
+Cars.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyUpEvent.h
+Cars.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+Cars.o: ../../event/mouse/MouseEvent.h ../../event/mouse/MouseEventFactory.h
+Cars.o: ../../event/mouse/MouseButtonDown.h
+Cars.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseButtonUp.h
+Cars.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Cars.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
+Cars.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
+Cars.o: ../../event/reshape/ReshapeListener.h ../../event/keyboard/Keyboard.h
+Cars.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+Cars.o: ../../event/reshape/Reshape.h ../../core/World.h
+Cars.o: ../../shape/Renderable.h ../../shape/Object3D.h
+Cars.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
+Cars.o: /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/GL/glu.h
+Cars.o: ../../transform/Transform.h ../../transform/Scale.h
+Cars.o: ../../geometry/Vector3D.h ../../interpolation/InterpolationEngine.h
+Cars.o: ../../interpolation/InterpolationListener.h
+Cars.o: ../../interpolation/Interpolator.h
+Cars.o: ../../interpolation/InterpolatorFactory.h
+Cars.o: ../../interpolation/LinearInterpolator.h
+Cars.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+Cars.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+Cars.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
+Cars.o: ../../transform/Translate.h ../../transform/Rotate.h
+Cars.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+Cars.o: ../../transform/Orientation.h ../../paint/Paint.h
+Cars.o: ../../texture/Texture.h ../../../include/SDL_image.h
+Cars.o: ../../../include/SDL.h ../../geometry/Vector2D.h ../../paint/Color.h
+Cars.o: ../../shape/Renderable.h ../../shape/Point3D.h ../../shape/Object3D.h
+Cars.o: ../../core/Viewer.h ../../paint/Color.h ../../geometry/Dimension2D.h
+Cars.o: ../../transform/CoordinateSystem.h
+Cars.o: ../../transform/CoordinateSystemFactory.h
+Cars.o: ../../transform/CoordinateSystem.h
+Cars.o: ../../transform/OpenGLCoordinateSystem.h
+Cars.o: ../../transform/MacCoordinateSystem.h
+Cars.o: ../../transform/MathCoordinateSystem.h
+Cars.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Cars.o: ../../transform/EngineerCoordinateSystem.h
+Cars.o: ../../event/timer/TimerListener.h
+Cars.o: ../../event/reshape/ReshapeListener.h
+Cars.o: ../../event/reshape/ReshapeEvent.h
+Cars.o: ../../event/keyboard/SpecialKeyEvent.h
+Cars.o: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyboardStub.h
+Cars.o: ../../event/keyboard/Keyboard.h ../../event/keyboard/KeyUpEvent.h
+Cars.o: ../../event/keyboard/Keyboard.h
+Cars.o: ../../event/keyboard/KeyboardSkeleton.h
+Cars.o: ../../event/keyboard/KeyboardListener.h
+Cars.o: ../../event/keyboard/RegularKeyEvent.h
+Cars.o: ../../event/keyboard/DefaultKeyboardListener.h
+Cars.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Cars.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Cars.o: ../../event/keyboard/KeyDownEvent.h
+Cars.o: ../../event/keyboard/KeyEventFactory.h
+Cars.o: ../../event/reshape/ReshapeSkeleton.h ../../event/reshape/Reshape.h
+Cars.o: ../../event/reshape/ReshapeEvent.h
+Cars.o: ../../event/reshape/ReshapeListener.h ../../event/reshape/Reshape.h
+Cars.o: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+Cars.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseSkeleton.h
+Cars.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+Cars.o: ../../event/mouse/Mouse.h ../../event/mouse/DefaultMouseListener.h
+Cars.o: ../../transform/Transformable.h ../../event/mouse/MouseButtonDown.h
+Cars.o: ../../event/mouse/MouseMotionEvent.h
+Cars.o: ../../event/mouse/MouseEventFactory.h ../../event/mouse/MouseStub.h
+Cars.o: ../../event/FullEventHandlerFactory.h
+Cars.o: ../../event/EventHandlerFactory.h
+Cars.o: ../../event/reshape/ReshapeSkeleton.h
+Cars.o: ../../event/keyboard/KeyboardSkeleton.h
+Cars.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
+Cars.o: ../../event/InputEventProxyFactory.h
+Cars.o: ../../event/keyboard/KeyboardStub.h ../../event/mouse/MouseStub.h
+Cars.o: ../../event/FullEventProxyFactory.h ../../event/timer/TimerStub.h
+Cars.o: ../../event/EventHandlerFactory.h
+Cars.o: ../../event/InputEventHandlerFactory.h
+Cars.o: ../../interpolation/InterpolatorFactory.h
+Cars.o: ../../interpolation/TimedInterpolation.h
+Cars.o: ../../interpolation/Interpolator.h ../../interpolation/Waypoint.h
+Cars.o: ../../interpolation/TimedInterpolation.h
+Cars.o: ../../transform/Orientation.h
+Cars.o: ../../interpolation/ContinuousInterpolation.h
+Cars.o: ../../interpolation/InterpolationEngine.h
+Cars.o: ../../interpolation/LinearInterpolator.h
+Cars.o: ../../interpolation/InterpolationListener.h
+Cars.o: ../../interpolation/CameraRoller.h ../../core/Viewer.h
+Cars.o: ../../core/Controller.h ../../core/World.h ../../core/DebugViewer.h
+Cars.o: ../../core/Controller.h ../../geometry/Dimension2D.h
+Cars.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+Cars.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Cars.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+Cars.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+Cars.o: ../../geometry/Vector2D.h ../../texture/TextureFactory.h
+Cars.o: ../../texture/Texture.h ../../texture/Texture.h
+Cars.o: ../../texture/TextureScale.h ../../util/PointScale.h
+Cars.o: ../../shape/Triangle3D.h ../../shape/Point.h ../../shape/Arc3D.h
+Cars.o: ../../shape/Rectangle2D.h ../../shape/Object2D.h ../../core/Viewer.h
+Cars.o: ../../shape/Object3D.h ../../shape/Renderable.h ../../shape/Point3D.h
+Cars.o: ../../shape/ExtrudedNormalPolygon3D.h ../../shape/NormalPolygon3D.h
+Cars.o: ../../shape/CollisionRenderable.h ../../shape/Quadrilateral3D.h
+Cars.o: ../../texture/TextureScale.h ../../shape/RectangularPrism.h
+Cars.o: ../../shape/Quadrilateral3D.h ../../geometry/RectangularVolume.h
+Cars.o: ../../shape/NormalPolygon3D.h ../../shape/AdornablePrism.h
+Cars.o: ../../shape/RectangularPrism.h ../../shape/String2D.h
+Cars.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Cars.o: ../../shape/Object2D.h ../../shape/Particle.h
+Cars.o: ../../shape/CollisionRenderable.h ../../shape/Object3DCollection.h
+Cars.o: ../../shape/CompiledObject3D.h ../../shape/CompiledObject3D.h
+Cars.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
+Cars.o: ../../shape/Point2D.h ../../shape/NoDepthTestQuadrilateral3D.h
+Cars.o: ../../model/MilkshapeModel.h ../../model/Model.h
+Cars.o: ../../texture/TextureFactory.h ../../model/Model.h
+Cars.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Cars.o: ../../terrain/NullHeightFieldStrategy.h
+Cars.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Cars.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+Cars.o: ../../terrain/HeightFieldStrategy.h
+Cars.o: ../../terrain/ImageHeightFieldStrategy.h
+Cars.o: ../../terrain/HeightFieldFactory.h
+Cars.o: ../../terrain/MatrixHeightFieldStrategy.h
+Cars.o: ../../terrain/FunctionHeightFieldStrategy.h
+Cars.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+Cars.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Cars.o: ../../multicast/MulticastSocketPool.h ../../transform/Orientation.h
+Cars.o: ../../transform/OpenGLCoordinateSystem.h
+Cars.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+Cars.o: ../../transform/Rotate.h ../../transform/Transformable.h
+Cars.o: ../../transform/TransformFactory.h ../../transform/Scale.h
+Cars.o: ../../transform/MathCoordinateSystem.h ../../transform/Transform.h
+Cars.o: ../../transform/Stretch.h ../../transform/EngineerCoordinateSystem.h
+Cars.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Cars.o: ../../transform/MacCoordinateSystem.h
+Cars.o: ../../transform/CoordinateSystemFactory.h ../../paint/Paint.h
+Cars.o: ../../paint/Color.h ../../util/GraphicsConversionUtility.h
+Cars.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+Cars.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
+Cars.o: ../../shape/String2D.h ../../util/BitmapFontConstants.h
+Cars.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h

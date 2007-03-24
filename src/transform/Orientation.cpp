@@ -515,6 +515,20 @@ void Orientation::print()
 
 
 /*
+ * print waypoint info
+ */
+void Orientation::printWaypoint()
+{
+	cout        << _position->_xShift << 
+		    " " << _position->_yShift <<
+	        " " << _position->_zShift << 
+	        " " << _theta->_angle << 
+		    " " << _phi->_angle   <<
+		    " " << _roll->_angle  << endl;
+}
+
+
+/*
  * reset the transforms
  */
 void Orientation::clear()

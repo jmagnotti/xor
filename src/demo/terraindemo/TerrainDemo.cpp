@@ -41,6 +41,7 @@ public:
 	{
         ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
         ctrl->defaultConfiguration();
+		glDisable(GL_FOG);
 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);
@@ -89,8 +90,8 @@ public:
 		HeightField * hf = HeightFieldFactory::GetInstance()->
 			//buildHeightField(new NullHeightFieldStrategy());
 			//buildHeightField(new FunctionHeightFieldStrategy(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
-			//buildHeightField(new ImageHeightFieldStrategy("images/hf1.png"));
+			//buildHeightField(new SineFunctionHF(-3.0, 3.0, -3.0, 3.0, 0.5, 0.5));
+		buildHeightField(new ImageHeightFieldStrategy("images/heightmap.png"));
 			//buildHeightField(new ImageHeightFieldStrategy("images/hf2.png"));
 			//buildHeightField(new MatrixHeightFieldStrategy((double**)m,5,5));
 		hf->setHeightScale(5.0f);
@@ -98,7 +99,7 @@ public:
 		hf->setPaint(new Paint(Color::WHITE, Paint::HEIGHT_BASED,
 					//TextureFactory::GetInstance()->createTexture("images/plnt10M.jpg")));
 					//TextureFactory::GetInstance()->createTexture("images/ahul01M.jpg")));
-					TextureFactory::GetInstance()->createTexture("images/big_texture.jpg")));
+					TextureFactory::GetInstance()->createTexture("images/heightmap.png")));
 					//TextureFactory::GetInstance()->createTexture("images/ahul08M.jpg")));
 					//TextureFactory::GetInstance()->createTexture("images/grass.png")));
 

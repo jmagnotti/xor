@@ -236,10 +236,11 @@ CoordinateSystem.o: ../../shape/Object3DCollection.h
 CoordinateSystem.o: ../../shape/CompiledObject3D.h
 CoordinateSystem.o: ../../shape/CompiledObject3D.h
 CoordinateSystem.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-CoordinateSystem.o: ../../shape/Point2D.h ../../model/MilkshapeModel.h
-CoordinateSystem.o: ../../model/Model.h ../../texture/TextureFactory.h
-CoordinateSystem.o: ../../model/Model.h ../../model/ModelFactory.h
-CoordinateSystem.o: ../../model/MilkshapeModel.h
+CoordinateSystem.o: ../../shape/Point2D.h
+CoordinateSystem.o: ../../shape/NoDepthTestQuadrilateral3D.h
+CoordinateSystem.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CoordinateSystem.o: ../../texture/TextureFactory.h ../../model/Model.h
+CoordinateSystem.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CoordinateSystem.o: ../../terrain/NullHeightFieldStrategy.h
 CoordinateSystem.o: ../../terrain/HeightFieldStrategy.h
 CoordinateSystem.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h

@@ -217,10 +217,10 @@ TerrainDemo.o: ../../shape/CollisionRenderable.h
 TerrainDemo.o: ../../shape/Object3DCollection.h
 TerrainDemo.o: ../../shape/CompiledObject3D.h ../../shape/CompiledObject3D.h
 TerrainDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-TerrainDemo.o: ../../shape/Point2D.h ../../model/MilkshapeModel.h
-TerrainDemo.o: ../../model/Model.h ../../texture/TextureFactory.h
-TerrainDemo.o: ../../model/Model.h ../../model/ModelFactory.h
-TerrainDemo.o: ../../model/MilkshapeModel.h
+TerrainDemo.o: ../../shape/Point2D.h ../../shape/NoDepthTestQuadrilateral3D.h
+TerrainDemo.o: ../../model/MilkshapeModel.h ../../model/Model.h
+TerrainDemo.o: ../../texture/TextureFactory.h ../../model/Model.h
+TerrainDemo.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 TerrainDemo.o: ../../terrain/NullHeightFieldStrategy.h
 TerrainDemo.o: ../../terrain/HeightFieldStrategy.h
 TerrainDemo.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h

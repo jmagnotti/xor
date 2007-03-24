@@ -313,11 +313,19 @@ void Transformable::incrementOrientation(Orientation *orient, InterpolationEngin
  */
 void Transformable::print()
 {
+	_orientation->print();
 	cout << "scale_x="   << _scale->_xScale << 
 		    "scale_y="   << _scale->_xScale   <<
 		    "scale_z="   << _scale->_xScale  << endl;;
+}
 
-	_orientation->print();
+
+/*
+ * print waypoint information
+ */
+void Transformable::printWaypoint()
+{
+	_orientation->printWaypoint();
 }
 
 
