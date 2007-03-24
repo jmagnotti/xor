@@ -211,10 +211,10 @@ HelloWorld.o: ../../shape/CollisionRenderable.h
 HelloWorld.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
 HelloWorld.o: ../../shape/CompiledObject3D.h
 HelloWorld.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-HelloWorld.o: ../../shape/Point2D.h ../../model/MilkshapeModel.h
-HelloWorld.o: ../../model/Model.h ../../texture/TextureFactory.h
-HelloWorld.o: ../../model/Model.h ../../model/ModelFactory.h
-HelloWorld.o: ../../model/MilkshapeModel.h
+HelloWorld.o: ../../shape/Point2D.h ../../shape/NoDepthTestQuadrilateral3D.h
+HelloWorld.o: ../../model/MilkshapeModel.h ../../model/Model.h
+HelloWorld.o: ../../texture/TextureFactory.h ../../model/Model.h
+HelloWorld.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 HelloWorld.o: ../../terrain/NullHeightFieldStrategy.h
 HelloWorld.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
 HelloWorld.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h

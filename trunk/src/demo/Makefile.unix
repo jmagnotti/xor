@@ -1,4 +1,4 @@
-demos: makefiles helloworld/HelloWorld cubedemo/HelloWorld coordinatesystem/CoordinateSystem interpolationdemo/InterpolationDemo maze/Maze terraindemo/TerrainDemo modeldemo/Model walldemo/WallDemo
+demos: makefiles helloworld/HelloWorld cubedemo/HelloWorld coordinatesystem/CoordinateSystem interpolationdemo/InterpolationDemo maze/Maze terraindemo/TerrainDemo modeldemo/Model walldemo/WallDemo cars/Cars
 
 helloworld/HelloWorld:
 	cd helloworld && make depend && make
@@ -24,6 +24,9 @@ modeldemo/Model:
 maze/Maze:
 	cd maze && make depend && make
 
+cars/Cars:
+	cd cars && make depend && make
+
 clean: makefiles
 	cd helloworld && make clean
 	cd cubedemo && make clean
@@ -33,6 +36,7 @@ clean: makefiles
 	cd terraindemo && make clean
 	cd modeldemo && make clean
 	cd maze && make clean
+	cd cars && make clean
 
 makefiles:
 	cd helloworld && ln -sf Makefile.unix Makefile
@@ -43,4 +47,5 @@ makefiles:
 	cd terraindemo && ln -sf Makefile.unix Makefile
 	cd modeldemo && ln -sf Makefile.unix Makefile
 	cd maze && ln -sf Makefile.unix Makefile
+	cd cars && ln -sf Makefile.unix Makefile
 

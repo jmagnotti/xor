@@ -12,8 +12,22 @@ Waypoint::Waypoint(Orientation * orientation, int interpolationTime, int waitTim
 	_target      = NULL;
 }
 
+/*
+ * set "next" pointer
+ */
+void Waypoint::setNext(Waypoint * next)
+{
+	_next = next;
+}
+
+/*
+ * apply the waypoint
+ */
 void Waypoint::apply(Transformable *object)
 {
+	if (object == NULL)
+		cout << "it's null!" << endl;
+
 	_target = object;
 	InterpolationEngine ** interpolators = new InterpolationEngine * [4];
 	for (int i = 0; i < 4; i++) {
@@ -24,12 +38,18 @@ void Waypoint::apply(Transformable *object)
 	object->setOrientation(_orientation, interpolators);
 }
 
+/*
+ * the interpolation is done, start waiting
+ */
 void Waypoint::interpolationComplete()
 {
 	_ticksRemaining = (int)(_waitTime/(double)Controller::GetInstance(NULL)->getTimer()->getInterval());
 	Controller::GetInstance(NULL)->getTimer()->addListener(this);
 }
 
+/*
+ * done waiting, start next waypoint
+ */
 void Waypoint::handleTick()
 {
 	if (_ticksRemaining <= 0) {

@@ -55,7 +55,7 @@ public:
     void handleKey_9()
     {
         object3D->incrementTranslation(new Vector3D(-5, 0, 0), new TimedInterpolation(1000, NULL));
-        object3D->incrementRotation(Transformable::PHI, 90, new TimedInterpolation(1000, NULL));
+        object3D->incrementRotation(Orientation::PHI, 90, new TimedInterpolation(1000, NULL));
     }
 
 

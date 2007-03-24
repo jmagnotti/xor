@@ -27,6 +27,13 @@ class Waypoint : public InterpolationListener, public TimerListener
 		 */
 		Waypoint(Orientation *, int, int, Waypoint *);
 
+
+		/**
+		 * Change the next pointer
+		 */
+		void setNext(Waypoint *);
+
+
 		/**
 		 * Uses the interpolation to set the orientation, then waits for
 		 * the given number of seconds and applies the next waypoint
