@@ -142,7 +142,8 @@ void RectangularPrism::setFaces()
 {
     // we need a a PointScale that will default to 0 for the Quads that are on
     // the "low" end of the dimension
-    PointScale   * ps = new PointScale(0,1,0);
+    PointScale   * psLow  = new PointScale(0,1,0);
+    PointScale   * psHigh = new PointScale(0,1,1);
 
     // a texture scaler for the sides that should be mapped according to their
     // XY. These quad has no Z extent.
@@ -163,7 +164,7 @@ void RectangularPrism::setFaces()
             new Dimension2D(_points[2]->getX() - _points[0]->getX(), 
                             _points[2]->getZ() - _points[0]->getZ()),
 
-            TextureScale::X_AND_Y, 
+            TextureScale::X_AND_Z, 
             TextureScale::STRETCHED);
 
     // a texture scaler for the sides that should be mapped according to their
@@ -174,7 +175,7 @@ void RectangularPrism::setFaces()
             new Dimension2D(_points[5]->getY() - _points[0]->getY(), 
                             _points[5]->getZ() - _points[0]->getZ()),
 
-            TextureScale::X_AND_Y, 
+            TextureScale::Y_AND_Z, 
             TextureScale::STRETCHED);
 
 	// clear any existing faces
@@ -197,16 +198,16 @@ void RectangularPrism::setFaces()
 
 
     // TOP AND BOTTOM
-    _faces[TOP]    = new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint);	    	//highYside
-    _faces[BOTTOM] = new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, ps, tsXZ);	//lowYside
+    _faces[TOP]    = new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint, psHigh, tsXZ);	    	//highYside
+    _faces[BOTTOM] = new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, psLow, tsXZ);	//lowYside
 
     // RIGHT AND LEFT
-    _faces[RIGHT]  = new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint);  	      	//highXside
-    _faces[LEFT]   = new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, ps, tsYZ);	//lowXside
+    _faces[RIGHT]  = new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint, psHigh, tsYZ);  	      	//highXside
+    _faces[LEFT]   = new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, psLow, tsYZ);	//lowXside
 
     // FRONT AND BACK
-    _faces[FRONT]  = new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint);    		//highZ side
-    _faces[REAR]   = new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, ps, tsXY);	//lowZ side
+    _faces[FRONT]  = new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint, psHigh, tsXY);    		//highZ side
+    _faces[REAR]   = new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, psLow, tsXY);	//lowZ side
 }
 
 
