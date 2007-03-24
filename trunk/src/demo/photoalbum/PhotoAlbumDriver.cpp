@@ -11,9 +11,11 @@ using namespace XOR;
  */
 int main(int argc, char * argv[])
 {
-	Controller * ctrl = Controller::GetInstance(FullEventHandlerFactory::GetInstance());
+//	Controller * ctrl = Controller::GetInstance(FullEventHandlerFactory::GetInstance());
+	Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
 
 	ctrl->defaultConfiguration();
+	glDisable(GL_FOG);
 	ctrl->getMouse()->setDefaultMouseListener(new DefaultMouseListener());
 	PhotoAlbum * album = new PhotoAlbum();
 

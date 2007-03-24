@@ -158,9 +158,11 @@ void Quadrilateral3D::renderObject()
     //if(isLit())  
         //glNormal3fv(_normals[i]->toArray());
 
+	int texCoords[4] = {2, 3, 0, 1};
+
     glBegin(GL_QUADS);
         for(int i=0; i<4; i++) {
-            _paint->activateTextureAtPosition(_vertexTextureWeights[i]);
+            _paint->activateTextureAtPosition(_vertexTextureWeights[texCoords[i]]);
             _paint->activateColorAtPosition(_vertexColorWeights[i]);
             glVertex3fv(_vertices[i]->toArray()); 
         }
