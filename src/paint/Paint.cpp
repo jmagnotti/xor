@@ -377,9 +377,9 @@ void Paint::buildDifferenceArray()
 bool		Paint::isTextured()			{	return _textured;		}
 float		Paint::getAutoGradient()	{	return _autoGradient;	}
 const int 	Paint::getGradientType()	{	return _gradientType;	}
-float	*	Paint::getColorFrom()		{	return _colorFrom;		}
-float	*	Paint::getColorTo()			{	return _colorTo;		}
-Texture	*	Paint::getTexture()			{	return _texture;		}
+float	*	Paint::getColorFrom()       {	return _colorFrom;		}
+float	*	Paint::getColorTo()         {	return _colorTo;		}
+Texture	*	Paint::getTexture()	const	{	return _texture;		}
 
 }
 

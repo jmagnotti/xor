@@ -58,7 +58,7 @@ class MethodSignature
 
        space = @return_type.size < 1 ? "" : " "
 
-       return tab + @comments + tab + @return_type.to_s() + space + @name + @parameters 
+       return tab + @comments + tab +  @return_type.to_s() + space + @name + @parameters 
     end
 end
 

@@ -46,7 +46,9 @@ public:
  	*/
 	Cars()
 	{
-        ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
+        ctrl = Controller::GetInstance(new XavierConfiguration());
+                
+               // InputEventHandlerFactory::GetInstance());
         ctrl->defaultConfiguration();
 
 		Timer::SetInterval(30);

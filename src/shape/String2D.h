@@ -8,7 +8,6 @@
 #include "../paint/Paint.h"
 #include "../util/BitmapFontUtil.h"
 #include "../core/Controller.h"
-#include "../core/Viewer.h"
 #include "Object2D.h"
 
 

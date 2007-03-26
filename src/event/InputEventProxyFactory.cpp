@@ -1,5 +1,6 @@
 #include "InputEventProxyFactory.h"
 
+
 namespace XOR {
 
 // set the singleton to NULL 
@@ -42,15 +43,6 @@ Timer * InputEventProxyFactory::getTimer()
 Mouse * InputEventProxyFactory::getMouse()
 {
     return MouseStub::GetInstance();
-}
-
-
-/*
- * returns a multicast agnostic ReshapeSkeleton
- */
-Reshape * InputEventProxyFactory::getReshape()
-{
-    return ReshapeSkeleton::GetInstance();
 }
 
 

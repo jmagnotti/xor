@@ -74,10 +74,11 @@ public:
 	bool		isTextured();
 	float		getAutoGradient();
 	const int 	getGradientType();
+
 	float	*	getColorFrom();
 	float	*	getColorTo();
-	Texture	*	getTexture();
 
+	Texture	*	getTexture() const;
 
     /**
      * Activates state properties necessary for this particular paint
@@ -150,18 +151,19 @@ private:
     /**
      * common area to build the paint object
      */
-    void buildPaint(const float cf[4], const float ct[4], const int gradientType, float autoGrad, Texture * texture);
+    void buildPaint(const float cf[4], const float ct[4], 
+                    const int gradientType, float autoGrad, Texture * texture);
 
-    
+
     Texture	*	_texture;
     
     bool		_textured;
 
 	float		_colorFrom[4];
-	float		_colorTo[4];	
-	float		_colorDiff[4];	
+	float		_colorTo[4];
+	float		_colorDiff[4];
 
-    float		_autoGradient;	
+    float		_autoGradient;
     int			_gradientType;
     
 };

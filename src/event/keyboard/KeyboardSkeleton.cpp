@@ -54,6 +54,8 @@ int KeyboardSkeleton::Listen(void * data)
 		msg = _socket->receive();	
         Keyboard::FireSDLEvent(KeyEventFactory::ConstructSDLEvent(msg));
 	}
+
+    return 0;
 }
 
 }

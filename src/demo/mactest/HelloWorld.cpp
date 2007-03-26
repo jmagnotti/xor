@@ -26,7 +26,7 @@ int main(int argc, char * argv[])
 
     //DebugViewer * view = new DebugViewer();
     //view->setDebugInterval(5000);
-    //Viewer * old_view = ctrl->setViewer(view);
+    //Camera * old_view = ctrl->setViewer(view);
 
     new KeyHandler(ctrl);
     new PrintMousePosition(ctrl);

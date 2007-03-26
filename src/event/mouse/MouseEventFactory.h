@@ -37,10 +37,9 @@ class MouseEventFactory
 
 
         /**
-         * Returns the last event that was constructed by the factory. 
-         * Here more for convenience than anything else.
-        static MouseEvent * getLastEventConstructed();
+         * construct an SDL event 
          */
+        static SDL_Event * ConstructSDLEvent(string event);
 
 
     private:
@@ -48,6 +47,9 @@ class MouseEventFactory
         // no real need to create click factory, just a utility class
         MouseEventFactory();
  
+        static SDL_Event _sdlMouseUpEvent;
+        static SDL_Event _sdlMouseDownEvent;
+        static SDL_Event _sdlMouseMoveEvent;
 };
 
 }

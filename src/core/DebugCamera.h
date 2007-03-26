@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-#include "Viewer.h"
+#include "Camera.h"
 #include "Controller.h"
 #include "../event/timer/Timer.h"
 
@@ -14,7 +14,7 @@ namespace XOR {
 /**
  * Prints out coordinate system information at a given interval.
  */
-class DebugViewer : public Viewer
+class DebugCamera : public Camera
 {
 
 public:
@@ -22,7 +22,7 @@ public:
     /**
      * Constructs the real viewer
      */
-    DebugViewer();
+    DebugCamera();
 
 
     /**
@@ -51,7 +51,7 @@ public:
     void view();
 
 
-    ~DebugViewer();
+    ~DebugCamera();
 
 
 private:

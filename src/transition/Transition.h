@@ -20,7 +20,7 @@ public:
 
         Transition()
         {
-            _size = Viewer::GetInstance()->getWindowSize();
+            _size = Camera::GetInstance()->getWindowSize();
         }
 
 

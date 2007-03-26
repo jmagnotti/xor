@@ -12,9 +12,9 @@ CameraRoller::CameraRoller()
  */
 void CameraRoller::handleTick()
 {
-	float roll = Controller::GetInstance(NULL)->getViewer()->getRotation(2);
+	float roll = Controller::GetInstance()->getCamera()->getRotation(2);
 	float rollChange = -(roll/5.0f);
-	Controller::GetInstance(NULL)->getViewer()->incrementRotation(2, rollChange);
+	Controller::GetInstance()->getCamera()->incrementRotation(2, rollChange);
 }
 
 
@@ -32,11 +32,14 @@ void CameraRoller::handleMouseEvent(MouseEvent * event)
  */
 void CameraRoller::handleMouseEvent(MouseMotionEvent * mme)
 {
-	if (false)
-	{
+    return ;
+
+    Mouse * mouse = Controller::GetInstance()->getMouse();
+	if (mouse->isLeftButtonDown()) {
+
 		// rotate camera
-		float xChange = 1.0;//(float)(Mouse::GetInstance()->getCurrentX() - Mouse::GetInstance()->getPreviousX()) / 2.0f;
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(2, -(xChange));
+		float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
+		Controller::GetInstance()->getCamera()->incrementRotation(2, -(xChange));
 	}
 }
 

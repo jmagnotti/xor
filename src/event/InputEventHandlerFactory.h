@@ -8,8 +8,6 @@
 #include "keyboard/KeyboardSkeleton.h"
 #include "mouse/Mouse.h"
 #include "mouse/MouseSkeleton.h"
-#include "reshape/Reshape.h"
-#include "reshape/ReshapeSkeleton.h"
 #include "timer/Timer.h"
 #include "timer/TimerStub.h"
 
@@ -51,12 +49,6 @@ public:
      * Returns a local, multicast agnostic TimerSkeleton
      */
     Timer * getTimer();
-
-
-    /**
-     * Returns a local, multicast agnostic ReshapeSkeleton
-     */
-    Reshape * getReshape();
 
 
 private:

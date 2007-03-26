@@ -83,6 +83,7 @@ Renderable * World::getObject(char * name)
 /*
  * Remove an object from the world
  */
+//#FIXME return the removed object so it can be deleted if desired
 void World::removeObject(char * name)
 {
 	_objects.erase(name);

@@ -46,15 +46,6 @@ Mouse * InputEventHandlerFactory::getMouse()
 
 
 /*
- * Returns a multicast agnostic reshaper
- */
-Reshape * InputEventHandlerFactory::getReshape()
-{
-    return ReshapeSkeleton::GetInstance();
-}
-
-
-/*
  * private constructor
  */
 InputEventHandlerFactory::InputEventHandlerFactory()

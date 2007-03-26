@@ -4,6 +4,11 @@
 
 using namespace XOR;
 
+	static const float DX_OB = 0.0001f;
+	static const float DX_OM = 0.01f;
+	static const float DX_FB = 0.01f;
+	static const float DX_FM = 1.0f;
+
 
 class WallDemo : public DefaultKeyboardListener, DefaultMouseListener
 {
@@ -24,9 +29,7 @@ public:
         Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
         ctrl->defaultConfiguration();
 
-		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
-		//ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D(buffer));
@@ -223,11 +226,6 @@ private:
 
 	static const float ROTATE_CHANGE = 5.0f;
 	static const float TRANSLATE_CHANGE = 0.2f;
-
-	static const float DX_OB = 0.0001f;
-	static const float DX_OM = 0.01f;
-	static const float DX_FB = 0.01f;
-	static const float DX_FM = 1.0f;
 
 	int wallMode;
 

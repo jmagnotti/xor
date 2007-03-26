@@ -1,87 +1,82 @@
-#include "Viewer.h"
+#include "Camera.h"
 
 namespace XOR {
 
 // initialize static defaults
-const char * Viewer::DEFAULT_WINDOW_TITLE	= "Project Xavier | 2.0 alpha";
+const double Camera::DEFAULT_FOV		= 60;
+const double Camera::DEFAULT_NEAR_CLIP	= 0.01f;
+const double Camera::DEFAULT_FAR_CLIP	= 10000.0f;
 
-const double Viewer::DEFAULT_FOV		= 60;
-const double Viewer::DEFAULT_NEAR_CLIP	= 0.01f;
-const double Viewer::DEFAULT_FAR_CLIP	= 10000.0f;
+const int 	 Camera::DEFAULT_COLOR_DEPTH   = 32;
+const Uint32 Camera::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
 
-const int Viewer::DEFAULT_WINDOW_X		= 200;
-const int Viewer::DEFAULT_WINDOW_Y		= 100;
-
-const int Viewer::DEFAULT_WINDOW_WIDTH	= 900;
-const int Viewer::DEFAULT_WINDOW_HEIGHT	= 825;
-
-const int 	 Viewer::DEFAULT_COLOR_DEPTH   = 32;
-const Uint32 Viewer::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
-
-const int Viewer::WALL_MODE_NONE      = 0;
-const int Viewer::WALL_MODE_STANDARD  = 1;
-const int Viewer::WALL_MODE_IMMERSIVE = 2;
+const int Camera::WALL_MODE_NONE      = 0;
+const int Camera::WALL_MODE_STANDARD  = 1;
+const int Camera::WALL_MODE_IMMERSIVE = 2;
 
 
 /*
  * default constructor
  */ 
-Viewer::Viewer()
+Camera::Camera()
 {
-    initialize( DEFAULT_FOV, DEFAULT_NEAR_CLIP, DEFAULT_FAR_CLIP,
-                DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT, false,
-                DEFAULT_WINDOW_TITLE); 
+    build(DEFAULT_FOV, DEFAULT_NEAR_CLIP, DEFAULT_FAR_CLIP, 
+          DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS, WALL_MODE_NONE, 
+          new Vector2D(0,0), Color::DARK_NAVY); 
 }
 
 
-/*
- * Explicit Constructor
- */
-Viewer::Viewer(double fov, double nearCP, double farCP)
+Camera::Camera (double fov, double nearCP, double farCP, 
+                int colorDepth, Uint32 videoFlags, int wallMode, 
+                Vector2D * offset, const float color[4])
 {
-    initialize(fov, nearCP, farCP, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT,
-            false, DEFAULT_WINDOW_TITLE); 
+    build (fov, nearCP, farCP, colorDepth, 
+           videoFlags, wallMode, offset, color);
 }
 
 
 /*
  * set up the viewer
  */
-void Viewer::initialize(double fov, double nearCP, double farCP, int winWidth, int
-        winHeight, bool fullscreen, const char * windowTitle)
+void Camera::build (double fov, double nearCP, double farCP, 
+                    int colorDepth, Uint32 videoFlags, int wallMode, 
+                    Vector2D * offset, const float color[4])
 {
-	_size = new Dimension2D(winWidth, winHeight);
-
-	_title = windowTitle;
-
-	_fullscreen         = fullscreen;
-
 	_fieldOfView		= fov;
 	_nearClippingPlane	= nearCP;
 	_farClippingPlane	= farCP;
 
-	_wallXoffset		= 0;
-	_wallYoffset		= 0;
-	_wallMode			= WALL_MODE_NONE;
+    _colorDepth  = colorDepth;
+    _videoFlags  = videoFlags;
 
-	_offsetBase			= 0.0025;
-	_offsetModifier		= 2.0;
-	_fovBase			= 0.25;
-	_fovModifier		= 2.0;
+    _fullscreen  = false;
+
+    if (_videoFlags & SDL_FULLSCREEN == SDL_FULLSCREEN)
+        _fullscreen  = true;
+
+	_wallXoffset		= offset->getX();
+	_wallYoffset		= offset->getY();
+	_wallMode			= wallMode;
+
+    //Mike Lam's Magic Numbers
+        _offsetBase			= 0.0025f;
+        _offsetModifier		= 2.0f;
+        _fovBase			= 0.25f;
+        _fovModifier		= 2.0f;
+    //---
 
 	_coordinateSystem = CoordinateSystemFactory::GetDefaultCoordinateSystem();
 
-    for(int i=0; i<3; i++)
-        _backgroundColor[i] = Color::DARK_NAVY[i];
+    for(int i=0; i<4; i++)
+        _backgroundColor[i] = color[i];
 }
 
 
 /*
  * Destructor
  */
-Viewer::~Viewer()
+Camera::~Camera()
 {
-    delete _size;
     delete _coordinateSystem;
 }
 
@@ -90,7 +85,7 @@ Viewer::~Viewer()
  * Sets the model to be viewed.
  * This is substitutive, not additive.
  */
-World * Viewer::setModel(World * rend)
+World * Camera::setModel(World * rend)
 {
     World * old_model = _model;
 
@@ -100,19 +95,10 @@ World * Viewer::setModel(World * rend)
 }
 
 
-/* 
- * Returns the window size
- */
-Dimension2D * Viewer::getWindowSize()
-{
-	return _size->clone();
-}
-
-
 /*
  * timer tick
  */
-void Viewer::handleTick()
+void Camera::handleTick()
 {
     view();
 }
@@ -121,16 +107,12 @@ void Viewer::handleTick()
 /*
  * 
  */
-void Viewer::handleReshape(ReshapeEvent * event)
+void Camera::handleReshape(ReshapeEvent * event)
 {
-    // set a new video size
-	_size->setWidth(event->getWidth());
-	_size->setHeight(event->getHeight());
-
     // reset clear color
     setupClearColor(); 
 
-    glViewport(0, 0, (int)_size->getWidth(), (int)_size->getHeight());
+    glViewport(0, 0, event->getWidth(), event->getHeight());
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -154,10 +136,12 @@ void Viewer::handleReshape(ReshapeEvent * event)
 		float fovmodifier = _fovBase;
 		float rotmodifier = _fieldOfView*fovmodifier*_fovModifier;
 
-		gluPerspective(_fieldOfView*fovmodifier, (float)_size->getWidth()/
-				(float)_size->getHeight(), _nearClippingPlane, _farClippingPlane);
+		gluPerspective(_fieldOfView*fovmodifier, (float)event->getWidth()/
+				(float)event->getHeight(), _nearClippingPlane, _farClippingPlane);
 
-		glPushMatrix();
+        // don't need this at the base level of the projection matrix
+        //glPushMatrix();   
+
 		glRotatef(-(float)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
 		glRotatef( (float)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
 	}
@@ -165,7 +149,7 @@ void Viewer::handleReshape(ReshapeEvent * event)
 	// no wall adjustment
 	else {
 		gluPerspective(_fieldOfView, 
-				(float)_size->getWidth()/ (double)_size->getHeight(), 
+				(float)event->getWidth() / (float)event->getHeight(), 
 				_nearClippingPlane, _farClippingPlane);
 	}
 
@@ -175,33 +159,37 @@ void Viewer::handleReshape(ReshapeEvent * event)
 
 
 /*
- * reset SDL surface
+ * reshape the camera manually
  */
-void Viewer::setupSDLVideo()
+void Camera::handleReshape(int width, int height)
 {
-    // at some point we need to have variables to hold things like current video
-    // flags, etc.
-    SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(), 
-                     DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
-    
-    setWindowTitle(NULL);
+   handleReshape(ReshapeEvent::ConstructInstance(new Dimension2D(width, height))); 
+}
+
+
+/*
+ * reset the SDL surface
+ */
+void Camera::setupSDLVideo(Dimension2D * size)
+{
+    SDL_SetVideoMode((int)size->getWidth(), (int)size->getHeight(), _colorDepth, _videoFlags);
 }
 
 
 /*
  * SDL is reseting this value for me, so we have to set it back each time.
  */
-void Viewer::setupClearColor()
+void Camera::setupClearColor()
 {
-    glClearColor(_backgroundColor[0], _backgroundColor[1], _backgroundColor[2],
-            1.0f); 
+    glClearColor(_backgroundColor[0], _backgroundColor[1], 
+                 _backgroundColor[2], _backgroundColor[3]);
 }
 
 
 /*
  * make main rendering call
  */
-void Viewer::view()
+void Camera::view()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -218,32 +206,25 @@ void Viewer::view()
 
 
 /*
- * Sets the title on the window
- */
-void Viewer::setWindowTitle(char * text)
-{
-    SDL_WM_SetCaption(DEFAULT_WINDOW_TITLE, "XOR");
-}
-
-
-/*
  * set fullscreen
  */
-void Viewer::setFullScreen(bool status)
+void Camera::setFullScreen(bool status)
 {
 	// TODO: implement turning fullscreen ON/OFF
 
-	if (status != _fullscreen)
-        int i=0;
+	if (status != _fullscreen) {
+        if (status)
+            
+        _fullscreen = status;
+    }
 
-	_fullscreen = status;
 }
 
 
 /*
  * Change user coordinate system.
  */
-CoordinateSystem * Viewer::setCoordinateSystem(CoordinateSystem * coordinateSystem)
+CoordinateSystem * Camera::setCoordinateSystem(CoordinateSystem * coordinateSystem)
 {
     CoordinateSystem * old = _coordinateSystem;
     _coordinateSystem = coordinateSystem;
@@ -255,12 +236,12 @@ CoordinateSystem * Viewer::setCoordinateSystem(CoordinateSystem * coordinateSyst
 /*
  * Returns the current full screen status
  */
-bool Viewer::isFullScreen()
+bool Camera::isFullScreen()
 {
     return _fullscreen;
 }
 
-Vector3D * Viewer::toScreenCoordinates(Vector3D * worldCoord)
+Vector3D * Camera::toScreenCoordinates(Vector3D * worldCoord)
 {
     GLint viewport[4];
     GLdouble mvmatrix[16], projmatrix[16];
@@ -281,9 +262,9 @@ Vector3D * Viewer::toScreenCoordinates(Vector3D * worldCoord)
 /*
  * 
  */
-Vector3D * Viewer::toWorldCoordinates(Vector3D * screenCoord)
+Vector3D * Camera::toWorldCoordinates(Vector3D * screenCoord)
 {
-    GLint real_y;
+    //GLint real_y;
     GLdouble wx, wy, wz;
     GLint viewport[4];
     GLdouble mvmatrix[16], projmatrix[16];
@@ -305,7 +286,7 @@ Vector3D * Viewer::toWorldCoordinates(Vector3D * screenCoord)
 /*
  * Toggle whether the view is full screen
  */
-void Viewer::toggleFullScreen()
+void Camera::toggleFullScreen()
 {
     setFullScreen(!isFullScreen()); 
 }
@@ -313,8 +294,7 @@ void Viewer::toggleFullScreen()
 
 /*
  * Sets the size of the window, copies values, so be sure to free this dimension object if you created it.
- */ 
-void Viewer::setWindowDimension(Dimension2D * size)
+void Camera::setWindowDimension(Dimension2D * size)
 {
 	delete _size;
     _size = size->clone();
@@ -322,41 +302,26 @@ void Viewer::setWindowDimension(Dimension2D * size)
     SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(),
             DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
 }
+ */ 
 
 
 /*
  * sets the color to be used for glClearColor(..)
  */
-void Viewer::setBackground(const float color[3])
+void Camera::setBackground(const float color[4])
 {
-    for (int i=0; i<3; i++)
+    for (int i=0; i<4; i++)
         _backgroundColor[i] = color[i];
 
     setupClearColor();
 }
 
 
-/*
- *
- */
-void Viewer::forceReshape()
-{
-    handleReshape(ReshapeEvent::ConstructInstance(_size));
-
-    /*
-    SDL_Event reshape = { SDL_VIDEORESIZE };
-    reshape.resize.w = (int) _size->getX();
-    reshape.resize.h = (int) _size->getY();
-
-    SDL_PushEvent(&reshape);
-    */
-}
-
 
 /*
  * increment wall node position
  */
-void Viewer::incrementWallOffset(int x, int y)
+void Camera::incrementWallOffset(int x, int y)
 {
 	setWallOffset(_wallXoffset + x, _wallYoffset + y);
 }
@@ -365,7 +330,7 @@ void Viewer::incrementWallOffset(int x, int y)
 /*
  * set wall node position
  */
-void Viewer::setWallOffset(int x, int y)
+void Camera::setWallOffset(int x, int y)
 {
 	_wallXoffset = x;
 	_wallYoffset = y;
@@ -377,17 +342,17 @@ void Viewer::setWallOffset(int x, int y)
 	// without having to know how to constrct events.
 	//ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
 	//handleReshape(evt);
-	forceReshape();
+    Window::ForceReshape();
 }
 
 
 /**
  * Change the wall setup offset base
  */
-void Viewer::incrementWallViewOffsetBase(float change)
+void Camera::incrementWallViewOffsetBase(float change)
 {
 	_offsetBase += change;
-	forceReshape();
+    Window::ForceReshape();
 	cout << "  offset base: " << _offsetBase << endl;
 }
 
@@ -395,10 +360,10 @@ void Viewer::incrementWallViewOffsetBase(float change)
 /**
  * Change the wall setup offset modifier
  */
-void Viewer::incrementWallViewOffsetModifier(float change)
+void Camera::incrementWallViewOffsetModifier(float change)
 {
 	_offsetModifier += change;
-	forceReshape();
+    Window::ForceReshape();
 	cout << "  offset modifier: " << _offsetModifier << endl;
 }
 
@@ -406,10 +371,10 @@ void Viewer::incrementWallViewOffsetModifier(float change)
 /**
  * Change the wall setup field of view base
  */
-void Viewer::incrementWallViewFovBase(float change)
+void Camera::incrementWallViewFovBase(float change)
 {
 	_fovBase += change;
-	forceReshape();
+    Window::ForceReshape();
 	cout << "  fov base: " << _fovBase << endl;
 }
 
@@ -417,10 +382,10 @@ void Viewer::incrementWallViewFovBase(float change)
 /**
  * Change the wall setup field of view modifier
  */
-void Viewer::incrementWallViewFovModifier(float change)
+void Camera::incrementWallViewFovModifier(float change)
 {
 	_fovModifier += change;
-	forceReshape();
+    Window::ForceReshape();
 	cout << "  fov modifier: " << _fovModifier << endl;
 }
 
@@ -428,23 +393,22 @@ void Viewer::incrementWallViewFovModifier(float change)
 /*
  * set wall mode
  */
-void Viewer::setWallMode(int mode)
+void Camera::setWallMode(int mode)
 {
-	if (mode == WALL_MODE_STANDARD) {
-		_wallMode = WALL_MODE_STANDARD;
-		cout << "  new wall mode: standard" << endl;
-	}
-	else if (mode == WALL_MODE_IMMERSIVE) {
-		_wallMode = WALL_MODE_IMMERSIVE;
-		cout << "  new wall mode: immersive" << endl;
-	}
-	else {
-		_wallMode = WALL_MODE_NONE;
-		cout << "  new wall mode: none" << endl;
-	}
-	forceReshape();
-}
+    if (mode >= WALL_MODE_NONE && mode <= WALL_MODE_IMMERSIVE) {
+        _wallMode = mode;
 
+        // for debugging
+        if (_wallMode == WALL_MODE_STANDARD)
+            cout << "  new wall mode: standard" << endl;
+        else if (_wallMode == WALL_MODE_IMMERSIVE)
+            cout << "  new wall mode: immersive" << endl;
+        else
+            cout << "  new wall mode: none" << endl;
+
+        Window::ForceReshape();
+    }
+}
 
 }
 

@@ -2,11 +2,6 @@
 #define CONTROLLER_H
 
 
-#include <iostream>
-#include <stdlib.h>
-#include <vector>
-
-// SDL is the new kid in town
 #include "../../include/SDL.h"
 
 // sub-controllers
@@ -14,7 +9,7 @@
 #include "../event/keyboard/Keyboard.h"
 #include "../event/mouse/Mouse.h"
 #include "../event/timer/Timer.h"
-#include "../event/reshape/Reshape.h"
+#include "Window.h"
 
 // model
 #include "World.h"
@@ -23,17 +18,21 @@
 #include "../shape/Object3D.h"
 #include "../shape/Renderable.h"
 
+#include "XavierConfiguration.h"
+
 // view
-#include "Viewer.h"
+#include "Camera.h"
 
-
-using namespace std;
 
 namespace XOR {
 
 /**
  * This is the main controller. Be sure that only controller logic goes in
  * here.
+ *
+ * @author John Magnotti
+ * @author Michael Lam
+ * @version 1.0
  */
 class Controller
 {
@@ -46,25 +45,20 @@ public:
 	virtual ~Controller();
 
 
-	//TODO this caused insurmountable problems with circular dependencies. The
-	//XavierConfiguration object will always supply an EventHandlerFactory, so
-	//should you for now.
     /**
-	 *
      * Used internally by other classes to get a handle on the active
      * controller instance. This is seen as cleaner than a global instance, but
      * is functinally equivalent. Application developers should prefer the
      * parameterized version of this accessor unless you can guarantee it has
      * already been called.
-	static Controller * GetInstance();
      */
+	static Controller * GetInstance();
 
 
 	/**
 	 * Returns an instance of the controller
 	 */
-	static Controller * GetInstance(EventHandlerFactory * factory);
-    //static Controller * GetInstance(XavierConfiguration * configuration);
+    static Controller * GetInstance(XavierConfiguration * configuration);
 
 
 	/**
@@ -103,7 +97,7 @@ public:
 	 * Returns a reference to the view.
      * If you try to get the viewer before you have set one, NULL is returned
 	 */
-	Viewer * getViewer();
+	Camera * getCamera();
 
 
     /**
@@ -123,11 +117,11 @@ public:
 
 
     /**
-     * Returns a reference to the current Reshape. This should always be
-     * preferred over the singleton accessors in ReshapeSkeleton and ReshapeStub,
-     * since this method is (rightfully) agnostic of the event factory being used. 
+     * Returns a reference to the current Window. This should always be
+     * preferred over the singleton accessors in Window, since this method is
+     * (rightfully) agnostic of the event factory being used. 
      */
-    Reshape * getReshape();
+    Window * getWindow();
 
 
     /**
@@ -158,54 +152,42 @@ public:
 
 	/**
 	 * Specifies the view for the controller to use
-     * Note that the viewer is also responsible for handling reshapes (Viewer
+     * Note that the viewer is also responsible for handling reshapes (Camera
      * IS-A ReshapeListener), so be sure that the handleReshape() method
      * behaves appropriately
 	 */
-	Viewer * setViewer(Viewer*);
+	Camera * setCamera(Camera*);
 
 
     /**
-     * Since the controller is setting up a key listener, we need to have a way
-     * for the user to override this guy.
-    void removeDefaultKeyboardListener();
-     */
-
-
-    /**
-     * Since the controller is setting up a mouse listener, we need to have a
-     * way for the user to override this guy.
-    void removeDefaultMouseListener();
-     */
-
-
-    /**
-     * Event loop, it's an SDL thing
+     * SDL Event loop. This method should never be called directly by the
+     * application programmer.
      */
     static void EventLoop();
 
 
 private:
 
-	Keyboard *	    _keyboard;
-	Mouse *		    _mouse;
-	Reshape *	    _reshape;
-	Timer *		    _timer;
-
-	Renderable *      _model;
-	Viewer *	    _viewer;
-
 	Controller();
 
-	Controller(EventHandlerFactory * factory);
+	Controller(XavierConfiguration * configuration);
 
     /**
      * the real exit function
      */
     static void exit();
 
-	static Controller *	_controller;
     
+	Keyboard * _keyboard;
+	Mouse    * _mouse;
+	Timer    * _timer;
+	Window   * _window;
+
+	Renderable * _model;
+	Camera     * _camera;
+
+	static Controller *	_controller;
+
 };
 
 }

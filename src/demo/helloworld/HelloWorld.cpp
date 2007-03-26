@@ -12,7 +12,7 @@ int main(int argc, char ** argv)
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
     // controller object (note: Singleton Pattern).
-    Controller * ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
+    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
     // tell the controller to setup friendly defaults for us. This includes
     // mouse, keyboard, view, and reshape defaults. It also sets up openGL 
@@ -36,14 +36,17 @@ int main(int argc, char ** argv)
     String2D * str  = new String2D("Hello", 200,200);
     //str->increaseFontSize();
     str->setFont(BITMAP_FONT_TYPE_TIMES_ROMAN_24);
-    ctrl->setModel(new Rectangle2D(new Vector2D(300,300), 
+    ctrl->setModel(str);
+            
+            /*new Rectangle2D(new Vector2D(300,300), 
                    new Vector2D(500,500), 
                    new Paint(Color::RED, Color::WHITE, Paint::HEIGHT_BASED)));
+                   */
 
 	ctrl->getModel()->addObject("I hate C++", co);
 
 
-	ctrl->getModel()->addObject("I still hate C++", str);
+//	ctrl->getModel()->addObject("I still hate C++", str);
 
     // this call runs the demo.
     ctrl->run();

@@ -4,7 +4,7 @@
 
 #include "../../include/SDL_opengl.h"
 #include "../core/Controller.h"
-#include "../core/Viewer.h"
+#include "../core/Window.h"
 #include "../geometry/Dimension2D.h"
 #include "Renderable.h"
 

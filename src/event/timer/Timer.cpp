@@ -7,6 +7,9 @@ SDL_Event   Timer::_sdlTimerEvent = {SDL_USEREVENT};
 
 unsigned int Timer::_interval = DEFAULT_TIMER_INTERVAL;
 
+/*
+ * default cstr
+ */
 Timer::Timer()
 {
     _sdlTimerEvent.type = SDL_USEREVENT;
@@ -99,12 +102,8 @@ void Timer::setState(int state)
 void Timer::start()
 {
     if (! _started) {
-        cout << "Starting the timer" << endl;
         _timerHandle = SDL_AddTimer(_interval, TickTock, (void *)_state);
         _started = true;
-    }
-    else {
-        cout << "Timer already started!" << endl;
     }
 }
 
@@ -139,7 +138,7 @@ int Timer::getElapsedTime()
 }
 
 
-/**
+/*
  * Returns the the value of the state var that is passed to 
  * the timer function each tick
  */
@@ -178,6 +177,9 @@ Uint32 Timer::TickTock(Uint32 interval, void * param)
     // set the next timer tick interval. note that we are using the class var as the source.
     interval = getInterval();
 
+    // since this function may be called from another thread, we should push a
+    // timer event onto the static event queue that is visible to all threads,
+    // this ensures that timer ticks are always sequential.
     SDL_PushEvent(&_sdlTimerEvent);
 
     // this is the value that will be used for the next timer interval

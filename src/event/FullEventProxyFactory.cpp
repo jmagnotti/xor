@@ -43,13 +43,6 @@ Mouse * FullEventProxyFactory::getMouse()
     return MouseStub::GetInstance();
 }
 
-/*
- * returns a multicast agnostic ReshapeSkeleton
- */
-Reshape * FullEventProxyFactory::getReshape()
-{
-    return ReshapeSkeleton::GetInstance();
-}
 
 /*
  * private constructor

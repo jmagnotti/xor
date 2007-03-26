@@ -59,15 +59,14 @@ MouseSkeleton * MouseSkeleton::GetInstance()
 
 int MouseSkeleton::Listen(void * data)
 {
-	cout << "Mouse Skeleton thread created." << endl;
-
 	string msg; 
-	MouseSkeleton * ms = MouseSkeleton::GetInstance();
 
 	while(_keepGoing) {
 		msg = _socket->receive();	
-		ms->fireEvent(MouseEventFactory::ConstructInstance(msg));
+        Mouse::FireSDLEvent(MouseEventFactory::ConstructSDLEvent(msg));
 	}
+
+    return 0;
 }
 
 }
