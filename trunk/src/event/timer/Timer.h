@@ -2,8 +2,6 @@
 #define TIMER_H
 
 
-#include <iostream>
-#include <vector>
 #include <list>
 
 #include "../../../include/SDL.h"
@@ -119,24 +117,23 @@ public:
 protected:
 
     /**
-     * Removes the listener from the vector.
+     * calls the handleTick method on all the listeners.
      */
     void notifyListeners();
 
 
     /*
-     * Construct with a callback interval
+     * Construct with a callback interval.
      */
 	Timer(unsigned int interval);
 
 
-    // Timers can only be created with an interval 
+    // Timers can only be created with an interval.
 	Timer();
 
     static SDL_Event    _sdlTimerEvent;
 
 private:
-
 
 	list<TimerListener*> listeners;
 

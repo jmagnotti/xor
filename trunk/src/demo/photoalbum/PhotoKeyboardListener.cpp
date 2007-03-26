@@ -12,18 +12,18 @@ PhotoKeyboardListener::PhotoKeyboardListener(Controller * ctrl, PhotoAlbum * pho
 
 void PhotoKeyboardListener::handleKey_R()
 {
-	_ctrl->getViewer()->clear();
+	_ctrl->getCamera()->clear();
 }
 
 
 void PhotoKeyboardListener::handleKey_S()
 {
-	_ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,1), new TimedInterpolation(1000, _photoalbum));
+	_ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1), new TimedInterpolation(1000, _photoalbum));
 }
 
 void PhotoKeyboardListener::handleKey_A()
 {
-	_ctrl->getViewer()->incrementTranslation(
+	_ctrl->getCamera()->incrementTranslation(
 		new Vector3D(0,0,-1), new TimedInterpolation(1000, _photoalbum));
 }
 	
@@ -66,47 +66,47 @@ void PhotoKeyboardListener::handleKey_F5()
 /* // does this work?
 void PhotoKeyboardListener::handleKey_p()
 {
-	_ctrl->getViewer()->printDebugInfo();
+	_ctrl->getCamera()->printDebugInfo();
 }*/
 
 void PhotoKeyboardListener::handleKey_a()
 {
-	_ctrl->getViewer()->incrementRotation(0, -10.0f);
+	_ctrl->getCamera()->incrementRotation(0, -10.0f);
 }
 
 void PhotoKeyboardListener::handleKey_d()
 {
-	_ctrl->getViewer()->incrementRotation(0, 10.0f);
+	_ctrl->getCamera()->incrementRotation(0, 10.0f);
 }
 
 void PhotoKeyboardListener::handleKey_w()
 {
-	_ctrl->getViewer()->walk(0.15f, new TimedInterpolation(200,NULL));
+	_ctrl->getCamera()->walk(0.15f, new TimedInterpolation(200,NULL));
 }
 
 void PhotoKeyboardListener::handleKey_s()
 {
-	_ctrl->getViewer()->walk(-0.15f, new TimedInterpolation(200,NULL));
+	_ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(200,NULL));
 }
 
 void PhotoKeyboardListener::handleKey_q()
 {
-	_ctrl->getViewer()->incrementRotation(2, 5.0f);
+	_ctrl->getCamera()->incrementRotation(2, 5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_e()
 {
-	_ctrl->getViewer()->incrementRotation(2, -5.0f);
+	_ctrl->getCamera()->incrementRotation(2, -5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_c()
 {
-	_ctrl->getViewer()->incrementRotation(1, 5.0f);
+	_ctrl->getCamera()->incrementRotation(1, 5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_z()
 {
-	_ctrl->getViewer()->incrementRotation(1, -5.0f);
+	_ctrl->getCamera()->incrementRotation(1, -5.0f);
 }
 
 /**

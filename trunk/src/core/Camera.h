@@ -8,6 +8,7 @@
 #include "../../include/SDL_opengl.h"
 
 #include "World.h"
+#include "Window.h"
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
@@ -20,28 +21,19 @@
 
 namespace XOR {
 
-
 /**
  * Designed to maintain the state of the camera of the world.
- * The Viewer is doing a little bit too much windowing at the moment.
+ * The Camera is doing a little bit too much windowing at the moment.
  */
-class Viewer : public ReshapeListener, public TimerListener, public Transformable
+class Camera : public ReshapeListener, public TimerListener, public Transformable
 {
 
 public:
-
-	static const char *     DEFAULT_WINDOW_TITLE;
 
 	static const double		DEFAULT_FOV;
 	static const double		DEFAULT_NEAR_CLIP;
 	static const double		DEFAULT_FAR_CLIP;
 
-	static const int		DEFAULT_WINDOW_X;
-	static const int		DEFAULT_WINDOW_Y;
-
-	static const int		DEFAULT_WINDOW_WIDTH;
-	static const int		DEFAULT_WINDOW_HEIGHT;
-    
 	static const int        DEFAULT_COLOR_DEPTH;
 	static const Uint32     DEFAULT_VIDEO_FLAGS;
 
@@ -53,7 +45,7 @@ public:
     /**
      * default constructor. Uses constants above.
      */
-    Viewer();
+    Camera();
 
 
 	/**
@@ -63,36 +55,31 @@ public:
      * @param nearCP	Near clipping plane
      * @param farCP		Far clipping plane
      */
-    Viewer(double fov, double nearCP, double farCP);
+    Camera (double fov, double nearCP, double farCP, int colorDepth, 
+            Uint32 videoFlags, int wallMode, Vector2D * offset, const float color[4]);
 
 
 	/** 
 	 * Destructor
 	 */
-	~Viewer();
+	~Camera();
 
 
     /**
      * This could return the screen coordinates or something cool
      */
-	Dimension3D * getDimension() {return NULL;}
+	inline Dimension3D * getDimension() {return NULL;}
 
 
     /**
      * this could return the bottom left world coord.
      */
-	Vector3D * getBaseVector() {return NULL;}
+	inline Vector3D * getBaseVector() {return NULL;}
 
 	/**
-	 * Adds a renderable to the viewer's list
+	 * Set the renderable to the viewer
 	 */
 	World * setModel(World*);
-
-
-	/**
-	 * Returns a dimension object of the windows current size
-	 */
-	Dimension2D * getWindowSize();
 
 
     /**
@@ -118,20 +105,7 @@ public:
 	 */
 	virtual void view(void);
 
-
-    /**
-     * Sets the size of the window. Triggers a reshape event so that everything is scaled correctly.
-     */
-    void setWindowDimension(Dimension2D * size); 
-
     
-    /**
-     * Sets the text of the window title bar
-     * @param	text	The text that will appear on the window title bar.
-     */
-    void setWindowTitle(char * text);
-
-
 	/**
 	 * Set full screen status
 	 */
@@ -166,7 +140,7 @@ public:
      * Sets the SDL Video mode with the current values of the video vars.
      * Finer control should be added at some point.
      */
-    void setupSDLVideo();
+    void setupSDLVideo(Dimension2D * size);
 
 
     /*
@@ -177,14 +151,6 @@ public:
      * call themselves, right?
      */
     void setupClearColor();
-
-
-    /**
-     * Called to trigger a reshape event with the current settings. Use for
-     * setting up new window contexts that don't already trigger a reshape
-     * event (e.g., Program Initialization).
-     */
-    void forceReshape();
 
 
 	/**
@@ -248,8 +214,7 @@ protected:
 private:
 
     // set all state vars
-    void initialize(double fov, double nearCP, double farCP, int winWidth, int
-            winHeight, bool fullscreen, const char * windowTitle);
+void build (double fov, double nearCP, double farCP, int colorDepth, Uint32 videoFlags, int wallMode, Vector2D * offset, const float color[4]);
 
     double			_nearClippingPlane;	
     double			_farClippingPlane;
@@ -266,14 +231,14 @@ private:
 
 	bool			_fullscreen;
 
-    float           _backgroundColor[3];
-    const char *    _title;
-
-	Dimension2D *	_size;
+    float           _backgroundColor[4];
 
 	World *	_model;
 
+	int        _colorDepth;
+	Uint32     _videoFlags;
 
+    SDL_Event _reshape;
 };
 
 }

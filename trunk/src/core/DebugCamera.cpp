@@ -1,16 +1,16 @@
-#include "DebugViewer.h"
+#include "DebugCamera.h"
 
 
 namespace XOR {
 
-DebugViewer::~DebugViewer()
+DebugCamera::~DebugCamera()
 {}
 
 
 /**
  * Constructs the real viewer
  */
-DebugViewer::DebugViewer()
+DebugCamera::DebugCamera()
 {
     cout <<"cstr" << endl;
     _interval = 2000;
@@ -20,21 +20,21 @@ DebugViewer::DebugViewer()
 /**
  * Prints out status information every 5 seconds
  */
-void DebugViewer::view()
+void DebugCamera::view()
 {
     if (isReady()) {
         debug();
         _lastPrint = Controller::GetInstance(NULL)->getTimer()->getElapsedTime();
     }
 
-    Viewer::view();
+    Camera::view();
 }
 
 
 /**
  * Prints out information about each of the coordinate systems.
  */
-void DebugViewer::debug()
+void DebugCamera::debug()
 {
     print();
     _coordinateSystem->print();
@@ -44,7 +44,7 @@ void DebugViewer::debug()
 /**
  * Returns whether the amount of time since the last debug is greater than the established debug interval.
  */
-bool DebugViewer::isReady()
+bool DebugCamera::isReady()
 {
     return Controller::GetInstance(NULL)->getTimer()->getElapsedTime() - _lastPrint > _interval;
 }
@@ -53,7 +53,7 @@ bool DebugViewer::isReady()
 /**
  * @param interval  The interval (in milliseconds) that must elapse before each debug prinout.
  */
-void DebugViewer::setDebugInterval(int interval)
+void DebugCamera::setDebugInterval(int interval)
 {
     _interval = interval;
 }

@@ -17,14 +17,34 @@ class SineFunctionHF : public FunctionHeightFieldStrategy
 
 		double f(double x, double y)
 		{
-			double a = 1.1;
+/*			double a = 1.1;
 			double b = a;
 			double c = cos((x/a)*(x/a) + (y/b)*(y/b));
 			return c;
-			//return sin(x*2) * cos(y*2);
-			//return sin(fabs(x) + fabs(y));
-			//return x + 2*y;
+            */
+			return sin(x*2) * cos(y*2);
+            
+            //return sin(fabs(x) + fabs(y));
+            //return x + 2*y;
 		}
+};
+
+
+class TerrainConfig : public XavierConfiguration
+{
+    public :
+        TerrainConfig()
+        {}
+
+        bool isGLFogEnabled()
+        {
+            false;
+        }
+
+        EventHandlerFactory * getEventFactory()
+        {
+            return InputEventHandlerFactory::GetInstance();
+        }
 };
 
 class TerrainDemo : public DefaultKeyboardListener, DefaultMouseListener
@@ -39,27 +59,18 @@ public:
  	*/
 	TerrainDemo()
 	{
-        ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
+        ctrl = Controller::GetInstance(new TerrainConfig());
         ctrl->defaultConfiguration();
-		glDisable(GL_FOG);
 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);
-		//ctrl->getMouse()->setDefaultMouseListener(this);
 
         ctrl->setModel(new String2D("Heightfield Test"));
 
-		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 
-#ifdef __ppc__
-        ctrl->getViewer()->setCoordinateSystem(
-            CoordinateSystemFactory::GetCoordinateSystem(
-            CoordinateSystemFactory::MAC_COORDINATE_SYSTEM));
-#endif
-        
 		TextureFactory * factory = TextureFactory::GetInstance();
-        //glDisable(GL_DEPTH_TEST);
 		
 		ctrl->getModel()->addObject("white", 
 		       new CompiledObject3D(new Cube(
@@ -110,68 +121,68 @@ public:
 	void handleKey_l()
 	{
 		cout << "LOOK AT ORIGIN" << endl;
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 	}
 
 	void handleKey_p()
 	{
-		ctrl->getViewer()->print();
+		ctrl->getCamera()->print();
 
 	}
 
 	void handleKey_a()
 	{
-		ctrl->getViewer()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_d()
 	{
-		ctrl->getViewer()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_w()
 	{
-		ctrl->getViewer()->walk(0.15f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_s()
 	{
-		ctrl->getViewer()->walk(-0.15f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_q()
 	{
-		ctrl->getViewer()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_e()
 	{
-		ctrl->getViewer()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_c()
 	{
-		ctrl->getViewer()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_z()
 	{
-		ctrl->getViewer()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
     void handleKey_C()
     {
-        ctrl->getViewer()->clear();
+        ctrl->getCamera()->clear();
     }
 
     void handleKey_RBracket()
     {
-        ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,1));
+        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1));
     }
 
     void handleKey_LBracket()
     {
-        ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,-1));
+        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,-1));
     }
 
 	void handleKey_k()
@@ -180,11 +191,11 @@ public:
 		int speed = 2000;
 		int wait  = 2000;
 
-		Orientation * o1 = ctrl->getViewer()->cloneOrientation();
+		Orientation * o1 = ctrl->getCamera()->cloneOrientation();
 		o1->incrementTranslation(new Vector3D(15.0f,0.0f,0.0f), NULL);
-		Orientation * o2 = ctrl->getViewer()->cloneOrientation();
+		Orientation * o2 = ctrl->getCamera()->cloneOrientation();
 		o2->incrementTranslation(new Vector3D(15.0f,15.0f,0.0f), NULL);
-		Orientation * o3 = ctrl->getViewer()->cloneOrientation();
+		Orientation * o3 = ctrl->getCamera()->cloneOrientation();
 		o3->incrementTranslation(new Vector3D(15.0f,15.0f,15.0f), NULL);
 		o3->incrementRotation(Orientation::ROLL, 40.0f);
 
@@ -192,7 +203,7 @@ public:
 		Waypoint * wp2 = new Waypoint(o2, speed, wait, wp3);
 		Waypoint * wp1 = new Waypoint(o1, speed, wait, wp2);
 
-		wp1->apply(ctrl->getViewer());
+		wp1->apply(ctrl->getCamera());
 	}
 	
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -204,9 +215,9 @@ public:
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
@@ -218,7 +229,7 @@ public:
 
 	void handleMouseButtonReleased(MouseButtonUp * mbu)
 	{
-//cout << "MOUSE UP: button=" << mbu->getButton() << endl;
+        cout << "MOUSE UP: button=" << mbu->getButton() << endl;
 	}
 	
 private:

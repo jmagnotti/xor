@@ -4,8 +4,6 @@
 
 #include "EventHandlerFactory.h"
 
-#include "reshape/Reshape.h"
-#include "reshape/ReshapeSkeleton.h"
 #include "keyboard/Keyboard.h"
 #include "keyboard/KeyboardSkeleton.h"
 #include "mouse/Mouse.h"
@@ -17,7 +15,7 @@ namespace XOR {
 
 /**
  * The handler compliment to FullEventProxyFactory. Generates handlers that
- * will receive Keyboard, Mouse, and Timer events. Reshape events are still
+ * will receive Keyboard, Mouse, and Timer events. Window events are still
  * handled locally, with no multicast receiving. Note that in using this
  * factory no local SDL_Timer is created, so the first frame (and subsequent
  * frames) is not displayed until it is received through the multicast group.
@@ -54,11 +52,6 @@ public:
      */
     Timer * getTimer();
 
-
-    /**
-     * Returns a local, multicast agnostic ReshapeSkeleton
-     */
-    Reshape * getReshape();
 
 private:
 

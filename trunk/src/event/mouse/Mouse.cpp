@@ -70,6 +70,24 @@ void Mouse::move(SDL_Event * event)
 
 
 /*
+ * Force move
+ */
+void Mouse::ForceMove(int xpos, int ypos)
+{
+    SDL_WarpMouse(xpos, ypos);
+}
+
+
+/*
+ * Pushes the SDL event onto the main event queue
+ */
+void Mouse::FireSDLEvent(SDL_Event * event)
+{
+    SDL_PushEvent(event);
+}
+
+
+/*
  * updates state variables from a motion event.
  */
 void Mouse::updateFromEvent(MouseMotionEvent * mme)

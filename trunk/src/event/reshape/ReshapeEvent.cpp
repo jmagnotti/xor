@@ -50,5 +50,10 @@ int ReshapeEvent::getWidth()
     return (int)(_size->getWidth());
 }
 
+Dimension2D * ReshapeEvent::getSize() const
+{
+    return _size;
+}
+
 }
 

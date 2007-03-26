@@ -44,7 +44,7 @@ public:
 
     /**
      * If a setup object wants to set the default coordinate system for viewers
-     * to use upon creation, set it here. The Viewer object gets whatever is
+     * to use upon creation, set it here. The Camera object gets whatever is
      * the default at its creation. Note that changing the default coordinate
      * system will not retroactively change objects that have selected the
      * default system.

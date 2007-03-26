@@ -69,18 +69,20 @@ public:
      */
     void move(SDL_Event * event);
 
+    /**
+     * Forces the mouse cursor to the given position. This generates a mouse
+     * event in the process.
+     *
+     * @param xpos  The new x position of the mouse cursor in absolute (screen) coordinates.
+     * @param ypos  The new y position of the mouse cursor in absolute (screen) coordinates.
+     */
+    static void ForceMove(int xpos, int ypos);
+
 
 	/**
 	 * Fires an event to listeners. Delegated to implementing classes.
 	 */
 	virtual void fireEvent(MouseEvent * me)=0;
-
-
-    /**
-     * Push the event onto the SDL Event queue
-     * @param event An event where type == SDL_MOUSEMOTION
-     */
-    static void FireSDLMove(SDL_Event * event);
 
 
     /**
@@ -91,11 +93,9 @@ public:
 
     /**
      * Push the event onto the SDL Event queue
-     *
-     * @param event An event where type == SDL_MOUSEBUTTONUP || 
-     *              type == SDL_MOUSEBUTTONDOWN
+     * @param event The SDL mouse event to fire.
      */
-    static void FireSDLClick(SDL_Event * event);
+    static void FireSDLEvent(SDL_Event * event);
 
 
     /**

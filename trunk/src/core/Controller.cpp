@@ -3,7 +3,7 @@
 
 namespace XOR {
 
-// Set the static instances to null
+// Set the static instance to null
 Controller * Controller::_controller = NULL;
 
 /*
@@ -16,27 +16,36 @@ Controller::Controller()
 /*
  * Private Explicit Constructor
  */
-Controller::Controller(EventHandlerFactory * factory)
+Controller::Controller(XavierConfiguration * configuration)
 {
-    // reshape must be created before Viewer, since viewer is going to add
-    // itself as a listener
-	_reshape     = factory->getReshape();
 
-	//set up the controllers
+    EventHandlerFactory * factory = configuration->getEventFactory();
+
+	//set up the event generators
     _timer       = factory->getTimer();
+    Timer::SetInterval(configuration->getTimerInterval());
+
 	_mouse       = factory->getMouse();
+
 	_keyboard    = factory->getKeyboard();
 
-	//set the default keyboard listener
-    //_keyboard->addListener(DefaultKeyboardListener::GetInstance());
+	_window = new Window(configuration->getWindowPosition(), 
+            configuration->getWindowSize(), (char*)(configuration->getWindowTitle()));
 
-	//set the default mouse listener
-	//_mouse->addListener(DefaultMouseListener::GetInstance());
+	_camera = new Camera(
+           configuration->getFieldOfView(),
+           configuration->getNearClip(),
+           configuration->getFarClip(),
+           configuration->getColorDepth(),
+           configuration->getVideoFlags(),
+           configuration->getWallMode(),
+           configuration->getWallOffset(),
+           configuration->getBackgroundColor()
+    );
 
-	_viewer = new Viewer();
 
-	_reshape->addListener(_viewer);
-    _timer->addListener(_viewer);
+	_window->addListener(_camera);
+    _timer->addListener(_camera);
 }
 
 
@@ -49,32 +58,32 @@ Controller::~Controller()
     delete _model;
 
     // view
-    delete _viewer;
+    delete _camera;
 
     // sub-controllers
     delete _keyboard;
     delete _mouse;
 
-    delete _reshape;
+    delete _window;
     delete _timer;
 }
 
 
 /* 
  * Singleton Accessor
+ */
 Controller * Controller::GetInstance()
 {
 	if (_controller == NULL)
-		_controller = new Controller(EventHandlerFactory::GetDefaultFactory());
+		_controller = new Controller();
 
 	return _controller;
 }
- */
 
-Controller * Controller::GetInstance(EventHandlerFactory * factory)
+Controller * Controller::GetInstance(XavierConfiguration * configuration)
 {
 	if (_controller == NULL)
-		_controller = new Controller(factory);
+		_controller = new Controller(configuration);
 
 	return _controller;
 }
@@ -85,8 +94,7 @@ Controller * Controller::GetInstance(EventHandlerFactory * factory)
  */
 void Controller::exit()
 {
-	//FIXME
-	Controller * control = Controller::GetInstance(NULL);
+	Controller * control = Controller::GetInstance();
 	delete control;
 
 	//TODO need a <list> of shutdown listeners so controller doesn't have to do
@@ -112,7 +120,7 @@ void Controller::CleanUpAndExit()
  */
 void Controller::defaultSDLGLConfiguration()
 {
-    _viewer->setupSDLVideo();
+    _camera->setupSDLVideo(getWindow()->getSize());
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); 
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,  16);
@@ -147,7 +155,7 @@ void Controller::defaultConfiguration(bool configGL)
 void Controller::defaultGLConfiguration()
 {
 	// set the clear color
-    _viewer->setupClearColor();
+    _camera->setupClearColor();
 
     glShadeModel(GL_SMOOTH);
     glEnable(GL_TEXTURE_2D);
@@ -191,11 +199,9 @@ World * Controller::getModel()
 /*
  * Returns the view
  */
-Viewer * Controller::getViewer()
+Camera * Controller::getCamera()
 {
-    if (_viewer == NULL)
-        cout << "NULL VIEWER" << endl;
-	return _viewer;
+	return _camera;
 }
 
 
@@ -218,11 +224,11 @@ Mouse * Controller::getMouse()
 
 
 /*
- * Returns the reshape handler
+ * Returns the window handler
  */
-Reshape * Controller::getReshape()
+Window * Controller::getWindow()
 {
-    return _reshape;
+    return _window;
 }
 
 
@@ -240,15 +246,11 @@ Timer * Controller::getTimer()
  */
 void Controller::run(void)
 {
-    //moved this to the configuration method
-    _viewer->forceReshape();
+    _camera->handleReshape(_window->getSize()->getWidth(), 
+                           _window->getSize()->getHeight());
 
     // start ticking
     _timer->start();
-
-    //set final window properties
-    // _viewer->setWindowDimension();
-    //_viewer->setupClearColor();
 
     // sit around and wait for something to do 
     Controller::EventLoop();
@@ -263,52 +265,34 @@ Renderable * Controller::setModel(Renderable * model)
 	// In order to do proper rendering, we need a world object
 	// we don't want to force people to do all that though, so we do a quick check
 	// and wrap the renderable inside a world object if it isn't a world object
-	// note that if the object IS a world object, then we don't apply our special rotation
 	if (! (World::IsWorldObject(model)) )
 		_model = World::GetInstance(model);
 	else // it already is a world object
 		_model = model;
 
-	return _viewer->setModel((World*)_model);
+	return _camera->setModel((World*)_model);
 }
+
 
 /*
  * sets the viewer for the controller
  */
-Viewer * Controller::setViewer(Viewer * viewer)
+Camera * Controller::setCamera(Camera * cam)
 {
-    Viewer * old_viewer = _viewer;
+    Camera * old_camera = _camera;
 
-    viewer->setModel(getModel());
+    cam->setModel(getModel());
 
-    getTimer()->removeListener(_viewer);
-    getReshape()->removeListener(_viewer);
+    getTimer()->removeListener(_camera);
+    getWindow()->removeListener(_camera);
 
-    _viewer = viewer;
+    _camera = cam;
 
-    getTimer()->addListener(_viewer);
-    getReshape()->addListener(_viewer);
+    getTimer()->addListener(_camera);
+    getWindow()->addListener(_camera);
 
-    return old_viewer;
+    return old_camera;
 }
-
-
-/**
- * set mouse listener
-void Controller::removeDefaultMouseListener()
-{
-    _mouse->removeListener(DefaultMouseListener::GetInstance()); 
-}
- */
-
-
-/**
- * set keyboard listener
-void Controller::removeDefaultKeyboardListener()
-{
-    _keyboard->removeListener(DefaultKeyboardListener::GetInstance());
-}
- */
 
 
 /*
@@ -317,14 +301,16 @@ void Controller::removeDefaultKeyboardListener()
 void Controller::EventLoop()
 {
     SDL_Event event;
+
 	//FIXME
-    Controller * ctrl = Controller::GetInstance(NULL);
+    Controller * ctrl = Controller::GetInstance();
 
     // we are using WaitEvent(...) because we want everything to be called
     // off timer ticks or other events.
     while(SDL_WaitEvent(&event)) {
 
         switch(event.type) {
+
             case SDL_KEYDOWN:
             case SDL_KEYUP:
                 ctrl->getKeyboard()->generateKeyEvent(&event);
@@ -340,7 +326,7 @@ void Controller::EventLoop()
                 break;
 
             case SDL_VIDEORESIZE:
-                ctrl->getReshape()->generateEvent(&event);
+                ctrl->getWindow()->generateEvent(&event);
 
                 // attempting to reset GL info that may be getting hosed 
                 // by SDL deleting the SDL_Surface we are rendering to
@@ -364,7 +350,7 @@ void Controller::EventLoop()
                 }
                 break;
 
-			default: cout << "Unknown event occured" << endl;	break;
+			default: break;
         }
 
     }   // end while 

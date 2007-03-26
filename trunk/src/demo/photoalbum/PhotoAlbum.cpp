@@ -27,7 +27,7 @@ PhotoAlbum::PhotoAlbum()
 
 	pDemo = new String2D("PHOTO DEMO"); 
 
-	new FramesPerSecondCounter();
+    new FramesPerSecondCounter();
 }
 
 /**
@@ -313,7 +313,6 @@ void PhotoAlbum::parseXML()
 	XMLNode xAlbumNode = xDemoNode.getChildNode("albums").getChildNode("album");
 	
 	int numCubes; // number of cubes we'll need to create
-
 	numCubes = 0;
 	// get the number of cube sub objects (height * width)
 
@@ -335,8 +334,7 @@ void PhotoAlbum::parseXML()
 
 	string fileNames[numCubes]; 
 	
-	for(int i = 0; i < numCubes; i++)
-	{
+	for(int i = 0; i < numCubes; i++) {
 		int faceIterator = 0;
 		int faceCount = 0;
 
@@ -345,26 +343,22 @@ void PhotoAlbum::parseXML()
 		
 		faceCount = xCubeNode.nChildNode("face");
 		// loop through all of the faces
-		for(int j = 0; j < faceCount; j++)
-		{
+		for(int j = 0; j < faceCount; j++) {
 			XMLNode xFaceNode = xCubeNode.getChildNode("face", &faceIterator);
 			//cout << "Parsing face " << j + 1 << " on cube " << i + 1 << endl; //debug
 			//cout << "Filename: " << xFaceNode.getAttribute("image") << endl; //debug
-			if(j == 0)
-			{
+			if(j == 0) {
 				fileNames[i] = xFaceNode.getAttribute("image");
-				cout << "Parsing cube " << i + 1 << " with image \"" << fileNames[i] << "\"" << endl;
+				//cout << "Parsing cube " << i + 1 << " with image \"" << fileNames[i] << "\"" << endl;
 			}
 		}
 	}
 	
 	// populate the screen with rectangular prisms
-	for(double i = -3; i < 3; i++)
-	{
-		for(double j = -3; j < 3; j++)
-		{
+	for(double i = -3; i < 3; i++) {
+		for(double j = -3; j < 3; j++) {
 		
-			cout << "Adding square " << numOfPics << " at: " << i * squareDiameter + offset*i << ", " << j * squareDiameter + offset*j<< ", " << z << endl;
+			//cout << "Adding square " << numOfPics << " at: " << i * squareDiameter + offset*i << ", " << j * squareDiameter + offset*j<< ", " << z << endl;
 			
 			pics.push_back(new CompiledObject3D(new RectangularPrism( 
 					new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),

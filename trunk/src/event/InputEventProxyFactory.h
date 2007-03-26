@@ -8,16 +8,13 @@
 #include "keyboard/KeyboardStub.h"
 #include "mouse/Mouse.h"
 #include "mouse/MouseStub.h"
-#include "reshape/Reshape.h"
-#include "reshape/ReshapeSkeleton.h"
 #include "timer/Timer.h"
 #include "timer/TimerStub.h"
 
 namespace XOR {
 
 /**
- * Proxies only Keyboard and Mouse input. Does NOT listen to Timer or Reshape
- * events.
+ * Proxies only Keyboard and Mouse input. Does NOT listen to Timer
  *
  * @author John Magnotti, Michael Lam
  * @version 1.0
@@ -49,12 +46,6 @@ public:
 	 * Returns a multicast agnostic TimerSkeleton
      */
     Timer * getTimer();
-
-
-    /**
-	 * Returns a multicast agnostic ReshapeSkeleton
-     */
-    Reshape * getReshape();
 
 
 private:

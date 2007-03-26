@@ -43,13 +43,6 @@ Mouse * FullEventHandlerFactory::getMouse()
     return MouseSkeleton::GetInstance();
 }
 
-/*
- * returns a local, multicast agnostic ReshapeSkeleton
- */
-Reshape * FullEventHandlerFactory::getReshape()
-{
-    return ReshapeSkeleton::GetInstance();
-}
 
 /*
  * private constructor

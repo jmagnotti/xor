@@ -135,6 +135,8 @@ private:
 	Paint *		_paint;
 	Vector3D *	_baseVector;
 
+    static int _textureCoords[4];
+
 };
 
 }

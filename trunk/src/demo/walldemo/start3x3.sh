@@ -12,9 +12,11 @@ let "max_x = cols/2"
 let "max_y = rows/2"
 
 let "x=0"
-for i in `seq -$max_x 1 $max_x`; do
+#for i in `seq -$max_x 1 $max_x`; do
+for i in "-3 -2 -1 1 2 3"; do
 	let "y=($cols-1)*height"
-	for j in `seq -$max_y 1 $max_y`; do
+    for j in "-3 -2 -1 1 2 3"; do
+	#for j in `seq -$max_y 1 $max_y`; do
 		./WallDemo $i $j $width $height $x $y >/dev/null &
 		sleep 1
 		let "y=$y-$height"

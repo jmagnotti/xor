@@ -15,7 +15,7 @@ Object2D::~Object2D()
 void Object2D::push2DState()
 {
 	Dimension2D * windowSize =
-		Controller::GetInstance(NULL)->getViewer()->getWindowSize();
+		Controller::GetInstance()->getWindow()->getSize();
 
 	// Push back and cache the current state of pixel alignment.
 	glPushClientAttrib( GL_CLIENT_PIXEL_STORE_BIT );
@@ -37,17 +37,14 @@ void Object2D::push2DState()
 	glMatrixMode( GL_PROJECTION );
 	glPushMatrix();
 	glLoadIdentity();
-	glOrtho(0, (double)windowSize->getWidth(), 
-               (double)windowSize->getHeight(), 0, -1, 1);
+	glOrtho(0, (double) windowSize->getWidth(), 
+               (double) windowSize->getHeight(), 0, -1, 1);
 
 	glMatrixMode( GL_MODELVIEW );
 	glPushMatrix();
 	glLoadIdentity();
 
-	delete windowSize;
-    
 }
-
 
 void Object2D::render()
 {

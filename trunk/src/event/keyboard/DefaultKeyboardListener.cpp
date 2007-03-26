@@ -3,8 +3,7 @@
 namespace XOR {
 
 // set the static instance to 0
-DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener =
-    NULL;
+DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener = NULL;
 
 
 /* 
@@ -198,36 +197,35 @@ void DefaultKeyboardListener::handleKey(KeyEvent * ke)
 void DefaultKeyboardListener::handleKey_w()
 {
 	//FIXME
-	Controller::GetInstance(NULL)->getViewer()->walk(0.5f, new
+	Controller::GetInstance()->getCamera()->walk(0.5f, new
 			TimedInterpolation(1000,NULL));
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
 	//FIXME
-	Controller::GetInstance(NULL)->getViewer()->walk(-0.5f, new
-			TimedInterpolation(1000, NULL));
+	Controller::GetInstance()->getCamera()->walk(-0.5f, new TimedInterpolation(1000, NULL));
 }
 
 /*
 void DefaultKeyboardListener::handleKey_q()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(2, 5.0f);
+	Controller::GetInstance()->getCamera()->incrementRotation(2, 5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_e()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(2, -5.0f);
+	Controller::GetInstance()->getCamera()->incrementRotation(2, -5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_a()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(0, -10.0f);
+	Controller::GetInstance()->getCamera()->incrementRotation(0, -10.0f);
 }
 
 void DefaultKeyboardListener::handleKey_d()
 {
-	Controller::GetInstance()->getViewer()->incrementRotation(0, 10.0f);
+	Controller::GetInstance()->getCamera()->incrementRotation(0, 10.0f);
 }
 */
 
@@ -235,7 +233,7 @@ void DefaultKeyboardListener::handleKey_F()
 {
     cout << "Toggle Full Screen" << endl;
 	//FIXME
-	Controller::GetInstance(NULL)->getViewer()->toggleFullScreen();
+	Controller::GetInstance()->getCamera()->toggleFullScreen();
 }
 
 

@@ -49,6 +49,12 @@ public:
     int getWidth();
 
 
+    /**
+     * Returns a reference to the Dimension representing the new size of the window
+     */
+    Dimension2D * getSize() const;
+
+
 private:
 
     ReshapeEvent();

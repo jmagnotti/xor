@@ -5,7 +5,6 @@
 #include "../event/timer/Timer.h"
 #include "../event/timer/TimerListener.h"
 #include "../core/Controller.h"
-#include "../core/Viewer.h"
 #include "../shape/String2D.h"
 #include "../shape/Point3D.h"
 

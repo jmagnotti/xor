@@ -5,7 +5,7 @@
 #include "keyboard/Keyboard.h"
 #include "mouse/Mouse.h"
 #include "timer/Timer.h"
-#include "reshape/Reshape.h"
+
 
 namespace XOR {
 
@@ -35,12 +35,6 @@ public:
     /**
      */
     virtual Timer * getTimer()=0;
-
-
-    /**
-     */
-    virtual Reshape * getReshape()=0;
-
 
 };
 

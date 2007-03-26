@@ -3,6 +3,7 @@
 
 namespace XOR {
 
+	int Quadrilateral3D::_textureCoords [4] = {1, 0, 3, 2};
 /*
  * find the relative weightings for each extent of each vertex
  */
@@ -158,11 +159,10 @@ void Quadrilateral3D::renderObject()
     //if(isLit())  
         //glNormal3fv(_normals[i]->toArray());
 
-	int texCoords[4] = {2, 3, 0, 1};
 
     glBegin(GL_QUADS);
         for(int i=0; i<4; i++) {
-            _paint->activateTextureAtPosition(_vertexTextureWeights[texCoords[i]]);
+            _paint->activateTextureAtPosition(_vertexTextureWeights[_textureCoords[i]]);
             _paint->activateColorAtPosition(_vertexColorWeights[i]);
             glVertex3fv(_vertices[i]->toArray()); 
         }

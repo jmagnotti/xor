@@ -69,7 +69,7 @@ void FramesPerSecondCounter::setLabel(String2D * text)
 void FramesPerSecondCounter::handleTick()
 {
     // callback to the timer to get some info beyond just the tick event
-    Timer * timer = Controller::GetInstance(NULL)->getTimer();
+    Timer * timer = Controller::GetInstance()->getTimer();
 
     char s [50];
     _frameCounter++;
@@ -88,8 +88,8 @@ void FramesPerSecondCounter::handleTick()
             _displayText->render();
         }
         else if (_displayMode == TITLE_BAR) {
-            Controller::GetInstance(NULL)->getViewer()->setWindowTitle(
-                                        _displayText->getText());
+            Controller::GetInstance()->getWindow()->setTitle(
+                    _displayText->getText());
         }
 
         _lastTimeUpdate = time;
