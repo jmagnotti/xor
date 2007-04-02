@@ -80,6 +80,7 @@ void ExtrudedNormalPolygon3D::renderObject()
     glColor3f(.8f,.8f,.8f);
 
     glBegin(GL_QUAD_STRIP);
+
         for(int i=0; i<_vertices.size(); i++)
             glVertex3fv(_vertices[i]->toArray());    
 

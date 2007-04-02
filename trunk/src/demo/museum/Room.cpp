@@ -23,7 +23,7 @@ Room::Room(RectangularPrism * prism)
 Room::Room(RectangularVolume * volume)
 {
     _entranceWay = new Object3DCollection();
-    _renderable = new RectangularPrism(volume);
+    _renderable  = new RectangularPrism(volume);
 }
 
 
@@ -60,6 +60,15 @@ void Room::extractDoor(const int face)
 
 
 /*
+ * rem the wall
+ */
+void Room::removeWall(const int face)
+{
+    _renderable->removeFace(face);
+}
+
+
+/*
  * Does special stuff with rendering so it can make doorways.
  */
 void Room::renderObject(void)
@@ -81,7 +90,7 @@ void Room::setPaint(Paint * paint)
 /*
  * Delegates to the underlying AdornablePrism.
  */
-void Room::setWallDecoration(Object3D * rend, int wall)
+void Room::setWallDecoration(Object3D * rend, const int wall)
 {
     //_renderable->setAdornment(rend, wall);
 }

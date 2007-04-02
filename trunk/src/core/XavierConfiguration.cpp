@@ -38,7 +38,7 @@ Dimension2D * XavierConfiguration::getWindowSize() const
 
 int XavierConfiguration::getColorDepth()
 {
-    return 16;
+    return 32;
 }
 
 Uint32 XavierConfiguration::getVideoFlags()

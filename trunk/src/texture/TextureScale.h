@@ -30,7 +30,7 @@ public:
      */
     static const int X_AND_Y = 0;
     static const int X_AND_Z = 1;
-    static const int Y_AND_Z = 2;
+    static const int Z_AND_Y = 2;
 
 
     /**

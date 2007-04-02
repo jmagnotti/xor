@@ -53,11 +53,11 @@ void Quadrilateral3D::buildWeights()
                 }
                 break;
 
-            case TextureScale::Y_AND_Z:
+            case TextureScale::Z_AND_Y:
                 for (int i=0; i<4; i++) {
                     _vertexTextureWeights[i] = new Vector2D( 
-                            _textureScale->scaleU(_vertices[i]->getY()),
-                            _textureScale->scaleV(_vertices[i]->getZ()));
+                            _textureScale->scaleU(_vertices[i]->getZ()),
+                            _textureScale->scaleV(_vertices[i]->getY()));
                 }
                 break;
         }    

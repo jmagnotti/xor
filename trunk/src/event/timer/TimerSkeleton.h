@@ -2,7 +2,8 @@
 #define TIMERSKELETON_H
 
 
-#include "../../../include/SDL_thread.h"
+#include <SDL/SDL_thread.h>
+
 #include "../../multicast/MulticastSocket.h"
 #include "../../multicast/MulticastSocketPool.h"
 #include "../../core/Controller.h"

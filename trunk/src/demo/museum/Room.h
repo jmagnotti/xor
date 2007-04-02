@@ -2,7 +2,7 @@
 #define ROOM_H
 
 
-#include <vector>
+#include <list>
 #include "../../xor.h"
 
 #include "DoorExtracter.h"
@@ -57,6 +57,15 @@ public:
     void extractDoor(const int face);
 
 
+    /**
+     * Remove a wall from the room
+     *
+     * @param face  The wall to create a door on. Valid constants are defined
+     *              in RectangularPrism.h
+     */
+    void removeWall(const int face);
+
+
     /*
      * returns a clone of the current paint object
      */
@@ -67,7 +76,7 @@ public:
 	 * For now this is going to be used to put "paintings" on a wall
 	 * You specify the Renderable and the wall to put it on.
 	 */
-	void setWallDecoration(Object3D *, int);
+	void setWallDecoration(Object3D *, const int);
 
 
 	Dimension3D * getDimension();
@@ -82,12 +91,11 @@ private:
 	 */
 	Room();
 
-	vector<Object3D*>	 _decorations;
+	list<Object3D*>	 _decorations;
 	Object3DCollection * _entranceWay;
 
 	Paint *	_paint;
 	RectangularPrism * _renderable;
-
 		
 };
 

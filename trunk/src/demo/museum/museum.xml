@@ -1,0 +1,29 @@
+<comment>All multiple value attributes are separated by spaces. Currently this
+format is all that the parsers support</comment>
+
+<museum>
+
+    <floor origin="0 0 0" size="40 0 20" name="Ground" level="1" floor_texture="redWool.png" ceiling_texture="spackle.png">
+
+        <room origin="0 0 0" size="10 6 10" texture="wood.png"> 
+            <door location="FRONT" /> <door location="REAR" />
+            <door location="RIGHT" /> <door location="LEFT" />
+        </room>
+
+        <room origin="10.01 0 0" size="10 6 10" texture="wood.png">
+            <door location="FRONT" /> <door location="REAR" />
+            <door location="RIGHT" /> <door location="LEFT" />
+        </room>
+
+        <room origin="20.02 0 0" size="10 6 10" texture="wood.png"> 
+            <door location="FRONT" /> <door location="REAR" />
+            <door location="RIGHT" /> <door location="LEFT" />
+        </room>
+
+        <room origin="30.03 0 0" size="10 6 10" texture="wood.png">
+            <door location="FRONT" /> <door location="REAR" />
+            <door location="RIGHT" /> <door location="LEFT" />
+        </room>
+	</floor>
+</museum>
+

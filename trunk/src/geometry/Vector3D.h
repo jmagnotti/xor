@@ -3,6 +3,8 @@
 
 
 #include <string>
+#include <stdlib.h>
+#include <iostream>
 
 
 using namespace std;
@@ -40,10 +42,17 @@ public:
 	 */
 	Vector3D(float x, float y, float z);
 
+
 	/**
 	 * Creates a 3D vector with specific values for each dimension.
 	 */
-    Vector3D(float points [3]);
+    Vector3D(float points[3]);
+
+
+    /**
+     * String constructor. space separated
+     */
+    Vector3D(char * vals);
 
 	
 	/**

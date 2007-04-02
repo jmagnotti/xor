@@ -2,7 +2,7 @@
 #define RESHAPEEVENT_H
 
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 #include "../../geometry/Dimension2D.h"
 
 

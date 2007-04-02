@@ -58,11 +58,11 @@ public:
 
         ctrl->setModel(new String2D("Car Race Demo"));
 
-		ctrl->getViewer()->incrementTranslation(new Vector3D(100,100,100));
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->incrementTranslation(new Vector3D(100,100,100));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 
 #ifdef __ppc__
-        ctrl->getViewer()->setCoordinateSystem(
+        ctrl->getCamera()->setCoordinateSystem(
             CoordinateSystemFactory::GetCoordinateSystem(
             CoordinateSystemFactory::MAC_COORDINATE_SYSTEM));
 #endif
@@ -88,28 +88,28 @@ public:
 		car1 = new Car();
 		track1->initialize(car1);
 		ctrl->getModel()->addObject("car1", car1);
-		//track1->initialize(ctrl->getViewer());
+		//track1->initialize(ctrl->getCamera());
 
         ctrl->run();
 	}
 
-	void handleKey_p() { ctrl->getViewer()->printWaypoint(); }
+	void handleKey_p() { ctrl->getCamera()->printWaypoint(); }
 
-	void handleKey_a() { ctrl->getViewer()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_d() { ctrl->getViewer()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_w() { ctrl->getViewer()->walk( 0.11f, new TimedInterpolation(300,NULL)); }
-	void handleKey_s() { ctrl->getViewer()->walk(-0.11f, new TimedInterpolation(300,NULL)); }
-	void handleKey_q() { ctrl->getViewer()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_e() { ctrl->getViewer()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_c() { ctrl->getViewer()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_z() { ctrl->getViewer()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_a() { ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_d() { ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_w() { ctrl->getCamera()->walk( 0.11f, new TimedInterpolation(300,NULL)); }
+	void handleKey_s() { ctrl->getCamera()->walk(-0.11f, new TimedInterpolation(300,NULL)); }
+	void handleKey_q() { ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_e() { ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_c() { ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL)); }
+	void handleKey_z() { ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL)); }
 
 	void handleKey_k()
 	{
 		cout << "handling..." << endl;
 		track1->apply(car1);
-		//track1->apply(ctrl->getViewer());
-		//ctrl->getViewer()->incrementRotation(Orientation::ROLL, 1020.0f, new TimedInterpolation(6000, NULL));
+		//track1->apply(ctrl->getCamera());
+		//ctrl->getCamera()->incrementRotation(Orientation::ROLL, 1020.0f, new TimedInterpolation(6000, NULL));
 		//car1->incrementRotation(Orientation::ROLL, 1020.0f, new TimedInterpolation(6000, NULL));
 	}
 	
@@ -122,9 +122,9 @@ public:
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}

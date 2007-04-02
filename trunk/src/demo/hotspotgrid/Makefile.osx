@@ -34,18 +34,14 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-HotspotGrid.o: HotspotGrid.h ../../xor.h ../../core/Controller.h
-HotspotGrid.o: /usr/include/stdlib.h /usr/include/sys/cdefs.h
-HotspotGrid.o: /usr/include/_types.h /usr/include/sys/_types.h
-HotspotGrid.o: /usr/include/machine/_types.h /usr/include/sys/wait.h
-HotspotGrid.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
-HotspotGrid.o: /usr/include/machine/signal.h /usr/include/sys/resource.h
-HotspotGrid.o: /usr/include/machine/endian.h /usr/include/alloca.h
-HotspotGrid.o: /usr/include/machine/types.h ../../../include/SDL.h
-HotspotGrid.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-HotspotGrid.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-HotspotGrid.o: ../../../include/begin_code.h ../../../include/close_code.h
-HotspotGrid.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+HotspotGrid.o: HotspotGrid.h ../../xor.h ../../core/Camera.h
+HotspotGrid.o: ../../../include/SDL.h ../../../include/SDL_main.h
+HotspotGrid.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+HotspotGrid.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+HotspotGrid.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+HotspotGrid.o: /usr/include/stdio.h /usr/include/_types.h
+HotspotGrid.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+HotspotGrid.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
 HotspotGrid.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
 HotspotGrid.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
 HotspotGrid.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
@@ -53,11 +49,52 @@ HotspotGrid.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
 HotspotGrid.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
 HotspotGrid.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
 HotspotGrid.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
-HotspotGrid.o: ../../event/EventHandlerFactory.h
+HotspotGrid.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+HotspotGrid.o: ../../core/World.h /usr/include/stdlib.h
+HotspotGrid.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+HotspotGrid.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+HotspotGrid.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+HotspotGrid.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+HotspotGrid.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+HotspotGrid.o: /usr/include/libkern/OSByteOrder.h
+HotspotGrid.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+HotspotGrid.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+HotspotGrid.o: ../../shape/Renderable.h ../../shape/Object3D.h
+HotspotGrid.o: ../../transform/Transformable.h ../../transform/Transform.h
+HotspotGrid.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+HotspotGrid.o: ../../interpolation/InterpolationEngine.h
+HotspotGrid.o: ../../interpolation/InterpolationListener.h
+HotspotGrid.o: ../../interpolation/Interpolator.h
+HotspotGrid.o: ../../interpolation/InterpolatorFactory.h
+HotspotGrid.o: ../../interpolation/LinearInterpolator.h
+HotspotGrid.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+HotspotGrid.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+HotspotGrid.o: ../../transform/Translate.h ../../transform/Rotate.h
+HotspotGrid.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+HotspotGrid.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+HotspotGrid.o: ../../paint/Paint.h /usr/include/string.h
+HotspotGrid.o: ../../texture/Texture.h ../../../include/SDL_image.h
+HotspotGrid.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+HotspotGrid.o: ../../paint/Color.h ../../shape/Renderable.h
+HotspotGrid.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+HotspotGrid.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+HotspotGrid.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+HotspotGrid.o: ../../core/CameraListener.h ../../paint/Color.h
+HotspotGrid.o: ../../transform/CoordinateSystem.h
+HotspotGrid.o: ../../transform/CoordinateSystemFactory.h
+HotspotGrid.o: ../../transform/CoordinateSystem.h
+HotspotGrid.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/MacCoordinateSystem.h
+HotspotGrid.o: ../../transform/MathCoordinateSystem.h
+HotspotGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotGrid.o: ../../transform/EngineerCoordinateSystem.h
+HotspotGrid.o: ../../event/timer/TimerListener.h
+HotspotGrid.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+HotspotGrid.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
 HotspotGrid.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 HotspotGrid.o: ../../event/keyboard/KeyboardListener.h
-HotspotGrid.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
-HotspotGrid.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+HotspotGrid.o: ../../event/keyboard/KeyEvent.h
+HotspotGrid.o: ../../event/keyboard/KeyEventFactory.h
 HotspotGrid.o: ../../event/keyboard/KeyDownEvent.h
 HotspotGrid.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 HotspotGrid.o: ../../event/mouse/MouseListener.h
@@ -68,75 +105,44 @@ HotspotGrid.o: ../../event/mouse/MouseClickEvent.h
 HotspotGrid.o: ../../event/mouse/MouseButtonUp.h
 HotspotGrid.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
 HotspotGrid.o: ../../event/timer/TimerListener.h
-HotspotGrid.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
-HotspotGrid.o: ../../geometry/Dimension.h ../../event/reshape/ReshapeEvent.h
-HotspotGrid.o: ../../event/reshape/ReshapeListener.h
 HotspotGrid.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-HotspotGrid.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
-HotspotGrid.o: ../../core/World.h ../../shape/Object3D.h
-HotspotGrid.o: ../../transform/Transformable.h ../../../include/SDL_opengl.h
-HotspotGrid.o: /usr/include/stddef.h ../../transform/Transform.h
-HotspotGrid.o: ../../transform/Scale.h ../../geometry/Vector3D.h
-HotspotGrid.o: ../../interpolation/InterpolationEngine.h
-HotspotGrid.o: ../../interpolation/InterpolationListener.h
-HotspotGrid.o: ../../interpolation/Interpolator.h
-HotspotGrid.o: ../../interpolation/InterpolatorFactory.h
-HotspotGrid.o: ../../interpolation/LinearInterpolator.h
-HotspotGrid.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-HotspotGrid.o: ../../transform/Stretch.h ../../transform/Translate.h
-HotspotGrid.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
-HotspotGrid.o: ../../paint/Paint.h ../../texture/Texture.h
-HotspotGrid.o: ../../../include/SDL_image.h ../../../include/SDL.h
-HotspotGrid.o: ../../paint/Color.h ../../shape/Renderable.h
-HotspotGrid.o: ../../shape/Point3D.h ../../shape/Object3D.h
-HotspotGrid.o: ../../shape/Renderable.h ../../core/Viewer.h
-HotspotGrid.o: ../../paint/Color.h ../../geometry/Dimension2D.h
-HotspotGrid.o: ../../transform/CoordinateSystem.h
-HotspotGrid.o: ../../transform/CoordinateSystemFactory.h
-HotspotGrid.o: ../../transform/CoordinateSystem.h
-HotspotGrid.o: ../../transform/OpenGLCoordinateSystem.h
-HotspotGrid.o: ../../transform/MacCoordinateSystem.h
-HotspotGrid.o: ../../transform/MathCoordinateSystem.h
-HotspotGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
-HotspotGrid.o: ../../transform/EngineerCoordinateSystem.h
-HotspotGrid.o: ../../event/timer/TimerListener.h
-HotspotGrid.o: ../../event/reshape/ReshapeListener.h
-HotspotGrid.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
-HotspotGrid.o: ../../core/Controller.h ../../core/Viewer.h ../../core/World.h
+HotspotGrid.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+HotspotGrid.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+HotspotGrid.o: ../../event/InputEventProxyFactory.h
 HotspotGrid.o: ../../event/EventHandlerFactory.h
-HotspotGrid.o: ../../event/FullEventHandlerFactory.h
-HotspotGrid.o: ../../event/EventHandlerFactory.h
-HotspotGrid.o: ../../event/reshape/ReshapeSkeleton.h
-HotspotGrid.o: ../../event/reshape/Reshape.h
-HotspotGrid.o: ../../event/keyboard/KeyboardSkeleton.h
-HotspotGrid.o: ../../../include/SDL_thread.h
+HotspotGrid.o: ../../event/keyboard/KeyboardStub.h
 HotspotGrid.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 HotspotGrid.o: /usr/include/sys/types.h /usr/include/sys/socket.h
-HotspotGrid.o: /usr/include/machine/param.h /usr/include/netinet/in.h
-HotspotGrid.o: /usr/include/sys/_endian.h /usr/include/stdint.h
-HotspotGrid.o: /usr/include/libkern/OSByteOrder.h
-HotspotGrid.o: /usr/include/libkern/machine/OSByteOrder.h
-HotspotGrid.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
-HotspotGrid.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
-HotspotGrid.o: /usr/include/limits.h /usr/include/machine/limits.h
-HotspotGrid.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-HotspotGrid.o: /usr/include/sys/select.h /usr/include/sys/signal.h
-HotspotGrid.o: /usr/include/sys/time.h /usr/include/sys/time.h
+HotspotGrid.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+HotspotGrid.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+HotspotGrid.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+HotspotGrid.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+HotspotGrid.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+HotspotGrid.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+HotspotGrid.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+HotspotGrid.o: /usr/include/signal.h /usr/include/sys/time.h
+HotspotGrid.o: /usr/include/time.h /usr/include/machine/_limits.h
 HotspotGrid.o: ../../multicast/MulticastSocketPool.h
 HotspotGrid.o: ../../multicast/MulticastSocket.h
-HotspotGrid.o: ../../event/keyboard/Keyboard.h
-HotspotGrid.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
-HotspotGrid.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+HotspotGrid.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+HotspotGrid.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+HotspotGrid.o: ../../event/timer/Timer.h ../../core/Camera.h
+HotspotGrid.o: ../../core/DebugCamera.h ../../core/Controller.h
+HotspotGrid.o: ../../core/Window.h ../../core/World.h
+HotspotGrid.o: ../../core/XavierConfiguration.h
+HotspotGrid.o: ../../event/EventHandlerFactory.h
+HotspotGrid.o: ../../event/FullEventHandlerFactory.h
+HotspotGrid.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotGrid.o: ../../../include/SDL_thread.h
+HotspotGrid.o: ../../event/mouse/MouseSkeleton.h
+HotspotGrid.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 HotspotGrid.o: ../../event/FullEventProxyFactory.h
-HotspotGrid.o: ../../event/keyboard/KeyboardStub.h
-HotspotGrid.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
 HotspotGrid.o: ../../event/InputEventHandlerFactory.h
 HotspotGrid.o: ../../event/InputEventProxyFactory.h
 HotspotGrid.o: ../../event/keyboard/DefaultKeyboardListener.h
 HotspotGrid.o: ../../interpolation/TimedInterpolation.h
 HotspotGrid.o: ../../core/Controller.h
-HotspotGrid.o: ../../interpolation/InterpolationEngine.h
-HotspotGrid.o: ../../core/Controller.h ../../core/World.h
+HotspotGrid.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 HotspotGrid.o: ../../event/keyboard/Keyboard.h
 HotspotGrid.o: ../../event/keyboard/KeyboardListener.h
 HotspotGrid.o: ../../event/keyboard/KeyboardSkeleton.h
@@ -157,11 +163,11 @@ HotspotGrid.o: ../../event/mouse/MouseEventFactory.h
 HotspotGrid.o: ../../event/mouse/MouseListener.h
 HotspotGrid.o: ../../event/mouse/MouseMotionEvent.h
 HotspotGrid.o: ../../event/mouse/MouseSkeleton.h
-HotspotGrid.o: ../../event/mouse/MouseStub.h ../../event/reshape/Reshape.h
+HotspotGrid.o: ../../event/mouse/MouseStub.h
 HotspotGrid.o: ../../event/reshape/ReshapeEvent.h
 HotspotGrid.o: ../../event/reshape/ReshapeListener.h
-HotspotGrid.o: ../../event/reshape/ReshapeSkeleton.h
-HotspotGrid.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+HotspotGrid.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+HotspotGrid.o: ../../event/timer/TimerListener.h
 HotspotGrid.o: ../../event/timer/TimerSkeleton.h
 HotspotGrid.o: ../../event/timer/TimerStub.h
 HotspotGrid.o: ../../geometry/CylindricalVolume.h
@@ -169,7 +175,7 @@ HotspotGrid.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
 HotspotGrid.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
 HotspotGrid.o: ../../geometry/Dimension3D.h
 HotspotGrid.o: ../../geometry/RectangularVolume.h
-HotspotGrid.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+HotspotGrid.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
 HotspotGrid.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
 HotspotGrid.o: ../../interpolation/ContinuousInterpolation.h
 HotspotGrid.o: ../../interpolation/TimedInterpolation.h
@@ -179,30 +185,35 @@ HotspotGrid.o: ../../interpolation/Interpolator.h
 HotspotGrid.o: ../../interpolation/InterpolatorFactory.h
 HotspotGrid.o: ../../interpolation/LinearInterpolator.h
 HotspotGrid.o: ../../interpolation/TimedInterpolation.h
-HotspotGrid.o: ../../model/MilkshapeModel.h ../../model/Model.h
-HotspotGrid.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-HotspotGrid.o: ../../model/Model.h ../../model/ModelFactory.h
-HotspotGrid.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
-HotspotGrid.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
-HotspotGrid.o: ../../multicast/MulticastSocket.h
+HotspotGrid.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+HotspotGrid.o: ../../interpolation/WaypointCollection.h
+HotspotGrid.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+HotspotGrid.o: ../../model/Model.h ../../texture/TextureFactory.h
+HotspotGrid.o: ../../texture/Texture.h ../../model/Model.h
+HotspotGrid.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+HotspotGrid.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+HotspotGrid.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
 HotspotGrid.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 HotspotGrid.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 HotspotGrid.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
-HotspotGrid.o: ../../shape/Quadrilateral3D.h
+HotspotGrid.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
 HotspotGrid.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 HotspotGrid.o: ../../shape/CollisionRenderable.h
 HotspotGrid.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
 HotspotGrid.o: ../../shape/ExtrudedNormalPolygon3D.h
-HotspotGrid.o: ../../shape/NormalPolygon3D.h ../../shape/Line.h
-HotspotGrid.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-HotspotGrid.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HotspotGrid.o: ../../shape/Point.h ../../shape/Point2D.h
-HotspotGrid.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-HotspotGrid.o: ../../shape/RectangularPrism.h
+HotspotGrid.o: ../../shape/NormalPolygon3D.h
+HotspotGrid.o: ../../shape/NoDepthTestQuadrilateral3D.h
+HotspotGrid.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+HotspotGrid.o: ../../core/Window.h ../../shape/Object3D.h
+HotspotGrid.o: ../../shape/Object3DCollection.h
+HotspotGrid.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+HotspotGrid.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+HotspotGrid.o: ../../shape/Point2D.h ../../shape/Point3D.h
+HotspotGrid.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+HotspotGrid.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 HotspotGrid.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
 HotspotGrid.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-HotspotGrid.o: ../../util/BitmapFontConstants.h ../../core/Viewer.h
-HotspotGrid.o: ../../shape/Triangle3D.h
+HotspotGrid.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
 HotspotGrid.o: ../../terrain/FunctionHeightFieldStrategy.h
 HotspotGrid.o: ../../terrain/HeightFieldStrategy.h
 HotspotGrid.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
@@ -212,6 +223,7 @@ HotspotGrid.o: ../../terrain/ImageHeightFieldStrategy.h
 HotspotGrid.o: ../../terrain/MatrixHeightFieldStrategy.h
 HotspotGrid.o: ../../terrain/NullHeightFieldStrategy.h
 HotspotGrid.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+HotspotGrid.o: ../../texture/TextureScale.h
 HotspotGrid.o: ../../transform/CoordinateSystem.h
 HotspotGrid.o: ../../transform/CoordinateSystemFactory.h
 HotspotGrid.o: ../../transform/EngineerCoordinateSystem.h
@@ -219,9 +231,9 @@ HotspotGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HotspotGrid.o: ../../transform/MacCoordinateSystem.h
 HotspotGrid.o: ../../transform/MathCoordinateSystem.h
 HotspotGrid.o: ../../transform/OpenGLCoordinateSystem.h
-HotspotGrid.o: ../../transform/Rotate.h ../../transform/Scale.h
-HotspotGrid.o: ../../transform/Stretch.h ../../transform/Transform.h
-HotspotGrid.o: ../../transform/Transformable.h
+HotspotGrid.o: ../../transform/Orientation.h ../../transform/Rotate.h
+HotspotGrid.o: ../../transform/Scale.h ../../transform/Stretch.h
+HotspotGrid.o: ../../transform/Transform.h ../../transform/Transformable.h
 HotspotGrid.o: ../../transform/TransformFactory.h ../../transform/Translate.h
 HotspotGrid.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HotspotGrid.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
@@ -229,20 +241,17 @@ HotspotGrid.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
 HotspotGrid.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
 HotspotGrid.o: ../../util/xmlParser.h /usr/include/wchar.h
 HotspotGrid.o: /usr/include/stdarg.h /usr/include/_wctype.h
-HotspotGrid.o: /usr/include/ctype.h /usr/include/runetype.h
-HotspotDriver.o: ../../xor.h ../../core/Controller.h /usr/include/stdlib.h
-HotspotDriver.o: /usr/include/sys/cdefs.h /usr/include/_types.h
-HotspotDriver.o: /usr/include/sys/_types.h /usr/include/machine/_types.h
-HotspotDriver.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
-HotspotDriver.o: /usr/include/sys/appleapiopts.h
-HotspotDriver.o: /usr/include/machine/signal.h /usr/include/sys/resource.h
-HotspotDriver.o: /usr/include/machine/endian.h /usr/include/alloca.h
-HotspotDriver.o: /usr/include/machine/types.h ../../../include/SDL.h
+HotspotGrid.o: /usr/include/ctype.h /usr/include/runetype.h Action.h
+HotspotGrid.o: ActionItem.h Icon2D.h RectangularHull.h
+HotspotDriver.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
 HotspotDriver.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
 HotspotDriver.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
 HotspotDriver.o: ../../../include/begin_code.h ../../../include/close_code.h
 HotspotDriver.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
-HotspotDriver.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+HotspotDriver.o: /usr/include/_types.h /usr/include/sys/_types.h
+HotspotDriver.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+HotspotDriver.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
+HotspotDriver.o: ../../../include/SDL_audio.h
 HotspotDriver.o: ../../../include/SDL_byteorder.h
 HotspotDriver.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
 HotspotDriver.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
@@ -250,12 +259,55 @@ HotspotDriver.o: ../../../include/SDL_keyboard.h
 HotspotDriver.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
 HotspotDriver.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
 HotspotDriver.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+HotspotDriver.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+HotspotDriver.o: ../../core/World.h /usr/include/stdlib.h
+HotspotDriver.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+HotspotDriver.o: /usr/include/sys/appleapiopts.h
+HotspotDriver.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+HotspotDriver.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+HotspotDriver.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+HotspotDriver.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+HotspotDriver.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+HotspotDriver.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+HotspotDriver.o: ../../shape/Renderable.h ../../shape/Object3D.h
+HotspotDriver.o: ../../transform/Transformable.h ../../transform/Transform.h
+HotspotDriver.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+HotspotDriver.o: ../../interpolation/InterpolationEngine.h
+HotspotDriver.o: ../../interpolation/InterpolationListener.h
+HotspotDriver.o: ../../interpolation/Interpolator.h
+HotspotDriver.o: ../../interpolation/InterpolatorFactory.h
+HotspotDriver.o: ../../interpolation/LinearInterpolator.h
+HotspotDriver.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+HotspotDriver.o: /usr/include/architecture/ppc/math.h
+HotspotDriver.o: ../../transform/Stretch.h ../../transform/Translate.h
+HotspotDriver.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+HotspotDriver.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+HotspotDriver.o: ../../transform/Orientation.h ../../paint/Paint.h
+HotspotDriver.o: /usr/include/string.h ../../texture/Texture.h
+HotspotDriver.o: ../../../include/SDL_image.h ../../../include/SDL.h
+HotspotDriver.o: ../../geometry/Vector2D.h ../../paint/Color.h
+HotspotDriver.o: ../../shape/Renderable.h ../../core/Window.h
+HotspotDriver.o: ../../event/reshape/ReshapeListener.h
+HotspotDriver.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+HotspotDriver.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+HotspotDriver.o: ../../core/CameraListener.h ../../paint/Color.h
+HotspotDriver.o: ../../transform/CoordinateSystem.h
+HotspotDriver.o: ../../transform/CoordinateSystemFactory.h
+HotspotDriver.o: ../../transform/CoordinateSystem.h
+HotspotDriver.o: ../../transform/OpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/MacCoordinateSystem.h
+HotspotDriver.o: ../../transform/MathCoordinateSystem.h
+HotspotDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HotspotDriver.o: ../../transform/EngineerCoordinateSystem.h
+HotspotDriver.o: ../../event/timer/TimerListener.h
+HotspotDriver.o: ../../event/reshape/ReshapeEvent.h
+HotspotDriver.o: ../../core/CameraListener.h ../../core/Controller.h
 HotspotDriver.o: ../../event/EventHandlerFactory.h
 HotspotDriver.o: ../../event/keyboard/Keyboard.h
 HotspotDriver.o: ../../../include/SDL_events.h
 HotspotDriver.o: ../../event/keyboard/KeyboardListener.h
-HotspotDriver.o: ../../event/keyboard/KeyEvent.h ../../../include/SDL.h
-HotspotDriver.o: /usr/include/string.h ../../event/keyboard/KeyEventFactory.h
+HotspotDriver.o: ../../event/keyboard/KeyEvent.h
+HotspotDriver.o: ../../event/keyboard/KeyEventFactory.h
 HotspotDriver.o: ../../event/keyboard/KeyDownEvent.h
 HotspotDriver.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
 HotspotDriver.o: ../../event/mouse/MouseListener.h
@@ -266,77 +318,45 @@ HotspotDriver.o: ../../event/mouse/MouseClickEvent.h
 HotspotDriver.o: ../../event/mouse/MouseButtonUp.h
 HotspotDriver.o: ../../event/mouse/MouseMotionEvent.h
 HotspotDriver.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
-HotspotDriver.o: ../../event/reshape/Reshape.h ../../geometry/Dimension2D.h
-HotspotDriver.o: ../../geometry/Dimension.h
-HotspotDriver.o: ../../event/reshape/ReshapeEvent.h
-HotspotDriver.o: ../../event/reshape/ReshapeListener.h
 HotspotDriver.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
-HotspotDriver.o: ../../event/timer/Timer.h ../../event/reshape/Reshape.h
-HotspotDriver.o: ../../core/World.h ../../shape/Object3D.h
-HotspotDriver.o: ../../transform/Transformable.h
-HotspotDriver.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
-HotspotDriver.o: ../../transform/Transform.h ../../transform/Scale.h
-HotspotDriver.o: ../../geometry/Vector3D.h
-HotspotDriver.o: ../../interpolation/InterpolationEngine.h
-HotspotDriver.o: ../../interpolation/InterpolationListener.h
-HotspotDriver.o: ../../interpolation/Interpolator.h
-HotspotDriver.o: ../../interpolation/InterpolatorFactory.h
-HotspotDriver.o: ../../interpolation/LinearInterpolator.h
-HotspotDriver.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-HotspotDriver.o: ../../transform/Stretch.h ../../transform/Translate.h
-HotspotDriver.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
-HotspotDriver.o: ../../paint/Paint.h ../../texture/Texture.h
-HotspotDriver.o: ../../../include/SDL_image.h ../../../include/SDL.h
-HotspotDriver.o: ../../paint/Color.h ../../shape/Renderable.h
-HotspotDriver.o: ../../shape/Point3D.h ../../shape/Object3D.h
-HotspotDriver.o: ../../shape/Renderable.h ../../core/Viewer.h
-HotspotDriver.o: ../../paint/Color.h ../../geometry/Dimension2D.h
-HotspotDriver.o: ../../transform/CoordinateSystem.h
-HotspotDriver.o: ../../transform/CoordinateSystemFactory.h
-HotspotDriver.o: ../../transform/CoordinateSystem.h
-HotspotDriver.o: ../../transform/OpenGLCoordinateSystem.h
-HotspotDriver.o: ../../transform/MacCoordinateSystem.h
-HotspotDriver.o: ../../transform/MathCoordinateSystem.h
-HotspotDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
-HotspotDriver.o: ../../transform/EngineerCoordinateSystem.h
-HotspotDriver.o: ../../event/timer/TimerListener.h
-HotspotDriver.o: ../../event/reshape/ReshapeListener.h
-HotspotDriver.o: ../../event/reshape/ReshapeEvent.h ../../core/DebugViewer.h
-HotspotDriver.o: ../../core/Controller.h ../../core/Viewer.h
-HotspotDriver.o: ../../core/World.h ../../event/EventHandlerFactory.h
-HotspotDriver.o: ../../event/FullEventHandlerFactory.h
+HotspotDriver.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+HotspotDriver.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+HotspotDriver.o: ../../event/InputEventProxyFactory.h
 HotspotDriver.o: ../../event/EventHandlerFactory.h
-HotspotDriver.o: ../../event/reshape/ReshapeSkeleton.h
-HotspotDriver.o: ../../event/reshape/Reshape.h
-HotspotDriver.o: ../../event/keyboard/KeyboardSkeleton.h
-HotspotDriver.o: ../../../include/SDL_thread.h
+HotspotDriver.o: ../../event/keyboard/KeyboardStub.h
 HotspotDriver.o: ../../multicast/MulticastSocket.h
 HotspotDriver.o: ../../multicast/Multicast.h /usr/include/sys/types.h
 HotspotDriver.o: /usr/include/sys/socket.h /usr/include/machine/param.h
-HotspotDriver.o: /usr/include/netinet/in.h /usr/include/sys/_endian.h
-HotspotDriver.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
-HotspotDriver.o: /usr/include/libkern/machine/OSByteOrder.h
+HotspotDriver.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
 HotspotDriver.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
 HotspotDriver.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
 HotspotDriver.o: /usr/include/limits.h /usr/include/machine/limits.h
+HotspotDriver.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
 HotspotDriver.o: /usr/include/unistd.h /usr/include/sys/unistd.h
-HotspotDriver.o: /usr/include/sys/select.h /usr/include/sys/signal.h
-HotspotDriver.o: /usr/include/sys/time.h /usr/include/sys/time.h
+HotspotDriver.o: /usr/include/sys/select.h /usr/include/signal.h
+HotspotDriver.o: /usr/include/sys/time.h /usr/include/time.h
+HotspotDriver.o: /usr/include/machine/_limits.h
 HotspotDriver.o: ../../multicast/MulticastSocketPool.h
 HotspotDriver.o: ../../multicast/MulticastSocket.h
 HotspotDriver.o: ../../event/keyboard/Keyboard.h
-HotspotDriver.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/Mouse.h
-HotspotDriver.o: ../../event/timer/TimerSkeleton.h ../../event/timer/Timer.h
+HotspotDriver.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+HotspotDriver.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+HotspotDriver.o: ../../core/Camera.h ../../core/DebugCamera.h
+HotspotDriver.o: ../../core/Controller.h ../../core/Window.h
+HotspotDriver.o: ../../core/World.h ../../core/XavierConfiguration.h
+HotspotDriver.o: ../../event/EventHandlerFactory.h
+HotspotDriver.o: ../../event/FullEventHandlerFactory.h
+HotspotDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+HotspotDriver.o: ../../../include/SDL_thread.h
+HotspotDriver.o: ../../event/mouse/MouseSkeleton.h
+HotspotDriver.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 HotspotDriver.o: ../../event/FullEventProxyFactory.h
-HotspotDriver.o: ../../event/keyboard/KeyboardStub.h
-HotspotDriver.o: ../../event/mouse/MouseStub.h ../../event/timer/TimerStub.h
 HotspotDriver.o: ../../event/InputEventHandlerFactory.h
 HotspotDriver.o: ../../event/InputEventProxyFactory.h
 HotspotDriver.o: ../../event/keyboard/DefaultKeyboardListener.h
 HotspotDriver.o: ../../interpolation/TimedInterpolation.h
 HotspotDriver.o: ../../core/Controller.h
-HotspotDriver.o: ../../interpolation/InterpolationEngine.h
-HotspotDriver.o: ../../core/Controller.h ../../core/World.h
+HotspotDriver.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
 HotspotDriver.o: ../../event/keyboard/Keyboard.h
 HotspotDriver.o: ../../event/keyboard/KeyboardListener.h
 HotspotDriver.o: ../../event/keyboard/KeyboardSkeleton.h
@@ -357,11 +377,11 @@ HotspotDriver.o: ../../event/mouse/MouseEventFactory.h
 HotspotDriver.o: ../../event/mouse/MouseListener.h
 HotspotDriver.o: ../../event/mouse/MouseMotionEvent.h
 HotspotDriver.o: ../../event/mouse/MouseSkeleton.h
-HotspotDriver.o: ../../event/mouse/MouseStub.h ../../event/reshape/Reshape.h
+HotspotDriver.o: ../../event/mouse/MouseStub.h
 HotspotDriver.o: ../../event/reshape/ReshapeEvent.h
 HotspotDriver.o: ../../event/reshape/ReshapeListener.h
-HotspotDriver.o: ../../event/reshape/ReshapeSkeleton.h
-HotspotDriver.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+HotspotDriver.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+HotspotDriver.o: ../../event/timer/TimerListener.h
 HotspotDriver.o: ../../event/timer/TimerSkeleton.h
 HotspotDriver.o: ../../event/timer/TimerStub.h
 HotspotDriver.o: ../../geometry/CylindricalVolume.h
@@ -369,7 +389,7 @@ HotspotDriver.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
 HotspotDriver.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
 HotspotDriver.o: ../../geometry/Dimension3D.h
 HotspotDriver.o: ../../geometry/RectangularVolume.h
-HotspotDriver.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+HotspotDriver.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
 HotspotDriver.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
 HotspotDriver.o: ../../interpolation/ContinuousInterpolation.h
 HotspotDriver.o: ../../interpolation/TimedInterpolation.h
@@ -379,30 +399,37 @@ HotspotDriver.o: ../../interpolation/Interpolator.h
 HotspotDriver.o: ../../interpolation/InterpolatorFactory.h
 HotspotDriver.o: ../../interpolation/LinearInterpolator.h
 HotspotDriver.o: ../../interpolation/TimedInterpolation.h
-HotspotDriver.o: ../../model/MilkshapeModel.h ../../model/Model.h
-HotspotDriver.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-HotspotDriver.o: ../../model/Model.h ../../model/ModelFactory.h
-HotspotDriver.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
-HotspotDriver.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+HotspotDriver.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+HotspotDriver.o: ../../interpolation/WaypointCollection.h
+HotspotDriver.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+HotspotDriver.o: ../../model/Model.h ../../texture/TextureFactory.h
+HotspotDriver.o: ../../texture/Texture.h ../../model/Model.h
+HotspotDriver.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+HotspotDriver.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+HotspotDriver.o: ../../multicast/Multicast.h
 HotspotDriver.o: ../../multicast/MulticastSocket.h
 HotspotDriver.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 HotspotDriver.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 HotspotDriver.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
-HotspotDriver.o: ../../shape/Quadrilateral3D.h
+HotspotDriver.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
 HotspotDriver.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
 HotspotDriver.o: ../../shape/CollisionRenderable.h
 HotspotDriver.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
 HotspotDriver.o: ../../shape/ExtrudedNormalPolygon3D.h
-HotspotDriver.o: ../../shape/NormalPolygon3D.h ../../shape/Line.h
-HotspotDriver.o: ../../shape/NormalPolygon3D.h ../../shape/Object3D.h
-HotspotDriver.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-HotspotDriver.o: ../../shape/Point.h ../../shape/Point2D.h
-HotspotDriver.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-HotspotDriver.o: ../../shape/RectangularPrism.h
+HotspotDriver.o: ../../shape/NormalPolygon3D.h
+HotspotDriver.o: ../../shape/NoDepthTestQuadrilateral3D.h
+HotspotDriver.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+HotspotDriver.o: ../../core/Window.h ../../shape/Object3D.h
+HotspotDriver.o: ../../shape/Object3DCollection.h
+HotspotDriver.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+HotspotDriver.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+HotspotDriver.o: ../../shape/Point2D.h ../../shape/Point3D.h
+HotspotDriver.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+HotspotDriver.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 HotspotDriver.o: ../../shape/RectangularPrismFactory.h
 HotspotDriver.o: ../../shape/Renderable.h ../../shape/String2D.h
 HotspotDriver.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-HotspotDriver.o: ../../core/Viewer.h ../../shape/Triangle3D.h
+HotspotDriver.o: ../../shape/Triangle3D.h
 HotspotDriver.o: ../../terrain/FunctionHeightFieldStrategy.h
 HotspotDriver.o: ../../terrain/HeightFieldStrategy.h
 HotspotDriver.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
@@ -413,6 +440,7 @@ HotspotDriver.o: ../../terrain/ImageHeightFieldStrategy.h
 HotspotDriver.o: ../../terrain/MatrixHeightFieldStrategy.h
 HotspotDriver.o: ../../terrain/NullHeightFieldStrategy.h
 HotspotDriver.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+HotspotDriver.o: ../../texture/TextureScale.h
 HotspotDriver.o: ../../transform/CoordinateSystem.h
 HotspotDriver.o: ../../transform/CoordinateSystemFactory.h
 HotspotDriver.o: ../../transform/EngineerCoordinateSystem.h
@@ -420,9 +448,9 @@ HotspotDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HotspotDriver.o: ../../transform/MacCoordinateSystem.h
 HotspotDriver.o: ../../transform/MathCoordinateSystem.h
 HotspotDriver.o: ../../transform/OpenGLCoordinateSystem.h
-HotspotDriver.o: ../../transform/Rotate.h ../../transform/Scale.h
-HotspotDriver.o: ../../transform/Stretch.h ../../transform/Transform.h
-HotspotDriver.o: ../../transform/Transformable.h
+HotspotDriver.o: ../../transform/Orientation.h ../../transform/Rotate.h
+HotspotDriver.o: ../../transform/Scale.h ../../transform/Stretch.h
+HotspotDriver.o: ../../transform/Transform.h ../../transform/Transformable.h
 HotspotDriver.o: ../../transform/TransformFactory.h
 HotspotDriver.o: ../../transform/Translate.h ../../util/BehaviorParser.h
 HotspotDriver.o: ../../transform/TransformFactory.h
@@ -432,4 +460,1084 @@ HotspotDriver.o: ../../util/GraphicsConversionUtility.h
 HotspotDriver.o: ../../util/PointScale.h ../../util/xmlParser.h
 HotspotDriver.o: /usr/include/wchar.h /usr/include/stdarg.h
 HotspotDriver.o: /usr/include/_wctype.h /usr/include/ctype.h
-HotspotDriver.o: /usr/include/runetype.h HotspotGrid.h
+HotspotDriver.o: /usr/include/runetype.h PrintMousePosition.h HotspotGrid.h
+HotspotDriver.o: Action.h ActionItem.h Icon2D.h RectangularHull.h
+HotspotDriver.o: PrintAction.h
+PrintMousePosition.o: PrintMousePosition.h ../../xor.h ../../core/Camera.h
+PrintMousePosition.o: ../../../include/SDL.h ../../../include/SDL_main.h
+PrintMousePosition.o: ../../../include/SDL_types.h
+PrintMousePosition.o: ../../../include/SDL_getenv.h
+PrintMousePosition.o: ../../../include/SDL_error.h
+PrintMousePosition.o: ../../../include/begin_code.h
+PrintMousePosition.o: ../../../include/close_code.h
+PrintMousePosition.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+PrintMousePosition.o: /usr/include/_types.h /usr/include/sys/_types.h
+PrintMousePosition.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+PrintMousePosition.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
+PrintMousePosition.o: ../../../include/SDL_audio.h
+PrintMousePosition.o: ../../../include/SDL_byteorder.h
+PrintMousePosition.o: ../../../include/SDL_cdrom.h
+PrintMousePosition.o: ../../../include/SDL_joystick.h
+PrintMousePosition.o: ../../../include/SDL_events.h
+PrintMousePosition.o: ../../../include/SDL_active.h
+PrintMousePosition.o: ../../../include/SDL_keyboard.h
+PrintMousePosition.o: ../../../include/SDL_keysym.h
+PrintMousePosition.o: ../../../include/SDL_mouse.h
+PrintMousePosition.o: ../../../include/SDL_video.h
+PrintMousePosition.o: ../../../include/SDL_mutex.h
+PrintMousePosition.o: ../../../include/SDL_quit.h
+PrintMousePosition.o: ../../../include/SDL_version.h
+PrintMousePosition.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+PrintMousePosition.o: ../../core/World.h /usr/include/stdlib.h
+PrintMousePosition.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+PrintMousePosition.o: /usr/include/sys/appleapiopts.h
+PrintMousePosition.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+PrintMousePosition.o: /usr/include/sys/resource.h
+PrintMousePosition.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+PrintMousePosition.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+PrintMousePosition.o: /usr/include/libkern/OSByteOrder.h
+PrintMousePosition.o: /usr/include/libkern/ppc/OSByteOrder.h
+PrintMousePosition.o: /usr/include/alloca.h /usr/include/machine/types.h
+PrintMousePosition.o: /usr/include/ppc/types.h ../../shape/Renderable.h
+PrintMousePosition.o: ../../shape/Object3D.h ../../transform/Transformable.h
+PrintMousePosition.o: ../../transform/Transform.h ../../transform/Scale.h
+PrintMousePosition.o: ../../geometry/Vector3D.h
+PrintMousePosition.o: ../../interpolation/InterpolationEngine.h
+PrintMousePosition.o: ../../interpolation/InterpolationListener.h
+PrintMousePosition.o: ../../interpolation/Interpolator.h
+PrintMousePosition.o: ../../interpolation/InterpolatorFactory.h
+PrintMousePosition.o: ../../interpolation/LinearInterpolator.h
+PrintMousePosition.o: ../../util/GraphicsConversionUtility.h
+PrintMousePosition.o: /usr/include/math.h
+PrintMousePosition.o: /usr/include/architecture/ppc/math.h
+PrintMousePosition.o: ../../transform/Stretch.h ../../transform/Translate.h
+PrintMousePosition.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+PrintMousePosition.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+PrintMousePosition.o: ../../transform/Orientation.h ../../paint/Paint.h
+PrintMousePosition.o: /usr/include/string.h ../../texture/Texture.h
+PrintMousePosition.o: ../../../include/SDL_image.h ../../../include/SDL.h
+PrintMousePosition.o: ../../geometry/Vector2D.h ../../paint/Color.h
+PrintMousePosition.o: ../../shape/Renderable.h ../../core/Window.h
+PrintMousePosition.o: ../../event/reshape/ReshapeListener.h
+PrintMousePosition.o: ../../event/reshape/ReshapeEvent.h
+PrintMousePosition.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
+PrintMousePosition.o: ../../geometry/Dimension2D.h
+PrintMousePosition.o: ../../core/CameraListener.h ../../paint/Color.h
+PrintMousePosition.o: ../../transform/CoordinateSystem.h
+PrintMousePosition.o: ../../transform/CoordinateSystemFactory.h
+PrintMousePosition.o: ../../transform/CoordinateSystem.h
+PrintMousePosition.o: ../../transform/OpenGLCoordinateSystem.h
+PrintMousePosition.o: ../../transform/MacCoordinateSystem.h
+PrintMousePosition.o: ../../transform/MathCoordinateSystem.h
+PrintMousePosition.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintMousePosition.o: ../../transform/EngineerCoordinateSystem.h
+PrintMousePosition.o: ../../event/timer/TimerListener.h
+PrintMousePosition.o: ../../event/reshape/ReshapeEvent.h
+PrintMousePosition.o: ../../core/CameraListener.h ../../core/Controller.h
+PrintMousePosition.o: ../../event/EventHandlerFactory.h
+PrintMousePosition.o: ../../event/keyboard/Keyboard.h
+PrintMousePosition.o: ../../../include/SDL_events.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardListener.h
+PrintMousePosition.o: ../../event/keyboard/KeyEvent.h
+PrintMousePosition.o: ../../event/keyboard/KeyEventFactory.h
+PrintMousePosition.o: ../../event/keyboard/KeyDownEvent.h
+PrintMousePosition.o: ../../event/keyboard/KeyUpEvent.h
+PrintMousePosition.o: ../../event/mouse/Mouse.h
+PrintMousePosition.o: ../../event/mouse/MouseListener.h
+PrintMousePosition.o: ../../event/mouse/MouseEvent.h
+PrintMousePosition.o: ../../event/mouse/MouseEventFactory.h
+PrintMousePosition.o: ../../event/mouse/MouseButtonDown.h
+PrintMousePosition.o: ../../event/mouse/MouseClickEvent.h
+PrintMousePosition.o: ../../event/mouse/MouseButtonUp.h
+PrintMousePosition.o: ../../event/mouse/MouseMotionEvent.h
+PrintMousePosition.o: ../../event/timer/Timer.h
+PrintMousePosition.o: ../../event/timer/TimerListener.h
+PrintMousePosition.o: ../../event/keyboard/Keyboard.h
+PrintMousePosition.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+PrintMousePosition.o: ../../shape/Point3D.h ../../shape/Object3D.h
+PrintMousePosition.o: ../../core/XavierConfiguration.h
+PrintMousePosition.o: ../../event/InputEventProxyFactory.h
+PrintMousePosition.o: ../../event/EventHandlerFactory.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardStub.h
+PrintMousePosition.o: ../../multicast/MulticastSocket.h
+PrintMousePosition.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+PrintMousePosition.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+PrintMousePosition.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+PrintMousePosition.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+PrintMousePosition.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+PrintMousePosition.o: /usr/include/limits.h /usr/include/machine/limits.h
+PrintMousePosition.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+PrintMousePosition.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+PrintMousePosition.o: /usr/include/sys/select.h /usr/include/signal.h
+PrintMousePosition.o: /usr/include/sys/time.h /usr/include/time.h
+PrintMousePosition.o: /usr/include/machine/_limits.h
+PrintMousePosition.o: ../../multicast/MulticastSocketPool.h
+PrintMousePosition.o: ../../multicast/MulticastSocket.h
+PrintMousePosition.o: ../../event/keyboard/Keyboard.h
+PrintMousePosition.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+PrintMousePosition.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+PrintMousePosition.o: ../../core/Camera.h ../../core/DebugCamera.h
+PrintMousePosition.o: ../../core/Controller.h ../../core/Window.h
+PrintMousePosition.o: ../../core/World.h ../../core/XavierConfiguration.h
+PrintMousePosition.o: ../../event/EventHandlerFactory.h
+PrintMousePosition.o: ../../event/FullEventHandlerFactory.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintMousePosition.o: ../../../include/SDL_thread.h
+PrintMousePosition.o: ../../event/mouse/MouseSkeleton.h
+PrintMousePosition.o: ../../event/timer/TimerSkeleton.h
+PrintMousePosition.o: ../../core/Controller.h
+PrintMousePosition.o: ../../event/FullEventProxyFactory.h
+PrintMousePosition.o: ../../event/InputEventHandlerFactory.h
+PrintMousePosition.o: ../../event/InputEventProxyFactory.h
+PrintMousePosition.o: ../../event/keyboard/DefaultKeyboardListener.h
+PrintMousePosition.o: ../../interpolation/TimedInterpolation.h
+PrintMousePosition.o: ../../core/Controller.h
+PrintMousePosition.o: ../../interpolation/InterpolationEngine.h
+PrintMousePosition.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardListener.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintMousePosition.o: ../../event/keyboard/KeyboardStub.h
+PrintMousePosition.o: ../../event/keyboard/KeyDownEvent.h
+PrintMousePosition.o: ../../event/keyboard/KeyEvent.h
+PrintMousePosition.o: ../../event/keyboard/KeyEventFactory.h
+PrintMousePosition.o: ../../event/keyboard/KeyUpEvent.h
+PrintMousePosition.o: ../../event/keyboard/RegularKeyEvent.h
+PrintMousePosition.o: ../../event/keyboard/SpecialKeyEvent.h
+PrintMousePosition.o: ../../event/mouse/DefaultMouseListener.h
+PrintMousePosition.o: ../../transform/Transformable.h
+PrintMousePosition.o: ../../event/mouse/Mouse.h
+PrintMousePosition.o: ../../event/mouse/MouseButtonDown.h
+PrintMousePosition.o: ../../event/mouse/MouseButtonUp.h
+PrintMousePosition.o: ../../event/mouse/MouseClickEvent.h
+PrintMousePosition.o: ../../event/mouse/MouseEvent.h
+PrintMousePosition.o: ../../event/mouse/MouseEventFactory.h
+PrintMousePosition.o: ../../event/mouse/MouseListener.h
+PrintMousePosition.o: ../../event/mouse/MouseMotionEvent.h
+PrintMousePosition.o: ../../event/mouse/MouseSkeleton.h
+PrintMousePosition.o: ../../event/mouse/MouseStub.h
+PrintMousePosition.o: ../../event/reshape/ReshapeEvent.h
+PrintMousePosition.o: ../../event/reshape/ReshapeListener.h
+PrintMousePosition.o: ../../event/timer/IntervalTimer.h
+PrintMousePosition.o: ../../event/timer/Timer.h
+PrintMousePosition.o: ../../event/timer/TimerListener.h
+PrintMousePosition.o: ../../event/timer/TimerSkeleton.h
+PrintMousePosition.o: ../../event/timer/TimerStub.h
+PrintMousePosition.o: ../../geometry/CylindricalVolume.h
+PrintMousePosition.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+PrintMousePosition.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+PrintMousePosition.o: ../../geometry/Dimension3D.h
+PrintMousePosition.o: ../../geometry/RectangularVolume.h
+PrintMousePosition.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+PrintMousePosition.o: ../../geometry/Vector3D.h
+PrintMousePosition.o: ../../interpolation/CameraRoller.h
+PrintMousePosition.o: ../../interpolation/ContinuousInterpolation.h
+PrintMousePosition.o: ../../interpolation/TimedInterpolation.h
+PrintMousePosition.o: ../../interpolation/InterpolationEngine.h
+PrintMousePosition.o: ../../interpolation/InterpolationListener.h
+PrintMousePosition.o: ../../interpolation/Interpolator.h
+PrintMousePosition.o: ../../interpolation/InterpolatorFactory.h
+PrintMousePosition.o: ../../interpolation/LinearInterpolator.h
+PrintMousePosition.o: ../../interpolation/TimedInterpolation.h
+PrintMousePosition.o: ../../interpolation/Waypoint.h
+PrintMousePosition.o: ../../transform/Orientation.h
+PrintMousePosition.o: ../../interpolation/WaypointCollection.h
+PrintMousePosition.o: ../../interpolation/Waypoint.h
+PrintMousePosition.o: ../../model/MilkshapeModel.h ../../model/Model.h
+PrintMousePosition.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+PrintMousePosition.o: ../../model/Model.h ../../model/ModelFactory.h
+PrintMousePosition.o: ../../model/MilkshapeModel.h
+PrintMousePosition.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PrintMousePosition.o: ../../multicast/Multicast.h
+PrintMousePosition.o: ../../multicast/MulticastSocket.h
+PrintMousePosition.o: ../../multicast/MulticastSocketPool.h
+PrintMousePosition.o: ../../paint/Color.h ../../paint/Paint.h
+PrintMousePosition.o: ../../shape/AdornablePrism.h
+PrintMousePosition.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+PrintMousePosition.o: ../../shape/Quadrilateral3D.h
+PrintMousePosition.o: ../../texture/TextureScale.h
+PrintMousePosition.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+PrintMousePosition.o: ../../shape/CollisionRenderable.h
+PrintMousePosition.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+PrintMousePosition.o: ../../shape/ExtrudedNormalPolygon3D.h
+PrintMousePosition.o: ../../shape/NormalPolygon3D.h
+PrintMousePosition.o: ../../shape/NoDepthTestQuadrilateral3D.h
+PrintMousePosition.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+PrintMousePosition.o: ../../core/Window.h ../../shape/Object3D.h
+PrintMousePosition.o: ../../shape/Object3DCollection.h
+PrintMousePosition.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+PrintMousePosition.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+PrintMousePosition.o: ../../shape/Point2D.h ../../shape/Point3D.h
+PrintMousePosition.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+PrintMousePosition.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+PrintMousePosition.o: ../../shape/RectangularPrismFactory.h
+PrintMousePosition.o: ../../shape/Renderable.h ../../shape/String2D.h
+PrintMousePosition.o: ../../util/BitmapFontUtil.h
+PrintMousePosition.o: ../../util/BitmapFontConstants.h
+PrintMousePosition.o: ../../shape/Triangle3D.h
+PrintMousePosition.o: ../../terrain/FunctionHeightFieldStrategy.h
+PrintMousePosition.o: ../../terrain/HeightFieldStrategy.h
+PrintMousePosition.o: ../../terrain/HeightField.h
+PrintMousePosition.o: ../../shape/Quadrilateral3D.h
+PrintMousePosition.o: ../../terrain/HeightField.h
+PrintMousePosition.o: ../../terrain/HeightFieldFactory.h
+PrintMousePosition.o: ../../terrain/HeightFieldStrategy.h
+PrintMousePosition.o: ../../terrain/ImageHeightFieldStrategy.h
+PrintMousePosition.o: ../../terrain/MatrixHeightFieldStrategy.h
+PrintMousePosition.o: ../../terrain/NullHeightFieldStrategy.h
+PrintMousePosition.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+PrintMousePosition.o: ../../texture/TextureScale.h
+PrintMousePosition.o: ../../transform/CoordinateSystem.h
+PrintMousePosition.o: ../../transform/CoordinateSystemFactory.h
+PrintMousePosition.o: ../../transform/EngineerCoordinateSystem.h
+PrintMousePosition.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintMousePosition.o: ../../transform/MacCoordinateSystem.h
+PrintMousePosition.o: ../../transform/MathCoordinateSystem.h
+PrintMousePosition.o: ../../transform/OpenGLCoordinateSystem.h
+PrintMousePosition.o: ../../transform/Orientation.h ../../transform/Rotate.h
+PrintMousePosition.o: ../../transform/Scale.h ../../transform/Stretch.h
+PrintMousePosition.o: ../../transform/Transform.h
+PrintMousePosition.o: ../../transform/Transformable.h
+PrintMousePosition.o: ../../transform/TransformFactory.h
+PrintMousePosition.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+PrintMousePosition.o: ../../transform/TransformFactory.h
+PrintMousePosition.o: ../../util/BitmapFontConstants.h
+PrintMousePosition.o: ../../util/BitmapFontUtil.h
+PrintMousePosition.o: ../../util/FramesPerSecondCounter.h
+PrintMousePosition.o: ../../shape/String2D.h
+PrintMousePosition.o: ../../util/GraphicsConversionUtility.h
+PrintMousePosition.o: ../../util/PointScale.h ../../util/xmlParser.h
+PrintMousePosition.o: /usr/include/wchar.h /usr/include/stdarg.h
+PrintMousePosition.o: /usr/include/_wctype.h /usr/include/ctype.h
+PrintMousePosition.o: /usr/include/runetype.h
+Icon2D.o: Icon2D.h ../../xor.h ../../core/Camera.h ../../../include/SDL.h
+Icon2D.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+Icon2D.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+Icon2D.o: ../../../include/begin_code.h ../../../include/close_code.h
+Icon2D.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+Icon2D.o: /usr/include/_types.h /usr/include/sys/_types.h
+Icon2D.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Icon2D.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
+Icon2D.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+Icon2D.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+Icon2D.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+Icon2D.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+Icon2D.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+Icon2D.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+Icon2D.o: ../../../include/SDL_version.h ../../../include/SDL_opengl.h
+Icon2D.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
+Icon2D.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+Icon2D.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+Icon2D.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+Icon2D.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Icon2D.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+Icon2D.o: /usr/include/libkern/OSByteOrder.h
+Icon2D.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+Icon2D.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Icon2D.o: ../../shape/Renderable.h ../../shape/Object3D.h
+Icon2D.o: ../../transform/Transformable.h ../../transform/Transform.h
+Icon2D.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+Icon2D.o: ../../interpolation/InterpolationEngine.h
+Icon2D.o: ../../interpolation/InterpolationListener.h
+Icon2D.o: ../../interpolation/Interpolator.h
+Icon2D.o: ../../interpolation/InterpolatorFactory.h
+Icon2D.o: ../../interpolation/LinearInterpolator.h
+Icon2D.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+Icon2D.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+Icon2D.o: ../../transform/Translate.h ../../transform/Rotate.h
+Icon2D.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+Icon2D.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+Icon2D.o: ../../paint/Paint.h /usr/include/string.h ../../texture/Texture.h
+Icon2D.o: ../../../include/SDL_image.h ../../../include/SDL.h
+Icon2D.o: ../../geometry/Vector2D.h ../../paint/Color.h
+Icon2D.o: ../../shape/Renderable.h ../../core/Window.h
+Icon2D.o: ../../event/reshape/ReshapeListener.h
+Icon2D.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+Icon2D.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+Icon2D.o: ../../core/CameraListener.h ../../paint/Color.h
+Icon2D.o: ../../transform/CoordinateSystem.h
+Icon2D.o: ../../transform/CoordinateSystemFactory.h
+Icon2D.o: ../../transform/CoordinateSystem.h
+Icon2D.o: ../../transform/OpenGLCoordinateSystem.h
+Icon2D.o: ../../transform/MacCoordinateSystem.h
+Icon2D.o: ../../transform/MathCoordinateSystem.h
+Icon2D.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Icon2D.o: ../../transform/EngineerCoordinateSystem.h
+Icon2D.o: ../../event/timer/TimerListener.h
+Icon2D.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+Icon2D.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
+Icon2D.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+Icon2D.o: ../../event/keyboard/KeyboardListener.h
+Icon2D.o: ../../event/keyboard/KeyEvent.h
+Icon2D.o: ../../event/keyboard/KeyEventFactory.h
+Icon2D.o: ../../event/keyboard/KeyDownEvent.h
+Icon2D.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+Icon2D.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+Icon2D.o: ../../event/mouse/MouseEventFactory.h
+Icon2D.o: ../../event/mouse/MouseButtonDown.h
+Icon2D.o: ../../event/mouse/MouseClickEvent.h
+Icon2D.o: ../../event/mouse/MouseButtonUp.h
+Icon2D.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Icon2D.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
+Icon2D.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+Icon2D.o: ../../shape/Point3D.h ../../shape/Object3D.h
+Icon2D.o: ../../core/XavierConfiguration.h
+Icon2D.o: ../../event/InputEventProxyFactory.h
+Icon2D.o: ../../event/EventHandlerFactory.h
+Icon2D.o: ../../event/keyboard/KeyboardStub.h
+Icon2D.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Icon2D.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+Icon2D.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+Icon2D.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+Icon2D.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+Icon2D.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+Icon2D.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+Icon2D.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+Icon2D.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+Icon2D.o: /usr/include/signal.h /usr/include/sys/time.h /usr/include/time.h
+Icon2D.o: /usr/include/machine/_limits.h
+Icon2D.o: ../../multicast/MulticastSocketPool.h
+Icon2D.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+Icon2D.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+Icon2D.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+Icon2D.o: ../../core/Camera.h ../../core/DebugCamera.h
+Icon2D.o: ../../core/Controller.h ../../core/Window.h ../../core/World.h
+Icon2D.o: ../../core/XavierConfiguration.h ../../event/EventHandlerFactory.h
+Icon2D.o: ../../event/FullEventHandlerFactory.h
+Icon2D.o: ../../event/keyboard/KeyboardSkeleton.h
+Icon2D.o: ../../../include/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+Icon2D.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+Icon2D.o: ../../event/FullEventProxyFactory.h
+Icon2D.o: ../../event/InputEventHandlerFactory.h
+Icon2D.o: ../../event/InputEventProxyFactory.h
+Icon2D.o: ../../event/keyboard/DefaultKeyboardListener.h
+Icon2D.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Icon2D.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Icon2D.o: ../../event/keyboard/Keyboard.h
+Icon2D.o: ../../event/keyboard/KeyboardListener.h
+Icon2D.o: ../../event/keyboard/KeyboardSkeleton.h
+Icon2D.o: ../../event/keyboard/KeyboardStub.h
+Icon2D.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyEvent.h
+Icon2D.o: ../../event/keyboard/KeyEventFactory.h
+Icon2D.o: ../../event/keyboard/KeyUpEvent.h
+Icon2D.o: ../../event/keyboard/RegularKeyEvent.h
+Icon2D.o: ../../event/keyboard/SpecialKeyEvent.h
+Icon2D.o: ../../event/mouse/DefaultMouseListener.h
+Icon2D.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+Icon2D.o: ../../event/mouse/MouseButtonDown.h
+Icon2D.o: ../../event/mouse/MouseButtonUp.h
+Icon2D.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseEvent.h
+Icon2D.o: ../../event/mouse/MouseEventFactory.h
+Icon2D.o: ../../event/mouse/MouseListener.h
+Icon2D.o: ../../event/mouse/MouseMotionEvent.h
+Icon2D.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+Icon2D.o: ../../event/reshape/ReshapeEvent.h
+Icon2D.o: ../../event/reshape/ReshapeListener.h
+Icon2D.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+Icon2D.o: ../../event/timer/TimerListener.h ../../event/timer/TimerSkeleton.h
+Icon2D.o: ../../event/timer/TimerStub.h ../../geometry/CylindricalVolume.h
+Icon2D.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+Icon2D.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+Icon2D.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+Icon2D.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+Icon2D.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+Icon2D.o: ../../interpolation/ContinuousInterpolation.h
+Icon2D.o: ../../interpolation/TimedInterpolation.h
+Icon2D.o: ../../interpolation/InterpolationEngine.h
+Icon2D.o: ../../interpolation/InterpolationListener.h
+Icon2D.o: ../../interpolation/Interpolator.h
+Icon2D.o: ../../interpolation/InterpolatorFactory.h
+Icon2D.o: ../../interpolation/LinearInterpolator.h
+Icon2D.o: ../../interpolation/TimedInterpolation.h
+Icon2D.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+Icon2D.o: ../../interpolation/WaypointCollection.h
+Icon2D.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+Icon2D.o: ../../model/Model.h ../../texture/TextureFactory.h
+Icon2D.o: ../../texture/Texture.h ../../model/Model.h
+Icon2D.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Icon2D.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+Icon2D.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+Icon2D.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+Icon2D.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+Icon2D.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+Icon2D.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+Icon2D.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+Icon2D.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
+Icon2D.o: ../../shape/Cube.h ../../shape/ExtrudedNormalPolygon3D.h
+Icon2D.o: ../../shape/NormalPolygon3D.h
+Icon2D.o: ../../shape/NoDepthTestQuadrilateral3D.h
+Icon2D.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+Icon2D.o: ../../core/Window.h ../../shape/Object3D.h
+Icon2D.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
+Icon2D.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+Icon2D.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+Icon2D.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+Icon2D.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+Icon2D.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+Icon2D.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+Icon2D.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+Icon2D.o: ../../terrain/FunctionHeightFieldStrategy.h
+Icon2D.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Icon2D.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+Icon2D.o: ../../terrain/HeightFieldFactory.h
+Icon2D.o: ../../terrain/HeightFieldStrategy.h
+Icon2D.o: ../../terrain/ImageHeightFieldStrategy.h
+Icon2D.o: ../../terrain/MatrixHeightFieldStrategy.h
+Icon2D.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+Icon2D.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+Icon2D.o: ../../transform/CoordinateSystem.h
+Icon2D.o: ../../transform/CoordinateSystemFactory.h
+Icon2D.o: ../../transform/EngineerCoordinateSystem.h
+Icon2D.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Icon2D.o: ../../transform/MacCoordinateSystem.h
+Icon2D.o: ../../transform/MathCoordinateSystem.h
+Icon2D.o: ../../transform/OpenGLCoordinateSystem.h
+Icon2D.o: ../../transform/Orientation.h ../../transform/Rotate.h
+Icon2D.o: ../../transform/Scale.h ../../transform/Stretch.h
+Icon2D.o: ../../transform/Transform.h ../../transform/Transformable.h
+Icon2D.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+Icon2D.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+Icon2D.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+Icon2D.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+Icon2D.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+Icon2D.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
+Icon2D.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
+Icon2D.o: RectangularHull.h
+RectangularHull.o: RectangularHull.h ../../xor.h ../../core/Camera.h
+RectangularHull.o: ../../../include/SDL.h ../../../include/SDL_main.h
+RectangularHull.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+RectangularHull.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+RectangularHull.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+RectangularHull.o: /usr/include/stdio.h /usr/include/_types.h
+RectangularHull.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+RectangularHull.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+RectangularHull.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+RectangularHull.o: ../../../include/SDL_byteorder.h
+RectangularHull.o: ../../../include/SDL_cdrom.h
+RectangularHull.o: ../../../include/SDL_joystick.h
+RectangularHull.o: ../../../include/SDL_events.h
+RectangularHull.o: ../../../include/SDL_active.h
+RectangularHull.o: ../../../include/SDL_keyboard.h
+RectangularHull.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+RectangularHull.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+RectangularHull.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+RectangularHull.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+RectangularHull.o: ../../core/World.h /usr/include/stdlib.h
+RectangularHull.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+RectangularHull.o: /usr/include/sys/appleapiopts.h
+RectangularHull.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+RectangularHull.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+RectangularHull.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+RectangularHull.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+RectangularHull.o: /usr/include/libkern/ppc/OSByteOrder.h
+RectangularHull.o: /usr/include/alloca.h /usr/include/machine/types.h
+RectangularHull.o: /usr/include/ppc/types.h ../../shape/Renderable.h
+RectangularHull.o: ../../shape/Object3D.h ../../transform/Transformable.h
+RectangularHull.o: ../../transform/Transform.h ../../transform/Scale.h
+RectangularHull.o: ../../geometry/Vector3D.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../interpolation/InterpolationListener.h
+RectangularHull.o: ../../interpolation/Interpolator.h
+RectangularHull.o: ../../interpolation/InterpolatorFactory.h
+RectangularHull.o: ../../interpolation/LinearInterpolator.h
+RectangularHull.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+RectangularHull.o: /usr/include/architecture/ppc/math.h
+RectangularHull.o: ../../transform/Stretch.h ../../transform/Translate.h
+RectangularHull.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+RectangularHull.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+RectangularHull.o: ../../transform/Orientation.h ../../paint/Paint.h
+RectangularHull.o: /usr/include/string.h ../../texture/Texture.h
+RectangularHull.o: ../../../include/SDL_image.h ../../../include/SDL.h
+RectangularHull.o: ../../geometry/Vector2D.h ../../paint/Color.h
+RectangularHull.o: ../../shape/Renderable.h ../../core/Window.h
+RectangularHull.o: ../../event/reshape/ReshapeListener.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+RectangularHull.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+RectangularHull.o: ../../core/CameraListener.h ../../paint/Color.h
+RectangularHull.o: ../../transform/CoordinateSystem.h
+RectangularHull.o: ../../transform/CoordinateSystemFactory.h
+RectangularHull.o: ../../transform/CoordinateSystem.h
+RectangularHull.o: ../../transform/OpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/MacCoordinateSystem.h
+RectangularHull.o: ../../transform/MathCoordinateSystem.h
+RectangularHull.o: ../../transform/LeftOpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/EngineerCoordinateSystem.h
+RectangularHull.o: ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h
+RectangularHull.o: ../../core/CameraListener.h ../../core/Controller.h
+RectangularHull.o: ../../event/EventHandlerFactory.h
+RectangularHull.o: ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../../include/SDL_events.h
+RectangularHull.o: ../../event/keyboard/KeyboardListener.h
+RectangularHull.o: ../../event/keyboard/KeyEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEventFactory.h
+RectangularHull.o: ../../event/keyboard/KeyDownEvent.h
+RectangularHull.o: ../../event/keyboard/KeyUpEvent.h
+RectangularHull.o: ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/mouse/MouseListener.h
+RectangularHull.o: ../../event/mouse/MouseEvent.h
+RectangularHull.o: ../../event/mouse/MouseEventFactory.h
+RectangularHull.o: ../../event/mouse/MouseButtonDown.h
+RectangularHull.o: ../../event/mouse/MouseClickEvent.h
+RectangularHull.o: ../../event/mouse/MouseButtonUp.h
+RectangularHull.o: ../../event/mouse/MouseMotionEvent.h
+RectangularHull.o: ../../event/timer/Timer.h
+RectangularHull.o: ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+RectangularHull.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+RectangularHull.o: ../../event/InputEventProxyFactory.h
+RectangularHull.o: ../../event/EventHandlerFactory.h
+RectangularHull.o: ../../event/keyboard/KeyboardStub.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+RectangularHull.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+RectangularHull.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+RectangularHull.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+RectangularHull.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+RectangularHull.o: /usr/include/limits.h /usr/include/machine/limits.h
+RectangularHull.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+RectangularHull.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+RectangularHull.o: /usr/include/sys/select.h /usr/include/signal.h
+RectangularHull.o: /usr/include/sys/time.h /usr/include/time.h
+RectangularHull.o: /usr/include/machine/_limits.h
+RectangularHull.o: ../../multicast/MulticastSocketPool.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+RectangularHull.o: ../../core/Camera.h ../../core/DebugCamera.h
+RectangularHull.o: ../../core/Controller.h ../../core/Window.h
+RectangularHull.o: ../../core/World.h ../../core/XavierConfiguration.h
+RectangularHull.o: ../../event/EventHandlerFactory.h
+RectangularHull.o: ../../event/FullEventHandlerFactory.h
+RectangularHull.o: ../../event/keyboard/KeyboardSkeleton.h
+RectangularHull.o: ../../../include/SDL_thread.h
+RectangularHull.o: ../../event/mouse/MouseSkeleton.h
+RectangularHull.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+RectangularHull.o: ../../event/FullEventProxyFactory.h
+RectangularHull.o: ../../event/InputEventHandlerFactory.h
+RectangularHull.o: ../../event/InputEventProxyFactory.h
+RectangularHull.o: ../../event/keyboard/DefaultKeyboardListener.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../core/Controller.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/keyboard/KeyboardListener.h
+RectangularHull.o: ../../event/keyboard/KeyboardSkeleton.h
+RectangularHull.o: ../../event/keyboard/KeyboardStub.h
+RectangularHull.o: ../../event/keyboard/KeyDownEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEventFactory.h
+RectangularHull.o: ../../event/keyboard/KeyUpEvent.h
+RectangularHull.o: ../../event/keyboard/RegularKeyEvent.h
+RectangularHull.o: ../../event/keyboard/SpecialKeyEvent.h
+RectangularHull.o: ../../event/mouse/DefaultMouseListener.h
+RectangularHull.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/mouse/MouseButtonDown.h
+RectangularHull.o: ../../event/mouse/MouseButtonUp.h
+RectangularHull.o: ../../event/mouse/MouseClickEvent.h
+RectangularHull.o: ../../event/mouse/MouseEvent.h
+RectangularHull.o: ../../event/mouse/MouseEventFactory.h
+RectangularHull.o: ../../event/mouse/MouseListener.h
+RectangularHull.o: ../../event/mouse/MouseMotionEvent.h
+RectangularHull.o: ../../event/mouse/MouseSkeleton.h
+RectangularHull.o: ../../event/mouse/MouseStub.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h
+RectangularHull.o: ../../event/reshape/ReshapeListener.h
+RectangularHull.o: ../../event/timer/IntervalTimer.h
+RectangularHull.o: ../../event/timer/Timer.h
+RectangularHull.o: ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/timer/TimerSkeleton.h
+RectangularHull.o: ../../event/timer/TimerStub.h
+RectangularHull.o: ../../geometry/CylindricalVolume.h
+RectangularHull.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+RectangularHull.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+RectangularHull.o: ../../geometry/Dimension3D.h
+RectangularHull.o: ../../geometry/RectangularVolume.h
+RectangularHull.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+RectangularHull.o: ../../geometry/Vector3D.h
+RectangularHull.o: ../../interpolation/CameraRoller.h
+RectangularHull.o: ../../interpolation/ContinuousInterpolation.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../interpolation/InterpolationListener.h
+RectangularHull.o: ../../interpolation/Interpolator.h
+RectangularHull.o: ../../interpolation/InterpolatorFactory.h
+RectangularHull.o: ../../interpolation/LinearInterpolator.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../interpolation/Waypoint.h
+RectangularHull.o: ../../transform/Orientation.h
+RectangularHull.o: ../../interpolation/WaypointCollection.h
+RectangularHull.o: ../../interpolation/Waypoint.h
+RectangularHull.o: ../../model/MilkshapeModel.h ../../model/Model.h
+RectangularHull.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+RectangularHull.o: ../../model/Model.h ../../model/ModelFactory.h
+RectangularHull.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+RectangularHull.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+RectangularHull.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+RectangularHull.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+RectangularHull.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+RectangularHull.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+RectangularHull.o: ../../shape/CollisionRenderable.h
+RectangularHull.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+RectangularHull.o: ../../shape/ExtrudedNormalPolygon3D.h
+RectangularHull.o: ../../shape/NormalPolygon3D.h
+RectangularHull.o: ../../shape/NoDepthTestQuadrilateral3D.h
+RectangularHull.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+RectangularHull.o: ../../core/Window.h ../../shape/Object3D.h
+RectangularHull.o: ../../shape/Object3DCollection.h
+RectangularHull.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+RectangularHull.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+RectangularHull.o: ../../shape/Point2D.h ../../shape/Point3D.h
+RectangularHull.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+RectangularHull.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+RectangularHull.o: ../../shape/RectangularPrismFactory.h
+RectangularHull.o: ../../shape/Renderable.h ../../shape/String2D.h
+RectangularHull.o: ../../util/BitmapFontUtil.h
+RectangularHull.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+RectangularHull.o: ../../terrain/FunctionHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/HeightFieldStrategy.h
+RectangularHull.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+RectangularHull.o: ../../terrain/HeightField.h
+RectangularHull.o: ../../terrain/HeightFieldFactory.h
+RectangularHull.o: ../../terrain/HeightFieldStrategy.h
+RectangularHull.o: ../../terrain/ImageHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/MatrixHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/NullHeightFieldStrategy.h
+RectangularHull.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+RectangularHull.o: ../../texture/TextureScale.h
+RectangularHull.o: ../../transform/CoordinateSystem.h
+RectangularHull.o: ../../transform/CoordinateSystemFactory.h
+RectangularHull.o: ../../transform/EngineerCoordinateSystem.h
+RectangularHull.o: ../../transform/LeftOpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/MacCoordinateSystem.h
+RectangularHull.o: ../../transform/MathCoordinateSystem.h
+RectangularHull.o: ../../transform/OpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/Orientation.h ../../transform/Rotate.h
+RectangularHull.o: ../../transform/Scale.h ../../transform/Stretch.h
+RectangularHull.o: ../../transform/Transform.h
+RectangularHull.o: ../../transform/Transformable.h
+RectangularHull.o: ../../transform/TransformFactory.h
+RectangularHull.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+RectangularHull.o: ../../transform/TransformFactory.h
+RectangularHull.o: ../../util/BitmapFontConstants.h
+RectangularHull.o: ../../util/BitmapFontUtil.h
+RectangularHull.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+RectangularHull.o: ../../util/GraphicsConversionUtility.h
+RectangularHull.o: ../../util/PointScale.h ../../util/xmlParser.h
+RectangularHull.o: /usr/include/wchar.h /usr/include/stdarg.h
+RectangularHull.o: /usr/include/_wctype.h /usr/include/ctype.h
+RectangularHull.o: /usr/include/runetype.h
+ActionItem.o: ActionItem.h ../../xor.h ../../core/Camera.h
+ActionItem.o: ../../../include/SDL.h ../../../include/SDL_main.h
+ActionItem.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+ActionItem.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+ActionItem.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+ActionItem.o: /usr/include/stdio.h /usr/include/_types.h
+ActionItem.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+ActionItem.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+ActionItem.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+ActionItem.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+ActionItem.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+ActionItem.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+ActionItem.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+ActionItem.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+ActionItem.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+ActionItem.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+ActionItem.o: ../../core/World.h /usr/include/stdlib.h
+ActionItem.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+ActionItem.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+ActionItem.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+ActionItem.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+ActionItem.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+ActionItem.o: /usr/include/libkern/OSByteOrder.h
+ActionItem.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+ActionItem.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+ActionItem.o: ../../shape/Renderable.h ../../shape/Object3D.h
+ActionItem.o: ../../transform/Transformable.h ../../transform/Transform.h
+ActionItem.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h
+ActionItem.o: ../../interpolation/InterpolationListener.h
+ActionItem.o: ../../interpolation/Interpolator.h
+ActionItem.o: ../../interpolation/InterpolatorFactory.h
+ActionItem.o: ../../interpolation/LinearInterpolator.h
+ActionItem.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+ActionItem.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+ActionItem.o: ../../transform/Translate.h ../../transform/Rotate.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+ActionItem.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+ActionItem.o: ../../paint/Paint.h /usr/include/string.h
+ActionItem.o: ../../texture/Texture.h ../../../include/SDL_image.h
+ActionItem.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+ActionItem.o: ../../paint/Color.h ../../shape/Renderable.h
+ActionItem.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+ActionItem.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+ActionItem.o: ../../core/CameraListener.h ../../paint/Color.h
+ActionItem.o: ../../transform/CoordinateSystem.h
+ActionItem.o: ../../transform/CoordinateSystemFactory.h
+ActionItem.o: ../../transform/CoordinateSystem.h
+ActionItem.o: ../../transform/OpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/MacCoordinateSystem.h
+ActionItem.o: ../../transform/MathCoordinateSystem.h
+ActionItem.o: ../../transform/LeftOpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/EngineerCoordinateSystem.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+ActionItem.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
+ActionItem.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+ActionItem.o: ../../event/keyboard/KeyboardListener.h
+ActionItem.o: ../../event/keyboard/KeyEvent.h
+ActionItem.o: ../../event/keyboard/KeyEventFactory.h
+ActionItem.o: ../../event/keyboard/KeyDownEvent.h
+ActionItem.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+ActionItem.o: ../../event/mouse/MouseListener.h
+ActionItem.o: ../../event/mouse/MouseEvent.h
+ActionItem.o: ../../event/mouse/MouseEventFactory.h
+ActionItem.o: ../../event/mouse/MouseButtonDown.h
+ActionItem.o: ../../event/mouse/MouseClickEvent.h
+ActionItem.o: ../../event/mouse/MouseButtonUp.h
+ActionItem.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+ActionItem.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+ActionItem.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+ActionItem.o: ../../event/InputEventProxyFactory.h
+ActionItem.o: ../../event/EventHandlerFactory.h
+ActionItem.o: ../../event/keyboard/KeyboardStub.h
+ActionItem.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+ActionItem.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+ActionItem.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+ActionItem.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+ActionItem.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+ActionItem.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+ActionItem.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+ActionItem.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+ActionItem.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+ActionItem.o: /usr/include/signal.h /usr/include/sys/time.h
+ActionItem.o: /usr/include/time.h /usr/include/machine/_limits.h
+ActionItem.o: ../../multicast/MulticastSocketPool.h
+ActionItem.o: ../../multicast/MulticastSocket.h
+ActionItem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+ActionItem.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+ActionItem.o: ../../event/timer/Timer.h ../../core/Camera.h
+ActionItem.o: ../../core/DebugCamera.h ../../core/Controller.h
+ActionItem.o: ../../core/Window.h ../../core/World.h
+ActionItem.o: ../../core/XavierConfiguration.h
+ActionItem.o: ../../event/EventHandlerFactory.h
+ActionItem.o: ../../event/FullEventHandlerFactory.h
+ActionItem.o: ../../event/keyboard/KeyboardSkeleton.h
+ActionItem.o: ../../../include/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+ActionItem.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+ActionItem.o: ../../event/FullEventProxyFactory.h
+ActionItem.o: ../../event/InputEventHandlerFactory.h
+ActionItem.o: ../../event/InputEventProxyFactory.h
+ActionItem.o: ../../event/keyboard/DefaultKeyboardListener.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../core/Controller.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+ActionItem.o: ../../event/keyboard/Keyboard.h
+ActionItem.o: ../../event/keyboard/KeyboardListener.h
+ActionItem.o: ../../event/keyboard/KeyboardSkeleton.h
+ActionItem.o: ../../event/keyboard/KeyboardStub.h
+ActionItem.o: ../../event/keyboard/KeyDownEvent.h
+ActionItem.o: ../../event/keyboard/KeyEvent.h
+ActionItem.o: ../../event/keyboard/KeyEventFactory.h
+ActionItem.o: ../../event/keyboard/KeyUpEvent.h
+ActionItem.o: ../../event/keyboard/RegularKeyEvent.h
+ActionItem.o: ../../event/keyboard/SpecialKeyEvent.h
+ActionItem.o: ../../event/mouse/DefaultMouseListener.h
+ActionItem.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+ActionItem.o: ../../event/mouse/MouseButtonDown.h
+ActionItem.o: ../../event/mouse/MouseButtonUp.h
+ActionItem.o: ../../event/mouse/MouseClickEvent.h
+ActionItem.o: ../../event/mouse/MouseEvent.h
+ActionItem.o: ../../event/mouse/MouseEventFactory.h
+ActionItem.o: ../../event/mouse/MouseListener.h
+ActionItem.o: ../../event/mouse/MouseMotionEvent.h
+ActionItem.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h
+ActionItem.o: ../../event/reshape/ReshapeListener.h
+ActionItem.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+ActionItem.o: ../../geometry/CylindricalVolume.h
+ActionItem.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+ActionItem.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+ActionItem.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+ActionItem.o: ../../interpolation/ContinuousInterpolation.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h
+ActionItem.o: ../../interpolation/InterpolationListener.h
+ActionItem.o: ../../interpolation/Interpolator.h
+ActionItem.o: ../../interpolation/InterpolatorFactory.h
+ActionItem.o: ../../interpolation/LinearInterpolator.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+ActionItem.o: ../../interpolation/WaypointCollection.h
+ActionItem.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+ActionItem.o: ../../model/Model.h ../../texture/TextureFactory.h
+ActionItem.o: ../../texture/Texture.h ../../model/Model.h
+ActionItem.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+ActionItem.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+ActionItem.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+ActionItem.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+ActionItem.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+ActionItem.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+ActionItem.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+ActionItem.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+ActionItem.o: ../../shape/CollisionRenderable.h
+ActionItem.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+ActionItem.o: ../../shape/ExtrudedNormalPolygon3D.h
+ActionItem.o: ../../shape/NormalPolygon3D.h
+ActionItem.o: ../../shape/NoDepthTestQuadrilateral3D.h
+ActionItem.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+ActionItem.o: ../../core/Window.h ../../shape/Object3D.h
+ActionItem.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
+ActionItem.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
+ActionItem.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+ActionItem.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+ActionItem.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+ActionItem.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+ActionItem.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+ActionItem.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+ActionItem.o: ../../terrain/FunctionHeightFieldStrategy.h
+ActionItem.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+ActionItem.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+ActionItem.o: ../../terrain/HeightFieldFactory.h
+ActionItem.o: ../../terrain/HeightFieldStrategy.h
+ActionItem.o: ../../terrain/ImageHeightFieldStrategy.h
+ActionItem.o: ../../terrain/MatrixHeightFieldStrategy.h
+ActionItem.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+ActionItem.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+ActionItem.o: ../../transform/CoordinateSystem.h
+ActionItem.o: ../../transform/CoordinateSystemFactory.h
+ActionItem.o: ../../transform/EngineerCoordinateSystem.h
+ActionItem.o: ../../transform/LeftOpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/MacCoordinateSystem.h
+ActionItem.o: ../../transform/MathCoordinateSystem.h
+ActionItem.o: ../../transform/OpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/Orientation.h ../../transform/Rotate.h
+ActionItem.o: ../../transform/Scale.h ../../transform/Stretch.h
+ActionItem.o: ../../transform/Transform.h ../../transform/Transformable.h
+ActionItem.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+ActionItem.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+ActionItem.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+ActionItem.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+ActionItem.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+ActionItem.o: ../../util/xmlParser.h /usr/include/wchar.h
+ActionItem.o: /usr/include/stdarg.h /usr/include/_wctype.h
+ActionItem.o: /usr/include/ctype.h /usr/include/runetype.h Icon2D.h
+ActionItem.o: RectangularHull.h Action.h
+PrintAction.o: PrintAction.h Action.h ../../xor.h ../../core/Camera.h
+PrintAction.o: ../../../include/SDL.h ../../../include/SDL_main.h
+PrintAction.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+PrintAction.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+PrintAction.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+PrintAction.o: /usr/include/stdio.h /usr/include/_types.h
+PrintAction.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+PrintAction.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+PrintAction.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+PrintAction.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+PrintAction.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+PrintAction.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+PrintAction.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+PrintAction.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+PrintAction.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+PrintAction.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+PrintAction.o: ../../core/World.h /usr/include/stdlib.h
+PrintAction.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+PrintAction.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+PrintAction.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+PrintAction.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+PrintAction.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+PrintAction.o: /usr/include/libkern/OSByteOrder.h
+PrintAction.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+PrintAction.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+PrintAction.o: ../../shape/Renderable.h ../../shape/Object3D.h
+PrintAction.o: ../../transform/Transformable.h ../../transform/Transform.h
+PrintAction.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h
+PrintAction.o: ../../interpolation/InterpolationListener.h
+PrintAction.o: ../../interpolation/Interpolator.h
+PrintAction.o: ../../interpolation/InterpolatorFactory.h
+PrintAction.o: ../../interpolation/LinearInterpolator.h
+PrintAction.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+PrintAction.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+PrintAction.o: ../../transform/Translate.h ../../transform/Rotate.h
+PrintAction.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+PrintAction.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+PrintAction.o: ../../paint/Paint.h /usr/include/string.h
+PrintAction.o: ../../texture/Texture.h ../../../include/SDL_image.h
+PrintAction.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+PrintAction.o: ../../paint/Color.h ../../shape/Renderable.h
+PrintAction.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+PrintAction.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+PrintAction.o: ../../core/CameraListener.h ../../paint/Color.h
+PrintAction.o: ../../transform/CoordinateSystem.h
+PrintAction.o: ../../transform/CoordinateSystemFactory.h
+PrintAction.o: ../../transform/CoordinateSystem.h
+PrintAction.o: ../../transform/OpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/MacCoordinateSystem.h
+PrintAction.o: ../../transform/MathCoordinateSystem.h
+PrintAction.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/EngineerCoordinateSystem.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+PrintAction.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
+PrintAction.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+PrintAction.o: ../../event/keyboard/KeyboardListener.h
+PrintAction.o: ../../event/keyboard/KeyEvent.h
+PrintAction.o: ../../event/keyboard/KeyEventFactory.h
+PrintAction.o: ../../event/keyboard/KeyDownEvent.h
+PrintAction.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+PrintAction.o: ../../event/mouse/MouseListener.h
+PrintAction.o: ../../event/mouse/MouseEvent.h
+PrintAction.o: ../../event/mouse/MouseEventFactory.h
+PrintAction.o: ../../event/mouse/MouseButtonDown.h
+PrintAction.o: ../../event/mouse/MouseClickEvent.h
+PrintAction.o: ../../event/mouse/MouseButtonUp.h
+PrintAction.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+PrintAction.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+PrintAction.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+PrintAction.o: ../../event/InputEventProxyFactory.h
+PrintAction.o: ../../event/EventHandlerFactory.h
+PrintAction.o: ../../event/keyboard/KeyboardStub.h
+PrintAction.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+PrintAction.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+PrintAction.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+PrintAction.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+PrintAction.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+PrintAction.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+PrintAction.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+PrintAction.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+PrintAction.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+PrintAction.o: /usr/include/signal.h /usr/include/sys/time.h
+PrintAction.o: /usr/include/time.h /usr/include/machine/_limits.h
+PrintAction.o: ../../multicast/MulticastSocketPool.h
+PrintAction.o: ../../multicast/MulticastSocket.h
+PrintAction.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+PrintAction.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+PrintAction.o: ../../event/timer/Timer.h ../../core/Camera.h
+PrintAction.o: ../../core/DebugCamera.h ../../core/Controller.h
+PrintAction.o: ../../core/Window.h ../../core/World.h
+PrintAction.o: ../../core/XavierConfiguration.h
+PrintAction.o: ../../event/EventHandlerFactory.h
+PrintAction.o: ../../event/FullEventHandlerFactory.h
+PrintAction.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintAction.o: ../../../include/SDL_thread.h
+PrintAction.o: ../../event/mouse/MouseSkeleton.h
+PrintAction.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+PrintAction.o: ../../event/FullEventProxyFactory.h
+PrintAction.o: ../../event/InputEventHandlerFactory.h
+PrintAction.o: ../../event/InputEventProxyFactory.h
+PrintAction.o: ../../event/keyboard/DefaultKeyboardListener.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../core/Controller.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+PrintAction.o: ../../event/keyboard/Keyboard.h
+PrintAction.o: ../../event/keyboard/KeyboardListener.h
+PrintAction.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintAction.o: ../../event/keyboard/KeyboardStub.h
+PrintAction.o: ../../event/keyboard/KeyDownEvent.h
+PrintAction.o: ../../event/keyboard/KeyEvent.h
+PrintAction.o: ../../event/keyboard/KeyEventFactory.h
+PrintAction.o: ../../event/keyboard/KeyUpEvent.h
+PrintAction.o: ../../event/keyboard/RegularKeyEvent.h
+PrintAction.o: ../../event/keyboard/SpecialKeyEvent.h
+PrintAction.o: ../../event/mouse/DefaultMouseListener.h
+PrintAction.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+PrintAction.o: ../../event/mouse/MouseButtonDown.h
+PrintAction.o: ../../event/mouse/MouseButtonUp.h
+PrintAction.o: ../../event/mouse/MouseClickEvent.h
+PrintAction.o: ../../event/mouse/MouseEvent.h
+PrintAction.o: ../../event/mouse/MouseEventFactory.h
+PrintAction.o: ../../event/mouse/MouseListener.h
+PrintAction.o: ../../event/mouse/MouseMotionEvent.h
+PrintAction.o: ../../event/mouse/MouseSkeleton.h
+PrintAction.o: ../../event/mouse/MouseStub.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h
+PrintAction.o: ../../event/reshape/ReshapeListener.h
+PrintAction.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/timer/TimerSkeleton.h
+PrintAction.o: ../../event/timer/TimerStub.h
+PrintAction.o: ../../geometry/CylindricalVolume.h
+PrintAction.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+PrintAction.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+PrintAction.o: ../../geometry/Dimension3D.h
+PrintAction.o: ../../geometry/RectangularVolume.h
+PrintAction.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+PrintAction.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+PrintAction.o: ../../interpolation/ContinuousInterpolation.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h
+PrintAction.o: ../../interpolation/InterpolationListener.h
+PrintAction.o: ../../interpolation/Interpolator.h
+PrintAction.o: ../../interpolation/InterpolatorFactory.h
+PrintAction.o: ../../interpolation/LinearInterpolator.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+PrintAction.o: ../../interpolation/WaypointCollection.h
+PrintAction.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+PrintAction.o: ../../model/Model.h ../../texture/TextureFactory.h
+PrintAction.o: ../../texture/Texture.h ../../model/Model.h
+PrintAction.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+PrintAction.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PrintAction.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+PrintAction.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+PrintAction.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+PrintAction.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+PrintAction.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+PrintAction.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+PrintAction.o: ../../shape/CollisionRenderable.h
+PrintAction.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+PrintAction.o: ../../shape/ExtrudedNormalPolygon3D.h
+PrintAction.o: ../../shape/NormalPolygon3D.h
+PrintAction.o: ../../shape/NoDepthTestQuadrilateral3D.h
+PrintAction.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+PrintAction.o: ../../core/Window.h ../../shape/Object3D.h
+PrintAction.o: ../../shape/Object3DCollection.h
+PrintAction.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+PrintAction.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+PrintAction.o: ../../shape/Point2D.h ../../shape/Point3D.h
+PrintAction.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+PrintAction.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+PrintAction.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+PrintAction.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+PrintAction.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+PrintAction.o: ../../terrain/FunctionHeightFieldStrategy.h
+PrintAction.o: ../../terrain/HeightFieldStrategy.h
+PrintAction.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+PrintAction.o: ../../terrain/HeightField.h ../../terrain/HeightFieldFactory.h
+PrintAction.o: ../../terrain/HeightFieldStrategy.h
+PrintAction.o: ../../terrain/ImageHeightFieldStrategy.h
+PrintAction.o: ../../terrain/MatrixHeightFieldStrategy.h
+PrintAction.o: ../../terrain/NullHeightFieldStrategy.h
+PrintAction.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+PrintAction.o: ../../texture/TextureScale.h
+PrintAction.o: ../../transform/CoordinateSystem.h
+PrintAction.o: ../../transform/CoordinateSystemFactory.h
+PrintAction.o: ../../transform/EngineerCoordinateSystem.h
+PrintAction.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/MacCoordinateSystem.h
+PrintAction.o: ../../transform/MathCoordinateSystem.h
+PrintAction.o: ../../transform/OpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/Orientation.h ../../transform/Rotate.h
+PrintAction.o: ../../transform/Scale.h ../../transform/Stretch.h
+PrintAction.o: ../../transform/Transform.h ../../transform/Transformable.h
+PrintAction.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+PrintAction.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+PrintAction.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+PrintAction.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+PrintAction.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+PrintAction.o: ../../util/xmlParser.h /usr/include/wchar.h
+PrintAction.o: /usr/include/stdarg.h /usr/include/_wctype.h
+PrintAction.o: /usr/include/ctype.h /usr/include/runetype.h

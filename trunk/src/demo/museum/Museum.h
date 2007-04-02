@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "../../xor.h"
-//#include "MuseumLayout.h"
 #include "Room.h"
 
 
@@ -33,7 +32,7 @@ public:
 	/**
 	 * Adds a room to the musem
 	 */
-	void addRoom(Room * room);
+	void addRoom(Object3D * room);
 
 
 	/**
@@ -45,7 +44,7 @@ public:
 	/**
 	 * Returns an iterator to the rooms
 	 */
-	vector<Room*>::iterator getRooms();
+	vector<Object3D*>::iterator getRooms();
 
 
 	/**
@@ -54,25 +53,15 @@ public:
 	void renderObject(void);
 
 
-	/**
-	 * Sets the the layout for the musem. The default layout is
-	 * Hub & Spoke
-	void setLayout(MuseumLayout * layout);
-	 */
-
-
-	/**
-	 * Sets the lobby for the museum. This is the room that connects all the other
-	 * rooms together.
-	void setLobby(Lobby * lobby);
-	 */
-	
 	Dimension3D * getDimension();
+
+
 	Vector3D * getBaseVector();
+
 
 private:
 
-	vector<Room*>	_rooms;
+	vector<Object3D*>	_rooms;
 
 //	Lobby *			_lobby;
 	//MuseumLayout *	_layout;
