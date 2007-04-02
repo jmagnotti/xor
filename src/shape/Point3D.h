@@ -3,13 +3,14 @@
 
 
 #include <iostream>
-
 #include <string>
 #include <math.h>
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
+
 #include "../paint/Paint.h"
 #include "../geometry/Vector3D.h"
+
 #include "Object3D.h"
 
 using namespace std;
@@ -22,7 +23,6 @@ namespace XOR {
  */
 class Point3D
 {
-
 
 public:
 
@@ -40,7 +40,8 @@ public:
 	 */
 	Point3D(float x, float y, float z);
 
-/**
+
+    /**
 	 * Explicit Constructor
 	 * 
 	 * Create a point from the float array

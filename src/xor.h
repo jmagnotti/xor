@@ -2,6 +2,7 @@
 #define XOR_H
 
 #include "core/Camera.h"
+#include "core/CameraListener.h"
 #include "core/Controller.h"
 #include "core/DebugCamera.h"
 #include "core/Window.h"

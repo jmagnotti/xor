@@ -98,6 +98,18 @@ void Orientation::clone(Orientation * other)
 
 
 /*
+ *
+ */
+Orientation * Orientation::clone()
+{
+    Orientation * cloned = new Orientation(_position, _roll, _phi, _theta);
+    cloned->setFocalPoint(_focalPoint->toVector());
+
+    return cloned;
+}
+
+
+/*
  * pushes all subtransforms
  */
 void Orientation::push()

@@ -22,13 +22,13 @@ void PrintMousePosition::handleMouseEvent(MouseEvent * me)
         Vector3D * mouseNearPosition = new Vector3D(me->getXPosition(), me->getYPosition(), 0.0);
         Vector3D * mouseFarPosition  = new Vector3D(me->getXPosition(), me->getYPosition(), 1.0);
 
-        Vector3D * worldCoord = _controller->getViewer()->toWorldCoordinates(mouseNearPosition);
+        Vector3D * worldCoord = _controller->getCamera()->toWorldCoordinates(mouseNearPosition);
 
         cout << "near world coord: " << worldCoord->toString() << endl;
 
         delete worldCoord;
 
-        worldCoord = _controller->getViewer()->toWorldCoordinates(mouseFarPosition);
+        worldCoord = _controller->getCamera()->toWorldCoordinates(mouseFarPosition);
 
         cout << "far world coord: " << worldCoord->toString() << endl;
 

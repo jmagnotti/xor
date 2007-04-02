@@ -2,6 +2,9 @@
 #define DIMENSION3D_H
 
 
+#include <stdlib.h>
+#include <string>
+
 #include "Dimension.h"
 #include "Vector3D.h"
 
@@ -27,8 +30,16 @@ public:
 
     Dimension3D(float points [3]);
 
+
+    /**
+     * String constructor. Space separated
+     */
+    Dimension3D(char * vals);
+
+
 	// Getters //
 	int     getDimensionality();
+
 
     /*
     float   getX();

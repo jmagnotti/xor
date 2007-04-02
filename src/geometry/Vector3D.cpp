@@ -70,6 +70,24 @@ Vector3D::Vector3D(float points[3])
 
 
 /*
+ * string cstr
+ */
+Vector3D::Vector3D(char * vals)
+{
+    char * result = NULL;
+    char delims[] = " ";
+
+    result = strtok(vals, delims); 
+    _position[0] = atof(result);
+
+    for (int i=1; i<3; i++) {
+        result = strtok(NULL, delims); 
+        _position[i] = atof(result);
+    }
+}
+
+
+/*
  * Increment
  */
 void Vector3D::increment(Vector3D * other)

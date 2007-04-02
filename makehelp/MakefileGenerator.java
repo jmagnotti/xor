@@ -95,7 +95,7 @@ public abstract class MakefileGenerator
 				out.write("MKDP = makedepend\n");
 				out.write("CC = g++\n");
 				out.write("LFLAGS = -dynamiclib\n");
-				out.write("LIBS = -framework OpenGL -lSDL -lSDL_image -lm\n\n");
+				out.write("LIBS = -framework OpenGL -framework SDL -framework SDL_image -lm\n\n");
 				out
 						.write("# Notice that libdir does not specify the ending /\n");
 				out.write("LIBDIR = /usr/local/lib\n");

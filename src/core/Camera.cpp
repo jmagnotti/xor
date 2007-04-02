@@ -168,6 +168,58 @@ void Camera::handleReshape(int width, int height)
 
 
 /*
+ * add listener
+ */
+void Camera::addListener(CameraListener * cl)
+{
+    _listeners.push_back(cl);
+}
+
+
+/*
+ * remove listener
+ */
+void Camera::removeListener(CameraListener * cl)
+{
+    bool removed = false;
+
+    list<CameraListener*>::iterator iter   = _listeners.begin();
+    list<CameraListener*>::iterator finish = _listeners.end();
+
+    while (!removed && iter != finish) {
+        if (*iter == cl) {
+            _listeners.erase(iter);
+            removed = true;
+		}
+		else {
+			++iter;
+		}
+    }
+}
+
+
+/*
+ * notify everyone of the movement
+ */
+void Camera::notifyListeners()
+{
+    Vector3D * pos = getBaseVector()->clone();
+
+    list<CameraListener*>::iterator iter   = _listeners.begin();
+	list<CameraListener*>::iterator next   = _listeners.begin();
+    list<CameraListener*>::iterator finish = _listeners.end();
+
+    while (iter != finish) {
+		++next;
+		(*iter)->handleCameraMove(pos);
+        iter = next;
+    }
+
+    delete pos;
+}
+
+
+/*
  * reset the SDL surface
  */
 void Camera::setupSDLVideo(Dimension2D * size)

@@ -175,7 +175,7 @@ void RectangularPrism::setFaces()
             new Dimension2D(_points[5]->getY() - _points[0]->getY(), 
                             _points[5]->getZ() - _points[0]->getZ()),
 
-            TextureScale::Y_AND_Z, 
+            TextureScale::Z_AND_Y, 
             TextureScale::STRETCHED);
 
 	// clear any existing faces

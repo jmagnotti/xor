@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <list>
 
-#include "../../../include/SDL_events.h"
+#include <SDL/SDL.h>
 
 #include "KeyboardListener.h"
 #include "KeyEvent.h"

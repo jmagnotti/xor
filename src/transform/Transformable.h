@@ -2,7 +2,7 @@
 #define TRANSFORMABLE_H
 
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 
 #include "Transform.h"
 #include "Scale.h"
@@ -25,7 +25,7 @@ namespace XOR {
  * InterpolationEngine to any of the mutation methods below).
  *
  * For efficiency reasons, Transformable is a declared as a friend class in both
- * Translate and Rotate
+ * Translate and Rotate.
  *
  * @author John Magnotti, Michael Lam
  * @version 1.0
@@ -62,17 +62,29 @@ public:
     /**
      * Copies the values from the other Transformable, no aliasing
      */
-    void clone(Transformable *);
+    void clone(Transformable * other);
 
 
 	/**
 	 * Returns the 3D rectangular bounds of the object.
+     *
+     * Implementers of Transformable should return [Transformable::getDimension
+     * + _dimension] so transforms can be taken
+     * into account. 
+     *
+     * @return The size of the object
 	 */
 	virtual Dimension3D * getDimension()=0;
 
 
 	/**
 	 * Returns a point that defines Min(x,y,z) for a given Transformable.
+     *
+     * Implementers of Transformable should return
+     * [Transformable::getBaseVector + _baseVector] so transforms can be taken
+     * into account. 
+     *
+     * @return  The registration point of the Transformable
 	 */
 	virtual Vector3D * getBaseVector()=0;
 
@@ -212,7 +224,6 @@ public:
     void incrementStretch(Vector3D * stretch, InterpolationEngine * interpolation);
 
 
-
     /**
 	 * Returns the state of the transformed variable, which is set to TRUE when
 	 * all transforms are at their default state.
@@ -305,10 +316,14 @@ public:
 
 private:
 
+	bool          _transformed;
+
 	Orientation * _orientation;
 	Scale       * _scale;
 	Stretch     * _stretch;
-	bool          _transformed;
+
+    Dimension3D * _T_size;
+    Vector3D *    _T_origin;
 
 };
 

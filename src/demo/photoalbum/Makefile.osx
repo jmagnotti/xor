@@ -2,10 +2,10 @@
 #
 CC = g++ 
 
-LIBS = -framework OpenGL -framework Cocoa -lSDL -lSDL_image -lSDLMain -lXOR -lm
+LIBS = -framework OpenGL -framework Cocoa -framework SDL -framework SDL_image -lXOR -lm
 
 #Packages
-SRCS = InterpolationManager.cpp PhotoAlbumDriver.cpp PhotoKeyboardListener.cpp PhotoAlbum.cpp
+SRCS = ../../../include/SDLMain.m InterpolationManager.cpp PhotoAlbumDriver.cpp PhotoKeyboardListener.cpp PhotoAlbum.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -20,7 +20,6 @@ MAIN = PhotoAlbum
 .PHONY: depend clean
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
-			./$(MAIN)
 
 PhotoAlbum:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
@@ -99,7 +98,8 @@ InterpolationManager.o: ../../shape/Renderable.h ../../core/Window.h
 InterpolationManager.o: ../../event/reshape/ReshapeListener.h
 InterpolationManager.o: ../../event/reshape/ReshapeEvent.h
 InterpolationManager.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
-InterpolationManager.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+InterpolationManager.o: ../../geometry/Dimension2D.h
+InterpolationManager.o: ../../core/CameraListener.h ../../paint/Color.h
 InterpolationManager.o: ../../transform/CoordinateSystem.h
 InterpolationManager.o: ../../transform/CoordinateSystemFactory.h
 InterpolationManager.o: ../../transform/CoordinateSystem.h
@@ -110,7 +110,7 @@ InterpolationManager.o: ../../transform/LeftOpenGLCoordinateSystem.h
 InterpolationManager.o: ../../transform/EngineerCoordinateSystem.h
 InterpolationManager.o: ../../event/timer/TimerListener.h
 InterpolationManager.o: ../../event/reshape/ReshapeEvent.h
-InterpolationManager.o: ../../core/Controller.h
+InterpolationManager.o: ../../core/CameraListener.h ../../core/Controller.h
 InterpolationManager.o: ../../event/EventHandlerFactory.h
 InterpolationManager.o: ../../event/keyboard/Keyboard.h
 InterpolationManager.o: ../../../include/SDL_events.h
@@ -347,7 +347,8 @@ PhotoAlbumDriver.o: ../../shape/Renderable.h ../../core/Window.h
 PhotoAlbumDriver.o: ../../event/reshape/ReshapeListener.h
 PhotoAlbumDriver.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
 PhotoAlbumDriver.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
-PhotoAlbumDriver.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
+PhotoAlbumDriver.o: ../../core/CameraListener.h ../../paint/Color.h
+PhotoAlbumDriver.o: ../../transform/CoordinateSystem.h
 PhotoAlbumDriver.o: ../../transform/CoordinateSystemFactory.h
 PhotoAlbumDriver.o: ../../transform/CoordinateSystem.h
 PhotoAlbumDriver.o: ../../transform/OpenGLCoordinateSystem.h
@@ -357,7 +358,8 @@ PhotoAlbumDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
 PhotoAlbumDriver.o: ../../transform/EngineerCoordinateSystem.h
 PhotoAlbumDriver.o: ../../event/timer/TimerListener.h
 PhotoAlbumDriver.o: ../../event/reshape/ReshapeEvent.h
-PhotoAlbumDriver.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
+PhotoAlbumDriver.o: ../../core/CameraListener.h ../../core/Controller.h
+PhotoAlbumDriver.o: ../../event/EventHandlerFactory.h
 PhotoAlbumDriver.o: ../../event/keyboard/Keyboard.h
 PhotoAlbumDriver.o: ../../../include/SDL_events.h
 PhotoAlbumDriver.o: ../../event/keyboard/KeyboardListener.h
@@ -592,7 +594,8 @@ PhotoKeyboardListener.o: ../../shape/Renderable.h ../../core/Window.h
 PhotoKeyboardListener.o: ../../event/reshape/ReshapeListener.h
 PhotoKeyboardListener.o: ../../event/reshape/ReshapeEvent.h
 PhotoKeyboardListener.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
-PhotoKeyboardListener.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+PhotoKeyboardListener.o: ../../geometry/Dimension2D.h
+PhotoKeyboardListener.o: ../../core/CameraListener.h ../../paint/Color.h
 PhotoKeyboardListener.o: ../../transform/CoordinateSystem.h
 PhotoKeyboardListener.o: ../../transform/CoordinateSystemFactory.h
 PhotoKeyboardListener.o: ../../transform/CoordinateSystem.h
@@ -603,7 +606,7 @@ PhotoKeyboardListener.o: ../../transform/LeftOpenGLCoordinateSystem.h
 PhotoKeyboardListener.o: ../../transform/EngineerCoordinateSystem.h
 PhotoKeyboardListener.o: ../../event/timer/TimerListener.h
 PhotoKeyboardListener.o: ../../event/reshape/ReshapeEvent.h
-PhotoKeyboardListener.o: ../../core/Controller.h
+PhotoKeyboardListener.o: ../../core/CameraListener.h ../../core/Controller.h
 PhotoKeyboardListener.o: ../../event/EventHandlerFactory.h
 PhotoKeyboardListener.o: ../../event/keyboard/Keyboard.h
 PhotoKeyboardListener.o: ../../../include/SDL_events.h
@@ -838,7 +841,8 @@ PhotoAlbum.o: ../../paint/Color.h ../../shape/Renderable.h
 PhotoAlbum.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
 PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
 PhotoAlbum.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
-PhotoAlbum.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
+PhotoAlbum.o: ../../core/CameraListener.h ../../paint/Color.h
+PhotoAlbum.o: ../../transform/CoordinateSystem.h
 PhotoAlbum.o: ../../transform/CoordinateSystemFactory.h
 PhotoAlbum.o: ../../transform/CoordinateSystem.h
 PhotoAlbum.o: ../../transform/OpenGLCoordinateSystem.h
@@ -847,8 +851,8 @@ PhotoAlbum.o: ../../transform/MathCoordinateSystem.h
 PhotoAlbum.o: ../../transform/LeftOpenGLCoordinateSystem.h
 PhotoAlbum.o: ../../transform/EngineerCoordinateSystem.h
 PhotoAlbum.o: ../../event/timer/TimerListener.h
-PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h ../../core/Controller.h
-PhotoAlbum.o: ../../event/EventHandlerFactory.h
+PhotoAlbum.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+PhotoAlbum.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
 PhotoAlbum.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
 PhotoAlbum.o: ../../event/keyboard/KeyboardListener.h
 PhotoAlbum.o: ../../event/keyboard/KeyEvent.h

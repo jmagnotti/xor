@@ -48,8 +48,29 @@ Dimension3D::Dimension3D(float points[3])
 }
 
 
+/*
+ * string cstr
+ */
+Dimension3D::Dimension3D(char * vals)
+{
+    char * result = NULL;
+    char delims[] = " ";
+
+    _dimension = new float[3];
+
+    result = strtok(vals, delims); 
+    _dimension[0] = atof(result);
+
+    for (int i=1; i<3; i++) {
+        result = strtok(NULL, delims); 
+        _dimension[i] = atof(result);
+    }
+}
+
+
 // Getters //
-int     Dimension3D::getDimensionality() 			{ return 3;             }
+int     Dimension3D::getDimensionality() 			
+                                    { return 3;             }
 
 float   Dimension3D::getWidth()     { return _dimension[0];	}
 float   Dimension3D::getHeight()    { return _dimension[1]; }
@@ -64,5 +85,5 @@ Vector3D * Dimension3D::toVector()
     return new Vector3D(_dimension);
 }
 
-
 }
+

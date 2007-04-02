@@ -74,6 +74,12 @@ public:
 
 
     /**
+     * Returns a clone of this Orientation.
+     */
+    Orientation * clone();
+
+
+    /**
 	 * Returns a clone of the translation. The calling method is
 	 * responsible for freeing memory associated with the returned
 	 * Vector3D.
@@ -273,20 +279,20 @@ public:
 	 * Print all member info for debug purposes.
 	 */
 	void print();
-	
+
 
 	/**
 	 * Print waypoint info only
 	 */
 	void printWaypoint();
-	
+
 
     /**
      * Remove the effect of all of the transform objects
      */
     void clear();
 
-    
+ 
 private:
 
 	/**

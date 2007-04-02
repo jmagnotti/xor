@@ -10,7 +10,8 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-    Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance()); 
+    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
+            //InputEventProxyFactory::GetInstance()); 
     ctrl->defaultConfiguration();
     ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
     

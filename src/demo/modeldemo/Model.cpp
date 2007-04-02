@@ -18,7 +18,9 @@ public:
  	*/
 	ModelDemo()
 	{
-        Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
+        Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
+                
+                //InputEventProxyFactory::GetInstance());
         ctrl->defaultConfiguration();
         
 		//ctrl->removeDefaultKeyboardListener();
@@ -29,8 +31,8 @@ public:
 
         ctrl->setModel(new String2D("Model Test"));
 
-		ctrl->getViewer()->incrementTranslation(new Vector3D(50,50,50));
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,25,30));
+		ctrl->getCamera()->incrementTranslation(new Vector3D(50,50,50));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,25,30));
 		
 		tModels[0] = ModelFactory::GetInstance()->createModel("models/ant01.ms3d");
 		tModels[0]->incrementStretch(new Vector3D(5,5,5));
@@ -56,49 +58,49 @@ public:
 
 	void handleKey_a()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				0, 10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_d()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				0, -10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_w()
 	{
-		Controller::GetInstance(NULL)->getViewer()->walk
+		Controller::GetInstance(NULL)->getCamera()->walk
 			(0.5f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_s()
 	{
-		Controller::GetInstance(NULL)->getViewer()->walk(
+		Controller::GetInstance(NULL)->getCamera()->walk(
 				-0.5f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_q()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				2, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_e()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				2, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_c()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				1, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_z()
 	{
-		Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+		Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 				1, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
@@ -136,12 +138,14 @@ public:
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+
+			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}
+
 	
 private:
 

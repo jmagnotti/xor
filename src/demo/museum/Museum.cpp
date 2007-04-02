@@ -11,7 +11,7 @@ Museum::Museum()
 /*
  * Adds a room to the museum
  */
-void Museum::addRoom(Room * room)
+void Museum::addRoom(Object3D * room)
 {
     _rooms.push_back(room);
 }
@@ -20,7 +20,7 @@ void Museum::addRoom(Room * room)
 /*
  * returns a pointer to the set of rooms
  */
-vector<Room*>::iterator Museum::getRooms()
+vector<Object3D*>::iterator Museum::getRooms()
 {
     return _rooms.begin();
 }
@@ -34,15 +34,18 @@ int Museum::getSize()
     return _rooms.size();
 }
 
+
 Dimension3D * Museum::getDimension()
 {
-	return new Dimension3D(0,0,0);
+	return new Dimension3D(1,1,1);
 }
+
 
 Vector3D * Museum::getBaseVector()
 {
 	return new Vector3D(0,0,0);
 }
+
 
 void Museum::renderObject()
 {
@@ -50,21 +53,3 @@ void Museum::renderObject()
 		_rooms[i]->render();
 }
 
-
-/*
- * Sets the layout manager
-void Museum::setLayout(MuseumLayout * layout)
-{
-    _layout = layout;
-}
-
- */
-
-/*
- * Sets the lobby to use for this museum
-void Museum::setLobby(Lobby * lobby)
-{
-    _lobby = lobby;
-}
-
- */

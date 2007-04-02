@@ -5,7 +5,7 @@
 #include <list>
 #include <iostream>
 
-#include "../../include/SDL.h"
+#include <SDL/SDL.h>
 
 #include "../event/reshape/ReshapeListener.h"
 #include "../geometry/Dimension2D.h"

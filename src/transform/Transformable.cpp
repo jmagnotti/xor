@@ -32,16 +32,43 @@ void Transformable::clone(Transformable * other)
 {
 	_orientation->clone(other->_orientation);
 	_scale->clone(other->_scale);
+
 	// TODO: add Stretch::Clone()
 	//_stretch->clone(other->_stretch);
 }
 
+
+/*
+ *
+ */
 Orientation * Transformable::cloneOrientation()
 {
-	Orientation * newOrientation = new Orientation();
-	newOrientation->clone(_orientation);
-	return newOrientation;
+    /*
+        Orientation * newOrientation = new Orientation();
+        newOrientation->clone(_orientation);
+    */
+
+	return _orientation->clone();
 }
+
+
+/*
+ * return the dimension described by our transforms
+Dimension3D * Transformable::getDimension()
+{
+    return new Dimension3D(1,1,1);
+}
+ */
+
+
+/*
+ * returns the base vector described by our transforms
+Vector3D * Transformable::getBaseVector()
+{
+    return new Vector3D(1,1,1);
+}
+ */
+
 
 /*
  * pushes all subtransforms
@@ -66,7 +93,7 @@ void Transformable::pushInverse(bool invertScale)
 		_scale->push();
 
 	_stretch->pushInverse();
-	
+
 	_orientation->pushInverse();
 }
 
@@ -89,6 +116,7 @@ Vector3D * Transformable::getTranslation()
 {
 	return _orientation->getTranslation();
 }
+
 
 /* 
  * increment the position values
@@ -126,6 +154,9 @@ void Transformable::setTranslation(Vector3D * position)
 }
 
 
+/*
+ * 
+ */
 void Transformable::incrementScalar(Vector3D * scalar)
 {
 	_transformed = true;
@@ -133,6 +164,9 @@ void Transformable::incrementScalar(Vector3D * scalar)
 }
 
 
+/*
+ * 
+ */
 void Transformable::incrementScalar(Vector3D * scalar, InterpolationEngine * interpolation)
 {
 	_transformed = true;
@@ -140,6 +174,9 @@ void Transformable::incrementScalar(Vector3D * scalar, InterpolationEngine * int
 }
 
 
+/*
+ * 
+ */
 void Transformable::setScalar(Vector3D * scalar)
 {
 	_transformed = true;
@@ -147,6 +184,9 @@ void Transformable::setScalar(Vector3D * scalar)
 }
 
 
+/*
+ * 
+ */
 void Transformable::setScalar(Vector3D * scalar, InterpolationEngine * interpolation)
 {
 	_transformed = true;
@@ -154,12 +194,18 @@ void Transformable::setScalar(Vector3D * scalar, InterpolationEngine * interpola
 }
 
 
+/*
+ * 
+ */
 Vector3D * Transformable::getStretch()
 {
 	return _stretch->toVector();
 }
 
 
+/*
+ * 
+ */
 void Transformable::setStretch(Vector3D * stretch, InterpolationEngine * interpolation) 
 {
 	_stretch->setOrigin(getBaseVector());
@@ -168,6 +214,10 @@ void Transformable::setStretch(Vector3D * stretch, InterpolationEngine * interpo
 	_stretch->set(stretch, interpolation);
 }
 
+
+/*
+ * 
+ */
 void Transformable::setStretch(Vector3D * stretch)
 {
 	_stretch->setOrigin(getBaseVector());
@@ -176,6 +226,10 @@ void Transformable::setStretch(Vector3D * stretch)
 	_stretch->set(stretch);
 }
 
+
+/*
+ * 
+ */
 void Transformable::incrementStretch(Vector3D * stretch, InterpolationEngine * interpolation) 
 {
 	_stretch->setOrigin(getBaseVector());
@@ -184,6 +238,10 @@ void Transformable::incrementStretch(Vector3D * stretch, InterpolationEngine * i
 	_stretch->increment(stretch, interpolation);
 }
 
+
+/*
+ * 
+ */
 void Transformable::incrementStretch(Vector3D * stretch)
 {
 	_stretch->setOrigin(getBaseVector());
@@ -191,7 +249,6 @@ void Transformable::incrementStretch(Vector3D * stretch)
 	_transformed = true;
 	_stretch->increment(stretch);
 }
-
 
 
 /*
@@ -243,10 +300,12 @@ void Transformable::incrementFocalPoint(Vector3D * point, InterpolationEngine * 
 	_orientation->incrementFocalPoint(point, interpolation);
 }
 
+
 void Transformable::incrementFocalPoint(Vector3D * point)
 {
 	_orientation->incrementFocalPoint(point);
 }
+
 
 /*
  * set fp
@@ -314,6 +373,7 @@ void Transformable::incrementOrientation(Orientation *orient, InterpolationEngin
 void Transformable::print()
 {
 	_orientation->print();
+
 	cout << "scale_x="   << _scale->_xScale << 
 		    "scale_y="   << _scale->_xScale   <<
 		    "scale_z="   << _scale->_xScale  << endl;;

@@ -4,7 +4,7 @@
 
 #include <list>
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 #include "TimerListener.h"
 
 

@@ -2,13 +2,14 @@
 #define VIEWER_H
 
 
-#include <vector>
+#include <list>
 
-#include "../../include/SDL.h"
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
 
 #include "World.h"
 #include "Window.h"
+#include "CameraListener.h"
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
@@ -18,6 +19,7 @@
 #include "../event/timer/TimerListener.h"
 #include "../event/reshape/ReshapeListener.h"
 #include "../event/reshape/ReshapeEvent.h"
+
 
 namespace XOR {
 
@@ -63,6 +65,18 @@ public:
 	 * Destructor
 	 */
 	~Camera();
+
+
+    /**
+     * Add a listener to the collection
+     */
+    void addListener(CameraListener * cl);
+
+
+    /**
+     * Removes the given listener from the collection if it exists
+     */
+    void removeListener(CameraListener * cl);
 
 
     /**
@@ -204,12 +218,19 @@ public:
     /**
      * Returns a vector representing the screen position in world coordinates.
      */
-    Vector3D * toWorldCoordinates(Vector3D * screenCoor);
+    Vector3D * toWorldCoordinates(Vector3D * screenCoord);
     
 	
 protected:
 
     CoordinateSystem * _coordinateSystem;
+
+
+    /**
+     * Sends out the camera's position to all the listeners.
+     */
+    void notifyListeners();
+
 
 private:
 
@@ -237,6 +258,8 @@ void build (double fov, double nearCP, double farCP, int colorDepth, Uint32 vide
 
 	int        _colorDepth;
 	Uint32     _videoFlags;
+
+    list<CameraListener*> _listeners;
 
     SDL_Event _reshape;
 };

@@ -17,7 +17,7 @@ public:
 
     EventHandlerFactory * getEventFactory() const
     {
-        return FullEventHandlerFactory::GetInstance();
+        return InputEventProxyFactory::GetInstance();
     }
 
     const float * getBackgroundColor()
