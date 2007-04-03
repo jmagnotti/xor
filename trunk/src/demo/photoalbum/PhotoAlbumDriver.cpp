@@ -22,9 +22,8 @@ public:
 
     const float * getBackgroundColor()
     {
-        return Color::RED;
+        return Color::DARK_SLATE_GRAY;
     }
-
 
     bool isGLFogEnabled()
     {

@@ -7,7 +7,7 @@
 #include "../transform/CoordinateSystem.h"
 #include "../geometry/Vector2D.h"
 #include "../geometry/Dimension2D.h"
-#include "../event/EventHandlerFactory.h"
+#include "../event/EventFactory.h"
 #include "../event/InputEventProxyFactory.h"
 #include "../paint/Color.h"
 
@@ -38,7 +38,7 @@ public:
     virtual CoordinateSystem * getCoordinateSystem() const;
 
 
-    virtual EventHandlerFactory * getEventFactory() const;
+    virtual EventFactory * getEventFactory() const;
 
     
     virtual double getFarClip();

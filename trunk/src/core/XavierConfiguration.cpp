@@ -69,7 +69,7 @@ CoordinateSystem * XavierConfiguration::getCoordinateSystem() const
 }
 
 
-EventHandlerFactory * XavierConfiguration::getEventFactory() const
+EventFactory * XavierConfiguration::getEventFactory() const
 {
     return InputEventProxyFactory::GetInstance();
 }

@@ -2,7 +2,7 @@
 #define INPUTEVENTPROXYFACTORY_H
 
 
-#include "EventHandlerFactory.h"
+#include "EventFactory.h"
 
 #include "keyboard/Keyboard.h"
 #include "keyboard/KeyboardStub.h"
@@ -19,7 +19,7 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class InputEventProxyFactory : public EventHandlerFactory 
+class InputEventProxyFactory : public EventFactory 
 {
 
 public:

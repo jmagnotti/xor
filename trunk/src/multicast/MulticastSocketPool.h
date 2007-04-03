@@ -8,7 +8,8 @@
 
 using namespace std;
 
-namespace XOR {
+namespace XOR
+{
 
 /**
  * Factory and container for MulticastSockets. Provides constants for selecting
@@ -27,18 +28,16 @@ public:
      * the header file so they may be used in switch statements. See Paint.h
      * for further discussion of this.
      */
-    static const int ERROR_SOCKET           = -1;
-    static const int KEYBOARD_SOCKET        = 0;
-    static const int TIMER_SOCKET           = 1;
-    static const int MOUSE_SOCKET           = 2;
-    static const int USER_EVENT_SOCKET      = 9;
-
+    static const int ERROR_SOCKET       = -1;
+    static const int KEYBOARD_SOCKET    = 0;
+    static const int TIMER_SOCKET       = 1;
+    static const int MOUSE_SOCKET       = 2;
+    static const int USER_EVENT_SOCKET  = 9;
 
     /**
      * Singleton Accessor.
      */
     static MulticastSocketPool * GetInstance();
-
 
     /**
      * Returns a pointer to a multicast socket. See MulticastSocket.h for usage
@@ -48,14 +47,12 @@ public:
      */
     MulticastSocket * getMulticastSocket(const int type);
 
-
     /**
      * Closes all the sockets in the pool. Because the pool contains framework
      * sockets, this should only be called by the Controller upon program
      * termination.
      */
-     void cleanUpAndExit();
-
+    void cleanUpAndExit();
 
 private:
 
@@ -69,4 +66,3 @@ private:
 }
 
 #endif          // MULTICASTSOCKETPOOL_H
-

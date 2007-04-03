@@ -1,53 +1,51 @@
 #include "Controller.h"
 
-
-namespace XOR {
+namespace XOR
+{
 
 // Set the static instance to null
-Controller * Controller::_controller = NULL;
+Controller * Controller::_controller= NULL;
 
 /*
  * Private Default Constructor
  */
 Controller::Controller()
-{}
-
+{
+}
 
 /*
  * Private Explicit Constructor
  */
 Controller::Controller(XavierConfiguration * configuration)
 {
+    EventFactory * factory = configuration->getEventFactory();
 
-    EventHandlerFactory * factory = configuration->getEventFactory();
+    //set up the event generators
+    _timer = factory->getTimer();
 
-	//set up the event generators
-    _timer       = factory->getTimer();
     Timer::SetInterval(configuration->getTimerInterval());
 
-	_mouse       = factory->getMouse();
+    _mouse = factory->getMouse();
 
-	_keyboard    = factory->getKeyboard();
+    _keyboard = factory->getKeyboard();
 
-	_window = new Window(configuration->getWindowPosition(), 
+    _window = new Window(configuration->getWindowPosition(),
             configuration->getWindowSize(), (char*)(configuration->getWindowTitle()));
 
-	_camera = new Camera(
-           configuration->getFieldOfView(),
-           configuration->getNearClip(),
-           configuration->getFarClip(),
-           configuration->getColorDepth(),
-           configuration->getVideoFlags(),
-           configuration->getWallMode(),
-           configuration->getWallOffset(),
-           configuration->getBackgroundColor()
+    _camera = new Camera(
+            configuration->getFieldOfView(),
+            configuration->getNearClip(),
+            configuration->getFarClip(),
+            configuration->getColorDepth(),
+            configuration->getVideoFlags(),
+            configuration->getWallMode(),
+            configuration->getWallOffset(),
+            configuration->getBackgroundColor()
     );
 
-
-	_window->addListener(_camera);
+    _window->addListener(_camera);
     _timer->addListener(_camera);
 }
-
 
 /*
  * Destructor
@@ -68,24 +66,23 @@ Controller::~Controller()
     delete _timer;
 }
 
-
 /* 
  * Singleton Accessor
  */
 Controller * Controller::GetInstance()
 {
-	if (_controller == NULL)
-		_controller = new Controller();
+    if (_controller == NULL)
+        _controller = new Controller();
 
-	return _controller;
+    return _controller;
 }
 
 Controller * Controller::GetInstance(XavierConfiguration * configuration)
 {
-	if (_controller == NULL)
-		_controller = new Controller(configuration);
+    if (_controller == NULL)
+        _controller = new Controller(configuration);
 
-	return _controller;
+    return _controller;
 }
 
 /*
@@ -94,26 +91,24 @@ Controller * Controller::GetInstance(XavierConfiguration * configuration)
  */
 void Controller::exit()
 {
-	Controller * control = Controller::GetInstance();
-	delete control;
+    Controller * control = Controller::GetInstance();
+    delete control;
 
-	//TODO need a <list> of shutdown listeners so controller doesn't have to do
-	//it all
+    //TODO need a <list> of shutdown listeners so controller doesn't have to do
+    //it all
 
     // clean up SDL, and exit
-    SDL_Quit(); 
+    SDL_Quit();
 }
-
 
 /*
  * Push a quit event onto the queue
  */
 void Controller::CleanUpAndExit()
 {
-    SDL_Event quitEvent = {SDL_QUIT}; 
+    SDL_Event quitEvent = { SDL_QUIT };
     SDL_PushEvent(&quitEvent);
 }
-
 
 /*
  * unhoses the SDL GL bridge
@@ -122,17 +117,16 @@ void Controller::defaultSDLGLConfiguration()
 {
     _camera->setupSDLVideo(getWindow()->getSize());
 
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1); 
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,  16);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 
     // supposedly this is only needed on non-OS X setups
     // set the framebuffer size for R,G,B, & A
-    SDL_GL_SetAttribute(SDL_GL_RED_SIZE,   8);
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
-    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,  8);
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 }
-
 
 /* 
  * Set up the default configuration for SDL
@@ -140,7 +134,7 @@ void Controller::defaultSDLGLConfiguration()
 void Controller::defaultConfiguration(bool configGL)
 {
     //SDL_Init(SDL_INIT_EVERYTHING); 
-    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO); 
+    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
 
     defaultSDLGLConfiguration();
 
@@ -148,80 +142,74 @@ void Controller::defaultConfiguration(bool configGL)
         defaultGLConfiguration();
 }
 
-
 /*
  * Set up openGL defaults
  */
 void Controller::defaultGLConfiguration()
 {
-	// set the clear color
+    // set the clear color
     _camera->setupClearColor();
 
     glShadeModel(GL_SMOOTH);
     glEnable(GL_TEXTURE_2D);
 
-	// enable blending
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    // enable blending
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// enable anti-aliasing
-	glEnable(GL_LINE_SMOOTH);
-	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    // enable anti-aliasing
+    glEnable(GL_LINE_SMOOTH);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 
-	// enable depth testings
-	// this messes some things up with Alpha blended objects
-	glEnable(GL_DEPTH_TEST);
+    // enable depth testings
+    // this messes some things up with Alpha blended objects
+    glEnable(GL_DEPTH_TEST);
 
-	// enable fog
+    // enable fog
 
-	glEnable(GL_FOG);
+    glEnable(GL_FOG);
 
-	glFogi(GL_FOG_MODE, GL_LINEAR);
+    glFogi(GL_FOG_MODE, GL_LINEAR);
 
-	// the hint has to be GL_NICEST, else large quads aren't shaded correctly
-	glHint(GL_FOG_HINT, GL_NICEST);
-	glFogi(GL_FOG_START, -5);
-	glFogi(GL_FOG_END, 30);
-	GLfloat fogColor[4] = {0.0, 0.0, 0.0, 1.0};
-	glFogfv(GL_FOG_COLOR, fogColor);
+    // the hint has to be GL_NICEST, else large quads aren't shaded correctly
+    glHint(GL_FOG_HINT, GL_NICEST);
+    glFogi(GL_FOG_START, -5);
+    glFogi(GL_FOG_END, 30);
+    GLfloat fogColor[4] = { 0.0, 0.0, 0.0, 1.0 };
+    glFogfv(GL_FOG_COLOR, fogColor);
 }
-
 
 /* 
  * Returns the model
  */
 World * Controller::getModel()
 {
-	return (World*)_model;
+    return (World*)_model;
 }
-
 
 /*
  * Returns the view
  */
 Camera * Controller::getCamera()
 {
-	return _camera;
+    return _camera;
 }
-
 
 /*
  * Returns the keyboard
  */
 Keyboard * Controller::getKeyboard()
 {
-	return _keyboard;
+    return _keyboard;
 }
-
 
 /*
  * Returns the mouse
  */
 Mouse * Controller::getMouse()
 {
-	return _mouse;
+    return _mouse;
 }
-
 
 /*
  * Returns the window handler
@@ -231,7 +219,6 @@ Window * Controller::getWindow()
     return _window;
 }
 
-
 /*
  * returns the timer
  */
@@ -240,14 +227,12 @@ Timer * Controller::getTimer()
     return _timer;
 }
 
-
 /*
  * Starts the program loop
  */
 void Controller::run(void)
 {
-    _camera->handleReshape(_window->getSize()->getWidth(), 
-                           _window->getSize()->getHeight());
+    _camera->handleReshape((int) _window->getSize()->getWidth(), (int)_window->getSize()->getHeight());
 
     // start ticking
     _timer->start();
@@ -256,23 +241,22 @@ void Controller::run(void)
     Controller::EventLoop();
 }
 
-
 /* 
  * sets the model for the controller
  */
 Renderable * Controller::setModel(Renderable * model)
 {
-	// In order to do proper rendering, we need a world object
-	// we don't want to force people to do all that though, so we do a quick check
-	// and wrap the renderable inside a world object if it isn't a world object
-	if (! (World::IsWorldObject(model)) )
-		_model = World::GetInstance(model);
-	else // it already is a world object
-		_model = model;
+    // In order to do proper rendering, we need a world object
+    // we don't want to force people to do all that though, so we do a quick check
+    // and wrap the renderable inside a world object if it isn't a world object
+    if (! (World::IsWorldObject(model)))
+        _model = World::GetInstance(model);
+    else
+        // it already is a world object
+        _model = model;
 
-	return _camera->setModel((World*)_model);
+    return _camera->setModel((World*)_model);
 }
-
 
 /*
  * sets the viewer for the controller
@@ -294,7 +278,6 @@ Camera * Controller::setCamera(Camera * cam)
     return old_camera;
 }
 
-
 /*
  * Monolithic event loop.
  */
@@ -302,14 +285,15 @@ void Controller::EventLoop()
 {
     SDL_Event event;
 
-	//FIXME
+    //FIXME
     Controller * ctrl = Controller::GetInstance();
 
     // we are using WaitEvent(...) because we want everything to be called
     // off timer ticks or other events.
-    while(SDL_WaitEvent(&event)) {
+    while (SDL_WaitEvent(&event))
+    {
 
-        switch(event.type) {
+        switch (event.type) {
 
             case SDL_KEYDOWN:
             case SDL_KEYUP:
@@ -350,12 +334,13 @@ void Controller::EventLoop()
                 }
                 break;
 
-			default: break;
+            default:
+                break;
         }
 
-    }   // end while 
+    } // end while 
 
-}   // end EventLoop
+} // end EventLoop
 
 }
 

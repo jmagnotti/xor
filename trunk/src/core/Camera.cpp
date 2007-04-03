@@ -54,8 +54,8 @@ void Camera::build (double fov, double nearCP, double farCP,
     if (_videoFlags & SDL_FULLSCREEN == SDL_FULLSCREEN)
         _fullscreen  = true;
 
-	_wallXoffset		= offset->getX();
-	_wallYoffset		= offset->getY();
+	_wallXoffset		= (int) offset->getX();
+	_wallYoffset		= (int) offset->getY();
 	_wallMode			= wallMode;
 
     //Mike Lam's Magic Numbers

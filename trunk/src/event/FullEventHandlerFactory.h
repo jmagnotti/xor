@@ -2,7 +2,7 @@
 #define REMOTE_EVENT_FACTORY_H
 
 
-#include "EventHandlerFactory.h"
+#include "EventFactory.h"
 
 #include "keyboard/Keyboard.h"
 #include "keyboard/KeyboardSkeleton.h"
@@ -24,7 +24,7 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class FullEventHandlerFactory : public EventHandlerFactory
+class FullEventHandlerFactory : public EventFactory
 {
 
 public:
