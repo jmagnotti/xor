@@ -5,7 +5,7 @@
 #include <SDL/SDL.h>
 
 // sub-controllers
-#include "../event/EventHandlerFactory.h"
+#include "../event/EventFactory.h"
 #include "../event/keyboard/Keyboard.h"
 #include "../event/mouse/Mouse.h"
 #include "../event/timer/Timer.h"

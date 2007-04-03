@@ -95,12 +95,12 @@ public:
 
     Uint32 getVideoFlags()
     {
-        return SDL_OPENGL | SDL_FULLSCREEN;
+        return SDL_OPENGL;
     }
 
     Dimension2D * getWindowSize() const
     {
-        return new Dimension2D(1440, 900);
+        return new Dimension2D(1680, 1050);
     }
 
     unsigned int getTimerInterval()

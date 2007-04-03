@@ -1,13 +1,12 @@
-#ifndef EVENTHANDLERFACTORY_H
-#define EVENTHANDLERFACTORY_H
-
+#ifndef EVENTFACTORY_H
+#define EVENTFACTORY_H
 
 #include "keyboard/Keyboard.h"
 #include "mouse/Mouse.h"
 #include "timer/Timer.h"
 
-
-namespace XOR {
+namespace XOR
+{
 
 /**
  * Interface for Event Factories. Simplifies creation of multicast sending
@@ -16,21 +15,18 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class EventHandlerFactory
+class EventFactory
 {
 
 public:
-
 
     /**
      */
     virtual Keyboard * getKeyboard()=0;
 
-
     /**
      */
     virtual Mouse * getMouse()=0;
-
 
     /**
      */
@@ -40,5 +36,4 @@ public:
 
 }
 
-#endif          // EVENTHANDLERFACTORY_H
-
+#endif          // EVENTFACTORY_H

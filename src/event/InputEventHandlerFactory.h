@@ -2,7 +2,7 @@
 #define LOCALEVENTHANDLERFACTORY_H
 
 
-#include "EventHandlerFactory.h"
+#include "EventFactory.h"
 
 #include "keyboard/Keyboard.h"
 #include "keyboard/KeyboardSkeleton.h"
@@ -22,7 +22,7 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class InputEventHandlerFactory : public EventHandlerFactory 
+class InputEventHandlerFactory : public EventFactory 
 {
 
 public:
