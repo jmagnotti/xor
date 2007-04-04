@@ -32,6 +32,8 @@ Rotate::Rotate()
 Rotate::Rotate(float angle, int x, int y, int z)
 {
 	_angle = angle;
+	//_angle = GraphicsConversionUtility::GetInstance()->floatModulus(angle + 360.0f, 360);
+	//cout << _angle << endl;
 
 	_xCoord	= x;
 	_yCoord	= y;
@@ -60,7 +62,7 @@ void Rotate::clone(Rotate * other)
 void Rotate::increment(float angle, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
-        _out.clear();
+		_out.clear();
         _out.push_back(_angle + angle);
 
         interpolation->setup(_values, _out);
@@ -68,8 +70,7 @@ void Rotate::increment(float angle, InterpolationEngine * interpolation)
     }
     else {
         _angle += angle;
-        _angle = GraphicsConversionUtility::GetInstance()->floatModulus(_angle,
-                360);
+        _angle = GraphicsConversionUtility::GetInstance()->floatModulus(_angle, 360);
     }
 }
  

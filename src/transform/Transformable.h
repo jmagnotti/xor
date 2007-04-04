@@ -293,7 +293,10 @@ public:
 	 * Set/increment transforms based on an Orientation object
 	 */
 	void setOrientation(Orientation *, InterpolationEngine * interpolation[4]);
+	void setOrientation(Orientation *);
+
 	void incrementOrientation(Orientation *, InterpolationEngine * interpolation[4]);
+	void incrementOrientation(Orientation *);
 
 
 	/**

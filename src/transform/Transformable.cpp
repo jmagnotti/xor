@@ -354,6 +354,16 @@ void Transformable::setOrientation(Orientation *orient, InterpolationEngine * in
 	_orientation->setRotation(Orientation::ROLL, orient->getRotation(Orientation::ROLL), interpolation[3]);
 }
 
+/*
+ * apply a given orientation with no interpolations
+ */
+void Transformable::setOrientation(Orientation *orient)
+{
+	_orientation->setTranslation(orient->getTranslation());
+	_orientation->setRotation(Orientation::THETA, orient->getRotation(Orientation::THETA));
+	_orientation->setRotation(Orientation::PHI, orient->getRotation(Orientation::PHI));
+	_orientation->setRotation(Orientation::ROLL, orient->getRotation(Orientation::ROLL));
+}
 
 /*
  * apply a given orientation to this object
@@ -362,9 +372,21 @@ void Transformable::incrementOrientation(Orientation *orient, InterpolationEngin
 {
 	_orientation->incrementTranslation(orient->getTranslation(), interpolation[0]);
 	_orientation->incrementRotation(Orientation::THETA, orient->getRotation(Orientation::THETA), interpolation[1]);
-	_orientation->incrementRotation(Orientation::PHI, orient->getRotation(Orientation::PHI), interpolation[3]);
-	_orientation->incrementRotation(Orientation::ROLL, orient->getRotation(Orientation::ROLL), interpolation[4]);
+	_orientation->incrementRotation(Orientation::PHI, orient->getRotation(Orientation::PHI), interpolation[2]);
+	_orientation->incrementRotation(Orientation::ROLL, orient->getRotation(Orientation::ROLL), interpolation[3]);
 }
+
+/*
+ * apply a given orientation with no interpolations
+ */
+void Transformable::incrementOrientation(Orientation *orient)
+{
+	_orientation->incrementTranslation(orient->getTranslation());
+	_orientation->incrementRotation(Orientation::THETA, orient->getRotation(Orientation::THETA));
+	_orientation->incrementRotation(Orientation::PHI, orient->getRotation(Orientation::PHI));
+	_orientation->incrementRotation(Orientation::ROLL, orient->getRotation(Orientation::ROLL));
+}
+
 
 
 /*
