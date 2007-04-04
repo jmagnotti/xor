@@ -27,6 +27,16 @@ class Waypoint : public InterpolationListener, public TimerListener
 		 */
 		Waypoint(Orientation *, int, int, Waypoint *);
 
+		/**
+		 * Explicit constructor (w/ id)
+		 */
+		Waypoint(Orientation *, int, int, Waypoint *, int);
+
+		/**
+		 * Get the next pointer
+		 */
+		Waypoint * getNext();
+
 
 		/**
 		 * Change the next pointer
@@ -35,26 +45,48 @@ class Waypoint : public InterpolationListener, public TimerListener
 
 
 		/**
+		 * Get a reference to the waypoint's orientation
+		 */
+		Orientation * getOrientation();
+
+
+		/**
 		 * Uses the interpolation to set the orientation, then waits for
 		 * the given number of seconds and applies the next waypoint
 		 */
 		void apply(Transformable *object);
+
+
+		/**
+		 * Uses the null interpolation to set the orientation, but does not wait or
+		 * apply the next waypoint. 
+		 */
+		void applyImmediately(Transformable *object);
+
 
 		/**
 		 * listen to timer ticks
 		 */
 		void handleTick();
 
+
+		/**
+		 * print debug info
+		 */
+		void print();
+
 	private:
 
 		void interpolationComplete();
 
+		InterpolationEngine ** interpolators;
 		Orientation         * _orientation;
 		int                   _interpolationTime;
 		int                   _waitTime;
 		Waypoint            * _next;
 		Transformable		* _target;
 		int                   _ticksRemaining;
+		int					  _id;
 };
 
 }

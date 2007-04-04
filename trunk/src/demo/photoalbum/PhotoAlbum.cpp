@@ -37,7 +37,10 @@ PhotoAlbum::PhotoAlbum()
 void PhotoAlbum::interpolationComplete()
 {
 	receivedInterpolations++;
-	//cout << "Received Interpolations: " << receivedInterpolations << endl; // debug
+	cout << "Received Interpolations: \t" << receivedInterpolations <<
+		"Expected Interpolations: \t" << expectedInterpolations << 
+		endl; // debug
+
 	unlockKeys();
 }
 
@@ -86,11 +89,17 @@ void PhotoAlbum::bringToFront(int index)
 	// need scale the pic back to it's original form before messing with it
 	unhighlightPic(index);	
 
+/*
 	pics[index]->setScalar(new Vector3D(6, 6, 1), new TimedInterpolation(300, this));
 	pics[index]->setTranslation(new Vector3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
 	pics[index]->incrementRotation(Orientation::ROLL,		360, new TimedInterpolation(600, this));
 	pics[index]->incrementRotation(Orientation::THETA,	360, new TimedInterpolation(600, this));
 	pics[index]->incrementRotation(Orientation::PHI,		360, new TimedInterpolation(600, this));
+*/
+
+	pics[index]->incrementScalar(new Vector3D(3, 3, 0));
+	//pics[index]->setTranslation(new Vector3D(-3,-3, 0), new TimedInterpolation(500, this));
+
 }
 
 /**
@@ -109,7 +118,7 @@ void PhotoAlbum::setCurrentPic(int index)
 		// change the current picture
 		currentPic = index;	
 		
-		lockKeys(1);
+		lockKeys(1); 
 		// scale up
 		highlightPic();
 		// print out the index of currently highlighted pic
@@ -137,8 +146,8 @@ void PhotoAlbum::toggleViewMode()
 	// if the keyboard is locked
 	// this means we're already in
 	// view mode
-	if(keyboardLocked)
-	{
+	if(keyboardLocked) {
+
 		pics[currentPic]->clear();  // put pic back
 		receivedInterpolations++;   // cheat a little bit
 		unlockKeys();
@@ -147,7 +156,7 @@ void PhotoAlbum::toggleViewMode()
 	else  // otherwise enter view mode
 	{
 		bringToFront(currentPic);
-		lockKeys(7);
+		//lockKeys(2);
 	}
 }
 
@@ -289,7 +298,7 @@ void PhotoAlbum::unhighlightPic(int index)
 void PhotoAlbum::lockKeys(int expectedInterpolations)
 {
 	this->expectedInterpolations = expectedInterpolations;
-	keyboardLocked = true;
+	keyboardLocked = true;//true;
 }
 
 /**
@@ -342,6 +351,7 @@ void PhotoAlbum::parseXML()
 		//cout << "Parsing cube " << i + 2 << "..." << endl; //debg
 		
 		faceCount = xCubeNode.nChildNode("face");
+
 		// loop through all of the faces
 		for(int j = 0; j < faceCount; j++) {
 			XMLNode xFaceNode = xCubeNode.getChildNode("face", &faceIterator);
@@ -359,12 +369,15 @@ void PhotoAlbum::parseXML()
 		for(double j = -3; j < 3; j++) {
 		
 			//cout << "Adding square " << numOfPics << " at: " << i * squareDiameter + offset*i << ", " << j * squareDiameter + offset*j<< ", " << z << endl;
-			
-			pics.push_back(new CompiledObject3D(new RectangularPrism( 
-					new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z),
-					squareDiameter, squareDiameter, squareDiameter,
-					new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
-					factory->createTexture(fileNames[numOfPics].c_str())))));
+
+			Vector3D * vOff = new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z);
+
+			Cube * c = new Cube( new Vector3D(0,0,0), squareDiameter, new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(fileNames[numOfPics].c_str())));
+
+			c->setTranslation(vOff);
+
+			pics.push_back(new CompiledObject3D(c));
+
 			numOfPics++;  // keep track of number of pics
 		}
 	}

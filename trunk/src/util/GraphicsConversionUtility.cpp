@@ -93,12 +93,13 @@ float GraphicsConversionUtility::mapValue(float value, float min, float max,
 float GraphicsConversionUtility::floatModulus(float a, int b)
 {
     if (a > 0.0) {
-        while (a > b) 
-            a -= b;
+        while (a >= (float)b) 
+            a -= (float)b;
     }
     else {
-        while (a < -b)
-            a += b;
+        //while (a < -(float)b)
+        while (a < 0.0)
+            a += (float)b;
     }
 
     return a;

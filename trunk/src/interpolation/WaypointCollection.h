@@ -23,7 +23,7 @@ class WaypointCollection
 		/**
 		 * Explicit constructor (path of waypoint file)
 		 */
-		WaypointCollection(const char * path, int interpolationTime, int waitTime);
+		WaypointCollection(const char * path, int interpolationTime, int waitTime, bool loop);
 
 
 		/**
@@ -37,10 +37,17 @@ class WaypointCollection
 		 */
 		void apply(Transformable *object);
 
+
+		/**
+		 * Print all waypoints
+		 */
+		void print();
+
 	private:
 
 		Orientation * _initial;
-		Waypoint *    _firstWaypoint;
+		Waypoint *    _first;
+		Waypoint *    _last;
 };
 
 }

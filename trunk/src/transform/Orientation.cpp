@@ -531,12 +531,23 @@ void Orientation::print()
  */
 void Orientation::printWaypoint()
 {
-	cout        << _position->_xShift << 
-		    " " << _position->_yShift <<
-	        " " << _position->_zShift << 
-	        " " << _theta->_angle << 
-		    " " << _phi->_angle   <<
-		    " " << _roll->_angle  << endl;
+	static float x=0.0f,y=0.0f,z=0.0f,t=0.0f,p=0.0f,r=0.0f;
+	float dx=_position->_xShift-x,
+		  dy=_position->_yShift-y,
+		  dz=_position->_zShift-z,
+		  dt=_theta->_angle-t,
+		  dp=_phi->_angle-p,
+		  dr=_roll->_angle-r;
+
+	printf("%10.4f  %10.4f  %10.4f  %10.4f  %10.4f  %10.4f\n",
+			dx,dy,dz,dt,dp,dr);
+
+	x=_position->_xShift;
+	y=_position->_yShift;
+	z=_position->_zShift;
+	t=_theta->_angle;
+	p=_phi->_angle;
+	r=_roll->_angle;
 }
 
 
