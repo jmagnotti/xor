@@ -63,11 +63,7 @@ void PhotoKeyboardListener::handleKey_F5()
 {
 	_photoalbum->resetAllPhotos();
 }
-/* // does this work?
-void PhotoKeyboardListener::handleKey_p()
-{
-	_ctrl->getCamera()->printDebugInfo();
-}*/
+
 
 void PhotoKeyboardListener::handleKey_a()
 {
@@ -161,6 +157,3 @@ void PhotoKeyboardListener::handleKey_Space()
 	_photoalbum->toggleViewMode();
 }
 
-void PhotoKeyboardListener::handleKeyEvent()
-{
-}

@@ -185,6 +185,7 @@ private:
 
 	Renderable * _model;
 	Camera     * _camera;
+	XavierConfiguration * _configuration;
 
 	static Controller *	_controller;
 

@@ -37,11 +37,15 @@ public:
     CubeDemoConfig()
     {}
 
-    EventHandlerFactory * getEventFactory()
+    EventFactory * getEventFactory()
     {
         return InputEventProxyFactory::GetInstance();
     }
 
+	Uint32 getTimerInterval()
+	{
+		return 100;
+	}
 };
 
 /**
