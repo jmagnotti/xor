@@ -20,13 +20,7 @@ public:
 	{
         Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
                 
-                //InputEventProxyFactory::GetInstance());
-        ctrl->defaultConfiguration();
-        
-		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
-
-		//ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Model Test"));

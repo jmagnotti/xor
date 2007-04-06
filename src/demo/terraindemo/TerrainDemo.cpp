@@ -41,7 +41,7 @@ class TerrainConfig : public XavierConfiguration
             false;
         }
 
-        EventHandlerFactory * getEventFactory()
+        EventFactory * getEventFactory()
         {
             return InputEventHandlerFactory::GetInstance();
         }
@@ -60,7 +60,6 @@ public:
 	TerrainDemo()
 	{
         ctrl = Controller::GetInstance(new TerrainConfig());
-        ctrl->defaultConfiguration();
 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);

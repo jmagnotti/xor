@@ -12,15 +12,14 @@ int main(int argc, char ** argv)
     // We need a reference to the controller, get it through the static
     // accessor method. This method ensures that all requestors get the same
     // controller object (note: Singleton Pattern).
-    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
-
     // tell the controller to setup friendly defaults for us. This includes
     // mouse, keyboard, view, and reshape defaults. It also sets up openGL 
     // parameters. To only setup I/O and windowing, pass false to the method,
     // then setup openGL parameters yourself. Check out the documentation for
     // Controller::defaultConfiguration(...) for details about exactly what 
     // gets setup.
-    ctrl->defaultConfiguration();
+
+    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
     // Add a keyboard listener that has a small set of key handlers
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());

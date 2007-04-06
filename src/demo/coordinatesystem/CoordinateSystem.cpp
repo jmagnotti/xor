@@ -18,18 +18,15 @@ public:
 	{
 		_systype = 0;
 
-        ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
-        ctrl->defaultConfiguration();
+        ctrl = Controller::GetInstance(new XavierConfiguration());
 
-		//ctrl->removeDefaultKeyboardListener();
         ctrl->getKeyboard()->addListener(this);
-		//ctrl->removeDefaultMouseListener();
 		ctrl->getMouse()->setDefaultMouseListener(this);
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		ctrl->getViewer()->incrementTranslation(new Vector3D(10,10,10));
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
         
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
@@ -60,7 +57,7 @@ public:
 	void handleKey_l()
 	{
 		cout << "LOOK AT ORIGIN" << endl;
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 	}
 
 	void handleKey_x()
@@ -70,83 +67,83 @@ public:
 		if (_systype == 1)
 		{
 			std::cout << "SWITCH COORD SYSTEM: MATH" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
+			ctrl->getCamera()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::MATH_COORDINATE_SYSTEM));
 		}
 		else if (_systype == 2)
 		{
 			std::cout << "SWITCH COORD SYSTEM: LEFT OPENGL" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::LEFT_OPENGL_COORDINATE_SYSTEM));
+			ctrl->getCamera()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::LEFT_OPENGL_COORDINATE_SYSTEM));
 		}
 		else if (_systype == 3)
 		{
 			std::cout << "SWITCH COORD SYSTEM: ENGINEER" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::ENGINEER_COORDINATE_SYSTEM));
+			ctrl->getCamera()->setCoordinateSystem(CoordinateSystemFactory::GetCoordinateSystem(CoordinateSystemFactory::ENGINEER_COORDINATE_SYSTEM));
 		}
 		else
 		{
 			std::cout << "SWITCH COORD SYSTEM: DEFAULT" << endl;
-			ctrl->getViewer()->setCoordinateSystem(CoordinateSystemFactory::GetDefaultCoordinateSystem());
+			ctrl->getCamera()->setCoordinateSystem(CoordinateSystemFactory::GetDefaultCoordinateSystem());
 		}
 	}
 
 	void handleKey_p()
 	{
-		ctrl->getViewer()->print();
+		ctrl->getCamera()->print();
 	}
 
 	void handleKey_a()
 	{
-		ctrl->getViewer()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_d()
 	{
-		ctrl->getViewer()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_w()
 	{
-		ctrl->getViewer()->walk(0.15f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_s()
 	{
-		ctrl->getViewer()->walk(-0.15f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_q()
 	{
-		ctrl->getViewer()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_e()
 	{
-		ctrl->getViewer()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_c()
 	{
-		ctrl->getViewer()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_z()
 	{
-		ctrl->getViewer()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
 	}
 
     void handleKey_C()
     {
-        ctrl->getViewer()->clear();
+        ctrl->getCamera()->clear();
     }
 
     void handleKey_RBracket()
     {
-        ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,1));
+        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1));
     }
 
     void handleKey_LBracket()
     {
-        ctrl->getViewer()->incrementTranslation(new Vector3D(0,0,-1));
+        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,-1));
     }
 	
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -158,9 +155,9 @@ public:
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			ctrl->getViewer()->incrementRotation(
+			ctrl->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}

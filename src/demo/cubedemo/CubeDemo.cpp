@@ -81,22 +81,22 @@ public:
         // the InputEventProxyFactory will send out Keyboard and Mouse events
         // over multicast
 		ctrl = Controller::GetInstance(new CubeDemoConfig());
-		ctrl->defaultConfiguration();
 
 		ctrl->getMouse()->addListener(new DefaultMouseListener());
 		ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 		ctrl->getKeyboard()->addListener(this);
 
-		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED, TextureFactory::GetInstance()->createTexture("monkey.png")); 
+		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED,
+				TextureFactory::GetInstance()->createTexture("monkey.png")); 
 		Cube  * c = new Cube(new Vector3D(-.25, -.25, -4.5), 1.0f, p);
         object3D = new CompiledObject3D(c);
 		ctrl->setModel(c);
 
         // timer tests
         /*
-		PrintAllTicks *			pat = new PrintAllTicks();
-		PrintOccasionalTicks *	pot = new PrintOccasionalTicks();
-		PrintUniqueTick *		put = new PrintUniqueTick();
+			PrintAllTicks *			pat = new PrintAllTicks();
+			PrintOccasionalTicks *	pot = new PrintOccasionalTicks();
+			PrintUniqueTick *		put = new PrintUniqueTick();
         */
 	}
 

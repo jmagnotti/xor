@@ -7,7 +7,8 @@ class CarConfig : public XavierConfiguration
 {
 public:
 
-	CarConfig() {}
+	CarConfig() 
+	{}
 
 	EventFactory * getEventFactory() const
 	{
@@ -33,36 +34,36 @@ public:
 
 class Car : public Object3D
 {
-	public:
-		Car(char *filename)
-		{
-			//static bool initialized = false;
-			//_model = ModelFactory::GetInstance()->createModel("resources/f360.ms3d");
-			_model = ModelFactory::GetInstance()->createModel(filename);
-			//if (!initialized) {
-				_model->incrementStretch(new Vector3D(-.99,-.99,-.99));
-				_model->incrementRotation(Orientation::THETA, 180.0f);
-				//initialized = true;
-			//}
-		}
 
-		Dimension3D * getDimension()
-		{
-			return new Dimension3D(1,1,1);
-		}
+public:
+	Car(char *filename)
+	{
+		//static bool initialized = false;
+		//_model = ModelFactory::GetInstance()->createModel("resources/f360.ms3d");
 
-		Vector3D * getBaseVector()
-		{
-			return new Vector3D(0,0,0);
-		}
+		_model = ModelFactory::GetInstance()->createModel(filename);
+		_model->incrementStretch(new Vector3D(-.99,-.99,-.99));
+		_model->incrementRotation(Orientation::THETA, 180.0f);
+	}
 
-		void renderObject()
-		{
-			_model->render();
-		}
+	Dimension3D * getDimension()
+	{
+		return new Dimension3D(1,1,1);
+	}
 
-	private:
-		Model * _model;
+	Vector3D * getBaseVector()
+	{
+		return new Vector3D(0,0,0);
+	}
+
+	void renderObject()
+	{
+		_model->render();
+	}
+
+private:
+
+	Model * _model;
 };
 
 class Cars : public DefaultKeyboardListener, public DefaultMouseListener
@@ -81,19 +82,13 @@ public:
  	*/
 	Cars(int i, int j)
 	{
-        //ctrl = Controller::GetInstance(new XavierConfiguration());
         ctrl = Controller::GetInstance(new CarConfig());
                 
 		// < WALL STUFF >
 		SDL_ShowCursor(false);
-		ctrl->getCamera()->setWallOffset(i, j);
-		ctrl->getCamera()->setWallMode(Camera::WALL_MODE_STANDARD);
+//		ctrl->getCamera()->setWallOffset(i, j);
+//		ctrl->getCamera()->setWallMode(Camera::WALL_MODE_STANDARD);
 		// </ WALL STUFF >
-
-               // InputEventHandlerFactory::GetInstance());
-        ctrl->defaultConfiguration();
-
-		Timer::SetInterval(30);
 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);
@@ -109,11 +104,6 @@ public:
             CoordinateSystemFactory::MAC_COORDINATE_SYSTEM));
 #endif
         
-        //glDisable(GL_DEPTH_TEST);
-        glDisable(GL_LINE_SMOOTH);
-        glDisable(GL_BLEND);
-		glDisable(GL_FOG);
-		
 		TextureFactory * factory = TextureFactory::GetInstance();
 
 		HeightField * hf = HeightFieldFactory::GetInstance()->
@@ -166,10 +156,10 @@ public:
 
 	void handleKey_k()
 	{
-		//cout << "handling..." << endl;
 		for (int i = 0; i < NUM_CARS; i++)
 			track[i]->apply(car[i]);
-			//track2->apply(car[1]);
+
+		//track2->apply(car[1]);
 		//ctrl->getCamera()->incrementRotation(Orientation::ROLL, 1020.0f, new TimedInterpolation(6000, NULL));
 		//car1->incrementRotation(Orientation::ROLL, 1020.0f, new TimedInterpolation(6000, NULL));
 	}
@@ -191,6 +181,7 @@ public:
 
 			ctrl->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
+
 			ctrl->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}

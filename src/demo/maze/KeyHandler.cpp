@@ -11,8 +11,8 @@ KeyHandler::KeyHandler(Controller * ctrl)
 
     _vectors["UP"]      = new Vector3D(0,1,0);
     _vectors["DOWN"]    = new Vector3D(0,-1,0);
-    _vectors["RIGHT"]   = new Vector3D(1,0,0);
-    _vectors["LEFT"]    = new Vector3D(-1,0,0);
+    _vectors["RIGHT"]   = new Vector3D(-1,0,0);
+    _vectors["LEFT"]    = new Vector3D(1,0,0);
     _vectors["IN"]      = new Vector3D(0,0,1);
     _vectors["OUT"]     = new Vector3D(0,0,-1);
 
@@ -27,46 +27,46 @@ KeyHandler::KeyHandler(Controller * ctrl)
  */
 void KeyHandler::handleKey_e()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["UP"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["UP"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_c()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["DOWN"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["DOWN"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_d()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["RIGHT"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["RIGHT"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_a()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["LEFT"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["LEFT"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_w()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["IN"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["IN"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_s()
 {
-    _controller->getViewer()->incrementTranslation(_vectors["OUT"], _timers["1"]);
+    _controller->getCamera()->incrementTranslation(_vectors["OUT"], _timers["1"]);
 }
 
 void KeyHandler::handleKey_P()
 {
-    ((DebugViewer*)_controller->getViewer())->debug();
+    ((DebugCamera*)_controller->getCamera())->debug();
 }
 
 void KeyHandler::handleKey_D()
 {
-    _controller->getViewer()->incrementFocalPoint(_vectors["RIGHT"], _timers["10"]);
+    _controller->getCamera()->incrementFocalPoint(_vectors["RIGHT"], _timers["10"]);
 }
 
 void KeyHandler::handleKey_A()
 {
-    _controller->getViewer()->incrementFocalPoint(_vectors["LEFT"], _timers["10"]);
+    _controller->getCamera()->incrementFocalPoint(_vectors["LEFT"], _timers["10"]);
 }
 

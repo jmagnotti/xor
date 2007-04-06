@@ -26,19 +26,18 @@ public:
 		char buffer[100];
 		sprintf(buffer, "i = %d  j = %d", i, j);
 
-        Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
-        ctrl->defaultConfiguration();
+        Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D(buffer));
 
-		ctrl->getViewer()->setWallOffset(i,j);
-		ctrl->getViewer()->setWindowDimension(new Dimension2D((float)w, (float)h));
+		ctrl->getCamera()->setWallOffset(i,j);
+		//ctrl->getWindow()->setSize(new Dimension2D((float)w, (float)h));
 
-		wallMode = Viewer::WALL_MODE_STANDARD;
-		ctrl->getViewer()->setWallMode(wallMode);
+		wallMode = Camera::WALL_MODE_STANDARD;
+		ctrl->getCamera()->setWallMode(wallMode);
 
 		// move the window start position (linux/X11 dependent!)
 		SDL_SysWMinfo info;
@@ -56,9 +55,9 @@ public:
 #endif
 		}
 
-		ctrl->getViewer()->incrementTranslation(new Vector3D(50,50,50));
-		ctrl->getViewer()->setFocalPoint(new Vector3D(0,0,0));
-		//ctrl->getViewer()->setFocalPoint(new Vector3D(-80,-35,0));
+		ctrl->getCamera()->incrementTranslation(new Vector3D(50,50,50));
+		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		//ctrl->getCamera()->setFocalPoint(new Vector3D(-80,-35,0));
 
         //ctrl->getModel()->addObject("white", 
 				//new Cube(new Vector3D(.5,.5,.5), 1, new Paint(Color::WHITE)));
@@ -112,88 +111,88 @@ public:
 	//void handleKey_l()
 	//{
 		//cout << "LOOK AT ORIGIN" << endl;
-		//Controller::GetInstance(NULL)->getViewer()->setFocalPoint(new Vector3D(0,0,0));
+		//Controller::GetInstance(NULL)->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 	//}
 
 	void handleKey_p()
-	{ Controller::GetInstance(NULL)->getViewer()->print(); }
+	{ Controller::GetInstance(NULL)->getCamera()->print(); }
 
 	void handleKey_a()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_d()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_w()
-	{ Controller::GetInstance(NULL)->getViewer()->walk(1.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->walk(1.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_s()
-	{ Controller::GetInstance(NULL)->getViewer()->walk(-1.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->walk(-1.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_q()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_e()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_c()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL)); }
 	void handleKey_z()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL)); }
 
     void handleKey_C()
-    { Controller::GetInstance(NULL)->getViewer()->clear(); }
+    { Controller::GetInstance(NULL)->getCamera()->clear(); }
 
 	void handleKey_Left()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallOffset(-1,0); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(-1,0); }
 	void handleKey_Right()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallOffset(1,0); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(1,0); }
 	void handleKey_Up()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallOffset(0,1); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(0,1); }
 	void handleKey_Down()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallOffset(0,-1); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(0,-1); }
     void handleKey_RBracket()
-    { Controller::GetInstance(NULL)->getViewer()->incrementTranslation(new Vector3D(0,0,1)); }
+    { Controller::GetInstance(NULL)->getCamera()->incrementTranslation(new Vector3D(0,0,1)); }
     void handleKey_LBracket()
-    { Controller::GetInstance(NULL)->getViewer()->incrementTranslation(new Vector3D(0,0,-1)); }
+    { Controller::GetInstance(NULL)->getCamera()->incrementTranslation(new Vector3D(0,0,-1)); }
 
 	void handleKey_y()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetBase(0.0f-(DX_OB)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetBase(0.0f-(DX_OB)); }
 	void handleKey_Y()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetBase(0.0f-(DX_OB)*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetBase(0.0f-(DX_OB)*10); }
 	void handleKey_u()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetBase(DX_OB); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetBase(DX_OB); }
 	void handleKey_U()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetBase(DX_OB*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetBase(DX_OB*10); }
 
 	void handleKey_h()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetModifier(0.0f-(DX_OM)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetModifier(0.0f-(DX_OM)); }
 	void handleKey_H()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetModifier(0.0f-(DX_OM)*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetModifier(0.0f-(DX_OM)*10); }
 	void handleKey_j()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetModifier(DX_OM); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetModifier(DX_OM); }
 	void handleKey_J()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewOffsetModifier(DX_OM*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetModifier(DX_OM*10); }
 
 	void handleKey_n()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovBase(0.0f-(DX_FB)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovBase(0.0f-(DX_FB)); }
 	void handleKey_N()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovBase(0.0f-(DX_FB)*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovBase(0.0f-(DX_FB)*10); }
 	void handleKey_m()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovBase(DX_FB); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovBase(DX_FB); }
 	void handleKey_M()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovBase(DX_FB*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovBase(DX_FB*10); }
 
 	void handleKey_i()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovModifier(0.0f-(DX_FM)); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovModifier(0.0f-(DX_FM)); }
 	void handleKey_I()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovModifier(0.0f-(DX_FM)*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovModifier(0.0f-(DX_FM)*10); }
 	void handleKey_o()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovModifier(DX_FM); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovModifier(DX_FM); }
 	void handleKey_O()
-	{ Controller::GetInstance(NULL)->getViewer()->incrementWallViewFovModifier(DX_FM*10); }
+	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewFovModifier(DX_FM*10); }
 	
 	void handleKey_l()
 	{
-		if (wallMode == Viewer::WALL_MODE_STANDARD)
-			wallMode = Viewer::WALL_MODE_IMMERSIVE;
+		if (wallMode == Camera::WALL_MODE_STANDARD)
+			wallMode = Camera::WALL_MODE_IMMERSIVE;
 		else
-			wallMode = Viewer::WALL_MODE_STANDARD;
-		Controller::GetInstance(NULL)->getViewer()->setWallMode(wallMode);
+			wallMode = Camera::WALL_MODE_STANDARD;
+		Controller::GetInstance(NULL)->getCamera()->setWallMode(wallMode);
 	}
 
 	void handleMouseMotion(MouseMotionEvent * mme)
@@ -205,9 +204,9 @@ public:
 			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
 			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			Controller::GetInstance(NULL)->getViewer()->incrementRotation(
+			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
 					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
 		}
 	}

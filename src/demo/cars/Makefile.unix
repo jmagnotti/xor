@@ -191,10 +191,11 @@ Cars.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
 Cars.o: ../../util/BitmapFontConstants.h
 Cars.o: ../../shape/ExtrudedNormalPolygon3D.h ../../shape/NormalPolygon3D.h
 Cars.o: ../../shape/AdornablePrism.h ../../shape/RectangularPrism.h
+Cars.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
 Cars.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
 Cars.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-Cars.o: ../../shape/CompiledObject3D.h ../../shape/RectangularPrismFactory.h
-Cars.o: ../../shape/Cube.h ../../shape/Point2D.h ../../texture/Texture.h
+Cars.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
+Cars.o: ../../shape/Point2D.h ../../texture/Texture.h
 Cars.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
 Cars.o: ../../terrain/NullHeightFieldStrategy.h
 Cars.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
