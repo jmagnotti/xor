@@ -1,7 +1,6 @@
 #ifndef INPUTEVENTPROXYFACTORY_H
 #define INPUTEVENTPROXYFACTORY_H
 
-
 #include "EventFactory.h"
 
 #include "keyboard/Keyboard.h"
@@ -11,7 +10,8 @@
 #include "timer/Timer.h"
 #include "timer/TimerStub.h"
 
-namespace XOR {
+namespace XOR
+{
 
 /**
  * Proxies only Keyboard and Mouse input. Does NOT listen to Timer
@@ -19,7 +19,7 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class InputEventProxyFactory : public EventFactory 
+class InputEventProxyFactory : public EventFactory
 {
 
 public:
@@ -29,24 +29,20 @@ public:
      */
     static InputEventProxyFactory * GetInstance();
 
-
     /**
      * Returns a multicasting KeyboardStub
      */
     Keyboard * getKeyboard();
-
 
     /**
      * Returns a multicasting MouseStub
      */
     Mouse * getMouse();
 
-
     /**
-	 * Returns a multicast agnostic TimerSkeleton
+     * Returns a multicast agnostic TimerSkeleton
      */
     Timer * getTimer();
-
 
 private:
 
@@ -58,5 +54,4 @@ private:
 
 }
 
-#endif          // LOCALEVENTHANDLERFACTORY_H
-
+#endif          // INPUTEVENTPROXYFACTORY_H

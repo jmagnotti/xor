@@ -28,11 +28,11 @@ public:
      * the header file so they may be used in switch statements. See Paint.h
      * for further discussion of this.
      */
-    static const int ERROR_SOCKET       = -1;
-    static const int KEYBOARD_SOCKET    = 0;
-    static const int TIMER_SOCKET       = 1;
-    static const int MOUSE_SOCKET       = 2;
-    static const int USER_EVENT_SOCKET  = 9;
+    static const int ERROR_SOCKET = -1;
+    static const int KEYBOARD_SOCKET = 0;
+    static const int TIMER_SOCKET = 1;
+    static const int MOUSE_SOCKET = 2;
+    static const int USER_EVENT_SOCKET = 9;
 
     /**
      * Singleton Accessor.

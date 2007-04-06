@@ -4100,6 +4100,8 @@ src/shape/AdornablePrism.o: src/texture/TextureScale.h
 src/shape/AdornablePrism.o: src/geometry/Dimension2D.h
 src/shape/AdornablePrism.o: src/geometry/RectangularVolume.h
 src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
+src/shape/AdornablePrism.o: src/shape/Object3DCollection.h
+src/shape/AdornablePrism.o: src/shape/CompiledObject3D.h
 src/shape/Particle.o: src/shape/Particle.h src/shape/CollisionRenderable.h
 src/shape/Particle.o: src/shape/Renderable.h src/shape/Point3D.h
 src/shape/Particle.o: /usr/include/math.h /usr/include/features.h

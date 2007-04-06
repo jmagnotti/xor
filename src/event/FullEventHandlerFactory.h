@@ -1,7 +1,6 @@
 #ifndef REMOTE_EVENT_FACTORY_H
 #define REMOTE_EVENT_FACTORY_H
 
-
 #include "EventFactory.h"
 
 #include "keyboard/Keyboard.h"
@@ -11,7 +10,8 @@
 #include "timer/Timer.h"
 #include "timer/TimerSkeleton.h"
 
-namespace XOR {
+namespace XOR
+{
 
 /**
  * The handler compliment to FullEventProxyFactory. Generates handlers that
@@ -34,24 +34,20 @@ public:
      */
     static FullEventHandlerFactory * GetInstance();
 
-
     /**
      * Returns a multicast receiving KeyboardSkeleton
      */
     Keyboard * getKeyboard();
-
 
     /**
      * Returns a multicast receiving MouseSkeleton
      */
     Mouse * getMouse();
 
-
     /**
      * Returns a multicast receiving TimerSkeleton
      */
     Timer * getTimer();
-
 
 private:
 
@@ -64,4 +60,3 @@ private:
 }
 
 #endif          // REMOTE_EVENT_FACTORY_H
-
