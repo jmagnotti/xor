@@ -1,5 +1,4 @@
 #include "Controller.h"
-
 namespace XOR
 {
 
@@ -18,33 +17,38 @@ Controller::Controller()
  */
 Controller::Controller(XavierConfiguration * configuration)
 {
-    EventFactory * factory = configuration->getEventFactory();
+	_configuration = configuration;
+
+    EventFactory * factory = _configuration->getEventFactory();
 
     //set up the event generators
     _timer = factory->getTimer();
 
-    Timer::SetInterval(configuration->getTimerInterval());
+    Timer::SetInterval(_configuration->getTimerInterval());
 
     _mouse = factory->getMouse();
 
     _keyboard = factory->getKeyboard();
 
-    _window = new Window(configuration->getWindowPosition(),
-            configuration->getWindowSize(), (char*)(configuration->getWindowTitle()));
+    _window = new Window(_configuration->getWindowPosition(),
+            _configuration->getWindowSize(), (char*)(_configuration->getWindowTitle()));
 
     _camera = new Camera(
-            configuration->getFieldOfView(),
-            configuration->getNearClip(),
-            configuration->getFarClip(),
-            configuration->getColorDepth(),
-            configuration->getVideoFlags(),
-            configuration->getWallMode(),
-            configuration->getWallOffset(),
-            configuration->getBackgroundColor()
+            _configuration->getFieldOfView(),
+            _configuration->getNearClip(),
+            _configuration->getFarClip(),
+            _configuration->getColorDepth(),
+            _configuration->getVideoFlags(),
+            _configuration->getWallMode(),
+            _configuration->getWallOffset(),
+            _configuration->getBackgroundColor()
     );
 
     _window->addListener(_camera);
     _timer->addListener(_camera);
+
+	defaultSDLGLConfiguration();
+	defaultGLConfiguration();
 }
 
 /*
@@ -130,7 +134,6 @@ void Controller::defaultSDLGLConfiguration()
 
 /* 
  * Set up the default configuration for SDL
- */
 void Controller::defaultConfiguration(bool configGL)
 {
     //SDL_Init(SDL_INIT_EVERYTHING); 
@@ -141,6 +144,7 @@ void Controller::defaultConfiguration(bool configGL)
     if (configGL)
         defaultGLConfiguration();
 }
+ */
 
 /*
  * Set up openGL defaults
@@ -150,33 +154,32 @@ void Controller::defaultGLConfiguration()
     // set the clear color
     _camera->setupClearColor();
 
-    glShadeModel(GL_SMOOTH);
-    glEnable(GL_TEXTURE_2D);
+	glShadeModel(_configuration->getGLShadeModel());
 
-    // enable blending
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	if (_configuration->isGLTextureEnabled())
+		glEnable(GL_TEXTURE_2D);
 
-    // enable anti-aliasing
-    glEnable(GL_LINE_SMOOTH);
-    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	if (_configuration->isGLBlendEnabled()) {
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	}
 
-    // enable depth testings
-    // this messes some things up with Alpha blended objects
-    glEnable(GL_DEPTH_TEST);
+	if (_configuration->isGLAntiAliasEnabled()) {
+		glEnable(GL_LINE_SMOOTH);
+		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	}
 
-    // enable fog
+	if (_configuration->isGLDepthTestEnabled())
+		glEnable(GL_DEPTH_TEST);
 
-    glEnable(GL_FOG);
-
-    glFogi(GL_FOG_MODE, GL_LINEAR);
-
-    // the hint has to be GL_NICEST, else large quads aren't shaded correctly
-    glHint(GL_FOG_HINT, GL_NICEST);
-    glFogi(GL_FOG_START, -5);
-    glFogi(GL_FOG_END, 30);
-    GLfloat fogColor[4] = { 0.0, 0.0, 0.0, 1.0 };
-    glFogfv(GL_FOG_COLOR, fogColor);
+	if (_configuration->isGLFogEnabled()) {
+		glEnable(GL_FOG);
+		glFogi(GL_FOG_MODE, _configuration->getGLFogMode());
+		glHint(GL_FOG_HINT, GL_NICEST);
+		glFogi(GL_FOG_START,  _configuration->getGLFogStart());
+		glFogi(GL_FOG_END,    _configuration->getGLFogEnd());
+		glFogfv(GL_FOG_COLOR, _configuration->getGLFogColor());
+	}
 }
 
 /* 

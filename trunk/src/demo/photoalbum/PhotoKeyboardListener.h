@@ -52,8 +52,6 @@ class PhotoKeyboardListener : public DefaultKeyboardListener
 		// space will bring a photo to the front
 		void handleKey_Space();
 
-		void handleKeyEvent();
-
 	private:
 		Controller * _ctrl;
 		PhotoAlbum * _photoalbum;

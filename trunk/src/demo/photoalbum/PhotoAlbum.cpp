@@ -1,12 +1,10 @@
 #include "PhotoAlbum.h"
-#include "xmlParser/xmlParser.h"
 
 
-Dimension3D * PhotoAlbum::getDimension() {return NULL;}
+Dimension3D * PhotoAlbum::getDimension() {new Dimension3D(1,1,1);}
 
-Vector3D * PhotoAlbum::getBaseVector() {return NULL;}
+Vector3D * PhotoAlbum::getBaseVector() {new Vector3D(0,0,0);}
 
-void PhotoAlbum::renderObject() {render();}
 
 /* 
 * Constructor
@@ -27,7 +25,7 @@ PhotoAlbum::PhotoAlbum()
 
 	pDemo = new String2D("PHOTO DEMO"); 
 
-    new FramesPerSecondCounter();
+    //new FramesPerSecondCounter();
 }
 
 /**
@@ -46,10 +44,10 @@ void PhotoAlbum::interpolationComplete()
 
 void PhotoAlbum::render()
 {
-	draw();
+	renderObject();
 }
 
-void PhotoAlbum::draw()
+void PhotoAlbum::renderObject()
 {
 	vector<Object3D*>::iterator iter = pics.begin();
 	vector<Object3D*>::iterator end = pics.end();
@@ -66,7 +64,8 @@ void PhotoAlbum::draw()
 void PhotoAlbum::bringToFront(int index)
 {
 	// grab x and y from the picture in question
-	double x;   // original x position
+ 	// original x position
+	double x;
 	double y;
 	
 	double newXshift;
@@ -89,14 +88,6 @@ void PhotoAlbum::bringToFront(int index)
 	// need scale the pic back to it's original form before messing with it
 	unhighlightPic(index);	
 
-/*
-	pics[index]->setScalar(new Vector3D(6, 6, 1), new TimedInterpolation(300, this));
-	pics[index]->setTranslation(new Vector3D(newXshift, newYshift, .1), new TimedInterpolation(300, this));
-	pics[index]->incrementRotation(Orientation::ROLL,		360, new TimedInterpolation(600, this));
-	pics[index]->incrementRotation(Orientation::THETA,	360, new TimedInterpolation(600, this));
-	pics[index]->incrementRotation(Orientation::PHI,		360, new TimedInterpolation(600, this));
-*/
-
 	pics[index]->incrementScalar(new Vector3D(3, 3, 0));
 	//pics[index]->setTranslation(new Vector3D(-3,-3, 0), new TimedInterpolation(500, this));
 
@@ -108,8 +99,7 @@ void PhotoAlbum::bringToFront(int index)
 void PhotoAlbum::setCurrentPic(int index)
 {
 	// first ensure that we're allowed to access keyboard
-	if(!keyboardLocked)
-	{
+	if(!keyboardLocked) {
 		// scale down previous picture
 		if(currentPic != index) // didn't actually change
 		{
@@ -122,19 +112,6 @@ void PhotoAlbum::setCurrentPic(int index)
 		// scale up
 		highlightPic();
 		// print out the index of currently highlighted pic
-		
-		
-		//cout << "Current Pic: " << currentPic <<"\t\tnumofpics: " << numOfPics << endl;
-		/* //TODO: make this code work
-		   //      it should set the current
-		   //      text to say: "current pic: <num>"
-		char * buf;
-		char * num;
-		char buffer[4];
-		//sprintf(buffer,"%d",currentPic);
-		buf = strcat("current pic: ", itoa(currentPic, num, 10));
-		pDemo->setText(buf);
-		*/
 	}
 }
 /**
@@ -143,9 +120,8 @@ void PhotoAlbum::setCurrentPic(int index)
  */
 void PhotoAlbum::toggleViewMode()
 {
-	// if the keyboard is locked
-	// this means we're already in
-	// view mode
+	// if the keyboard is locked // this means we're already in // view
+	// mode
 	if(keyboardLocked) {
 
 		pics[currentPic]->clear();  // put pic back
@@ -169,29 +145,22 @@ void PhotoAlbum::toggleViewMode()
 void PhotoAlbum::moveSelectedUp()
 {	
 	if(currentPic + 1 < numOfPics && !keyboardLocked)
-	{
 		setCurrentPic(currentPic + 1);
-	}
 }
 
 void PhotoAlbum::moveSelectedDown()
 {
 	if(currentPic - 1 >= 0 && !keyboardLocked) 
-	{
 		setCurrentPic(currentPic - 1);
-	}
 	else if(currentPic - 1 < 0 && !keyboardLocked)
-	{
 		setCurrentPic(numOfPics + (currentPic - 1));
-	}
 }
 
 void PhotoAlbum::moveSelectedRight()
 {
 	// debug
 	// cout << "currentpic: " << currentPic << " \tnumOfPics:" << numOfPics << endl;
-	if((currentPic + 6) < numOfPics && !keyboardLocked)
-	{
+	if((currentPic + 6) < numOfPics && !keyboardLocked) {
 		setCurrentPic(currentPic + 6);
 	}
 	// numOfPics is the actual number of pics (not counting from zero)
@@ -211,16 +180,14 @@ void PhotoAlbum::moveSelectedRight()
 
 void PhotoAlbum::moveSelectedLeft()
 {
-	if((currentPic - 6) >= 0 && !keyboardLocked)
-	{
+	if((currentPic - 6) >= 0 && !keyboardLocked) {
 		setCurrentPic(currentPic - 6);
 	}
-	else if(currentPic == 0 && !keyboardLocked) // at bottom left
-	{
+	else if(currentPic == 0 && !keyboardLocked) {
+		// at bottom left
 		setCurrentPic(35); // go to end 
 	}
-	else if((currentPic - 6) < 0 && !keyboardLocked)
-	{
+	else if((currentPic - 6) < 0 && !keyboardLocked) {
 		// this will move to the first column and the next row down
 		// +30 puts us in the same row, but last column
 		// -1 moves down a row
@@ -230,16 +197,6 @@ void PhotoAlbum::moveSelectedLeft()
 void PhotoAlbum::magnottiTransform()
 {
 	
-/*	vector<Object3D*>::iterator iter = pics.begin();
-	vector<Object3D*>::iterator end  = pics.end();
-	int i=0;
-	while (iter != end ) {
-		++i;
-		(*iter)->incrementRotation(Orientation::ROLL, 360, new TimedInterpolation(600*i, this));
-		(*iter)->incrementRotation(Orientation::THETA, 360, new TimedInterpolation(600*i, this));
-		(*iter)->incrementRotation(Orientation::PHI, 360, new TimedInterpolation(600*i, this));
-		++iter; 
-	}*/
 	if(!keyboardLocked)
 	{
 		int numOfInterpolations;
@@ -325,12 +282,6 @@ void PhotoAlbum::parseXML()
 	numCubes = 0;
 	// get the number of cube sub objects (height * width)
 
-	// this doesn't actually work because getAttribute returns character arrays
-	/*if(xAlbumNode.getAttribute("width") * xAlbumNode.getAttribute("height") == xAlbumNode.nChildNode("cube")) 
-	{
-		numCubes = xAlbumNode.nChildNode("cube");
-	}*/
-
 	numCubes = xAlbumNode.nChildNode("cube");
 
 	int cubeIterator = 0; // the XML library uses this to iterate through child nodes of the same type
@@ -355,11 +306,8 @@ void PhotoAlbum::parseXML()
 		// loop through all of the faces
 		for(int j = 0; j < faceCount; j++) {
 			XMLNode xFaceNode = xCubeNode.getChildNode("face", &faceIterator);
-			//cout << "Parsing face " << j + 1 << " on cube " << i + 1 << endl; //debug
-			//cout << "Filename: " << xFaceNode.getAttribute("image") << endl; //debug
 			if(j == 0) {
 				fileNames[i] = xFaceNode.getAttribute("image");
-				//cout << "Parsing cube " << i + 1 << " with image \"" << fileNames[i] << "\"" << endl;
 			}
 		}
 	}
@@ -367,8 +315,6 @@ void PhotoAlbum::parseXML()
 	// populate the screen with rectangular prisms
 	for(double i = -3; i < 3; i++) {
 		for(double j = -3; j < 3; j++) {
-		
-			//cout << "Adding square " << numOfPics << " at: " << i * squareDiameter + offset*i << ", " << j * squareDiameter + offset*j<< ", " << z << endl;
 
 			Vector3D * vOff = new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z);
 

@@ -1,7 +1,6 @@
 package main;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.JTextArea;
 import javax.swing.text.Document;
 
@@ -44,9 +43,9 @@ public class MulticastTextArea extends JTextArea {
 		super.setText(t);
 		for (char c : t.toCharArray()) {
 			MulticastAction ma = new MulticastAction.KeyboardAction("ignored",
-					keyFactory
-							.createKeyString("" + c, KeyEventFactory.KEY_DOWN));
+					keyFactory.createKeyString("" + c, KeyEventFactory.KEY_DOWN));
 			ma.actionPerformed(new ActionEvent(null, 0, null));
 		}
 	}
 }
+
