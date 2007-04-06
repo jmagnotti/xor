@@ -205,10 +205,10 @@ CubeDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
 CubeDemo.o: ../../util/BitmapFontConstants.h
 CubeDemo.o: ../../shape/ExtrudedNormalPolygon3D.h
 CubeDemo.o: ../../shape/NormalPolygon3D.h ../../shape/AdornablePrism.h
-CubeDemo.o: ../../shape/RectangularPrism.h ../../shape/Particle.h
+CubeDemo.o: ../../shape/RectangularPrism.h ../../shape/Object3DCollection.h
+CubeDemo.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
 CubeDemo.o: ../../shape/CollisionRenderable.h
 CubeDemo.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-CubeDemo.o: ../../shape/CompiledObject3D.h
 CubeDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
 CubeDemo.o: ../../shape/Point2D.h ../../texture/Texture.h
 CubeDemo.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h

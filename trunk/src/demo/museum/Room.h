@@ -1,12 +1,10 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-
 #include <list>
 #include "../../xor.h"
 
 #include "DoorExtracter.h"
-
 
 using namespace std;
 using namespace XOR;
@@ -21,32 +19,27 @@ class Room : public Object3D
 
 public:
 
+    /**
+     * Explicit Constructor
+     * Creates a room, using the given Volume for dimension. 
+     */
+    Room(RectangularVolume * volume);
 
-	/**
-	 * Explicit Constructor
-	 * Creates a room, using the given Volume for dimension. 
-	 */
-	Room(RectangularVolume * volume);
+    /**
+     * Explicit Constructor
+     * Creates a room, using the given Prism for dimension & paint
+     */
+    Room(AdornablePrism * prism);
 
+    /**
+     * Renders the room
+     */
+    void renderObject(void);
 
-	/**
-	 * Explicit Constructor
-	 * Creates a room, using the given Prism for dimension & paint
-	 */
-	Room(RectangularPrism * prism);
-
-
-	/**
-	 * Renders the room
-	 */
-	void renderObject(void);
-
-
-	/**
-	 * Sets the paint for the room
-	 */
-	void setPaint(Paint * paint);
-
+    /**
+     * Sets the paint for the room
+     */
+    void setPaint(Paint * paint);
 
     /**
      * Make an entrance to this room on a given wall
@@ -56,7 +49,6 @@ public:
      */
     void extractDoor(const int face);
 
-
     /**
      * Remove a wall from the room
      *
@@ -65,39 +57,34 @@ public:
      */
     void removeWall(const int face);
 
-
     /*
      * returns a clone of the current paint object
      */
-	Paint * getPaint();
+    Paint * getPaint();
 
-	
-	/**
-	 * For now this is going to be used to put "paintings" on a wall
-	 * You specify the Renderable and the wall to put it on.
-	 */
-	void setWallDecoration(Object3D *, const int);
+    /**
+     * For now this is going to be used to put "paintings" on a wall
+     * You specify the Renderable and the wall to put it on.
+     */
+    void setWallDecoration(Object3D *, const int);
 
+    Dimension3D * getDimension();
 
-	Dimension3D * getDimension();
-
-	Vector3D * getBaseVector();
-
+    Vector3D * getBaseVector();
 
 private:
 
-	/**
-	 * Private Constructor
-	 */
-	Room();
+    /**
+     * Private Constructor
+     */
+    Room();
 
-	list<Object3D*>	 _decorations;
-	Object3DCollection * _entranceWay;
+    list<Object3D*> _decorations;
+    Object3DCollection * _entranceWay;
 
-	Paint *	_paint;
-	RectangularPrism * _renderable;
-		
+    Paint * _paint;
+    AdornablePrism * _renderable;
+
 };
 
 #endif			// ROOM_H
-

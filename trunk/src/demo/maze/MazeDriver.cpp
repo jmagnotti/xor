@@ -9,10 +9,7 @@ MazeDriver::MazeDriver()
 {
 
     // we need a controller object
-    Controller * ctrl = Controller::GetInstance(InputEventProxyFactory::GetInstance());
-
-    // use the default configuration
-    ctrl->defaultConfiguration();
+    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
     // initialize the maze
     initializeMaze();
@@ -32,8 +29,7 @@ MazeDriver::MazeDriver()
     // translation will even effect objects added later, like the Terrain.
     // Also note that we had to invert the starting point to get the desired
     // effect.
-    //ctrl->getViewer()->setTranslation(_maze->getStartingPoint());
-    ctrl->getViewer()->incrementRotation(Orientation::THETA, 180);
+    ctrl->getCamera()->incrementRotation(Orientation::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary

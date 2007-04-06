@@ -20,8 +20,7 @@ public:
  	 */
 	InterpolationDemo()
 	{
-		Controller * ctrl = Controller::GetInstance(InputEventHandlerFactory::GetInstance());
-	    ctrl->defaultConfiguration();
+		Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
         // need a cleaner way to do this, override the get instance method or something
         //ctrl->removeDefaultKeyboardListener();
