@@ -1,31 +1,35 @@
 #include "AdornablePrism.h"
 
-namespace XOR {
-
+namespace XOR
+{
 
 /*
  * explicit constructor
  */
 AdornablePrism::AdornablePrism(RectangularVolume * volume) :
-	RectangularPrism(volume)
-{}
+    RectangularPrism(volume)
+{
+    _adornments = new Object3DCollection();
+}
 
+AdornablePrism::AdornablePrism(Vector3D * origin, Dimension3D * size, Paint * p) :
+    RectangularPrism(origin, size, p)
+{
+}
 
 /*
  * Sets the renderable to "attach" to a wall
  */
 void AdornablePrism::setAdornment(Object3D * adornment, const int face)
 {
-    // think about how this should be implemented
 }
-
 
 /*
  * renders the adornable prism
  */
-void AdornablePrism::render(void)
+void AdornablePrism::renderObject()
 {
-    RectangularPrism::render();
+    RectangularPrism::renderObject();
 
     //now render the adornment
 }

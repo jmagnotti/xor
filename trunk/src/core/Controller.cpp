@@ -47,6 +47,7 @@ Controller::Controller(XavierConfiguration * configuration)
     _window->addListener(_camera);
     _timer->addListener(_camera);
 
+	//cout << "Initing SDLConfiguration" << endl;
 	defaultSDLGLConfiguration();
 	defaultGLConfiguration();
 }
@@ -119,6 +120,7 @@ void Controller::CleanUpAndExit()
  */
 void Controller::defaultSDLGLConfiguration()
 {
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
     _camera->setupSDLVideo(getWindow()->getSize());
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
@@ -132,19 +134,6 @@ void Controller::defaultSDLGLConfiguration()
     SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 }
 
-/* 
- * Set up the default configuration for SDL
-void Controller::defaultConfiguration(bool configGL)
-{
-    //SDL_Init(SDL_INIT_EVERYTHING); 
-    SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
-
-    defaultSDLGLConfiguration();
-
-    if (configGL)
-        defaultGLConfiguration();
-}
- */
 
 /*
  * Set up openGL defaults
@@ -235,7 +224,8 @@ Timer * Controller::getTimer()
  */
 void Controller::run(void)
 {
-    _camera->handleReshape((int) _window->getSize()->getWidth(), (int)_window->getSize()->getHeight());
+	_camera->handleReshape((int) _window->getSize()->getWidth(),
+			(int)_window->getSize()->getHeight());
 
     // start ticking
     _timer->start();
