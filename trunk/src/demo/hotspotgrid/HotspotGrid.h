@@ -6,15 +6,15 @@
 #include "ActionItem.h"
 #include <vector>
 #include "RectangularHull.h"
+#include "LightweightMenu.h"
 
 using namespace XOR;
 
 /**
  * Hotspot grid class
  */
-class HotspotGrid : public Object2D, public MouseListener
+class HotspotGrid : public LightweightMenu
 {
-
 public:
 
     /**
