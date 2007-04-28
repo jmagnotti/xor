@@ -2,34 +2,6 @@
 
 using namespace XOR;
 
-
-class PrintAllTicks : public TimerListener
-{
-public:
-	int counter;
-	PrintAllTicks() { counter = 0; Controller::GetInstance(NULL)->getTimer()->addListener(this); }
-	void handleTick() { cout << "timer tick: " << ++counter << endl; }
-};
-
-
-class PrintOccasionalTicks : public TimerListener
-{
-public:
-	int counter;
-	PrintOccasionalTicks() { counter = 0; IntervalTimer::GetInstance()->addRegularListener(this, 1000); }
-	void handleTick() { cout << "  occasional tick [" << ++counter << "]" << endl; }
-};
-
-
-class PrintUniqueTick : public TimerListener
-{
-public:
-	PrintUniqueTick() { IntervalTimer::GetInstance()->addCallbackListener(this, 5000); }
-	void handleTick() { cout << "    unique tick !!!!!" << endl; }
-};
-
-
-
 class CubeDemoConfig : public XavierConfiguration
 {
 public:
@@ -37,16 +9,91 @@ public:
     CubeDemoConfig()
     {}
 
-    EventFactory * getEventFactory()
+	EventFactory * getEventFactory()
     {
         return InputEventProxyFactory::GetInstance();
     }
 
-	Uint32 getTimerInterval()
-	{
-		return 100;
-	}
 };
+
+
+class TestShape : public Object3D 
+{
+
+	public:
+		TestShape()//float x, float y, float width)
+		{
+		}
+
+		Dimension3D * getDimension()
+		{}
+
+		Vector3D * getBaseVector()
+		{}
+
+
+		void renderObject()
+		{
+			drawTri(0,0,5,10000);
+/**
+			glColor3f(0,.6,.6);
+			glBegin(GL_POLYGON);
+				glVertex3f(x, y-width, 0);
+				glVertex3f(x + width/4.0, y, 0);
+				glVertex3f(x - width/4.0, y, 0);
+			glEnd();
+
+			float cx = x;
+			float cy = y + .25*width;
+
+			float radius = width/4.0;	
+
+			GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
+			glBegin(GL_TRIANGLE_FAN);
+
+			for(double theta = 0; theta < 360.0; theta += 360.0/360.0){
+				glVertex3f(
+					cx + radius * cos(theta * gcu->PI/180.0),
+					cy + radius * sin(theta * gcu->PI/180.0),
+					0);
+			}
+					
+			glEnd();
+			
+*/
+
+		}
+
+	
+	void drawTri(float x, float y, float size, int limit)
+	{
+		if (limit == 0) {
+			glBegin(GL_TRIANGLES);
+				glVertex3f(x + size/2.0, y, 0);
+				glVertex3f(x, y + (size/2.0)*1.73, 0);
+				glVertex3f(x - size/2.0, y, 0);
+			glEnd();
+		}
+		else if(limit > 0 && limit < 10) {
+			glColor3f(limit*.3,.6,.6*limit);			
+			drawTri(x, y + (size/4.0)*1.73, size/2.0, limit -1);
+			drawTri(x + size/4.0, y, size/2.0, limit -1);
+			drawTri(x - size/4.0, y, size/2.0, limit -1);
+		}
+		else {
+			drawTri(x,y,size,9);
+		}
+	}
+
+	private:
+		float x;
+		float y;
+		float width;
+
+};
+
+
+
 
 /**
  * Demonstrates creation of an InputEventProxyFactory to multicast Keyboard and
@@ -55,26 +102,12 @@ public:
  * @author John Magnotti, Michael Lam
  * @version 1.0
  */
-class CubeDemo : public DefaultKeyboardListener
+class CubeDemo 
 {
 
 public:
 
-    Controller * ctrl;
-    Object3D * object3D; 
-
-    void handleKey_0()
-    {
-        object3D->incrementTranslation(new Vector3D(10, 0, 0), new TimedInterpolation(1000, NULL));
-    }
-
-
-    void handleKey_9()
-    {
-        object3D->incrementTranslation(new Vector3D(-5, 0, 0), new TimedInterpolation(1000, NULL));
-        object3D->incrementRotation(Orientation::PHI, 90, new TimedInterpolation(1000, NULL));
-    }
-
+		Controller * ctrl;
 
 	CubeDemo()
     {
@@ -82,16 +115,42 @@ public:
         // over multicast
 		ctrl = Controller::GetInstance(new CubeDemoConfig());
 
-		ctrl->getMouse()->addListener(new DefaultMouseListener());
 		ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
-		ctrl->getKeyboard()->addListener(this);
+		ctrl->getMouse()->addListener(new DefaultMouseListener());
+		ctrl->setModel(new String2D("testing"));
 
-		Paint * p = new Paint(Color::WHITE, Paint::HEIGHT_BASED,
-				TextureFactory::GetInstance()->createTexture("monkey.png")); 
-		Cube  * c = new Cube(new Vector3D(-.25, -.25, -4.5), 1.0f, p);
-        object3D = new CompiledObject3D(c);
-		ctrl->setModel(c);
+		Object3DCollection * collection = new Object3DCollection();
+		
+		// -- begin array 
+		/*TestShape * ts[4];
+		for(int ii = 0; ii < 4; ii+)
+		{
+		§
+		}
+		*/
+		TestShape * t0 = new TestShape();
+		t0->incrementTranslation(new Vector3D(0,-3,0));
+		
+		TestShape * t1 = new TestShape();
+		t1->incrementRotation(Orientation::ROLL, 90);
+		t1->incrementTranslation(new Vector3D(3,0,0));
 
+		TestShape * t2 = new TestShape();
+		t2->incrementRotation(Orientation::ROLL, 180);
+		t2->incrementTranslation(new Vector3D(0,3,0));
+
+		TestShape * t3 = new TestShape();
+		t3->incrementRotation(Orientation::ROLL, 270);
+		t3->incrementTranslation(new Vector3D(-3,0,0));
+
+		collection->addObject3D(t0);
+		collection->addObject3D(t1);
+		collection->addObject3D(t2);
+		collection->addObject3D(t3);
+
+		// -- end loop*/
+			
+		ctrl->getModel()->addObject("objs", new CompiledObject3D(collection));
         // timer tests
         /*
 			PrintAllTicks *			pat = new PrintAllTicks();
@@ -109,6 +168,7 @@ public:
 	{
 		Controller::GetInstance(NULL)->run();
 	}
+
 };
 
 
