@@ -34,21 +34,21 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-CubeDemo.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
-CubeDemo.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-CubeDemo.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-CubeDemo.o: ../../../include/begin_code.h ../../../include/close_code.h
-CubeDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+CubeDemo.o: ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+CubeDemo.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+CubeDemo.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+CubeDemo.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+CubeDemo.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
 CubeDemo.o: /usr/include/_types.h /usr/include/sys/_types.h
 CubeDemo.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
-CubeDemo.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
-CubeDemo.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-CubeDemo.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-CubeDemo.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-CubeDemo.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-CubeDemo.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-CubeDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-CubeDemo.o: ../../../include/SDL_version.h ../../../include/SDL_opengl.h
+CubeDemo.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+CubeDemo.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+CubeDemo.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+CubeDemo.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+CubeDemo.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+CubeDemo.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+CubeDemo.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+CubeDemo.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
 CubeDemo.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
 CubeDemo.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 CubeDemo.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
@@ -72,12 +72,12 @@ CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 CubeDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
 CubeDemo.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
 CubeDemo.o: ../../paint/Paint.h /usr/include/string.h ../../texture/Texture.h
-CubeDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
+CubeDemo.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
 CubeDemo.o: ../../geometry/Vector2D.h ../../paint/Color.h
 CubeDemo.o: ../../shape/Renderable.h ../../core/Window.h
 CubeDemo.o: ../../event/reshape/ReshapeListener.h
-CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
-CubeDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CubeDemo.o: ../../geometry/Dimension2D.h ../../core/CameraListener.h
 CubeDemo.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
 CubeDemo.o: ../../transform/CoordinateSystemFactory.h
 CubeDemo.o: ../../transform/CoordinateSystem.h
@@ -87,9 +87,9 @@ CubeDemo.o: ../../transform/MathCoordinateSystem.h
 CubeDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 CubeDemo.o: ../../transform/EngineerCoordinateSystem.h
 CubeDemo.o: ../../event/timer/TimerListener.h
-CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../core/Controller.h
-CubeDemo.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
-CubeDemo.o: ../../../include/SDL_events.h
+CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+CubeDemo.o: ../../core/Controller.h ../../event/EventFactory.h
+CubeDemo.o: ../../event/keyboard/Keyboard.h
 CubeDemo.o: ../../event/keyboard/KeyboardListener.h
 CubeDemo.o: ../../event/keyboard/KeyEvent.h
 CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
@@ -105,8 +105,7 @@ CubeDemo.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
 CubeDemo.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
 CubeDemo.o: ../../shape/Point3D.h ../../shape/Object3D.h
 CubeDemo.o: ../../core/XavierConfiguration.h
-CubeDemo.o: ../../event/InputEventProxyFactory.h
-CubeDemo.o: ../../event/EventHandlerFactory.h
+CubeDemo.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 CubeDemo.o: ../../event/keyboard/KeyboardStub.h
 CubeDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 CubeDemo.o: /usr/include/sys/types.h /usr/include/sys/socket.h
@@ -125,11 +124,10 @@ CubeDemo.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 CubeDemo.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
 CubeDemo.o: ../../core/Camera.h ../../core/DebugCamera.h
 CubeDemo.o: ../../core/Controller.h ../../core/Window.h ../../core/World.h
-CubeDemo.o: ../../core/XavierConfiguration.h
-CubeDemo.o: ../../event/EventHandlerFactory.h
+CubeDemo.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
 CubeDemo.o: ../../event/FullEventHandlerFactory.h
 CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-CubeDemo.o: ../../../include/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+CubeDemo.o: /usr/include/SDL/SDL_thread.h ../../event/mouse/MouseSkeleton.h
 CubeDemo.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 CubeDemo.o: ../../event/FullEventProxyFactory.h
 CubeDemo.o: ../../event/InputEventHandlerFactory.h
