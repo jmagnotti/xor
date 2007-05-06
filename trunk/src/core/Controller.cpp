@@ -145,9 +145,9 @@ void Controller::defaultGLConfiguration()
 
 	glShadeModel(_configuration->getGLShadeModel());
 
+    // enable blending
 	if (_configuration->isGLTextureEnabled())
 		glEnable(GL_TEXTURE_2D);
-
 	if (_configuration->isGLBlendEnabled()) {
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -169,6 +169,7 @@ void Controller::defaultGLConfiguration()
 		glFogi(GL_FOG_END,    _configuration->getGLFogEnd());
 		glFogfv(GL_FOG_COLOR, _configuration->getGLFogColor());
 	}
+
 }
 
 /* 

@@ -42,7 +42,7 @@ public:
 	/**
 	 * Handles keys that have an ascii representation
 	 */
-    void handleKey(KeyEvent * ke);
+    void handleKeyPressed(KeyEvent * ke);
 
 protected:
 

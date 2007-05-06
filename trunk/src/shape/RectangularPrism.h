@@ -61,19 +61,19 @@ public:
 	/**
 	 * returns if the point is within the rect prism
 	 */
-	bool checkCollision(Vector3D * position);
+	virtual bool checkCollision(Vector3D * position);
 
 
 	/** 
 	 * Returns the registration point of the rect prism
+	Vector3D * getBaseVector() const;
 	 */
-	Vector3D * getOrigin() const;
 
 
 	/**
 	 * Returns the dimension for the object
-	 */
 	Dimension3D * getDimension() const;
+	 */
 
 
 	/**
@@ -145,7 +145,7 @@ protected:
 	 */
 
 
-private:
+protected:
 
 	RectangularPrism();
 	
