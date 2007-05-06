@@ -92,7 +92,7 @@ public:
     virtual bool isGLAntiAliasEnabled();
 
 
-    virtual int isGLBlendEnabled();
+    virtual bool isGLBlendEnabled();
 
     
     virtual bool isGLDepthTestEnabled();

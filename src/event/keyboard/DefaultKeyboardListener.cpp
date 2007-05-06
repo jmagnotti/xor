@@ -36,7 +36,7 @@ void DefaultKeyboardListener::handleKeyEvent(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
 {
-	handleKey(kue);
+	handleKeyPressed(kue);
 }
 
      
@@ -55,7 +55,7 @@ void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 
 /* 
  */
-void DefaultKeyboardListener::handleKey(KeyEvent * ke)
+void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 {
 	bool shift = ke->isShiftPressed();
 	

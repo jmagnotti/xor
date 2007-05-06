@@ -85,7 +85,7 @@ int XavierConfiguration::getGLShadeModel()
     return GL_SMOOTH;
 }
 
-int XavierConfiguration::isGLBlendEnabled()
+bool XavierConfiguration::isGLBlendEnabled()
 {
     return true;
 }
