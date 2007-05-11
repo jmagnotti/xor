@@ -53,7 +53,9 @@ Object3D * DoorExtracter::ExtractDoor(Quadrilateral3D * face)
         doorFrame = new Dimension3D(0, _doorHeight, _doorWidth);
         panelSize = new Dimension3D(0, _doorHeight, size->getDepth() / 2.0 - (_doorWidth/2.0f));
 
-        ts = new TextureScale(new Vector2D(base->getZ(), base->getY()), new Dimension2D(size->getDepth(), size->getHeight()), TextureScale::Z_AND_Y, TextureScale::TILED);
+		ts = new TextureScale(new Vector2D(base->getZ(), base->getY()),
+				new Dimension2D(size->getDepth(), size->getHeight()),
+				TextureScale::Z_AND_Y, TextureScale::TILED);
     }
 
     low  = new PointScale(0, .75, 1);

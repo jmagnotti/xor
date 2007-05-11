@@ -47,7 +47,6 @@ Controller::Controller(XavierConfiguration * configuration)
     _window->addListener(_camera);
     _timer->addListener(_camera);
 
-	//cout << "Initing SDLConfiguration" << endl;
 	defaultSDLGLConfiguration();
 	defaultGLConfiguration();
 }

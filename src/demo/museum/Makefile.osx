@@ -34,21 +34,21 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-MuseumTester.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
-MuseumTester.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-MuseumTester.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-MuseumTester.o: ../../../include/begin_code.h ../../../include/close_code.h
-MuseumTester.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+MuseumTester.o: ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+MuseumTester.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+MuseumTester.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+MuseumTester.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+MuseumTester.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
 MuseumTester.o: /usr/include/_types.h /usr/include/sys/_types.h
 MuseumTester.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
-MuseumTester.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
-MuseumTester.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-MuseumTester.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-MuseumTester.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-MuseumTester.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-MuseumTester.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-MuseumTester.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-MuseumTester.o: ../../../include/SDL_version.h ../../../include/SDL_opengl.h
+MuseumTester.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+MuseumTester.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+MuseumTester.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+MuseumTester.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+MuseumTester.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+MuseumTester.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+MuseumTester.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+MuseumTester.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
 MuseumTester.o: /usr/include/stddef.h ../../core/World.h
 MuseumTester.o: /usr/include/stdlib.h /usr/include/sys/wait.h
 MuseumTester.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
@@ -77,7 +77,7 @@ MuseumTester.o: ../../../include/SDL_image.h ../../../include/SDL.h
 MuseumTester.o: ../../geometry/Vector2D.h ../../paint/Color.h
 MuseumTester.o: ../../shape/Renderable.h ../../core/Window.h
 MuseumTester.o: ../../event/reshape/ReshapeListener.h
-MuseumTester.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+MuseumTester.o: ../../event/reshape/ReshapeEvent.h
 MuseumTester.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
 MuseumTester.o: ../../core/CameraListener.h ../../paint/Color.h
 MuseumTester.o: ../../transform/CoordinateSystem.h
@@ -91,8 +91,7 @@ MuseumTester.o: ../../transform/EngineerCoordinateSystem.h
 MuseumTester.o: ../../event/timer/TimerListener.h
 MuseumTester.o: ../../event/reshape/ReshapeEvent.h
 MuseumTester.o: ../../core/CameraListener.h ../../core/Controller.h
-MuseumTester.o: ../../event/EventHandlerFactory.h
-MuseumTester.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+MuseumTester.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
 MuseumTester.o: ../../event/keyboard/KeyboardListener.h
 MuseumTester.o: ../../event/keyboard/KeyEvent.h
 MuseumTester.o: ../../event/keyboard/KeyEventFactory.h
@@ -110,7 +109,7 @@ MuseumTester.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 MuseumTester.o: ../../event/timer/Timer.h ../../shape/Point3D.h
 MuseumTester.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 MuseumTester.o: ../../event/InputEventProxyFactory.h
-MuseumTester.o: ../../event/EventHandlerFactory.h
+MuseumTester.o: ../../event/EventFactory.h
 MuseumTester.o: ../../event/keyboard/KeyboardStub.h
 MuseumTester.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 MuseumTester.o: /usr/include/sys/types.h /usr/include/sys/socket.h
@@ -130,11 +129,10 @@ MuseumTester.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 MuseumTester.o: ../../event/timer/Timer.h ../../core/Camera.h
 MuseumTester.o: ../../core/DebugCamera.h ../../core/Controller.h
 MuseumTester.o: ../../core/Window.h ../../core/World.h
-MuseumTester.o: ../../core/XavierConfiguration.h
-MuseumTester.o: ../../event/EventHandlerFactory.h
+MuseumTester.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
 MuseumTester.o: ../../event/FullEventHandlerFactory.h
 MuseumTester.o: ../../event/keyboard/KeyboardSkeleton.h
-MuseumTester.o: ../../../include/SDL_thread.h
+MuseumTester.o: /usr/include/SDL/SDL_thread.h
 MuseumTester.o: ../../event/mouse/MouseSkeleton.h
 MuseumTester.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 MuseumTester.o: ../../event/FullEventProxyFactory.h
@@ -198,7 +196,9 @@ MuseumTester.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 MuseumTester.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 MuseumTester.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
 MuseumTester.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
-MuseumTester.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+MuseumTester.o: ../../geometry/RectangularVolume.h
+MuseumTester.o: ../../shape/Object3DCollection.h
+MuseumTester.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
 MuseumTester.o: ../../shape/CollisionRenderable.h
 MuseumTester.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
 MuseumTester.o: ../../shape/ExtrudedNormalPolygon3D.h
@@ -206,16 +206,15 @@ MuseumTester.o: ../../shape/NormalPolygon3D.h
 MuseumTester.o: ../../shape/NoDepthTestQuadrilateral3D.h
 MuseumTester.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
 MuseumTester.o: ../../core/Window.h ../../shape/Object3D.h
-MuseumTester.o: ../../shape/Object3DCollection.h
-MuseumTester.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+MuseumTester.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
 MuseumTester.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
 MuseumTester.o: ../../shape/Point2D.h ../../shape/Point3D.h
 MuseumTester.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
 MuseumTester.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 MuseumTester.o: ../../shape/RectangularPrismFactory.h
-MuseumTester.o: ../../shape/Renderable.h ../../shape/String2D.h
-MuseumTester.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-MuseumTester.o: ../../shape/Triangle3D.h
+MuseumTester.o: ../../shape/Renderable.h ../../shape/Sprite.h
+MuseumTester.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+MuseumTester.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
 MuseumTester.o: ../../terrain/FunctionHeightFieldStrategy.h
 MuseumTester.o: ../../terrain/HeightFieldStrategy.h
 MuseumTester.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
@@ -247,21 +246,21 @@ MuseumTester.o: ../../util/PointScale.h ../../util/xmlParser.h
 MuseumTester.o: /usr/include/wchar.h /usr/include/stdarg.h
 MuseumTester.o: /usr/include/_wctype.h /usr/include/ctype.h
 MuseumTester.o: /usr/include/runetype.h Museum.h Room.h DoorExtracter.h
-Museum.o: Museum.h ../../xor.h ../../core/Camera.h ../../../include/SDL.h
-Museum.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-Museum.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-Museum.o: ../../../include/begin_code.h ../../../include/close_code.h
-Museum.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+Museum.o: Museum.h ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+Museum.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+Museum.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+Museum.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+Museum.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
 Museum.o: /usr/include/_types.h /usr/include/sys/_types.h
 Museum.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
-Museum.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
-Museum.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-Museum.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-Museum.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-Museum.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-Museum.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-Museum.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-Museum.o: ../../../include/SDL_version.h ../../../include/SDL_opengl.h
+Museum.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+Museum.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+Museum.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+Museum.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+Museum.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+Museum.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+Museum.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+Museum.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
 Museum.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
 Museum.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 Museum.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
@@ -289,10 +288,9 @@ Museum.o: ../../../include/SDL_image.h ../../../include/SDL.h
 Museum.o: ../../geometry/Vector2D.h ../../paint/Color.h
 Museum.o: ../../shape/Renderable.h ../../core/Window.h
 Museum.o: ../../event/reshape/ReshapeListener.h
-Museum.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
-Museum.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
-Museum.o: ../../core/CameraListener.h ../../paint/Color.h
-Museum.o: ../../transform/CoordinateSystem.h
+Museum.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Museum.o: ../../geometry/Dimension2D.h ../../core/CameraListener.h
+Museum.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
 Museum.o: ../../transform/CoordinateSystemFactory.h
 Museum.o: ../../transform/CoordinateSystem.h
 Museum.o: ../../transform/OpenGLCoordinateSystem.h
@@ -302,8 +300,8 @@ Museum.o: ../../transform/LeftOpenGLCoordinateSystem.h
 Museum.o: ../../transform/EngineerCoordinateSystem.h
 Museum.o: ../../event/timer/TimerListener.h
 Museum.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
-Museum.o: ../../core/Controller.h ../../event/EventHandlerFactory.h
-Museum.o: ../../event/keyboard/Keyboard.h ../../../include/SDL_events.h
+Museum.o: ../../core/Controller.h ../../event/EventFactory.h
+Museum.o: ../../event/keyboard/Keyboard.h
 Museum.o: ../../event/keyboard/KeyboardListener.h
 Museum.o: ../../event/keyboard/KeyEvent.h
 Museum.o: ../../event/keyboard/KeyEventFactory.h
@@ -319,8 +317,7 @@ Museum.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
 Museum.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
 Museum.o: ../../shape/Point3D.h ../../shape/Object3D.h
 Museum.o: ../../core/XavierConfiguration.h
-Museum.o: ../../event/InputEventProxyFactory.h
-Museum.o: ../../event/EventHandlerFactory.h
+Museum.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 Museum.o: ../../event/keyboard/KeyboardStub.h
 Museum.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 Museum.o: /usr/include/sys/types.h /usr/include/sys/socket.h
@@ -339,10 +336,10 @@ Museum.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 Museum.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
 Museum.o: ../../core/Camera.h ../../core/DebugCamera.h
 Museum.o: ../../core/Controller.h ../../core/Window.h ../../core/World.h
-Museum.o: ../../core/XavierConfiguration.h ../../event/EventHandlerFactory.h
+Museum.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
 Museum.o: ../../event/FullEventHandlerFactory.h
 Museum.o: ../../event/keyboard/KeyboardSkeleton.h
-Museum.o: ../../../include/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+Museum.o: /usr/include/SDL/SDL_thread.h ../../event/mouse/MouseSkeleton.h
 Museum.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 Museum.o: ../../event/FullEventProxyFactory.h
 Museum.o: ../../event/InputEventHandlerFactory.h
@@ -398,21 +395,23 @@ Museum.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 Museum.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 Museum.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
 Museum.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
-Museum.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+Museum.o: ../../geometry/RectangularVolume.h ../../shape/Object3DCollection.h
+Museum.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
 Museum.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
 Museum.o: ../../shape/Cube.h ../../shape/ExtrudedNormalPolygon3D.h
 Museum.o: ../../shape/NormalPolygon3D.h
 Museum.o: ../../shape/NoDepthTestQuadrilateral3D.h
 Museum.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
 Museum.o: ../../core/Window.h ../../shape/Object3D.h
-Museum.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-Museum.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-Museum.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+Museum.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+Museum.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+Museum.o: ../../shape/Point2D.h ../../shape/Point3D.h
 Museum.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
 Museum.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 Museum.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
-Museum.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-Museum.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+Museum.o: ../../shape/Sprite.h ../../shape/String2D.h
+Museum.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Museum.o: ../../shape/Triangle3D.h
 Museum.o: ../../terrain/FunctionHeightFieldStrategy.h
 Museum.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
 Museum.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
@@ -440,21 +439,21 @@ Museum.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
 Museum.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
 Museum.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
 Museum.o: Room.h DoorExtracter.h
-Room.o: Room.h ../../xor.h ../../core/Camera.h ../../../include/SDL.h
-Room.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-Room.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-Room.o: ../../../include/begin_code.h ../../../include/close_code.h
-Room.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+Room.o: Room.h ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+Room.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+Room.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+Room.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+Room.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
 Room.o: /usr/include/_types.h /usr/include/sys/_types.h
 Room.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
-Room.o: /usr/include/ppc/_types.h ../../../include/SDL_timer.h
-Room.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
-Room.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-Room.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-Room.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
-Room.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
-Room.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-Room.o: ../../../include/SDL_version.h ../../../include/SDL_opengl.h
+Room.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+Room.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+Room.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+Room.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+Room.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+Room.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+Room.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+Room.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
 Room.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
 Room.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 Room.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
@@ -482,10 +481,9 @@ Room.o: ../../../include/SDL_image.h ../../../include/SDL.h
 Room.o: ../../geometry/Vector2D.h ../../paint/Color.h
 Room.o: ../../shape/Renderable.h ../../core/Window.h
 Room.o: ../../event/reshape/ReshapeListener.h
-Room.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
-Room.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
-Room.o: ../../core/CameraListener.h ../../paint/Color.h
-Room.o: ../../transform/CoordinateSystem.h
+Room.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Room.o: ../../geometry/Dimension2D.h ../../core/CameraListener.h
+Room.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
 Room.o: ../../transform/CoordinateSystemFactory.h
 Room.o: ../../transform/CoordinateSystem.h
 Room.o: ../../transform/OpenGLCoordinateSystem.h
@@ -495,8 +493,8 @@ Room.o: ../../transform/LeftOpenGLCoordinateSystem.h
 Room.o: ../../transform/EngineerCoordinateSystem.h
 Room.o: ../../event/timer/TimerListener.h ../../event/reshape/ReshapeEvent.h
 Room.o: ../../core/CameraListener.h ../../core/Controller.h
-Room.o: ../../event/EventHandlerFactory.h ../../event/keyboard/Keyboard.h
-Room.o: ../../../include/SDL_events.h ../../event/keyboard/KeyboardListener.h
+Room.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+Room.o: ../../event/keyboard/KeyboardListener.h
 Room.o: ../../event/keyboard/KeyEvent.h
 Room.o: ../../event/keyboard/KeyEventFactory.h
 Room.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyUpEvent.h
@@ -509,7 +507,7 @@ Room.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
 Room.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
 Room.o: ../../shape/Point3D.h ../../shape/Object3D.h
 Room.o: ../../core/XavierConfiguration.h ../../event/InputEventProxyFactory.h
-Room.o: ../../event/EventHandlerFactory.h ../../event/keyboard/KeyboardStub.h
+Room.o: ../../event/EventFactory.h ../../event/keyboard/KeyboardStub.h
 Room.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
 Room.o: /usr/include/sys/types.h /usr/include/sys/socket.h
 Room.o: /usr/include/machine/param.h /usr/include/ppc/param.h
@@ -526,9 +524,9 @@ Room.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 Room.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
 Room.o: ../../core/Camera.h ../../core/DebugCamera.h ../../core/Controller.h
 Room.o: ../../core/Window.h ../../core/World.h
-Room.o: ../../core/XavierConfiguration.h ../../event/EventHandlerFactory.h
+Room.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
 Room.o: ../../event/FullEventHandlerFactory.h
-Room.o: ../../event/keyboard/KeyboardSkeleton.h ../../../include/SDL_thread.h
+Room.o: ../../event/keyboard/KeyboardSkeleton.h /usr/include/SDL/SDL_thread.h
 Room.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
 Room.o: ../../core/Controller.h ../../event/FullEventProxyFactory.h
 Room.o: ../../event/InputEventHandlerFactory.h
@@ -583,22 +581,23 @@ Room.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 Room.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 Room.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
 Room.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
-Room.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+Room.o: ../../geometry/RectangularVolume.h ../../shape/Object3DCollection.h
+Room.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
 Room.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
 Room.o: ../../shape/Cube.h ../../shape/ExtrudedNormalPolygon3D.h
 Room.o: ../../shape/NormalPolygon3D.h
 Room.o: ../../shape/NoDepthTestQuadrilateral3D.h
 Room.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
 Room.o: ../../core/Window.h ../../shape/Object3D.h
-Room.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-Room.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-Room.o: ../../shape/Point.h ../../shape/Point2D.h ../../shape/Point3D.h
+Room.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+Room.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+Room.o: ../../shape/Point2D.h ../../shape/Point3D.h
 Room.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
 Room.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 Room.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
-Room.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-Room.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
-Room.o: ../../terrain/FunctionHeightFieldStrategy.h
+Room.o: ../../shape/Sprite.h ../../shape/String2D.h
+Room.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Room.o: ../../shape/Triangle3D.h ../../terrain/FunctionHeightFieldStrategy.h
 Room.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
 Room.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
 Room.o: ../../terrain/HeightFieldFactory.h
@@ -626,22 +625,22 @@ Room.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
 Room.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
 Room.o: DoorExtracter.h
 DoorExtracter.o: DoorExtracter.h ../../xor.h ../../core/Camera.h
-DoorExtracter.o: ../../../include/SDL.h ../../../include/SDL_main.h
-DoorExtracter.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
-DoorExtracter.o: ../../../include/SDL_error.h ../../../include/begin_code.h
-DoorExtracter.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+DoorExtracter.o: /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h
+DoorExtracter.o: /usr/include/SDL/SDL_types.h /usr/include/SDL/SDL_getenv.h
+DoorExtracter.o: /usr/include/SDL/SDL_error.h /usr/include/SDL/begin_code.h
+DoorExtracter.o: /usr/include/SDL/close_code.h /usr/include/SDL/SDL_rwops.h
 DoorExtracter.o: /usr/include/stdio.h /usr/include/_types.h
 DoorExtracter.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
 DoorExtracter.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
-DoorExtracter.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
-DoorExtracter.o: ../../../include/SDL_byteorder.h
-DoorExtracter.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
-DoorExtracter.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
-DoorExtracter.o: ../../../include/SDL_keyboard.h
-DoorExtracter.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
-DoorExtracter.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
-DoorExtracter.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
-DoorExtracter.o: ../../../include/SDL_opengl.h /usr/include/stddef.h
+DoorExtracter.o: /usr/include/SDL/SDL_timer.h /usr/include/SDL/SDL_audio.h
+DoorExtracter.o: /usr/include/SDL/SDL_byteorder.h
+DoorExtracter.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+DoorExtracter.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+DoorExtracter.o: /usr/include/SDL/SDL_keyboard.h
+DoorExtracter.o: /usr/include/SDL/SDL_keysym.h /usr/include/SDL/SDL_mouse.h
+DoorExtracter.o: /usr/include/SDL/SDL_video.h /usr/include/SDL/SDL_mutex.h
+DoorExtracter.o: /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_version.h
+DoorExtracter.o: /usr/include/SDL/SDL_opengl.h /usr/include/stddef.h
 DoorExtracter.o: ../../core/World.h /usr/include/stdlib.h
 DoorExtracter.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
 DoorExtracter.o: /usr/include/sys/appleapiopts.h
@@ -670,7 +669,7 @@ DoorExtracter.o: ../../../include/SDL_image.h ../../../include/SDL.h
 DoorExtracter.o: ../../geometry/Vector2D.h ../../paint/Color.h
 DoorExtracter.o: ../../shape/Renderable.h ../../core/Window.h
 DoorExtracter.o: ../../event/reshape/ReshapeListener.h
-DoorExtracter.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+DoorExtracter.o: ../../event/reshape/ReshapeEvent.h
 DoorExtracter.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
 DoorExtracter.o: ../../core/CameraListener.h ../../paint/Color.h
 DoorExtracter.o: ../../transform/CoordinateSystem.h
@@ -684,9 +683,7 @@ DoorExtracter.o: ../../transform/EngineerCoordinateSystem.h
 DoorExtracter.o: ../../event/timer/TimerListener.h
 DoorExtracter.o: ../../event/reshape/ReshapeEvent.h
 DoorExtracter.o: ../../core/CameraListener.h ../../core/Controller.h
-DoorExtracter.o: ../../event/EventHandlerFactory.h
-DoorExtracter.o: ../../event/keyboard/Keyboard.h
-DoorExtracter.o: ../../../include/SDL_events.h
+DoorExtracter.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
 DoorExtracter.o: ../../event/keyboard/KeyboardListener.h
 DoorExtracter.o: ../../event/keyboard/KeyEvent.h
 DoorExtracter.o: ../../event/keyboard/KeyEventFactory.h
@@ -704,7 +701,7 @@ DoorExtracter.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
 DoorExtracter.o: ../../event/timer/Timer.h ../../shape/Point3D.h
 DoorExtracter.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 DoorExtracter.o: ../../event/InputEventProxyFactory.h
-DoorExtracter.o: ../../event/EventHandlerFactory.h
+DoorExtracter.o: ../../event/EventFactory.h
 DoorExtracter.o: ../../event/keyboard/KeyboardStub.h
 DoorExtracter.o: ../../multicast/MulticastSocket.h
 DoorExtracter.o: ../../multicast/Multicast.h /usr/include/sys/types.h
@@ -726,10 +723,10 @@ DoorExtracter.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
 DoorExtracter.o: ../../core/Camera.h ../../core/DebugCamera.h
 DoorExtracter.o: ../../core/Controller.h ../../core/Window.h
 DoorExtracter.o: ../../core/World.h ../../core/XavierConfiguration.h
-DoorExtracter.o: ../../event/EventHandlerFactory.h
+DoorExtracter.o: ../../event/EventFactory.h
 DoorExtracter.o: ../../event/FullEventHandlerFactory.h
 DoorExtracter.o: ../../event/keyboard/KeyboardSkeleton.h
-DoorExtracter.o: ../../../include/SDL_thread.h
+DoorExtracter.o: /usr/include/SDL/SDL_thread.h
 DoorExtracter.o: ../../event/mouse/MouseSkeleton.h
 DoorExtracter.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
 DoorExtracter.o: ../../event/FullEventProxyFactory.h
@@ -794,7 +791,9 @@ DoorExtracter.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
 DoorExtracter.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
 DoorExtracter.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
 DoorExtracter.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
-DoorExtracter.o: ../../geometry/RectangularVolume.h ../../shape/Arc3D.h
+DoorExtracter.o: ../../geometry/RectangularVolume.h
+DoorExtracter.o: ../../shape/Object3DCollection.h
+DoorExtracter.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
 DoorExtracter.o: ../../shape/CollisionRenderable.h
 DoorExtracter.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
 DoorExtracter.o: ../../shape/ExtrudedNormalPolygon3D.h
@@ -802,16 +801,15 @@ DoorExtracter.o: ../../shape/NormalPolygon3D.h
 DoorExtracter.o: ../../shape/NoDepthTestQuadrilateral3D.h
 DoorExtracter.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
 DoorExtracter.o: ../../core/Window.h ../../shape/Object3D.h
-DoorExtracter.o: ../../shape/Object3DCollection.h
-DoorExtracter.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
+DoorExtracter.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
 DoorExtracter.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
 DoorExtracter.o: ../../shape/Point2D.h ../../shape/Point3D.h
 DoorExtracter.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
 DoorExtracter.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
 DoorExtracter.o: ../../shape/RectangularPrismFactory.h
-DoorExtracter.o: ../../shape/Renderable.h ../../shape/String2D.h
-DoorExtracter.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-DoorExtracter.o: ../../shape/Triangle3D.h
+DoorExtracter.o: ../../shape/Renderable.h ../../shape/Sprite.h
+DoorExtracter.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+DoorExtracter.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
 DoorExtracter.o: ../../terrain/FunctionHeightFieldStrategy.h
 DoorExtracter.o: ../../terrain/HeightFieldStrategy.h
 DoorExtracter.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h

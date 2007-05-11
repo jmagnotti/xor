@@ -4245,6 +4245,7 @@ src/shape/Sprite.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/shape/Sprite.o: src/transform/EngineerCoordinateSystem.h
 src/shape/Sprite.o: src/event/timer/TimerListener.h
 src/shape/Sprite.o: src/event/reshape/ReshapeEvent.h
+src/shape/Sprite.o: src/shape/SpriteListener.h
 src/shape/String2D.o: src/shape/String2D.h /usr/include/string.h
 src/shape/String2D.o: /usr/include/_types.h /usr/include/sys/_types.h
 src/shape/String2D.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h

@@ -100,7 +100,7 @@ public:
 
     Dimension2D * getWindowSize() const
     {
-        return new Dimension2D(800, 450);
+        return new Dimension2D(800, 500);
     }
 
     unsigned int getTimerInterval()
