@@ -4,6 +4,7 @@
 
 #include "../core/Controller.h"
 #include "../event/timer/TimerListener.h"
+#include "SpriteListener.h"
 
 
 namespace XOR {
@@ -32,6 +33,18 @@ public:
     Sprite();
 
 
+	/**
+	 * adds a listener that will be updated when the sprite's position
+	 * changes
+	 */
+	void addListener(SpriteListener * sl);
+
+	/**
+	 * removes a listener
+	 */
+	void removeListener(SpriteListener * sl);
+
+
     /**
 	 * called by the timer
 	 */
@@ -43,6 +56,32 @@ public:
 	 */
 	virtual void endFrame()=0;
 
+
+	/**
+	 * starts the timer listening 
+	 */
+	virtual void begin();
+
+
+	/**
+	 * stops the timer listening
+	 */
+	void end();
+
+	/**
+	 * Returns the id of the sprite. used for labelling sprites that may
+	 * be of different concrete child types.
+	 */
+	int getID();
+
+
+protected:
+
+	void notifyListeners();
+
+	int _id;
+
+	static int _idCounter;
 };
 
 }

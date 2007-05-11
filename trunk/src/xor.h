@@ -90,6 +90,7 @@
 #include "shape/RectangularPrismFactory.h"
 #include "shape/Renderable.h"
 #include "shape/Sprite.h"
+#include "shape/SpriteListener.h"
 #include "shape/String2D.h"
 #include "shape/Triangle3D.h"
 #include "terrain/FunctionHeightFieldStrategy.h"
