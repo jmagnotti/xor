@@ -132,7 +132,7 @@ CoordinateSystem.o: ../../transform/Stretch.h ../../transform/Translate.h
 CoordinateSystem.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
 CoordinateSystem.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
 CoordinateSystem.o: ../../paint/Paint.h ../../texture/Texture.h
-CoordinateSystem.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
+CoordinateSystem.o: ../../../include/SDL_image.h ../../../include/SDL.h
 CoordinateSystem.o: ../../paint/Color.h ../../shape/Renderable.h
 CoordinateSystem.o: ../../shape/Point3D.h ../../shape/Object3D.h
 CoordinateSystem.o: ../../core/XavierConfiguration.h

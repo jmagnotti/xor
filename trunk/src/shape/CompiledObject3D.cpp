@@ -73,7 +73,6 @@ void CompiledObject3D::compile()
  */
 void CompiledObject3D::render()
 {
-	
 	if (isTransformed()) {
 		push();
 			glCallList(_displayListID);
@@ -82,7 +81,6 @@ void CompiledObject3D::render()
 	else {
 		glCallList(_displayListID);
 	}
-		
 }
 
 
@@ -103,7 +101,9 @@ void CompiledObject3D::clean()
 
 
 void CompiledObject3D::renderObject()
-{}
+{
+	// nope
+}
 
 }
 

@@ -10,7 +10,7 @@ LIBS = -lGL -lGLU -lSDL -lSDL_image -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/IntervalTimer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/reshape/ReshapeEvent.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/FullEventHandlerFactory.cpp src/event/InputEventProxyFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/Waypoint.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/WaypointCollection.cpp src/core/DebugCamera.cpp src/core/Controller.cpp src/core/XavierConfiguration.cpp src/core/World.cpp src/core/Window.cpp src/core/Camera.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Object3DCollection.cpp src/shape/CompiledObject3D.cpp src/shape/Cube.cpp src/shape/Rectangle2D.cpp src/shape/Triangle3D.cpp src/shape/Arc3D.cpp src/shape/Object3D.cpp src/shape/NoDepthTestQuadrilateral3D.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/NormalPolygon3D.cpp src/shape/String2D.cpp src/shape/ExtrudedNormalPolygon3D.cpp src/shape/Object2D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/HeightFieldFactory.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/multicast/mcsend.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transformable.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/Transform.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/Stretch.cpp src/transform/MacCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Scale.cpp src/transform/Orientation.cpp src/transform/CoordinateSystem.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/PointScale.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp src/util/xmlParser.cpp 
+SRCS = src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/IntervalTimer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/reshape/ReshapeEvent.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/FullEventHandlerFactory.cpp src/event/InputEventProxyFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/Waypoint.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/WaypointCollection.cpp src/core/DebugCamera.cpp src/core/Controller.cpp src/core/XavierConfiguration.cpp src/core/World.cpp src/core/Window.cpp src/core/Camera.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/shape/AdornablePrism.cpp src/shape/Particle.cpp src/shape/Object3DCollection.cpp src/shape/CompiledObject3D.cpp src/shape/Cube.cpp src/shape/Rectangle2D.cpp src/shape/Triangle3D.cpp src/shape/Arc3D.cpp src/shape/Object3D.cpp src/shape/NoDepthTestQuadrilateral3D.cpp src/shape/Point3D.cpp src/shape/Quadrilateral3D.cpp src/shape/RectangularPrism.cpp src/shape/NormalPolygon3D.cpp src/shape/String2D.cpp src/shape/ExtrudedNormalPolygon3D.cpp src/shape/Object2D.cpp src/shape/Sprite3D.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/HeightFieldFactory.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/multicast/mcsend.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/Transformable.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/Transform.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/Stretch.cpp src/transform/MacCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Scale.cpp src/transform/Orientation.cpp src/transform/CoordinateSystem.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/PointScale.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp src/util/xmlParser.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -297,10 +297,9 @@ src/event/timer/TimerSkeleton.o: src/geometry/Dimension3D.h
 src/event/timer/TimerSkeleton.o: src/geometry/Vector3D.h
 src/event/timer/TimerSkeleton.o: src/transform/Orientation.h
 src/event/timer/TimerSkeleton.o: src/paint/Paint.h src/texture/Texture.h
-src/event/timer/TimerSkeleton.o: /usr/include/SDL/SDL_image.h
-src/event/timer/TimerSkeleton.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/event/timer/TimerSkeleton.o: src/shape/Renderable.h src/shape/Point3D.h
-src/event/timer/TimerSkeleton.o: src/shape/Object3D.h
+src/event/timer/TimerSkeleton.o: include/SDL_image.h include/SDL.h
+src/event/timer/TimerSkeleton.o: src/paint/Color.h src/shape/Renderable.h
+src/event/timer/TimerSkeleton.o: src/shape/Point3D.h src/shape/Object3D.h
 src/event/timer/TimerSkeleton.o: src/core/XavierConfiguration.h
 src/event/timer/TimerSkeleton.o: src/transform/CoordinateSystem.h
 src/event/timer/TimerSkeleton.o: src/event/InputEventProxyFactory.h
@@ -427,10 +426,9 @@ src/event/timer/IntervalTimer.o: src/geometry/Dimension3D.h
 src/event/timer/IntervalTimer.o: src/geometry/Vector3D.h
 src/event/timer/IntervalTimer.o: src/transform/Orientation.h
 src/event/timer/IntervalTimer.o: src/paint/Paint.h src/texture/Texture.h
-src/event/timer/IntervalTimer.o: /usr/include/SDL/SDL_image.h
-src/event/timer/IntervalTimer.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/event/timer/IntervalTimer.o: src/shape/Renderable.h src/shape/Point3D.h
-src/event/timer/IntervalTimer.o: src/shape/Object3D.h
+src/event/timer/IntervalTimer.o: include/SDL_image.h include/SDL.h
+src/event/timer/IntervalTimer.o: src/paint/Color.h src/shape/Renderable.h
+src/event/timer/IntervalTimer.o: src/shape/Point3D.h src/shape/Object3D.h
 src/event/timer/IntervalTimer.o: src/core/XavierConfiguration.h
 src/event/timer/IntervalTimer.o: src/transform/CoordinateSystem.h
 src/event/timer/IntervalTimer.o: src/event/InputEventProxyFactory.h
@@ -833,9 +831,8 @@ src/event/keyboard/DefaultKeyboardListener.o: src/geometry/Vector3D.h
 src/event/keyboard/DefaultKeyboardListener.o: src/transform/Orientation.h
 src/event/keyboard/DefaultKeyboardListener.o: src/paint/Paint.h
 src/event/keyboard/DefaultKeyboardListener.o: src/texture/Texture.h
-src/event/keyboard/DefaultKeyboardListener.o: /usr/include/SDL/SDL_image.h
-src/event/keyboard/DefaultKeyboardListener.o: /usr/include/SDL/SDL.h
-src/event/keyboard/DefaultKeyboardListener.o: src/paint/Color.h
+src/event/keyboard/DefaultKeyboardListener.o: include/SDL_image.h
+src/event/keyboard/DefaultKeyboardListener.o: include/SDL.h src/paint/Color.h
 src/event/keyboard/DefaultKeyboardListener.o: src/shape/Renderable.h
 src/event/keyboard/DefaultKeyboardListener.o: src/shape/Point3D.h
 src/event/keyboard/DefaultKeyboardListener.o: src/shape/Object3D.h
@@ -1316,8 +1313,7 @@ src/event/mouse/DefaultMouseListener.o: src/geometry/Vector3D.h
 src/event/mouse/DefaultMouseListener.o: src/transform/Orientation.h
 src/event/mouse/DefaultMouseListener.o: src/paint/Paint.h
 src/event/mouse/DefaultMouseListener.o: src/texture/Texture.h
-src/event/mouse/DefaultMouseListener.o: /usr/include/SDL/SDL_image.h
-src/event/mouse/DefaultMouseListener.o: /usr/include/SDL/SDL.h
+src/event/mouse/DefaultMouseListener.o: include/SDL_image.h include/SDL.h
 src/event/mouse/DefaultMouseListener.o: src/paint/Color.h
 src/event/mouse/DefaultMouseListener.o: src/shape/Renderable.h
 src/event/mouse/DefaultMouseListener.o: src/shape/Point3D.h
@@ -2194,9 +2190,8 @@ src/event/FullEventHandlerFactory.o: src/geometry/Dimension3D.h
 src/event/FullEventHandlerFactory.o: src/geometry/Vector3D.h
 src/event/FullEventHandlerFactory.o: src/transform/Orientation.h
 src/event/FullEventHandlerFactory.o: src/paint/Paint.h src/texture/Texture.h
-src/event/FullEventHandlerFactory.o: /usr/include/SDL/SDL_image.h
-src/event/FullEventHandlerFactory.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/event/FullEventHandlerFactory.o: src/shape/Renderable.h
+src/event/FullEventHandlerFactory.o: include/SDL_image.h include/SDL.h
+src/event/FullEventHandlerFactory.o: src/paint/Color.h src/shape/Renderable.h
 src/event/FullEventHandlerFactory.o: src/shape/Point3D.h src/shape/Object3D.h
 src/event/FullEventHandlerFactory.o: src/core/XavierConfiguration.h
 src/event/FullEventHandlerFactory.o: src/transform/CoordinateSystem.h
@@ -2431,10 +2426,9 @@ src/interpolation/CameraRoller.o: src/geometry/Dimension3D.h
 src/interpolation/CameraRoller.o: src/geometry/Vector3D.h
 src/interpolation/CameraRoller.o: src/transform/Orientation.h
 src/interpolation/CameraRoller.o: src/paint/Paint.h src/texture/Texture.h
-src/interpolation/CameraRoller.o: /usr/include/SDL/SDL_image.h
-src/interpolation/CameraRoller.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/interpolation/CameraRoller.o: src/shape/Renderable.h src/shape/Point3D.h
-src/interpolation/CameraRoller.o: src/shape/Object3D.h
+src/interpolation/CameraRoller.o: include/SDL_image.h include/SDL.h
+src/interpolation/CameraRoller.o: src/paint/Color.h src/shape/Renderable.h
+src/interpolation/CameraRoller.o: src/shape/Point3D.h src/shape/Object3D.h
 src/interpolation/CameraRoller.o: src/core/XavierConfiguration.h
 src/interpolation/CameraRoller.o: src/transform/CoordinateSystem.h
 src/interpolation/CameraRoller.o: src/event/InputEventProxyFactory.h
@@ -2584,9 +2578,8 @@ src/interpolation/Waypoint.o: src/transform/Rotate.h
 src/interpolation/Waypoint.o: src/geometry/Dimension3D.h
 src/interpolation/Waypoint.o: src/geometry/Vector3D.h
 src/interpolation/Waypoint.o: src/transform/Orientation.h src/paint/Paint.h
-src/interpolation/Waypoint.o: src/texture/Texture.h
-src/interpolation/Waypoint.o: /usr/include/SDL/SDL_image.h
-src/interpolation/Waypoint.o: /usr/include/SDL/SDL.h src/paint/Color.h
+src/interpolation/Waypoint.o: src/texture/Texture.h include/SDL_image.h
+src/interpolation/Waypoint.o: include/SDL.h src/paint/Color.h
 src/interpolation/Waypoint.o: src/shape/Renderable.h src/shape/Point3D.h
 src/interpolation/Waypoint.o: src/shape/Object3D.h
 src/interpolation/Waypoint.o: src/core/XavierConfiguration.h
@@ -2751,8 +2744,7 @@ src/interpolation/TimedInterpolation.o: src/geometry/Vector3D.h
 src/interpolation/TimedInterpolation.o: src/transform/Orientation.h
 src/interpolation/TimedInterpolation.o: src/paint/Paint.h
 src/interpolation/TimedInterpolation.o: src/texture/Texture.h
-src/interpolation/TimedInterpolation.o: /usr/include/SDL/SDL_image.h
-src/interpolation/TimedInterpolation.o: /usr/include/SDL/SDL.h
+src/interpolation/TimedInterpolation.o: include/SDL_image.h include/SDL.h
 src/interpolation/TimedInterpolation.o: src/paint/Color.h
 src/interpolation/TimedInterpolation.o: src/shape/Renderable.h
 src/interpolation/TimedInterpolation.o: src/shape/Point3D.h
@@ -2993,8 +2985,7 @@ src/interpolation/WaypointCollection.o: src/geometry/Vector3D.h
 src/interpolation/WaypointCollection.o: src/transform/Orientation.h
 src/interpolation/WaypointCollection.o: src/paint/Paint.h
 src/interpolation/WaypointCollection.o: src/texture/Texture.h
-src/interpolation/WaypointCollection.o: /usr/include/SDL/SDL_image.h
-src/interpolation/WaypointCollection.o: /usr/include/SDL/SDL.h
+src/interpolation/WaypointCollection.o: include/SDL_image.h include/SDL.h
 src/interpolation/WaypointCollection.o: src/paint/Color.h
 src/interpolation/WaypointCollection.o: src/shape/Renderable.h
 src/interpolation/WaypointCollection.o: src/shape/Point3D.h
@@ -3108,7 +3099,7 @@ src/core/DebugCamera.o: src/transform/Translate.h src/transform/Rotate.h
 src/core/DebugCamera.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
 src/core/DebugCamera.o: src/geometry/Vector3D.h src/transform/Orientation.h
 src/core/DebugCamera.o: src/paint/Paint.h src/texture/Texture.h
-src/core/DebugCamera.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
+src/core/DebugCamera.o: include/SDL_image.h include/SDL.h
 src/core/DebugCamera.o: src/geometry/Vector2D.h src/paint/Color.h
 src/core/DebugCamera.o: src/shape/Renderable.h src/core/Window.h
 src/core/DebugCamera.o: src/event/reshape/ReshapeListener.h
@@ -3253,10 +3244,10 @@ src/core/Controller.o: /usr/include/bits/mathcalls.h src/transform/Stretch.h
 src/core/Controller.o: src/transform/Translate.h src/transform/Rotate.h
 src/core/Controller.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
 src/core/Controller.o: src/transform/Orientation.h src/paint/Paint.h
-src/core/Controller.o: src/texture/Texture.h /usr/include/SDL/SDL_image.h
-src/core/Controller.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/core/Controller.o: src/shape/Renderable.h src/shape/Point3D.h
-src/core/Controller.o: src/shape/Object3D.h src/core/XavierConfiguration.h
+src/core/Controller.o: src/texture/Texture.h include/SDL_image.h
+src/core/Controller.o: include/SDL.h src/paint/Color.h src/shape/Renderable.h
+src/core/Controller.o: src/shape/Point3D.h src/shape/Object3D.h
+src/core/Controller.o: src/core/XavierConfiguration.h
 src/core/Controller.o: src/transform/CoordinateSystem.h
 src/core/Controller.o: src/event/InputEventProxyFactory.h
 src/core/Controller.o: src/event/EventFactory.h
@@ -3424,9 +3415,8 @@ src/core/XavierConfiguration.o: src/transform/Transformable.h
 src/core/XavierConfiguration.o: src/transform/Stretch.h
 src/core/XavierConfiguration.o: src/transform/Translate.h
 src/core/XavierConfiguration.o: src/transform/Orientation.h src/paint/Paint.h
-src/core/XavierConfiguration.o: src/texture/Texture.h
-src/core/XavierConfiguration.o: /usr/include/SDL/SDL_image.h
-src/core/XavierConfiguration.o: /usr/include/SDL/SDL.h src/paint/Color.h
+src/core/XavierConfiguration.o: src/texture/Texture.h include/SDL_image.h
+src/core/XavierConfiguration.o: include/SDL.h src/paint/Color.h
 src/core/XavierConfiguration.o: src/shape/Renderable.h src/core/Window.h
 src/core/XavierConfiguration.o: src/event/reshape/ReshapeListener.h
 src/core/XavierConfiguration.o: src/event/reshape/ReshapeEvent.h
@@ -3490,9 +3480,9 @@ src/core/World.o: /usr/include/SDL/SDL_keysym.h /usr/include/SDL/SDL_mouse.h
 src/core/World.o: /usr/include/SDL/SDL_video.h
 src/core/World.o: /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h
 src/core/World.o: /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h
-src/core/World.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_image.h
-src/core/World.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
-src/core/World.o: src/paint/Color.h src/shape/Renderable.h
+src/core/World.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/core/World.o: include/SDL.h src/geometry/Vector2D.h src/paint/Color.h
+src/core/World.o: src/shape/Renderable.h
 src/core/Window.o: src/core/Window.h /usr/include/SDL/SDL.h
 src/core/Window.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h
 src/core/Window.o: /usr/include/SDL/SDL_config.h
@@ -3585,9 +3575,8 @@ src/core/Camera.o: src/transform/Translate.h src/transform/Rotate.h
 src/core/Camera.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
 src/core/Camera.o: src/geometry/Vector3D.h src/transform/Orientation.h
 src/core/Camera.o: src/paint/Paint.h src/texture/Texture.h
-src/core/Camera.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/core/Camera.o: src/geometry/Vector2D.h src/paint/Color.h
-src/core/Camera.o: src/shape/Renderable.h src/core/Window.h
+src/core/Camera.o: include/SDL_image.h include/SDL.h src/geometry/Vector2D.h
+src/core/Camera.o: src/paint/Color.h src/shape/Renderable.h src/core/Window.h
 src/core/Camera.o: src/event/reshape/ReshapeListener.h
 src/core/Camera.o: src/event/reshape/ReshapeEvent.h
 src/core/Camera.o: src/geometry/Dimension2D.h src/geometry/Dimension2D.h
@@ -3717,9 +3706,9 @@ src/model/MilkshapeModel.o: /usr/include/SDL/SDL_quit.h
 src/model/MilkshapeModel.o: /usr/include/SDL/SDL_loadso.h
 src/model/MilkshapeModel.o: /usr/include/SDL/SDL_timer.h
 src/model/MilkshapeModel.o: /usr/include/SDL/SDL_version.h
-src/model/MilkshapeModel.o: /usr/include/SDL/SDL_image.h
-src/model/MilkshapeModel.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
-src/model/MilkshapeModel.o: src/paint/Color.h src/shape/Renderable.h
+src/model/MilkshapeModel.o: include/SDL_image.h include/SDL.h
+src/model/MilkshapeModel.o: src/geometry/Vector2D.h src/paint/Color.h
+src/model/MilkshapeModel.o: src/shape/Renderable.h
 src/model/MilkshapeModel.o: src/texture/TextureFactory.h
 src/model/MilkshapeModel.o: src/event/reshape/ReshapeListener.h
 src/model/MilkshapeModel.o: src/event/reshape/ReshapeEvent.h
@@ -3840,9 +3829,8 @@ src/model/Model.o: /usr/include/SDL/SDL_video.h
 src/model/Model.o: /usr/include/SDL/SDL_joystick.h
 src/model/Model.o: /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_loadso.h
 src/model/Model.o: /usr/include/SDL/SDL_timer.h
-src/model/Model.o: /usr/include/SDL/SDL_version.h
-src/model/Model.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/model/Model.o: src/geometry/Vector2D.h src/paint/Color.h
+src/model/Model.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/model/Model.o: include/SDL.h src/geometry/Vector2D.h src/paint/Color.h
 src/model/Model.o: src/shape/Renderable.h src/texture/TextureFactory.h
 src/model/Model.o: src/event/reshape/ReshapeListener.h
 src/model/Model.o: src/event/reshape/ReshapeEvent.h
@@ -3961,10 +3949,10 @@ src/model/ModelFactory.o: /usr/include/SDL/SDL_joystick.h
 src/model/ModelFactory.o: /usr/include/SDL/SDL_quit.h
 src/model/ModelFactory.o: /usr/include/SDL/SDL_loadso.h
 src/model/ModelFactory.o: /usr/include/SDL/SDL_timer.h
-src/model/ModelFactory.o: /usr/include/SDL/SDL_version.h
-src/model/ModelFactory.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/model/ModelFactory.o: src/geometry/Vector2D.h src/paint/Color.h
-src/model/ModelFactory.o: src/shape/Renderable.h src/texture/TextureFactory.h
+src/model/ModelFactory.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/model/ModelFactory.o: include/SDL.h src/geometry/Vector2D.h
+src/model/ModelFactory.o: src/paint/Color.h src/shape/Renderable.h
+src/model/ModelFactory.o: src/texture/TextureFactory.h
 src/model/ModelFactory.o: src/event/reshape/ReshapeListener.h
 src/model/ModelFactory.o: src/event/reshape/ReshapeEvent.h
 src/model/ModelFactory.o: src/geometry/Dimension2D.h
@@ -4090,10 +4078,9 @@ src/shape/AdornablePrism.o: /usr/include/SDL/SDL_quit.h
 src/shape/AdornablePrism.o: /usr/include/SDL/SDL_loadso.h
 src/shape/AdornablePrism.o: /usr/include/SDL/SDL_timer.h
 src/shape/AdornablePrism.o: /usr/include/SDL/SDL_version.h
-src/shape/AdornablePrism.o: /usr/include/SDL/SDL_image.h
-src/shape/AdornablePrism.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
-src/shape/AdornablePrism.o: src/paint/Color.h src/shape/Object3D.h
-src/shape/AdornablePrism.o: src/shape/Quadrilateral3D.h
+src/shape/AdornablePrism.o: include/SDL_image.h include/SDL.h
+src/shape/AdornablePrism.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/AdornablePrism.o: src/shape/Object3D.h src/shape/Quadrilateral3D.h
 src/shape/AdornablePrism.o: src/geometry/Dimension3D.h
 src/shape/AdornablePrism.o: src/geometry/Dimension.h src/geometry/Vector3D.h
 src/shape/AdornablePrism.o: src/texture/TextureScale.h
@@ -4151,10 +4138,10 @@ src/shape/Particle.o: /usr/include/SDL/SDL_joystick.h
 src/shape/Particle.o: /usr/include/SDL/SDL_quit.h
 src/shape/Particle.o: /usr/include/SDL/SDL_loadso.h
 src/shape/Particle.o: /usr/include/SDL/SDL_timer.h
-src/shape/Particle.o: /usr/include/SDL/SDL_version.h
-src/shape/Particle.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/Particle.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
-src/shape/Particle.o: src/paint/Color.h src/shape/Object3D.h
+src/shape/Particle.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/Particle.o: include/SDL.h src/geometry/Vector3D.h
+src/shape/Particle.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/Particle.o: src/shape/Object3D.h
 src/shape/Object3DCollection.o: src/shape/Object3DCollection.h
 src/shape/Object3DCollection.o: src/shape/Object3D.h
 src/shape/Object3DCollection.o: src/shape/CompiledObject3D.h
@@ -4200,8 +4187,8 @@ src/shape/Cube.o: /usr/include/SDL/SDL_keysym.h /usr/include/SDL/SDL_mouse.h
 src/shape/Cube.o: /usr/include/SDL/SDL_video.h
 src/shape/Cube.o: /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h
 src/shape/Cube.o: /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h
-src/shape/Cube.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_image.h
-src/shape/Cube.o: /usr/include/SDL/SDL.h /usr/include/SDL/SDL_opengl.h
+src/shape/Cube.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/Cube.o: include/SDL.h /usr/include/SDL/SDL_opengl.h
 src/shape/Cube.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
 src/shape/Cube.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
 src/shape/Cube.o: src/geometry/Vector2D.h src/paint/Color.h
@@ -4304,10 +4291,9 @@ src/shape/Rectangle2D.o: src/transform/Stretch.h src/transform/Translate.h
 src/shape/Rectangle2D.o: src/transform/Rotate.h src/geometry/Dimension3D.h
 src/shape/Rectangle2D.o: src/geometry/Vector3D.h src/transform/Orientation.h
 src/shape/Rectangle2D.o: src/paint/Paint.h src/texture/Texture.h
-src/shape/Rectangle2D.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/Rectangle2D.o: src/paint/Color.h src/shape/Renderable.h
-src/shape/Rectangle2D.o: src/shape/Point3D.h src/shape/Object3D.h
-src/shape/Rectangle2D.o: src/core/XavierConfiguration.h
+src/shape/Rectangle2D.o: include/SDL_image.h include/SDL.h src/paint/Color.h
+src/shape/Rectangle2D.o: src/shape/Renderable.h src/shape/Point3D.h
+src/shape/Rectangle2D.o: src/shape/Object3D.h src/core/XavierConfiguration.h
 src/shape/Rectangle2D.o: src/transform/CoordinateSystem.h
 src/shape/Rectangle2D.o: src/event/InputEventProxyFactory.h
 src/shape/Rectangle2D.o: src/event/EventFactory.h
@@ -4394,12 +4380,11 @@ src/shape/Triangle3D.o: /usr/include/SDL/SDL_joystick.h
 src/shape/Triangle3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/Triangle3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/Triangle3D.o: /usr/include/SDL/SDL_timer.h
-src/shape/Triangle3D.o: /usr/include/SDL/SDL_version.h
-src/shape/Triangle3D.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/Triangle3D.o: /usr/include/SDL/SDL_opengl.h /usr/include/GL/gl.h
-src/shape/Triangle3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/shape/Triangle3D.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
-src/shape/Triangle3D.o: src/paint/Color.h
+src/shape/Triangle3D.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/Triangle3D.o: include/SDL.h /usr/include/SDL/SDL_opengl.h
+src/shape/Triangle3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/Triangle3D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/shape/Triangle3D.o: src/geometry/Vector2D.h src/paint/Color.h
 src/shape/Arc3D.o: src/shape/Arc3D.h src/util/GraphicsConversionUtility.h
 src/shape/Arc3D.o: /usr/include/math.h /usr/include/features.h
 src/shape/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
@@ -4442,9 +4427,8 @@ src/shape/Arc3D.o: /usr/include/SDL/SDL_video.h
 src/shape/Arc3D.o: /usr/include/SDL/SDL_joystick.h
 src/shape/Arc3D.o: /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_loadso.h
 src/shape/Arc3D.o: /usr/include/SDL/SDL_timer.h
-src/shape/Arc3D.o: /usr/include/SDL/SDL_version.h
-src/shape/Arc3D.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/Arc3D.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/Arc3D.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/Arc3D.o: include/SDL.h src/geometry/Vector2D.h src/paint/Color.h
 src/shape/Arc3D.o: src/shape/Point3D.h src/shape/Object3D.h
 src/shape/Object3D.o: src/shape/Object3D.h
 src/shape/NoDepthTestQuadrilateral3D.o: src/shape/NoDepthTestQuadrilateral3D.h
@@ -4526,8 +4510,7 @@ src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL_timer.h
 src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL_version.h
-src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL_image.h
-src/shape/NoDepthTestQuadrilateral3D.o: /usr/include/SDL/SDL.h
+src/shape/NoDepthTestQuadrilateral3D.o: include/SDL_image.h include/SDL.h
 src/shape/NoDepthTestQuadrilateral3D.o: src/paint/Color.h
 src/shape/NoDepthTestQuadrilateral3D.o: src/shape/Object3D.h
 src/shape/Point3D.o: src/shape/Point3D.h /usr/include/math.h
@@ -4577,10 +4560,10 @@ src/shape/Point3D.o: /usr/include/SDL/SDL_joystick.h
 src/shape/Point3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/Point3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/Point3D.o: /usr/include/SDL/SDL_timer.h
-src/shape/Point3D.o: /usr/include/SDL/SDL_version.h
-src/shape/Point3D.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/Point3D.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
-src/shape/Point3D.o: src/paint/Color.h src/shape/Object3D.h
+src/shape/Point3D.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/Point3D.o: include/SDL.h src/geometry/Vector3D.h
+src/shape/Point3D.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/Point3D.o: src/shape/Object3D.h
 src/shape/Quadrilateral3D.o: src/shape/Quadrilateral3D.h /usr/include/math.h
 src/shape/Quadrilateral3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/Quadrilateral3D.o: /usr/include/bits/wordsize.h
@@ -4640,8 +4623,7 @@ src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_timer.h
 src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_version.h
-src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_image.h
-src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL.h
+src/shape/Quadrilateral3D.o: include/SDL_image.h include/SDL.h
 src/shape/Quadrilateral3D.o: /usr/include/SDL/SDL_opengl.h
 src/shape/Quadrilateral3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
 src/shape/Quadrilateral3D.o: /usr/include/GL/glu.h src/paint/Color.h
@@ -4706,9 +4688,9 @@ src/shape/RectangularPrism.o: /usr/include/SDL/SDL_quit.h
 src/shape/RectangularPrism.o: /usr/include/SDL/SDL_loadso.h
 src/shape/RectangularPrism.o: /usr/include/SDL/SDL_timer.h
 src/shape/RectangularPrism.o: /usr/include/SDL/SDL_version.h
-src/shape/RectangularPrism.o: /usr/include/SDL/SDL_image.h
-src/shape/RectangularPrism.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
-src/shape/RectangularPrism.o: src/paint/Color.h src/shape/Object3D.h
+src/shape/RectangularPrism.o: include/SDL_image.h include/SDL.h
+src/shape/RectangularPrism.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/RectangularPrism.o: src/shape/Object3D.h
 src/shape/RectangularPrism.o: src/shape/Quadrilateral3D.h
 src/shape/RectangularPrism.o: src/geometry/Dimension3D.h
 src/shape/RectangularPrism.o: src/geometry/Dimension.h
@@ -4777,9 +4759,9 @@ src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL_timer.h
 src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL_version.h
-src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL_image.h
-src/shape/NormalPolygon3D.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
-src/shape/NormalPolygon3D.o: src/paint/Color.h src/shape/Object3D.h
+src/shape/NormalPolygon3D.o: include/SDL_image.h include/SDL.h
+src/shape/NormalPolygon3D.o: src/geometry/Vector2D.h src/paint/Color.h
+src/shape/NormalPolygon3D.o: src/shape/Object3D.h
 src/shape/String2D.o: src/shape/String2D.h /usr/include/string.h
 src/shape/String2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/shape/String2D.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
@@ -4824,12 +4806,11 @@ src/shape/String2D.o: /usr/include/SDL/SDL_joystick.h
 src/shape/String2D.o: /usr/include/SDL/SDL_quit.h
 src/shape/String2D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/String2D.o: /usr/include/SDL/SDL_timer.h
-src/shape/String2D.o: /usr/include/SDL/SDL_version.h
-src/shape/String2D.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/shape/String2D.o: /usr/include/SDL/SDL_opengl.h /usr/include/GL/gl.h
-src/shape/String2D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/shape/String2D.o: src/geometry/Vector3D.h src/paint/Color.h
-src/shape/String2D.o: src/util/BitmapFontUtil.h
+src/shape/String2D.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/shape/String2D.o: include/SDL.h /usr/include/SDL/SDL_opengl.h
+src/shape/String2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/shape/String2D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/shape/String2D.o: src/paint/Color.h src/util/BitmapFontUtil.h
 src/shape/String2D.o: src/util/BitmapFontConstants.h src/core/Controller.h
 src/shape/String2D.o: src/event/EventFactory.h src/event/keyboard/Keyboard.h
 src/shape/String2D.o: src/event/keyboard/KeyboardListener.h
@@ -4976,8 +4957,7 @@ src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL_quit.h
 src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL_loadso.h
 src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL_timer.h
 src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL_version.h
-src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL_image.h
-src/shape/ExtrudedNormalPolygon3D.o: /usr/include/SDL/SDL.h
+src/shape/ExtrudedNormalPolygon3D.o: include/SDL_image.h include/SDL.h
 src/shape/ExtrudedNormalPolygon3D.o: src/geometry/Vector2D.h
 src/shape/ExtrudedNormalPolygon3D.o: src/paint/Color.h src/shape/Object3D.h
 src/shape/Object2D.o: src/shape/Object2D.h /usr/include/SDL/SDL_opengl.h
@@ -5060,10 +5040,10 @@ src/shape/Object2D.o: /usr/include/bits/mathcalls.h src/transform/Stretch.h
 src/shape/Object2D.o: src/transform/Translate.h src/transform/Rotate.h
 src/shape/Object2D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
 src/shape/Object2D.o: src/transform/Orientation.h src/paint/Paint.h
-src/shape/Object2D.o: src/texture/Texture.h /usr/include/SDL/SDL_image.h
-src/shape/Object2D.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/shape/Object2D.o: src/shape/Renderable.h src/shape/Point3D.h
-src/shape/Object2D.o: src/shape/Object3D.h src/core/XavierConfiguration.h
+src/shape/Object2D.o: src/texture/Texture.h include/SDL_image.h include/SDL.h
+src/shape/Object2D.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/Object2D.o: src/shape/Point3D.h src/shape/Object3D.h
+src/shape/Object2D.o: src/core/XavierConfiguration.h
 src/shape/Object2D.o: src/transform/CoordinateSystem.h
 src/shape/Object2D.o: src/event/InputEventProxyFactory.h
 src/shape/Object2D.o: src/event/EventFactory.h
@@ -5100,6 +5080,127 @@ src/shape/Object2D.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/shape/Object2D.o: src/transform/EngineerCoordinateSystem.h
 src/shape/Object2D.o: src/event/timer/TimerListener.h
 src/shape/Object2D.o: src/event/reshape/ReshapeEvent.h src/core/Window.h
+src/shape/Sprite3D.o: src/shape/Sprite3D.h src/core/Controller.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_stdinc.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_config.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_platform.h
+src/shape/Sprite3D.o: /usr/include/sys/types.h /usr/include/features.h
+src/shape/Sprite3D.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+src/shape/Sprite3D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/shape/Sprite3D.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+src/shape/Sprite3D.o: /usr/include/time.h /usr/include/endian.h
+src/shape/Sprite3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+src/shape/Sprite3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+src/shape/Sprite3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+src/shape/Sprite3D.o: /usr/include/bits/pthreadtypes.h /usr/include/stdio.h
+src/shape/Sprite3D.o: /usr/include/libio.h /usr/include/_G_config.h
+src/shape/Sprite3D.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/shape/Sprite3D.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+src/shape/Sprite3D.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+src/shape/Sprite3D.o: /usr/include/alloca.h /usr/include/string.h
+src/shape/Sprite3D.o: /usr/include/strings.h /usr/include/inttypes.h
+src/shape/Sprite3D.o: /usr/include/stdint.h /usr/include/ctype.h
+src/shape/Sprite3D.o: /usr/include/iconv.h /usr/include/SDL/begin_code.h
+src/shape/Sprite3D.o: /usr/include/SDL/close_code.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_audio.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_error.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_endian.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_mutex.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_thread.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_rwops.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_cdrom.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_cpuinfo.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_events.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_active.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_keyboard.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_keysym.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_mouse.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_video.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_joystick.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_quit.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_loadso.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_timer.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_version.h src/event/EventFactory.h
+src/shape/Sprite3D.o: src/event/keyboard/Keyboard.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyboardListener.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyEvent.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyEventFactory.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyDownEvent.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyUpEvent.h src/event/mouse/Mouse.h
+src/shape/Sprite3D.o: src/event/mouse/MouseListener.h
+src/shape/Sprite3D.o: src/event/mouse/MouseEvent.h
+src/shape/Sprite3D.o: src/event/mouse/MouseEventFactory.h
+src/shape/Sprite3D.o: src/event/mouse/MouseButtonDown.h
+src/shape/Sprite3D.o: src/event/mouse/MouseClickEvent.h
+src/shape/Sprite3D.o: src/event/mouse/MouseButtonUp.h
+src/shape/Sprite3D.o: src/event/mouse/MouseMotionEvent.h
+src/shape/Sprite3D.o: src/event/timer/Timer.h src/event/timer/TimerListener.h
+src/shape/Sprite3D.o: src/event/keyboard/Keyboard.h src/event/mouse/Mouse.h
+src/shape/Sprite3D.o: src/event/timer/Timer.h src/core/Window.h
+src/shape/Sprite3D.o: src/event/reshape/ReshapeListener.h
+src/shape/Sprite3D.o: src/event/reshape/ReshapeEvent.h
+src/shape/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/shape/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Vector2D.h
+src/shape/Sprite3D.o: src/core/World.h src/shape/Renderable.h
+src/shape/Sprite3D.o: src/shape/Object3D.h src/transform/Transformable.h
+src/shape/Sprite3D.o: /usr/include/SDL/SDL_opengl.h /usr/include/GL/gl.h
+src/shape/Sprite3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/shape/Sprite3D.o: src/transform/Transform.h src/transform/Scale.h
+src/shape/Sprite3D.o: src/geometry/Vector3D.h
+src/shape/Sprite3D.o: src/interpolation/InterpolationEngine.h
+src/shape/Sprite3D.o: src/interpolation/InterpolationListener.h
+src/shape/Sprite3D.o: src/interpolation/Interpolator.h
+src/shape/Sprite3D.o: src/interpolation/InterpolatorFactory.h
+src/shape/Sprite3D.o: src/interpolation/LinearInterpolator.h
+src/shape/Sprite3D.o: src/util/GraphicsConversionUtility.h
+src/shape/Sprite3D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/shape/Sprite3D.o: /usr/include/bits/mathdef.h
+src/shape/Sprite3D.o: /usr/include/bits/mathcalls.h src/transform/Stretch.h
+src/shape/Sprite3D.o: src/transform/Translate.h src/transform/Rotate.h
+src/shape/Sprite3D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
+src/shape/Sprite3D.o: src/transform/Orientation.h src/paint/Paint.h
+src/shape/Sprite3D.o: src/texture/Texture.h include/SDL_image.h include/SDL.h
+src/shape/Sprite3D.o: src/paint/Color.h src/shape/Renderable.h
+src/shape/Sprite3D.o: src/shape/Point3D.h src/shape/Object3D.h
+src/shape/Sprite3D.o: src/core/XavierConfiguration.h
+src/shape/Sprite3D.o: src/transform/CoordinateSystem.h
+src/shape/Sprite3D.o: src/event/InputEventProxyFactory.h
+src/shape/Sprite3D.o: src/event/EventFactory.h
+src/shape/Sprite3D.o: src/event/keyboard/KeyboardStub.h
+src/shape/Sprite3D.o: src/multicast/MulticastSocket.h
+src/shape/Sprite3D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/shape/Sprite3D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/shape/Sprite3D.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/shape/Sprite3D.o: /usr/include/bits/posix1_lim.h
+src/shape/Sprite3D.o: /usr/include/bits/local_lim.h
+src/shape/Sprite3D.o: /usr/include/linux/limits.h
+src/shape/Sprite3D.o: /usr/include/bits/posix2_lim.h
+src/shape/Sprite3D.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+src/shape/Sprite3D.o: /usr/include/asm-i386/socket.h
+src/shape/Sprite3D.o: /usr/include/asm/sockios.h
+src/shape/Sprite3D.o: /usr/include/asm-i386/sockios.h
+src/shape/Sprite3D.o: /usr/include/netinet/in.h /usr/include/bits/in.h
+src/shape/Sprite3D.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
+src/shape/Sprite3D.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+src/shape/Sprite3D.o: /usr/include/bits/confname.h /usr/include/getopt.h
+src/shape/Sprite3D.o: src/multicast/MulticastSocketPool.h
+src/shape/Sprite3D.o: src/multicast/MulticastSocket.h
+src/shape/Sprite3D.o: src/event/keyboard/Keyboard.h
+src/shape/Sprite3D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
+src/shape/Sprite3D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
+src/shape/Sprite3D.o: src/paint/Color.h src/core/Camera.h
+src/shape/Sprite3D.o: src/core/CameraListener.h
+src/shape/Sprite3D.o: src/transform/CoordinateSystemFactory.h
+src/shape/Sprite3D.o: src/transform/CoordinateSystem.h
+src/shape/Sprite3D.o: src/transform/OpenGLCoordinateSystem.h
+src/shape/Sprite3D.o: src/transform/MacCoordinateSystem.h
+src/shape/Sprite3D.o: src/transform/MathCoordinateSystem.h
+src/shape/Sprite3D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/shape/Sprite3D.o: src/transform/EngineerCoordinateSystem.h
+src/shape/Sprite3D.o: src/event/timer/TimerListener.h
+src/shape/Sprite3D.o: src/event/reshape/ReshapeEvent.h
+src/shape/Sprite3D.o: src/shape/Sprite3DListener.h
 src/texture/Texture.o: src/texture/Texture.h
 src/texture/TextureFactory.o: src/texture/TextureFactory.h
 src/texture/TextureFactory.o: /usr/include/SDL/SDL_opengl.h
@@ -5202,9 +5303,8 @@ src/texture/TextureFactory.o: src/transform/Rotate.h
 src/texture/TextureFactory.o: src/geometry/Dimension3D.h
 src/texture/TextureFactory.o: src/geometry/Vector3D.h
 src/texture/TextureFactory.o: src/transform/Orientation.h src/paint/Paint.h
-src/texture/TextureFactory.o: src/texture/Texture.h
-src/texture/TextureFactory.o: /usr/include/SDL/SDL_image.h
-src/texture/TextureFactory.o: /usr/include/SDL/SDL.h src/paint/Color.h
+src/texture/TextureFactory.o: src/texture/Texture.h include/SDL_image.h
+src/texture/TextureFactory.o: include/SDL.h src/paint/Color.h
 src/texture/TextureFactory.o: src/shape/Renderable.h src/shape/Point3D.h
 src/texture/TextureFactory.o: src/shape/Object3D.h
 src/texture/TextureFactory.o: src/core/XavierConfiguration.h
@@ -5344,8 +5444,7 @@ src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL_quit.h
 src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL_timer.h
 src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL_version.h
-src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL_image.h
-src/terrain/ImageHeightFieldStrategy.o: /usr/include/SDL/SDL.h
+src/terrain/ImageHeightFieldStrategy.o: include/SDL_image.h include/SDL.h
 src/terrain/ImageHeightFieldStrategy.o: src/geometry/Vector2D.h
 src/terrain/ImageHeightFieldStrategy.o: src/paint/Color.h
 src/terrain/ImageHeightFieldStrategy.o: src/shape/Renderable.h
@@ -5440,8 +5539,7 @@ src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL_quit.h
 src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL_timer.h
 src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL_version.h
-src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL_image.h
-src/terrain/HeightFieldFactory.o: /usr/include/SDL/SDL.h
+src/terrain/HeightFieldFactory.o: include/SDL_image.h include/SDL.h
 src/terrain/HeightFieldFactory.o: src/geometry/Vector2D.h src/paint/Color.h
 src/terrain/HeightFieldFactory.o: src/shape/Renderable.h
 src/terrain/HeightFieldFactory.o: src/shape/Quadrilateral3D.h
@@ -5539,8 +5637,7 @@ src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL_quit.h
 src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL_timer.h
 src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL_version.h
-src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL_image.h
-src/terrain/MatrixHeightFieldStrategy.o: /usr/include/SDL/SDL.h
+src/terrain/MatrixHeightFieldStrategy.o: include/SDL_image.h include/SDL.h
 src/terrain/MatrixHeightFieldStrategy.o: src/geometry/Vector2D.h
 src/terrain/MatrixHeightFieldStrategy.o: src/paint/Color.h
 src/terrain/MatrixHeightFieldStrategy.o: src/shape/Renderable.h
@@ -5640,8 +5737,7 @@ src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL_quit.h
 src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL_timer.h
 src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL_version.h
-src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL_image.h
-src/terrain/FunctionHeightFieldStrategy.o: /usr/include/SDL/SDL.h
+src/terrain/FunctionHeightFieldStrategy.o: include/SDL_image.h include/SDL.h
 src/terrain/FunctionHeightFieldStrategy.o: src/geometry/Vector2D.h
 src/terrain/FunctionHeightFieldStrategy.o: src/paint/Color.h
 src/terrain/FunctionHeightFieldStrategy.o: src/shape/Renderable.h
@@ -5741,8 +5837,7 @@ src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL_quit.h
 src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL_timer.h
 src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL_version.h
-src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL_image.h
-src/terrain/NullHeightFieldStrategy.o: /usr/include/SDL/SDL.h
+src/terrain/NullHeightFieldStrategy.o: include/SDL_image.h include/SDL.h
 src/terrain/NullHeightFieldStrategy.o: src/geometry/Vector2D.h
 src/terrain/NullHeightFieldStrategy.o: src/paint/Color.h
 src/terrain/NullHeightFieldStrategy.o: src/shape/Renderable.h
@@ -5817,9 +5912,8 @@ src/terrain/HeightField.o: /usr/include/SDL/SDL_joystick.h
 src/terrain/HeightField.o: /usr/include/SDL/SDL_quit.h
 src/terrain/HeightField.o: /usr/include/SDL/SDL_loadso.h
 src/terrain/HeightField.o: /usr/include/SDL/SDL_timer.h
-src/terrain/HeightField.o: /usr/include/SDL/SDL_version.h
-src/terrain/HeightField.o: /usr/include/SDL/SDL_image.h
-src/terrain/HeightField.o: /usr/include/SDL/SDL.h src/geometry/Vector2D.h
+src/terrain/HeightField.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/terrain/HeightField.o: include/SDL.h src/geometry/Vector2D.h
 src/terrain/HeightField.o: src/paint/Color.h src/shape/Renderable.h
 src/terrain/HeightField.o: src/shape/Quadrilateral3D.h src/util/PointScale.h
 src/terrain/HeightField.o: src/texture/TextureScale.h
@@ -5948,12 +6042,11 @@ src/paint/Paint.o: /usr/include/SDL/SDL_video.h
 src/paint/Paint.o: /usr/include/SDL/SDL_joystick.h
 src/paint/Paint.o: /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_loadso.h
 src/paint/Paint.o: /usr/include/SDL/SDL_timer.h
-src/paint/Paint.o: /usr/include/SDL/SDL_version.h
-src/paint/Paint.o: /usr/include/SDL/SDL_image.h /usr/include/SDL/SDL.h
-src/paint/Paint.o: /usr/include/SDL/SDL_opengl.h /usr/include/GL/gl.h
-src/paint/Paint.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/paint/Paint.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
-src/paint/Paint.o: src/paint/Color.h
+src/paint/Paint.o: /usr/include/SDL/SDL_version.h include/SDL_image.h
+src/paint/Paint.o: include/SDL.h /usr/include/SDL/SDL_opengl.h
+src/paint/Paint.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/paint/Paint.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/paint/Paint.o: src/geometry/Vector2D.h src/paint/Color.h
 src/transform/Rotate.o: src/transform/Rotate.h /usr/include/stdio.h
 src/transform/Rotate.o: /usr/include/features.h /usr/include/sys/cdefs.h
 src/transform/Rotate.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
@@ -6616,10 +6709,9 @@ src/util/FramesPerSecondCounter.o: src/geometry/Dimension3D.h
 src/util/FramesPerSecondCounter.o: src/geometry/Vector3D.h
 src/util/FramesPerSecondCounter.o: src/transform/Orientation.h
 src/util/FramesPerSecondCounter.o: src/paint/Paint.h src/texture/Texture.h
-src/util/FramesPerSecondCounter.o: /usr/include/SDL/SDL_image.h
-src/util/FramesPerSecondCounter.o: /usr/include/SDL/SDL.h src/paint/Color.h
-src/util/FramesPerSecondCounter.o: src/shape/Renderable.h src/shape/Point3D.h
-src/util/FramesPerSecondCounter.o: src/shape/Object3D.h
+src/util/FramesPerSecondCounter.o: include/SDL_image.h include/SDL.h
+src/util/FramesPerSecondCounter.o: src/paint/Color.h src/shape/Renderable.h
+src/util/FramesPerSecondCounter.o: src/shape/Point3D.h src/shape/Object3D.h
 src/util/FramesPerSecondCounter.o: src/core/XavierConfiguration.h
 src/util/FramesPerSecondCounter.o: src/transform/CoordinateSystem.h
 src/util/FramesPerSecondCounter.o: src/event/InputEventProxyFactory.h

@@ -111,8 +111,8 @@ Cars.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 Cars.o: ../../transform/Translate.h ../../transform/Rotate.h
 Cars.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 Cars.o: ../../transform/Orientation.h ../../paint/Paint.h
-Cars.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-Cars.o: /usr/include/SDL/SDL.h ../../paint/Color.h ../../shape/Renderable.h
+Cars.o: ../../texture/Texture.h ../../../include/SDL_image.h
+Cars.o: ../../../include/SDL.h ../../paint/Color.h ../../shape/Renderable.h
 Cars.o: ../../shape/Point3D.h ../../shape/Object3D.h
 Cars.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
 Cars.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h

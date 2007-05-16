@@ -19,6 +19,11 @@ class Vector3D
 
 public:
 
+	static const int X;
+	static const int Y;
+	static const int Z;
+
+
     /**
      * Returns a vector representing the min_x and min_x of the two vectors
      */
@@ -89,20 +94,15 @@ public:
 	 */
     char * toString();
 
-
-
-
 	/**
 	 * Increment the value of the vector according to the parameter
 	 */
     void increment(Vector3D * other);
 
-
 	/**
 	 * Increment the value of the vector according to the parameter
 	 */
     void increment(float position[3]);
-
 
     /**
      * Multiply each element by the corresponding element in the given
@@ -197,7 +197,8 @@ public:
 	 * change the position of the vector
 	 */
 	void setPosition(float position[3]);
-	void setPosition(int position, float value);
+	void setPosition(const int position, float value);
+	void incrementPosition(const int position, float increment);
 
 
 	/**

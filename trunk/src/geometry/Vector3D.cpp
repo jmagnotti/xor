@@ -3,6 +3,10 @@
 
 namespace XOR {
 
+const int Vector3D::X = 0;
+const int Vector3D::Y = 1;
+const int Vector3D::Z = 2;
+
 /*
  * Min function
  */
@@ -306,12 +310,17 @@ void Vector3D::setPosition(float position[3])
 		_position[i] = position[i];
 }
 
-void Vector3D::setPosition(int position, float value)
+void Vector3D::setPosition(const int position, float value)
 {
-	if (position >= 0 && position <= 2)
+	if (position >=  Vector3D::X && position <= Vector3D::Z)
 		_position[position] = value;
 }
 
+void Vector3D::incrementPosition(const int position, float increment)
+{
+	if (position >=  Vector3D::X && position <= Vector3D::Z)
+		_position[position] += increment;
+}
 
 /*
  * toArray

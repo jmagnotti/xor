@@ -116,8 +116,8 @@ WallDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 WallDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 WallDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 WallDemo.o: ../../transform/Orientation.h ../../paint/Paint.h
-WallDemo.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-WallDemo.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+WallDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+WallDemo.o: ../../../include/SDL.h ../../paint/Color.h
 WallDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
 WallDemo.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 WallDemo.o: ../../transform/CoordinateSystem.h

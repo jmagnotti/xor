@@ -119,8 +119,8 @@ TerrainDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 TerrainDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 TerrainDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 TerrainDemo.o: ../../transform/Orientation.h ../../paint/Paint.h
-TerrainDemo.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-TerrainDemo.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+TerrainDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+TerrainDemo.o: ../../../include/SDL.h ../../paint/Color.h
 TerrainDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
 TerrainDemo.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h

@@ -59,15 +59,14 @@ public class IcarusFrame extends JFrame {
 		button.setIcon(icon);
 	}
 
-	private JButton makeButton(MulticastAction ma, String iconName) 
-	{
+	private JButton makeButton(MulticastAction ma, String iconName) {
 		JButton button = new JButton(ma);
 		add(button);
 		ImageIcon icon = new ImageIcon(iconName);
 		button.setIcon(icon);
 		return button;
 	}
-	
+
 	private void gridBagInit() {
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
@@ -95,35 +94,6 @@ public class IcarusFrame extends JFrame {
 		makebutton(new MulticastAction.KeyboardAction("ESCAPE", keyFactory
 				.createKeyString("escape", KeyEventFactory.KEY_DOWN)), gridbag,
 				c);
-
-		LayoutManager lm = new LayoutManager() {
-
-			public void addLayoutComponent(String name, Component comp) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public void layoutContainer(Container parent) {
-				// TODO Auto-generated method stub
-
-			}
-
-			public Dimension minimumLayoutSize(Container parent) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			public Dimension preferredLayoutSize(Container parent) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			public void removeLayoutComponent(Component comp) {
-				// TODO Auto-generated method stub
-
-			}
-
-		};
 
 		makebutton(new MulticastAction.KeyboardAction("Keyboard 3", keyFactory
 				.createKeyString("3", KeyEventFactory.KEY_DOWN)), gridbag, c);
@@ -167,19 +137,23 @@ public class IcarusFrame extends JFrame {
 		SpringLayout layout = new SpringLayout();
 		setLayout(layout);
 
-		
-		for (int i = 0; i < 3; i++) {
-			 MulticastTextArea mtext = new MulticastTextArea(5, 20);
-			add(mtext);
-			layout.putConstraint(SpringLayout.WEST, mtext, 15,
-					SpringLayout.WEST, this);
-			layout.putConstraint(SpringLayout.NORTH, mtext, 15 + i * 100,
-					SpringLayout.NORTH, this);
-		}
-		
-		JButton button = makeButton(new MulticastAction.KeyboardAction("Keyboard w", keyFactory
-				.createKeyString("w", KeyEventFactory.KEY_DOWN)), "MovU.png");
-		layout.putConstraint(SpringLayout.EAST, this, 5, SpringLayout.EAST, button);
+//		for (int i = 0; i < 3; i++) {
+//			MulticastTextArea mtext = new MulticastTextArea(5, 20);
+//			add(mtext);
+//			layout.putConstraint(SpringLayout.WEST, mtext, 15,
+//					SpringLayout.WEST, this);
+//			layout.putConstraint(SpringLayout.NORTH, mtext, 15 + i * 100,
+//					SpringLayout.NORTH, this);
+//		}
+//
+//		JButton button = makeButton(new MulticastAction.KeyboardAction(
+//				"Keyboard w", keyFactory.createKeyString("w",
+//						KeyEventFactory.KEY_DOWN)), "MovU.png");
+//		
+//		layout.putConstraint(SpringLayout.EAST, this, 5, SpringLayout.EAST,
+//				button);
+
+		add(new MulticastTextArea());
 		
 	}
 

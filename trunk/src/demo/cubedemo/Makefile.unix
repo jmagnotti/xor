@@ -116,8 +116,8 @@ CubeDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 CubeDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 CubeDemo.o: ../../transform/Orientation.h ../../paint/Paint.h
-CubeDemo.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-CubeDemo.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+CubeDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+CubeDemo.o: ../../../include/SDL.h ../../paint/Color.h
 CubeDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
 CubeDemo.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 CubeDemo.o: ../../transform/CoordinateSystem.h
