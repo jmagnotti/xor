@@ -84,12 +84,14 @@ void Ball::reverseZVelocity()
 void Ball::incrementXVelocity(float amount)
 {
 	_movementVector->setPosition(0, _movementVector->getX() + amount);
+	// check values
 }
 
 
 void Ball::incrementZVelocity(float amount)
 {
 	_movementVector->setPosition(2, _movementVector->getZ() + amount);
+	// check values
 }
 
 

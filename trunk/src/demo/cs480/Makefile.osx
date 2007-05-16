@@ -4,11 +4,11 @@ CC = g++
 LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR -framework OpenGL
 
 #Packages
-SRCS = Sphere.cpp BrickParser.cpp Ball.cpp BreakableBrick.cpp Brick.cpp BrickCollection.cpp CS480FinalDriver.cpp Game.cpp GameSpace.cpp GameState.cpp LoseState.cpp Paddle.cpp PlayState.cpp Powerup.cpp ReadyState.cpp WinState.cpp
+SRCS = Sphere.cpp BrickParser.cpp Ball.cpp BreakableBrick.cpp Brick.cpp BrickCollection.cpp Breakout.cpp Game.cpp GameSpace.cpp GameState.cpp LoseState.cpp Paddle.cpp PlayState.cpp ReadyState.cpp WinState.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = CS480Final
+MAIN = Breakout
 
 # 
 # The following part of the makefile is generic; it can be used to 
@@ -20,7 +20,7 @@ MAIN = CS480Final
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
 
-CS480Final:	$(OBJS) 
+Breakout:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:
