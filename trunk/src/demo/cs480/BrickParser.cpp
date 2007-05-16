@@ -57,7 +57,7 @@ BrickCollection * BrickParser::parse(Ball * ball)
 		//for(double i = -1 * (rows / 2); i < (rows / 2); i++) {
 			//for(double j = -1 * (cols / 2); j < (cols / 2); j++) {
 		for(double i=0; i<rows+0; i++) {
-			for(double j=0+2; j<cols+2; j++) {
+			for(double j=0+10; j<cols+10; j++) {
 				fin >> entry;
 				
 				// if we have a brick
