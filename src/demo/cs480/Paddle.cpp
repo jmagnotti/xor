@@ -35,9 +35,11 @@ void Paddle::handleKeyEvent(KeyEvent * ke)
 
 void Paddle::handlePositionChange(Vector3D * position, int id)
 {
-	if (_rect->checkCollision(*position + _ball->getMovementVector()))
+	if (_rect->checkCollision(*position + _ball->getMovementVector())) {
 		_ball->reverseZVelocity();
-		//cout << "HIT" << endl; 
+		if (_moving)
+			_ball->incrementXVelocity(-_velocity/2.0);
+	}
 }
 
 void Paddle::endFrame()
