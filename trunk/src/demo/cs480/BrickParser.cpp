@@ -50,7 +50,7 @@ BrickCollection * BrickParser::parse(Ball * ball)
 		fin >> tempStr; // "eat" cols
 		fin >> cols;    // read  cols
 
-		float offset = 1.0f;
+		float offset = 0.0f;
 		float y = 0.0f;
 
 		// populate the screen with bricks
