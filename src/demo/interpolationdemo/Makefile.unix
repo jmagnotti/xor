@@ -140,8 +140,8 @@ InterpolationDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 InterpolationDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 InterpolationDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 InterpolationDemo.o: ../../transform/Orientation.h ../../paint/Paint.h
-InterpolationDemo.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-InterpolationDemo.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+InterpolationDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+InterpolationDemo.o: ../../../include/SDL.h ../../paint/Color.h
 InterpolationDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
 InterpolationDemo.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 InterpolationDemo.o: ../../transform/CoordinateSystem.h

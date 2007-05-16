@@ -113,13 +113,13 @@ public:
     /**
      * Returns the size of the prism
      */
-	Dimension3D * getDimension();
+	virtual Dimension3D * getDimension();
 
 
     /**
      * Returns the registration point of the prism
      */
-	Vector3D * getBaseVector();	
+	virtual Vector3D * getBaseVector();	
 
 
 protected:

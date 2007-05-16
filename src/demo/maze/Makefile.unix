@@ -118,8 +118,8 @@ KeyHandler.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 KeyHandler.o: ../../transform/Translate.h ../../transform/Rotate.h
 KeyHandler.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 KeyHandler.o: ../../transform/Orientation.h ../../paint/Paint.h
-KeyHandler.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-KeyHandler.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+KeyHandler.o: ../../texture/Texture.h ../../../include/SDL_image.h
+KeyHandler.o: ../../../include/SDL.h ../../paint/Color.h
 KeyHandler.o: ../../shape/Renderable.h ../../shape/Point3D.h
 KeyHandler.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 KeyHandler.o: ../../transform/CoordinateSystem.h
@@ -325,8 +325,8 @@ Maze.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 Maze.o: ../../transform/Translate.h ../../transform/Rotate.h
 Maze.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 Maze.o: ../../transform/Orientation.h ../../paint/Paint.h
-Maze.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-Maze.o: /usr/include/SDL/SDL.h ../../paint/Color.h ../../shape/Renderable.h
+Maze.o: ../../texture/Texture.h ../../../include/SDL_image.h
+Maze.o: ../../../include/SDL.h ../../paint/Color.h ../../shape/Renderable.h
 Maze.o: ../../shape/Point3D.h ../../shape/Object3D.h
 Maze.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
 Maze.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
@@ -520,8 +520,8 @@ MazeParser.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 MazeParser.o: ../../transform/Translate.h ../../transform/Rotate.h
 MazeParser.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 MazeParser.o: ../../transform/Orientation.h ../../paint/Paint.h
-MazeParser.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-MazeParser.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+MazeParser.o: ../../texture/Texture.h ../../../include/SDL_image.h
+MazeParser.o: ../../../include/SDL.h ../../paint/Color.h
 MazeParser.o: ../../shape/Renderable.h ../../shape/Point3D.h
 MazeParser.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 MazeParser.o: ../../transform/CoordinateSystem.h
@@ -734,8 +734,8 @@ MazeDriver.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 MazeDriver.o: ../../transform/Translate.h ../../transform/Rotate.h
 MazeDriver.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 MazeDriver.o: ../../transform/Orientation.h ../../paint/Paint.h
-MazeDriver.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-MazeDriver.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+MazeDriver.o: ../../texture/Texture.h ../../../include/SDL_image.h
+MazeDriver.o: ../../../include/SDL.h ../../paint/Color.h
 MazeDriver.o: ../../shape/Renderable.h ../../shape/Point3D.h
 MazeDriver.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 MazeDriver.o: ../../transform/CoordinateSystem.h

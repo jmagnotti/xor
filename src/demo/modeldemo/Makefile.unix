@@ -113,8 +113,8 @@ Model.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 Model.o: ../../transform/Translate.h ../../transform/Rotate.h
 Model.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 Model.o: ../../transform/Orientation.h ../../paint/Paint.h
-Model.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-Model.o: /usr/include/SDL/SDL.h ../../paint/Color.h ../../shape/Renderable.h
+Model.o: ../../texture/Texture.h ../../../include/SDL_image.h
+Model.o: ../../../include/SDL.h ../../paint/Color.h ../../shape/Renderable.h
 Model.o: ../../shape/Point3D.h ../../shape/Object3D.h
 Model.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
 Model.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h

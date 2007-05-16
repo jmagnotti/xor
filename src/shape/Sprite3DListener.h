@@ -1,5 +1,8 @@
-#ifndef SPRITELISTENER_H
-#define SPRITELISTENER_H
+#ifndef SPRITE3DLISTENER_H
+#define SPRITE3DLISTENER_H
+
+
+#include "../geometry/Vector3D.h"
 
 
 namespace XOR {
@@ -9,19 +12,19 @@ namespace XOR {
  * interface to allow objects to be notified when a sprite's position
  * changes. An id is passed in to allow for labelling schemes. This
  * allows for "smarter" narrowing casts. While this is generally not
- * safe, the id field provides a reflection like safety scheme.
+ * safe, the id field provides a reflection-like safety scheme.
  *
  * @author John Magnotti
  * @version 1.0
  */
-class SpriteListener
+class Sprite3DListener
 {
 	public:
 
-	   	void handlePositionChange(Vector3D * newPosition, int id);
+	   	virtual void handlePositionChange(Vector3D * position, int id)=0;
 };
 
 }
 
-#endif			// SPRITELISTENER_H
+#endif			// SPRITE3DLISTENER_H
 

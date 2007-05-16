@@ -270,7 +270,6 @@ void RectangularPrism::printInfo()
         iter->second->print();
         ++iter;
     }
-
 }
 
 

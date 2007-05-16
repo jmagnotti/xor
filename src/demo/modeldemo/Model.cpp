@@ -5,6 +5,17 @@
 
 using namespace XOR;
 
+class NoFogConfig : public XavierConfiguration
+{
+public:
+	NoFogConfig()
+	{}
+
+	bool isGLFogEnabled()
+	{
+		return false;
+	}
+};
 
 class ModelDemo : public DefaultKeyboardListener, DefaultMouseListener
 {
@@ -18,7 +29,7 @@ public:
  	*/
 	ModelDemo()
 	{
-        Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
+        Controller * ctrl = Controller::GetInstance(new NoFogConfig());
                 
         ctrl->getKeyboard()->addListener(this);
 		ctrl->getMouse()->addListener(this);

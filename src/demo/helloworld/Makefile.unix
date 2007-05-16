@@ -118,8 +118,8 @@ HelloWorld.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
 HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
 HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 HelloWorld.o: ../../transform/Orientation.h ../../paint/Paint.h
-HelloWorld.o: ../../texture/Texture.h /usr/include/SDL/SDL_image.h
-HelloWorld.o: /usr/include/SDL/SDL.h ../../paint/Color.h
+HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
+HelloWorld.o: ../../../include/SDL.h ../../paint/Color.h
 HelloWorld.o: ../../shape/Renderable.h ../../shape/Point3D.h
 HelloWorld.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
 HelloWorld.o: ../../transform/CoordinateSystem.h
