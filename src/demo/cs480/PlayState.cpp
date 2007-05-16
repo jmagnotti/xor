@@ -61,7 +61,7 @@ void PlayState::in()
 	//SDL_WarpMouse(xmid,0);
 	SDL_ShowCursor(false);
 
-	_game->_ball->setMovementVector(new Vector3D(.1,0,5));
+	_game->_ball->setMovementVector(new Vector3D(.1,0,1));
 
 	_game->_ball->addListener(_game->_bricks);
 	_game->_ball->addListener(_game->_paddle);

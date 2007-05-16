@@ -113,7 +113,7 @@ Paddle * Game::getPaddle()
 void Game::addModelsToWorld()
 {
 	_ball		= new Ball(new Vector3D(10,1,1), 0.1);
-	_gameSpace	= new GameSpace(new Dimension3D(30.0f, 3.0f, 40.f), _ball);
+	_gameSpace	= new GameSpace(new Dimension3D(30.0f, 3.0f, 30.f), _ball);
 	_paddle		= new Paddle(new RectangularPrism(new Vector3D(10,1,.5),
 					new Dimension3D(2.0,2.0,2.0), new Paint(Color::ORANGE)),
 					30, _ball);
