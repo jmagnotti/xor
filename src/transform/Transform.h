@@ -3,7 +3,7 @@
 
 
 #include <stdlib.h>
-#include <SDL/SDL_opengl.h>
+#include "../../include/SDL_opengl.h"
 
 
 namespace XOR {

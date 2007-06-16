@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <string>
-#include <SDL/SDL.h>
+#include "../../../include/SDL.h"
 
 #include "KeyEvent.h"
 #include "KeyDownEvent.h"

@@ -4,7 +4,7 @@
 
 #include <map>
 
-#include <SDL/SDL_opengl.h>
+#include "../../include/SDL_opengl.h"
 
 #include "../event/reshape/ReshapeListener.h"
 #include "../event/reshape/ReshapeEvent.h"

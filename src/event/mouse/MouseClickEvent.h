@@ -3,7 +3,7 @@
 
 
 #include <string>
-#include <SDL/SDL.h>
+#include "../../../include/SDL.h"
 
 #include "MouseEvent.h"
 
