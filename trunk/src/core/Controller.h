@@ -2,7 +2,7 @@
 #define CONTROLLER_H
 
 
-#include <SDL/SDL.h>
+#include "../../include/SDL.h"
 
 // sub-controllers
 #include "../event/EventFactory.h"

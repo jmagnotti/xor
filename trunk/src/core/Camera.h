@@ -4,8 +4,8 @@
 
 #include <list>
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#include "../../include/SDL.h"
+#include "../../include/SDL_opengl.h"
 
 #include "World.h"
 #include "Window.h"

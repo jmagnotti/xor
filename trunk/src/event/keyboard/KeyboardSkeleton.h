@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 
-#include <SDL/SDL_thread.h>
+#include "../../../include/SDL_Thread.h"
 #include "../../multicast/MulticastSocket.h"
 #include "../../multicast/MulticastSocketPool.h"
 

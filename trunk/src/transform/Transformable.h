@@ -2,7 +2,7 @@
 #define TRANSFORMABLE_H
 
 
-#include <SDL/SDL_opengl.h>
+#include "../../include/SDL_opengl.h"
 
 #include "Transform.h"
 #include "Scale.h"
