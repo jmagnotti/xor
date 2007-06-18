@@ -25,8 +25,6 @@ namespace XOR {
 class Scale : public Transform
 {
 
-    friend class Transformable;
-
 public:
 
     virtual ~Scale();
@@ -42,24 +40,17 @@ public:
     void pushInverse();
 
     void clone(Scale * other);
-
-    void set(Vector3D * scale);
-    void set(Vector3D * scale, InterpolationEngine * interpolation);
-
-    void increment(Vector3D * scale);
-    void increment(Vector3D * scale, InterpolationEngine * interpolation);
-
-    void clear();
+    void toIdentity();
 
 	Vector3D * toVector();
 
     void print();
 
+    void transform(Vector3D * position);
+    void transform(Dimension3D * size);
+
 protected:
 
-	/*
-	 * fill the _values vector
-	 */
 	void fillVector();
 
     float _xScale, _yScale, _zScale;

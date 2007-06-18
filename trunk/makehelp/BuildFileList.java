@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 public final class BuildFileList {
 	public final static int CPP = 0;
-	public final static int H = 1;
+	public final static int H   = 1;
 
 	private class HeaderFileFilter implements FileFilter {
 		private final String[] excludeDirs;
@@ -76,9 +76,9 @@ public final class BuildFileList {
 		pathToDir = sourceDir;
 		sourceList = new Vector<String>();
 
-		if (type == H)
+		if (type == BuildFileList.H)
 			filter = new HeaderFileFilter(excludeDirs, excludeFiles);
-		else
+		else // BuildFileList.CPP
 			filter = new CPPFileFilter(excludeDirs, excludeFiles);
 	}
 
@@ -92,16 +92,13 @@ public final class BuildFileList {
 		return sourceList;
 	}
 
-	/**
-	 * @param buildFile
-	 */
 	private void buildAndDescend(File currentFile) {
 		if (currentFile.isDirectory()) {
 			for (File f : currentFile.listFiles(filter))
 				buildAndDescend(f);
 		} else {
 			String out = currentFile.getAbsolutePath();
-			out = out.replaceAll(pathToDir + "/", "");
+			out = out.substring(pathToDir.length()+1);
 			sourceList.add(out);
 		}
 	}

@@ -2,7 +2,7 @@
 #define PARTICLE_H
 
 
-#include "CollisionRenderable.h"
+//#include "CollisionRenderable.h"
 #include "../geometry/Vector3D.h"
 
 
@@ -17,7 +17,7 @@ namespace XOR {
  * @author John Magnotti, Michael Lam
  * @version 0.1
  */
-class Particle : CollisionRenderable
+class Particle // : CollisionRenderable
 {
 
 public:

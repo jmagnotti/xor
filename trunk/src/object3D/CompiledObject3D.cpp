@@ -62,6 +62,7 @@ Vector3D * CompiledObject3D::getBaseVector()
 void CompiledObject3D::compile()
 {
 	_displayListID = glGenLists(1);
+
 	glNewList(_displayListID, GL_COMPILE);
 		_object3D->render();
 	glEndList();	
@@ -73,14 +74,7 @@ void CompiledObject3D::compile()
  */
 void CompiledObject3D::render()
 {
-	if (isTransformed()) {
-		push();
-			glCallList(_displayListID);
-		pop();
-	}
-	else {
-		glCallList(_displayListID);
-	}
+	glCallList(_displayListID);
 }
 
 

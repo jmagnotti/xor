@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <map>
 
-#include "../shape/Renderable.h"
-#include "../shape/Object3D.h"
+#include "Renderable.h"
+#include "../object3D/Object3D.h"
 
 
 using namespace std;

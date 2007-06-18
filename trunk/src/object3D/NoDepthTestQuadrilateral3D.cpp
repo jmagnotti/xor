@@ -38,9 +38,7 @@ void NoDepthTestQuadrilateral3D::render()
 	glPushAttrib(GL_DEPTH_TEST);
 	glDisable(GL_DEPTH_TEST);
 
-	push();
-		renderObject();
-	pop();
+	renderObject();
 
 	glPopAttrib();
 }

@@ -5,6 +5,8 @@
 #include "Translate.h"
 #include "Scale.h"
 #include "Transform.h"
+#include "../geometry/Dimension3D.h"
+#include "../geometry/Vector3D.h"
 
 
 namespace XOR {
@@ -18,24 +20,28 @@ class Stretch : public Transform
 public:
 
 	Stretch();
-	~Stretch();
+
+    /**
+     * TODO what does stretch entail ?
+     *
+     */
 	Stretch(Vector3D * origin, Vector3D * stretch);
+
+	~Stretch();
 
 	void push();
 	void pushInverse();
 	void pop();
-	void clear();
+	void toIdentity();
+
+    void transform(Vector3D * position);
+    void transform(Dimension3D * size);
+
 
 	/**
 	 * Easy way to increment a stretch
 	 * to decrement, just increment by a negative amount
 	 */
-    void increment(Vector3D *);
-    void increment(Vector3D *, InterpolationEngine * interpolation);
-
-    void set(Vector3D *);
-    void set(Vector3D *, InterpolationEngine * interpolation);
-
 	void setOrigin(Vector3D * origin);
 
 

@@ -66,7 +66,6 @@ end
 block_comment = "/**\n *\n */\n"
 t_block_comment = "\t/**\n\t *\n\t */\n"
 
-# block depth. Use -1 to account for namespaces?
 block_level = 0;
 signatures = [] 
 private_vars = {} 

@@ -21,7 +21,10 @@ public:
      * Applies the coordinate system transforms
      */
     virtual void push();
+    virtual void pushInverse();
 
+    virtual void transform(Vector3D * position);
+    virtual void transform(Dimension3D * size);
 
     /**
      * Removes the coordinate system transforms
@@ -32,7 +35,7 @@ public:
      * Here for completeness, but this method is empty. It doesn't make any
      * sense to clear a coordinate system.
      */
-    void clear();
+    void toIdentity();
 
 
     virtual void print();
@@ -42,9 +45,6 @@ protected:
 
     Rotate  * _rotations[3];
 	Scale   * _scale;
-
-	// on PPC/Mac the z-axis is inverted
-	Scale   * _zInvertScale;
 
     CoordinateSystem();
 

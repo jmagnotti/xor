@@ -13,10 +13,9 @@
 
 // model
 #include "World.h"
-#include "../shape/Point3D.h"
-#include "../shape/Renderable.h"
-#include "../shape/Object3D.h"
-#include "../shape/Renderable.h"
+#include "../object3D/Point3D.h"
+#include "Renderable.h"
+#include "../object3D/Object3D.h"
 
 #include "XavierConfiguration.h"
 

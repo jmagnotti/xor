@@ -44,12 +44,7 @@ public:
      */
     void setDebugInterval(int interval);
 
-
-    /**
-     * Prints out status information every 5 seconds in addition to rendering the model.
-     */
-    void view();
-
+    void renderObject();
 
     ~DebugCamera();
 

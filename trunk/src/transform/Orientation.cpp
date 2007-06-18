@@ -16,8 +16,8 @@ namespace XOR {
  */
 Orientation::Orientation()
 {
-	_position   = new Translate();
-	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
+	_position   = Translate::CreateTranslate(0.0f, 0.0f, 0.0f);
+	_focalPoint = new Vector3D(0.0f, 0.0f, 1.0f);
 
 	_phi        = new Rotate(0.0f, 1, 0, 0);
 	_theta      = new Rotate(0.0f, 0, 1, 0);
@@ -48,7 +48,7 @@ Orientation::~Orientation()
 Orientation::Orientation(Translate * position, Rotate * roll, Rotate * phi, Rotate * theta)
 {
 	_position = position;
-	_focalPoint = new Translate(0.0f, 0.0f, 1.0f);
+	_focalPoint = new Vector3D(0.0f, 0.0f, 1.0f);
 	_roll = roll;
 	_phi = phi;
 	_theta = theta;
@@ -59,7 +59,7 @@ Orientation::Orientation(Translate * position, Rotate * roll, Rotate * phi, Rota
 /*
  * new orientation based on existing transforms
  */
-Orientation::Orientation(Translate * position, Translate * focalPoint)
+Orientation::Orientation(Translate * position, Vector3D * focalPoint)
 {
 	_position = position;
 	_focalPoint = focalPoint;
@@ -67,15 +67,6 @@ Orientation::Orientation(Translate * position, Translate * focalPoint)
 	_theta      = new Rotate(0.0f, 0, 1, 0);
 	_roll       = new Rotate(0.0f, 0, 0, 1);
 	updateFromFocalPoint();
-}
-
-
-/*
- * new orientation based on an existing orientation
- */
-Orientation::Orientation(Orientation * baseOrientation)
-{
-	clone(baseOrientation);
 }
 
 
@@ -103,7 +94,7 @@ void Orientation::clone(Orientation * other)
 Orientation * Orientation::clone()
 {
     Orientation * cloned = new Orientation(_position, _roll, _phi, _theta);
-    cloned->setFocalPoint(_focalPoint->toVector());
+    cloned->_focalPoint = _focalPoint->clone();
 
     return cloned;
 }
@@ -127,7 +118,7 @@ void Orientation::push()
  * pushes reverse of all subtransforms
  * handles _scale with bool
  */
-void Orientation::pushInverse(bool invertScale)
+void Orientation::pushInverse()
 {
 	//_position->pushInverse();
 
@@ -155,260 +146,9 @@ void Orientation::pop()
 
 
 /*
- * return the translation as a vector
+ *
  */
-Vector3D * Orientation::getTranslation()
-{
-	return _position->toVector();
-}
-
-/* 
- * increment the position values
- */
-void Orientation::incrementTranslation(Vector3D * position, InterpolationEngine * interpolation)
-{
-	_transformed = true;
-   _position->increment(position, interpolation); 
-}
-
-
-/* 
- * increment the position values
- */
-void Orientation::incrementTranslation(Vector3D * position)
-{
-	_transformed = true;
-    _position->increment(position);
-    updateFocalPoint();
-}
-
-
-/* 
- * set the position values
- */
-void Orientation::setTranslation(Vector3D * position, InterpolationEngine * interpolation)
-{
-	_transformed = true;
-    _position->set(position, interpolation);
-}
-
-
-/* 
- * set the position values
- */
-void Orientation::setTranslation(Vector3D * position)
-{
-	_transformed = true;
-    _position->set(position);
-    updateFocalPoint();
-}
-
-
-/*
- * increment the rotation value
- */
-void Orientation::incrementRotation(const int dimension, float angle, InterpolationEngine *  interpolation)
-{
-	_transformed = true;
-    switch (dimension) {
-        
-        case Orientation::THETA:
-            _theta->increment(angle, interpolation);
-            break;
-            
-        case Orientation::PHI:
-            _phi->increment(angle, interpolation);
-            break;
-            
-        case Orientation::ROLL: 
-            _roll->increment(angle, interpolation);
-            break;
-    }
-}
-
-
-/*
- * increment the rotation value
- */
-void Orientation::incrementRotation(const int dimension, float angle)
-{
-	_transformed = true;
-    switch (dimension) {
-        
-        case Orientation::THETA:
-            _theta->increment(angle);
-            break;
-            
-        case Orientation::PHI:
-            _phi->increment(angle);
-            break;
-            
-        case Orientation::ROLL: 
-            _roll->increment(angle);
-            break;
-    }
-    
-    updateFocalPoint();
-}
-
-
-/*
- * set the rotation value
- */
-void Orientation::setRotation(const int dimension, float angle, InterpolationEngine * interpolation)
-{
-	_transformed = true;
-    switch (dimension) {
-        
-        case Orientation::THETA:
-            _theta->set(angle, interpolation);
-            break;
-            
-        case Orientation::PHI:
-            _phi->set(angle, interpolation);
-            break;
-            
-        case Orientation::ROLL: 
-            _roll->set(angle, interpolation);
-            break;
-    }
-    
-    updateFocalPoint();
-}
-
-
-/*
- * set the rotation value
- */
-void Orientation::setRotation(const int dimension, float angle)
-{
-	_transformed = true;
-    switch (dimension) {
-        
-        case Orientation::THETA:
-            _theta->set(angle);
-            break;
-            
-        case Orientation::PHI:
-            _phi->set(angle);
-            break;
-            
-        case Orientation::ROLL: 
-            _roll->set(angle);
-            break;
-    }
-    
-    updateFocalPoint();
-}
-
-
-/*
- * change focus and adjust transforms
- */
-void Orientation::setFocalPoint(Vector3D * point, InterpolationEngine * interpolation)
-{
-	_transformed = true;
-	_focalPoint->_xShift = point->getX();
-	_focalPoint->_yShift = point->getY();
-	_focalPoint->_zShift = point->getZ();
-
-	_focalDistance = sqrt(
-	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
-	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
-				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
-
-    updateFromFocalPoint(interpolation);
-}
-
-void Orientation::incrementFocalPoint(Vector3D * point, InterpolationEngine * interpolation)
-{
-    _transformed = true;
-
-	_focalPoint->_xShift += point->getX();
-	_focalPoint->_yShift += point->getY();
-	_focalPoint->_zShift += point->getZ();
-
-	_focalDistance = sqrt(
-	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
-	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
-				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
-
-    updateFromFocalPoint(interpolation);
-}
-
-void Orientation::incrementFocalPoint(Vector3D * point)
-{
-	_focalPoint->_xShift += point->getX();
-	_focalPoint->_yShift += point->getY();
-	_focalPoint->_zShift += point->getZ();
-
-	_focalDistance = sqrt(
-	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
-	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
-				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
-
-    updateFromFocalPoint();
-}
-
-/*
- * set fp
- */
-void Orientation::setFocalPoint(Vector3D * point)
-{
-	_transformed = true;
-    cout << "setting focal point from Vec3D" << endl;
-	print();
-
-	_focalPoint->_xShift = point->getX();
-	_focalPoint->_yShift = point->getY();
-	_focalPoint->_zShift = point->getZ();
-
-	_focalDistance = sqrt(
-	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
-	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
-				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
-
-	updateFromFocalPoint();
-	print();
-}
-
-
-/*
- * return the rotation value
- */
-float Orientation::getRotation(const int dimension)
-{
-	float angle = 0.0f;
-
-	switch (dimension) {
-        case Orientation::THETA:
-            angle = _theta->_angle;
-            break;
-        case Orientation::PHI:
-            angle = _phi->_angle;
-            break;
-        case Orientation::ROLL:
-            angle = _roll->_angle;
-            break;
-	}
-	return angle;
-}
-
-
-/*
- * return a clone of the focus point
- */
-Vector3D * Orientation::getFocalPoint()
-{
-    return new Vector3D(_focalPoint->_xShift, _focalPoint->_yShift,
-            _focalPoint->_zShift);
-}
-
-
-/*
- * move camera along focal vector
- */
-void Orientation::walk(float distance, InterpolationEngine * interpolation)
+void Orientation::moveAlongFocalVector(float distance)
 {
 	_transformed = true;
 	updateFocalPoint();
@@ -416,11 +156,14 @@ void Orientation::walk(float distance, InterpolationEngine * interpolation)
 	// calculate new position by obtaining focus vector and multiplying
 	// by the desired distance
 	float coords[3];
-	coords[0] = (_focalPoint->_xShift - _position->_xShift) * distance;
-	coords[1] = (_focalPoint->_yShift - _position->_yShift) * distance;
-	coords[2] = (_focalPoint->_zShift - _position->_zShift) * distance;
+	coords[0] = (_focalPoint->get(0) - _position->_translation[0]) * distance;
+	coords[1] = (_focalPoint->get(1) - _position->_translation[1]) * distance;
+	coords[2] = (_focalPoint->get(2) - _position->_translation[2]) * distance;
 
-	_position->increment(new Vector3D(coords), interpolation);
+    for (int i=0; i<3; i++)
+        coords[i] = (_focalPoint->get(i) - _position->_translation[i]) * distance;
+
+	//_position->increment(new Vector3D(coords), interpolation);
 
 	updateFocalPoint();
 }
@@ -434,17 +177,19 @@ void Orientation::updateFocalPoint()
     //cout << "Updating the focal point" << endl;
 
 	// theta and phi in radians
+    /*
 	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
 	float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
 
 	// new focal point
-    _focalPoint->_xShift = _position->_xShift - 
+    _focalPoint->_translation[0] = _position->_translation[0] - 
         (_focalDistance * cos(p) * sin(t));
 
-    _focalPoint->_yShift = _position->_yShift - 
+    _focalPoint->_translation[1] = _position->_translation[1] - 
         (_focalDistance * sin(p));
 
-    _focalPoint->_zShift = _position->_zShift - (_focalDistance * cos(p) * cos(t));
+    _focalPoint->_translation[2] = _position->_translation[2] - (_focalDistance * cos(p) * cos(t));
+    */
 }
 
 
@@ -460,9 +205,9 @@ void Orientation::updateFromFocalPoint()
 	//_roll = 0.0;
 
 	// focal vector relative to position
-	float x = _focalPoint->_xShift - _position->_xShift;
-	float y = _focalPoint->_yShift - _position->_yShift;
-	float z = _focalPoint->_zShift - _position->_zShift;
+	float x = _focalPoint->getX() - _position->_translation[0];
+	float y = _focalPoint->getY() - _position->_translation[1];
+	float z = _focalPoint->getZ() - _position->_translation[2];
 
 	// new rotation
     _phi->_angle = (asin(y / _focalDistance)) / 
@@ -473,107 +218,50 @@ void Orientation::updateFromFocalPoint()
 
 
 /*
- * update with interp
- */
-void Orientation::updateFromFocalPoint(InterpolationEngine * interpolation)
-{
-	// the camera can be rotated to the given focal point in
-	// only two axes of rotations: theta and phi (not roll)
-	// current behavior is to preserve roll upon focus reset
-	// uncomment the following line to reset roll upon reset
-	//_roll = 0.0;
-
-	// focal vector relative to position
-	float x = _focalPoint->_xShift - _position->_xShift;
-	float y = _focalPoint->_yShift - _position->_yShift;
-	float z = _focalPoint->_zShift - _position->_zShift;
-
-	// new rotation
-    _phi->set((asin (y / _focalDistance)) / GraphicsConversionUtility::PI * 180.0f, interpolation);
-    _theta->set((atan2(x , z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f, interpolation);
-            
-    //_angle = (asin(y / _focalDistance)) / GraphicsConversionUtility::PI * 180.0f;
-    //_angle = (atan2(x , z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f;
-}
-
-
-/*
  * print member info
  */
 void Orientation::print()
 {
+    return ;
+    /*
 	float distance = sqrt(
-	             pow(_focalPoint->_xShift - _position->_xShift, 2.0f) +
-	             pow(_focalPoint->_yShift - _position->_yShift, 2.0f) +
-				 pow(_focalPoint->_zShift - _position->_zShift, 2.0f));
+	             pow(_focalPoint->_translation[0] - _position->_translation[0], 2.0f) +
+	             pow(_focalPoint->_translation[1] - _position->_translation[1], 2.0f) +
+				 pow(_focalPoint->_translation[2] - _position->_translation[2], 2.0f));
 
 	cout << endl << "---Transformable Information " << this << " ---" << endl;
 
 	cout << "focal distance=" << _focalDistance << endl;
 	cout << "real distance="  << distance << endl;
 
-	cout << "pos_x="     << _position->_xShift << 
-		    "pos_y="     << _position->_yShift <<
-		    "pos_z="     << _position->_zShift << endl;
+	cout << "pos_x="     << _position->_translation[0] << 
+		    "pos_y="     << _position->_translation[2] <<
+		    "pos_z="     << _position->_translation[2] << endl;
 
-	cout << "focus_x="     << _focalPoint->_xShift << 
-		    "focus_y="     << _focalPoint->_yShift <<
-		    "focus_z="     << _focalPoint->_zShift << endl;
+	cout << "focus_x="     << _focalPoint->_translation[0] << 
+		    "focus_y="     << _focalPoint->_translation[1] <<
+		    "focus_z="     << _focalPoint->_translation[2] << endl;
 
 	cout << "theta="   << _theta->_angle << 
 		    "phi="     << _phi->_angle   <<
 		    "roll="    << _roll->_angle  << endl;;
+*/
 }
-
-
-/*
- * print waypoint info
- */
-void Orientation::printWaypoint()
-{
-	static float x=0.0f,y=0.0f,z=0.0f,t=0.0f,p=0.0f,r=0.0f;
-	float dx=_position->_xShift-x,
-		  dy=_position->_yShift-y,
-		  dz=_position->_zShift-z,
-		  dt=_theta->_angle-t,
-		  dp=_phi->_angle-p,
-		  dr=_roll->_angle-r;
-
-	printf("%10.4f  %10.4f  %10.4f  %10.4f  %10.4f  %10.4f\n",
-			dx,dy,dz,dt,dp,dr);
-
-	x=_position->_xShift;
-	y=_position->_yShift;
-	z=_position->_zShift;
-	t=_theta->_angle;
-	p=_phi->_angle;
-	r=_roll->_angle;
-}
-
 
 /*
  * reset the transforms
  */
-void Orientation::clear()
+void Orientation::toIdentity()
 {
-    _phi->clear();
-    _roll->clear();
-    _theta->clear();
+    _phi->toIdentity();
+    _roll->toIdentity();
+    _theta->toIdentity();
 
-    _position->clear();
-
-	_transformed = false;
+    _position->toIdentity();
 }
 
-
-/*
- * true if any Transforms have been modified
- */
-bool Orientation::isTransformed()
-{
-	return _transformed;
-}
-
+void Orientation::transform(Vector3D * position){}
+void Orientation::transform(Dimension3D * size){}
 
 }
 

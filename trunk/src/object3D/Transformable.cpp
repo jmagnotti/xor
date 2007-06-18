@@ -27,6 +27,16 @@ void Transformable::render()
 	undoTransform();
 }
 
+void Transformable::doInverseTransform()
+{
+	vector<Transform*>::iterator iter = _transforms.begin();
+
+	while (iter != _transforms.end()) { 
+		(*iter)->pushInverse();
+		++iter;
+	}
+}
+
 void Transformable::doTransform()
 {
 	vector<Transform*>::iterator iter = _transforms.begin();
@@ -54,14 +64,14 @@ Dimension3D * Transformable::getDimension()
 	vector<Transform*>::iterator iter = _transforms.begin();
 
 	while (iter != _transforms.end()) { 
-		(*iter)->scale(_dimension);
+		(*iter)->transform(_dimension);
 		++iter;
 	}
 
 	return _dimension;
 }
 
-Dimension3D * Transformable::getBaseVector()
+Vector3D * Transformable::getBaseVector()
 {
 	_baseVector = _object3d->getBaseVector();
 	
@@ -74,6 +84,14 @@ Dimension3D * Transformable::getBaseVector()
 
 	return _baseVector;
 }
+
+void Transformable::renderObject()
+{
+    _object3d->render();
+}
+
+Transformable::Transformable()
+{}
 
 }
 

@@ -18,7 +18,7 @@ Stretch::~Stretch()
  */
 Stretch::Stretch()
 {
-	_translate = new Translate(0,0,0);
+	_translate = Translate::CreateTranslate(0,0,0);
 	_scale = new Scale();
 }
 
@@ -28,7 +28,7 @@ Stretch::Stretch()
  */
 Stretch::Stretch(Vector3D * origin, Vector3D * stretch)
 {
-	_translate = new Translate(origin);
+	_translate = Translate::CreateTranslate(origin);
 	_scale = new Scale(stretch);
 }
 
@@ -77,46 +77,10 @@ void Stretch::pop()
 /*
  * nullify the effect of the stretch
  */
-void Stretch::clear()
+void Stretch::toIdentity()
 {
-	_translate->clear();
-	_scale->clear();
-}
-
-
-/*
- * set the scale
- */
-void Stretch::set(Vector3D * stretch)
-{
-	_scale->set(stretch);
-}
-
-
-/*
- * set the scale
- */
-void Stretch::set(Vector3D * stretch, InterpolationEngine * interpolation)
-{
-	_scale->set(stretch, interpolation);
-}
-
-
-/*
- * increment the scale
- */
-void Stretch::increment(Vector3D * stretch)
-{
-	_scale->increment(stretch);
-}
-
-
-/*
- * increment the scale
- */
-void Stretch::increment(Vector3D * stretch, InterpolationEngine * interpolation)
-{
-	_scale->increment(stretch, interpolation);
+	_translate->toIdentity();
+	_scale->toIdentity();
 }
 
 
@@ -126,8 +90,11 @@ void Stretch::increment(Vector3D * stretch, InterpolationEngine * interpolation)
 void Stretch::setOrigin(Vector3D * origin)
 {
 	delete _translate;
-	_translate = new Translate(origin);
+	_translate = Translate::CreateTranslate(origin);
 }
+
+void Stretch::transform(Vector3D * position) {}
+void Stretch::transform(Dimension3D * size) {}
 
 }
 

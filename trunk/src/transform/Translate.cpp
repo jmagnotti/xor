@@ -7,107 +7,110 @@ namespace XOR {
  * Destructor
  */
 Translate::~Translate()
+{}
+
+Translate::Translate(float x, float y, float z)
 {
-    _values.clear();
-    _out.clear();
+    _translation[0] = x;
+    _translation[1] = y;
+    _translation[2] = z;
+}
+
+Translate::Translate(Vector3D * position)
+{
+    for(int i=0; i<3; i++)
+        _translation[i] = position->get(i);
 }
 
 
-/*
- * Def. Constructor
+/**
+ * makes the translate an identity transform T[0,0,0]
  */
-Translate::Translate()
+void Translate::toIdentity()
 {
-	_xShift = _yShift = _zShift = 0.0f;
+    for(int i=0; i<3; i++)
+        _translation[i] = 0.0f;
+}
 
-    _values.push_back(& _xShift);
-    _values.push_back(& _yShift);
-    _values.push_back(& _zShift);
+void Translate::transform(Vector3D * position)
+{
+    position->increment(_translation);
+}
+
+void Translate::transform(Dimension3D * size)
+{
+    //translates do not affect dimensions
 }
 
 
 /* 
  * explicit constructor
  */
-Translate::Translate(float x, float y, float z)
+Translate * Translate::CreateTranslate(float x, float y, float z)
 {
-	_xShift = x;
-	_yShift = y;
-	_zShift = z;
-
-    _values.push_back(& _xShift);
-    _values.push_back(& _yShift);
-    _values.push_back(& _zShift);
+    return new ImmediateTranslate(x, y, z);
 }
 
+Translate * Translate::CreateTranslate(float x, float y, float z, int milliseconds)
+{
+    return new InterpolatedTranslate(x, y, z, milliseconds);
+}
+
+/*
+Translate * Translate::CreateTranslate(float x, float y, float z, int milliseconds, InterpolationAction * action)
+{
+    _translation[0] = x;
+    _translation[1] = y;
+    _translation[2] = z;
+
+    new InterpolatedTranslate(milliseconds, action);
+}
+*/
 
 /*
  * Explicit Constructor
  */
-Translate::Translate(Vector3D * p)
+Translate * Translate::CreateTranslate(Vector3D * position)
 {
-	_xShift = p->getX();
-	_yShift = p->getY();
-	_zShift = p->getZ();
-
-    _values.push_back(& _xShift);
-    _values.push_back(& _yShift);
-    _values.push_back(& _zShift);
+	return new ImmediateTranslate(position);
 }
 
+Translate * Translate::CreateTranslate(Vector3D * position, int milliseconds)
+{
+	return new InterpolatedTranslate(position, milliseconds);
+}
+
+/*
+Translate * Translate::CreateTranslate(Vector3D * position, int milliseconds, InterpolationAction * action)
+{
+	return new InterpolatedTranslate(position, milliseconds, action);
+}
+*/
 
 /*
  * Clone copier
  */
 void Translate::clone(Translate * other)
 {
-    _xShift = other->_xShift;
-    _yShift = other->_yShift;
-    _zShift = other->_zShift; 
+    for(int i=0; i<3; i++)
+        _translation[i] = other->_translation[i];
 }
-
 
 /* 
  * Add the point to the current translate
  */
-void Translate::increment(Vector3D * point, InterpolationEngine * interpolation)
+Translate * Translate::createTransformedInstance(Vector3D * point)
 {
-    if (interpolation != NULL) {
-        _out.clear();
-        _out.push_back(_xShift + point->getX());
-        _out.push_back(_yShift + point->getY());
-        _out.push_back(_zShift + point->getZ());
-
-        interpolation->setup(_values, _out);
-        interpolation->start();
-    }
-    else {
-        _xShift += point->getX();
-        _yShift += point->getY();
-        _zShift += point->getZ();
-    }
+	return Translate::CreateTranslate(_translation[0] + point->getX(),
+                                          _translation[1] + point->getY(),
+                                          _translation[2] + point->getZ());
 }
 
-
-/*
- * Set the translation coordinates
- */
-void Translate::set(Vector3D * point, InterpolationEngine * interpolation)
+Translate * Translate::createTransformedInstance(Vector3D * point, int milliseconds)
 {
-    if (interpolation != NULL) {
-        _out.clear();
-        _out.push_back(point->getX());
-        _out.push_back(point->getY());
-        _out.push_back(point->getZ());
-
-        interpolation->setup(_values, _out);
-        interpolation->start();
-    }
-    else {
-        _xShift = point->getX();
-        _yShift = point->getY();
-        _zShift = point->getZ();
-    }
+	return Translate::CreateTranslate(_translation[0] + point->getX(),
+                         _translation[1] + point->getY(),
+                         _translation[2] + point->getZ(), milliseconds);
 }
 
 
@@ -117,7 +120,7 @@ void Translate::set(Vector3D * point, InterpolationEngine * interpolation)
 void Translate::push()
 {
 	glPushMatrix();
-	glTranslatef(_xShift, _yShift, _zShift);
+	glTranslatef(_translation[0], _translation[1], _translation[2]);
 }
 
 
@@ -127,27 +130,65 @@ void Translate::push()
 void Translate::pushInverse()
 {
 	glPushMatrix();
-	glTranslatef(-(_xShift), -(_yShift), -(_zShift));
+	glTranslatef(-(_translation[0]), -(_translation[1]), -(_translation[2]));
 }
 
-/*
- * set trans to 0
- */
-void Translate::clear()
-{
-    _xShift = _yShift = _zShift = 0.0f;
-}
 
 Vector3D * Translate::toVector()
 {
-	return new Vector3D(_xShift, _yShift, _zShift);
+	return new Vector3D(_translation);
 }
 
-void Translate::print()
+void Translate::print() 
 {
-    cout << "x: " << _xShift << ", y: " << _yShift 
-         << ", z: " << _zShift << endl;
+	 cout << "x: "   << _translation[0] << ", y: " << _translation[1] 
+		  << ", z: " << _translation[2] << endl;
 }
+
+void InterpolatedTranslate::push()
+{
+    if (_remaining > 0) {
+        _translation[0] += _step->getX();		
+        _translation[1] += _step->getY();		
+        _translation[2] += _step->getZ();		
+        
+        _remaining--;
+    }
+
+    Translate::push();
+}
+
+
+void InterpolatedTranslate::pushInverse()
+{
+    if (_remaining > 0) {
+        _translation[0] += _step->getX();		
+        _translation[1] += _step->getY();		
+        _translation[2] += _step->getZ();		
+        
+        _remaining--;
+    }
+
+    Translate::pushInverse();
+}
+
+
+/**
+ * CTOR for InterpolatedTranslate
+ */
+InterpolatedTranslate::InterpolatedTranslate(float x, float y, float z, int milliseconds) : 
+		Translate(x, y, z) {
+       //do something with the time 
+}
+
+InterpolatedTranslate::InterpolatedTranslate(Vector3D * position, int milliseconds) :
+    Translate(position) {}
+
+ImmediateTranslate::ImmediateTranslate(Vector3D * position) 
+    : Translate(position) {}
+
+ImmediateTranslate::ImmediateTranslate(float x, float y, float z)
+    : Translate(x, y, z) {}
 
 }
 

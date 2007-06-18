@@ -1,6 +1,7 @@
 #include "WaypointCollection.h"
 
 namespace XOR {
+#if 0
 
 WaypointCollection::WaypointCollection(const char * path, int interpolationTime, int waitTime, bool loop)
 {
@@ -131,6 +132,7 @@ void WaypointCollection::print()
 	}
 	cout << endl;
 }
+#endif
 
 }
 
