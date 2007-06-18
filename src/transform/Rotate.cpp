@@ -5,12 +5,12 @@ namespace XOR {
 
 /*
  * Destructor
- */
 Rotate::~Rotate()
 {
     _values.clear();
     _out.clear();
 }
+ */
 
 
 /*
@@ -58,7 +58,6 @@ void Rotate::clone(Rotate * other)
 
 /* 
  * increment the rotation values
- */
 void Rotate::increment(float angle, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
@@ -73,7 +72,9 @@ void Rotate::increment(float angle, InterpolationEngine * interpolation)
         _angle = GraphicsConversionUtility::GetInstance()->floatModulus(_angle, 360);
     }
 }
+*/
  
+/*
 void Rotate::set(float angle, InterpolationEngine * interpolation)
 {
     if (interpolation != NULL) {
@@ -86,6 +87,7 @@ void Rotate::set(float angle, InterpolationEngine * interpolation)
     else
         _angle = angle;
 }    
+*/
 
 
 /*
@@ -105,28 +107,26 @@ void Rotate::pushInverse()
 {
 	glPushMatrix();
 	glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
-
-    // quaternions
 }
 
-/*
- * set rot to 0
- */
-void Rotate::clear()
-{
-    _angle = 0;
-}
-
-float Rotate::getAngle()
-{
-	return _angle;
-}
+//TODO Fill these in
+void transform(Vector3D * position){}
+void transform(Dimension3D * size){}
+//END TODO
 
 void Rotate::print()
 {
     cout << "ang: " << _angle << ", x: " << _xCoord << ", y: " << _yCoord 
          << ", z: " << _zCoord << endl;
 }
+
+void Rotate::toIdentity()
+{
+    _angle = 0.0f;
+}
+
+void Rotate::transform(Vector3D * position){}
+void Rotate::transform(Dimension3D * size){}
 
 }
 

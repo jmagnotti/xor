@@ -2,7 +2,7 @@
 #define COMPILEDOBJECT3D_H
 
 
-#include <SDL/SDL_opengl.h>
+#include "../../include/SDL_opengl.h"
 #include "Object3D.h"
 
 

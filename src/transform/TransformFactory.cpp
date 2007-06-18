@@ -17,7 +17,7 @@ Transform * TransformFactory::CreateTransform(string data[5])
 	}
 	else if(data[0] == "TRANSLATE" )
 	{
-		transform = new Translate(atof(data[1].c_str()), atof(data[2].c_str()),
+		transform = Translate::CreateTranslate(atof(data[1].c_str()), atof(data[2].c_str()),
 			atof(data[3].c_str()));
 	}
 

@@ -5,8 +5,7 @@
 #include "InterpolationListener.h"
 #include "TimedInterpolation.h"
 #include "../core/Controller.h"
-#include "../transform/Orientation.h"
-#include "../transform/Transformable.h"
+#include "../object3D/Transformable.h"
 #include "../event/timer/TimerListener.h"
 
 using namespace std;
@@ -18,8 +17,9 @@ namespace XOR {
  * between Vector3D locations (+ rotations) and wait times, with
  * an Interpolation transition to the next waypoint.
  */
-class Waypoint : public InterpolationListener, public TimerListener
+class Waypoint //: public InterpolationListener, public TimerListener
 {
+#if 0
 	public:
 
 		/**
@@ -87,6 +87,7 @@ class Waypoint : public InterpolationListener, public TimerListener
 		Transformable		* _target;
 		int                   _ticksRemaining;
 		int					  _id;
+#endif
 };
 
 }

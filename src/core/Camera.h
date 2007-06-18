@@ -13,7 +13,7 @@
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
-#include "../transform/Transformable.h"
+#include "../object3D/Transformable.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
 #include "../event/timer/TimerListener.h"
@@ -114,12 +114,6 @@ public:
      void handleTick();
 
 
-	/** 
-	 * Calls render() on the model
-	 */
-	virtual void view(void);
-
-    
 	/**
 	 * Set full screen status
 	 */
@@ -225,6 +219,8 @@ protected:
 
     CoordinateSystem * _coordinateSystem;
 
+    void renderObject(void);
+
 
     /**
      * Sends out the camera's position to all the listeners.
@@ -234,6 +230,9 @@ protected:
 
 private:
 
+    void doTransform();
+    void undoTransform();
+    
     // set all state vars
 void build (double fov, double nearCP, double farCP, int colorDepth, Uint32 videoFlags, int wallMode, Vector2D * offset, const float color[4]);
 

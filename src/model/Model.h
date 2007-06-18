@@ -14,7 +14,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "../shape/Object3D.h"
+#include "../object3D/Object3D.h"
 #include "../texture/Texture.h"
 #include "../texture/TextureFactory.h"
 

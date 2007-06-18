@@ -19,6 +19,7 @@ namespace XOR {
 class WaypointCollection
 {
 	public:
+#if 0
 
 		/**
 		 * Explicit constructor (path of waypoint file)
@@ -48,6 +49,7 @@ class WaypointCollection
 		Orientation * _initial;
 		Waypoint *    _first;
 		Waypoint *    _last;
+#endif
 };
 
 }

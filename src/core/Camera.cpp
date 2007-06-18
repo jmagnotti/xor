@@ -100,7 +100,8 @@ World * Camera::setModel(World * rend)
  */
 void Camera::handleTick()
 {
-    view();
+    // calls the Transformables render method, which will push, render, pop
+    render();
 }
 
 
@@ -235,25 +236,6 @@ void Camera::setupClearColor()
 {
     glClearColor(_backgroundColor[0], _backgroundColor[1], 
                  _backgroundColor[2], _backgroundColor[3]);
-}
-
-
-/*
- * make main rendering call
- */
-void Camera::view()
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// since we're technically moving the whole world, push the inverse
-    pushInverse();
-		_coordinateSystem->push();
-            _model->render();
-        _coordinateSystem->pop();
-    pop();
-
-    // SDL call to swap the off screen buffer with the on screen buffer
-    SDL_GL_SwapBuffers(); 
 }
 
 
@@ -462,5 +444,28 @@ void Camera::setWallMode(int mode)
     }
 }
 
+void Camera::renderObject(void)
+{
+    _object3d->render();
 }
 
+
+void Camera::doTransform()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// since we're technically moving the whole world, push the inverse
+    Transformable::doInverseTransform();
+    _coordinateSystem->push();
+}
+
+
+void Camera::undoTransform()
+{
+    _coordinateSystem->pop();
+    Transformable::undoTransform();
+
+    SDL_GL_SwapBuffers(); 
+}
+
+}

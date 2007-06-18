@@ -2,18 +2,19 @@
 #define FRAMESPERSECONDCOUNTER_H
 
 #include <stdlib.h>
+#include  <iostream> //debugging
+
 #include "../event/timer/Timer.h"
 #include "../event/timer/TimerListener.h"
 #include "../core/Controller.h"
-#include "../shape/String2D.h"
-#include "../shape/Point3D.h"
+#include "../object2D/String2D.h"
+#include "../object3D/Point3D.h"
 
-//debugging
-#include  <iostream>
+
+using namespace std;
 
 namespace XOR {
 
-using namespace std;
 
 /**
  * An easy way to get an FPS counter. Sports the ability to render at a given 
@@ -31,8 +32,9 @@ public:
     static const int TITLE_BAR = 0;
     static const int ON_SCREEN = 1;
 
-    virtual ~FramesPerSecondCounter();
     FramesPerSecondCounter();
+
+    virtual ~FramesPerSecondCounter();
 
     void setDisplayMode(int displayMode);
     void setPosition(Point3D * pos);
@@ -48,7 +50,6 @@ protected:
     int     _frameCounter;
     int     _lastTimeUpdate;
 
-    //FramesPerSecondCounter * fpsc;            //use this instead -- only makes sense to have one counter
 };
 
 }

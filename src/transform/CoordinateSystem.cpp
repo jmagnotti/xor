@@ -7,9 +7,12 @@ namespace XOR {
  */
 CoordinateSystem::CoordinateSystem()
 {
-//	_zInvertScale = new Scale();
 }
 
+void CoordinateSystem::pushInverse(void)
+{
+    //you don't want to do this
+}
 
 /*
  * Apply the rotates
@@ -17,7 +20,7 @@ CoordinateSystem::CoordinateSystem()
 void CoordinateSystem::push(void)
 {
 //	_zInvertScale->push();
-	_scale->push();
+	//_scale->push();
     for(int i=0; i<3; i++)
         _rotations[i]->push();
 }
@@ -30,7 +33,7 @@ void CoordinateSystem::pop(void)
 {
     for (int i=2; i>=0; i--)
         _rotations[i]->pop();
-	_scale->pop();
+	//_scale->pop();
 //	_zInvertScale->pop();
 }
 
@@ -38,7 +41,7 @@ void CoordinateSystem::pop(void)
 /*
  * clear
  */
-void CoordinateSystem::clear()
+void CoordinateSystem::toIdentity()
 {
     //you don't want to do this
 }
@@ -49,10 +52,20 @@ void CoordinateSystem::clear()
  */
 void CoordinateSystem::print()
 {
-    _scale->print();
+    //_scale->print();
 
     for(int i=0; i<3; i++)
         _rotations[i]->print();
+}
+
+void CoordinateSystem::transform(Dimension3D * size)
+{
+    // shouldn't be used
+}
+
+void CoordinateSystem::transform(Vector3D * position)
+{
+    // shouldn't be used
 }
 
 }

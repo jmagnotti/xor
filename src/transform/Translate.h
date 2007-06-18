@@ -4,11 +4,10 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <vector>
 
 #include "Transform.h"
-#include "../interpolation/InterpolationEngine.h"
 #include "../geometry/Vector3D.h"
+#include "../event/timer/TimerListener.h"
 
 
 using namespace std;
@@ -17,75 +16,120 @@ namespace XOR {
 
 
 /**
- * Applies a translate transform
+ * Allows for translation of an object. This is accomplished through
+ * manipulation of the GL Matrix Stack.
+ *
+ * @author John Magnotti
+ * @author Michael Lam
+ * @version 1.1
  */
 class Translate : public Transform
 {
-	friend class Orientation;
 
 public:
 
-
 	/*
-	 * Creates an Identity Translation.
+	 * Destructor
 	 */
-	Translate();
-	~Translate();
+	virtual ~Translate();
 
 
 	/**
-	 * Explicit Constructor
+	 * Explicit Constructors for immediate translations
 	 */
-	Translate(float, float, float);
+	static Translate * CreateTranslate(float x, float y, float z);
+	static Translate * CreateTranslate(Vector3D * position);
 
 
 	/**
-	 * Explicit Constructor
+	 * Explicit Constructors for interpolated translations
 	 */
-	Translate(Vector3D *);
+	static Translate * CreateTranslate(float x, float y, float z, int milliseconds);
+	//static Translate * CreateTranslate(float x, float y, float z, int milliseconds, InterpolationAction * action);
+
+	static Translate * CreateTranslate(Vector3D * position, int milliseconds);
+	//static Translate * CreateTranslate(Vector3D * position, int milliseconds, InterpolationAction * action);
 
 
     /**
-     * Copies the value of the other translates, no aliasing 
+     * Copies the value of the other Translate, no aliasing 
      */
-    void clone(Translate *);
+    void clone(Translate * other);
 
 
 	/**
 	 * Applies the translation
 	 */
-	void push(void);
+	virtual void push(void);
 
 
 	/**
-	 * Applies the reverse translation
+	 * Applies the reverse translation, -1 * [X, Y, Z]
 	 */
-	void pushInverse(void);
+	virtual void pushInverse(void);
 
-
-    /*
-     * resets the translation to have no effect
-     */
-    void clear();
-	
 
 	/**
-	 * Easy way to increment a translation
-	 * to decrement, just increment by a negative amount
+	 * Returns the translation as a vector
 	 */
-    void increment(Vector3D *, InterpolationEngine * interpolation=NULL);
-    void set(Vector3D *, InterpolationEngine * interpolation=NULL);
-
 	Vector3D * toVector();
+
 
     void print();
 
-private:
-	
-	float _xShift, _yShift, _zShift;
+    void toIdentity();
 
-    vector<float*> _values;
-    vector<float> _out;
+	void transform(Vector3D * position);
+
+	void transform(Dimension3D * size);
+
+    Translate * createTransformedInstance(Vector3D * point);
+    Translate * createTransformedInstance(Vector3D * point, int milliseconds);
+
+protected:
+
+    friend class Orientation;
+	
+	float _translation [3];
+    Translate(float x, float y, float z);
+    Translate(Vector3D * position);
+
+};
+
+class InterpolatedTranslate : public Translate
+{
+
+public:
+
+    InterpolatedTranslate(float x, float y, float z, int milliseconds);
+    //InterpolatedTranslate(float x, float y, float z, int milliseconds, InterpolationAction * action);
+
+    InterpolatedTranslate(Vector3D * position, int milliseconds);
+    //InterpolatedTranslate(Vector3D * position, int milliseconds, InterpolationAction * action);
+
+    // advances the interpolation if necessary
+	void push();
+
+    // advances the interpolation if necessary
+	void pushInverse();
+
+private:
+
+
+	Vector3D * _step, * _target;
+
+	int _remaining;
+};
+
+class ImmediateTranslate  : public Translate
+{
+
+public:
+
+
+    ImmediateTranslate(Vector3D * position);
+
+    ImmediateTranslate(float x, float y, float z); 
 
 };
 

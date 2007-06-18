@@ -20,14 +20,14 @@ DebugCamera::DebugCamera()
 /**
  * Prints out status information every 5 seconds
  */
-void DebugCamera::view()
+void DebugCamera::renderObject()
 {
     if (isReady()) {
         debug();
         _lastPrint = Controller::GetInstance(NULL)->getTimer()->getElapsedTime();
     }
 
-    Camera::view();
+    Camera::renderObject();
 }
 
 
@@ -36,7 +36,7 @@ void DebugCamera::view()
  */
 void DebugCamera::debug()
 {
-    print();
+    //print();
     _coordinateSystem->print();
 }
 

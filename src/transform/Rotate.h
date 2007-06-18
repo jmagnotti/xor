@@ -6,8 +6,10 @@
 #include <stdio.h>
 
 #include "Transform.h"
+
 #include "../geometry/Dimension3D.h"
 #include "../interpolation/InterpolationEngine.h"
+#include "../util/GraphicsConversionUtility.h"
 
 using namespace std;
 
@@ -18,8 +20,6 @@ namespace XOR {
  */
 class Rotate : public Transform
 {
-    //trying to use this less and less. Performance tests should determine value    
-	friend class Orientation;
 
 public:
 
@@ -28,13 +28,13 @@ public:
      * Default Constructor
      */
     Rotate();
-    ~Rotate();
+
 
 
 	/**
 	 * Explicit Constructor
 	 */
-	Rotate(float, int, int, int);
+	Rotate(float angle, int x, int y, int z);
 
 
     /**
@@ -55,27 +55,13 @@ public:
 	void pushInverse(void);
 	
 
-	/**
-	 * Easy way to increment a rotation
-	 * to decrement, just increment by a negative amount
-	 */
-	void increment(float angle, InterpolationEngine * interpolation=NULL);
-
-
-    /**
-     * Easy way to set a rotation
-     * to decrement, just increment by a negative amount
-     */
-    void set(float angle, InterpolationEngine * interpolation=NULL);
-
-
     /**
      * reset the rotate to have no effect
      */
-    void clear();
+    void toIdentity();
 
-
-	float getAngle();
+	void transform(Vector3D * position);
+	void transform(Dimension3D * size);
 
     /**
      * 
@@ -83,6 +69,8 @@ public:
     void print();
 
 protected:
+
+    friend class Orientation;
 
 	int		_xCoord, _yCoord, _zCoord;
 	float	_angle;

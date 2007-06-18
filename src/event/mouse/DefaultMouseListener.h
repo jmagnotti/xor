@@ -5,7 +5,7 @@
 #include "../../core/Controller.h"
 
 #include "../../interpolation/TimedInterpolation.h"
-#include "../../transform/Transformable.h"
+#include "../../object3D/Transformable.h"
 #include "../../core/Controller.h"
 
 #include "MouseListener.h"

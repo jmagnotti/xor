@@ -2,6 +2,8 @@
 
 namespace XOR {
 
+Transform::Transform()
+{}
 	
 /**
  * Removes the transform. Child classes can override this behavior,

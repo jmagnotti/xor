@@ -2,8 +2,8 @@
 #define HEIGHTFIELD_H
 
 
-#include "../shape/Object3D.h"
-#include "../shape/Quadrilateral3D.h"
+#include "../object3D/Object3D.h"
+#include "../object3D/Quadrilateral3D.h"
 
 #include "../geometry/Vector3D.h"
 #include "../geometry/Vector2D.h"

@@ -2,6 +2,7 @@
 
 namespace XOR {
 
+#if 0
 Waypoint::Waypoint(Orientation * orientation, int interpolationTime, int waitTime, Waypoint * next)
 {
 	interpolators = new InterpolationEngine * [4];
@@ -129,5 +130,6 @@ void Waypoint::print()
 	cout << "waypoint #" << _id << "  addr: " << this << "  next " << _next << endl;
 }
 
+#endif
 }
 
