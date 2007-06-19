@@ -89,6 +89,8 @@ public:
 	Vector3D * getBaseVector() {return new Vector3D(0,0,0);}
 
 
+protected:
+
 	/**
 	 * Display the world. A call to Render() will invoke renderObject
 	 */
@@ -101,6 +103,7 @@ private:
 	World(Renderable * object);
 
 	static World * _world;
+
 	map<char*, Renderable*> _objects;
 
 };
