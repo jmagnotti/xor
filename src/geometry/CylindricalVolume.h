@@ -2,9 +2,8 @@
 #define CYLINDRICALVOLUME_H
 
 
-#include "../shape/CollisionRenderable.h"
 #include "../paint/Paint.h"
-#include "../shape/Point3D.h"
+#include "../object3D/Point3D.h"
 #include "../geometry/Dimension3D.h"
 
 

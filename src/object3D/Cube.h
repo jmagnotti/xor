@@ -34,9 +34,9 @@ public:
 
 	/**
 	 * Explicit Constructor.
-	 * This constructor is to be used only by the XML-to-GOR Tool. 
+	 * This constructor is to be used only by the XML-to-XOR (XXOR) Tool. 
      * Use the other constructors for other uses, as they are MUCH more
-     * efficeint
+     * efficient.
 	 */
 //	static Cube * CreateCube(String, String, String, String);
 
