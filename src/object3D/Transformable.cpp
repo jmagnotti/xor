@@ -29,6 +29,8 @@ void Transformable::render()
 
 void Transformable::doInverseTransform()
 {
+	return;
+
 	vector<Transform*>::iterator iter = _transforms.begin();
 
 	while (iter != _transforms.end()) { 
@@ -39,6 +41,7 @@ void Transformable::doInverseTransform()
 
 void Transformable::doTransform()
 {
+
 	vector<Transform*>::iterator iter = _transforms.begin();
 
 	while (iter != _transforms.end()) { 
@@ -49,6 +52,7 @@ void Transformable::doTransform()
 
 void Transformable::undoTransform()
 {
+
 	vector<Transform*>::iterator iter = _transforms.begin();
 
 	while (iter != _transforms.end()) { 

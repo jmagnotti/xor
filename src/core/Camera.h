@@ -1,7 +1,6 @@
 #ifndef VIEWER_H
 #define VIEWER_H
 
-
 #include <list>
 
 #include "../../include/SDL.h"
@@ -25,9 +24,13 @@ namespace XOR {
 
 /**
  * Designed to maintain the state of the camera of the world.
- * The Camera is doing a little bit too much windowing at the moment.
+ *
+ * @author John Magnotti
+ * @author Michael Lam
+ *
+ * @version 1.1
  */
-class Camera : public ReshapeListener, public TimerListener, public Transformable
+class Camera : public ReshapeListener, public TimerListener 
 {
 
 public:
@@ -44,12 +47,6 @@ public:
 	static const int		WALL_MODE_IMMERSIVE;
 
 
-    /**
-     * default constructor. Uses constants above.
-     */
-    Camera();
-
-
 	/**
      * Explicit Constructor
      * 
@@ -57,14 +54,15 @@ public:
      * @param nearCP	Near clipping plane
      * @param farCP		Far clipping plane
      */
-    Camera (double fov, double nearCP, double farCP, int colorDepth, 
-            Uint32 videoFlags, int wallMode, Vector2D * offset, const float color[4]);
+	Camera (double fov, double nearCP, double farCP, int colorDepth, Uint32
+			videoFlags, int wallMode, Vector2D * offset, 
+			const float color[4]);
 
 
 	/** 
 	 * Destructor
 	 */
-	~Camera();
+	virtual ~Camera();
 
 
     /**
@@ -79,21 +77,10 @@ public:
     void removeListener(CameraListener * cl);
 
 
-    /**
-     * This could return the screen coordinates or something cool
-     */
-	inline Dimension3D * getDimension() {return NULL;}
-
-
-    /**
-     * this could return the bottom left world coord.
-     */
-	inline Vector3D * getBaseVector() {return NULL;}
-
 	/**
-	 * Set the renderable to the viewer
+	 * Set the world to look at
 	 */
-	World * setModel(World*);
+	World * setModel(World * world);
 
 
     /**
@@ -109,7 +96,7 @@ public:
 
 
     /**
-     * redraw the screen on tick events
+     * redraws the screen on tick events
      */
      void handleTick();
 
@@ -133,9 +120,9 @@ public:
 
 
     /**
-     * Sets the clear color to use for the window
+     * Sets the clear color to use for the clear color
      */
-    void setBackground(const float color [3]);
+    void setBackground(const float color [4]);
 
 
 	/**
@@ -152,11 +139,9 @@ public:
 
 
     /*
-     * Recalculate the clearColor since SDL keeps messing it up. This is kind
-     * of a hack, but 
-     * it allows for a somewhat clean way of doing it, at least people don't
-     * have to make the GL
-     * call themselves, right?
+	 * Recalculate the clearColor since SDL keeps messing it up. This is
+	 * kind of a hack, but it allows for a somewhat clean way of doing it,
+	 * at least people don't have to make the GL call themselves, right?
      */
     void setupClearColor();
 
@@ -219,22 +204,25 @@ protected:
 
     CoordinateSystem * _coordinateSystem;
 
-    void renderObject(void);
-
-
     /**
      * Sends out the camera's position to all the listeners.
      */
     void notifyListeners();
 
+	Camera();
 
 private:
 
-    void doTransform();
-    void undoTransform();
-    
+	/**
+	 * clears GL state, pushes the orientation and coordinate system,
+	 * renders, restores transform state.
+	 */
+	void view();
+
     // set all state vars
-void build (double fov, double nearCP, double farCP, int colorDepth, Uint32 videoFlags, int wallMode, Vector2D * offset, const float color[4]);
+	void build (double fov, double nearCP, double farCP, int colorDepth,
+				Uint32 videoFlags, int wallMode, Vector2D * offset, const
+				float color[4]);
 
     double			_nearClippingPlane;	
     double			_farClippingPlane;

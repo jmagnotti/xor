@@ -20,16 +20,12 @@ class FullScreen : public XavierConfiguration
  */
 int main(int argc, char ** argv)
 {
-
-    Controller * ctrl = Controller::GetInstance(new FullScreen());
+    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
     // Add a keyboard listener that has a small set of key handlers
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
-	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
-    Cube * cube = new Cube(new Vector3D(0,0,-3), 30.0f, 
-            new Paint(Color::WHITE));
-                //Color::RED, Color::WHITE, Paint::HEIGHT_BASED));
+    Cube * cube = new Cube(new Vector3D(0,0,-1), 3.0f, new Paint(Color::WHITE));
 
     ctrl->setModel(cube);
 
