@@ -16,7 +16,8 @@ using namespace std;
 namespace XOR {
 
 /**
- * Easy way to have holistic positioning of an object 
+ * Easy way to have holistic positioning of an object. Should be upated to
+ * use Quaternions | Eigenaxes.
  *
  * @author John Magnotti
  * @version 1.1
@@ -26,15 +27,11 @@ class Orientation : public Transform
 
 public:
 
-    // FIXME legacy
-  static const int Orientation::THETA = 0;
-  static const int Orientation::PHI   = 1;
-  static const int Orientation::ROLL  = 2;
-
 	/**
 	 * Explicit Constructor
 	 */
 	Orientation();
+
 	~Orientation();
 
 	Orientation(Translate * position, Rotate * roll, Rotate * theta, Rotate * phi);
@@ -52,12 +49,16 @@ public:
 
     void clone(Orientation * other);
 
+	/**
+	 * Returns a new Orientation whose values are equivalent.
+	 */
     Orientation * clone();
 
 	/**
 	 * Can't push the inverse of an orientation. Invocation does nothing.
 	 */
 	void pushInverse(void);
+
 
     void print();
 
@@ -88,20 +89,28 @@ public:
 
 	void moveAlongFocalVector(float distance);
 
+
+	//Vector3D * getPosition();
+
+	//float  getRoll();
+	//float  getPitch();
+	//float  getYaw();
+	
+	//float  getFocalDistance();
+	//Vector3D * getFocalPoint() const;
+
 private:
 
 	void updateFocalPoint();
+
 	void updateFromFocalPoint();
 
-    Rotate * _roll, * _theta, * _phi;
+    Rotate    * _roll, * _theta, * _phi;
     Translate * _position;
-    Vector3D * _focalPoint;
+
+    Vector3D  * _focalPoint;
+
     float _focalDistance;
-
-    //FIXME legacy
-    bool _transformed;
-
-
 };
 
 }

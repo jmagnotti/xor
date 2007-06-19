@@ -24,7 +24,6 @@ Orientation::Orientation()
 	_roll       = new Rotate(0.0f, 0, 0, 1);
 
 	_focalDistance = 1.0f;
-	_transformed = false;
 }
 
 
@@ -83,8 +82,6 @@ void Orientation::clone(Orientation * other)
     _roll->clone(other->_roll);
 
     _focalDistance = other->_focalDistance;
-
-	_transformed = other->_transformed;
 }
 
 
@@ -150,7 +147,6 @@ void Orientation::pop()
  */
 void Orientation::moveAlongFocalVector(float distance)
 {
-	_transformed = true;
 	updateFocalPoint();
 
 	// calculate new position by obtaining focus vector and multiplying

@@ -3,14 +3,15 @@
 
 namespace XOR {
 
+const Vector3D * Rotate::ROLL  = new Vector3D(1,0,0);
+const Vector3D * Rotate::PITCH = new Vector3D(0,1,0);
+const Vector3D * Rotate::YAW   = new Vector3D(0,0,1);
+
 /*
  * Destructor
-Rotate::~Rotate()
-{
-    _values.clear();
-    _out.clear();
-}
  */
+Rotate::~Rotate()
+{}
 
 
 /*

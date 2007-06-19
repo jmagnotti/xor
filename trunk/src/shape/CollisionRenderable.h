@@ -2,8 +2,8 @@
 #define COLLISIONRENDERABLE_H
 
 
-#include "Renderable.h"
-#include "Point3D.h"
+#include "../core/Renderable.h"
+#include "../object3D/Point3D.h"
 
 
 namespace XOR {

@@ -27,7 +27,7 @@ void DebugCamera::renderObject()
         _lastPrint = Controller::GetInstance(NULL)->getTimer()->getElapsedTime();
     }
 
-    Camera::renderObject();
+    //Camera::renderObject();
 }
 
 

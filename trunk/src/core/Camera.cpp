@@ -5,7 +5,7 @@ namespace XOR {
 // initialize static defaults
 const double Camera::DEFAULT_FOV		= 60;
 const double Camera::DEFAULT_NEAR_CLIP	= 0.01f;
-const double Camera::DEFAULT_FAR_CLIP	= 10000.0f;
+const double Camera::DEFAULT_FAR_CLIP	= 1000.0f;
 
 const int 	 Camera::DEFAULT_COLOR_DEPTH   = 32;
 const Uint32 Camera::DEFAULT_VIDEO_FLAGS   = SDL_OPENGL | SDL_RESIZABLE;
@@ -85,11 +85,14 @@ Camera::~Camera()
  * Sets the model to be viewed.
  * This is substitutive, not additive.
  */
-World * Camera::setModel(World * rend)
+World * Camera::setModel(World * world)
 {
     World * old_model = _model;
 
-	_model = rend;
+	_model = world;
+
+	// this sets the O3D in Transformable FIXME  HACK
+	//_object3d = _model;
 
     return old_model;
 }
@@ -100,10 +103,21 @@ World * Camera::setModel(World * rend)
  */
 void Camera::handleTick()
 {
-    // calls the Transformables render method, which will push, render, pop
-    render();
+	view();
 }
 
+void Camera::view()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	//_orienation->pushInverse();
+		_coordinateSystem->push();
+			_model->render();
+		_coordinateSystem->pop();
+	//_orienation->pop();
+
+	SDL_GL_SwapBuffers();
+}
 
 /*
  * 
@@ -139,9 +153,6 @@ void Camera::handleReshape(ReshapeEvent * event)
 
 		gluPerspective(_fieldOfView*fovmodifier, (float)event->getWidth()/
 				(float)event->getHeight(), _nearClippingPlane, _farClippingPlane);
-
-        // don't need this at the base level of the projection matrix
-        //glPushMatrix();   
 
 		glRotatef(-(float)_wallYoffset*rotmodifier, 1.0, 0.0, 0.0);
 		glRotatef( (float)_wallXoffset*rotmodifier, 0.0, 1.0, 0.0);
@@ -204,19 +215,16 @@ void Camera::removeListener(CameraListener * cl)
  */
 void Camera::notifyListeners()
 {
-    Vector3D * pos = getBaseVector()->clone();
-
     list<CameraListener*>::iterator iter   = _listeners.begin();
 	list<CameraListener*>::iterator next   = _listeners.begin();
     list<CameraListener*>::iterator finish = _listeners.end();
 
     while (iter != finish) {
 		++next;
-		(*iter)->handleCameraMove(pos);
+		//FIXME implement
+		//(*iter)->handleCameraMove(_orientation->getPosition());
         iter = next;
     }
-
-    delete pos;
 }
 
 
@@ -225,7 +233,8 @@ void Camera::notifyListeners()
  */
 void Camera::setupSDLVideo(Dimension2D * size)
 {
-    SDL_SetVideoMode((int)size->getWidth(), (int)size->getHeight(), _colorDepth, _videoFlags);
+	SDL_SetVideoMode((int)size->getWidth(), (int)size->getHeight(),
+					 _colorDepth, _videoFlags);
 }
 
 
@@ -327,19 +336,6 @@ void Camera::toggleFullScreen()
 
 
 /*
- * Sets the size of the window, copies values, so be sure to free this dimension object if you created it.
-void Camera::setWindowDimension(Dimension2D * size)
-{
-	delete _size;
-    _size = size->clone();
-
-    SDL_SetVideoMode((int)_size->getWidth(), (int)_size->getHeight(),
-            DEFAULT_COLOR_DEPTH, DEFAULT_VIDEO_FLAGS);
-}
- */ 
-
-
-/*
  * sets the color to be used for glClearColor(..)
  */
 void Camera::setBackground(const float color[4])
@@ -372,10 +368,8 @@ void Camera::setWallOffset(int x, int y)
 	cout << "new x offset: " << _wallXoffset << endl;
 	cout << "new y offset: " << _wallYoffset << endl;
 
-	// We have the force reshape method above that was created for Controller to for an initial reshape
-	// without having to know how to constrct events.
-	//ReshapeEvent * evt = ReshapeEvent::ConstructInstance(getWindowSize());
-	//handleReshape(evt);
+	// to make sure the values are taken into account, push a reshape event
+	// onto the queue.
     Window::ForceReshape();
 }
 
@@ -444,28 +438,5 @@ void Camera::setWallMode(int mode)
     }
 }
 
-void Camera::renderObject(void)
-{
-    _object3d->render();
 }
 
-
-void Camera::doTransform()
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// since we're technically moving the whole world, push the inverse
-    Transformable::doInverseTransform();
-    _coordinateSystem->push();
-}
-
-
-void Camera::undoTransform()
-{
-    _coordinateSystem->pop();
-    Transformable::undoTransform();
-
-    SDL_GL_SwapBuffers(); 
-}
-
-}

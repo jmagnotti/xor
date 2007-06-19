@@ -2,8 +2,7 @@
 
 using namespace XOR;
 
-class CubeDemoConfig : public XavierConfiguration
-{
+class CubeDemoConfig : public XavierConfiguration {
 public:
 
     CubeDemoConfig()
@@ -11,7 +10,7 @@ public:
 
 	EventFactory * getEventFactory()
     {
-        return InputEventProxyFactory::GetInstance();
+        return FullEventProxyFactory::GetInstance();
     }
 
 };
@@ -129,28 +128,30 @@ public:
 		}
 		*/
 		TestShape * t0 = new TestShape();
-		t0->incrementTranslation(new Vector3D(0,-3,0));
+		//t0->incrementTranslation(new Vector3D(0,-3,0));
 		
 		TestShape * t1 = new TestShape();
-		t1->incrementRotation(Orientation::ROLL, 90);
-		t1->incrementTranslation(new Vector3D(3,0,0));
+		//t1->incrementRotation(Orientation::ROLL, 90);
+		//t1->incrementTranslation(new Vector3D(3,0,0));
 
 		TestShape * t2 = new TestShape();
-		t2->incrementRotation(Orientation::ROLL, 180);
-		t2->incrementTranslation(new Vector3D(0,3,0));
+		//t2->incrementRotation(Orientation::ROLL, 180);
+		//t2->incrementTranslation(new Vector3D(0,3,0));
 
 		TestShape * t3 = new TestShape();
-		t3->incrementRotation(Orientation::ROLL, 270);
-		t3->incrementTranslation(new Vector3D(-3,0,0));
+		//t3->incrementRotation(Orientation::ROLL, 270);
+		//t3->incrementTranslation(new Vector3D(-3,0,0));
 
 		collection->addObject3D(t0);
-		collection->addObject3D(t1);
-		collection->addObject3D(t2);
-		collection->addObject3D(t3);
+		//collection->addObject3D(t1);
+		//collection->addObject3D(t2);
+		//collection->addObject3D(t3);
 
 		// -- end loop*/
 			
-		ctrl->getModel()->addObject("objs", new CompiledObject3D(collection));
+		Transformable * t = new Transformable(collection);
+		t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-1)));
+		ctrl->getModel()->addObject("objs", new CompiledObject3D(t));
         // timer tests
         /*
 			PrintAllTicks *			pat = new PrintAllTicks();
@@ -166,7 +167,7 @@ public:
 	 */
 	void play(void)
 	{
-		Controller::GetInstance(NULL)->run();
+		Controller::GetInstance()->run();
 	}
 
 };

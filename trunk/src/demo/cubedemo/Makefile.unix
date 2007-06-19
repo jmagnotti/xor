@@ -36,37 +36,33 @@ depend: $(SRCS)
 # DO NOT DELETE THIS LINE -- make depend needs it
 
 CubeDemo.o: ../../xor.h ../../event/timer/TimerStub.h
-CubeDemo.o: ../../event/timer/Timer.h /usr/include/SDL/SDL.h
-CubeDemo.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h
-CubeDemo.o: /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h
-CubeDemo.o: /usr/include/sys/types.h /usr/include/features.h
-CubeDemo.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-CubeDemo.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-CubeDemo.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-CubeDemo.o: /usr/include/time.h /usr/include/endian.h
-CubeDemo.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-CubeDemo.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-CubeDemo.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-CubeDemo.o: /usr/include/bits/pthreadtypes.h /usr/include/stdio.h
-CubeDemo.o: /usr/include/libio.h /usr/include/_G_config.h
-CubeDemo.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-CubeDemo.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
-CubeDemo.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
-CubeDemo.o: /usr/include/alloca.h /usr/include/string.h
-CubeDemo.o: /usr/include/strings.h /usr/include/inttypes.h
-CubeDemo.o: /usr/include/stdint.h /usr/include/ctype.h /usr/include/iconv.h
-CubeDemo.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
-CubeDemo.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_error.h
-CubeDemo.o: /usr/include/SDL/SDL_endian.h /usr/include/SDL/SDL_mutex.h
-CubeDemo.o: /usr/include/SDL/SDL_thread.h /usr/include/SDL/SDL_rwops.h
-CubeDemo.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_cpuinfo.h
-CubeDemo.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
-CubeDemo.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
-CubeDemo.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
-CubeDemo.o: /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h
-CubeDemo.o: /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h
-CubeDemo.o: /usr/include/SDL/SDL_version.h ../../event/timer/TimerListener.h
+CubeDemo.o: ../../event/timer/Timer.h ../../../include/SDL.h
+CubeDemo.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+CubeDemo.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+CubeDemo.o: ../../../include/begin_code.h ../../../include/close_code.h
+CubeDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+CubeDemo.o: /usr/include/features.h /usr/include/sys/cdefs.h
+CubeDemo.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+CubeDemo.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+CubeDemo.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+CubeDemo.o: /usr/include/_G_config.h /usr/include/wchar.h
+CubeDemo.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+CubeDemo.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+CubeDemo.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+CubeDemo.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+CubeDemo.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+CubeDemo.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+CubeDemo.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+CubeDemo.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+CubeDemo.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+CubeDemo.o: ../../event/timer/TimerListener.h
 CubeDemo.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CubeDemo.o: /usr/include/sys/types.h /usr/include/time.h
+CubeDemo.o: /usr/include/endian.h /usr/include/bits/endian.h
+CubeDemo.o: /usr/include/sys/select.h /usr/include/bits/select.h
+CubeDemo.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+CubeDemo.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+CubeDemo.o: /usr/include/stdlib.h /usr/include/alloca.h /usr/include/string.h
 CubeDemo.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
 CubeDemo.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
 CubeDemo.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
@@ -74,15 +70,15 @@ CubeDemo.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
 CubeDemo.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
 CubeDemo.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
 CubeDemo.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
-CubeDemo.o: /usr/include/netinet/in.h /usr/include/bits/in.h
-CubeDemo.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
-CubeDemo.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
-CubeDemo.o: /usr/include/bits/confname.h /usr/include/getopt.h
-CubeDemo.o: ../../multicast/MulticastSocketPool.h
+CubeDemo.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CubeDemo.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+CubeDemo.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CubeDemo.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+CubeDemo.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 CubeDemo.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
-CubeDemo.o: ../../event/timer/TimerSkeleton.h /usr/include/SDL/SDL_thread.h
-CubeDemo.o: ../../core/Controller.h ../../event/EventFactory.h
-CubeDemo.o: ../../event/keyboard/Keyboard.h
+CubeDemo.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+CubeDemo.o: ../../core/Controller.h ../../../include/SDL.h
+CubeDemo.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
 CubeDemo.o: ../../event/keyboard/KeyboardListener.h
 CubeDemo.o: ../../event/keyboard/KeyEvent.h
 CubeDemo.o: ../../event/keyboard/KeyEventFactory.h
@@ -100,33 +96,32 @@ CubeDemo.o: ../../event/reshape/ReshapeListener.h
 CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
 CubeDemo.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
 CubeDemo.o: ../../geometry/Vector2D.h ../../core/World.h
-CubeDemo.o: ../../shape/Renderable.h ../../shape/Object3D.h
-CubeDemo.o: ../../transform/Transformable.h /usr/include/SDL/SDL_opengl.h
+CubeDemo.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CubeDemo.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+CubeDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
+CubeDemo.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
 CubeDemo.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-CubeDemo.o: /usr/include/GL/glu.h ../../transform/Transform.h
-CubeDemo.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+CubeDemo.o: /usr/include/GL/glu.h ../../paint/Color.h ../../core/Renderable.h
+CubeDemo.o: ../../object3D/Point3D.h /usr/include/math.h
+CubeDemo.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+CubeDemo.o: /usr/include/bits/mathcalls.h ../../object3D/Object3D.h
+CubeDemo.o: ../../core/XavierConfiguration.h
+CubeDemo.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+CubeDemo.o: ../../transform/Rotate.h
 CubeDemo.o: ../../interpolation/InterpolationEngine.h
 CubeDemo.o: ../../interpolation/InterpolationListener.h
 CubeDemo.o: ../../interpolation/Interpolator.h
 CubeDemo.o: ../../interpolation/InterpolatorFactory.h
 CubeDemo.o: ../../interpolation/LinearInterpolator.h
-CubeDemo.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-CubeDemo.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-CubeDemo.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
-CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
-CubeDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
-CubeDemo.o: ../../transform/Orientation.h ../../paint/Paint.h
-CubeDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
-CubeDemo.o: ../../../include/SDL.h ../../paint/Color.h
-CubeDemo.o: ../../shape/Renderable.h ../../shape/Point3D.h
-CubeDemo.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
-CubeDemo.o: ../../transform/CoordinateSystem.h
+CubeDemo.o: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
 CubeDemo.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 CubeDemo.o: ../../event/keyboard/KeyboardStub.h
 CubeDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 CubeDemo.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 CubeDemo.o: ../../paint/Color.h ../../core/Camera.h
-CubeDemo.o: ../../core/CameraListener.h
+CubeDemo.o: ../../core/CameraListener.h ../../object3D/Transformable.h
+CubeDemo.o: ../../transform/Transform.h
 CubeDemo.o: ../../transform/CoordinateSystemFactory.h
 CubeDemo.o: ../../transform/CoordinateSystem.h
 CubeDemo.o: ../../transform/OpenGLCoordinateSystem.h
@@ -156,7 +151,7 @@ CubeDemo.o: ../../event/mouse/MouseSkeleton.h
 CubeDemo.o: ../../event/mouse/MouseListener.h
 CubeDemo.o: ../../event/mouse/MouseClickEvent.h
 CubeDemo.o: ../../event/mouse/DefaultMouseListener.h
-CubeDemo.o: ../../transform/Transformable.h
+CubeDemo.o: ../../object3D/Transformable.h
 CubeDemo.o: ../../event/mouse/MouseButtonDown.h
 CubeDemo.o: ../../event/mouse/MouseMotionEvent.h
 CubeDemo.o: ../../event/mouse/MouseEventFactory.h
@@ -171,7 +166,6 @@ CubeDemo.o: ../../event/InputEventHandlerFactory.h ../../event/EventFactory.h
 CubeDemo.o: ../../interpolation/InterpolationListener.h
 CubeDemo.o: ../../interpolation/CameraRoller.h ../../interpolation/Waypoint.h
 CubeDemo.o: ../../interpolation/TimedInterpolation.h
-CubeDemo.o: ../../transform/Orientation.h
 CubeDemo.o: ../../interpolation/InterpolatorFactory.h
 CubeDemo.o: ../../interpolation/TimedInterpolation.h
 CubeDemo.o: ../../interpolation/LinearInterpolator.h
@@ -183,39 +177,20 @@ CubeDemo.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
 CubeDemo.o: ../../core/DebugCamera.h ../../core/Controller.h
 CubeDemo.o: ../../core/Controller.h ../../core/XavierConfiguration.h
 CubeDemo.o: ../../core/World.h ../../core/Window.h ../../core/Camera.h
-CubeDemo.o: ../../geometry/Vector3D.h ../../geometry/Dimension2D.h
-CubeDemo.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
-CubeDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
-CubeDemo.o: ../../geometry/CylindricalVolume.h
-CubeDemo.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+CubeDemo.o: ../../core/Renderable.h ../../geometry/Vector3D.h
+CubeDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+CubeDemo.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
 CubeDemo.o: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
 CubeDemo.o: ../../model/Model.h ../../texture/TextureFactory.h
 CubeDemo.o: ../../texture/Texture.h ../../model/Model.h
 CubeDemo.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
-CubeDemo.o: ../../shape/Point.h ../../shape/Rectangle2D.h
-CubeDemo.o: ../../shape/Object2D.h ../../core/Window.h ../../shape/Arc3D.h
-CubeDemo.o: ../../shape/Triangle3D.h ../../shape/Object3D.h
-CubeDemo.o: ../../shape/Renderable.h ../../shape/NoDepthTestQuadrilateral3D.h
-CubeDemo.o: ../../shape/Quadrilateral3D.h ../../util/PointScale.h
-CubeDemo.o: ../../texture/TextureScale.h ../../shape/CollisionRenderable.h
-CubeDemo.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-CubeDemo.o: ../../shape/RectangularPrism.h ../../geometry/RectangularVolume.h
-CubeDemo.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
-CubeDemo.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-CubeDemo.o: ../../util/BitmapFontConstants.h
-CubeDemo.o: ../../shape/ExtrudedNormalPolygon3D.h
-CubeDemo.o: ../../shape/NormalPolygon3D.h ../../shape/AdornablePrism.h
-CubeDemo.o: ../../shape/RectangularPrism.h ../../shape/Object3DCollection.h
-CubeDemo.o: ../../shape/CompiledObject3D.h ../../shape/Particle.h
-CubeDemo.o: ../../shape/CollisionRenderable.h
-CubeDemo.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-CubeDemo.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-CubeDemo.o: ../../shape/Point2D.h ../../texture/Texture.h
+CubeDemo.o: ../../shape/CollisionRenderable.h ../../texture/Texture.h
 CubeDemo.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
-CubeDemo.o: ../../terrain/NullHeightFieldStrategy.h
+CubeDemo.o: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
 CubeDemo.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-CubeDemo.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
-CubeDemo.o: ../../terrain/HeightFieldStrategy.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CubeDemo.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
 CubeDemo.o: ../../terrain/ImageHeightFieldStrategy.h
 CubeDemo.o: ../../terrain/HeightFieldFactory.h
 CubeDemo.o: ../../terrain/MatrixHeightFieldStrategy.h
@@ -224,8 +199,8 @@ CubeDemo.o: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
 CubeDemo.o: ../../multicast/mcreceive.h ../../multicast/Multicast.h
 CubeDemo.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
 CubeDemo.o: ../../paint/Color.h ../../transform/Orientation.h
-CubeDemo.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
-CubeDemo.o: ../../transform/Rotate.h ../../transform/Transformable.h
+CubeDemo.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
+CubeDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
 CubeDemo.o: ../../transform/OpenGLCoordinateSystem.h
 CubeDemo.o: ../../transform/TransformFactory.h
 CubeDemo.o: ../../transform/MathCoordinateSystem.h
@@ -237,5 +212,28 @@ CubeDemo.o: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
 CubeDemo.o: ../../util/GraphicsConversionUtility.h
 CubeDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 CubeDemo.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
-CubeDemo.o: ../../shape/String2D.h ../../util/BitmapFontConstants.h
+CubeDemo.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CubeDemo.o: ../../util/BitmapFontConstants.h ../../object2D/Object2D.h
+CubeDemo.o: ../../core/Window.h ../../util/BitmapFontConstants.h
 CubeDemo.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+CubeDemo.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+CubeDemo.o: ../../object2D/String2D.h ../../object2D/Point2D.h
+CubeDemo.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+CubeDemo.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
+CubeDemo.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CubeDemo.o: ../../object3D/Transformable.h
+CubeDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h
+CubeDemo.o: ../../object3D/RectangularPrism.h
+CubeDemo.o: ../../geometry/RectangularVolume.h
+CubeDemo.o: ../../object3D/NormalPolygon3D.h
+CubeDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CubeDemo.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+CubeDemo.o: ../../object3D/RectangularPrism.h
+CubeDemo.o: ../../object3D/Object3DCollection.h
+CubeDemo.o: ../../object3D/CompiledObject3D.h
+CubeDemo.o: ../../object3D/Sprite3DListener.h ../../object3D/Particle.h
+CubeDemo.o: ../../object3D/Object3DCollection.h
+CubeDemo.o: ../../object3D/RectangularPrismFactory.h
+CubeDemo.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h

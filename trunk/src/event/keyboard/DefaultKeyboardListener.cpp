@@ -196,11 +196,7 @@ void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	//FIXME
-    /*
-        Controller::GetInstance()->getCamera()->walk(0.5f, new
-                TimedInterpolation(1000,NULL));
-    */
+	//Controller::GetInstance()->getCamera()->walk(0.5f, new TimedInterpolation(1000,NULL));
 }
 
 void DefaultKeyboardListener::handleKey_s()

@@ -23,12 +23,15 @@ class Rotate : public Transform
 
 public:
 
+	static const Vector3D * ROLL;
+	static const Vector3D * PITCH;
+	static const Vector3D * YAW;
 
     /**
      * Default Constructor
      */
     Rotate();
-
+    ~Rotate();
 
 
 	/**
