@@ -11,10 +11,8 @@ public class DemoEntry
         this.name = name;
         
 		// Load icon
-		java.net.URL url = getClass().getResource(name + ".gif");
-		ImageIcon sweetIcon = new ImageIcon(url);
-		
-		screenshot = sweetIcon;
+        screenshot = loadIcon();
+        
     }
 
 	public String getName() {
@@ -23,6 +21,32 @@ public class DemoEntry
 
 	public Icon getScreenshot() {
 		return screenshot;
+	}
+	
+	/**
+	 * 
+	 * @return False if no image was loaded.
+	 */
+	private ImageIcon loadIcon()
+	{
+		boolean success = true;
+		ImageIcon sweetIcon;
+		
+        //System.out.println("Attempting to open \"" + ("img/"+ name + ".png") + "\".");
+		java.net.URL url = getClass().getResource("img/"+ name + ".png");
+		
+		try {
+			sweetIcon = new ImageIcon(url);
+			
+		} catch (NullPointerException npe) {
+			// TODO: How is this done properly?
+			// if loading failed, go to default image
+			System.out.println("Defauling to no image...");
+			url = getClass().getResource("img/noimage.png");
+			sweetIcon = new ImageIcon(url);
+		}
+		
+		return sweetIcon;
 	}
 	
 	
