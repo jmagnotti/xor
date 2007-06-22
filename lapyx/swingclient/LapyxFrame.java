@@ -4,27 +4,28 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.HashMap;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
+import javax.swing.border.Border;
 
 public class LapyxFrame extends JFrame 
 {
-
 	private JList demoList;
-
 	private JScrollPane scrollableDemoList;
 
 	LapyxFrame(Vector<DemoEntry> demoEntries) {
 		super("Lapyx Launcher"); // title window
-		setBounds(10, 10, 400, 460); // big window
+		setBounds(10, 10, 400, 600); // big window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		this.setResizable(false);
+		
 		// fill the list up with demos
 		populateList(demoEntries);
 
@@ -50,11 +51,18 @@ public class LapyxFrame extends JFrame
 		 * BorderLayout.PAGE_END); pane.add(button, BorderLayout.LINE_END);
 		 */
 
+		
+		Border blackline = BorderFactory.createLineBorder(Color.WHITE, 5);
+		
+		demoList.setBorder(blackline);
 		scrollableDemoList = new JScrollPane(demoList);
-
+		
 		pane.add(scrollableDemoList, BorderLayout.CENTER);
 
-		// pane.add(demoList, BorderLayout.CENTER);
+		// add logo
+		pane.add(new JLabel(loadImage("img/logo.png")), BorderLayout.PAGE_START);
+		// add side
+		pane.add(new JLabel(loadImage("img/side.png")), BorderLayout.WEST);
 
 	}
 
@@ -69,6 +77,14 @@ public class LapyxFrame extends JFrame
 		demoList.setFixedCellHeight(138); // 5px padding
 
 		// demoList.setPreferredSize(new Dimension(200, 220)); // BIG
+	}
+	
+	private ImageIcon loadImage(String filename)
+	{
+		java.net.URL url = getClass().getResource(filename);
+		ImageIcon icon = new ImageIcon(url);
+		
+		return icon;
 	}
 
 	/** ***************** INNER CLASSES ****************** */
@@ -104,6 +120,8 @@ public class LapyxFrame extends JFrame
 	 * 
 	 */
 	class ImgTextCellRenderer extends JLabel implements ListCellRenderer {
+		private Color veryLightGray = new Color (237, 237, 237); // highlight color
+		
 		public ImgTextCellRenderer() {
 			setOpaque(true);
 		}
@@ -113,12 +131,9 @@ public class LapyxFrame extends JFrame
 			DemoEntry entry = (DemoEntry) value;
 			setText(entry.getName());
 			setIcon(entry.getScreenshot());
-			// setBackground(isSelected ? Color.red : (index & 1) == 0 ?
-			// Color.cyan : Color.green);
 
-			// setForeground(isSelected ? Color.white : Color.black);
 			if (isSelected)
-				setBackground(Color.lightGray);
+				setBackground(veryLightGray);
 			else
 				setBackground(Color.white);
 
