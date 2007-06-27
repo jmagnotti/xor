@@ -1,0 +1,263 @@
+package lapyxclient;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.util.Vector;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.KeyStroke;
+import javax.swing.ListCellRenderer;
+import javax.swing.border.Border;
+
+
+
+/**
+ * A LapyxFrame is the MacDaddy of this application.
+ * It's a JFrame that contains 
+ * @author Kris Kalish
+ *
+ */
+
+public class LapyxFrame extends JFrame implements ActionListener 
+{
+	private JList                demoList;
+	private JScrollPane 	     scrollableDemoList;
+	private NetworkSettings      nws;
+
+	/**
+	 * The default constructor
+	 * 
+	 * @param demoEntries
+	 */
+	LapyxFrame(Vector<DemoEntry> demoEntries)
+	{
+		// decorate and modify this window
+		super("Lapyx Launcher");  // add title
+		setBounds(10, 10, 400, 600); // change size
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close when done
+		this.setResizable(false); // no resizing!!!
+		
+		// Load network settings
+		nws = new NetworkSettings("network.cfg");
+		try {
+			nws.loadCFG();
+		} catch (IOException ioe) {
+			JOptionPane.showMessageDialog(this, 
+					"Couldn't find the network config file! Please check network settings.", 
+					"Could not open configuration file", JOptionPane.WARNING_MESSAGE);
+
+		}
+		
+		System.out.println("Master host:" + nws.getMasterHost());
+		
+		// fill the list up with demos
+		populateList(demoEntries);
+
+		addComponentsToPane(this.getContentPane());
+
+		LapyxMouseCommands lmc = new LapyxMouseCommands();
+
+		demoList.addMouseListener(lmc);
+
+	}
+
+	public void addComponentsToPane(Container pane)
+	{
+		if (!(pane.getLayout() instanceof BorderLayout))
+		{
+			pane.add(new JLabel("Container doesn't use BorderLayout!"));
+			return;
+		}
+		
+		// Create a menu and add some stuff
+		JMenuBar menuBar;
+		JMenu menu, submenu;
+		JMenuItem menuItem;
+		
+		// Create the menu bar.
+		menuBar = new JMenuBar();
+
+		// Build the first menu.
+		menu = new JMenu("Lapyx");
+		menu.setMnemonic(KeyEvent.VK_L);
+		menuBar.add(menu);
+
+		// a group of JMenuItems
+		menuItem = new JMenuItem("Exit",
+		                         KeyEvent.VK_T);
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
+		// a submenu
+		menu.addSeparator();
+		submenu = new JMenu("Network");
+		submenu.setMnemonic(KeyEvent.VK_N);
+
+		menuItem = new JMenuItem("Master Server");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		menuItem.addActionListener(this);
+		
+		submenu.add(menuItem);
+		menu.add(submenu);
+
+		
+		this.setJMenuBar(menuBar);
+		
+		/*
+		 * // All of the positions availible to me 
+		 * pane.add(button, BorderLayout.PAGE_START); 
+		 * pane.add(button, BorderLayout.CENTER);
+		 * pane.add(button, BorderLayout.LINE_START); 
+		 * pane.add(button, BorderLayout.PAGE_END);
+		 * pane.add(button, BorderLayout.LINE_END);
+		 */
+
+		
+		Border blackline = BorderFactory.createLineBorder(Color.WHITE, 5);
+		
+		demoList.setBorder(blackline);
+		scrollableDemoList = new JScrollPane(demoList);
+		
+		pane.add(scrollableDemoList, BorderLayout.CENTER);
+
+		// add logo
+		pane.add(new JLabel(loadImage("img/logo.png")), BorderLayout.PAGE_START);
+		// add side
+		pane.add(new JLabel(loadImage("img/side.png")), BorderLayout.WEST);
+
+	}
+	
+	/**
+	 * actionPerformed is used (in this class) to catch
+	 * mouse clicks on the menu items.
+	 */
+	public void actionPerformed(ActionEvent e)
+	{
+		String command;
+		command = e.getActionCommand();
+        System.out.println("Command: "  + command);
+		if(command.equals("Exit")) {
+			this.setVisible(false);
+			this.dispose();
+		} else if(command.equals("Master Server")) {
+			System.out.println("Attempting to open a popup.");
+			NetworkSettingsFrame nwsf = new NetworkSettingsFrame(nws);
+			nwsf.setVisible(true);
+		}
+    }
+
+	private void populateList(Vector<DemoEntry> demoEntries)
+	{
+		// add them
+		demoList = new JList(demoEntries);
+
+		// now take care of some odds and ends
+		demoList.setCellRenderer(new ImgTextCellRenderer()); // lets us use
+		// imgs
+		demoList.setFixedCellHeight(138); // 5px padding
+
+		// demoList.setPreferredSize(new Dimension(200, 220)); // BIG
+	}
+	
+	private ImageIcon loadImage(String filename)
+	{
+		java.net.URL url = getClass().getResource(filename);
+		ImageIcon icon = new ImageIcon(url);
+		
+		return icon;
+	}
+
+	/** ***************** INNER CLASSES ****************** */
+
+	/**
+	 * This mouse listener is part of the LapyxFrame rather than
+	 * it's own class in order to have access to the demoList.
+	 * 
+	 * It takes the text label from the list item clicked and creates
+	 * a TCP client to send that message.
+	 */
+	private class LapyxMouseCommands extends MouseAdapter
+	{
+
+		private final TCPClient client; // talks to the server
+
+		/**
+		 * The default constructor... Readies a new TCPClient
+		 */
+		public LapyxMouseCommands()
+		{
+			client = new TCPClient(nws.getMasterHost());
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e)
+		{
+			super.mouseClicked(e);
+
+			if (e.getClickCount() == 2) {
+				int index = demoList.locationToIndex(e.getPoint());
+				System.out.println("Double clicked on Item " + index);
+
+				DemoEntry something = (DemoEntry) demoList.getSelectedValue();
+
+				System.out.println(something.getName());
+
+				client.sendData(something.getName());
+			}
+		}
+	}
+	
+	
+	/**
+	 * Since a JList is nothing more than a bunch of JLabels with a rendered,
+	 * this class replaces the default so we can add pictures with our text
+	 * and even customize the highlight color(s).
+	 */
+	class ImgTextCellRenderer extends JLabel implements ListCellRenderer
+	{
+		private final Color veryLightGray = new Color (237, 237, 237); // highlight color
+		
+		/**
+		 * This default constructor does nothing more than to set the label to opaque
+		 */
+		public ImgTextCellRenderer()
+		{
+			setOpaque(true);
+		}
+
+		public Component getListCellRendererComponent(JList list, Object value,
+				int index, boolean isSelected, boolean cellHasFocus)
+		{
+			DemoEntry entry = (DemoEntry) value;
+			setText(entry.getName());
+			setIcon(entry.getScreenshot());
+
+			if (isSelected)
+				setBackground(veryLightGray);
+			else
+				setBackground(Color.white);
+
+			return this;
+		}
+	}
+
+}
