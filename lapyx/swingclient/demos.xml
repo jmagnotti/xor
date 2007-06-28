@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<comment>Updated with XMLBuilder</comment>
-<entry key="VLC">this is a test</entry>
-<entry key="cars">./xor/src/demo/photoalbum/PhotoAlbum</entry>
-<entry key="demo with no pic">doesn't matter</entry>
-<entry key="photoalbum">./xor/src/demo/photoalbum/PhotoAlbum</entry>
+<comment>Edited by Kris 6/28/07</comment>
+<entry key="VLC">perl lapyxexecute.pl vlc</entry>
+<entry key="Kill VLC">perl lapyxexecute.pl killallvlc</entry>
+<entry key="Cars">perl lapyxexecute.pl cars</entry>
+<entry key="Kill Cars">perl lapyxexecute.pl killallcars</entry>
+<entry key="Photoalbum">perl lapyxexecute.pl photoalbum</entry>
+<entry key="Kill Photoalbum">perl lapyxexecute.pl killallphotoalbum</entry>
+<entry key="Restart GDM">perl lapyxexecute.pl restartgdm</entry>
 </properties>

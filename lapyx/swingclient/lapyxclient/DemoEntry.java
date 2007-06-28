@@ -13,14 +13,15 @@ public class DemoEntry
         
 		// Load icon
         screenshot = loadIcon();
-        
     }
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public Icon getScreenshot() {
+	public Icon getScreenshot()
+	{
 		return screenshot;
 	}
 	
