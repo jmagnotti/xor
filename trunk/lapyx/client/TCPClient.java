@@ -55,6 +55,7 @@ public class TCPClient
        {
           System.out.println(line);
        }*/
+	   s.close();
     }
     
 }

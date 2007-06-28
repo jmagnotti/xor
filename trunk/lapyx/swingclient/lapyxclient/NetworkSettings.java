@@ -13,7 +13,6 @@ public class NetworkSettings
 	
 	private static final String MASTER_HOSTNAME = "MasterHostname";
 	private static final String MASTER_PORT = "MasterPort";
-		
 	
 	NetworkSettings(String cfgFile)
 	{

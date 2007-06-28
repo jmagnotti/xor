@@ -100,11 +100,13 @@ public class LapyxDaemon
 					System.out.println("Will execute " + program + " now.");
 					Runtime.getRuntime().exec(program); 
 				}
+				System.out.println("Closing socket...");
+				socket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block 
 				e.printStackTrace(); 
 			} 
-
+			
 			System.out.println("Leaving thread.");
 		} 
     } 
