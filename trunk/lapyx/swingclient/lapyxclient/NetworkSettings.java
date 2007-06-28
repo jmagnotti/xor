@@ -3,6 +3,7 @@ package lapyxclient;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.Properties;
 
 public class NetworkSettings
@@ -32,7 +33,7 @@ public class NetworkSettings
 	
 	public String getMasterHost()
 	{
-		return cfgProps.getProperty(MASTER_HOSTNAME);
+		return cfgProps.getProperty(MASTER_HOSTNAME, "Host not found!");
 	}
 	
 	public int getMasterPort()
@@ -60,9 +61,27 @@ public class NetworkSettings
 	 */
 	public void saveCFG() throws IOException
 	{
+		// DEBUG
+		System.out.println("Writing cfg file:");
+		printCFG();
+		
 		FileOutputStream out = new FileOutputStream(cfgFile);
 		cfgProps.store(out, "Updated with Lapyx Client");
 		out.flush();
 		out.close();
+	}
+	
+	/**
+	 * This private method enumerates the Properties and
+	 * prints them.  It's used for degbugging.
+	 *
+	 */
+	private void printCFG()
+	{
+		Enumeration e = cfgProps.propertyNames();
+		while (e.hasMoreElements()) {
+			String propName = e.nextElement().toString();
+			System.out.println(propName+ " : " + cfgProps.getProperty(propName));
+		}
 	}
 }

@@ -160,7 +160,11 @@ public class LapyxFrame extends JFrame implements ActionListener
 			this.dispose();
 		} else if(command.equals("Master Server")) {
 			System.out.println("Attempting to open a popup.");
-			NetworkSettingsFrame nwsf = new NetworkSettingsFrame(nws);
+			//TODO:
+			// For some strange reason nws.getMasterHost()
+			// does not work inside the network settings frame.
+			// I think it is a threading problem.
+			NetworkSettingsFrame nwsf = new NetworkSettingsFrame(nws, nws.getMasterHost());
 			nwsf.setVisible(true);
 		}
     }

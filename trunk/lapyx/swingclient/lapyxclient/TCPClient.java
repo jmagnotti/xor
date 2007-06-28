@@ -17,6 +17,7 @@ public class TCPClient
     private PrintWriter             out;
     private Socket                  s;
     private String                  host;
+    private boolean                 open;
 
 
     /**
@@ -28,6 +29,7 @@ public class TCPClient
     public TCPClient(String host)
     {
     	this.host = host;
+    	openConnection();
        
 	   // TODO: Have the server send a response if it was successful or
 	   // not
@@ -49,22 +51,48 @@ public class TCPClient
 
 	public void sendData(String data)
 	{
-		//TODO:
-		// if not open... don't close
-		// make a clean up method
+		// there no point sending data if the connection never opened
+		if(s.isConnected())
+		{
+			// Send the data
+		 	out.println(data);
+		 	out.flush();
+		 	// Dump some console output
+		 	// DEBUG
+		 	System.out.println("Sent: " + data);
+		 	
+		 	cleanUp();
+		}
+	}
+	
+	/**
+	 * Open up a new connection
+	 */
+	public void openConnection()
+	{
 		try {
- 	       // Create a connection to a particular host and port
- 	       s   = new Socket(host, port);
- 	       // Get an output stream and construct a writer
- 	       out = new PrintWriter(s.getOutputStream());
- 	       
- 	       // in this case we will just be sending hte data and finishing
- 	       out.println(data);
- 	       out.flush();
- 	       s.close();
- 	       
+			// open connection to predetermined host and port
+			s = new Socket(host, port); 
+			// give us a way to throw data at the connection
+			out = new PrintWriter(s.getOutputStream());
 		} catch (IOException ioe) {
-			System.out.println("Couldn't close socket!");
+			System.out.println("Error opening socket!");
+		}
+	}
+	
+	/**
+	 * Safely closes our socket
+	 */
+	private void cleanUp()
+	{
+		try {
+			// ensure it hasn't been closed already
+			if(!s.isClosed())
+			{
+				s.close();
+			}
+		} catch (IOException ioe) {
+			System.out.println("Error closing socket!");
 		}
 	}
 }
