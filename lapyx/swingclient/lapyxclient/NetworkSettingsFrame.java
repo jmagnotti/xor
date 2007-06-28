@@ -24,6 +24,7 @@ public class NetworkSettingsFrame extends JFrame implements ActionListener
 	private JTextField hostname;
 	private JButton    update;
 	private NetworkSettings networkSettings;
+	private String     defaultHost;
 	
 	// the string to catch in the action listender
 	private final String updateCommand = "update";  
@@ -32,13 +33,17 @@ public class NetworkSettingsFrame extends JFrame implements ActionListener
 	/**
 	 * The default constructor
 	 */
-	NetworkSettingsFrame(NetworkSettings nws)
+	NetworkSettingsFrame(NetworkSettings nws, String defaultHost)
 	{
 		super("Network Settings"); // title window
 		setBounds(10, 10, 300, 120); // big window
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+		this.defaultHost = defaultHost;
+		
 		addComponentsToPane(this.getContentPane());
+		
+		
 		
 		networkSettings = nws;
 	}
@@ -56,6 +61,7 @@ public class NetworkSettingsFrame extends JFrame implements ActionListener
 		p.setBorder(BorderFactory.createTitledBorder("Master Server Hostname/IP"));
 		
 		hostname = new JTextField(20);
+		hostname.setText(defaultHost);
 		hostname.addActionListener(this);
 		
 		update = new JButton("Update");
@@ -79,17 +85,22 @@ public class NetworkSettingsFrame extends JFrame implements ActionListener
 	 */
 	public void actionPerformed(ActionEvent e)
 	{
-		String text, command;
-		text = hostname.getText();
+		String newhostname, command;
+		newhostname = hostname.getText();
 		
 		command = e.getActionCommand();
 		System.out.println("Command called from Network AListener: " + command);
 		
 		// we need to update the network settings
-	    if (updateCommand.equals(e.getActionCommand()))
+	    if (updateCommand.equals(e.getActionCommand()) || newhostname.equals(e.getActionCommand()))
 	    {
 			try {
+				networkSettings.setMasterHost(newhostname);
+				// TODO: let user change port
+				networkSettings.setMasterPort(1908);
 				networkSettings.saveCFG();
+				this.setVisible(false);
+				this.dispose();
 			} catch (IOException ioe) {
 				JOptionPane.showMessageDialog(this, 
 						"Couldn't write configuration file.", 
