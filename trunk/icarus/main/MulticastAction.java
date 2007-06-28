@@ -1,6 +1,5 @@
 package main;
 
-
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -42,7 +41,7 @@ public abstract class MulticastAction extends AbstractAction {
 	 *            The string to be broadcasted to everyone in the group
 	 */
 	public MulticastAction(String name, String message, int port) {
-		//super(name);
+		// super(name);
 
 		this.message = message;
 		try {
@@ -50,7 +49,6 @@ public abstract class MulticastAction extends AbstractAction {
 			group = InetAddress.getByName(ADDRESS);
 			socket.joinGroup(group);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -66,7 +64,6 @@ public abstract class MulticastAction extends AbstractAction {
 		try {
 			socket.send(packet);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}

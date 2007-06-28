@@ -1,4 +1,4 @@
-backspace		= 8
+backspace	= 8
 tab		= 9
 clear		= 12
 return		= 13
@@ -6,7 +6,7 @@ pause		= 19
 escape		= 27
 space		= 32
 exclaim		= 33
-quotedbl		= 34
+quotedbl	= 34
 hash		= 35
 dollar		= 36
 &		= 38
