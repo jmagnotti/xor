@@ -5,6 +5,8 @@
 #include "../../include/SDL_opengl.h"
 #include "../geometry/Vector3D.h"
 #include "../geometry/Dimension3D.h"
+#include "../geometry/Vector2D.h"
+#include "../geometry/Dimension2D.h"
 
 
 namespace XOR {
@@ -66,6 +68,7 @@ public:
      * after being transformed.
  	 */
 	virtual void transform(Vector3D * position)=0;
+	virtual void transform(Vector2D * position)=0;
 
 
 	/**
@@ -73,6 +76,7 @@ public:
      * the effect of the transform.
  	 */
 	virtual void transform(Dimension3D * size)=0;
+	virtual void transform(Dimension2D * size)=0;
 
 };
 

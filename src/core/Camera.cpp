@@ -91,9 +91,6 @@ World * Camera::setModel(World * world)
 
 	_model = world;
 
-	// this sets the O3D in Transformable FIXME  HACK
-	//_object3d = _model;
-
     return old_model;
 }
 

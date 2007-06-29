@@ -150,7 +150,7 @@ public:
 		// -- end loop*/
 			
 		Transformable * t = new Transformable(collection);
-		t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-1)));
+		t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-7)));
 		t->addTransform(Rotate::CreateRotate(-45.0f, Rotate::YAW));
 		ctrl->getModel()->addObject("objs", new CompiledObject3D(t));
         // timer tests

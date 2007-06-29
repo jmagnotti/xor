@@ -9,10 +9,7 @@
 #include "../geometry/Vector3D.h"
 #include "../interpolation/InterpolationEngine.h"
 #include "Transform.h"
-
-
-namespace XOR {
-
+namespace XOR { 
 /**
  * Performs a Scalar Matrix transform. For each point rendered after the Scalar
  * S(2,4,6) has been pushed, the point will be render at Px*2 Py*4, Pz*6.
@@ -49,6 +46,8 @@ public:
     void transform(Vector3D * position);
     void transform(Dimension3D * size);
 
+    void transform(Vector2D * position);
+    void transform(Dimension2D * size);
 protected:
 
 	void fillVector();

@@ -12,9 +12,9 @@
 #include "Window.h"
 
 // model
+#include "Renderable.h"
 #include "World.h"
 #include "../object3D/Point3D.h"
-#include "Renderable.h"
 #include "../object3D/Object3D.h"
 
 #include "XavierConfiguration.h"

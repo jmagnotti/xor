@@ -1,3 +1,8 @@
+#creates a header file from a cpp file. It guesses (naively) at variable names.
+#
+# John Magnotti
+
+
 class MethodSignature
     @comments
     @return_type
@@ -20,13 +25,13 @@ class MethodSignature
        @parameters = "(" + @parameters.gsub("\n","")
     end
 
-    # 5 return statements. w00t.
+    # 5 return statements. oh no.
     def <=> (other)
-        if (@class_name == @name) #CSTR
+        if (@class_name == @name) #CTOR
             if (other.name == @class_name)
                 return @parameters <=> other.parameters
             else
-                return -1 #CSTR always wins against non CSTR
+                return -1 #CTOR always wins against non CTOR
             end
         elsif other.name == @class_name
             return 1
@@ -37,7 +42,6 @@ class MethodSignature
 
         #default is a lower case compare
         return name.downcase <=> other.name.downcase 
-
     end
 
     def parameters
