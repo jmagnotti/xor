@@ -37,6 +37,8 @@ public:
     void transform(Vector3D * position);
     void transform(Dimension3D * size);
 
+    void transform(Vector2D * position);
+    void transform(Dimension2D * size);
 
 	/**
 	 * Easy way to increment a stretch
@@ -46,7 +48,6 @@ public:
 
 
 	Vector3D * toVector();
-
 private:
 
 	Translate * _translate;

@@ -68,5 +68,15 @@ void CoordinateSystem::transform(Vector3D * position)
     // shouldn't be used
 }
 
+void CoordinateSystem::transform(Dimension2D * size)
+{
+    // shouldn't be used
+}
+
+void CoordinateSystem::transform(Vector2D * position)
+{
+    // shouldn't be used
+}
+
 }
 

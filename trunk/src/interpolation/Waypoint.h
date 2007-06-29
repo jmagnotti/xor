@@ -5,7 +5,6 @@
 #include "InterpolationListener.h"
 #include "TimedInterpolation.h"
 #include "../core/Controller.h"
-#include "../object3D/Transformable.h"
 #include "../event/timer/TimerListener.h"
 
 using namespace std;

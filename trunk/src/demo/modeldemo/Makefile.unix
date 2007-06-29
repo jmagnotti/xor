@@ -45,26 +45,23 @@ Model.o: /usr/include/sys/select.h /usr/include/bits/select.h
 Model.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 Model.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
 Model.o: /usr/include/alloca.h ../../xor.h ../../event/timer/TimerStub.h
-Model.o: ../../event/timer/Timer.h /usr/include/SDL/SDL.h
-Model.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h
-Model.o: /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h
-Model.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
-Model.o: /usr/include/wchar.h /usr/include/bits/wchar.h /usr/include/gconv.h
+Model.o: ../../event/timer/Timer.h ../../../include/SDL.h
+Model.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+Model.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+Model.o: ../../../include/begin_code.h ../../../include/close_code.h
+Model.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+Model.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+Model.o: /usr/include/bits/wchar.h /usr/include/gconv.h
 Model.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
-Model.o: /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h
-Model.o: /usr/include/stdint.h /usr/include/ctype.h /usr/include/iconv.h
-Model.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
-Model.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_error.h
-Model.o: /usr/include/SDL/SDL_endian.h /usr/include/SDL/SDL_mutex.h
-Model.o: /usr/include/SDL/SDL_thread.h /usr/include/SDL/SDL_rwops.h
-Model.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_cpuinfo.h
-Model.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
-Model.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
-Model.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
-Model.o: /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h
-Model.o: /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h
-Model.o: /usr/include/SDL/SDL_version.h ../../event/timer/TimerListener.h
-Model.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Model.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+Model.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+Model.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+Model.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+Model.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+Model.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+Model.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+Model.o: ../../event/timer/TimerListener.h ../../multicast/MulticastSocket.h
+Model.o: ../../multicast/Multicast.h /usr/include/string.h
 Model.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
 Model.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
 Model.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
@@ -72,15 +69,15 @@ Model.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
 Model.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
 Model.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
 Model.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
-Model.o: /usr/include/netinet/in.h /usr/include/bits/in.h
-Model.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
-Model.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
-Model.o: /usr/include/bits/confname.h /usr/include/getopt.h
-Model.o: ../../multicast/MulticastSocketPool.h
+Model.o: /usr/include/netinet/in.h /usr/include/stdint.h
+Model.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+Model.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+Model.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+Model.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
 Model.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
-Model.o: ../../event/timer/TimerSkeleton.h /usr/include/SDL/SDL_thread.h
-Model.o: ../../core/Controller.h ../../event/EventFactory.h
-Model.o: ../../event/keyboard/Keyboard.h
+Model.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+Model.o: ../../core/Controller.h ../../../include/SDL.h
+Model.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
 Model.o: ../../event/keyboard/KeyboardListener.h
 Model.o: ../../event/keyboard/KeyEvent.h
 Model.o: ../../event/keyboard/KeyEventFactory.h
@@ -97,31 +94,30 @@ Model.o: ../../event/timer/Timer.h ../../core/Window.h
 Model.o: ../../event/reshape/ReshapeListener.h
 Model.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
 Model.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-Model.o: ../../geometry/Vector2D.h ../../core/World.h
-Model.o: ../../shape/Renderable.h ../../shape/Object3D.h
-Model.o: ../../transform/Transformable.h /usr/include/SDL/SDL_opengl.h
-Model.o: /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/GL/glu.h
-Model.o: ../../transform/Transform.h ../../transform/Scale.h
-Model.o: ../../geometry/Vector3D.h ../../interpolation/InterpolationEngine.h
+Model.o: ../../geometry/Vector2D.h ../../core/World.h ../../core/Renderable.h
+Model.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+Model.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+Model.o: ../../paint/Paint.h ../../texture/Texture.h
+Model.o: ../../../include/SDL_image.h ../../../include/SDL.h
+Model.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+Model.o: /usr/include/GL/glext.h /usr/include/GL/glu.h ../../paint/Color.h
+Model.o: ../../core/Renderable.h ../../object3D/Point3D.h /usr/include/math.h
+Model.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+Model.o: /usr/include/bits/mathcalls.h ../../object3D/Object3D.h
+Model.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
+Model.o: ../../transform/Transform.h ../../transform/Rotate.h
+Model.o: ../../interpolation/InterpolationEngine.h
 Model.o: ../../interpolation/InterpolationListener.h
 Model.o: ../../interpolation/Interpolator.h
 Model.o: ../../interpolation/InterpolatorFactory.h
 Model.o: ../../interpolation/LinearInterpolator.h
-Model.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
-Model.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-Model.o: /usr/include/bits/mathcalls.h ../../transform/Stretch.h
-Model.o: ../../transform/Translate.h ../../transform/Rotate.h
-Model.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
-Model.o: ../../transform/Orientation.h ../../paint/Paint.h
-Model.o: ../../texture/Texture.h ../../../include/SDL_image.h
-Model.o: ../../../include/SDL.h ../../paint/Color.h ../../shape/Renderable.h
-Model.o: ../../shape/Point3D.h ../../shape/Object3D.h
-Model.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
+Model.o: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
 Model.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 Model.o: ../../event/keyboard/KeyboardStub.h ../../event/keyboard/Keyboard.h
 Model.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 Model.o: ../../event/timer/TimerStub.h ../../paint/Color.h
 Model.o: ../../core/Camera.h ../../core/CameraListener.h
+Model.o: ../../object3D/Transformable.h ../../transform/Transform.h
 Model.o: ../../transform/CoordinateSystemFactory.h
 Model.o: ../../transform/CoordinateSystem.h
 Model.o: ../../transform/OpenGLCoordinateSystem.h
@@ -149,7 +145,7 @@ Model.o: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
 Model.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseListener.h
 Model.o: ../../event/mouse/MouseClickEvent.h
 Model.o: ../../event/mouse/DefaultMouseListener.h
-Model.o: ../../transform/Transformable.h ../../event/mouse/MouseButtonDown.h
+Model.o: ../../object3D/Transformable.h ../../event/mouse/MouseButtonDown.h
 Model.o: ../../event/mouse/MouseMotionEvent.h
 Model.o: ../../event/mouse/MouseEventFactory.h ../../event/mouse/MouseStub.h
 Model.o: ../../event/mouse/Mouse.h ../../event/FullEventHandlerFactory.h
@@ -161,7 +157,6 @@ Model.o: ../../event/InputEventHandlerFactory.h ../../event/EventFactory.h
 Model.o: ../../interpolation/InterpolationListener.h
 Model.o: ../../interpolation/CameraRoller.h ../../interpolation/Waypoint.h
 Model.o: ../../interpolation/TimedInterpolation.h
-Model.o: ../../transform/Orientation.h
 Model.o: ../../interpolation/InterpolatorFactory.h
 Model.o: ../../interpolation/TimedInterpolation.h
 Model.o: ../../interpolation/LinearInterpolator.h
@@ -173,37 +168,20 @@ Model.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
 Model.o: ../../core/DebugCamera.h ../../core/Controller.h
 Model.o: ../../core/Controller.h ../../core/XavierConfiguration.h
 Model.o: ../../core/World.h ../../core/Window.h ../../core/Camera.h
-Model.o: ../../geometry/Vector3D.h ../../geometry/Dimension2D.h
-Model.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
-Model.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
-Model.o: ../../geometry/CylindricalVolume.h ../../shape/CollisionRenderable.h
-Model.o: ../../shape/Point3D.h ../../geometry/Vector2D.h
-Model.o: ../../model/MilkshapeModel.h ../../model/Model.h
-Model.o: ../../texture/TextureFactory.h ../../texture/Texture.h
-Model.o: ../../model/Model.h ../../model/ModelFactory.h
-Model.o: ../../model/MilkshapeModel.h ../../shape/Point.h
-Model.o: ../../shape/Rectangle2D.h ../../shape/Object2D.h ../../core/Window.h
-Model.o: ../../shape/Arc3D.h ../../shape/Triangle3D.h ../../shape/Object3D.h
-Model.o: ../../shape/Renderable.h ../../shape/NoDepthTestQuadrilateral3D.h
-Model.o: ../../shape/Quadrilateral3D.h ../../util/PointScale.h
-Model.o: ../../texture/TextureScale.h ../../shape/CollisionRenderable.h
-Model.o: ../../shape/Point3D.h ../../shape/Quadrilateral3D.h
-Model.o: ../../shape/RectangularPrism.h ../../geometry/RectangularVolume.h
-Model.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
-Model.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
-Model.o: ../../util/BitmapFontConstants.h
-Model.o: ../../shape/ExtrudedNormalPolygon3D.h ../../shape/NormalPolygon3D.h
-Model.o: ../../shape/AdornablePrism.h ../../shape/RectangularPrism.h
-Model.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-Model.o: ../../shape/Particle.h ../../shape/CollisionRenderable.h
-Model.o: ../../shape/Object3DCollection.h ../../shape/CompiledObject3D.h
-Model.o: ../../shape/RectangularPrismFactory.h ../../shape/Cube.h
-Model.o: ../../shape/Point2D.h ../../texture/Texture.h
+Model.o: ../../core/Renderable.h ../../geometry/Vector3D.h
+Model.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+Model.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Model.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+Model.o: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
+Model.o: ../../model/Model.h ../../texture/TextureFactory.h
+Model.o: ../../texture/Texture.h ../../model/Model.h
+Model.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Model.o: ../../shape/CollisionRenderable.h ../../texture/Texture.h
 Model.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
-Model.o: ../../terrain/NullHeightFieldStrategy.h
+Model.o: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
 Model.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-Model.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
-Model.o: ../../terrain/HeightFieldStrategy.h
+Model.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+Model.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
 Model.o: ../../terrain/ImageHeightFieldStrategy.h
 Model.o: ../../terrain/HeightFieldFactory.h
 Model.o: ../../terrain/MatrixHeightFieldStrategy.h
@@ -211,10 +189,9 @@ Model.o: ../../terrain/FunctionHeightFieldStrategy.h ../../multicast/mcsend.h
 Model.o: ../../multicast/MulticastSocket.h ../../multicast/mcreceive.h
 Model.o: ../../multicast/Multicast.h ../../multicast/MulticastSocketPool.h
 Model.o: ../../paint/Paint.h ../../paint/Color.h
-Model.o: ../../transform/Orientation.h ../../transform/CoordinateSystem.h
-Model.o: ../../transform/Translate.h ../../transform/Rotate.h
-Model.o: ../../transform/Transformable.h
-Model.o: ../../transform/OpenGLCoordinateSystem.h
+Model.o: ../../transform/Orientation.h ../../transform/Translate.h
+Model.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+Model.o: ../../transform/Rotate.h ../../transform/OpenGLCoordinateSystem.h
 Model.o: ../../transform/TransformFactory.h
 Model.o: ../../transform/MathCoordinateSystem.h
 Model.o: ../../transform/EngineerCoordinateSystem.h
@@ -224,6 +201,25 @@ Model.o: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
 Model.o: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
 Model.o: ../../util/GraphicsConversionUtility.h ../../util/BehaviorParser.h
 Model.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
-Model.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+Model.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+Model.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Model.o: ../../object2D/Object2D.h ../../core/Window.h
 Model.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-Model.o: ../../util/PointScale.h
+Model.o: ../../util/PointScale.h ../../object2D/Rectangle2D.h
+Model.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+Model.o: ../../object2D/Point2D.h ../../object3D/Arc3D.h
+Model.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+Model.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+Model.o: ../../object3D/Sprite3DListener.h ../../object3D/Transformable.h
+Model.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+Model.o: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
+Model.o: ../../object3D/Quadrilateral3D.h ../../object3D/RectangularPrism.h
+Model.o: ../../geometry/RectangularVolume.h ../../object3D/NormalPolygon3D.h
+Model.o: ../../object3D/ExtrudedNormalPolygon3D.h
+Model.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+Model.o: ../../object3D/RectangularPrism.h
+Model.o: ../../object3D/Object3DCollection.h
+Model.o: ../../object3D/CompiledObject3D.h ../../object3D/Sprite3DListener.h
+Model.o: ../../object3D/Particle.h ../../object3D/Object3DCollection.h
+Model.o: ../../object3D/RectangularPrismFactory.h
+Model.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h

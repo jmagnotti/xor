@@ -26,6 +26,8 @@ public:
     virtual void transform(Vector3D * position);
     virtual void transform(Dimension3D * size);
 
+    virtual void transform(Vector2D * position);
+    virtual void transform(Dimension2D * size);
     /**
      * Removes the coordinate system transforms
      */

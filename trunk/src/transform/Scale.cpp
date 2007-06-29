@@ -94,6 +94,9 @@ void Scale::print()
 //TODO implement
     void Scale::transform(Vector3D * position){}
     void Scale::transform(Dimension3D * size){}
+
+    void Scale::transform(Vector2D * position){}
+    void Scale::transform(Dimension2D * size){}
 //----
 
 

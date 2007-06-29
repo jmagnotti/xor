@@ -96,5 +96,8 @@ void Stretch::setOrigin(Vector3D * origin)
 void Stretch::transform(Vector3D * position) {}
 void Stretch::transform(Dimension3D * size) {}
 
+void Stretch::transform(Vector2D * position) {}
+void Stretch::transform(Dimension2D * size) {}
+
 }
 

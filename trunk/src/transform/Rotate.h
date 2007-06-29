@@ -8,7 +8,7 @@
 #include "Transform.h"
 
 #include "../geometry/Dimension3D.h"
-#include "../geometry/Vector2D.h"
+#include "../geometry/Vector2D.h" 
 #include "../geometry/Dimension2D.h"
 #include "../interpolation/InterpolationEngine.h"
 #include "../util/GraphicsConversionUtility.h"
@@ -141,5 +141,5 @@ public:
 
 }
 
-
 #endif			// ROTATE_H
+

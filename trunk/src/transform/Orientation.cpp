@@ -256,6 +256,9 @@ void Orientation::toIdentity()
     _position->toIdentity();
 }
 
+void Orientation::transform(Vector2D * position){}
+void Orientation::transform(Dimension2D * size){}
+
 void Orientation::transform(Vector3D * position){}
 void Orientation::transform(Dimension3D * size){}
 

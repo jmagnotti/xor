@@ -79,12 +79,14 @@ public:
      * @see Transform
  	 */
 	void transform(Vector3D * position);
+	void transform(Vector2D * position);
 
 
 	/**
 	 * @see Transform
  	 */
 	void transform(Dimension3D * size);
+	void transform(Dimension2D * size);
 
 
 	void moveAlongFocalVector(float distance);

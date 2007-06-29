@@ -12,7 +12,7 @@
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
-#include "../object3D/Transformable.h"
+#include "../transform/Transformable.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
 #include "../event/timer/TimerListener.h"
@@ -30,7 +30,7 @@ namespace XOR {
  *
  * @version 1.1
  */
-class Camera : public ReshapeListener, public TimerListener 
+class Camera : public Transformable, public ReshapeListener, public TimerListener 
 {
 
 public:
