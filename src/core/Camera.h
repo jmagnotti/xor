@@ -12,7 +12,7 @@
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
-#include "../transform/Transformable.h"
+#include "../transform/Orientation.h"
 #include "../transform/CoordinateSystem.h"
 #include "../transform/CoordinateSystemFactory.h"
 #include "../event/timer/TimerListener.h"
@@ -30,7 +30,7 @@ namespace XOR {
  *
  * @version 1.1
  */
-class Camera : public Transformable, public ReshapeListener, public TimerListener 
+class Camera : public ReshapeListener, public TimerListener 
 {
 
 public:
@@ -200,6 +200,11 @@ public:
     Vector3D * toWorldCoordinates(Vector3D * screenCoord);
     
 	
+	/**
+	 * Return a reference to the camera's orientation.
+	 */
+	Orientation * getOrientation();
+	
 protected:
 
     CoordinateSystem * _coordinateSystem;
@@ -223,6 +228,8 @@ private:
 	void build (double fov, double nearCP, double farCP, int colorDepth,
 				Uint32 videoFlags, int wallMode, Vector2D * offset, const
 				float color[4]);
+
+	Orientation *   _orientation;
 
     double			_nearClippingPlane;	
     double			_farClippingPlane;

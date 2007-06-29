@@ -16,7 +16,7 @@ public:
 };
 
 
-class TestShape : public Object3D 
+class TestShape : public Object3D
 {
 
 	public:
@@ -33,7 +33,7 @@ class TestShape : public Object3D
 
 		void renderObject()
 		{
-			drawTri(0,0,5,10000);
+			drawTri(0,0,5,3);
 /**
 			glColor3f(0,.6,.6);
 			glBegin(GL_POLYGON);
@@ -118,7 +118,7 @@ public:
 		ctrl->getMouse()->addListener(new DefaultMouseListener());
 		ctrl->setModel(new String2D("testing"));
 
-		Object3DCollection * collection = new Object3DCollection();
+		//Object3DCollection * collection = new Object3DCollection();
 		
 		// -- begin array 
 		/*TestShape * ts[4];
@@ -130,29 +130,34 @@ public:
 		TestShape * t0 = new TestShape();
 		//t0->incrementTranslation(new Vector3D(0,-3,0));
 		
-		TestShape * t1 = new TestShape();
+		//TestShape * t1 = new TestShape();
 		//t1->incrementRotation(Orientation::ROLL, 90);
 		//t1->incrementTranslation(new Vector3D(3,0,0));
 
-		TestShape * t2 = new TestShape();
+		//TestShape * t2 = new TestShape();
 		//t2->incrementRotation(Orientation::ROLL, 180);
 		//t2->incrementTranslation(new Vector3D(0,3,0));
 
-		TestShape * t3 = new TestShape();
+		//TestShape * t3 = new TestShape();
 		//t3->incrementRotation(Orientation::ROLL, 270);
 		//t3->incrementTranslation(new Vector3D(-3,0,0));
 
-		collection->addObject3D(t0);
+		//collection->addObject3D(t0);
 		//collection->addObject3D(t1);
 		//collection->addObject3D(t2);
 		//collection->addObject3D(t3);
 
 		// -- end loop*/
 			
-		Transformable * t = new Transformable(collection);
-		t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-7)));
-		t->addTransform(Rotate::CreateRotate(-45.0f, Rotate::YAW));
+		Transformable3D * t = new Transformable3D(t0);
+		//Transformable3D * t = new Transformable3D(collection);
+		//t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-2)));
+		//t->addTransform(Rotate::CreateRotate(-45.0f, Rotate::YAW));
 		ctrl->getModel()->addObject("objs", new CompiledObject3D(t));
+
+		ctrl->getCamera()->getOrientation()->setPosition(new Vector3D(0,0,5));
+		ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
+		
         // timer tests
         /*
 			PrintAllTicks *			pat = new PrintAllTicks();

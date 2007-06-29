@@ -209,26 +209,22 @@ void DefaultKeyboardListener::handleKey_s()
 
 void DefaultKeyboardListener::handleKey_q()
 {
-	//Controller::GetInstance()->getCamera()->addTransform(
-			//Rotate::CreateRotate(2, 5.0f));
+	Controller::GetInstance()->getCamera()->getOrientation()->incrementRoll(5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_e()
 {
-	//Controller::GetInstance()->getCamera()->addTransform(
-			//Rotate::CreateRotate(2, 5.0f));
+	Controller::GetInstance()->getCamera()->getOrientation()->incrementRoll(-5.0f);
 }
 
 void DefaultKeyboardListener::handleKey_a()
 {
-	//Controller::GetInstance()->getCamera()->addTransform(
-			//Rotate::CreateRotate(0, -10.0f));
+	Controller::GetInstance()->getCamera()->getOrientation()->incrementYaw(10.0f);
 }
 
 void DefaultKeyboardListener::handleKey_d()
 {
-	//Controller::GetInstance()->getCamera()->addTransform(
-			//Rotate::CreateRotate(0, 10.0f));
+	Controller::GetInstance()->getCamera()->getOrientation()->incrementYaw(-10.0f);
 }
 
 void DefaultKeyboardListener::handleKey_F()
@@ -237,6 +233,13 @@ void DefaultKeyboardListener::handleKey_F()
 	//FIXME
 	Controller::GetInstance()->getCamera()->toggleFullScreen();
 }
+
+#ifdef DEBUG
+void DefaultKeyboardListener::handleKey_p()
+{
+	Controller::GetInstance()->getCamera()->getOrientation()->print();
+}
+#endif
 
 
 }

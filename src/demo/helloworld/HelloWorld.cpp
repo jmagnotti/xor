@@ -25,7 +25,9 @@ int main(int argc, char ** argv)
     // Add a keyboard listener that has a small set of key handlers
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 
-    Cube * cube = new Cube(new Vector3D(0,0,-1), 3.0f, new Paint(Color::WHITE));
+	ctrl->getMouse()->addListener(new DefaultMouseListener());
+
+    Cube * cube = new Cube(new Vector3D(0,0,-1), 3.0f, new Paint(Color::WHITE, Paint::HEIGHT_BASED));
 
     ctrl->setModel(cube);
 

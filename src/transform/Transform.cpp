@@ -11,7 +11,7 @@ Transform::Transform()
  */
 void Transform::pop(void)
 {
-	cout << "popping" << endl;
+	//cout << "popping" << endl;
 	glPopMatrix();
 }
 

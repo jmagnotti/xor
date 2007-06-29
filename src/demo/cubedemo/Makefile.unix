@@ -95,8 +95,8 @@ CubeDemo.o: ../../event/timer/Timer.h ../../core/Window.h
 CubeDemo.o: ../../event/reshape/ReshapeListener.h
 CubeDemo.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
 CubeDemo.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-CubeDemo.o: ../../geometry/Vector2D.h ../../core/World.h
-CubeDemo.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CubeDemo.o: ../../geometry/Vector2D.h ../../core/Renderable.h
+CubeDemo.o: ../../core/World.h ../../object3D/Object3D.h
 CubeDemo.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
 CubeDemo.o: ../../geometry/Vector3D.h ../../paint/Paint.h
 CubeDemo.o: ../../texture/Texture.h ../../../include/SDL_image.h
@@ -120,8 +120,7 @@ CubeDemo.o: ../../event/keyboard/KeyboardStub.h
 CubeDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 CubeDemo.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 CubeDemo.o: ../../paint/Color.h ../../core/Camera.h
-CubeDemo.o: ../../core/CameraListener.h ../../object3D/Transformable.h
-CubeDemo.o: ../../transform/Transform.h
+CubeDemo.o: ../../core/CameraListener.h ../../transform/Transformable.h
 CubeDemo.o: ../../transform/CoordinateSystemFactory.h
 CubeDemo.o: ../../transform/CoordinateSystem.h
 CubeDemo.o: ../../transform/OpenGLCoordinateSystem.h
@@ -151,7 +150,6 @@ CubeDemo.o: ../../event/mouse/MouseSkeleton.h
 CubeDemo.o: ../../event/mouse/MouseListener.h
 CubeDemo.o: ../../event/mouse/MouseClickEvent.h
 CubeDemo.o: ../../event/mouse/DefaultMouseListener.h
-CubeDemo.o: ../../object3D/Transformable.h
 CubeDemo.o: ../../event/mouse/MouseButtonDown.h
 CubeDemo.o: ../../event/mouse/MouseMotionEvent.h
 CubeDemo.o: ../../event/mouse/MouseEventFactory.h
@@ -186,17 +184,18 @@ CubeDemo.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
 CubeDemo.o: ../../object2D/Object2D.h ../../core/Window.h
 CubeDemo.o: ../../object2D/Object2D.h ../../object2D/String2D.h
 CubeDemo.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-CubeDemo.o: ../../object2D/Point2D.h ../../object3D/Arc3D.h
+CubeDemo.o: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
+CubeDemo.o: ../../transform/Transform.h ../../object3D/Arc3D.h
 CubeDemo.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
 CubeDemo.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
-CubeDemo.o: ../../object3D/Sprite3DListener.h ../../object3D/Transformable.h
+CubeDemo.o: ../../object3D/Sprite3DListener.h
 CubeDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
 CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
 CubeDemo.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
 CubeDemo.o: ../../object3D/Quadrilateral3D.h
 CubeDemo.o: ../../object3D/RectangularPrism.h
 CubeDemo.o: ../../geometry/RectangularVolume.h
-CubeDemo.o: ../../object3D/NormalPolygon3D.h
+CubeDemo.o: ../../object3D/NormalPolygon3D.h ../../object3D/Transformable3D.h
 CubeDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
 CubeDemo.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
 CubeDemo.o: ../../object3D/RectangularPrism.h
@@ -234,6 +233,7 @@ CubeDemo.o: ../../transform/Transform.h
 CubeDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 CubeDemo.o: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
 CubeDemo.o: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
+CubeDemo.o: ../../transform/Transformable.h
 CubeDemo.o: ../../util/GraphicsConversionUtility.h
 CubeDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 CubeDemo.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h

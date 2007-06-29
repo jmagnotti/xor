@@ -42,6 +42,8 @@ void Camera::build (double fov, double nearCP, double farCP,
                     int colorDepth, Uint32 videoFlags, int wallMode, 
                     Vector2D * offset, const float color[4])
 {
+	_orientation = new Orientation();
+	
 	_fieldOfView		= fov;
 	_nearClippingPlane	= nearCP;
 	_farClippingPlane	= farCP;
@@ -107,11 +109,11 @@ void Camera::view()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//_orienation->pushInverse();
+	_orientation->pushInverse();
 		_coordinateSystem->push();
 			_model->render();
 		_coordinateSystem->pop();
-	//_orienation->pop();
+	_orientation->pop();
 
 	SDL_GL_SwapBuffers();
 }
@@ -433,6 +435,15 @@ void Camera::setWallMode(int mode)
 
         Window::ForceReshape();
     }
+}
+
+
+/*
+ * orientation accessor
+ */
+Orientation * Camera::getOrientation()
+{
+	return _orientation;
 }
 
 }

@@ -66,8 +66,8 @@ public:
 
         ctrl->setModel(new String2D("Heightfield Test"));
 
-		//ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
-		//ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->getOrientation()->setPosition(new Vector3D(10,10,10));
+		ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
 
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
