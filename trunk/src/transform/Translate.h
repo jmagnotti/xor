@@ -3,13 +3,18 @@
 
 
 #include <iostream>
+#include <vector>
 #include <stdio.h>
 
 #include "Transform.h"
+
 #include "../geometry/Vector3D.h"
 #include "../geometry/Vector2D.h"
 #include "../geometry/Dimension2D.h"
 #include "../event/timer/TimerListener.h"
+#include "../event/Action.h"
+#include "../interpolation/InterpolatorFactory.h"
+#include "../interpolation/Interpolator.h"
 
 
 using namespace std;
@@ -47,10 +52,10 @@ public:
 	 * Explicit Constructors for interpolated translations
 	 */
 	static Translate * CreateTranslate(float x, float y, float z, int milliseconds);
-	//static Translate * CreateTranslate(float x, float y, float z, int milliseconds, InterpolationAction * action);
+	static Translate * CreateTranslate(float x, float y, float z, int milliseconds, Action * action);
 
 	static Translate * CreateTranslate(Vector3D * position, int milliseconds);
-	//static Translate * CreateTranslate(Vector3D * position, int milliseconds, InterpolationAction * action);
+	static Translate * CreateTranslate(Vector3D * position, int milliseconds, Action * action);
 
 
     /**
@@ -107,10 +112,10 @@ class InterpolatedTranslate : public Translate
 public:
 
     InterpolatedTranslate(float x, float y, float z, int milliseconds);
-    //InterpolatedTranslate(float x, float y, float z, int milliseconds, InterpolationAction * action);
+    InterpolatedTranslate(float x, float y, float z, int milliseconds, Action * action);
 
     InterpolatedTranslate(Vector3D * position, int milliseconds);
-    //InterpolatedTranslate(Vector3D * position, int milliseconds, InterpolationAction * action);
+	InterpolatedTranslate(Vector3D * position, int milliseconds, Action * action);
 
     // advances the interpolation if necessary
 	void push();
@@ -118,16 +123,17 @@ public:
     // advances the interpolation if necessary
 	void pushInverse();
 
+
 private:
 
-
 	// _step should be a collection
-	Vector3D * _step, * _target;
+	vector<Vector3D*> _steps;
+	Vector3D * _target;
 
-	int _remaining;
+	int _remaining, _total;
 };
 
-class ImmediateTranslate  : public Translate
+class ImmediateTranslate : public Translate
 {
 
 public:

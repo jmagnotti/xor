@@ -75,6 +75,8 @@ public:
 	 */
     void increment(float position[2]);
 
+    void increment(float a, float b);
+
 
     /**
      * Addition operation
