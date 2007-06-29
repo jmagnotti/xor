@@ -91,7 +91,7 @@ Cars.o: ../../event/timer/Timer.h ../../core/Window.h
 Cars.o: ../../event/reshape/ReshapeListener.h
 Cars.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
 Cars.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-Cars.o: ../../geometry/Vector2D.h ../../core/World.h ../../core/Renderable.h
+Cars.o: ../../geometry/Vector2D.h ../../core/Renderable.h ../../core/World.h
 Cars.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
 Cars.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 Cars.o: ../../paint/Paint.h ../../texture/Texture.h
@@ -113,8 +113,8 @@ Cars.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 Cars.o: ../../event/keyboard/KeyboardStub.h ../../event/keyboard/Keyboard.h
 Cars.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 Cars.o: ../../event/timer/TimerStub.h ../../paint/Color.h ../../core/Camera.h
-Cars.o: ../../core/CameraListener.h ../../object3D/Transformable.h
-Cars.o: ../../transform/Transform.h ../../transform/CoordinateSystemFactory.h
+Cars.o: ../../core/CameraListener.h ../../transform/Transformable.h
+Cars.o: ../../transform/CoordinateSystemFactory.h
 Cars.o: ../../transform/CoordinateSystem.h
 Cars.o: ../../transform/OpenGLCoordinateSystem.h
 Cars.o: ../../transform/MacCoordinateSystem.h
@@ -141,43 +141,66 @@ Cars.o: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
 Cars.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseListener.h
 Cars.o: ../../event/mouse/MouseClickEvent.h
 Cars.o: ../../event/mouse/DefaultMouseListener.h
-Cars.o: ../../object3D/Transformable.h ../../event/mouse/MouseButtonDown.h
+Cars.o: ../../event/mouse/MouseButtonDown.h
 Cars.o: ../../event/mouse/MouseMotionEvent.h
 Cars.o: ../../event/mouse/MouseEventFactory.h ../../event/mouse/MouseStub.h
-Cars.o: ../../event/mouse/Mouse.h ../../event/FullEventHandlerFactory.h
+Cars.o: ../../event/mouse/Mouse.h ../../event/EventFactory.h
+Cars.o: ../../event/FullEventHandlerFactory.h
 Cars.o: ../../event/keyboard/KeyboardSkeleton.h
 Cars.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
 Cars.o: ../../event/InputEventProxyFactory.h
 Cars.o: ../../event/FullEventProxyFactory.h
-Cars.o: ../../event/InputEventHandlerFactory.h ../../event/EventFactory.h
+Cars.o: ../../event/InputEventHandlerFactory.h
 Cars.o: ../../interpolation/InterpolationListener.h
-Cars.o: ../../interpolation/CameraRoller.h ../../interpolation/Waypoint.h
+Cars.o: ../../interpolation/CameraRoller.h
 Cars.o: ../../interpolation/TimedInterpolation.h
 Cars.o: ../../interpolation/InterpolatorFactory.h
+Cars.o: ../../interpolation/Waypoint.h
 Cars.o: ../../interpolation/TimedInterpolation.h
-Cars.o: ../../interpolation/LinearInterpolator.h
 Cars.o: ../../interpolation/InterpolationEngine.h
+Cars.o: ../../interpolation/LinearInterpolator.h
 Cars.o: ../../interpolation/ContinuousInterpolation.h
 Cars.o: ../../interpolation/Interpolator.h
 Cars.o: ../../interpolation/WaypointCollection.h
 Cars.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
 Cars.o: ../../core/DebugCamera.h ../../core/Controller.h
-Cars.o: ../../core/Controller.h ../../core/XavierConfiguration.h
-Cars.o: ../../core/World.h ../../core/Window.h ../../core/Camera.h
-Cars.o: ../../core/Renderable.h ../../geometry/Vector3D.h
+Cars.o: ../../core/Controller.h ../../core/Renderable.h
+Cars.o: ../../core/XavierConfiguration.h ../../core/World.h
+Cars.o: ../../core/Window.h ../../core/Camera.h ../../geometry/Vector3D.h
 Cars.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 Cars.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
 Cars.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
-Cars.o: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
-Cars.o: ../../model/Model.h ../../texture/TextureFactory.h
-Cars.o: ../../texture/Texture.h ../../model/Model.h
-Cars.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
-Cars.o: ../../shape/CollisionRenderable.h ../../texture/Texture.h
-Cars.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
-Cars.o: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
+Cars.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+Cars.o: ../../object2D/Object2D.h ../../core/Window.h
+Cars.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+Cars.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Cars.o: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
+Cars.o: ../../transform/Transform.h ../../object3D/Arc3D.h
+Cars.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+Cars.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+Cars.o: ../../object3D/Sprite3DListener.h
+Cars.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+Cars.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+Cars.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
+Cars.o: ../../object3D/Quadrilateral3D.h ../../object3D/RectangularPrism.h
+Cars.o: ../../geometry/RectangularVolume.h ../../object3D/NormalPolygon3D.h
+Cars.o: ../../object3D/Transformable3D.h
+Cars.o: ../../object3D/ExtrudedNormalPolygon3D.h
+Cars.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+Cars.o: ../../object3D/RectangularPrism.h ../../object3D/Object3DCollection.h
+Cars.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+Cars.o: ../../object3D/Sprite3DListener.h ../../object3D/Object3DCollection.h
+Cars.o: ../../object3D/CompiledObject3D.h
+Cars.o: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+Cars.o: ../../model/MilkshapeModel.h ../../model/Model.h
+Cars.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+Cars.o: ../../model/Model.h ../../model/ModelFactory.h
+Cars.o: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+Cars.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+Cars.o: ../../texture/TextureScale.h ../../terrain/NullHeightFieldStrategy.h
 Cars.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-Cars.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-Cars.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
+Cars.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+Cars.o: ../../terrain/HeightFieldStrategy.h
 Cars.o: ../../terrain/ImageHeightFieldStrategy.h
 Cars.o: ../../terrain/HeightFieldFactory.h
 Cars.o: ../../terrain/MatrixHeightFieldStrategy.h
@@ -195,26 +218,9 @@ Cars.o: ../../transform/Transform.h
 Cars.o: ../../transform/LeftOpenGLCoordinateSystem.h
 Cars.o: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
 Cars.o: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
+Cars.o: ../../transform/Transformable.h
 Cars.o: ../../util/GraphicsConversionUtility.h ../../util/BehaviorParser.h
 Cars.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
 Cars.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
-Cars.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-Cars.o: ../../object2D/Object2D.h ../../core/Window.h
 Cars.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
-Cars.o: ../../util/PointScale.h ../../object2D/Rectangle2D.h
-Cars.o: ../../object2D/Object2D.h ../../object2D/String2D.h
-Cars.o: ../../object2D/Point2D.h ../../object3D/Arc3D.h
-Cars.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
-Cars.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
-Cars.o: ../../object3D/Sprite3DListener.h ../../object3D/Transformable.h
-Cars.o: ../../object3D/NoDepthTestQuadrilateral3D.h
-Cars.o: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
-Cars.o: ../../object3D/Quadrilateral3D.h ../../object3D/RectangularPrism.h
-Cars.o: ../../geometry/RectangularVolume.h ../../object3D/NormalPolygon3D.h
-Cars.o: ../../object3D/ExtrudedNormalPolygon3D.h
-Cars.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
-Cars.o: ../../object3D/RectangularPrism.h ../../object3D/Object3DCollection.h
-Cars.o: ../../object3D/CompiledObject3D.h ../../object3D/Sprite3DListener.h
-Cars.o: ../../object3D/Particle.h ../../object3D/Object3DCollection.h
-Cars.o: ../../object3D/RectangularPrismFactory.h
-Cars.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+Cars.o: ../../util/PointScale.h

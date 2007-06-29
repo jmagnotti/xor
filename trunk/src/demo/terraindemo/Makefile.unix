@@ -99,7 +99,7 @@ TerrainDemo.o: ../../event/reshape/ReshapeListener.h
 TerrainDemo.o: ../../event/reshape/ReshapeEvent.h
 TerrainDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
 TerrainDemo.o: ../../geometry/Dimension2D.h ../../geometry/Vector2D.h
-TerrainDemo.o: ../../core/World.h ../../core/Renderable.h
+TerrainDemo.o: ../../core/Renderable.h ../../core/World.h
 TerrainDemo.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
 TerrainDemo.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
 TerrainDemo.o: ../../paint/Paint.h ../../texture/Texture.h
@@ -124,8 +124,7 @@ TerrainDemo.o: ../../event/EventFactory.h ../../event/keyboard/KeyboardStub.h
 TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 TerrainDemo.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 TerrainDemo.o: ../../paint/Color.h ../../core/Camera.h
-TerrainDemo.o: ../../core/CameraListener.h ../../object3D/Transformable.h
-TerrainDemo.o: ../../transform/Transform.h
+TerrainDemo.o: ../../core/CameraListener.h ../../transform/Transformable.h
 TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h
 TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
@@ -159,7 +158,6 @@ TerrainDemo.o: ../../event/mouse/MouseSkeleton.h
 TerrainDemo.o: ../../event/mouse/MouseListener.h
 TerrainDemo.o: ../../event/mouse/MouseClickEvent.h
 TerrainDemo.o: ../../event/mouse/DefaultMouseListener.h
-TerrainDemo.o: ../../object3D/Transformable.h
 TerrainDemo.o: ../../event/mouse/MouseButtonDown.h
 TerrainDemo.o: ../../event/mouse/MouseMotionEvent.h
 TerrainDemo.o: ../../event/mouse/MouseEventFactory.h
@@ -197,10 +195,10 @@ TerrainDemo.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
 TerrainDemo.o: ../../core/Window.h ../../object2D/Object2D.h
 TerrainDemo.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 TerrainDemo.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+TerrainDemo.o: ../../object2D/Transformable2D.h ../../transform/Transform.h
 TerrainDemo.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
 TerrainDemo.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
 TerrainDemo.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
-TerrainDemo.o: ../../object3D/Transformable.h
 TerrainDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
 TerrainDemo.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
 TerrainDemo.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
@@ -208,6 +206,7 @@ TerrainDemo.o: ../../object3D/Quadrilateral3D.h
 TerrainDemo.o: ../../object3D/RectangularPrism.h
 TerrainDemo.o: ../../geometry/RectangularVolume.h
 TerrainDemo.o: ../../object3D/NormalPolygon3D.h
+TerrainDemo.o: ../../object3D/Transformable3D.h
 TerrainDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
 TerrainDemo.o: ../../object3D/NormalPolygon3D.h
 TerrainDemo.o: ../../object3D/AdornablePrism.h
@@ -248,7 +247,8 @@ TerrainDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
 TerrainDemo.o: ../../transform/Stretch.h
 TerrainDemo.o: ../../transform/MacCoordinateSystem.h
 TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
-TerrainDemo.o: ../../transform/Scale.h ../../util/GraphicsConversionUtility.h
+TerrainDemo.o: ../../transform/Scale.h ../../transform/Transformable.h
+TerrainDemo.o: ../../util/GraphicsConversionUtility.h
 TerrainDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 TerrainDemo.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
 TerrainDemo.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h

@@ -92,6 +92,11 @@ public:
 	//Rotate * createTransformedInstance(Vector3D *point);
 	//Rotate * createTransformedInstance(Vector3D *point, int milliseconds);
 
+	/**
+	 * accessor for easier transforming (see Orientation implementation)
+	 */
+	float getAngle();
+
 protected:
 
     friend class Orientation;

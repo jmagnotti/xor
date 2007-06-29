@@ -20,13 +20,14 @@ public:
 
         ctrl = Controller::GetInstance(new XavierConfiguration());
 
+		ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
         ctrl->getKeyboard()->addListener(this);
-		ctrl->getMouse()->setDefaultMouseListener(this);
+		ctrl->getMouse()->addListener(new DefaultMouseListener());
 
         ctrl->setModel(new String2D("Coordinate Test (press 'x' to switch axes)"));
 
-		ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
-		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(10,10,10));
+		ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
         
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
@@ -57,7 +58,7 @@ public:
 	void handleKey_l()
 	{
 		cout << "LOOK AT ORIGIN" << endl;
-		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
 	}
 
 	void handleKey_x()
@@ -86,91 +87,71 @@ public:
 		}
 	}
 
-	void handleKey_p()
-	{
-		ctrl->getCamera()->print();
-	}
+	//void handleKey_p()
+	//{
+		//Vector3D * position = ctrl->getCamera()->getOrientation()->getPosition();
+		//float pitch = ctrl->getCamera()->getOrientation()->getPitch();
+		//float yaw = ctrl->getCamera()->getOrientation()->getYaw();
+		//float roll = ctrl->getCamera()->getOrientation()->getRoll();
+		//cout << "x=" << position->getX() << "  y=" << position->getY() << "  z=" << position->getZ() << endl;
+		//cout << "pitch=" << pitch << "  yaw=" << yaw << "  roll=" << roll << endl;
+	//}
 
-	void handleKey_a()
-	{
-		ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_a()
+	//{
+		//ctrl->getCamera()->getOrientation()->incrementYaw(-10.0f);
+	//}
 
-	void handleKey_d()
-	{
-		ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_d()
+	//{
+		//ctrl->getCamera()->getOrientation()->incrementPitch(10.0f);
+	//}
 
 	void handleKey_w()
 	{
-		ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
+		//ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
 	}
 
 	void handleKey_s()
 	{
-		ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
+		//ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
 	}
 
-	void handleKey_q()
-	{
-		ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_q()
+	//{
+		//ctrl->getCamera()->getOrientation()->incrementRoll(-5.0f);
+	//}
 
-	void handleKey_e()
-	{
-		ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_e()
+	//{
+		//ctrl->getCamera()->getOrientation()->incrementRoll(5.0f);
+	//}
 
 	void handleKey_c()
 	{
-		ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->getOrientation()->incrementPitch(-5.0f);
 	}
 
 	void handleKey_z()
 	{
-		ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
+		ctrl->getCamera()->getOrientation()->incrementPitch(5.0f);
 	}
 
     void handleKey_C()
     {
-        ctrl->getCamera()->clear();
+        //ctrl->getCamera()->clear();
     }
 
     void handleKey_RBracket()
     {
-        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1));
+        ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,1));
     }
 
     void handleKey_LBracket()
     {
-        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,-1));
+        ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,-1));
     }
 	
-	void handleMouseMotion(MouseMotionEvent * mme)
-	{
-		Mouse * mouse = ctrl->getMouse();
-
-		if (mouse->isLeftButtonDown()) {
-			// rotate camera
-			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
-			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
-
-			ctrl->getCamera()->incrementRotation(
-					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			ctrl->getCamera()->incrementRotation(
-					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
-		}
-	}
-	
-	void handleMouseButtonPressed(MouseButtonDown * mbd)
-	{
-		cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
-	}
-
-	void handleMouseButtonReleased(MouseButtonUp * mbu)
-	{
-		cout << "MOUSE UP: button=" << mbu->getButton() << endl;
-	}
 	
 private:
 

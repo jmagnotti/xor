@@ -97,8 +97,8 @@ HelloWorld.o: ../../event/timer/Timer.h ../../core/Window.h
 HelloWorld.o: ../../event/reshape/ReshapeListener.h
 HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
 HelloWorld.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
-HelloWorld.o: ../../geometry/Vector2D.h ../../core/World.h
-HelloWorld.o: ../../core/Renderable.h ../../object3D/Object3D.h
+HelloWorld.o: ../../geometry/Vector2D.h ../../core/Renderable.h
+HelloWorld.o: ../../core/World.h ../../object3D/Object3D.h
 HelloWorld.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
 HelloWorld.o: ../../geometry/Vector3D.h ../../paint/Paint.h
 HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
@@ -122,8 +122,7 @@ HelloWorld.o: ../../event/keyboard/KeyboardStub.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 HelloWorld.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 HelloWorld.o: ../../paint/Color.h ../../core/Camera.h
-HelloWorld.o: ../../core/CameraListener.h ../../object3D/Transformable.h
-HelloWorld.o: ../../transform/Transform.h
+HelloWorld.o: ../../core/CameraListener.h ../../transform/Transformable.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
 HelloWorld.o: ../../transform/CoordinateSystem.h
 HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
@@ -157,11 +156,11 @@ HelloWorld.o: ../../event/mouse/MouseSkeleton.h
 HelloWorld.o: ../../event/mouse/MouseListener.h
 HelloWorld.o: ../../event/mouse/MouseClickEvent.h
 HelloWorld.o: ../../event/mouse/DefaultMouseListener.h
-HelloWorld.o: ../../object3D/Transformable.h
 HelloWorld.o: ../../event/mouse/MouseButtonDown.h
 HelloWorld.o: ../../event/mouse/MouseMotionEvent.h
 HelloWorld.o: ../../event/mouse/MouseEventFactory.h
 HelloWorld.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/EventFactory.h
 HelloWorld.o: ../../event/FullEventHandlerFactory.h
 HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
 HelloWorld.o: ../../event/mouse/MouseSkeleton.h
@@ -169,36 +168,62 @@ HelloWorld.o: ../../event/timer/TimerSkeleton.h
 HelloWorld.o: ../../event/InputEventProxyFactory.h
 HelloWorld.o: ../../event/FullEventProxyFactory.h
 HelloWorld.o: ../../event/InputEventHandlerFactory.h
-HelloWorld.o: ../../event/EventFactory.h
 HelloWorld.o: ../../interpolation/InterpolationListener.h
 HelloWorld.o: ../../interpolation/CameraRoller.h
-HelloWorld.o: ../../interpolation/Waypoint.h
 HelloWorld.o: ../../interpolation/TimedInterpolation.h
 HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/Waypoint.h
 HelloWorld.o: ../../interpolation/TimedInterpolation.h
-HelloWorld.o: ../../interpolation/LinearInterpolator.h
 HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
 HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
 HelloWorld.o: ../../interpolation/Interpolator.h
 HelloWorld.o: ../../interpolation/WaypointCollection.h
 HelloWorld.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
 HelloWorld.o: ../../core/DebugCamera.h ../../core/Controller.h
-HelloWorld.o: ../../core/Controller.h ../../core/XavierConfiguration.h
-HelloWorld.o: ../../core/World.h ../../core/Window.h ../../core/Camera.h
-HelloWorld.o: ../../core/Renderable.h ../../geometry/Vector3D.h
-HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
-HelloWorld.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
-HelloWorld.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
-HelloWorld.o: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
-HelloWorld.o: ../../model/Model.h ../../texture/TextureFactory.h
-HelloWorld.o: ../../texture/Texture.h ../../model/Model.h
-HelloWorld.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
-HelloWorld.o: ../../shape/CollisionRenderable.h ../../texture/Texture.h
-HelloWorld.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
-HelloWorld.o: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
+HelloWorld.o: ../../core/Controller.h ../../core/Renderable.h
+HelloWorld.o: ../../core/XavierConfiguration.h ../../core/World.h
+HelloWorld.o: ../../core/Window.h ../../core/Camera.h
+HelloWorld.o: ../../geometry/Vector3D.h ../../geometry/Dimension2D.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+HelloWorld.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+HelloWorld.o: ../../geometry/CylindricalVolume.h ../../geometry/Vector2D.h
+HelloWorld.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+HelloWorld.o: ../../core/Window.h ../../object2D/Object2D.h
+HelloWorld.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+HelloWorld.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+HelloWorld.o: ../../object2D/Transformable2D.h ../../transform/Transform.h
+HelloWorld.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+HelloWorld.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
+HelloWorld.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+HelloWorld.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+HelloWorld.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
+HelloWorld.o: ../../object3D/Quadrilateral3D.h
+HelloWorld.o: ../../object3D/RectangularPrism.h
+HelloWorld.o: ../../geometry/RectangularVolume.h
+HelloWorld.o: ../../object3D/NormalPolygon3D.h
+HelloWorld.o: ../../object3D/Transformable3D.h
+HelloWorld.o: ../../object3D/ExtrudedNormalPolygon3D.h
+HelloWorld.o: ../../object3D/NormalPolygon3D.h
+HelloWorld.o: ../../object3D/AdornablePrism.h
+HelloWorld.o: ../../object3D/RectangularPrism.h
+HelloWorld.o: ../../object3D/Object3DCollection.h
+HelloWorld.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+HelloWorld.o: ../../object3D/Sprite3DListener.h
+HelloWorld.o: ../../object3D/Object3DCollection.h
+HelloWorld.o: ../../object3D/CompiledObject3D.h
+HelloWorld.o: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+HelloWorld.o: ../../model/MilkshapeModel.h ../../model/Model.h
+HelloWorld.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+HelloWorld.o: ../../model/Model.h ../../model/ModelFactory.h
+HelloWorld.o: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+HelloWorld.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+HelloWorld.o: ../../texture/TextureScale.h
+HelloWorld.o: ../../terrain/NullHeightFieldStrategy.h
 HelloWorld.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-HelloWorld.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
+HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+HelloWorld.o: ../../terrain/HeightFieldStrategy.h
 HelloWorld.o: ../../terrain/ImageHeightFieldStrategy.h
 HelloWorld.o: ../../terrain/HeightFieldFactory.h
 HelloWorld.o: ../../terrain/MatrixHeightFieldStrategy.h
@@ -217,32 +242,9 @@ HelloWorld.o: ../../transform/Transform.h
 HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
-HelloWorld.o: ../../transform/Scale.h ../../util/GraphicsConversionUtility.h
+HelloWorld.o: ../../transform/Scale.h ../../transform/Transformable.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h
 HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 HelloWorld.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
-HelloWorld.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
-HelloWorld.o: ../../util/BitmapFontConstants.h ../../object2D/Object2D.h
-HelloWorld.o: ../../core/Window.h ../../util/BitmapFontConstants.h
+HelloWorld.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
 HelloWorld.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
-HelloWorld.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
-HelloWorld.o: ../../object2D/String2D.h ../../object2D/Point2D.h
-HelloWorld.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
-HelloWorld.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
-HelloWorld.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
-HelloWorld.o: ../../object3D/Transformable.h
-HelloWorld.o: ../../object3D/NoDepthTestQuadrilateral3D.h
-HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
-HelloWorld.o: ../../object3D/Quadrilateral3D.h
-HelloWorld.o: ../../object3D/RectangularPrism.h
-HelloWorld.o: ../../geometry/RectangularVolume.h
-HelloWorld.o: ../../object3D/NormalPolygon3D.h
-HelloWorld.o: ../../object3D/ExtrudedNormalPolygon3D.h
-HelloWorld.o: ../../object3D/NormalPolygon3D.h
-HelloWorld.o: ../../object3D/AdornablePrism.h
-HelloWorld.o: ../../object3D/RectangularPrism.h
-HelloWorld.o: ../../object3D/Object3DCollection.h
-HelloWorld.o: ../../object3D/CompiledObject3D.h
-HelloWorld.o: ../../object3D/Sprite3DListener.h ../../object3D/Particle.h
-HelloWorld.o: ../../object3D/Object3DCollection.h
-HelloWorld.o: ../../object3D/RectangularPrismFactory.h
-HelloWorld.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h

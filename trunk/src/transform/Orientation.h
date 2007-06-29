@@ -16,7 +16,7 @@ using namespace std;
 namespace XOR {
 
 /**
- * Easy way to have holistic positioning of an object. Should be upated to
+ * Easy way to have holistic positioning of an object. Should be updated to
  * use Quaternions | Eigenaxes.
  *
  * @author John Magnotti
@@ -60,6 +60,9 @@ public:
 	void pushInverse(void);
 
 
+	/**
+	 * debug transform info
+	 */
     void print();
 
 
@@ -89,30 +92,63 @@ public:
 	void transform(Dimension2D * size);
 
 
-	void moveAlongFocalVector(float distance);
+	// TODO: re-write
+	//void moveAlongFocalVector(float distance);
 
 
-	//Vector3D * getPosition();
+	Vector3D * getPosition();
 
-	//float  getRoll();
-	//float  getPitch();
-	//float  getYaw();
+	void setPosition(Vector3D * position);
+	void incrementPosition(Vector3D * position);
+	
+	float getRoll();
+	float getPitch();
+	float getYaw();
+
+	void setRoll(float angle);
+	void setPitch(float angle);
+	void setYaw(float angle);
+	
+	void incrementRoll(float angle);
+	void incrementPitch(float angle);
+	void incrementYaw(float angle);
+
+	void setFocalPoint(Vector3D * focalPoint);
+
+	// interpolated transforms
+	
+	//void setRoll(float angle, int milliseconds);
+	//void setPitch(float angle, int milliseconds);
+	//void setYaw(float angl, int milliseconds);
+	//
+	//void incrementRoll(float angle, int milliseconds);
+	//void incrementPitch(float angle, int milliseconds);
+	//void incrementYaw(float angl, int milliseconds);
+	//
+	//void setPosition(Vector3D * position, int milliseconds);
+	//void incrementPosition(Vector3D * position, int milliseconds);
+	//void setFocalPoint(Vector3D * focalPoint, int milliseconds);
 	
 	//float  getFocalDistance();
 	//Vector3D * getFocalPoint() const;
 
 private:
 
-	void updateFocalPoint();
+	//void updateFocalPoint();
 
-	void updateFromFocalPoint();
+	//void updateFromFocalPoint();
 
-    Rotate    * _roll, * _theta, * _phi;
-    Translate * _position;
+	vector<Rotate*> _pitch;
+	vector<Rotate*> _yaw;
+	vector<Rotate*> _roll;
+	vector<Translate*> _position;
 
-    Vector3D  * _focalPoint;
+    //Rotate    * _roll, * _theta, * _phi;
+    //Translate * _position;
 
-    float _focalDistance;
+    //Vector3D  * _focalPoint;
+
+    //float _focalDistance;
 };
 
 }

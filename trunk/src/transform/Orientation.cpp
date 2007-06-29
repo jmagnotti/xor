@@ -2,28 +2,12 @@
 
 namespace XOR {
 
-/*
- * Must be declared in the header file so they can be used in a switch. see
- * the discussion in Paint.h
- * 
- * const int Orientation::THETA = 0;
- * const int Orientation::PHI   = 1;
- * const int Orientation::ROLL  = 2;
- */ 
 
 /**
  * default constructor - null orientation
  */
 Orientation::Orientation()
 {
-	_position   = Translate::CreateTranslate(0.0f, 0.0f, 0.0f);
-	_focalPoint = new Vector3D(0.0f, 0.0f, 1.0f);
-
-	_phi        = new Rotate(0.0f, 1, 0, 0);
-	_theta      = new Rotate(0.0f, 0, 1, 0);
-	_roll       = new Rotate(0.0f, 0, 0, 1);
-
-	_focalDistance = 1.0f;
 }
 
 
@@ -32,26 +16,19 @@ Orientation::Orientation()
  */
 Orientation::~Orientation()
 {
-	delete _position;
-	delete _focalPoint;
-
-	delete _theta;
-	delete _phi;
-	delete _roll;
+	//FIXME: memory leak?
 }
 
 
 /*
  * new orientation based on existing transforms
  */
-Orientation::Orientation(Translate * position, Rotate * roll, Rotate * phi, Rotate * theta)
+Orientation::Orientation(Translate * position, Rotate * pitch, Rotate * yaw, Rotate * roll)
 {
-	_position = position;
-	_focalPoint = new Vector3D(0.0f, 0.0f, 1.0f);
-	_roll = roll;
-	_phi = phi;
-	_theta = theta;
-	updateFocalPoint();
+	_position.push_back(position);
+	_pitch.push_back(pitch);
+	_yaw.push_back(yaw);
+	_roll.push_back(roll);
 }
 
 
@@ -60,12 +37,8 @@ Orientation::Orientation(Translate * position, Rotate * roll, Rotate * phi, Rota
  */
 Orientation::Orientation(Translate * position, Vector3D * focalPoint)
 {
-	_position = position;
-	_focalPoint = focalPoint;
-	_phi        = new Rotate(0.0f, 1, 0, 0);
-	_theta      = new Rotate(0.0f, 0, 1, 0);
-	_roll       = new Rotate(0.0f, 0, 0, 1);
-	updateFromFocalPoint();
+	_position.push_back(position);
+	setFocalPoint(focalPoint);
 }
 
 
@@ -74,14 +47,8 @@ Orientation::Orientation(Translate * position, Vector3D * focalPoint)
  */
 void Orientation::clone(Orientation * other)
 {
-    _position->clone(other->_position);
-    _focalPoint->clone(other->_focalPoint);
-
-    _theta->clone(other->_theta);
-    _phi->clone(other->_phi);
-    _roll->clone(other->_roll);
-
-    _focalDistance = other->_focalDistance;
+	// FIXME: copy transform stacks
+	
 }
 
 
@@ -90,10 +57,13 @@ void Orientation::clone(Orientation * other)
  */
 Orientation * Orientation::clone()
 {
-    Orientation * cloned = new Orientation(_position, _roll, _phi, _theta);
-    cloned->_focalPoint = _focalPoint->clone();
+	// FIXME: copy transform stacks
+	//
+    //Orientation * cloned = new Orientation(getPosition(), getPitch(), getYaw(), getRoll());
+    //cloned->_focalPoint = _focalPoint->clone();
 
-    return cloned;
+    //return cloned;
+	return NULL;
 }
 
 
@@ -102,12 +72,36 @@ Orientation * Orientation::clone()
  */
 void Orientation::push()
 {
-	_position->push();
+	// first the position
+	
+	vector<Translate*>::iterator position_iter = _position.begin();
+	while (position_iter != _position.end()) {
+		(*position_iter)->push();
+		++position_iter;
+	}
 
-	// order is important: roll, phi, theta
-	_roll->push();
-	_phi->push();
-	_theta->push();
+
+	// order is important: roll, pitch, yaw
+	
+	vector<Rotate*>::iterator roll_iter = _roll.begin();
+	while (roll_iter != _roll.end()) {
+		(*roll_iter)->push();
+		++roll_iter;
+	}
+
+	vector<Rotate*>::iterator pitch_iter = _pitch.begin();
+	while (pitch_iter != _pitch.end()) {
+		(*pitch_iter)->push();
+		++pitch_iter;
+	}
+
+	vector<Rotate*>::iterator yaw_iter = _yaw.begin();
+	while (yaw_iter != _yaw.end()) {
+		(*yaw_iter)->push();
+		++yaw_iter;
+	}
+
+
 }
 
 
@@ -117,14 +111,33 @@ void Orientation::push()
  */
 void Orientation::pushInverse()
 {
-	//_position->pushInverse();
 
-	// order is important: roll, phi, theta
-	_roll->pushInverse();
-	_phi->pushInverse();
-	_theta->pushInverse();
+	// order is important: roll, pitch, yaw
+	
+	vector<Rotate*>::iterator roll_iter = _roll.begin();
+	while (roll_iter != _roll.end()) {
+		(*roll_iter)->pushInverse();
+		++roll_iter;
+	}
 
-	_position->pushInverse();
+	vector<Rotate*>::iterator pitch_iter = _pitch.begin();
+	while (pitch_iter != _pitch.end()) {
+		(*pitch_iter)->pushInverse();
+		++pitch_iter;
+	}
+
+	vector<Rotate*>::iterator yaw_iter = _yaw.begin();
+	while (yaw_iter != _yaw.end()) {
+		(*yaw_iter)->pushInverse();
+		++yaw_iter;
+	}
+
+	vector<Translate*>::iterator position_iter = _position.begin();
+	while (position_iter != _position.end()) {
+		(*position_iter)->pushInverse();
+		++position_iter;
+	}
+
 }
 
 
@@ -134,90 +147,219 @@ void Orientation::pushInverse()
 void Orientation::pop()
 {
 	// reverse of push
-	_theta->pop();
-	_phi->pop();
-	_roll->pop();
+	
+	vector<Rotate*>::iterator yaw_iter = _yaw.begin();
+	while (yaw_iter != _yaw.end()) {
+		(*yaw_iter)->pop();
+		++yaw_iter;
+	}
 
-	_position->pop();
+	vector<Rotate*>::iterator pitch_iter = _pitch.begin();
+	while (pitch_iter != _pitch.end()) {
+		(*pitch_iter)->pop();
+		++pitch_iter;
+	}
+
+	vector<Rotate*>::iterator roll_iter = _roll.begin();
+	while (roll_iter != _roll.end()) {
+		(*roll_iter)->pop();
+		++roll_iter;
+	}
+
+	vector<Translate*>::iterator position_iter = _position.begin();
+	while (position_iter != _position.end()) {
+		(*position_iter)->pop();
+		++position_iter;
+	}
+
+}
+
+void Orientation::setPosition(Vector3D * position)
+{
+	_position.clear();
+	incrementPosition(position);
+}
+
+void Orientation::incrementPosition(Vector3D * position)
+{
+	_position.push_back(Translate::CreateTranslate(position));
+}
+
+void Orientation::setPitch(float angle)
+{
+	incrementPitch(angle - getPitch());
+}
+
+void Orientation::setYaw(float angle)
+{
+	incrementYaw(angle - getYaw());
+}
+
+void Orientation::setRoll(float angle)
+{
+	incrementRoll(angle - getRoll());
+}
+
+void Orientation::incrementPitch(float angle)
+{
+	_pitch.push_back(Rotate::CreateRotate(angle, Rotate::PITCH));
+}
+
+void Orientation::incrementYaw(float angle)
+{
+	_yaw.push_back(Rotate::CreateRotate(angle, Rotate::YAW));
+}
+
+void Orientation::incrementRoll(float angle)
+{
+	_roll.push_back(Rotate::CreateRotate(angle, Rotate::ROLL));
+}
+
+Vector3D * Orientation::getPosition()
+{
+	Vector3D * position = new Vector3D(0,0,0);
+	vector<Translate*>::iterator iter = _position.begin();
+	while (iter != _position.end()) {
+		(*iter)->transform(position);
+		++iter;
+	}
+	return position;
+}
+
+float Orientation::getPitch()
+{	
+	float angle = 0.0f;
+	vector<Rotate*>::iterator iter = _pitch.begin();
+	while (iter != _pitch.end()) {
+		angle += (*iter)->getAngle();
+		++iter;
+	}
+	return angle;
+}
+
+float Orientation::getYaw()
+{	
+	float angle = 0.0f;
+	vector<Rotate*>::iterator iter = _yaw.begin();
+	while (iter != _yaw.end()) {
+		angle += (*iter)->getAngle();
+		++iter;
+	}
+	return angle;
+}
+
+float Orientation::getRoll()
+{	
+	float angle = 0.0f;
+	vector<Rotate*>::iterator iter = _roll.begin();
+	while (iter != _roll.end()) {
+		angle += (*iter)->getAngle();
+		++iter;
+	}
+	return angle;
 }
 
 
 /*
  *
  */
-void Orientation::moveAlongFocalVector(float distance)
-{
-	updateFocalPoint();
-
-	// calculate new position by obtaining focus vector and multiplying
-	// by the desired distance
-	float coords[3];
-	coords[0] = (_focalPoint->get(0) - _position->_translation[0]) * distance;
-	coords[1] = (_focalPoint->get(1) - _position->_translation[1]) * distance;
-	coords[2] = (_focalPoint->get(2) - _position->_translation[2]) * distance;
-
-    for (int i=0; i<3; i++)
-        coords[i] = (_focalPoint->get(i) - _position->_translation[i]) * distance;
-
-	//_position->increment(new Vector3D(coords), interpolation);
-
-	updateFocalPoint();
-}
+/*
+ *void Orientation::moveAlongFocalVector(float distance)
+ *{
+ *    updateFocalPoint();
+ *
+ *    // calculate new position by obtaining focus vector and multiplying
+ *    // by the desired distance
+ *    float coords[3];
+ *    coords[0] = (_focalPoint->get(0) - _position->_translation[0]) * distance;
+ *    coords[1] = (_focalPoint->get(1) - _position->_translation[1]) * distance;
+ *    coords[2] = (_focalPoint->get(2) - _position->_translation[2]) * distance;
+ *
+ *    for (int i=0; i<3; i++)
+ *        coords[i] = (_focalPoint->get(i) - _position->_translation[i]) * distance;
+ *
+ *    //_position->increment(new Vector3D(coords), interpolation);
+ *
+ *    updateFocalPoint();
+ *}
+ */
 
 
 /*
  * transforms --> _focus
  */
-void Orientation::updateFocalPoint()
-{
-    //cout << "Updating the focal point" << endl;
-
-	// theta and phi in radians
-    /*
-	float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
-	float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
-
-	// new focal point
-    _focalPoint->_translation[0] = _position->_translation[0] - 
-        (_focalDistance * cos(p) * sin(t));
-
-    _focalPoint->_translation[1] = _position->_translation[1] - 
-        (_focalDistance * sin(p));
-
-    _focalPoint->_translation[2] = _position->_translation[2] - (_focalDistance * cos(p) * cos(t));
-    */
-}
+/*
+ *void Orientation::updateFocalPoint()
+ *{
+ *    //cout << "Updating the focal point" << endl;
+ *
+ *    // theta and phi in radians
+ *    
+ *    float t =  (_theta->_angle / 180.0f * GraphicsConversionUtility::PI);
+ *    float p = -(_phi->_angle / 180.0f * GraphicsConversionUtility::PI);
+ *
+ *    new focal point
+ *    _focalPoint->_translation[0] = _position->_translation[0] - 
+ *        (_focalDistance * cos(p) * sin(t));
+ *
+ *    _focalPoint->_translation[1] = _position->_translation[1] - 
+ *        (_focalDistance * sin(p));
+ *
+ *    _focalPoint->_translation[2] = _position->_translation[2] - (_focalDistance * cos(p) * cos(t));
+ *}
+ */
 
 
 /*
  * _focus --> transforms
  */
-void Orientation::updateFromFocalPoint()
+/*
+ *void Orientation::updateFromFocalPoint()
+ *{
+ *    // the camera can be rotated to the given focal point in
+ *    // only two axes of rotations: theta and phi (not roll)
+ *    // current behavior is to preserve roll upon focus reset
+ *    // uncomment the following line to reset roll upon reset
+ *    //_roll = 0.0;
+ *
+ *    // focal vector relative to position
+ *    float x = _focalPoint->getX() - _position->_translation[0];
+ *    float y = _focalPoint->getY() - _position->_translation[1];
+ *    float z = _focalPoint->getZ() - _position->_translation[2];
+ *
+ *    // new rotation
+ *    _phi->_angle = (asin(y / _focalDistance)) / 
+ *            GraphicsConversionUtility::PI * 180.0f;
+ *    _theta->_angle = (atan2(x , z) / 
+ *            GraphicsConversionUtility::PI * 180.0f) - 180.0f;
+ *}
+ */
+
+void Orientation::setFocalPoint(Vector3D * focalPoint)
 {
-	// the camera can be rotated to the given focal point in
-	// only two axes of rotations: theta and phi (not roll)
-	// current behavior is to preserve roll upon focus reset
-	// uncomment the following line to reset roll upon reset
-	//_roll = 0.0;
-
-	// focal vector relative to position
-	float x = _focalPoint->getX() - _position->_translation[0];
-	float y = _focalPoint->getY() - _position->_translation[1];
-	float z = _focalPoint->getZ() - _position->_translation[2];
-
-	// new rotation
-    _phi->_angle = (asin(y / _focalDistance)) / 
-            GraphicsConversionUtility::PI * 180.0f;
-    _theta->_angle = (atan2(x , z) / 
-            GraphicsConversionUtility::PI * 180.0f) - 180.0f;
+	Vector3D * position = getPosition();
+	float x = focalPoint->getX() - position->getX();
+	float y = focalPoint->getY() - position->getY();
+	float z = focalPoint->getZ() - position->getZ();
+	float distance = sqrt(
+	             pow(focalPoint->getX() - position->getX(), 2.0f) +
+	             pow(focalPoint->getY() - position->getY(), 2.0f) +
+				 pow(focalPoint->getZ() - position->getZ(), 2.0f));
+	float pitch = (asin(y / distance)) / GraphicsConversionUtility::PI * 180.0f;
+	float yaw = (atan2(x,z) / GraphicsConversionUtility::PI * 180.0f) - 180.0f;
+	setPitch(pitch);
+	setYaw(yaw);
 }
-
 
 /*
  * print member info
  */
 void Orientation::print()
 {
+	Vector3D * position = getPosition();
+	cout << "x=" << position->getX() << "  y=" << position->getY() << "  z=" << position->getZ() << endl;
+	cout << "pitch=" << getPitch() << "  yaw=" << getYaw() << "  roll=" << getRoll() << endl;
+ 
     return ;
     /*
 	float distance = sqrt(
@@ -249,11 +391,11 @@ void Orientation::print()
  */
 void Orientation::toIdentity()
 {
-    _phi->toIdentity();
-    _roll->toIdentity();
-    _theta->toIdentity();
-
-    _position->toIdentity();
+	// FIXME: fix memory leak
+	_position.clear();
+	_pitch.clear();
+	_yaw.clear();
+	_roll.clear();
 }
 
 void Orientation::transform(Vector2D * position){}

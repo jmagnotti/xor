@@ -62,6 +62,11 @@ public:
 		_model->render();
 	}
 
+	unsigned int getTimerInterval()
+	{
+		return 300;
+	}
+
 private:
 
 	Model * _model;
@@ -91,7 +96,7 @@ public:
 //		ctrl->getCamera()->setWallMode(Camera::WALL_MODE_STANDARD);
 		// </ WALL STUFF >
 
-        ctrl->getKeyboard()->addListener(this);
+        //ctrl->getKeyboard()->addListener(this);
 		//ctrl->getMouse()->addListener(this);
 
         ctrl->setModel(new String2D("Car Race Demo"));
@@ -203,7 +208,13 @@ private:
  */
 int main(int argc, char **argv)
 {
-	Cars * demo = new Cars(atoi(argv[1]), atoi(argv[2])); 
+	if (argc != 3) {
+		cout << "usage:\n\tCars <wall-x-offset> <wall-y-offset>" << endl;
+	}
+	else
+	{
+		Cars * demo = new Cars(atoi(argv[1]), atoi(argv[2])); 
+	}
     return 0;
 }
 

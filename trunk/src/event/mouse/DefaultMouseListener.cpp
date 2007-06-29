@@ -55,6 +55,9 @@ void DefaultMouseListener::handleMouseMotion(MouseMotionEvent * mme)
 		//Which is a good bet, but not guaranteed. The empty GetInstance was
 		//removed to prevent abuse.
 
+		Controller::GetInstance()->getCamera()->getOrientation()->incrementYaw(xChange);
+		Controller::GetInstance()->getCamera()->getOrientation()->incrementPitch(yChange);
+
         /*
 		Controller::GetInstance()->getCamera()->incrementRotation(Orientation
 				::THETA, xChange, new TimedInterpolation(100, NULL));

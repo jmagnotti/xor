@@ -3,9 +3,9 @@
 
 namespace XOR {
 
-const Vector3D * Rotate::ROLL  = new Vector3D(1,0,0);
-const Vector3D * Rotate::PITCH = new Vector3D(0,1,0);
-const Vector3D * Rotate::YAW   = new Vector3D(0,0,1);
+const Vector3D * Rotate::PITCH  = new Vector3D(1,0,0);
+const Vector3D * Rotate::YAW    = new Vector3D(0,1,0);
+const Vector3D * Rotate::ROLL   = new Vector3D(0,0,1);
 
 /*
  * Destructor
@@ -157,6 +157,11 @@ void Rotate::transform(Dimension2D * size){}
 //Rotate * Rotate::createTransformedInstance(Vector3D * point){}
 //Rotate * Rotate::createTransformedInstance(Vector3D * point, int milliseconds){}
 //END TODO
+
+float Rotate::getAngle()
+{
+	return _angle;
+}
 
 void InterpolatedRotate::push()
 {
