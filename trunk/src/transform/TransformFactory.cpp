@@ -12,7 +12,7 @@ Transform * TransformFactory::CreateTransform(string data[5])
 
 	if (data[0] == "ROTATE" )
 	{
-		transform = new Rotate(atof(data[1].c_str()), atoi(data[2].c_str()),
+		transform = Rotate::CreateRotate(atof(data[1].c_str()), atoi(data[2].c_str()),
 			atoi(data[3].c_str()), atoi(data[4].c_str()) );
 	}
 	else if(data[0] == "TRANSLATE" )

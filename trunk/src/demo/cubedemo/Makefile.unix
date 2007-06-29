@@ -156,41 +156,66 @@ CubeDemo.o: ../../event/mouse/MouseButtonDown.h
 CubeDemo.o: ../../event/mouse/MouseMotionEvent.h
 CubeDemo.o: ../../event/mouse/MouseEventFactory.h
 CubeDemo.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
-CubeDemo.o: ../../event/FullEventHandlerFactory.h
+CubeDemo.o: ../../event/EventFactory.h ../../event/FullEventHandlerFactory.h
 CubeDemo.o: ../../event/keyboard/KeyboardSkeleton.h
 CubeDemo.o: ../../event/mouse/MouseSkeleton.h
 CubeDemo.o: ../../event/timer/TimerSkeleton.h
 CubeDemo.o: ../../event/InputEventProxyFactory.h
 CubeDemo.o: ../../event/FullEventProxyFactory.h
-CubeDemo.o: ../../event/InputEventHandlerFactory.h ../../event/EventFactory.h
+CubeDemo.o: ../../event/InputEventHandlerFactory.h
 CubeDemo.o: ../../interpolation/InterpolationListener.h
-CubeDemo.o: ../../interpolation/CameraRoller.h ../../interpolation/Waypoint.h
+CubeDemo.o: ../../interpolation/CameraRoller.h
 CubeDemo.o: ../../interpolation/TimedInterpolation.h
 CubeDemo.o: ../../interpolation/InterpolatorFactory.h
+CubeDemo.o: ../../interpolation/Waypoint.h
 CubeDemo.o: ../../interpolation/TimedInterpolation.h
-CubeDemo.o: ../../interpolation/LinearInterpolator.h
 CubeDemo.o: ../../interpolation/InterpolationEngine.h
+CubeDemo.o: ../../interpolation/LinearInterpolator.h
 CubeDemo.o: ../../interpolation/ContinuousInterpolation.h
 CubeDemo.o: ../../interpolation/Interpolator.h
 CubeDemo.o: ../../interpolation/WaypointCollection.h
 CubeDemo.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
 CubeDemo.o: ../../core/DebugCamera.h ../../core/Controller.h
-CubeDemo.o: ../../core/Controller.h ../../core/XavierConfiguration.h
-CubeDemo.o: ../../core/World.h ../../core/Window.h ../../core/Camera.h
-CubeDemo.o: ../../core/Renderable.h ../../geometry/Vector3D.h
+CubeDemo.o: ../../core/Controller.h ../../core/Renderable.h
+CubeDemo.o: ../../core/XavierConfiguration.h ../../core/World.h
+CubeDemo.o: ../../core/Window.h ../../core/Camera.h ../../geometry/Vector3D.h
 CubeDemo.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
 CubeDemo.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
 CubeDemo.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
-CubeDemo.o: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
-CubeDemo.o: ../../model/Model.h ../../texture/TextureFactory.h
-CubeDemo.o: ../../texture/Texture.h ../../model/Model.h
-CubeDemo.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
-CubeDemo.o: ../../shape/CollisionRenderable.h ../../texture/Texture.h
-CubeDemo.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
-CubeDemo.o: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
+CubeDemo.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+CubeDemo.o: ../../object2D/Object2D.h ../../core/Window.h
+CubeDemo.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+CubeDemo.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CubeDemo.o: ../../object2D/Point2D.h ../../object3D/Arc3D.h
+CubeDemo.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+CubeDemo.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+CubeDemo.o: ../../object3D/Sprite3DListener.h ../../object3D/Transformable.h
+CubeDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+CubeDemo.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h
+CubeDemo.o: ../../object3D/RectangularPrism.h
+CubeDemo.o: ../../geometry/RectangularVolume.h
+CubeDemo.o: ../../object3D/NormalPolygon3D.h
+CubeDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CubeDemo.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+CubeDemo.o: ../../object3D/RectangularPrism.h
+CubeDemo.o: ../../object3D/Object3DCollection.h
+CubeDemo.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+CubeDemo.o: ../../object3D/Sprite3DListener.h
+CubeDemo.o: ../../object3D/Object3DCollection.h
+CubeDemo.o: ../../object3D/CompiledObject3D.h
+CubeDemo.o: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+CubeDemo.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CubeDemo.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+CubeDemo.o: ../../model/Model.h ../../model/ModelFactory.h
+CubeDemo.o: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+CubeDemo.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CubeDemo.o: ../../texture/TextureScale.h
+CubeDemo.o: ../../terrain/NullHeightFieldStrategy.h
 CubeDemo.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
-CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-CubeDemo.o: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
+CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+CubeDemo.o: ../../terrain/HeightFieldStrategy.h
 CubeDemo.o: ../../terrain/ImageHeightFieldStrategy.h
 CubeDemo.o: ../../terrain/HeightFieldFactory.h
 CubeDemo.o: ../../terrain/MatrixHeightFieldStrategy.h
@@ -212,28 +237,5 @@ CubeDemo.o: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
 CubeDemo.o: ../../util/GraphicsConversionUtility.h
 CubeDemo.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 CubeDemo.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
-CubeDemo.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
-CubeDemo.o: ../../util/BitmapFontConstants.h ../../object2D/Object2D.h
-CubeDemo.o: ../../core/Window.h ../../util/BitmapFontConstants.h
+CubeDemo.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
 CubeDemo.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
-CubeDemo.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
-CubeDemo.o: ../../object2D/String2D.h ../../object2D/Point2D.h
-CubeDemo.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
-CubeDemo.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
-CubeDemo.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
-CubeDemo.o: ../../object3D/Transformable.h
-CubeDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
-CubeDemo.o: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
-CubeDemo.o: ../../object3D/Quadrilateral3D.h
-CubeDemo.o: ../../object3D/RectangularPrism.h
-CubeDemo.o: ../../geometry/RectangularVolume.h
-CubeDemo.o: ../../object3D/NormalPolygon3D.h
-CubeDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
-CubeDemo.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
-CubeDemo.o: ../../object3D/RectangularPrism.h
-CubeDemo.o: ../../object3D/Object3DCollection.h
-CubeDemo.o: ../../object3D/CompiledObject3D.h
-CubeDemo.o: ../../object3D/Sprite3DListener.h ../../object3D/Particle.h
-CubeDemo.o: ../../object3D/Object3DCollection.h
-CubeDemo.o: ../../object3D/RectangularPrismFactory.h
-CubeDemo.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h

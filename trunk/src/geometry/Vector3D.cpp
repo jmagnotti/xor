@@ -263,18 +263,18 @@ float Vector3D::get(int dimension)
 		return 0;
 }
 
-float Vector3D::getX() 
+float Vector3D::getX() const
 {
    	return _position[0];
 }
 
-float Vector3D::getY() 
+float Vector3D::getY() const
 {
    	return _position[1];
 }
 
 
-float Vector3D::getZ() 
+float Vector3D::getZ() const
 {
    	return _position[2];
 }

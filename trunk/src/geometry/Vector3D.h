@@ -63,19 +63,19 @@ public:
 	/**
 	 * Return the X dimension
 	 */
-    float getX();
+    float getX() const;
 
 
 	/**
 	 * Return the Y dimension
 	 */
-	float getY();
+	float getY() const;
 
 
 	/**
 	 * Return the Z dimension
 	 */
-	float getZ();
+	float getZ() const;
 
 
 	/**

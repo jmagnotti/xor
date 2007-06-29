@@ -7,6 +7,8 @@
 
 #include "Transform.h"
 #include "../geometry/Vector3D.h"
+#include "../geometry/Vector2D.h"
+#include "../geometry/Dimension2D.h"
 #include "../event/timer/TimerListener.h"
 
 
@@ -80,11 +82,14 @@ public:
     void toIdentity();
 
 	void transform(Vector3D * position);
-
 	void transform(Dimension3D * size);
 
-    Translate * createTransformedInstance(Vector3D * point);
-    Translate * createTransformedInstance(Vector3D * point, int milliseconds);
+	void transform(Vector2D * position);
+	void transform(Dimension2D * size);
+
+	// Is there a point to this? -ML
+    //Translate * createTransformedInstance(Vector3D * point);
+    //Translate * createTransformedInstance(Vector3D * point, int milliseconds);
 
 protected:
 
@@ -116,6 +121,7 @@ public:
 private:
 
 
+	// _step should be a collection
 	Vector3D * _step, * _target;
 
 	int _remaining;

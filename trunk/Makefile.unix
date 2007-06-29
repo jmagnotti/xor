@@ -10,7 +10,7 @@ LIBS = -lGL -lGLU -lSDL -lSDL_image -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/IntervalTimer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/reshape/ReshapeEvent.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/FullEventHandlerFactory.cpp src/event/InputEventProxyFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/Waypoint.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/WaypointCollection.cpp src/core/DebugCamera.cpp src/core/Controller.cpp src/core/XavierConfiguration.cpp src/core/World.cpp src/core/Window.cpp src/core/Camera.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/HeightFieldFactory.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/multicast/mcsend.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/Transform.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/Stretch.cpp src/transform/MacCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Scale.cpp src/transform/Orientation.cpp src/transform/CoordinateSystem.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/PointScale.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp src/util/xmlParser.cpp src/object2D/Rectangle2D.cpp src/object2D/Object2D.cpp src/object2D/String2D.cpp src/object3D/AdornablePrism.cpp src/object3D/Particle.cpp src/object3D/Object3DCollection.cpp src/object3D/CompiledObject3D.cpp src/object3D/Cube.cpp src/object3D/Triangle3D.cpp src/object3D/Arc3D.cpp src/object3D/Object3D.cpp src/object3D/Sprite3D.cpp src/object3D/Transformable.cpp src/object3D/NoDepthTestQuadrilateral3D.cpp src/object3D/Point3D.cpp src/object3D/Quadrilateral3D.cpp src/object3D/RectangularPrism.cpp src/object3D/NormalPolygon3D.cpp src/object3D/ExtrudedNormalPolygon3D.cpp 
+SRCS = src/event/timer/TimerStub.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/IntervalTimer.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/reshape/ReshapeEvent.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseStub.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/FullEventHandlerFactory.cpp src/event/InputEventProxyFactory.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/Waypoint.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/WaypointCollection.cpp src/core/DebugCamera.cpp src/core/Controller.cpp src/core/XavierConfiguration.cpp src/core/World.cpp src/core/Window.cpp src/core/Camera.cpp src/geometry/RectangularVolume.cpp src/geometry/Dimension.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/object2D/Rectangle2D.cpp src/object2D/Object2D.cpp src/object2D/String2D.cpp src/object3D/AdornablePrism.cpp src/object3D/Particle.cpp src/object3D/Object3DCollection.cpp src/object3D/CompiledObject3D.cpp src/object3D/Cube.cpp src/object3D/Triangle3D.cpp src/object3D/Arc3D.cpp src/object3D/Sprite3D.cpp src/object3D/Object3D.cpp src/object3D/Transformable.cpp src/object3D/NoDepthTestQuadrilateral3D.cpp src/object3D/Point3D.cpp src/object3D/Quadrilateral3D.cpp src/object3D/RectangularPrism.cpp src/object3D/NormalPolygon3D.cpp src/object3D/ExtrudedNormalPolygon3D.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/HeightFieldFactory.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/multicast/mcsend.cpp src/paint/Color.cpp src/paint/Paint.cpp src/transform/Rotate.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/TransformFactory.cpp src/transform/MathCoordinateSystem.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/Transform.cpp src/transform/Stretch.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/MacCoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/Scale.cpp src/transform/Orientation.cpp src/transform/CoordinateSystem.cpp src/transform/Translate.cpp src/util/FramesPerSecondCounter.cpp src/util/BitmapFontUtil.cpp src/util/PointScale.cpp src/util/GraphicsConversionUtility.cpp src/util/BehaviorParser.cpp src/util/xmlParser.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -1930,139 +1930,38 @@ src/interpolation/CameraRoller.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/transform/EngineerCoordinateSystem.h
 src/interpolation/CameraRoller.o: src/event/timer/TimerListener.h
 src/interpolation/CameraRoller.o: src/event/reshape/ReshapeEvent.h
-src/interpolation/Waypoint.o: src/interpolation/Waypoint.h
-src/interpolation/Waypoint.o: src/interpolation/InterpolationEngine.h
-src/interpolation/Waypoint.o: src/interpolation/InterpolationListener.h
-src/interpolation/Waypoint.o: src/interpolation/TimedInterpolation.h
-src/interpolation/Waypoint.o: src/event/timer/Timer.h
-src/interpolation/Waypoint.o: src/event/timer/TimerListener.h
-src/interpolation/Waypoint.o: src/core/Controller.h include/SDL.h
-src/interpolation/Waypoint.o: include/SDL_main.h include/SDL_types.h
-src/interpolation/Waypoint.o: include/SDL_getenv.h include/SDL_error.h
-src/interpolation/Waypoint.o: include/begin_code.h include/close_code.h
-src/interpolation/Waypoint.o: include/SDL_rwops.h /usr/include/stdio.h
-src/interpolation/Waypoint.o: /usr/include/features.h
-src/interpolation/Waypoint.o: /usr/include/sys/cdefs.h
-src/interpolation/Waypoint.o: /usr/include/bits/wordsize.h
-src/interpolation/Waypoint.o: /usr/include/gnu/stubs.h
-src/interpolation/Waypoint.o: /usr/include/gnu/stubs-32.h
-src/interpolation/Waypoint.o: /usr/include/bits/types.h
-src/interpolation/Waypoint.o: /usr/include/bits/typesizes.h
-src/interpolation/Waypoint.o: /usr/include/libio.h /usr/include/_G_config.h
-src/interpolation/Waypoint.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-src/interpolation/Waypoint.o: /usr/include/gconv.h
-src/interpolation/Waypoint.o: /usr/include/bits/stdio_lim.h
-src/interpolation/Waypoint.o: /usr/include/bits/sys_errlist.h
-src/interpolation/Waypoint.o: include/SDL_timer.h include/SDL_audio.h
-src/interpolation/Waypoint.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/interpolation/Waypoint.o: include/SDL_joystick.h include/SDL_events.h
-src/interpolation/Waypoint.o: include/SDL_active.h include/SDL_keyboard.h
-src/interpolation/Waypoint.o: include/SDL_keysym.h include/SDL_mouse.h
-src/interpolation/Waypoint.o: include/SDL_video.h include/SDL_mutex.h
-src/interpolation/Waypoint.o: include/SDL_quit.h include/SDL_version.h
-src/interpolation/Waypoint.o: src/event/EventFactory.h
-src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
-src/interpolation/Waypoint.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/interpolation/Waypoint.o: /usr/include/time.h /usr/include/endian.h
-src/interpolation/Waypoint.o: /usr/include/bits/endian.h
-src/interpolation/Waypoint.o: /usr/include/sys/select.h
-src/interpolation/Waypoint.o: /usr/include/bits/select.h
-src/interpolation/Waypoint.o: /usr/include/bits/sigset.h
-src/interpolation/Waypoint.o: /usr/include/bits/time.h
-src/interpolation/Waypoint.o: /usr/include/sys/sysmacros.h
-src/interpolation/Waypoint.o: /usr/include/bits/pthreadtypes.h
-src/interpolation/Waypoint.o: /usr/include/alloca.h include/SDL.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyboardListener.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyEvent.h
-src/interpolation/Waypoint.o: /usr/include/string.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyEventFactory.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyDownEvent.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyUpEvent.h
-src/interpolation/Waypoint.o: src/event/mouse/Mouse.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseListener.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseEvent.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseEventFactory.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseButtonDown.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseClickEvent.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseButtonUp.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseMotionEvent.h
-src/interpolation/Waypoint.o: src/event/timer/Timer.h
-src/interpolation/Waypoint.o: src/event/timer/TimerListener.h
-src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
-src/interpolation/Waypoint.o: src/event/mouse/Mouse.h src/core/Window.h
-src/interpolation/Waypoint.o: src/event/reshape/ReshapeListener.h
-src/interpolation/Waypoint.o: src/event/reshape/ReshapeEvent.h
-src/interpolation/Waypoint.o: src/geometry/Dimension2D.h
-src/interpolation/Waypoint.o: src/geometry/Dimension.h
-src/interpolation/Waypoint.o: src/geometry/Dimension2D.h
-src/interpolation/Waypoint.o: src/geometry/Vector2D.h src/core/World.h
-src/interpolation/Waypoint.o: src/core/Renderable.h src/object3D/Object3D.h
-src/interpolation/Waypoint.o: src/geometry/Vector3D.h
-src/interpolation/Waypoint.o: src/geometry/Dimension3D.h
-src/interpolation/Waypoint.o: src/geometry/Vector3D.h src/paint/Paint.h
-src/interpolation/Waypoint.o: src/texture/Texture.h include/SDL_image.h
-src/interpolation/Waypoint.o: include/SDL.h include/SDL_opengl.h
-src/interpolation/Waypoint.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/interpolation/Waypoint.o: /usr/include/GL/glu.h src/paint/Color.h
-src/interpolation/Waypoint.o: src/core/Renderable.h src/object3D/Point3D.h
-src/interpolation/Waypoint.o: /usr/include/math.h
-src/interpolation/Waypoint.o: /usr/include/bits/huge_val.h
-src/interpolation/Waypoint.o: /usr/include/bits/mathdef.h
-src/interpolation/Waypoint.o: /usr/include/bits/mathcalls.h
-src/interpolation/Waypoint.o: src/object3D/Object3D.h
-src/interpolation/Waypoint.o: src/core/XavierConfiguration.h
-src/interpolation/Waypoint.o: src/transform/CoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/Transform.h
-src/interpolation/Waypoint.o: src/transform/Rotate.h
-src/interpolation/Waypoint.o: src/interpolation/InterpolationEngine.h
-src/interpolation/Waypoint.o: src/interpolation/Interpolator.h
-src/interpolation/Waypoint.o: src/interpolation/InterpolatorFactory.h
-src/interpolation/Waypoint.o: src/interpolation/LinearInterpolator.h
-src/interpolation/Waypoint.o: src/util/GraphicsConversionUtility.h
-src/interpolation/Waypoint.o: src/transform/Scale.h
-src/interpolation/Waypoint.o: src/event/InputEventProxyFactory.h
-src/interpolation/Waypoint.o: src/event/EventFactory.h
-src/interpolation/Waypoint.o: src/event/keyboard/KeyboardStub.h
-src/interpolation/Waypoint.o: src/multicast/MulticastSocket.h
-src/interpolation/Waypoint.o: src/multicast/Multicast.h
-src/interpolation/Waypoint.o: /usr/include/sys/socket.h
-src/interpolation/Waypoint.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-src/interpolation/Waypoint.o: /usr/include/bits/socket.h
-src/interpolation/Waypoint.o: /usr/include/limits.h
-src/interpolation/Waypoint.o: /usr/include/bits/posix1_lim.h
-src/interpolation/Waypoint.o: /usr/include/bits/local_lim.h
-src/interpolation/Waypoint.o: /usr/include/linux/limits.h
-src/interpolation/Waypoint.o: /usr/include/bits/posix2_lim.h
-src/interpolation/Waypoint.o: /usr/include/bits/sockaddr.h
-src/interpolation/Waypoint.o: /usr/include/asm/socket.h
-src/interpolation/Waypoint.o: /usr/include/asm-i386/socket.h
-src/interpolation/Waypoint.o: /usr/include/asm/sockios.h
-src/interpolation/Waypoint.o: /usr/include/asm-i386/sockios.h
-src/interpolation/Waypoint.o: /usr/include/netinet/in.h /usr/include/stdint.h
-src/interpolation/Waypoint.o: /usr/include/bits/in.h
-src/interpolation/Waypoint.o: /usr/include/bits/byteswap.h
-src/interpolation/Waypoint.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-src/interpolation/Waypoint.o: /usr/include/bits/posix_opt.h
-src/interpolation/Waypoint.o: /usr/include/bits/confname.h
-src/interpolation/Waypoint.o: /usr/include/getopt.h
-src/interpolation/Waypoint.o: src/multicast/MulticastSocketPool.h
-src/interpolation/Waypoint.o: src/multicast/MulticastSocket.h
-src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
-src/interpolation/Waypoint.o: src/event/mouse/MouseStub.h
-src/interpolation/Waypoint.o: src/event/mouse/Mouse.h
-src/interpolation/Waypoint.o: src/event/timer/TimerStub.h
-src/interpolation/Waypoint.o: src/event/timer/Timer.h src/paint/Color.h
-src/interpolation/Waypoint.o: src/core/Camera.h src/core/CameraListener.h
-src/interpolation/Waypoint.o: src/object3D/Transformable.h
-src/interpolation/Waypoint.o: src/transform/Transform.h
-src/interpolation/Waypoint.o: src/transform/CoordinateSystemFactory.h
-src/interpolation/Waypoint.o: src/transform/CoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/OpenGLCoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/MacCoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/MathCoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/LeftOpenGLCoordinateSystem.h
-src/interpolation/Waypoint.o: src/transform/EngineerCoordinateSystem.h
-src/interpolation/Waypoint.o: src/event/reshape/ReshapeEvent.h
+src/interpolation/InterpolatorFactory.o: src/interpolation/InterpolatorFactory.h
+src/interpolation/InterpolatorFactory.o: src/interpolation/Interpolator.h
+src/interpolation/InterpolatorFactory.o: src/interpolation/LinearInterpolator.h
+src/interpolation/InterpolatorFactory.o: src/util/GraphicsConversionUtility.h
+src/interpolation/InterpolatorFactory.o: /usr/include/math.h
+src/interpolation/InterpolatorFactory.o: /usr/include/features.h
+src/interpolation/InterpolatorFactory.o: /usr/include/sys/cdefs.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/wordsize.h
+src/interpolation/InterpolatorFactory.o: /usr/include/gnu/stubs.h
+src/interpolation/InterpolatorFactory.o: /usr/include/gnu/stubs-32.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/huge_val.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathdef.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathcalls.h
+src/interpolation/InterpolatorFactory.o: include/SDL_opengl.h
+src/interpolation/InterpolatorFactory.o: /usr/include/GL/gl.h
+src/interpolation/InterpolatorFactory.o: /usr/include/GL/glext.h
+src/interpolation/InterpolatorFactory.o: /usr/include/GL/glu.h
+src/interpolation/InterpolatorFactory.o: src/geometry/Vector3D.h
+src/interpolation/InterpolatorFactory.o: /usr/include/stdlib.h
+src/interpolation/InterpolatorFactory.o: /usr/include/sys/types.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/types.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/typesizes.h
+src/interpolation/InterpolatorFactory.o: /usr/include/time.h
+src/interpolation/InterpolatorFactory.o: /usr/include/endian.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/endian.h
+src/interpolation/InterpolatorFactory.o: /usr/include/sys/select.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/select.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/sigset.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/time.h
+src/interpolation/InterpolatorFactory.o: /usr/include/sys/sysmacros.h
+src/interpolation/InterpolatorFactory.o: /usr/include/bits/pthreadtypes.h
+src/interpolation/InterpolatorFactory.o: /usr/include/alloca.h
 src/interpolation/TimedInterpolation.o: src/interpolation/TimedInterpolation.h
 src/interpolation/TimedInterpolation.o: src/event/timer/Timer.h
 src/interpolation/TimedInterpolation.o: src/event/timer/TimerListener.h
@@ -2222,38 +2121,140 @@ src/interpolation/TimedInterpolation.o: src/transform/LeftOpenGLCoordinateSystem
 src/interpolation/TimedInterpolation.o: src/transform/EngineerCoordinateSystem.h
 src/interpolation/TimedInterpolation.o: src/event/reshape/ReshapeEvent.h
 src/interpolation/TimedInterpolation.o: src/interpolation/InterpolationEngine.h
-src/interpolation/InterpolatorFactory.o: src/interpolation/InterpolatorFactory.h
-src/interpolation/InterpolatorFactory.o: src/interpolation/Interpolator.h
-src/interpolation/InterpolatorFactory.o: src/interpolation/LinearInterpolator.h
-src/interpolation/InterpolatorFactory.o: src/util/GraphicsConversionUtility.h
-src/interpolation/InterpolatorFactory.o: /usr/include/math.h
-src/interpolation/InterpolatorFactory.o: /usr/include/features.h
-src/interpolation/InterpolatorFactory.o: /usr/include/sys/cdefs.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/wordsize.h
-src/interpolation/InterpolatorFactory.o: /usr/include/gnu/stubs.h
-src/interpolation/InterpolatorFactory.o: /usr/include/gnu/stubs-32.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/huge_val.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathdef.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/mathcalls.h
-src/interpolation/InterpolatorFactory.o: include/SDL_opengl.h
-src/interpolation/InterpolatorFactory.o: /usr/include/GL/gl.h
-src/interpolation/InterpolatorFactory.o: /usr/include/GL/glext.h
-src/interpolation/InterpolatorFactory.o: /usr/include/GL/glu.h
-src/interpolation/InterpolatorFactory.o: src/geometry/Vector3D.h
-src/interpolation/InterpolatorFactory.o: /usr/include/stdlib.h
-src/interpolation/InterpolatorFactory.o: /usr/include/sys/types.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/types.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/typesizes.h
-src/interpolation/InterpolatorFactory.o: /usr/include/time.h
-src/interpolation/InterpolatorFactory.o: /usr/include/endian.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/endian.h
-src/interpolation/InterpolatorFactory.o: /usr/include/sys/select.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/select.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/sigset.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/time.h
-src/interpolation/InterpolatorFactory.o: /usr/include/sys/sysmacros.h
-src/interpolation/InterpolatorFactory.o: /usr/include/bits/pthreadtypes.h
-src/interpolation/InterpolatorFactory.o: /usr/include/alloca.h
+src/interpolation/Waypoint.o: src/interpolation/Waypoint.h
+src/interpolation/Waypoint.o: src/interpolation/InterpolationEngine.h
+src/interpolation/Waypoint.o: src/interpolation/InterpolationListener.h
+src/interpolation/Waypoint.o: src/interpolation/TimedInterpolation.h
+src/interpolation/Waypoint.o: src/event/timer/Timer.h
+src/interpolation/Waypoint.o: src/event/timer/TimerListener.h
+src/interpolation/Waypoint.o: src/core/Controller.h include/SDL.h
+src/interpolation/Waypoint.o: include/SDL_main.h include/SDL_types.h
+src/interpolation/Waypoint.o: include/SDL_getenv.h include/SDL_error.h
+src/interpolation/Waypoint.o: include/begin_code.h include/close_code.h
+src/interpolation/Waypoint.o: include/SDL_rwops.h /usr/include/stdio.h
+src/interpolation/Waypoint.o: /usr/include/features.h
+src/interpolation/Waypoint.o: /usr/include/sys/cdefs.h
+src/interpolation/Waypoint.o: /usr/include/bits/wordsize.h
+src/interpolation/Waypoint.o: /usr/include/gnu/stubs.h
+src/interpolation/Waypoint.o: /usr/include/gnu/stubs-32.h
+src/interpolation/Waypoint.o: /usr/include/bits/types.h
+src/interpolation/Waypoint.o: /usr/include/bits/typesizes.h
+src/interpolation/Waypoint.o: /usr/include/libio.h /usr/include/_G_config.h
+src/interpolation/Waypoint.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/interpolation/Waypoint.o: /usr/include/gconv.h
+src/interpolation/Waypoint.o: /usr/include/bits/stdio_lim.h
+src/interpolation/Waypoint.o: /usr/include/bits/sys_errlist.h
+src/interpolation/Waypoint.o: include/SDL_timer.h include/SDL_audio.h
+src/interpolation/Waypoint.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/interpolation/Waypoint.o: include/SDL_joystick.h include/SDL_events.h
+src/interpolation/Waypoint.o: include/SDL_active.h include/SDL_keyboard.h
+src/interpolation/Waypoint.o: include/SDL_keysym.h include/SDL_mouse.h
+src/interpolation/Waypoint.o: include/SDL_video.h include/SDL_mutex.h
+src/interpolation/Waypoint.o: include/SDL_quit.h include/SDL_version.h
+src/interpolation/Waypoint.o: src/event/EventFactory.h
+src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
+src/interpolation/Waypoint.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/interpolation/Waypoint.o: /usr/include/time.h /usr/include/endian.h
+src/interpolation/Waypoint.o: /usr/include/bits/endian.h
+src/interpolation/Waypoint.o: /usr/include/sys/select.h
+src/interpolation/Waypoint.o: /usr/include/bits/select.h
+src/interpolation/Waypoint.o: /usr/include/bits/sigset.h
+src/interpolation/Waypoint.o: /usr/include/bits/time.h
+src/interpolation/Waypoint.o: /usr/include/sys/sysmacros.h
+src/interpolation/Waypoint.o: /usr/include/bits/pthreadtypes.h
+src/interpolation/Waypoint.o: /usr/include/alloca.h include/SDL.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyboardListener.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyEvent.h
+src/interpolation/Waypoint.o: /usr/include/string.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyEventFactory.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyDownEvent.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyUpEvent.h
+src/interpolation/Waypoint.o: src/event/mouse/Mouse.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseListener.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseEvent.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseEventFactory.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseButtonDown.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseClickEvent.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseButtonUp.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseMotionEvent.h
+src/interpolation/Waypoint.o: src/event/timer/Timer.h
+src/interpolation/Waypoint.o: src/event/timer/TimerListener.h
+src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
+src/interpolation/Waypoint.o: src/event/mouse/Mouse.h src/core/Window.h
+src/interpolation/Waypoint.o: src/event/reshape/ReshapeListener.h
+src/interpolation/Waypoint.o: src/event/reshape/ReshapeEvent.h
+src/interpolation/Waypoint.o: src/geometry/Dimension2D.h
+src/interpolation/Waypoint.o: src/geometry/Dimension.h
+src/interpolation/Waypoint.o: src/geometry/Dimension2D.h
+src/interpolation/Waypoint.o: src/geometry/Vector2D.h src/core/World.h
+src/interpolation/Waypoint.o: src/core/Renderable.h src/object3D/Object3D.h
+src/interpolation/Waypoint.o: src/geometry/Vector3D.h
+src/interpolation/Waypoint.o: src/geometry/Dimension3D.h
+src/interpolation/Waypoint.o: src/geometry/Vector3D.h src/paint/Paint.h
+src/interpolation/Waypoint.o: src/texture/Texture.h include/SDL_image.h
+src/interpolation/Waypoint.o: include/SDL.h include/SDL_opengl.h
+src/interpolation/Waypoint.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/interpolation/Waypoint.o: /usr/include/GL/glu.h src/paint/Color.h
+src/interpolation/Waypoint.o: src/core/Renderable.h src/object3D/Point3D.h
+src/interpolation/Waypoint.o: /usr/include/math.h
+src/interpolation/Waypoint.o: /usr/include/bits/huge_val.h
+src/interpolation/Waypoint.o: /usr/include/bits/mathdef.h
+src/interpolation/Waypoint.o: /usr/include/bits/mathcalls.h
+src/interpolation/Waypoint.o: src/object3D/Object3D.h
+src/interpolation/Waypoint.o: src/core/XavierConfiguration.h
+src/interpolation/Waypoint.o: src/transform/CoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/Transform.h
+src/interpolation/Waypoint.o: src/transform/Rotate.h
+src/interpolation/Waypoint.o: src/interpolation/InterpolationEngine.h
+src/interpolation/Waypoint.o: src/interpolation/Interpolator.h
+src/interpolation/Waypoint.o: src/interpolation/InterpolatorFactory.h
+src/interpolation/Waypoint.o: src/interpolation/LinearInterpolator.h
+src/interpolation/Waypoint.o: src/util/GraphicsConversionUtility.h
+src/interpolation/Waypoint.o: src/transform/Scale.h
+src/interpolation/Waypoint.o: src/event/InputEventProxyFactory.h
+src/interpolation/Waypoint.o: src/event/EventFactory.h
+src/interpolation/Waypoint.o: src/event/keyboard/KeyboardStub.h
+src/interpolation/Waypoint.o: src/multicast/MulticastSocket.h
+src/interpolation/Waypoint.o: src/multicast/Multicast.h
+src/interpolation/Waypoint.o: /usr/include/sys/socket.h
+src/interpolation/Waypoint.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/interpolation/Waypoint.o: /usr/include/bits/socket.h
+src/interpolation/Waypoint.o: /usr/include/limits.h
+src/interpolation/Waypoint.o: /usr/include/bits/posix1_lim.h
+src/interpolation/Waypoint.o: /usr/include/bits/local_lim.h
+src/interpolation/Waypoint.o: /usr/include/linux/limits.h
+src/interpolation/Waypoint.o: /usr/include/bits/posix2_lim.h
+src/interpolation/Waypoint.o: /usr/include/bits/sockaddr.h
+src/interpolation/Waypoint.o: /usr/include/asm/socket.h
+src/interpolation/Waypoint.o: /usr/include/asm-i386/socket.h
+src/interpolation/Waypoint.o: /usr/include/asm/sockios.h
+src/interpolation/Waypoint.o: /usr/include/asm-i386/sockios.h
+src/interpolation/Waypoint.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/interpolation/Waypoint.o: /usr/include/bits/in.h
+src/interpolation/Waypoint.o: /usr/include/bits/byteswap.h
+src/interpolation/Waypoint.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/interpolation/Waypoint.o: /usr/include/bits/posix_opt.h
+src/interpolation/Waypoint.o: /usr/include/bits/confname.h
+src/interpolation/Waypoint.o: /usr/include/getopt.h
+src/interpolation/Waypoint.o: src/multicast/MulticastSocketPool.h
+src/interpolation/Waypoint.o: src/multicast/MulticastSocket.h
+src/interpolation/Waypoint.o: src/event/keyboard/Keyboard.h
+src/interpolation/Waypoint.o: src/event/mouse/MouseStub.h
+src/interpolation/Waypoint.o: src/event/mouse/Mouse.h
+src/interpolation/Waypoint.o: src/event/timer/TimerStub.h
+src/interpolation/Waypoint.o: src/event/timer/Timer.h src/paint/Color.h
+src/interpolation/Waypoint.o: src/core/Camera.h src/core/CameraListener.h
+src/interpolation/Waypoint.o: src/object3D/Transformable.h
+src/interpolation/Waypoint.o: src/transform/Transform.h
+src/interpolation/Waypoint.o: src/transform/CoordinateSystemFactory.h
+src/interpolation/Waypoint.o: src/transform/CoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/OpenGLCoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/MacCoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/MathCoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/interpolation/Waypoint.o: src/transform/EngineerCoordinateSystem.h
+src/interpolation/Waypoint.o: src/event/reshape/ReshapeEvent.h
+src/interpolation/InterpolationEngine.o: src/interpolation/InterpolationEngine.h
 src/interpolation/LinearInterpolator.o: src/interpolation/LinearInterpolator.h
 src/interpolation/LinearInterpolator.o: src/interpolation/Interpolator.h
 src/interpolation/LinearInterpolator.o: src/util/GraphicsConversionUtility.h
@@ -2285,7 +2286,6 @@ src/interpolation/LinearInterpolator.o: /usr/include/bits/time.h
 src/interpolation/LinearInterpolator.o: /usr/include/sys/sysmacros.h
 src/interpolation/LinearInterpolator.o: /usr/include/bits/pthreadtypes.h
 src/interpolation/LinearInterpolator.o: /usr/include/alloca.h
-src/interpolation/InterpolationEngine.o: src/interpolation/InterpolationEngine.h
 src/interpolation/WaypointCollection.o: src/interpolation/WaypointCollection.h
 src/interpolation/WaypointCollection.o: src/interpolation/Waypoint.h
 src/interpolation/WaypointCollection.o: src/interpolation/InterpolationEngine.h
@@ -2948,6 +2948,1032 @@ src/geometry/Dimension3D.o: /usr/include/sys/sysmacros.h
 src/geometry/Dimension3D.o: /usr/include/bits/pthreadtypes.h
 src/geometry/Dimension3D.o: /usr/include/alloca.h src/geometry/Dimension.h
 src/geometry/Dimension3D.o: src/geometry/Vector3D.h
+src/object2D/Rectangle2D.o: src/object2D/Rectangle2D.h
+src/object2D/Rectangle2D.o: src/object2D/Object2D.h include/SDL_opengl.h
+src/object2D/Rectangle2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/object2D/Rectangle2D.o: /usr/include/GL/glu.h src/core/Controller.h
+src/object2D/Rectangle2D.o: include/SDL.h include/SDL_main.h
+src/object2D/Rectangle2D.o: include/SDL_types.h include/SDL_getenv.h
+src/object2D/Rectangle2D.o: include/SDL_error.h include/begin_code.h
+src/object2D/Rectangle2D.o: include/close_code.h include/SDL_rwops.h
+src/object2D/Rectangle2D.o: /usr/include/stdio.h /usr/include/features.h
+src/object2D/Rectangle2D.o: /usr/include/sys/cdefs.h
+src/object2D/Rectangle2D.o: /usr/include/bits/wordsize.h
+src/object2D/Rectangle2D.o: /usr/include/gnu/stubs.h
+src/object2D/Rectangle2D.o: /usr/include/gnu/stubs-32.h
+src/object2D/Rectangle2D.o: /usr/include/bits/types.h
+src/object2D/Rectangle2D.o: /usr/include/bits/typesizes.h
+src/object2D/Rectangle2D.o: /usr/include/libio.h /usr/include/_G_config.h
+src/object2D/Rectangle2D.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/object2D/Rectangle2D.o: /usr/include/gconv.h
+src/object2D/Rectangle2D.o: /usr/include/bits/stdio_lim.h
+src/object2D/Rectangle2D.o: /usr/include/bits/sys_errlist.h
+src/object2D/Rectangle2D.o: include/SDL_timer.h include/SDL_audio.h
+src/object2D/Rectangle2D.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object2D/Rectangle2D.o: include/SDL_joystick.h include/SDL_events.h
+src/object2D/Rectangle2D.o: include/SDL_active.h include/SDL_keyboard.h
+src/object2D/Rectangle2D.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object2D/Rectangle2D.o: include/SDL_video.h include/SDL_mutex.h
+src/object2D/Rectangle2D.o: include/SDL_quit.h include/SDL_version.h
+src/object2D/Rectangle2D.o: src/event/EventFactory.h
+src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
+src/object2D/Rectangle2D.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/object2D/Rectangle2D.o: /usr/include/time.h /usr/include/endian.h
+src/object2D/Rectangle2D.o: /usr/include/bits/endian.h
+src/object2D/Rectangle2D.o: /usr/include/sys/select.h
+src/object2D/Rectangle2D.o: /usr/include/bits/select.h
+src/object2D/Rectangle2D.o: /usr/include/bits/sigset.h
+src/object2D/Rectangle2D.o: /usr/include/bits/time.h
+src/object2D/Rectangle2D.o: /usr/include/sys/sysmacros.h
+src/object2D/Rectangle2D.o: /usr/include/bits/pthreadtypes.h
+src/object2D/Rectangle2D.o: /usr/include/alloca.h include/SDL.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyboardListener.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyEvent.h
+src/object2D/Rectangle2D.o: /usr/include/string.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyEventFactory.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyDownEvent.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyUpEvent.h
+src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseListener.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseEvent.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseEventFactory.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseButtonDown.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseClickEvent.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseButtonUp.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseMotionEvent.h
+src/object2D/Rectangle2D.o: src/event/timer/Timer.h
+src/object2D/Rectangle2D.o: src/event/timer/TimerListener.h
+src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
+src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/object2D/Rectangle2D.o: src/core/Window.h
+src/object2D/Rectangle2D.o: src/event/reshape/ReshapeListener.h
+src/object2D/Rectangle2D.o: src/event/reshape/ReshapeEvent.h
+src/object2D/Rectangle2D.o: src/geometry/Dimension2D.h
+src/object2D/Rectangle2D.o: src/geometry/Dimension.h
+src/object2D/Rectangle2D.o: src/geometry/Dimension2D.h
+src/object2D/Rectangle2D.o: src/geometry/Vector2D.h src/core/World.h
+src/object2D/Rectangle2D.o: src/core/Renderable.h src/object3D/Object3D.h
+src/object2D/Rectangle2D.o: src/geometry/Vector3D.h
+src/object2D/Rectangle2D.o: src/geometry/Dimension3D.h
+src/object2D/Rectangle2D.o: src/geometry/Vector3D.h src/paint/Paint.h
+src/object2D/Rectangle2D.o: src/texture/Texture.h include/SDL_image.h
+src/object2D/Rectangle2D.o: include/SDL.h src/paint/Color.h
+src/object2D/Rectangle2D.o: src/core/Renderable.h src/object3D/Point3D.h
+src/object2D/Rectangle2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/object2D/Rectangle2D.o: /usr/include/bits/mathdef.h
+src/object2D/Rectangle2D.o: /usr/include/bits/mathcalls.h
+src/object2D/Rectangle2D.o: src/object3D/Object3D.h
+src/object2D/Rectangle2D.o: src/core/XavierConfiguration.h
+src/object2D/Rectangle2D.o: src/transform/CoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/Transform.h src/transform/Rotate.h
+src/object2D/Rectangle2D.o: src/interpolation/InterpolationEngine.h
+src/object2D/Rectangle2D.o: src/interpolation/InterpolationListener.h
+src/object2D/Rectangle2D.o: src/interpolation/Interpolator.h
+src/object2D/Rectangle2D.o: src/interpolation/InterpolatorFactory.h
+src/object2D/Rectangle2D.o: src/interpolation/LinearInterpolator.h
+src/object2D/Rectangle2D.o: src/util/GraphicsConversionUtility.h
+src/object2D/Rectangle2D.o: src/transform/Scale.h
+src/object2D/Rectangle2D.o: src/event/InputEventProxyFactory.h
+src/object2D/Rectangle2D.o: src/event/EventFactory.h
+src/object2D/Rectangle2D.o: src/event/keyboard/KeyboardStub.h
+src/object2D/Rectangle2D.o: src/multicast/MulticastSocket.h
+src/object2D/Rectangle2D.o: src/multicast/Multicast.h
+src/object2D/Rectangle2D.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+src/object2D/Rectangle2D.o: /usr/include/bits/uio.h
+src/object2D/Rectangle2D.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/object2D/Rectangle2D.o: /usr/include/bits/posix1_lim.h
+src/object2D/Rectangle2D.o: /usr/include/bits/local_lim.h
+src/object2D/Rectangle2D.o: /usr/include/linux/limits.h
+src/object2D/Rectangle2D.o: /usr/include/bits/posix2_lim.h
+src/object2D/Rectangle2D.o: /usr/include/bits/sockaddr.h
+src/object2D/Rectangle2D.o: /usr/include/asm/socket.h
+src/object2D/Rectangle2D.o: /usr/include/asm-i386/socket.h
+src/object2D/Rectangle2D.o: /usr/include/asm/sockios.h
+src/object2D/Rectangle2D.o: /usr/include/asm-i386/sockios.h
+src/object2D/Rectangle2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/object2D/Rectangle2D.o: /usr/include/bits/in.h
+src/object2D/Rectangle2D.o: /usr/include/bits/byteswap.h
+src/object2D/Rectangle2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/object2D/Rectangle2D.o: /usr/include/bits/posix_opt.h
+src/object2D/Rectangle2D.o: /usr/include/bits/confname.h
+src/object2D/Rectangle2D.o: /usr/include/getopt.h
+src/object2D/Rectangle2D.o: src/multicast/MulticastSocketPool.h
+src/object2D/Rectangle2D.o: src/multicast/MulticastSocket.h
+src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
+src/object2D/Rectangle2D.o: src/event/mouse/MouseStub.h
+src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h
+src/object2D/Rectangle2D.o: src/event/timer/TimerStub.h
+src/object2D/Rectangle2D.o: src/event/timer/Timer.h src/paint/Color.h
+src/object2D/Rectangle2D.o: src/core/Camera.h src/core/CameraListener.h
+src/object2D/Rectangle2D.o: src/object3D/Transformable.h
+src/object2D/Rectangle2D.o: src/transform/Transform.h
+src/object2D/Rectangle2D.o: src/transform/CoordinateSystemFactory.h
+src/object2D/Rectangle2D.o: src/transform/CoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/OpenGLCoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/MacCoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/MathCoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/object2D/Rectangle2D.o: src/transform/EngineerCoordinateSystem.h
+src/object2D/Rectangle2D.o: src/event/timer/TimerListener.h
+src/object2D/Rectangle2D.o: src/event/reshape/ReshapeEvent.h
+src/object2D/Rectangle2D.o: src/core/Window.h
+src/object2D/Object2D.o: src/object2D/Object2D.h include/SDL_opengl.h
+src/object2D/Object2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/object2D/Object2D.o: /usr/include/GL/glu.h src/core/Controller.h
+src/object2D/Object2D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
+src/object2D/Object2D.o: include/SDL_getenv.h include/SDL_error.h
+src/object2D/Object2D.o: include/begin_code.h include/close_code.h
+src/object2D/Object2D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object2D/Object2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/object2D/Object2D.o: /usr/include/bits/wordsize.h
+src/object2D/Object2D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object2D/Object2D.o: /usr/include/bits/types.h
+src/object2D/Object2D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/object2D/Object2D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object2D/Object2D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object2D/Object2D.o: /usr/include/bits/stdio_lim.h
+src/object2D/Object2D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object2D/Object2D.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object2D/Object2D.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object2D/Object2D.o: include/SDL_events.h include/SDL_active.h
+src/object2D/Object2D.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object2D/Object2D.o: include/SDL_mouse.h include/SDL_video.h
+src/object2D/Object2D.o: include/SDL_mutex.h include/SDL_quit.h
+src/object2D/Object2D.o: include/SDL_version.h src/event/EventFactory.h
+src/object2D/Object2D.o: src/event/keyboard/Keyboard.h /usr/include/stdlib.h
+src/object2D/Object2D.o: /usr/include/sys/types.h /usr/include/time.h
+src/object2D/Object2D.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/object2D/Object2D.o: /usr/include/sys/select.h /usr/include/bits/select.h
+src/object2D/Object2D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/object2D/Object2D.o: /usr/include/sys/sysmacros.h
+src/object2D/Object2D.o: /usr/include/bits/pthreadtypes.h
+src/object2D/Object2D.o: /usr/include/alloca.h include/SDL.h
+src/object2D/Object2D.o: src/event/keyboard/KeyboardListener.h
+src/object2D/Object2D.o: src/event/keyboard/KeyEvent.h /usr/include/string.h
+src/object2D/Object2D.o: src/event/keyboard/KeyEventFactory.h
+src/object2D/Object2D.o: src/event/keyboard/KeyDownEvent.h
+src/object2D/Object2D.o: src/event/keyboard/KeyUpEvent.h
+src/object2D/Object2D.o: src/event/mouse/Mouse.h
+src/object2D/Object2D.o: src/event/mouse/MouseListener.h
+src/object2D/Object2D.o: src/event/mouse/MouseEvent.h
+src/object2D/Object2D.o: src/event/mouse/MouseEventFactory.h
+src/object2D/Object2D.o: src/event/mouse/MouseButtonDown.h
+src/object2D/Object2D.o: src/event/mouse/MouseClickEvent.h
+src/object2D/Object2D.o: src/event/mouse/MouseButtonUp.h
+src/object2D/Object2D.o: src/event/mouse/MouseMotionEvent.h
+src/object2D/Object2D.o: src/event/timer/Timer.h
+src/object2D/Object2D.o: src/event/timer/TimerListener.h
+src/object2D/Object2D.o: src/event/keyboard/Keyboard.h
+src/object2D/Object2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/object2D/Object2D.o: src/core/Window.h
+src/object2D/Object2D.o: src/event/reshape/ReshapeListener.h
+src/object2D/Object2D.o: src/event/reshape/ReshapeEvent.h
+src/object2D/Object2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/object2D/Object2D.o: src/geometry/Dimension2D.h src/geometry/Vector2D.h
+src/object2D/Object2D.o: src/core/World.h src/core/Renderable.h
+src/object2D/Object2D.o: src/object3D/Object3D.h src/geometry/Vector3D.h
+src/object2D/Object2D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
+src/object2D/Object2D.o: src/paint/Paint.h src/texture/Texture.h
+src/object2D/Object2D.o: include/SDL_image.h include/SDL.h src/paint/Color.h
+src/object2D/Object2D.o: src/core/Renderable.h src/object3D/Point3D.h
+src/object2D/Object2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/object2D/Object2D.o: /usr/include/bits/mathdef.h
+src/object2D/Object2D.o: /usr/include/bits/mathcalls.h
+src/object2D/Object2D.o: src/object3D/Object3D.h
+src/object2D/Object2D.o: src/core/XavierConfiguration.h
+src/object2D/Object2D.o: src/transform/CoordinateSystem.h
+src/object2D/Object2D.o: src/transform/Transform.h src/transform/Rotate.h
+src/object2D/Object2D.o: src/interpolation/InterpolationEngine.h
+src/object2D/Object2D.o: src/interpolation/InterpolationListener.h
+src/object2D/Object2D.o: src/interpolation/Interpolator.h
+src/object2D/Object2D.o: src/interpolation/InterpolatorFactory.h
+src/object2D/Object2D.o: src/interpolation/LinearInterpolator.h
+src/object2D/Object2D.o: src/util/GraphicsConversionUtility.h
+src/object2D/Object2D.o: src/transform/Scale.h
+src/object2D/Object2D.o: src/event/InputEventProxyFactory.h
+src/object2D/Object2D.o: src/event/EventFactory.h
+src/object2D/Object2D.o: src/event/keyboard/KeyboardStub.h
+src/object2D/Object2D.o: src/multicast/MulticastSocket.h
+src/object2D/Object2D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/object2D/Object2D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/object2D/Object2D.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/object2D/Object2D.o: /usr/include/bits/posix1_lim.h
+src/object2D/Object2D.o: /usr/include/bits/local_lim.h
+src/object2D/Object2D.o: /usr/include/linux/limits.h
+src/object2D/Object2D.o: /usr/include/bits/posix2_lim.h
+src/object2D/Object2D.o: /usr/include/bits/sockaddr.h
+src/object2D/Object2D.o: /usr/include/asm/socket.h
+src/object2D/Object2D.o: /usr/include/asm-i386/socket.h
+src/object2D/Object2D.o: /usr/include/asm/sockios.h
+src/object2D/Object2D.o: /usr/include/asm-i386/sockios.h
+src/object2D/Object2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/object2D/Object2D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+src/object2D/Object2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/object2D/Object2D.o: /usr/include/bits/posix_opt.h
+src/object2D/Object2D.o: /usr/include/bits/confname.h /usr/include/getopt.h
+src/object2D/Object2D.o: src/multicast/MulticastSocketPool.h
+src/object2D/Object2D.o: src/multicast/MulticastSocket.h
+src/object2D/Object2D.o: src/event/keyboard/Keyboard.h
+src/object2D/Object2D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
+src/object2D/Object2D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
+src/object2D/Object2D.o: src/paint/Color.h src/core/Camera.h
+src/object2D/Object2D.o: src/core/CameraListener.h
+src/object2D/Object2D.o: src/object3D/Transformable.h
+src/object2D/Object2D.o: src/transform/Transform.h
+src/object2D/Object2D.o: src/transform/CoordinateSystemFactory.h
+src/object2D/Object2D.o: src/transform/CoordinateSystem.h
+src/object2D/Object2D.o: src/transform/OpenGLCoordinateSystem.h
+src/object2D/Object2D.o: src/transform/MacCoordinateSystem.h
+src/object2D/Object2D.o: src/transform/MathCoordinateSystem.h
+src/object2D/Object2D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/object2D/Object2D.o: src/transform/EngineerCoordinateSystem.h
+src/object2D/Object2D.o: src/event/timer/TimerListener.h
+src/object2D/Object2D.o: src/event/reshape/ReshapeEvent.h src/core/Window.h
+src/object2D/String2D.o: src/object2D/String2D.h /usr/include/string.h
+src/object2D/String2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/object2D/String2D.o: /usr/include/bits/wordsize.h
+src/object2D/String2D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object2D/String2D.o: src/geometry/Vector2D.h src/geometry/Dimension2D.h
+src/object2D/String2D.o: src/paint/Paint.h src/texture/Texture.h
+src/object2D/String2D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
+src/object2D/String2D.o: include/SDL_getenv.h include/SDL_error.h
+src/object2D/String2D.o: include/begin_code.h include/close_code.h
+src/object2D/String2D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object2D/String2D.o: /usr/include/bits/types.h
+src/object2D/String2D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/object2D/String2D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object2D/String2D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object2D/String2D.o: /usr/include/bits/stdio_lim.h
+src/object2D/String2D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object2D/String2D.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object2D/String2D.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object2D/String2D.o: include/SDL_events.h include/SDL_active.h
+src/object2D/String2D.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object2D/String2D.o: include/SDL_mouse.h include/SDL_video.h
+src/object2D/String2D.o: include/SDL_mutex.h include/SDL_quit.h
+src/object2D/String2D.o: include/SDL_version.h include/SDL_image.h
+src/object2D/String2D.o: include/SDL.h include/SDL_opengl.h
+src/object2D/String2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/object2D/String2D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/object2D/String2D.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/object2D/String2D.o: /usr/include/time.h /usr/include/endian.h
+src/object2D/String2D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+src/object2D/String2D.o: /usr/include/bits/select.h
+src/object2D/String2D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/object2D/String2D.o: /usr/include/sys/sysmacros.h
+src/object2D/String2D.o: /usr/include/bits/pthreadtypes.h
+src/object2D/String2D.o: /usr/include/alloca.h src/paint/Color.h
+src/object2D/String2D.o: src/util/BitmapFontUtil.h
+src/object2D/String2D.o: src/util/BitmapFontConstants.h src/core/Controller.h
+src/object2D/String2D.o: src/event/EventFactory.h
+src/object2D/String2D.o: src/event/keyboard/Keyboard.h include/SDL.h
+src/object2D/String2D.o: src/event/keyboard/KeyboardListener.h
+src/object2D/String2D.o: src/event/keyboard/KeyEvent.h
+src/object2D/String2D.o: src/event/keyboard/KeyEventFactory.h
+src/object2D/String2D.o: src/event/keyboard/KeyDownEvent.h
+src/object2D/String2D.o: src/event/keyboard/KeyUpEvent.h
+src/object2D/String2D.o: src/event/mouse/Mouse.h
+src/object2D/String2D.o: src/event/mouse/MouseListener.h
+src/object2D/String2D.o: src/event/mouse/MouseEvent.h
+src/object2D/String2D.o: src/event/mouse/MouseEventFactory.h
+src/object2D/String2D.o: src/event/mouse/MouseButtonDown.h
+src/object2D/String2D.o: src/event/mouse/MouseClickEvent.h
+src/object2D/String2D.o: src/event/mouse/MouseButtonUp.h
+src/object2D/String2D.o: src/event/mouse/MouseMotionEvent.h
+src/object2D/String2D.o: src/event/timer/Timer.h
+src/object2D/String2D.o: src/event/timer/TimerListener.h
+src/object2D/String2D.o: src/event/keyboard/Keyboard.h
+src/object2D/String2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/object2D/String2D.o: src/core/Window.h
+src/object2D/String2D.o: src/event/reshape/ReshapeListener.h
+src/object2D/String2D.o: src/event/reshape/ReshapeEvent.h
+src/object2D/String2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/object2D/String2D.o: src/core/World.h src/core/Renderable.h
+src/object2D/String2D.o: src/object3D/Object3D.h src/geometry/Dimension3D.h
+src/object2D/String2D.o: src/geometry/Vector3D.h src/core/Renderable.h
+src/object2D/String2D.o: src/object3D/Point3D.h /usr/include/math.h
+src/object2D/String2D.o: /usr/include/bits/huge_val.h
+src/object2D/String2D.o: /usr/include/bits/mathdef.h
+src/object2D/String2D.o: /usr/include/bits/mathcalls.h
+src/object2D/String2D.o: src/object3D/Object3D.h
+src/object2D/String2D.o: src/core/XavierConfiguration.h
+src/object2D/String2D.o: src/transform/CoordinateSystem.h
+src/object2D/String2D.o: src/transform/Transform.h src/transform/Rotate.h
+src/object2D/String2D.o: src/interpolation/InterpolationEngine.h
+src/object2D/String2D.o: src/interpolation/InterpolationListener.h
+src/object2D/String2D.o: src/interpolation/Interpolator.h
+src/object2D/String2D.o: src/interpolation/InterpolatorFactory.h
+src/object2D/String2D.o: src/interpolation/LinearInterpolator.h
+src/object2D/String2D.o: src/util/GraphicsConversionUtility.h
+src/object2D/String2D.o: src/transform/Scale.h
+src/object2D/String2D.o: src/event/InputEventProxyFactory.h
+src/object2D/String2D.o: src/event/EventFactory.h
+src/object2D/String2D.o: src/event/keyboard/KeyboardStub.h
+src/object2D/String2D.o: src/multicast/MulticastSocket.h
+src/object2D/String2D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/object2D/String2D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/object2D/String2D.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/object2D/String2D.o: /usr/include/bits/posix1_lim.h
+src/object2D/String2D.o: /usr/include/bits/local_lim.h
+src/object2D/String2D.o: /usr/include/linux/limits.h
+src/object2D/String2D.o: /usr/include/bits/posix2_lim.h
+src/object2D/String2D.o: /usr/include/bits/sockaddr.h
+src/object2D/String2D.o: /usr/include/asm/socket.h
+src/object2D/String2D.o: /usr/include/asm-i386/socket.h
+src/object2D/String2D.o: /usr/include/asm/sockios.h
+src/object2D/String2D.o: /usr/include/asm-i386/sockios.h
+src/object2D/String2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/object2D/String2D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+src/object2D/String2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/object2D/String2D.o: /usr/include/bits/posix_opt.h
+src/object2D/String2D.o: /usr/include/bits/confname.h /usr/include/getopt.h
+src/object2D/String2D.o: src/multicast/MulticastSocketPool.h
+src/object2D/String2D.o: src/multicast/MulticastSocket.h
+src/object2D/String2D.o: src/event/keyboard/Keyboard.h
+src/object2D/String2D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
+src/object2D/String2D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
+src/object2D/String2D.o: src/paint/Color.h src/core/Camera.h
+src/object2D/String2D.o: src/core/CameraListener.h
+src/object2D/String2D.o: src/object3D/Transformable.h
+src/object2D/String2D.o: src/transform/Transform.h
+src/object2D/String2D.o: src/transform/CoordinateSystemFactory.h
+src/object2D/String2D.o: src/transform/CoordinateSystem.h
+src/object2D/String2D.o: src/transform/OpenGLCoordinateSystem.h
+src/object2D/String2D.o: src/transform/MacCoordinateSystem.h
+src/object2D/String2D.o: src/transform/MathCoordinateSystem.h
+src/object2D/String2D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/object2D/String2D.o: src/transform/EngineerCoordinateSystem.h
+src/object2D/String2D.o: src/event/timer/TimerListener.h
+src/object2D/String2D.o: src/event/reshape/ReshapeEvent.h
+src/object2D/String2D.o: src/object2D/Object2D.h src/core/Window.h
+src/object3D/AdornablePrism.o: src/object3D/AdornablePrism.h
+src/object3D/AdornablePrism.o: src/object3D/RectangularPrism.h
+src/object3D/AdornablePrism.o: src/util/GraphicsConversionUtility.h
+src/object3D/AdornablePrism.o: /usr/include/math.h /usr/include/features.h
+src/object3D/AdornablePrism.o: /usr/include/sys/cdefs.h
+src/object3D/AdornablePrism.o: /usr/include/bits/wordsize.h
+src/object3D/AdornablePrism.o: /usr/include/gnu/stubs.h
+src/object3D/AdornablePrism.o: /usr/include/gnu/stubs-32.h
+src/object3D/AdornablePrism.o: /usr/include/bits/huge_val.h
+src/object3D/AdornablePrism.o: /usr/include/bits/mathdef.h
+src/object3D/AdornablePrism.o: /usr/include/bits/mathcalls.h
+src/object3D/AdornablePrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/AdornablePrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/AdornablePrism.o: src/geometry/Vector3D.h /usr/include/stdlib.h
+src/object3D/AdornablePrism.o: /usr/include/sys/types.h
+src/object3D/AdornablePrism.o: /usr/include/bits/types.h
+src/object3D/AdornablePrism.o: /usr/include/bits/typesizes.h
+src/object3D/AdornablePrism.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/AdornablePrism.o: /usr/include/bits/endian.h
+src/object3D/AdornablePrism.o: /usr/include/sys/select.h
+src/object3D/AdornablePrism.o: /usr/include/bits/select.h
+src/object3D/AdornablePrism.o: /usr/include/bits/sigset.h
+src/object3D/AdornablePrism.o: /usr/include/bits/time.h
+src/object3D/AdornablePrism.o: /usr/include/sys/sysmacros.h
+src/object3D/AdornablePrism.o: /usr/include/bits/pthreadtypes.h
+src/object3D/AdornablePrism.o: /usr/include/alloca.h src/util/PointScale.h
+src/object3D/AdornablePrism.o: src/paint/Paint.h /usr/include/string.h
+src/object3D/AdornablePrism.o: src/texture/Texture.h include/SDL.h
+src/object3D/AdornablePrism.o: include/SDL_main.h include/SDL_types.h
+src/object3D/AdornablePrism.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/AdornablePrism.o: include/begin_code.h include/close_code.h
+src/object3D/AdornablePrism.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/AdornablePrism.o: /usr/include/libio.h /usr/include/_G_config.h
+src/object3D/AdornablePrism.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/object3D/AdornablePrism.o: /usr/include/gconv.h
+src/object3D/AdornablePrism.o: /usr/include/bits/stdio_lim.h
+src/object3D/AdornablePrism.o: /usr/include/bits/sys_errlist.h
+src/object3D/AdornablePrism.o: include/SDL_timer.h include/SDL_audio.h
+src/object3D/AdornablePrism.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object3D/AdornablePrism.o: include/SDL_joystick.h include/SDL_events.h
+src/object3D/AdornablePrism.o: include/SDL_active.h include/SDL_keyboard.h
+src/object3D/AdornablePrism.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object3D/AdornablePrism.o: include/SDL_video.h include/SDL_mutex.h
+src/object3D/AdornablePrism.o: include/SDL_quit.h include/SDL_version.h
+src/object3D/AdornablePrism.o: include/SDL_image.h include/SDL.h
+src/object3D/AdornablePrism.o: src/geometry/Vector2D.h src/paint/Color.h
+src/object3D/AdornablePrism.o: src/object3D/Object3D.h
+src/object3D/AdornablePrism.o: src/object3D/Quadrilateral3D.h
+src/object3D/AdornablePrism.o: src/geometry/Dimension3D.h
+src/object3D/AdornablePrism.o: src/geometry/Dimension.h
+src/object3D/AdornablePrism.o: src/geometry/Vector3D.h
+src/object3D/AdornablePrism.o: src/texture/TextureScale.h
+src/object3D/AdornablePrism.o: src/geometry/Dimension2D.h
+src/object3D/AdornablePrism.o: src/geometry/RectangularVolume.h
+src/object3D/AdornablePrism.o: src/geometry/Dimension3D.h
+src/object3D/AdornablePrism.o: src/object3D/Object3DCollection.h
+src/object3D/AdornablePrism.o: src/object3D/CompiledObject3D.h
+src/object3D/Particle.o: src/object3D/Particle.h src/geometry/Vector3D.h
+src/object3D/Particle.o: /usr/include/stdlib.h /usr/include/features.h
+src/object3D/Particle.o: /usr/include/sys/cdefs.h
+src/object3D/Particle.o: /usr/include/bits/wordsize.h
+src/object3D/Particle.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object3D/Particle.o: /usr/include/sys/types.h /usr/include/bits/types.h
+src/object3D/Particle.o: /usr/include/bits/typesizes.h /usr/include/time.h
+src/object3D/Particle.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/object3D/Particle.o: /usr/include/sys/select.h /usr/include/bits/select.h
+src/object3D/Particle.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/object3D/Particle.o: /usr/include/sys/sysmacros.h
+src/object3D/Particle.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Particle.o: /usr/include/alloca.h
+src/object3D/Object3DCollection.o: src/object3D/Object3DCollection.h
+src/object3D/Object3DCollection.o: src/object3D/Object3D.h
+src/object3D/Object3DCollection.o: src/object3D/CompiledObject3D.h
+src/object3D/Object3DCollection.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/Object3DCollection.o: /usr/include/GL/glext.h
+src/object3D/Object3DCollection.o: /usr/include/GL/glu.h
+src/object3D/CompiledObject3D.o: src/object3D/CompiledObject3D.h
+src/object3D/CompiledObject3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/CompiledObject3D.o: /usr/include/GL/glext.h
+src/object3D/CompiledObject3D.o: /usr/include/GL/glu.h
+src/object3D/CompiledObject3D.o: src/object3D/Object3D.h
+src/object3D/Cube.o: src/object3D/Cube.h src/paint/Paint.h
+src/object3D/Cube.o: /usr/include/string.h /usr/include/features.h
+src/object3D/Cube.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+src/object3D/Cube.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object3D/Cube.o: src/texture/Texture.h include/SDL.h include/SDL_main.h
+src/object3D/Cube.o: include/SDL_types.h include/SDL_getenv.h
+src/object3D/Cube.o: include/SDL_error.h include/begin_code.h
+src/object3D/Cube.o: include/close_code.h include/SDL_rwops.h
+src/object3D/Cube.o: /usr/include/stdio.h /usr/include/bits/types.h
+src/object3D/Cube.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/object3D/Cube.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object3D/Cube.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object3D/Cube.o: /usr/include/bits/stdio_lim.h
+src/object3D/Cube.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object3D/Cube.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object3D/Cube.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object3D/Cube.o: include/SDL_events.h include/SDL_active.h
+src/object3D/Cube.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object3D/Cube.o: include/SDL_mouse.h include/SDL_video.h
+src/object3D/Cube.o: include/SDL_mutex.h include/SDL_quit.h
+src/object3D/Cube.o: include/SDL_version.h include/SDL_image.h include/SDL.h
+src/object3D/Cube.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/Cube.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/Cube.o: src/geometry/Vector3D.h /usr/include/stdlib.h
+src/object3D/Cube.o: /usr/include/sys/types.h /usr/include/time.h
+src/object3D/Cube.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/object3D/Cube.o: /usr/include/sys/select.h /usr/include/bits/select.h
+src/object3D/Cube.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/object3D/Cube.o: /usr/include/sys/sysmacros.h
+src/object3D/Cube.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+src/object3D/Cube.o: src/geometry/Vector2D.h src/paint/Color.h
+src/object3D/Cube.o: src/object3D/RectangularPrism.h
+src/object3D/Cube.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
+src/object3D/Cube.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+src/object3D/Cube.o: /usr/include/bits/mathcalls.h src/util/PointScale.h
+src/object3D/Cube.o: src/object3D/Object3D.h src/object3D/Quadrilateral3D.h
+src/object3D/Cube.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
+src/object3D/Cube.o: src/geometry/Vector3D.h src/texture/TextureScale.h
+src/object3D/Cube.o: src/geometry/Dimension2D.h
+src/object3D/Cube.o: src/geometry/RectangularVolume.h
+src/object3D/Cube.o: src/geometry/Dimension3D.h
+src/object3D/Triangle3D.o: src/object3D/Triangle3D.h /usr/include/math.h
+src/object3D/Triangle3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/object3D/Triangle3D.o: /usr/include/bits/wordsize.h
+src/object3D/Triangle3D.o: /usr/include/gnu/stubs.h
+src/object3D/Triangle3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/Triangle3D.o: /usr/include/bits/huge_val.h
+src/object3D/Triangle3D.o: /usr/include/bits/mathdef.h
+src/object3D/Triangle3D.o: /usr/include/bits/mathcalls.h
+src/object3D/Triangle3D.o: /usr/include/string.h src/geometry/Dimension3D.h
+src/object3D/Triangle3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/object3D/Triangle3D.o: /usr/include/bits/types.h
+src/object3D/Triangle3D.o: /usr/include/bits/typesizes.h /usr/include/time.h
+src/object3D/Triangle3D.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/object3D/Triangle3D.o: /usr/include/sys/select.h
+src/object3D/Triangle3D.o: /usr/include/bits/select.h
+src/object3D/Triangle3D.o: /usr/include/bits/sigset.h
+src/object3D/Triangle3D.o: /usr/include/bits/time.h
+src/object3D/Triangle3D.o: /usr/include/sys/sysmacros.h
+src/object3D/Triangle3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Triangle3D.o: /usr/include/alloca.h src/geometry/Dimension.h
+src/object3D/Triangle3D.o: src/geometry/Vector3D.h src/object3D/Object3D.h
+src/object3D/Triangle3D.o: src/paint/Paint.h src/texture/Texture.h
+src/object3D/Triangle3D.o: include/SDL.h include/SDL_main.h
+src/object3D/Triangle3D.o: include/SDL_types.h include/SDL_getenv.h
+src/object3D/Triangle3D.o: include/SDL_error.h include/begin_code.h
+src/object3D/Triangle3D.o: include/close_code.h include/SDL_rwops.h
+src/object3D/Triangle3D.o: /usr/include/stdio.h /usr/include/libio.h
+src/object3D/Triangle3D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object3D/Triangle3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object3D/Triangle3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/Triangle3D.o: /usr/include/bits/sys_errlist.h
+src/object3D/Triangle3D.o: include/SDL_timer.h include/SDL_audio.h
+src/object3D/Triangle3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object3D/Triangle3D.o: include/SDL_joystick.h include/SDL_events.h
+src/object3D/Triangle3D.o: include/SDL_active.h include/SDL_keyboard.h
+src/object3D/Triangle3D.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object3D/Triangle3D.o: include/SDL_video.h include/SDL_mutex.h
+src/object3D/Triangle3D.o: include/SDL_quit.h include/SDL_version.h
+src/object3D/Triangle3D.o: include/SDL_image.h include/SDL.h
+src/object3D/Triangle3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/Triangle3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/Triangle3D.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
+src/object3D/Triangle3D.o: src/paint/Color.h
+src/object3D/Arc3D.o: src/object3D/Arc3D.h
+src/object3D/Arc3D.o: src/util/GraphicsConversionUtility.h
+src/object3D/Arc3D.o: /usr/include/math.h /usr/include/features.h
+src/object3D/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+src/object3D/Arc3D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object3D/Arc3D.o: /usr/include/bits/huge_val.h
+src/object3D/Arc3D.o: /usr/include/bits/mathdef.h
+src/object3D/Arc3D.o: /usr/include/bits/mathcalls.h include/SDL_opengl.h
+src/object3D/Arc3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/object3D/Arc3D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/object3D/Arc3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/object3D/Arc3D.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+src/object3D/Arc3D.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/Arc3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+src/object3D/Arc3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+src/object3D/Arc3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+src/object3D/Arc3D.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+src/object3D/Arc3D.o: src/core/Renderable.h src/paint/Paint.h
+src/object3D/Arc3D.o: /usr/include/string.h src/texture/Texture.h
+src/object3D/Arc3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
+src/object3D/Arc3D.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/Arc3D.o: include/begin_code.h include/close_code.h
+src/object3D/Arc3D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/Arc3D.o: /usr/include/libio.h /usr/include/_G_config.h
+src/object3D/Arc3D.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+src/object3D/Arc3D.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+src/object3D/Arc3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object3D/Arc3D.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object3D/Arc3D.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object3D/Arc3D.o: include/SDL_events.h include/SDL_active.h
+src/object3D/Arc3D.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object3D/Arc3D.o: include/SDL_mouse.h include/SDL_video.h
+src/object3D/Arc3D.o: include/SDL_mutex.h include/SDL_quit.h
+src/object3D/Arc3D.o: include/SDL_version.h include/SDL_image.h include/SDL.h
+src/object3D/Arc3D.o: src/geometry/Vector2D.h src/paint/Color.h
+src/object3D/Arc3D.o: src/object3D/Point3D.h src/object3D/Object3D.h
+src/object3D/Sprite3D.o: src/object3D/Sprite3D.h src/core/Controller.h
+src/object3D/Sprite3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
+src/object3D/Sprite3D.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/Sprite3D.o: include/begin_code.h include/close_code.h
+src/object3D/Sprite3D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/Sprite3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/object3D/Sprite3D.o: /usr/include/bits/wordsize.h
+src/object3D/Sprite3D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/object3D/Sprite3D.o: /usr/include/bits/types.h
+src/object3D/Sprite3D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/object3D/Sprite3D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object3D/Sprite3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object3D/Sprite3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/Sprite3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object3D/Sprite3D.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object3D/Sprite3D.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object3D/Sprite3D.o: include/SDL_events.h include/SDL_active.h
+src/object3D/Sprite3D.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object3D/Sprite3D.o: include/SDL_mouse.h include/SDL_video.h
+src/object3D/Sprite3D.o: include/SDL_mutex.h include/SDL_quit.h
+src/object3D/Sprite3D.o: include/SDL_version.h src/event/EventFactory.h
+src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h /usr/include/stdlib.h
+src/object3D/Sprite3D.o: /usr/include/sys/types.h /usr/include/time.h
+src/object3D/Sprite3D.o: /usr/include/endian.h /usr/include/bits/endian.h
+src/object3D/Sprite3D.o: /usr/include/sys/select.h /usr/include/bits/select.h
+src/object3D/Sprite3D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/object3D/Sprite3D.o: /usr/include/sys/sysmacros.h
+src/object3D/Sprite3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Sprite3D.o: /usr/include/alloca.h include/SDL.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyboardListener.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyEvent.h /usr/include/string.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyEventFactory.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyDownEvent.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyUpEvent.h
+src/object3D/Sprite3D.o: src/event/mouse/Mouse.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseListener.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseEvent.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseEventFactory.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseButtonDown.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseClickEvent.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseButtonUp.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseMotionEvent.h
+src/object3D/Sprite3D.o: src/event/timer/Timer.h
+src/object3D/Sprite3D.o: src/event/timer/TimerListener.h
+src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h
+src/object3D/Sprite3D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
+src/object3D/Sprite3D.o: src/core/Window.h
+src/object3D/Sprite3D.o: src/event/reshape/ReshapeListener.h
+src/object3D/Sprite3D.o: src/event/reshape/ReshapeEvent.h
+src/object3D/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
+src/object3D/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Vector2D.h
+src/object3D/Sprite3D.o: src/core/World.h src/core/Renderable.h
+src/object3D/Sprite3D.o: src/object3D/Object3D.h src/geometry/Vector3D.h
+src/object3D/Sprite3D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
+src/object3D/Sprite3D.o: src/paint/Paint.h src/texture/Texture.h
+src/object3D/Sprite3D.o: include/SDL_image.h include/SDL.h
+src/object3D/Sprite3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/Sprite3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/Sprite3D.o: src/paint/Color.h src/core/Renderable.h
+src/object3D/Sprite3D.o: src/object3D/Point3D.h /usr/include/math.h
+src/object3D/Sprite3D.o: /usr/include/bits/huge_val.h
+src/object3D/Sprite3D.o: /usr/include/bits/mathdef.h
+src/object3D/Sprite3D.o: /usr/include/bits/mathcalls.h
+src/object3D/Sprite3D.o: src/object3D/Object3D.h
+src/object3D/Sprite3D.o: src/core/XavierConfiguration.h
+src/object3D/Sprite3D.o: src/transform/CoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/Transform.h src/transform/Rotate.h
+src/object3D/Sprite3D.o: src/interpolation/InterpolationEngine.h
+src/object3D/Sprite3D.o: src/interpolation/InterpolationListener.h
+src/object3D/Sprite3D.o: src/interpolation/Interpolator.h
+src/object3D/Sprite3D.o: src/interpolation/InterpolatorFactory.h
+src/object3D/Sprite3D.o: src/interpolation/LinearInterpolator.h
+src/object3D/Sprite3D.o: src/util/GraphicsConversionUtility.h
+src/object3D/Sprite3D.o: src/transform/Scale.h
+src/object3D/Sprite3D.o: src/event/InputEventProxyFactory.h
+src/object3D/Sprite3D.o: src/event/EventFactory.h
+src/object3D/Sprite3D.o: src/event/keyboard/KeyboardStub.h
+src/object3D/Sprite3D.o: src/multicast/MulticastSocket.h
+src/object3D/Sprite3D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
+src/object3D/Sprite3D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+src/object3D/Sprite3D.o: /usr/include/bits/socket.h /usr/include/limits.h
+src/object3D/Sprite3D.o: /usr/include/bits/posix1_lim.h
+src/object3D/Sprite3D.o: /usr/include/bits/local_lim.h
+src/object3D/Sprite3D.o: /usr/include/linux/limits.h
+src/object3D/Sprite3D.o: /usr/include/bits/posix2_lim.h
+src/object3D/Sprite3D.o: /usr/include/bits/sockaddr.h
+src/object3D/Sprite3D.o: /usr/include/asm/socket.h
+src/object3D/Sprite3D.o: /usr/include/asm-i386/socket.h
+src/object3D/Sprite3D.o: /usr/include/asm/sockios.h
+src/object3D/Sprite3D.o: /usr/include/asm-i386/sockios.h
+src/object3D/Sprite3D.o: /usr/include/netinet/in.h /usr/include/stdint.h
+src/object3D/Sprite3D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+src/object3D/Sprite3D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+src/object3D/Sprite3D.o: /usr/include/bits/posix_opt.h
+src/object3D/Sprite3D.o: /usr/include/bits/confname.h /usr/include/getopt.h
+src/object3D/Sprite3D.o: src/multicast/MulticastSocketPool.h
+src/object3D/Sprite3D.o: src/multicast/MulticastSocket.h
+src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h
+src/object3D/Sprite3D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
+src/object3D/Sprite3D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
+src/object3D/Sprite3D.o: src/paint/Color.h src/core/Camera.h
+src/object3D/Sprite3D.o: src/core/CameraListener.h
+src/object3D/Sprite3D.o: src/object3D/Transformable.h
+src/object3D/Sprite3D.o: src/transform/Transform.h
+src/object3D/Sprite3D.o: src/transform/CoordinateSystemFactory.h
+src/object3D/Sprite3D.o: src/transform/CoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/OpenGLCoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/MacCoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/MathCoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/object3D/Sprite3D.o: src/transform/EngineerCoordinateSystem.h
+src/object3D/Sprite3D.o: src/event/timer/TimerListener.h
+src/object3D/Sprite3D.o: src/event/reshape/ReshapeEvent.h
+src/object3D/Sprite3D.o: src/object3D/Sprite3DListener.h
+src/object3D/Object3D.o: src/object3D/Object3D.h
+src/object3D/Transformable.o: src/object3D/Transformable.h
+src/object3D/Transformable.o: src/object3D/Object3D.h
+src/object3D/Transformable.o: src/transform/Transform.h
+src/object3D/Transformable.o: src/geometry/Dimension3D.h
+src/object3D/Transformable.o: /usr/include/stdlib.h /usr/include/features.h
+src/object3D/Transformable.o: /usr/include/sys/cdefs.h
+src/object3D/Transformable.o: /usr/include/bits/wordsize.h
+src/object3D/Transformable.o: /usr/include/gnu/stubs.h
+src/object3D/Transformable.o: /usr/include/gnu/stubs-32.h
+src/object3D/Transformable.o: /usr/include/sys/types.h
+src/object3D/Transformable.o: /usr/include/bits/types.h
+src/object3D/Transformable.o: /usr/include/bits/typesizes.h
+src/object3D/Transformable.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/Transformable.o: /usr/include/bits/endian.h
+src/object3D/Transformable.o: /usr/include/sys/select.h
+src/object3D/Transformable.o: /usr/include/bits/select.h
+src/object3D/Transformable.o: /usr/include/bits/sigset.h
+src/object3D/Transformable.o: /usr/include/bits/time.h
+src/object3D/Transformable.o: /usr/include/sys/sysmacros.h
+src/object3D/Transformable.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Transformable.o: /usr/include/alloca.h src/geometry/Dimension.h
+src/object3D/Transformable.o: src/geometry/Vector3D.h src/geometry/Vector3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/NoDepthTestQuadrilateral3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_opengl.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/gl.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/glext.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/glu.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/Quadrilateral3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/math.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/features.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/cdefs.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/wordsize.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gnu/stubs.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/huge_val.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/mathdef.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/mathcalls.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/string.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/stdlib.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/types.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/types.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/typesizes.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/time.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/endian.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/endian.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/select.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/select.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/sigset.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/time.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/sysmacros.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/alloca.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector3D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/util/PointScale.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/texture/TextureScale.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension2D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector2D.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/paint/Paint.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/texture/Texture.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL.h include/SDL_main.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_types.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_getenv.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_error.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/begin_code.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/close_code.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_rwops.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/stdio.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/libio.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/_G_config.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/wchar.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/wchar.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gconv.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/sys_errlist.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_timer.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_audio.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_byteorder.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_cdrom.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_joystick.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_events.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_active.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_keyboard.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_keysym.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_mouse.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_video.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_mutex.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_quit.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_version.h
+src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_image.h include/SDL.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/paint/Color.h
+src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/Object3D.h
+src/object3D/Point3D.o: src/object3D/Point3D.h /usr/include/math.h
+src/object3D/Point3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/object3D/Point3D.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+src/object3D/Point3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/Point3D.o: /usr/include/bits/huge_val.h
+src/object3D/Point3D.o: /usr/include/bits/mathdef.h
+src/object3D/Point3D.o: /usr/include/bits/mathcalls.h include/SDL_opengl.h
+src/object3D/Point3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/object3D/Point3D.o: /usr/include/GL/glu.h src/paint/Paint.h
+src/object3D/Point3D.o: /usr/include/string.h src/texture/Texture.h
+src/object3D/Point3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
+src/object3D/Point3D.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/Point3D.o: include/begin_code.h include/close_code.h
+src/object3D/Point3D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/Point3D.o: /usr/include/bits/types.h
+src/object3D/Point3D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/object3D/Point3D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object3D/Point3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/object3D/Point3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/Point3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
+src/object3D/Point3D.o: include/SDL_audio.h include/SDL_byteorder.h
+src/object3D/Point3D.o: include/SDL_cdrom.h include/SDL_joystick.h
+src/object3D/Point3D.o: include/SDL_events.h include/SDL_active.h
+src/object3D/Point3D.o: include/SDL_keyboard.h include/SDL_keysym.h
+src/object3D/Point3D.o: include/SDL_mouse.h include/SDL_video.h
+src/object3D/Point3D.o: include/SDL_mutex.h include/SDL_quit.h
+src/object3D/Point3D.o: include/SDL_version.h include/SDL_image.h
+src/object3D/Point3D.o: include/SDL.h src/geometry/Vector3D.h
+src/object3D/Point3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/object3D/Point3D.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/Point3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+src/object3D/Point3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+src/object3D/Point3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+src/object3D/Point3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Point3D.o: /usr/include/alloca.h src/geometry/Vector2D.h
+src/object3D/Point3D.o: src/paint/Color.h src/object3D/Object3D.h
+src/object3D/Quadrilateral3D.o: src/object3D/Quadrilateral3D.h
+src/object3D/Quadrilateral3D.o: /usr/include/math.h /usr/include/features.h
+src/object3D/Quadrilateral3D.o: /usr/include/sys/cdefs.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/wordsize.h
+src/object3D/Quadrilateral3D.o: /usr/include/gnu/stubs.h
+src/object3D/Quadrilateral3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/huge_val.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/mathdef.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/mathcalls.h
+src/object3D/Quadrilateral3D.o: /usr/include/string.h src/geometry/Vector3D.h
+src/object3D/Quadrilateral3D.o: /usr/include/stdlib.h
+src/object3D/Quadrilateral3D.o: /usr/include/sys/types.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/types.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/typesizes.h
+src/object3D/Quadrilateral3D.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/endian.h
+src/object3D/Quadrilateral3D.o: /usr/include/sys/select.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/select.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/sigset.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/time.h
+src/object3D/Quadrilateral3D.o: /usr/include/sys/sysmacros.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/Quadrilateral3D.o: /usr/include/alloca.h
+src/object3D/Quadrilateral3D.o: src/geometry/Dimension3D.h
+src/object3D/Quadrilateral3D.o: src/geometry/Dimension.h
+src/object3D/Quadrilateral3D.o: src/geometry/Vector3D.h src/util/PointScale.h
+src/object3D/Quadrilateral3D.o: src/texture/TextureScale.h
+src/object3D/Quadrilateral3D.o: src/geometry/Dimension2D.h
+src/object3D/Quadrilateral3D.o: src/geometry/Vector2D.h src/paint/Paint.h
+src/object3D/Quadrilateral3D.o: src/texture/Texture.h include/SDL.h
+src/object3D/Quadrilateral3D.o: include/SDL_main.h include/SDL_types.h
+src/object3D/Quadrilateral3D.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/Quadrilateral3D.o: include/begin_code.h include/close_code.h
+src/object3D/Quadrilateral3D.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/Quadrilateral3D.o: /usr/include/libio.h /usr/include/_G_config.h
+src/object3D/Quadrilateral3D.o: /usr/include/wchar.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/wchar.h
+src/object3D/Quadrilateral3D.o: /usr/include/gconv.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/Quadrilateral3D.o: /usr/include/bits/sys_errlist.h
+src/object3D/Quadrilateral3D.o: include/SDL_timer.h include/SDL_audio.h
+src/object3D/Quadrilateral3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object3D/Quadrilateral3D.o: include/SDL_joystick.h include/SDL_events.h
+src/object3D/Quadrilateral3D.o: include/SDL_active.h include/SDL_keyboard.h
+src/object3D/Quadrilateral3D.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object3D/Quadrilateral3D.o: include/SDL_video.h include/SDL_mutex.h
+src/object3D/Quadrilateral3D.o: include/SDL_quit.h include/SDL_version.h
+src/object3D/Quadrilateral3D.o: include/SDL_image.h include/SDL.h
+src/object3D/Quadrilateral3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/Quadrilateral3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/Quadrilateral3D.o: src/paint/Color.h src/object3D/Object3D.h
+src/object3D/RectangularPrism.o: src/object3D/RectangularPrism.h
+src/object3D/RectangularPrism.o: src/util/GraphicsConversionUtility.h
+src/object3D/RectangularPrism.o: /usr/include/math.h /usr/include/features.h
+src/object3D/RectangularPrism.o: /usr/include/sys/cdefs.h
+src/object3D/RectangularPrism.o: /usr/include/bits/wordsize.h
+src/object3D/RectangularPrism.o: /usr/include/gnu/stubs.h
+src/object3D/RectangularPrism.o: /usr/include/gnu/stubs-32.h
+src/object3D/RectangularPrism.o: /usr/include/bits/huge_val.h
+src/object3D/RectangularPrism.o: /usr/include/bits/mathdef.h
+src/object3D/RectangularPrism.o: /usr/include/bits/mathcalls.h
+src/object3D/RectangularPrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/RectangularPrism.o: /usr/include/GL/glext.h
+src/object3D/RectangularPrism.o: /usr/include/GL/glu.h
+src/object3D/RectangularPrism.o: src/geometry/Vector3D.h
+src/object3D/RectangularPrism.o: /usr/include/stdlib.h
+src/object3D/RectangularPrism.o: /usr/include/sys/types.h
+src/object3D/RectangularPrism.o: /usr/include/bits/types.h
+src/object3D/RectangularPrism.o: /usr/include/bits/typesizes.h
+src/object3D/RectangularPrism.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/RectangularPrism.o: /usr/include/bits/endian.h
+src/object3D/RectangularPrism.o: /usr/include/sys/select.h
+src/object3D/RectangularPrism.o: /usr/include/bits/select.h
+src/object3D/RectangularPrism.o: /usr/include/bits/sigset.h
+src/object3D/RectangularPrism.o: /usr/include/bits/time.h
+src/object3D/RectangularPrism.o: /usr/include/sys/sysmacros.h
+src/object3D/RectangularPrism.o: /usr/include/bits/pthreadtypes.h
+src/object3D/RectangularPrism.o: /usr/include/alloca.h src/util/PointScale.h
+src/object3D/RectangularPrism.o: src/paint/Paint.h /usr/include/string.h
+src/object3D/RectangularPrism.o: src/texture/Texture.h include/SDL.h
+src/object3D/RectangularPrism.o: include/SDL_main.h include/SDL_types.h
+src/object3D/RectangularPrism.o: include/SDL_getenv.h include/SDL_error.h
+src/object3D/RectangularPrism.o: include/begin_code.h include/close_code.h
+src/object3D/RectangularPrism.o: include/SDL_rwops.h /usr/include/stdio.h
+src/object3D/RectangularPrism.o: /usr/include/libio.h
+src/object3D/RectangularPrism.o: /usr/include/_G_config.h
+src/object3D/RectangularPrism.o: /usr/include/wchar.h
+src/object3D/RectangularPrism.o: /usr/include/bits/wchar.h
+src/object3D/RectangularPrism.o: /usr/include/gconv.h
+src/object3D/RectangularPrism.o: /usr/include/bits/stdio_lim.h
+src/object3D/RectangularPrism.o: /usr/include/bits/sys_errlist.h
+src/object3D/RectangularPrism.o: include/SDL_timer.h include/SDL_audio.h
+src/object3D/RectangularPrism.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object3D/RectangularPrism.o: include/SDL_joystick.h include/SDL_events.h
+src/object3D/RectangularPrism.o: include/SDL_active.h include/SDL_keyboard.h
+src/object3D/RectangularPrism.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object3D/RectangularPrism.o: include/SDL_video.h include/SDL_mutex.h
+src/object3D/RectangularPrism.o: include/SDL_quit.h include/SDL_version.h
+src/object3D/RectangularPrism.o: include/SDL_image.h include/SDL.h
+src/object3D/RectangularPrism.o: src/geometry/Vector2D.h src/paint/Color.h
+src/object3D/RectangularPrism.o: src/object3D/Object3D.h
+src/object3D/RectangularPrism.o: src/object3D/Quadrilateral3D.h
+src/object3D/RectangularPrism.o: src/geometry/Dimension3D.h
+src/object3D/RectangularPrism.o: src/geometry/Dimension.h
+src/object3D/RectangularPrism.o: src/geometry/Vector3D.h
+src/object3D/RectangularPrism.o: src/texture/TextureScale.h
+src/object3D/RectangularPrism.o: src/geometry/Dimension2D.h
+src/object3D/RectangularPrism.o: src/geometry/RectangularVolume.h
+src/object3D/RectangularPrism.o: src/geometry/Dimension3D.h
+src/object3D/NormalPolygon3D.o: src/object3D/NormalPolygon3D.h
+src/object3D/NormalPolygon3D.o: src/util/GraphicsConversionUtility.h
+src/object3D/NormalPolygon3D.o: /usr/include/math.h /usr/include/features.h
+src/object3D/NormalPolygon3D.o: /usr/include/sys/cdefs.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/wordsize.h
+src/object3D/NormalPolygon3D.o: /usr/include/gnu/stubs.h
+src/object3D/NormalPolygon3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/huge_val.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/mathdef.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/mathcalls.h
+src/object3D/NormalPolygon3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
+src/object3D/NormalPolygon3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+src/object3D/NormalPolygon3D.o: src/geometry/Vector3D.h /usr/include/stdlib.h
+src/object3D/NormalPolygon3D.o: /usr/include/sys/types.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/types.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/typesizes.h
+src/object3D/NormalPolygon3D.o: /usr/include/time.h /usr/include/endian.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/endian.h
+src/object3D/NormalPolygon3D.o: /usr/include/sys/select.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/select.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/sigset.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/time.h
+src/object3D/NormalPolygon3D.o: /usr/include/sys/sysmacros.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/NormalPolygon3D.o: /usr/include/alloca.h src/paint/Paint.h
+src/object3D/NormalPolygon3D.o: /usr/include/string.h src/texture/Texture.h
+src/object3D/NormalPolygon3D.o: include/SDL.h include/SDL_main.h
+src/object3D/NormalPolygon3D.o: include/SDL_types.h include/SDL_getenv.h
+src/object3D/NormalPolygon3D.o: include/SDL_error.h include/begin_code.h
+src/object3D/NormalPolygon3D.o: include/close_code.h include/SDL_rwops.h
+src/object3D/NormalPolygon3D.o: /usr/include/stdio.h /usr/include/libio.h
+src/object3D/NormalPolygon3D.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/wchar.h
+src/object3D/NormalPolygon3D.o: /usr/include/gconv.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/NormalPolygon3D.o: /usr/include/bits/sys_errlist.h
+src/object3D/NormalPolygon3D.o: include/SDL_timer.h include/SDL_audio.h
+src/object3D/NormalPolygon3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/object3D/NormalPolygon3D.o: include/SDL_joystick.h include/SDL_events.h
+src/object3D/NormalPolygon3D.o: include/SDL_active.h include/SDL_keyboard.h
+src/object3D/NormalPolygon3D.o: include/SDL_keysym.h include/SDL_mouse.h
+src/object3D/NormalPolygon3D.o: include/SDL_video.h include/SDL_mutex.h
+src/object3D/NormalPolygon3D.o: include/SDL_quit.h include/SDL_version.h
+src/object3D/NormalPolygon3D.o: include/SDL_image.h include/SDL.h
+src/object3D/NormalPolygon3D.o: src/geometry/Vector2D.h src/paint/Color.h
+src/object3D/NormalPolygon3D.o: src/object3D/Object3D.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/ExtrudedNormalPolygon3D.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/NormalPolygon3D.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/util/GraphicsConversionUtility.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/math.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/features.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/cdefs.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/wordsize.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gnu/stubs.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gnu/stubs-32.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/huge_val.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/mathdef.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/mathcalls.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_opengl.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/gl.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/glext.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/glu.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/geometry/Vector3D.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/stdlib.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/types.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/types.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/typesizes.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/time.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/endian.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/endian.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/select.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/select.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/sigset.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/time.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/sysmacros.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/pthreadtypes.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/alloca.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/paint/Paint.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/string.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/texture/Texture.h include/SDL.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_main.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_types.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_getenv.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_error.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/begin_code.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/close_code.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_rwops.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/stdio.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/libio.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/_G_config.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/wchar.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/wchar.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gconv.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/stdio_lim.h
+src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/sys_errlist.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_timer.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_audio.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_byteorder.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_cdrom.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_joystick.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_events.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_active.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_keyboard.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_keysym.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_mouse.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_video.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_mutex.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_quit.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_version.h
+src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_image.h include/SDL.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/geometry/Vector2D.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/paint/Color.h
+src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/Object3D.h
 src/model/MilkshapeModel.o: /usr/include/stdio.h /usr/include/features.h
 src/model/MilkshapeModel.o: /usr/include/sys/cdefs.h
 src/model/MilkshapeModel.o: /usr/include/bits/wordsize.h
@@ -4196,6 +5222,40 @@ src/transform/Transform.o: /usr/include/sys/sysmacros.h
 src/transform/Transform.o: /usr/include/bits/pthreadtypes.h
 src/transform/Transform.o: /usr/include/alloca.h src/geometry/Dimension3D.h
 src/transform/Transform.o: src/geometry/Dimension.h src/geometry/Vector3D.h
+src/transform/Stretch.o: src/transform/Stretch.h src/transform/Translate.h
+src/transform/Stretch.o: /usr/include/stdio.h /usr/include/features.h
+src/transform/Stretch.o: /usr/include/sys/cdefs.h
+src/transform/Stretch.o: /usr/include/bits/wordsize.h
+src/transform/Stretch.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/transform/Stretch.o: /usr/include/bits/types.h
+src/transform/Stretch.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/transform/Stretch.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/transform/Stretch.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/transform/Stretch.o: /usr/include/bits/stdio_lim.h
+src/transform/Stretch.o: /usr/include/bits/sys_errlist.h
+src/transform/Stretch.o: src/transform/Transform.h include/SDL_opengl.h
+src/transform/Stretch.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/transform/Stretch.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
+src/transform/Stretch.o: /usr/include/stdlib.h /usr/include/sys/types.h
+src/transform/Stretch.o: /usr/include/time.h /usr/include/endian.h
+src/transform/Stretch.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+src/transform/Stretch.o: /usr/include/bits/select.h
+src/transform/Stretch.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+src/transform/Stretch.o: /usr/include/sys/sysmacros.h
+src/transform/Stretch.o: /usr/include/bits/pthreadtypes.h
+src/transform/Stretch.o: /usr/include/alloca.h src/geometry/Dimension3D.h
+src/transform/Stretch.o: src/geometry/Dimension.h src/geometry/Vector3D.h
+src/transform/Stretch.o: src/event/timer/TimerListener.h
+src/transform/Stretch.o: src/transform/Scale.h
+src/transform/Stretch.o: src/interpolation/InterpolationEngine.h
+src/transform/Stretch.o: src/interpolation/InterpolationListener.h
+src/transform/Stretch.o: src/interpolation/Interpolator.h
+src/transform/Stretch.o: src/interpolation/InterpolatorFactory.h
+src/transform/Stretch.o: src/interpolation/LinearInterpolator.h
+src/transform/Stretch.o: src/util/GraphicsConversionUtility.h
+src/transform/Stretch.o: /usr/include/math.h /usr/include/bits/huge_val.h
+src/transform/Stretch.o: /usr/include/bits/mathdef.h
+src/transform/Stretch.o: /usr/include/bits/mathcalls.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Rotate.h
@@ -4246,40 +5306,6 @@ src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/huge_val.h
 src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/mathdef.h
 src/transform/LeftOpenGLCoordinateSystem.o: /usr/include/bits/mathcalls.h
 src/transform/LeftOpenGLCoordinateSystem.o: src/transform/Scale.h
-src/transform/Stretch.o: src/transform/Stretch.h src/transform/Translate.h
-src/transform/Stretch.o: /usr/include/stdio.h /usr/include/features.h
-src/transform/Stretch.o: /usr/include/sys/cdefs.h
-src/transform/Stretch.o: /usr/include/bits/wordsize.h
-src/transform/Stretch.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/transform/Stretch.o: /usr/include/bits/types.h
-src/transform/Stretch.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/transform/Stretch.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/transform/Stretch.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/transform/Stretch.o: /usr/include/bits/stdio_lim.h
-src/transform/Stretch.o: /usr/include/bits/sys_errlist.h
-src/transform/Stretch.o: src/transform/Transform.h include/SDL_opengl.h
-src/transform/Stretch.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/transform/Stretch.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
-src/transform/Stretch.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/transform/Stretch.o: /usr/include/time.h /usr/include/endian.h
-src/transform/Stretch.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-src/transform/Stretch.o: /usr/include/bits/select.h
-src/transform/Stretch.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/transform/Stretch.o: /usr/include/sys/sysmacros.h
-src/transform/Stretch.o: /usr/include/bits/pthreadtypes.h
-src/transform/Stretch.o: /usr/include/alloca.h src/geometry/Dimension3D.h
-src/transform/Stretch.o: src/geometry/Dimension.h src/geometry/Vector3D.h
-src/transform/Stretch.o: src/event/timer/TimerListener.h
-src/transform/Stretch.o: src/transform/Scale.h
-src/transform/Stretch.o: src/interpolation/InterpolationEngine.h
-src/transform/Stretch.o: src/interpolation/InterpolationListener.h
-src/transform/Stretch.o: src/interpolation/Interpolator.h
-src/transform/Stretch.o: src/interpolation/InterpolatorFactory.h
-src/transform/Stretch.o: src/interpolation/LinearInterpolator.h
-src/transform/Stretch.o: src/util/GraphicsConversionUtility.h
-src/transform/Stretch.o: /usr/include/math.h /usr/include/bits/huge_val.h
-src/transform/Stretch.o: /usr/include/bits/mathdef.h
-src/transform/Stretch.o: /usr/include/bits/mathcalls.h
 src/transform/MacCoordinateSystem.o: src/transform/MacCoordinateSystem.h
 src/transform/MacCoordinateSystem.o: src/transform/CoordinateSystem.h
 src/transform/CoordinateSystemFactory.o: src/transform/CoordinateSystemFactory.h
@@ -4679,1029 +5705,3 @@ src/util/xmlParser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 src/util/xmlParser.o: /usr/include/sys/sysmacros.h
 src/util/xmlParser.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
 src/util/xmlParser.o: src/util/xmlParser.h
-src/object2D/Rectangle2D.o: src/object2D/Rectangle2D.h
-src/object2D/Rectangle2D.o: src/object2D/Object2D.h include/SDL_opengl.h
-src/object2D/Rectangle2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/object2D/Rectangle2D.o: /usr/include/GL/glu.h src/core/Controller.h
-src/object2D/Rectangle2D.o: include/SDL.h include/SDL_main.h
-src/object2D/Rectangle2D.o: include/SDL_types.h include/SDL_getenv.h
-src/object2D/Rectangle2D.o: include/SDL_error.h include/begin_code.h
-src/object2D/Rectangle2D.o: include/close_code.h include/SDL_rwops.h
-src/object2D/Rectangle2D.o: /usr/include/stdio.h /usr/include/features.h
-src/object2D/Rectangle2D.o: /usr/include/sys/cdefs.h
-src/object2D/Rectangle2D.o: /usr/include/bits/wordsize.h
-src/object2D/Rectangle2D.o: /usr/include/gnu/stubs.h
-src/object2D/Rectangle2D.o: /usr/include/gnu/stubs-32.h
-src/object2D/Rectangle2D.o: /usr/include/bits/types.h
-src/object2D/Rectangle2D.o: /usr/include/bits/typesizes.h
-src/object2D/Rectangle2D.o: /usr/include/libio.h /usr/include/_G_config.h
-src/object2D/Rectangle2D.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-src/object2D/Rectangle2D.o: /usr/include/gconv.h
-src/object2D/Rectangle2D.o: /usr/include/bits/stdio_lim.h
-src/object2D/Rectangle2D.o: /usr/include/bits/sys_errlist.h
-src/object2D/Rectangle2D.o: include/SDL_timer.h include/SDL_audio.h
-src/object2D/Rectangle2D.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object2D/Rectangle2D.o: include/SDL_joystick.h include/SDL_events.h
-src/object2D/Rectangle2D.o: include/SDL_active.h include/SDL_keyboard.h
-src/object2D/Rectangle2D.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object2D/Rectangle2D.o: include/SDL_video.h include/SDL_mutex.h
-src/object2D/Rectangle2D.o: include/SDL_quit.h include/SDL_version.h
-src/object2D/Rectangle2D.o: src/event/EventFactory.h
-src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
-src/object2D/Rectangle2D.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/object2D/Rectangle2D.o: /usr/include/time.h /usr/include/endian.h
-src/object2D/Rectangle2D.o: /usr/include/bits/endian.h
-src/object2D/Rectangle2D.o: /usr/include/sys/select.h
-src/object2D/Rectangle2D.o: /usr/include/bits/select.h
-src/object2D/Rectangle2D.o: /usr/include/bits/sigset.h
-src/object2D/Rectangle2D.o: /usr/include/bits/time.h
-src/object2D/Rectangle2D.o: /usr/include/sys/sysmacros.h
-src/object2D/Rectangle2D.o: /usr/include/bits/pthreadtypes.h
-src/object2D/Rectangle2D.o: /usr/include/alloca.h include/SDL.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyboardListener.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyEvent.h
-src/object2D/Rectangle2D.o: /usr/include/string.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyEventFactory.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyDownEvent.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyUpEvent.h
-src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseListener.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseEvent.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseEventFactory.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseButtonDown.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseClickEvent.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseButtonUp.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseMotionEvent.h
-src/object2D/Rectangle2D.o: src/event/timer/Timer.h
-src/object2D/Rectangle2D.o: src/event/timer/TimerListener.h
-src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
-src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
-src/object2D/Rectangle2D.o: src/core/Window.h
-src/object2D/Rectangle2D.o: src/event/reshape/ReshapeListener.h
-src/object2D/Rectangle2D.o: src/event/reshape/ReshapeEvent.h
-src/object2D/Rectangle2D.o: src/geometry/Dimension2D.h
-src/object2D/Rectangle2D.o: src/geometry/Dimension.h
-src/object2D/Rectangle2D.o: src/geometry/Dimension2D.h
-src/object2D/Rectangle2D.o: src/geometry/Vector2D.h src/core/World.h
-src/object2D/Rectangle2D.o: src/core/Renderable.h src/object3D/Object3D.h
-src/object2D/Rectangle2D.o: src/geometry/Vector3D.h
-src/object2D/Rectangle2D.o: src/geometry/Dimension3D.h
-src/object2D/Rectangle2D.o: src/geometry/Vector3D.h src/paint/Paint.h
-src/object2D/Rectangle2D.o: src/texture/Texture.h include/SDL_image.h
-src/object2D/Rectangle2D.o: include/SDL.h src/paint/Color.h
-src/object2D/Rectangle2D.o: src/core/Renderable.h src/object3D/Point3D.h
-src/object2D/Rectangle2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
-src/object2D/Rectangle2D.o: /usr/include/bits/mathdef.h
-src/object2D/Rectangle2D.o: /usr/include/bits/mathcalls.h
-src/object2D/Rectangle2D.o: src/object3D/Object3D.h
-src/object2D/Rectangle2D.o: src/core/XavierConfiguration.h
-src/object2D/Rectangle2D.o: src/transform/CoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/Transform.h src/transform/Rotate.h
-src/object2D/Rectangle2D.o: src/interpolation/InterpolationEngine.h
-src/object2D/Rectangle2D.o: src/interpolation/InterpolationListener.h
-src/object2D/Rectangle2D.o: src/interpolation/Interpolator.h
-src/object2D/Rectangle2D.o: src/interpolation/InterpolatorFactory.h
-src/object2D/Rectangle2D.o: src/interpolation/LinearInterpolator.h
-src/object2D/Rectangle2D.o: src/util/GraphicsConversionUtility.h
-src/object2D/Rectangle2D.o: src/transform/Scale.h
-src/object2D/Rectangle2D.o: src/event/InputEventProxyFactory.h
-src/object2D/Rectangle2D.o: src/event/EventFactory.h
-src/object2D/Rectangle2D.o: src/event/keyboard/KeyboardStub.h
-src/object2D/Rectangle2D.o: src/multicast/MulticastSocket.h
-src/object2D/Rectangle2D.o: src/multicast/Multicast.h
-src/object2D/Rectangle2D.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
-src/object2D/Rectangle2D.o: /usr/include/bits/uio.h
-src/object2D/Rectangle2D.o: /usr/include/bits/socket.h /usr/include/limits.h
-src/object2D/Rectangle2D.o: /usr/include/bits/posix1_lim.h
-src/object2D/Rectangle2D.o: /usr/include/bits/local_lim.h
-src/object2D/Rectangle2D.o: /usr/include/linux/limits.h
-src/object2D/Rectangle2D.o: /usr/include/bits/posix2_lim.h
-src/object2D/Rectangle2D.o: /usr/include/bits/sockaddr.h
-src/object2D/Rectangle2D.o: /usr/include/asm/socket.h
-src/object2D/Rectangle2D.o: /usr/include/asm-i386/socket.h
-src/object2D/Rectangle2D.o: /usr/include/asm/sockios.h
-src/object2D/Rectangle2D.o: /usr/include/asm-i386/sockios.h
-src/object2D/Rectangle2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
-src/object2D/Rectangle2D.o: /usr/include/bits/in.h
-src/object2D/Rectangle2D.o: /usr/include/bits/byteswap.h
-src/object2D/Rectangle2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-src/object2D/Rectangle2D.o: /usr/include/bits/posix_opt.h
-src/object2D/Rectangle2D.o: /usr/include/bits/confname.h
-src/object2D/Rectangle2D.o: /usr/include/getopt.h
-src/object2D/Rectangle2D.o: src/multicast/MulticastSocketPool.h
-src/object2D/Rectangle2D.o: src/multicast/MulticastSocket.h
-src/object2D/Rectangle2D.o: src/event/keyboard/Keyboard.h
-src/object2D/Rectangle2D.o: src/event/mouse/MouseStub.h
-src/object2D/Rectangle2D.o: src/event/mouse/Mouse.h
-src/object2D/Rectangle2D.o: src/event/timer/TimerStub.h
-src/object2D/Rectangle2D.o: src/event/timer/Timer.h src/paint/Color.h
-src/object2D/Rectangle2D.o: src/core/Camera.h src/core/CameraListener.h
-src/object2D/Rectangle2D.o: src/object3D/Transformable.h
-src/object2D/Rectangle2D.o: src/transform/Transform.h
-src/object2D/Rectangle2D.o: src/transform/CoordinateSystemFactory.h
-src/object2D/Rectangle2D.o: src/transform/CoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/OpenGLCoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/MacCoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/MathCoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/LeftOpenGLCoordinateSystem.h
-src/object2D/Rectangle2D.o: src/transform/EngineerCoordinateSystem.h
-src/object2D/Rectangle2D.o: src/event/timer/TimerListener.h
-src/object2D/Rectangle2D.o: src/event/reshape/ReshapeEvent.h
-src/object2D/Rectangle2D.o: src/core/Window.h
-src/object2D/Object2D.o: src/object2D/Object2D.h include/SDL_opengl.h
-src/object2D/Object2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/object2D/Object2D.o: /usr/include/GL/glu.h src/core/Controller.h
-src/object2D/Object2D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/object2D/Object2D.o: include/SDL_getenv.h include/SDL_error.h
-src/object2D/Object2D.o: include/begin_code.h include/close_code.h
-src/object2D/Object2D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object2D/Object2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/object2D/Object2D.o: /usr/include/bits/wordsize.h
-src/object2D/Object2D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object2D/Object2D.o: /usr/include/bits/types.h
-src/object2D/Object2D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/object2D/Object2D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object2D/Object2D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object2D/Object2D.o: /usr/include/bits/stdio_lim.h
-src/object2D/Object2D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object2D/Object2D.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object2D/Object2D.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object2D/Object2D.o: include/SDL_events.h include/SDL_active.h
-src/object2D/Object2D.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object2D/Object2D.o: include/SDL_mouse.h include/SDL_video.h
-src/object2D/Object2D.o: include/SDL_mutex.h include/SDL_quit.h
-src/object2D/Object2D.o: include/SDL_version.h src/event/EventFactory.h
-src/object2D/Object2D.o: src/event/keyboard/Keyboard.h /usr/include/stdlib.h
-src/object2D/Object2D.o: /usr/include/sys/types.h /usr/include/time.h
-src/object2D/Object2D.o: /usr/include/endian.h /usr/include/bits/endian.h
-src/object2D/Object2D.o: /usr/include/sys/select.h /usr/include/bits/select.h
-src/object2D/Object2D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/object2D/Object2D.o: /usr/include/sys/sysmacros.h
-src/object2D/Object2D.o: /usr/include/bits/pthreadtypes.h
-src/object2D/Object2D.o: /usr/include/alloca.h include/SDL.h
-src/object2D/Object2D.o: src/event/keyboard/KeyboardListener.h
-src/object2D/Object2D.o: src/event/keyboard/KeyEvent.h /usr/include/string.h
-src/object2D/Object2D.o: src/event/keyboard/KeyEventFactory.h
-src/object2D/Object2D.o: src/event/keyboard/KeyDownEvent.h
-src/object2D/Object2D.o: src/event/keyboard/KeyUpEvent.h
-src/object2D/Object2D.o: src/event/mouse/Mouse.h
-src/object2D/Object2D.o: src/event/mouse/MouseListener.h
-src/object2D/Object2D.o: src/event/mouse/MouseEvent.h
-src/object2D/Object2D.o: src/event/mouse/MouseEventFactory.h
-src/object2D/Object2D.o: src/event/mouse/MouseButtonDown.h
-src/object2D/Object2D.o: src/event/mouse/MouseClickEvent.h
-src/object2D/Object2D.o: src/event/mouse/MouseButtonUp.h
-src/object2D/Object2D.o: src/event/mouse/MouseMotionEvent.h
-src/object2D/Object2D.o: src/event/timer/Timer.h
-src/object2D/Object2D.o: src/event/timer/TimerListener.h
-src/object2D/Object2D.o: src/event/keyboard/Keyboard.h
-src/object2D/Object2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
-src/object2D/Object2D.o: src/core/Window.h
-src/object2D/Object2D.o: src/event/reshape/ReshapeListener.h
-src/object2D/Object2D.o: src/event/reshape/ReshapeEvent.h
-src/object2D/Object2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
-src/object2D/Object2D.o: src/geometry/Dimension2D.h src/geometry/Vector2D.h
-src/object2D/Object2D.o: src/core/World.h src/core/Renderable.h
-src/object2D/Object2D.o: src/object3D/Object3D.h src/geometry/Vector3D.h
-src/object2D/Object2D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
-src/object2D/Object2D.o: src/paint/Paint.h src/texture/Texture.h
-src/object2D/Object2D.o: include/SDL_image.h include/SDL.h src/paint/Color.h
-src/object2D/Object2D.o: src/core/Renderable.h src/object3D/Point3D.h
-src/object2D/Object2D.o: /usr/include/math.h /usr/include/bits/huge_val.h
-src/object2D/Object2D.o: /usr/include/bits/mathdef.h
-src/object2D/Object2D.o: /usr/include/bits/mathcalls.h
-src/object2D/Object2D.o: src/object3D/Object3D.h
-src/object2D/Object2D.o: src/core/XavierConfiguration.h
-src/object2D/Object2D.o: src/transform/CoordinateSystem.h
-src/object2D/Object2D.o: src/transform/Transform.h src/transform/Rotate.h
-src/object2D/Object2D.o: src/interpolation/InterpolationEngine.h
-src/object2D/Object2D.o: src/interpolation/InterpolationListener.h
-src/object2D/Object2D.o: src/interpolation/Interpolator.h
-src/object2D/Object2D.o: src/interpolation/InterpolatorFactory.h
-src/object2D/Object2D.o: src/interpolation/LinearInterpolator.h
-src/object2D/Object2D.o: src/util/GraphicsConversionUtility.h
-src/object2D/Object2D.o: src/transform/Scale.h
-src/object2D/Object2D.o: src/event/InputEventProxyFactory.h
-src/object2D/Object2D.o: src/event/EventFactory.h
-src/object2D/Object2D.o: src/event/keyboard/KeyboardStub.h
-src/object2D/Object2D.o: src/multicast/MulticastSocket.h
-src/object2D/Object2D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
-src/object2D/Object2D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-src/object2D/Object2D.o: /usr/include/bits/socket.h /usr/include/limits.h
-src/object2D/Object2D.o: /usr/include/bits/posix1_lim.h
-src/object2D/Object2D.o: /usr/include/bits/local_lim.h
-src/object2D/Object2D.o: /usr/include/linux/limits.h
-src/object2D/Object2D.o: /usr/include/bits/posix2_lim.h
-src/object2D/Object2D.o: /usr/include/bits/sockaddr.h
-src/object2D/Object2D.o: /usr/include/asm/socket.h
-src/object2D/Object2D.o: /usr/include/asm-i386/socket.h
-src/object2D/Object2D.o: /usr/include/asm/sockios.h
-src/object2D/Object2D.o: /usr/include/asm-i386/sockios.h
-src/object2D/Object2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
-src/object2D/Object2D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
-src/object2D/Object2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-src/object2D/Object2D.o: /usr/include/bits/posix_opt.h
-src/object2D/Object2D.o: /usr/include/bits/confname.h /usr/include/getopt.h
-src/object2D/Object2D.o: src/multicast/MulticastSocketPool.h
-src/object2D/Object2D.o: src/multicast/MulticastSocket.h
-src/object2D/Object2D.o: src/event/keyboard/Keyboard.h
-src/object2D/Object2D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
-src/object2D/Object2D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
-src/object2D/Object2D.o: src/paint/Color.h src/core/Camera.h
-src/object2D/Object2D.o: src/core/CameraListener.h
-src/object2D/Object2D.o: src/object3D/Transformable.h
-src/object2D/Object2D.o: src/transform/Transform.h
-src/object2D/Object2D.o: src/transform/CoordinateSystemFactory.h
-src/object2D/Object2D.o: src/transform/CoordinateSystem.h
-src/object2D/Object2D.o: src/transform/OpenGLCoordinateSystem.h
-src/object2D/Object2D.o: src/transform/MacCoordinateSystem.h
-src/object2D/Object2D.o: src/transform/MathCoordinateSystem.h
-src/object2D/Object2D.o: src/transform/LeftOpenGLCoordinateSystem.h
-src/object2D/Object2D.o: src/transform/EngineerCoordinateSystem.h
-src/object2D/Object2D.o: src/event/timer/TimerListener.h
-src/object2D/Object2D.o: src/event/reshape/ReshapeEvent.h src/core/Window.h
-src/object2D/String2D.o: src/object2D/String2D.h /usr/include/string.h
-src/object2D/String2D.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/object2D/String2D.o: /usr/include/bits/wordsize.h
-src/object2D/String2D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object2D/String2D.o: src/geometry/Vector2D.h src/geometry/Dimension2D.h
-src/object2D/String2D.o: src/paint/Paint.h src/texture/Texture.h
-src/object2D/String2D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/object2D/String2D.o: include/SDL_getenv.h include/SDL_error.h
-src/object2D/String2D.o: include/begin_code.h include/close_code.h
-src/object2D/String2D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object2D/String2D.o: /usr/include/bits/types.h
-src/object2D/String2D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/object2D/String2D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object2D/String2D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object2D/String2D.o: /usr/include/bits/stdio_lim.h
-src/object2D/String2D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object2D/String2D.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object2D/String2D.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object2D/String2D.o: include/SDL_events.h include/SDL_active.h
-src/object2D/String2D.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object2D/String2D.o: include/SDL_mouse.h include/SDL_video.h
-src/object2D/String2D.o: include/SDL_mutex.h include/SDL_quit.h
-src/object2D/String2D.o: include/SDL_version.h include/SDL_image.h
-src/object2D/String2D.o: include/SDL.h include/SDL_opengl.h
-src/object2D/String2D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/object2D/String2D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
-src/object2D/String2D.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/object2D/String2D.o: /usr/include/time.h /usr/include/endian.h
-src/object2D/String2D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-src/object2D/String2D.o: /usr/include/bits/select.h
-src/object2D/String2D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/object2D/String2D.o: /usr/include/sys/sysmacros.h
-src/object2D/String2D.o: /usr/include/bits/pthreadtypes.h
-src/object2D/String2D.o: /usr/include/alloca.h src/paint/Color.h
-src/object2D/String2D.o: src/util/BitmapFontUtil.h
-src/object2D/String2D.o: src/util/BitmapFontConstants.h src/core/Controller.h
-src/object2D/String2D.o: src/event/EventFactory.h
-src/object2D/String2D.o: src/event/keyboard/Keyboard.h include/SDL.h
-src/object2D/String2D.o: src/event/keyboard/KeyboardListener.h
-src/object2D/String2D.o: src/event/keyboard/KeyEvent.h
-src/object2D/String2D.o: src/event/keyboard/KeyEventFactory.h
-src/object2D/String2D.o: src/event/keyboard/KeyDownEvent.h
-src/object2D/String2D.o: src/event/keyboard/KeyUpEvent.h
-src/object2D/String2D.o: src/event/mouse/Mouse.h
-src/object2D/String2D.o: src/event/mouse/MouseListener.h
-src/object2D/String2D.o: src/event/mouse/MouseEvent.h
-src/object2D/String2D.o: src/event/mouse/MouseEventFactory.h
-src/object2D/String2D.o: src/event/mouse/MouseButtonDown.h
-src/object2D/String2D.o: src/event/mouse/MouseClickEvent.h
-src/object2D/String2D.o: src/event/mouse/MouseButtonUp.h
-src/object2D/String2D.o: src/event/mouse/MouseMotionEvent.h
-src/object2D/String2D.o: src/event/timer/Timer.h
-src/object2D/String2D.o: src/event/timer/TimerListener.h
-src/object2D/String2D.o: src/event/keyboard/Keyboard.h
-src/object2D/String2D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
-src/object2D/String2D.o: src/core/Window.h
-src/object2D/String2D.o: src/event/reshape/ReshapeListener.h
-src/object2D/String2D.o: src/event/reshape/ReshapeEvent.h
-src/object2D/String2D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
-src/object2D/String2D.o: src/core/World.h src/core/Renderable.h
-src/object2D/String2D.o: src/object3D/Object3D.h src/geometry/Dimension3D.h
-src/object2D/String2D.o: src/geometry/Vector3D.h src/core/Renderable.h
-src/object2D/String2D.o: src/object3D/Point3D.h /usr/include/math.h
-src/object2D/String2D.o: /usr/include/bits/huge_val.h
-src/object2D/String2D.o: /usr/include/bits/mathdef.h
-src/object2D/String2D.o: /usr/include/bits/mathcalls.h
-src/object2D/String2D.o: src/object3D/Object3D.h
-src/object2D/String2D.o: src/core/XavierConfiguration.h
-src/object2D/String2D.o: src/transform/CoordinateSystem.h
-src/object2D/String2D.o: src/transform/Transform.h src/transform/Rotate.h
-src/object2D/String2D.o: src/interpolation/InterpolationEngine.h
-src/object2D/String2D.o: src/interpolation/InterpolationListener.h
-src/object2D/String2D.o: src/interpolation/Interpolator.h
-src/object2D/String2D.o: src/interpolation/InterpolatorFactory.h
-src/object2D/String2D.o: src/interpolation/LinearInterpolator.h
-src/object2D/String2D.o: src/util/GraphicsConversionUtility.h
-src/object2D/String2D.o: src/transform/Scale.h
-src/object2D/String2D.o: src/event/InputEventProxyFactory.h
-src/object2D/String2D.o: src/event/EventFactory.h
-src/object2D/String2D.o: src/event/keyboard/KeyboardStub.h
-src/object2D/String2D.o: src/multicast/MulticastSocket.h
-src/object2D/String2D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
-src/object2D/String2D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-src/object2D/String2D.o: /usr/include/bits/socket.h /usr/include/limits.h
-src/object2D/String2D.o: /usr/include/bits/posix1_lim.h
-src/object2D/String2D.o: /usr/include/bits/local_lim.h
-src/object2D/String2D.o: /usr/include/linux/limits.h
-src/object2D/String2D.o: /usr/include/bits/posix2_lim.h
-src/object2D/String2D.o: /usr/include/bits/sockaddr.h
-src/object2D/String2D.o: /usr/include/asm/socket.h
-src/object2D/String2D.o: /usr/include/asm-i386/socket.h
-src/object2D/String2D.o: /usr/include/asm/sockios.h
-src/object2D/String2D.o: /usr/include/asm-i386/sockios.h
-src/object2D/String2D.o: /usr/include/netinet/in.h /usr/include/stdint.h
-src/object2D/String2D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
-src/object2D/String2D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-src/object2D/String2D.o: /usr/include/bits/posix_opt.h
-src/object2D/String2D.o: /usr/include/bits/confname.h /usr/include/getopt.h
-src/object2D/String2D.o: src/multicast/MulticastSocketPool.h
-src/object2D/String2D.o: src/multicast/MulticastSocket.h
-src/object2D/String2D.o: src/event/keyboard/Keyboard.h
-src/object2D/String2D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
-src/object2D/String2D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
-src/object2D/String2D.o: src/paint/Color.h src/core/Camera.h
-src/object2D/String2D.o: src/core/CameraListener.h
-src/object2D/String2D.o: src/object3D/Transformable.h
-src/object2D/String2D.o: src/transform/Transform.h
-src/object2D/String2D.o: src/transform/CoordinateSystemFactory.h
-src/object2D/String2D.o: src/transform/CoordinateSystem.h
-src/object2D/String2D.o: src/transform/OpenGLCoordinateSystem.h
-src/object2D/String2D.o: src/transform/MacCoordinateSystem.h
-src/object2D/String2D.o: src/transform/MathCoordinateSystem.h
-src/object2D/String2D.o: src/transform/LeftOpenGLCoordinateSystem.h
-src/object2D/String2D.o: src/transform/EngineerCoordinateSystem.h
-src/object2D/String2D.o: src/event/timer/TimerListener.h
-src/object2D/String2D.o: src/event/reshape/ReshapeEvent.h
-src/object2D/String2D.o: src/object2D/Object2D.h src/core/Window.h
-src/object3D/AdornablePrism.o: src/object3D/AdornablePrism.h
-src/object3D/AdornablePrism.o: src/object3D/RectangularPrism.h
-src/object3D/AdornablePrism.o: src/util/GraphicsConversionUtility.h
-src/object3D/AdornablePrism.o: /usr/include/math.h /usr/include/features.h
-src/object3D/AdornablePrism.o: /usr/include/sys/cdefs.h
-src/object3D/AdornablePrism.o: /usr/include/bits/wordsize.h
-src/object3D/AdornablePrism.o: /usr/include/gnu/stubs.h
-src/object3D/AdornablePrism.o: /usr/include/gnu/stubs-32.h
-src/object3D/AdornablePrism.o: /usr/include/bits/huge_val.h
-src/object3D/AdornablePrism.o: /usr/include/bits/mathdef.h
-src/object3D/AdornablePrism.o: /usr/include/bits/mathcalls.h
-src/object3D/AdornablePrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/AdornablePrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/AdornablePrism.o: src/geometry/Vector3D.h /usr/include/stdlib.h
-src/object3D/AdornablePrism.o: /usr/include/sys/types.h
-src/object3D/AdornablePrism.o: /usr/include/bits/types.h
-src/object3D/AdornablePrism.o: /usr/include/bits/typesizes.h
-src/object3D/AdornablePrism.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/AdornablePrism.o: /usr/include/bits/endian.h
-src/object3D/AdornablePrism.o: /usr/include/sys/select.h
-src/object3D/AdornablePrism.o: /usr/include/bits/select.h
-src/object3D/AdornablePrism.o: /usr/include/bits/sigset.h
-src/object3D/AdornablePrism.o: /usr/include/bits/time.h
-src/object3D/AdornablePrism.o: /usr/include/sys/sysmacros.h
-src/object3D/AdornablePrism.o: /usr/include/bits/pthreadtypes.h
-src/object3D/AdornablePrism.o: /usr/include/alloca.h src/util/PointScale.h
-src/object3D/AdornablePrism.o: src/paint/Paint.h /usr/include/string.h
-src/object3D/AdornablePrism.o: src/texture/Texture.h include/SDL.h
-src/object3D/AdornablePrism.o: include/SDL_main.h include/SDL_types.h
-src/object3D/AdornablePrism.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/AdornablePrism.o: include/begin_code.h include/close_code.h
-src/object3D/AdornablePrism.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/AdornablePrism.o: /usr/include/libio.h /usr/include/_G_config.h
-src/object3D/AdornablePrism.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-src/object3D/AdornablePrism.o: /usr/include/gconv.h
-src/object3D/AdornablePrism.o: /usr/include/bits/stdio_lim.h
-src/object3D/AdornablePrism.o: /usr/include/bits/sys_errlist.h
-src/object3D/AdornablePrism.o: include/SDL_timer.h include/SDL_audio.h
-src/object3D/AdornablePrism.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object3D/AdornablePrism.o: include/SDL_joystick.h include/SDL_events.h
-src/object3D/AdornablePrism.o: include/SDL_active.h include/SDL_keyboard.h
-src/object3D/AdornablePrism.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object3D/AdornablePrism.o: include/SDL_video.h include/SDL_mutex.h
-src/object3D/AdornablePrism.o: include/SDL_quit.h include/SDL_version.h
-src/object3D/AdornablePrism.o: include/SDL_image.h include/SDL.h
-src/object3D/AdornablePrism.o: src/geometry/Vector2D.h src/paint/Color.h
-src/object3D/AdornablePrism.o: src/object3D/Object3D.h
-src/object3D/AdornablePrism.o: src/object3D/Quadrilateral3D.h
-src/object3D/AdornablePrism.o: src/geometry/Dimension3D.h
-src/object3D/AdornablePrism.o: src/geometry/Dimension.h
-src/object3D/AdornablePrism.o: src/geometry/Vector3D.h
-src/object3D/AdornablePrism.o: src/texture/TextureScale.h
-src/object3D/AdornablePrism.o: src/geometry/Dimension2D.h
-src/object3D/AdornablePrism.o: src/geometry/RectangularVolume.h
-src/object3D/AdornablePrism.o: src/geometry/Dimension3D.h
-src/object3D/AdornablePrism.o: src/object3D/Object3DCollection.h
-src/object3D/AdornablePrism.o: src/object3D/CompiledObject3D.h
-src/object3D/Particle.o: src/object3D/Particle.h src/geometry/Vector3D.h
-src/object3D/Particle.o: /usr/include/stdlib.h /usr/include/features.h
-src/object3D/Particle.o: /usr/include/sys/cdefs.h
-src/object3D/Particle.o: /usr/include/bits/wordsize.h
-src/object3D/Particle.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object3D/Particle.o: /usr/include/sys/types.h /usr/include/bits/types.h
-src/object3D/Particle.o: /usr/include/bits/typesizes.h /usr/include/time.h
-src/object3D/Particle.o: /usr/include/endian.h /usr/include/bits/endian.h
-src/object3D/Particle.o: /usr/include/sys/select.h /usr/include/bits/select.h
-src/object3D/Particle.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/object3D/Particle.o: /usr/include/sys/sysmacros.h
-src/object3D/Particle.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Particle.o: /usr/include/alloca.h
-src/object3D/Object3DCollection.o: src/object3D/Object3DCollection.h
-src/object3D/Object3DCollection.o: src/object3D/Object3D.h
-src/object3D/Object3DCollection.o: src/object3D/CompiledObject3D.h
-src/object3D/Object3DCollection.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/Object3DCollection.o: /usr/include/GL/glext.h
-src/object3D/Object3DCollection.o: /usr/include/GL/glu.h
-src/object3D/CompiledObject3D.o: src/object3D/CompiledObject3D.h
-src/object3D/CompiledObject3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/CompiledObject3D.o: /usr/include/GL/glext.h
-src/object3D/CompiledObject3D.o: /usr/include/GL/glu.h
-src/object3D/CompiledObject3D.o: src/object3D/Object3D.h
-src/object3D/Cube.o: src/object3D/Cube.h src/paint/Paint.h
-src/object3D/Cube.o: /usr/include/string.h /usr/include/features.h
-src/object3D/Cube.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-src/object3D/Cube.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object3D/Cube.o: src/texture/Texture.h include/SDL.h include/SDL_main.h
-src/object3D/Cube.o: include/SDL_types.h include/SDL_getenv.h
-src/object3D/Cube.o: include/SDL_error.h include/begin_code.h
-src/object3D/Cube.o: include/close_code.h include/SDL_rwops.h
-src/object3D/Cube.o: /usr/include/stdio.h /usr/include/bits/types.h
-src/object3D/Cube.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/object3D/Cube.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object3D/Cube.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object3D/Cube.o: /usr/include/bits/stdio_lim.h
-src/object3D/Cube.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object3D/Cube.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object3D/Cube.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object3D/Cube.o: include/SDL_events.h include/SDL_active.h
-src/object3D/Cube.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object3D/Cube.o: include/SDL_mouse.h include/SDL_video.h
-src/object3D/Cube.o: include/SDL_mutex.h include/SDL_quit.h
-src/object3D/Cube.o: include/SDL_version.h include/SDL_image.h include/SDL.h
-src/object3D/Cube.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/Cube.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/Cube.o: src/geometry/Vector3D.h /usr/include/stdlib.h
-src/object3D/Cube.o: /usr/include/sys/types.h /usr/include/time.h
-src/object3D/Cube.o: /usr/include/endian.h /usr/include/bits/endian.h
-src/object3D/Cube.o: /usr/include/sys/select.h /usr/include/bits/select.h
-src/object3D/Cube.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/object3D/Cube.o: /usr/include/sys/sysmacros.h
-src/object3D/Cube.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-src/object3D/Cube.o: src/geometry/Vector2D.h src/paint/Color.h
-src/object3D/Cube.o: src/object3D/RectangularPrism.h
-src/object3D/Cube.o: src/util/GraphicsConversionUtility.h /usr/include/math.h
-src/object3D/Cube.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-src/object3D/Cube.o: /usr/include/bits/mathcalls.h src/util/PointScale.h
-src/object3D/Cube.o: src/object3D/Object3D.h src/object3D/Quadrilateral3D.h
-src/object3D/Cube.o: src/geometry/Dimension3D.h src/geometry/Dimension.h
-src/object3D/Cube.o: src/geometry/Vector3D.h src/texture/TextureScale.h
-src/object3D/Cube.o: src/geometry/Dimension2D.h
-src/object3D/Cube.o: src/geometry/RectangularVolume.h
-src/object3D/Cube.o: src/geometry/Dimension3D.h
-src/object3D/Triangle3D.o: src/object3D/Triangle3D.h /usr/include/math.h
-src/object3D/Triangle3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/object3D/Triangle3D.o: /usr/include/bits/wordsize.h
-src/object3D/Triangle3D.o: /usr/include/gnu/stubs.h
-src/object3D/Triangle3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/Triangle3D.o: /usr/include/bits/huge_val.h
-src/object3D/Triangle3D.o: /usr/include/bits/mathdef.h
-src/object3D/Triangle3D.o: /usr/include/bits/mathcalls.h
-src/object3D/Triangle3D.o: /usr/include/string.h src/geometry/Dimension3D.h
-src/object3D/Triangle3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/object3D/Triangle3D.o: /usr/include/bits/types.h
-src/object3D/Triangle3D.o: /usr/include/bits/typesizes.h /usr/include/time.h
-src/object3D/Triangle3D.o: /usr/include/endian.h /usr/include/bits/endian.h
-src/object3D/Triangle3D.o: /usr/include/sys/select.h
-src/object3D/Triangle3D.o: /usr/include/bits/select.h
-src/object3D/Triangle3D.o: /usr/include/bits/sigset.h
-src/object3D/Triangle3D.o: /usr/include/bits/time.h
-src/object3D/Triangle3D.o: /usr/include/sys/sysmacros.h
-src/object3D/Triangle3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Triangle3D.o: /usr/include/alloca.h src/geometry/Dimension.h
-src/object3D/Triangle3D.o: src/geometry/Vector3D.h src/object3D/Object3D.h
-src/object3D/Triangle3D.o: src/paint/Paint.h src/texture/Texture.h
-src/object3D/Triangle3D.o: include/SDL.h include/SDL_main.h
-src/object3D/Triangle3D.o: include/SDL_types.h include/SDL_getenv.h
-src/object3D/Triangle3D.o: include/SDL_error.h include/begin_code.h
-src/object3D/Triangle3D.o: include/close_code.h include/SDL_rwops.h
-src/object3D/Triangle3D.o: /usr/include/stdio.h /usr/include/libio.h
-src/object3D/Triangle3D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object3D/Triangle3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object3D/Triangle3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/Triangle3D.o: /usr/include/bits/sys_errlist.h
-src/object3D/Triangle3D.o: include/SDL_timer.h include/SDL_audio.h
-src/object3D/Triangle3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object3D/Triangle3D.o: include/SDL_joystick.h include/SDL_events.h
-src/object3D/Triangle3D.o: include/SDL_active.h include/SDL_keyboard.h
-src/object3D/Triangle3D.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object3D/Triangle3D.o: include/SDL_video.h include/SDL_mutex.h
-src/object3D/Triangle3D.o: include/SDL_quit.h include/SDL_version.h
-src/object3D/Triangle3D.o: include/SDL_image.h include/SDL.h
-src/object3D/Triangle3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/Triangle3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/Triangle3D.o: src/geometry/Vector3D.h src/geometry/Vector2D.h
-src/object3D/Triangle3D.o: src/paint/Color.h
-src/object3D/Arc3D.o: src/object3D/Arc3D.h
-src/object3D/Arc3D.o: src/util/GraphicsConversionUtility.h
-src/object3D/Arc3D.o: /usr/include/math.h /usr/include/features.h
-src/object3D/Arc3D.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-src/object3D/Arc3D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object3D/Arc3D.o: /usr/include/bits/huge_val.h
-src/object3D/Arc3D.o: /usr/include/bits/mathdef.h
-src/object3D/Arc3D.o: /usr/include/bits/mathcalls.h include/SDL_opengl.h
-src/object3D/Arc3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/object3D/Arc3D.o: /usr/include/GL/glu.h src/geometry/Vector3D.h
-src/object3D/Arc3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/object3D/Arc3D.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
-src/object3D/Arc3D.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/Arc3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-src/object3D/Arc3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-src/object3D/Arc3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-src/object3D/Arc3D.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-src/object3D/Arc3D.o: src/core/Renderable.h src/paint/Paint.h
-src/object3D/Arc3D.o: /usr/include/string.h src/texture/Texture.h
-src/object3D/Arc3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/object3D/Arc3D.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/Arc3D.o: include/begin_code.h include/close_code.h
-src/object3D/Arc3D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/Arc3D.o: /usr/include/libio.h /usr/include/_G_config.h
-src/object3D/Arc3D.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-src/object3D/Arc3D.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
-src/object3D/Arc3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object3D/Arc3D.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object3D/Arc3D.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object3D/Arc3D.o: include/SDL_events.h include/SDL_active.h
-src/object3D/Arc3D.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object3D/Arc3D.o: include/SDL_mouse.h include/SDL_video.h
-src/object3D/Arc3D.o: include/SDL_mutex.h include/SDL_quit.h
-src/object3D/Arc3D.o: include/SDL_version.h include/SDL_image.h include/SDL.h
-src/object3D/Arc3D.o: src/geometry/Vector2D.h src/paint/Color.h
-src/object3D/Arc3D.o: src/object3D/Point3D.h src/object3D/Object3D.h
-src/object3D/Object3D.o: src/object3D/Object3D.h
-src/object3D/Sprite3D.o: src/object3D/Sprite3D.h src/core/Controller.h
-src/object3D/Sprite3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/object3D/Sprite3D.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/Sprite3D.o: include/begin_code.h include/close_code.h
-src/object3D/Sprite3D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/Sprite3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/object3D/Sprite3D.o: /usr/include/bits/wordsize.h
-src/object3D/Sprite3D.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
-src/object3D/Sprite3D.o: /usr/include/bits/types.h
-src/object3D/Sprite3D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/object3D/Sprite3D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object3D/Sprite3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object3D/Sprite3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/Sprite3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object3D/Sprite3D.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object3D/Sprite3D.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object3D/Sprite3D.o: include/SDL_events.h include/SDL_active.h
-src/object3D/Sprite3D.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object3D/Sprite3D.o: include/SDL_mouse.h include/SDL_video.h
-src/object3D/Sprite3D.o: include/SDL_mutex.h include/SDL_quit.h
-src/object3D/Sprite3D.o: include/SDL_version.h src/event/EventFactory.h
-src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h /usr/include/stdlib.h
-src/object3D/Sprite3D.o: /usr/include/sys/types.h /usr/include/time.h
-src/object3D/Sprite3D.o: /usr/include/endian.h /usr/include/bits/endian.h
-src/object3D/Sprite3D.o: /usr/include/sys/select.h /usr/include/bits/select.h
-src/object3D/Sprite3D.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-src/object3D/Sprite3D.o: /usr/include/sys/sysmacros.h
-src/object3D/Sprite3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Sprite3D.o: /usr/include/alloca.h include/SDL.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyboardListener.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyEvent.h /usr/include/string.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyEventFactory.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyDownEvent.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyUpEvent.h
-src/object3D/Sprite3D.o: src/event/mouse/Mouse.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseListener.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseEvent.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseEventFactory.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseButtonDown.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseClickEvent.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseButtonUp.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseMotionEvent.h
-src/object3D/Sprite3D.o: src/event/timer/Timer.h
-src/object3D/Sprite3D.o: src/event/timer/TimerListener.h
-src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h
-src/object3D/Sprite3D.o: src/event/mouse/Mouse.h src/event/timer/Timer.h
-src/object3D/Sprite3D.o: src/core/Window.h
-src/object3D/Sprite3D.o: src/event/reshape/ReshapeListener.h
-src/object3D/Sprite3D.o: src/event/reshape/ReshapeEvent.h
-src/object3D/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Dimension.h
-src/object3D/Sprite3D.o: src/geometry/Dimension2D.h src/geometry/Vector2D.h
-src/object3D/Sprite3D.o: src/core/World.h src/core/Renderable.h
-src/object3D/Sprite3D.o: src/object3D/Object3D.h src/geometry/Vector3D.h
-src/object3D/Sprite3D.o: src/geometry/Dimension3D.h src/geometry/Vector3D.h
-src/object3D/Sprite3D.o: src/paint/Paint.h src/texture/Texture.h
-src/object3D/Sprite3D.o: include/SDL_image.h include/SDL.h
-src/object3D/Sprite3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/Sprite3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/Sprite3D.o: src/paint/Color.h src/core/Renderable.h
-src/object3D/Sprite3D.o: src/object3D/Point3D.h /usr/include/math.h
-src/object3D/Sprite3D.o: /usr/include/bits/huge_val.h
-src/object3D/Sprite3D.o: /usr/include/bits/mathdef.h
-src/object3D/Sprite3D.o: /usr/include/bits/mathcalls.h
-src/object3D/Sprite3D.o: src/object3D/Object3D.h
-src/object3D/Sprite3D.o: src/core/XavierConfiguration.h
-src/object3D/Sprite3D.o: src/transform/CoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/Transform.h src/transform/Rotate.h
-src/object3D/Sprite3D.o: src/interpolation/InterpolationEngine.h
-src/object3D/Sprite3D.o: src/interpolation/InterpolationListener.h
-src/object3D/Sprite3D.o: src/interpolation/Interpolator.h
-src/object3D/Sprite3D.o: src/interpolation/InterpolatorFactory.h
-src/object3D/Sprite3D.o: src/interpolation/LinearInterpolator.h
-src/object3D/Sprite3D.o: src/util/GraphicsConversionUtility.h
-src/object3D/Sprite3D.o: src/transform/Scale.h
-src/object3D/Sprite3D.o: src/event/InputEventProxyFactory.h
-src/object3D/Sprite3D.o: src/event/EventFactory.h
-src/object3D/Sprite3D.o: src/event/keyboard/KeyboardStub.h
-src/object3D/Sprite3D.o: src/multicast/MulticastSocket.h
-src/object3D/Sprite3D.o: src/multicast/Multicast.h /usr/include/sys/socket.h
-src/object3D/Sprite3D.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-src/object3D/Sprite3D.o: /usr/include/bits/socket.h /usr/include/limits.h
-src/object3D/Sprite3D.o: /usr/include/bits/posix1_lim.h
-src/object3D/Sprite3D.o: /usr/include/bits/local_lim.h
-src/object3D/Sprite3D.o: /usr/include/linux/limits.h
-src/object3D/Sprite3D.o: /usr/include/bits/posix2_lim.h
-src/object3D/Sprite3D.o: /usr/include/bits/sockaddr.h
-src/object3D/Sprite3D.o: /usr/include/asm/socket.h
-src/object3D/Sprite3D.o: /usr/include/asm-i386/socket.h
-src/object3D/Sprite3D.o: /usr/include/asm/sockios.h
-src/object3D/Sprite3D.o: /usr/include/asm-i386/sockios.h
-src/object3D/Sprite3D.o: /usr/include/netinet/in.h /usr/include/stdint.h
-src/object3D/Sprite3D.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
-src/object3D/Sprite3D.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-src/object3D/Sprite3D.o: /usr/include/bits/posix_opt.h
-src/object3D/Sprite3D.o: /usr/include/bits/confname.h /usr/include/getopt.h
-src/object3D/Sprite3D.o: src/multicast/MulticastSocketPool.h
-src/object3D/Sprite3D.o: src/multicast/MulticastSocket.h
-src/object3D/Sprite3D.o: src/event/keyboard/Keyboard.h
-src/object3D/Sprite3D.o: src/event/mouse/MouseStub.h src/event/mouse/Mouse.h
-src/object3D/Sprite3D.o: src/event/timer/TimerStub.h src/event/timer/Timer.h
-src/object3D/Sprite3D.o: src/paint/Color.h src/core/Camera.h
-src/object3D/Sprite3D.o: src/core/CameraListener.h
-src/object3D/Sprite3D.o: src/object3D/Transformable.h
-src/object3D/Sprite3D.o: src/transform/Transform.h
-src/object3D/Sprite3D.o: src/transform/CoordinateSystemFactory.h
-src/object3D/Sprite3D.o: src/transform/CoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/OpenGLCoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/MacCoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/MathCoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/LeftOpenGLCoordinateSystem.h
-src/object3D/Sprite3D.o: src/transform/EngineerCoordinateSystem.h
-src/object3D/Sprite3D.o: src/event/timer/TimerListener.h
-src/object3D/Sprite3D.o: src/event/reshape/ReshapeEvent.h
-src/object3D/Sprite3D.o: src/object3D/Sprite3DListener.h
-src/object3D/Transformable.o: src/object3D/Transformable.h
-src/object3D/Transformable.o: src/object3D/Object3D.h
-src/object3D/Transformable.o: src/transform/Transform.h
-src/object3D/Transformable.o: src/geometry/Dimension3D.h
-src/object3D/Transformable.o: /usr/include/stdlib.h /usr/include/features.h
-src/object3D/Transformable.o: /usr/include/sys/cdefs.h
-src/object3D/Transformable.o: /usr/include/bits/wordsize.h
-src/object3D/Transformable.o: /usr/include/gnu/stubs.h
-src/object3D/Transformable.o: /usr/include/gnu/stubs-32.h
-src/object3D/Transformable.o: /usr/include/sys/types.h
-src/object3D/Transformable.o: /usr/include/bits/types.h
-src/object3D/Transformable.o: /usr/include/bits/typesizes.h
-src/object3D/Transformable.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/Transformable.o: /usr/include/bits/endian.h
-src/object3D/Transformable.o: /usr/include/sys/select.h
-src/object3D/Transformable.o: /usr/include/bits/select.h
-src/object3D/Transformable.o: /usr/include/bits/sigset.h
-src/object3D/Transformable.o: /usr/include/bits/time.h
-src/object3D/Transformable.o: /usr/include/sys/sysmacros.h
-src/object3D/Transformable.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Transformable.o: /usr/include/alloca.h src/geometry/Dimension.h
-src/object3D/Transformable.o: src/geometry/Vector3D.h src/geometry/Vector3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/NoDepthTestQuadrilateral3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_opengl.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/gl.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/glext.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/GL/glu.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/Quadrilateral3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/math.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/features.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/cdefs.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/wordsize.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gnu/stubs.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/huge_val.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/mathdef.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/mathcalls.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/string.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/stdlib.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/types.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/types.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/typesizes.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/time.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/endian.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/endian.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/select.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/select.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/sigset.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/time.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/sys/sysmacros.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/alloca.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector3D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/util/PointScale.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/texture/TextureScale.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Dimension2D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/geometry/Vector2D.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/paint/Paint.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/texture/Texture.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL.h include/SDL_main.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_types.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_getenv.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_error.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/begin_code.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/close_code.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_rwops.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/stdio.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/libio.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/_G_config.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/wchar.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/wchar.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/gconv.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/NoDepthTestQuadrilateral3D.o: /usr/include/bits/sys_errlist.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_timer.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_audio.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_byteorder.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_cdrom.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_joystick.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_events.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_active.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_keyboard.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_keysym.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_mouse.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_video.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_mutex.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_quit.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_version.h
-src/object3D/NoDepthTestQuadrilateral3D.o: include/SDL_image.h include/SDL.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/paint/Color.h
-src/object3D/NoDepthTestQuadrilateral3D.o: src/object3D/Object3D.h
-src/object3D/Point3D.o: src/object3D/Point3D.h /usr/include/math.h
-src/object3D/Point3D.o: /usr/include/features.h /usr/include/sys/cdefs.h
-src/object3D/Point3D.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-src/object3D/Point3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/Point3D.o: /usr/include/bits/huge_val.h
-src/object3D/Point3D.o: /usr/include/bits/mathdef.h
-src/object3D/Point3D.o: /usr/include/bits/mathcalls.h include/SDL_opengl.h
-src/object3D/Point3D.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
-src/object3D/Point3D.o: /usr/include/GL/glu.h src/paint/Paint.h
-src/object3D/Point3D.o: /usr/include/string.h src/texture/Texture.h
-src/object3D/Point3D.o: include/SDL.h include/SDL_main.h include/SDL_types.h
-src/object3D/Point3D.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/Point3D.o: include/begin_code.h include/close_code.h
-src/object3D/Point3D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/Point3D.o: /usr/include/bits/types.h
-src/object3D/Point3D.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-src/object3D/Point3D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object3D/Point3D.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-src/object3D/Point3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/Point3D.o: /usr/include/bits/sys_errlist.h include/SDL_timer.h
-src/object3D/Point3D.o: include/SDL_audio.h include/SDL_byteorder.h
-src/object3D/Point3D.o: include/SDL_cdrom.h include/SDL_joystick.h
-src/object3D/Point3D.o: include/SDL_events.h include/SDL_active.h
-src/object3D/Point3D.o: include/SDL_keyboard.h include/SDL_keysym.h
-src/object3D/Point3D.o: include/SDL_mouse.h include/SDL_video.h
-src/object3D/Point3D.o: include/SDL_mutex.h include/SDL_quit.h
-src/object3D/Point3D.o: include/SDL_version.h include/SDL_image.h
-src/object3D/Point3D.o: include/SDL.h src/geometry/Vector3D.h
-src/object3D/Point3D.o: /usr/include/stdlib.h /usr/include/sys/types.h
-src/object3D/Point3D.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/Point3D.o: /usr/include/bits/endian.h /usr/include/sys/select.h
-src/object3D/Point3D.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
-src/object3D/Point3D.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
-src/object3D/Point3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Point3D.o: /usr/include/alloca.h src/geometry/Vector2D.h
-src/object3D/Point3D.o: src/paint/Color.h src/object3D/Object3D.h
-src/object3D/Quadrilateral3D.o: src/object3D/Quadrilateral3D.h
-src/object3D/Quadrilateral3D.o: /usr/include/math.h /usr/include/features.h
-src/object3D/Quadrilateral3D.o: /usr/include/sys/cdefs.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/wordsize.h
-src/object3D/Quadrilateral3D.o: /usr/include/gnu/stubs.h
-src/object3D/Quadrilateral3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/huge_val.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/mathdef.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/mathcalls.h
-src/object3D/Quadrilateral3D.o: /usr/include/string.h src/geometry/Vector3D.h
-src/object3D/Quadrilateral3D.o: /usr/include/stdlib.h
-src/object3D/Quadrilateral3D.o: /usr/include/sys/types.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/types.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/typesizes.h
-src/object3D/Quadrilateral3D.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/endian.h
-src/object3D/Quadrilateral3D.o: /usr/include/sys/select.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/select.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/sigset.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/time.h
-src/object3D/Quadrilateral3D.o: /usr/include/sys/sysmacros.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/Quadrilateral3D.o: /usr/include/alloca.h
-src/object3D/Quadrilateral3D.o: src/geometry/Dimension3D.h
-src/object3D/Quadrilateral3D.o: src/geometry/Dimension.h
-src/object3D/Quadrilateral3D.o: src/geometry/Vector3D.h src/util/PointScale.h
-src/object3D/Quadrilateral3D.o: src/texture/TextureScale.h
-src/object3D/Quadrilateral3D.o: src/geometry/Dimension2D.h
-src/object3D/Quadrilateral3D.o: src/geometry/Vector2D.h src/paint/Paint.h
-src/object3D/Quadrilateral3D.o: src/texture/Texture.h include/SDL.h
-src/object3D/Quadrilateral3D.o: include/SDL_main.h include/SDL_types.h
-src/object3D/Quadrilateral3D.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/Quadrilateral3D.o: include/begin_code.h include/close_code.h
-src/object3D/Quadrilateral3D.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/Quadrilateral3D.o: /usr/include/libio.h /usr/include/_G_config.h
-src/object3D/Quadrilateral3D.o: /usr/include/wchar.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/wchar.h
-src/object3D/Quadrilateral3D.o: /usr/include/gconv.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/Quadrilateral3D.o: /usr/include/bits/sys_errlist.h
-src/object3D/Quadrilateral3D.o: include/SDL_timer.h include/SDL_audio.h
-src/object3D/Quadrilateral3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object3D/Quadrilateral3D.o: include/SDL_joystick.h include/SDL_events.h
-src/object3D/Quadrilateral3D.o: include/SDL_active.h include/SDL_keyboard.h
-src/object3D/Quadrilateral3D.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object3D/Quadrilateral3D.o: include/SDL_video.h include/SDL_mutex.h
-src/object3D/Quadrilateral3D.o: include/SDL_quit.h include/SDL_version.h
-src/object3D/Quadrilateral3D.o: include/SDL_image.h include/SDL.h
-src/object3D/Quadrilateral3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/Quadrilateral3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/Quadrilateral3D.o: src/paint/Color.h src/object3D/Object3D.h
-src/object3D/RectangularPrism.o: src/object3D/RectangularPrism.h
-src/object3D/RectangularPrism.o: src/util/GraphicsConversionUtility.h
-src/object3D/RectangularPrism.o: /usr/include/math.h /usr/include/features.h
-src/object3D/RectangularPrism.o: /usr/include/sys/cdefs.h
-src/object3D/RectangularPrism.o: /usr/include/bits/wordsize.h
-src/object3D/RectangularPrism.o: /usr/include/gnu/stubs.h
-src/object3D/RectangularPrism.o: /usr/include/gnu/stubs-32.h
-src/object3D/RectangularPrism.o: /usr/include/bits/huge_val.h
-src/object3D/RectangularPrism.o: /usr/include/bits/mathdef.h
-src/object3D/RectangularPrism.o: /usr/include/bits/mathcalls.h
-src/object3D/RectangularPrism.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/RectangularPrism.o: /usr/include/GL/glext.h
-src/object3D/RectangularPrism.o: /usr/include/GL/glu.h
-src/object3D/RectangularPrism.o: src/geometry/Vector3D.h
-src/object3D/RectangularPrism.o: /usr/include/stdlib.h
-src/object3D/RectangularPrism.o: /usr/include/sys/types.h
-src/object3D/RectangularPrism.o: /usr/include/bits/types.h
-src/object3D/RectangularPrism.o: /usr/include/bits/typesizes.h
-src/object3D/RectangularPrism.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/RectangularPrism.o: /usr/include/bits/endian.h
-src/object3D/RectangularPrism.o: /usr/include/sys/select.h
-src/object3D/RectangularPrism.o: /usr/include/bits/select.h
-src/object3D/RectangularPrism.o: /usr/include/bits/sigset.h
-src/object3D/RectangularPrism.o: /usr/include/bits/time.h
-src/object3D/RectangularPrism.o: /usr/include/sys/sysmacros.h
-src/object3D/RectangularPrism.o: /usr/include/bits/pthreadtypes.h
-src/object3D/RectangularPrism.o: /usr/include/alloca.h src/util/PointScale.h
-src/object3D/RectangularPrism.o: src/paint/Paint.h /usr/include/string.h
-src/object3D/RectangularPrism.o: src/texture/Texture.h include/SDL.h
-src/object3D/RectangularPrism.o: include/SDL_main.h include/SDL_types.h
-src/object3D/RectangularPrism.o: include/SDL_getenv.h include/SDL_error.h
-src/object3D/RectangularPrism.o: include/begin_code.h include/close_code.h
-src/object3D/RectangularPrism.o: include/SDL_rwops.h /usr/include/stdio.h
-src/object3D/RectangularPrism.o: /usr/include/libio.h
-src/object3D/RectangularPrism.o: /usr/include/_G_config.h
-src/object3D/RectangularPrism.o: /usr/include/wchar.h
-src/object3D/RectangularPrism.o: /usr/include/bits/wchar.h
-src/object3D/RectangularPrism.o: /usr/include/gconv.h
-src/object3D/RectangularPrism.o: /usr/include/bits/stdio_lim.h
-src/object3D/RectangularPrism.o: /usr/include/bits/sys_errlist.h
-src/object3D/RectangularPrism.o: include/SDL_timer.h include/SDL_audio.h
-src/object3D/RectangularPrism.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object3D/RectangularPrism.o: include/SDL_joystick.h include/SDL_events.h
-src/object3D/RectangularPrism.o: include/SDL_active.h include/SDL_keyboard.h
-src/object3D/RectangularPrism.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object3D/RectangularPrism.o: include/SDL_video.h include/SDL_mutex.h
-src/object3D/RectangularPrism.o: include/SDL_quit.h include/SDL_version.h
-src/object3D/RectangularPrism.o: include/SDL_image.h include/SDL.h
-src/object3D/RectangularPrism.o: src/geometry/Vector2D.h src/paint/Color.h
-src/object3D/RectangularPrism.o: src/object3D/Object3D.h
-src/object3D/RectangularPrism.o: src/object3D/Quadrilateral3D.h
-src/object3D/RectangularPrism.o: src/geometry/Dimension3D.h
-src/object3D/RectangularPrism.o: src/geometry/Dimension.h
-src/object3D/RectangularPrism.o: src/geometry/Vector3D.h
-src/object3D/RectangularPrism.o: src/texture/TextureScale.h
-src/object3D/RectangularPrism.o: src/geometry/Dimension2D.h
-src/object3D/RectangularPrism.o: src/geometry/RectangularVolume.h
-src/object3D/RectangularPrism.o: src/geometry/Dimension3D.h
-src/object3D/NormalPolygon3D.o: src/object3D/NormalPolygon3D.h
-src/object3D/NormalPolygon3D.o: src/util/GraphicsConversionUtility.h
-src/object3D/NormalPolygon3D.o: /usr/include/math.h /usr/include/features.h
-src/object3D/NormalPolygon3D.o: /usr/include/sys/cdefs.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/wordsize.h
-src/object3D/NormalPolygon3D.o: /usr/include/gnu/stubs.h
-src/object3D/NormalPolygon3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/huge_val.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/mathdef.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/mathcalls.h
-src/object3D/NormalPolygon3D.o: include/SDL_opengl.h /usr/include/GL/gl.h
-src/object3D/NormalPolygon3D.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-src/object3D/NormalPolygon3D.o: src/geometry/Vector3D.h /usr/include/stdlib.h
-src/object3D/NormalPolygon3D.o: /usr/include/sys/types.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/types.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/typesizes.h
-src/object3D/NormalPolygon3D.o: /usr/include/time.h /usr/include/endian.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/endian.h
-src/object3D/NormalPolygon3D.o: /usr/include/sys/select.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/select.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/sigset.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/time.h
-src/object3D/NormalPolygon3D.o: /usr/include/sys/sysmacros.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/NormalPolygon3D.o: /usr/include/alloca.h src/paint/Paint.h
-src/object3D/NormalPolygon3D.o: /usr/include/string.h src/texture/Texture.h
-src/object3D/NormalPolygon3D.o: include/SDL.h include/SDL_main.h
-src/object3D/NormalPolygon3D.o: include/SDL_types.h include/SDL_getenv.h
-src/object3D/NormalPolygon3D.o: include/SDL_error.h include/begin_code.h
-src/object3D/NormalPolygon3D.o: include/close_code.h include/SDL_rwops.h
-src/object3D/NormalPolygon3D.o: /usr/include/stdio.h /usr/include/libio.h
-src/object3D/NormalPolygon3D.o: /usr/include/_G_config.h /usr/include/wchar.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/wchar.h
-src/object3D/NormalPolygon3D.o: /usr/include/gconv.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/NormalPolygon3D.o: /usr/include/bits/sys_errlist.h
-src/object3D/NormalPolygon3D.o: include/SDL_timer.h include/SDL_audio.h
-src/object3D/NormalPolygon3D.o: include/SDL_byteorder.h include/SDL_cdrom.h
-src/object3D/NormalPolygon3D.o: include/SDL_joystick.h include/SDL_events.h
-src/object3D/NormalPolygon3D.o: include/SDL_active.h include/SDL_keyboard.h
-src/object3D/NormalPolygon3D.o: include/SDL_keysym.h include/SDL_mouse.h
-src/object3D/NormalPolygon3D.o: include/SDL_video.h include/SDL_mutex.h
-src/object3D/NormalPolygon3D.o: include/SDL_quit.h include/SDL_version.h
-src/object3D/NormalPolygon3D.o: include/SDL_image.h include/SDL.h
-src/object3D/NormalPolygon3D.o: src/geometry/Vector2D.h src/paint/Color.h
-src/object3D/NormalPolygon3D.o: src/object3D/Object3D.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/ExtrudedNormalPolygon3D.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/NormalPolygon3D.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/util/GraphicsConversionUtility.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/math.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/features.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/cdefs.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/wordsize.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gnu/stubs.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gnu/stubs-32.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/huge_val.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/mathdef.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/mathcalls.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_opengl.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/gl.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/glext.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/GL/glu.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/geometry/Vector3D.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/stdlib.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/types.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/types.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/typesizes.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/time.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/endian.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/endian.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/select.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/select.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/sigset.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/time.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/sys/sysmacros.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/pthreadtypes.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/alloca.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/paint/Paint.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/string.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/texture/Texture.h include/SDL.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_main.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_types.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_getenv.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_error.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/begin_code.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/close_code.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_rwops.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/stdio.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/libio.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/_G_config.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/wchar.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/wchar.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/gconv.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/stdio_lim.h
-src/object3D/ExtrudedNormalPolygon3D.o: /usr/include/bits/sys_errlist.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_timer.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_audio.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_byteorder.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_cdrom.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_joystick.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_events.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_active.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_keyboard.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_keysym.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_mouse.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_video.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_mutex.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_quit.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_version.h
-src/object3D/ExtrudedNormalPolygon3D.o: include/SDL_image.h include/SDL.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/geometry/Vector2D.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/paint/Color.h
-src/object3D/ExtrudedNormalPolygon3D.o: src/object3D/Object3D.h

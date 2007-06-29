@@ -21,7 +21,7 @@ Rotate::Rotate()
 {
     _angle = 0.0f;
 
-    _values.push_back(&_angle);
+    //_values.push_back(&_angle);
 
     _xCoord = _yCoord = _zCoord = 0;
 }
@@ -30,7 +30,7 @@ Rotate::Rotate()
 /*
  * Explicit constructor
  */
-Rotate::Rotate(float angle, int x, int y, int z)
+Rotate::Rotate(float angle, float x, float y, float z)
 {
 	_angle = angle;
 	//_angle = GraphicsConversionUtility::GetInstance()->floatModulus(angle + 360.0f, 360);
@@ -40,9 +40,16 @@ Rotate::Rotate(float angle, int x, int y, int z)
 	_yCoord	= y;
 	_zCoord	= z;
 
-    _values.push_back(&_angle);
+    //_values.push_back(&_angle);
 }
 
+Rotate::Rotate(float angle, const Vector3D * axis)
+{
+	_angle = angle;
+	_xCoord = axis->getX();
+	_yCoord = axis->getY();
+	_zCoord = axis->getZ();
+}
 
 /**
  * Clone copier
@@ -110,11 +117,6 @@ void Rotate::pushInverse()
 	glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
 }
 
-//TODO Fill these in
-void transform(Vector3D * position){}
-void transform(Dimension3D * size){}
-//END TODO
-
 void Rotate::print()
 {
     cout << "ang: " << _angle << ", x: " << _xCoord << ", y: " << _yCoord 
@@ -126,8 +128,74 @@ void Rotate::toIdentity()
     _angle = 0.0f;
 }
 
+Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis)
+{
+	return new ImmediateRotate(angle, axis);
+}
+
+Rotate * Rotate::CreateRotate(float angle, float x, float y, float z)
+{
+	return new ImmediateRotate(angle, x, y, z);
+}
+
+Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis, int milliseconds)
+{
+	return new InterpolatedRotate(angle, axis, milliseconds);
+}
+
+
+Rotate * Rotate::CreateRotate(float angle, float x, float y, float z, int milliseconds)
+{
+	return new InterpolatedRotate(angle, x, y, z, milliseconds);
+}
+
+//TODO Fill these in
 void Rotate::transform(Vector3D * position){}
 void Rotate::transform(Dimension3D * size){}
+void Rotate::transform(Vector2D * position){}
+void Rotate::transform(Dimension2D * size){}
+//Rotate * Rotate::createTransformedInstance(Vector3D * point){}
+//Rotate * Rotate::createTransformedInstance(Vector3D * point, int milliseconds){}
+//END TODO
+
+void InterpolatedRotate::push()
+{
+	if (_remaining > 0) {
+		_angle += _step;
+        
+        _remaining--;
+    }
+
+    Rotate::push();
+}
+
+void InterpolatedRotate::pushInverse()
+{
+	if (_remaining > 0) {
+		_angle += _step;
+        
+        _remaining--;
+    }
+
+    Rotate::pushInverse();
+}
+
+/**
+ * CTOR for InterpolatedRotate
+ */
+InterpolatedRotate::InterpolatedRotate(float angle, const Vector3D * axis, int milliseconds) :
+    Rotate(angle, axis) {
+       //do something with the time 
+}
+
+InterpolatedRotate::InterpolatedRotate(float angle, float x, float y, float z, int milliseconds) :
+    Rotate(angle, x, y, z) {}
+
+ImmediateRotate::ImmediateRotate(float angle, const Vector3D * axis) 
+    : Rotate(angle, axis) {}
+
+ImmediateRotate::ImmediateRotate(float angle, float x, float y, float z) 
+    : Rotate(angle, x, y, z) {}
 
 }
 
