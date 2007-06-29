@@ -42,6 +42,8 @@ void Translate::transform(Dimension3D * size)
     //translates do not affect dimensions
 }
 
+void Translate::transform(Vector2D * position) {}
+void Translate::transform(Dimension2D * size) {}
 
 /* 
  * explicit constructor
@@ -99,19 +101,19 @@ void Translate::clone(Translate * other)
 /* 
  * Add the point to the current translate
  */
-Translate * Translate::createTransformedInstance(Vector3D * point)
-{
-	return Translate::CreateTranslate(_translation[0] + point->getX(),
-                                          _translation[1] + point->getY(),
-                                          _translation[2] + point->getZ());
-}
+//Translate * Translate::createTransformedInstance(Vector3D * point)
+//{
+	//return Translate::CreateTranslate(_translation[0] + point->getX(),
+                                          //_translation[1] + point->getY(),
+                                          //_translation[2] + point->getZ());
+//}
 
-Translate * Translate::createTransformedInstance(Vector3D * point, int milliseconds)
-{
-	return Translate::CreateTranslate(_translation[0] + point->getX(),
-                         _translation[1] + point->getY(),
-                         _translation[2] + point->getZ(), milliseconds);
-}
+//Translate * Translate::createTransformedInstance(Vector3D * point, int milliseconds)
+//{
+	//return Translate::CreateTranslate(_translation[0] + point->getX(),
+                         //_translation[1] + point->getY(),
+                         //_translation[2] + point->getZ(), milliseconds);
+//}
 
 
 /* 

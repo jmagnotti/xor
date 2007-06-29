@@ -11,9 +11,9 @@ EngineerCoordinateSystem * EngineerCoordinateSystem::_engineerCoordinateSystem =
  */
 EngineerCoordinateSystem::EngineerCoordinateSystem()
 {
-	_rotations[0] = new Rotate( 90.0,0,1,0);
-	_rotations[1] = new Rotate(-90.0,1,0,0);
-	_rotations[2] = new Rotate(-90.0,0,0,1);
+	_rotations[0] = Rotate::CreateRotate( 90.0,0,1,0);
+	_rotations[1] = Rotate::CreateRotate(-90.0,1,0,0);
+	_rotations[2] = Rotate::CreateRotate(-90.0,0,0,1);
 	_scale = new Scale(1,1,-1);
 }
 

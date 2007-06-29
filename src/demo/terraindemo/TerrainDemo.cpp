@@ -66,8 +66,8 @@ public:
 
         ctrl->setModel(new String2D("Heightfield Test"));
 
-		ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
-		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		//ctrl->getCamera()->incrementTranslation(new Vector3D(10,10,10));
+		//ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 
 		TextureFactory * factory = TextureFactory::GetInstance();
 		
@@ -117,119 +117,119 @@ public:
         ctrl->run();
 	}
 
-	void handleKey_l()
-	{
-		cout << "LOOK AT ORIGIN" << endl;
-		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
-	}
+	//void handleKey_l()
+	//{
+		//cout << "LOOK AT ORIGIN" << endl;
+		//ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+	//}
 
-	void handleKey_p()
-	{
-		ctrl->getCamera()->print();
+	//void handleKey_p()
+	//{
+		//ctrl->getCamera()->print();
 
-	}
+	//}
 
-	void handleKey_a()
-	{
-		ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_a()
+	//{
+		//ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_d()
-	{
-		ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_d()
+	//{
+		//ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_w()
-	{
-		ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_w()
+	//{
+		//ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_s()
-	{
-		ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_s()
+	//{
+		//ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_q()
-	{
-		ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_q()
+	//{
+		//ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_e()
-	{
-		ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_e()
+	//{
+		//ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_c()
-	{
-		ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_c()
+	//{
+		//ctrl->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL));
+	//}
 
-	void handleKey_z()
-	{
-		ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
-	}
+	//void handleKey_z()
+	//{
+		//ctrl->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL));
+	//}
 
-    void handleKey_C()
-    {
-        ctrl->getCamera()->clear();
-    }
+    //void handleKey_C()
+    //{
+        //ctrl->getCamera()->clear();
+    //}
 
-    void handleKey_RBracket()
-    {
-        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1));
-    }
+    //void handleKey_RBracket()
+    //{
+        //ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1));
+    //}
 
-    void handleKey_LBracket()
-    {
-        ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,-1));
-    }
+    //void handleKey_LBracket()
+    //{
+        //ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,-1));
+    //}
 
-	void handleKey_k()
-	{
-		cout << "handling..." << endl; 
-		int speed = 2000;
-		int wait  = 2000;
+	//void handleKey_k()
+	//{
+		//cout << "handling..." << endl; 
+		//int speed = 2000;
+		//int wait  = 2000;
 
-		Orientation * o1 = ctrl->getCamera()->cloneOrientation();
-		o1->incrementTranslation(new Vector3D(15.0f,0.0f,0.0f), NULL);
-		Orientation * o2 = ctrl->getCamera()->cloneOrientation();
-		o2->incrementTranslation(new Vector3D(15.0f,15.0f,0.0f), NULL);
-		Orientation * o3 = ctrl->getCamera()->cloneOrientation();
-		o3->incrementTranslation(new Vector3D(15.0f,15.0f,15.0f), NULL);
-		o3->incrementRotation(Orientation::ROLL, 40.0f);
+		//Orientation * o1 = ctrl->getCamera()->cloneOrientation();
+		//o1->incrementTranslation(new Vector3D(15.0f,0.0f,0.0f), NULL);
+		//Orientation * o2 = ctrl->getCamera()->cloneOrientation();
+		//o2->incrementTranslation(new Vector3D(15.0f,15.0f,0.0f), NULL);
+		//Orientation * o3 = ctrl->getCamera()->cloneOrientation();
+		//o3->incrementTranslation(new Vector3D(15.0f,15.0f,15.0f), NULL);
+		//o3->incrementRotation(Orientation::ROLL, 40.0f);
 
-		Waypoint * wp3 = new Waypoint(o3, speed, wait, NULL);
-		Waypoint * wp2 = new Waypoint(o2, speed, wait, wp3);
-		Waypoint * wp1 = new Waypoint(o1, speed, wait, wp2);
+		//Waypoint * wp3 = new Waypoint(o3, speed, wait, NULL);
+		//Waypoint * wp2 = new Waypoint(o2, speed, wait, wp3);
+		//Waypoint * wp1 = new Waypoint(o1, speed, wait, wp2);
 
-		wp1->apply(ctrl->getCamera());
-	}
+		//wp1->apply(ctrl->getCamera());
+	//}
 	
-	void handleMouseMotion(MouseMotionEvent * mme)
-	{
-		Mouse * mouse = ctrl->getMouse();
+	//void handleMouseMotion(MouseMotionEvent * mme)
+	//{
+		//Mouse * mouse = ctrl->getMouse();
 
-		if (mouse->isLeftButtonDown()) {
+		//if (mouse->isLeftButtonDown()) {
 			// rotate camera
-			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
-			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
+			//float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
+			//float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
 
-			ctrl->getCamera()->incrementRotation(
-					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			ctrl->getCamera()->incrementRotation(
-					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
-		}
-	}
+			//ctrl->getCamera()->incrementRotation(
+					//Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
+			//ctrl->getCamera()->incrementRotation(
+					//Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
+		//}
+	//}
 	
-	void handleMouseButtonPressed(MouseButtonDown * mbd)
-	{
+	//void handleMouseButtonPressed(MouseButtonDown * mbd)
+	//{
         //cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
-	}
+	//}
 
-	void handleMouseButtonReleased(MouseButtonUp * mbu)
-	{
-        cout << "MOUSE UP: button=" << mbu->getButton() << endl;
-	}
+	//void handleMouseButtonReleased(MouseButtonUp * mbu)
+	//{
+        //cout << "MOUSE UP: button=" << mbu->getButton() << endl;
+	//}
 	
 private:
 

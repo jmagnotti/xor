@@ -124,7 +124,7 @@ public:
 		/*TestShape * ts[4];
 		for(int ii = 0; ii < 4; ii+)
 		{
-		ง
+		ยง
 		}
 		*/
 		TestShape * t0 = new TestShape();
@@ -151,6 +151,7 @@ public:
 			
 		Transformable * t = new Transformable(collection);
 		t->addTransform(Translate::CreateTranslate(new Vector3D(0,0,-1)));
+		t->addTransform(Rotate::CreateRotate(-45.0f, Rotate::YAW));
 		ctrl->getModel()->addObject("objs", new CompiledObject3D(t));
         // timer tests
         /*

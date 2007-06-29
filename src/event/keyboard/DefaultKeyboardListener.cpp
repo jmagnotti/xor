@@ -207,27 +207,29 @@ void DefaultKeyboardListener::handleKey_s()
     */
 }
 
-/*
 void DefaultKeyboardListener::handleKey_q()
 {
-	Controller::GetInstance()->getCamera()->incrementRotation(2, 5.0f);
+	//Controller::GetInstance()->getCamera()->addTransform(
+			//Rotate::CreateRotate(2, 5.0f));
 }
 
 void DefaultKeyboardListener::handleKey_e()
 {
-	Controller::GetInstance()->getCamera()->incrementRotation(2, -5.0f);
+	//Controller::GetInstance()->getCamera()->addTransform(
+			//Rotate::CreateRotate(2, 5.0f));
 }
 
 void DefaultKeyboardListener::handleKey_a()
 {
-	Controller::GetInstance()->getCamera()->incrementRotation(0, -10.0f);
+	//Controller::GetInstance()->getCamera()->addTransform(
+			//Rotate::CreateRotate(0, -10.0f));
 }
 
 void DefaultKeyboardListener::handleKey_d()
 {
-	Controller::GetInstance()->getCamera()->incrementRotation(0, 10.0f);
+	//Controller::GetInstance()->getCamera()->addTransform(
+			//Rotate::CreateRotate(0, 10.0f));
 }
-*/
 
 void DefaultKeyboardListener::handleKey_F()
 {
