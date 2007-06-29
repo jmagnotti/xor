@@ -33,34 +33,7 @@ class TestShape : public Object3D
 
 		void renderObject()
 		{
-			drawTri(0,0,5,3);
-/**
-			glColor3f(0,.6,.6);
-			glBegin(GL_POLYGON);
-				glVertex3f(x, y-width, 0);
-				glVertex3f(x + width/4.0, y, 0);
-				glVertex3f(x - width/4.0, y, 0);
-			glEnd();
-
-			float cx = x;
-			float cy = y + .25*width;
-
-			float radius = width/4.0;	
-
-			GraphicsConversionUtility * gcu = GraphicsConversionUtility::GetInstance();
-			glBegin(GL_TRIANGLE_FAN);
-
-			for(double theta = 0; theta < 360.0; theta += 360.0/360.0){
-				glVertex3f(
-					cx + radius * cos(theta * gcu->PI/180.0),
-					cy + radius * sin(theta * gcu->PI/180.0),
-					0);
-			}
-					
-			glEnd();
-			
-*/
-
+			drawTri(0,0,5,30);
 		}
 
 	

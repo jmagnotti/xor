@@ -106,6 +106,11 @@ void Vector2D::increment(float position[2])
 		_position[i] += position[i];
 }
 
+void Vector2D::increment(float a, float b)
+{
+	_position[0] += a;
+	_position[1] += b;
+}
 
 /*
  * sets the position of the vec
