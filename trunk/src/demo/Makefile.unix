@@ -1,9 +1,9 @@
-demos: makefiles helloworld/HelloWorld cubedemo/HelloWorld coordinatesystem/CoordinateSystem interpolationdemo/InterpolationDemo maze/Maze terraindemo/TerrainDemo modeldemo/Model walldemo/WallDemo cars/Cars
+demos: makefiles helloworld/HelloWorld cubedemo/CubeDemo coordinatesystem/CoordinateSystem terraindemo/TerrainDemo modeldemo/ModelDemo walldemo/WallDemo cars/Cars
 
 helloworld/HelloWorld:
 	cd helloworld && make depend && make
 
-cubedemo/HelloWorld:
+cubedemo/CubeDemo:
 	cd cubedemo && make depend && make
 
 coordinatesystem/CoordinateSystem:
@@ -18,7 +18,7 @@ walldemo/WallDemo:
 terraindemo/TerrainDemo:
 	cd terraindemo && make depend && make
 
-modeldemo/Model:
+modeldemo/ModelDemo:
 	cd modeldemo && make depend && make
 
 maze/Maze:

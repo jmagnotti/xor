@@ -36,14 +36,16 @@ depend: $(SRCS)
 # DO NOT DELETE THIS LINE -- make depend needs it
 
 TerrainDemo.o: ../../xor.h ../../event/timer/TimerStub.h
-TerrainDemo.o: ../../event/timer/Timer.h ../../../include/SDL.h
-TerrainDemo.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-TerrainDemo.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-TerrainDemo.o: ../../../include/begin_code.h ../../../include/close_code.h
-TerrainDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+TerrainDemo.o: ../../event/timer/Timer.h /usr/include/math.h
 TerrainDemo.o: /usr/include/features.h /usr/include/sys/cdefs.h
 TerrainDemo.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-TerrainDemo.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+TerrainDemo.o: /usr/include/gnu/stubs-32.h /usr/include/bits/huge_val.h
+TerrainDemo.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+TerrainDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
+TerrainDemo.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+TerrainDemo.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+TerrainDemo.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+TerrainDemo.o: /usr/include/stdio.h /usr/include/bits/types.h
 TerrainDemo.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 TerrainDemo.o: /usr/include/_G_config.h /usr/include/wchar.h
 TerrainDemo.o: /usr/include/bits/wchar.h /usr/include/gconv.h
@@ -107,9 +109,7 @@ TerrainDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
 TerrainDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 TerrainDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 TerrainDemo.o: ../../paint/Color.h ../../core/Renderable.h
-TerrainDemo.o: ../../object3D/Point3D.h /usr/include/math.h
-TerrainDemo.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-TerrainDemo.o: /usr/include/bits/mathcalls.h ../../object3D/Object3D.h
+TerrainDemo.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
 TerrainDemo.o: ../../core/XavierConfiguration.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
 TerrainDemo.o: ../../transform/Rotate.h
@@ -124,7 +124,10 @@ TerrainDemo.o: ../../event/EventFactory.h ../../event/keyboard/KeyboardStub.h
 TerrainDemo.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 TerrainDemo.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 TerrainDemo.o: ../../paint/Color.h ../../core/Camera.h
-TerrainDemo.o: ../../core/CameraListener.h ../../transform/Transformable.h
+TerrainDemo.o: ../../core/CameraListener.h ../../transform/Orientation.h
+TerrainDemo.o: ../../transform/Translate.h ../../event/Action.h
+TerrainDemo.o: ../../interpolation/InterpolatorFactory.h
+TerrainDemo.o: ../../interpolation/Interpolator.h
 TerrainDemo.o: ../../transform/CoordinateSystemFactory.h
 TerrainDemo.o: ../../transform/CoordinateSystem.h
 TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
@@ -169,7 +172,7 @@ TerrainDemo.o: ../../event/mouse/MouseSkeleton.h
 TerrainDemo.o: ../../event/timer/TimerSkeleton.h
 TerrainDemo.o: ../../event/InputEventProxyFactory.h
 TerrainDemo.o: ../../event/FullEventProxyFactory.h
-TerrainDemo.o: ../../event/InputEventHandlerFactory.h
+TerrainDemo.o: ../../event/InputEventHandlerFactory.h ../../event/Action.h
 TerrainDemo.o: ../../interpolation/InterpolationListener.h
 TerrainDemo.o: ../../interpolation/CameraRoller.h
 TerrainDemo.o: ../../interpolation/TimedInterpolation.h
@@ -195,7 +198,8 @@ TerrainDemo.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
 TerrainDemo.o: ../../core/Window.h ../../object2D/Object2D.h
 TerrainDemo.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 TerrainDemo.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
-TerrainDemo.o: ../../object2D/Transformable2D.h ../../transform/Transform.h
+TerrainDemo.o: ../../object2D/Transformable2D.h
+TerrainDemo.o: ../../transform/Transformable.h ../../transform/Transform.h
 TerrainDemo.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
 TerrainDemo.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
 TerrainDemo.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
@@ -236,8 +240,8 @@ TerrainDemo.o: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
 TerrainDemo.o: ../../multicast/mcreceive.h ../../multicast/Multicast.h
 TerrainDemo.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
 TerrainDemo.o: ../../paint/Color.h ../../transform/Orientation.h
-TerrainDemo.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
-TerrainDemo.o: ../../transform/Translate.h ../../transform/Rotate.h
+TerrainDemo.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+TerrainDemo.o: ../../transform/Rotate.h
 TerrainDemo.o: ../../transform/OpenGLCoordinateSystem.h
 TerrainDemo.o: ../../transform/TransformFactory.h
 TerrainDemo.o: ../../transform/MathCoordinateSystem.h

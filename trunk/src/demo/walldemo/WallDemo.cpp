@@ -10,12 +10,12 @@ using namespace XOR;
 	static const float DX_FM = 1.0f;
 
 
-class WallDemo : public DefaultKeyboardListener, DefaultMouseListener
+class WallDemo : public DefaultKeyboardListener
 {
 
 public:
 
-	Object3D *tModels[3];
+	Transformable3D *tModels[3];
 
 
    /* 
@@ -29,7 +29,7 @@ public:
         Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
 
         ctrl->getKeyboard()->addListener(this);
-		ctrl->getMouse()->addListener(this);
+		ctrl->getMouse()->addListener(new DefaultMouseListener());
 
         ctrl->setModel(new String2D(buffer));
 
@@ -55,8 +55,8 @@ public:
 #endif
 		}
 
-		ctrl->getCamera()->incrementTranslation(new Vector3D(50,50,50));
-		ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
+		ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(50,50,50));
+		ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
 		//ctrl->getCamera()->setFocalPoint(new Vector3D(-80,-35,0));
 
         //ctrl->getModel()->addObject("white", 
@@ -91,15 +91,15 @@ public:
 						new Paint(Color::WHITE, Paint::HEIGHT_BASED, 
 							factory->createTexture("../coordinatesystem/images/x_red.png")))));
 
-		tModels[0] = new CompiledObject3D(ModelFactory::GetInstance()->createModel(
+		tModels[0] = new Transformable3D(ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/ant01.ms3d"));
-		tModels[1] = new CompiledObject3D(ModelFactory::GetInstance()->createModel(
+		tModels[1] = new Transformable3D(ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/turtle1.ms3d"));
-		tModels[1]->incrementTranslation(new Vector3D(0,0,50));
-		tModels[2] = new CompiledObject3D(ModelFactory::GetInstance()->createModel(
+		tModels[1]->addTransform(Translate::CreateTranslate(new Vector3D(0,0,50)));
+		tModels[2] = new Transformable3D(ModelFactory::GetInstance()->createModel(
 				"../modeldemo/models/f360.ms3d"));
-		tModels[2]->incrementTranslation(new Vector3D(-100,0,50));
-		tModels[2]->incrementRotation(Orientation::THETA, 90.0f, NULL);
+		tModels[2]->addTransform(Translate::CreateTranslate(new Vector3D(-100,0,50)));
+		tModels[2]->addTransform(Rotate::CreateRotate(90.0f, Rotate::YAW));
 
 		ctrl->getModel()->addObject("model1", tModels[0]);
 		ctrl->getModel()->addObject("model2", tModels[1]);
@@ -109,33 +109,13 @@ public:
 	}
 
 	//void handleKey_l()
-	//{
-		//cout << "LOOK AT ORIGIN" << endl;
-		//Controller::GetInstance(NULL)->getCamera()->setFocalPoint(new Vector3D(0,0,0));
-	//}
+	//{ Controller::GetInstance(NULL)->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0)); }
 
 	void handleKey_p()
-	{ Controller::GetInstance(NULL)->getCamera()->print(); }
-
-	void handleKey_a()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_d()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_w()
-	{ Controller::GetInstance(NULL)->getCamera()->walk(1.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_s()
-	{ Controller::GetInstance(NULL)->getCamera()->walk(-1.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_q()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_e()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_c()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(1, 5.0f, new TimedInterpolation(300,NULL)); }
-	void handleKey_z()
-	{ Controller::GetInstance(NULL)->getCamera()->incrementRotation(1, -5.0f, new TimedInterpolation(300,NULL)); }
+	{ Controller::GetInstance(NULL)->getCamera()->getOrientation()->print(); }
 
     void handleKey_C()
-    { Controller::GetInstance(NULL)->getCamera()->clear(); }
+    { Controller::GetInstance(NULL)->getCamera()->getOrientation()->toIdentity(); }
 
 	void handleKey_Left()
 	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(-1,0); }
@@ -146,9 +126,9 @@ public:
 	void handleKey_Down()
 	{ Controller::GetInstance(NULL)->getCamera()->incrementWallOffset(0,-1); }
     void handleKey_RBracket()
-    { Controller::GetInstance(NULL)->getCamera()->incrementTranslation(new Vector3D(0,0,1)); }
+    { Controller::GetInstance(NULL)->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,1)); }
     void handleKey_LBracket()
-    { Controller::GetInstance(NULL)->getCamera()->incrementTranslation(new Vector3D(0,0,-1)); }
+    { Controller::GetInstance(NULL)->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,-1)); }
 
 	void handleKey_y()
 	{ Controller::GetInstance(NULL)->getCamera()->incrementWallViewOffsetBase(0.0f-(DX_OB)); }
@@ -193,32 +173,6 @@ public:
 		else
 			wallMode = Camera::WALL_MODE_STANDARD;
 		Controller::GetInstance(NULL)->getCamera()->setWallMode(wallMode);
-	}
-
-	void handleMouseMotion(MouseMotionEvent * mme)
-	{
-		Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
-
-		if (mouse->isLeftButtonDown()) {
-			// rotate camera
-			float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
-			float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
-
-			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
-					Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			Controller::GetInstance(NULL)->getCamera()->incrementRotation(
-					Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
-		}
-	}
-	
-	void handleMouseButtonPressed(MouseButtonDown * mbd)
-	{
-		cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
-	}
-
-	void handleMouseButtonReleased(MouseButtonUp * mbu)
-	{
-		cout << "MOUSE UP: button=" << mbu->getButton() << endl;
 	}
 	
 private:
