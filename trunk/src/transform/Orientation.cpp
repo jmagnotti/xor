@@ -113,12 +113,11 @@ void Orientation::pushInverse()
 {
 
 	// order is important: roll, pitch, yaw
-	
 	vector<Rotate*>::iterator roll_iter = _roll.begin();
 	while (roll_iter != _roll.end()) {
 		(*roll_iter)->pushInverse();
 		++roll_iter;
-	}
+    }
 
 	vector<Rotate*>::iterator pitch_iter = _pitch.begin();
 	while (pitch_iter != _pitch.end()) {
@@ -183,6 +182,11 @@ void Orientation::setPosition(Vector3D * position)
 void Orientation::incrementPosition(Vector3D * position)
 {
 	_position.push_back(Translate::CreateTranslate(position));
+}
+
+void Orientation::incrementPosition(Vector3D * position, int milliseconds)
+{
+	_position.push_back(Translate::CreateTranslate(position, milliseconds));
 }
 
 void Orientation::setPitch(float angle)
@@ -279,7 +283,7 @@ void Orientation::moveAlongFocalVector(float distance)
 	fy *= -distance;
 	fz *= -distance;
 
-	incrementPosition(new Vector3D(fx, fy, fz));
+	incrementPosition(new Vector3D(fx, fy, fz), 500);
 }
 
 

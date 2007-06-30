@@ -8,8 +8,6 @@ namespace XOR {
  */
 LinearInterpolator::LinearInterpolator()
 {
-//    cout << "Compiled with lots of debugging" << endl;
-    _steps = new vector<float>(); 
 }
 
 
@@ -18,6 +16,7 @@ LinearInterpolator::LinearInterpolator()
  */
 void LinearInterpolator::next()
 {
+/*
     vector<float*>::iterator vals_iter   = _values->begin();
     vector<float*>::iterator vals_finish = _values->end();
 
@@ -30,6 +29,7 @@ void LinearInterpolator::next()
         //cout << "\tNew value: " << (*(*vals_iter)) << endl;
         vals_iter++; step_iter++;
     }
+*/
 }
 
 
@@ -48,19 +48,20 @@ void LinearInterpolator::setScale(float & in, float & out, int numSteps)
  */
 void LinearInterpolator::reset()
 {
-    _steps->clear();
+    //_steps->clear();
 
     //delete _final;
     //_final = new vector<float>();
     
     // don't delete the old _values as that would hose the object they reference
-    _values = new vector<float*>();
+    //_values = new vector<float*>();
 }
 
 
 
 void LinearInterpolator::finish()
 {
+    /*
     vector<float*>::iterator vals_iter   = _values->begin();
     vector<float*>::iterator vals_finish = _values->end();
 
@@ -71,6 +72,7 @@ void LinearInterpolator::finish()
         *(*vals_iter) = *end_iter;
         ++vals_iter; ++end_iter;
     }
+    */
 }
 
 
@@ -79,6 +81,7 @@ void LinearInterpolator::finish()
  */
 void LinearInterpolator::setScale(vector<float*> & in, vector<float> & out, int numSteps)
 {
+/*
     _values = &in;       // grab the references for later
     _final  = &out;
 
@@ -98,6 +101,23 @@ void LinearInterpolator::setScale(vector<float*> & in, vector<float> & out, int 
         in_iter++; out_iter++;
         //cout << endl << endl << endl;
     }
+*/
+}
+
+vector<Vector3D*> LinearInterpolator::build(Vector3D * target, int numSteps)
+{
+    Vector3D * stepAmount = (*target) / ((float) numSteps);
+    Vector3D * temp = stepAmount;
+
+    while(numSteps > 0) {
+        _steps.push_back(temp);
+        temp = (*temp) + stepAmount;
+        --numSteps;
+    }
+
+    delete temp; delete stepAmount;
+
+    return _steps; 
 }
 
 

@@ -3,6 +3,7 @@
 
 
 #include <vector>
+#include "../geometry/Vector3D.h"
 
 
 using namespace std;
@@ -63,12 +64,13 @@ public:
      * Returns one of the constants above.
      */
     virtual const int getType()=0;
-     
+
+    virtual vector<Vector3D*> build(Vector3D * target, int numSteps)=0;
 
 protected:
 
-    vector <float> * _steps, * _final;
-    vector <float*> * _values;
+    //vector <Vector3D> * _steps, * _final;
+    //vector <float*> * _values;
 
 };
 

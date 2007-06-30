@@ -186,5 +186,15 @@ Uint32 Timer::TickTock(Uint32 interval, void * param)
     return interval;
 }
 
+int Timer::millisecondsToFrames(int milliseconds)
+{
+    return (int) ceil(milliseconds / getInterval());
+}
+
+int Timer::framesToMilliseconds(int frames)
+{
+    return frames * getInterval();
+}
+
 }
 
