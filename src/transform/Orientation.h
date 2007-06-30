@@ -124,7 +124,7 @@ public:
 	//void incrementYaw(float angl, int milliseconds);
 	//
 	//void setPosition(Vector3D * position, int milliseconds);
-	//void incrementPosition(Vector3D * position, int milliseconds);
+	void incrementPosition(Vector3D * position, int milliseconds);
 	//void setFocalPoint(Vector3D * focalPoint, int milliseconds);
 	
 	//float  getFocalDistance();

@@ -3,6 +3,7 @@
 
 
 #include <list>
+#include <math.h>
 
 #include "../../../include/SDL.h"
 #include "TimerListener.h"
@@ -102,7 +103,8 @@ public:
 
 
     /**
-     * SDL Timer Handler. This should only be called by SDL.
+     * SDL Timer Handler. This should only be called by SDL. Calling this
+     * function will not necessarily cause the timer to fire. 
      */
     static Uint32 TickTock(Uint32 interval, void * param); 
 
@@ -112,6 +114,16 @@ public:
      * people don't have to rely on the static method above.
      */
     virtual void tickTock()=0;
+
+    /**
+     *
+     */
+    static int millisecondsToFrames(int milliseconds);
+
+    /**
+     *
+     */
+    static int framesToMilliseconds(int frames);
 
 
 protected:

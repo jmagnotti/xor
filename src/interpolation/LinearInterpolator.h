@@ -2,10 +2,13 @@
 #define LINEARINTERPOLATOR_H
 
 #include<list>
+#include<vector>
 #include <iostream>
 
 #include "Interpolator.h"
 #include "../util/GraphicsConversionUtility.h"
+#include "../geometry/Vector3D.h"
+
 
 using namespace std;
 
@@ -51,12 +54,22 @@ public:
 
 
     /**
+     *
+     */
+    vector<Vector3D*> build(Vector3D * target, int numSteps);
+
+
+    /**
      * Returns the type.
      * 
      * @return The constant defining this interpolator (i.e. Interpolator::LINEAR_INTERPOLATOR).
      */
     const int getType();
     
+
+private:
+
+    vector<Vector3D*> _steps;
     
 };
 

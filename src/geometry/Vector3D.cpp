@@ -39,7 +39,10 @@ Vector3D * Vector3D::Max(Vector3D * a, Vector3D * b)
  * Default Constructor
  */
 Vector3D::Vector3D()
-{}
+{
+    for (int i=0; i<3; i++)
+        _position[i] = 0.0f;
+}
 
 
 /*
@@ -265,7 +268,8 @@ float Vector3D::get(int dimension)
 
 float Vector3D::getX() const
 {
-   	return _position[0];
+    return 0;
+   	//return _position[0];
 }
 
 float Vector3D::getY() const

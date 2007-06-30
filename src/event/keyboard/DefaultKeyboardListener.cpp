@@ -196,12 +196,12 @@ void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(2.0f);
+	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(1.0f);
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(-2.0f);
+	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(-1.0f);
 }
 
 void DefaultKeyboardListener::handleKey_q()
