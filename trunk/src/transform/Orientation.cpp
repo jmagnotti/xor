@@ -260,29 +260,27 @@ float Orientation::getRoll()
 }
 
 
-/*
- *
- */
-/*
- *void Orientation::moveAlongFocalVector(float distance)
- *{
- *    updateFocalPoint();
- *
- *    // calculate new position by obtaining focus vector and multiplying
- *    // by the desired distance
- *    float coords[3];
- *    coords[0] = (_focalPoint->get(0) - _position->_translation[0]) * distance;
- *    coords[1] = (_focalPoint->get(1) - _position->_translation[1]) * distance;
- *    coords[2] = (_focalPoint->get(2) - _position->_translation[2]) * distance;
- *
- *    for (int i=0; i<3; i++)
- *        coords[i] = (_focalPoint->get(i) - _position->_translation[i]) * distance;
- *
- *    //_position->increment(new Vector3D(coords), interpolation);
- *
- *    updateFocalPoint();
- *}
- */
+void Orientation::moveAlongFocalVector(float distance)
+{
+	float fx, fy, fz;
+	
+	// theta (yaw) and phi (pitch) in radians
+	float t =  (getYaw() / 180.0f * GraphicsConversionUtility::PI);
+	float p = -(getPitch() / 180.0f * GraphicsConversionUtility::PI);
+
+	// calculate focus vector
+	fx = 1.0f * cos(p) * sin(t);
+	fy = 1.0f * sin(p);
+	fz = 1.0f * cos(p) * cos(t);
+
+	// adjust for given distance
+	// FIXME: I think these should not be negative
+	fx *= -distance;
+	fy *= -distance;
+	fz *= -distance;
+
+	incrementPosition(new Vector3D(fx, fy, fz));
+}
 
 
 /*

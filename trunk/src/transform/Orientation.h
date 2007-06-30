@@ -92,9 +92,7 @@ public:
 	void transform(Dimension2D * size);
 
 
-	// TODO: re-write
-	//void moveAlongFocalVector(float distance);
-
+	void moveAlongFocalVector(float distance);
 
 	Vector3D * getPosition();
 

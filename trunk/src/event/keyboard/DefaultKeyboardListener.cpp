@@ -196,15 +196,12 @@ void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 
 void DefaultKeyboardListener::handleKey_w()
 {
-	//Controller::GetInstance()->getCamera()->walk(0.5f, new TimedInterpolation(1000,NULL));
+	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(2.0f);
 }
 
 void DefaultKeyboardListener::handleKey_s()
 {
-    /*
-        //FIXME
-        Controller::GetInstance()->getCamera()->walk(-0.5f, new TimedInterpolation(1000, NULL));
-    */
+	Controller::GetInstance()->getCamera()->getOrientation()->moveAlongFocalVector(-2.0f);
 }
 
 void DefaultKeyboardListener::handleKey_q()
@@ -234,12 +231,10 @@ void DefaultKeyboardListener::handleKey_F()
 	Controller::GetInstance()->getCamera()->toggleFullScreen();
 }
 
-#ifdef DEBUG
 void DefaultKeyboardListener::handleKey_p()
 {
 	Controller::GetInstance()->getCamera()->getOrientation()->print();
 }
-#endif
 
 
 }
