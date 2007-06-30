@@ -5,11 +5,11 @@ CC = g++
 LIBS = -framework Cocoa -framework OpenGL -lSDL -lSDLMain -lSDL_image -lXOR
 
 #Packages
-SRCS = Model.cpp
+SRCS = ModelDemo.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = Model
+MAIN = ModelDemo
 
 # 
 # The following part of the makefile is generic; it can be used to 
@@ -21,7 +21,7 @@ MAIN = Model
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
 
-Model:	$(OBJS) 
+ModelDemo:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:

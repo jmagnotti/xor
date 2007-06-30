@@ -36,13 +36,15 @@ depend: $(SRCS)
 # DO NOT DELETE THIS LINE -- make depend needs it
 
 Cars.o: ../../xor.h ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+Cars.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+Cars.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+Cars.o: /usr/include/gnu/stubs-32.h /usr/include/bits/huge_val.h
+Cars.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
 Cars.o: ../../../include/SDL.h ../../../include/SDL_main.h
 Cars.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
 Cars.o: ../../../include/SDL_error.h ../../../include/begin_code.h
 Cars.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
-Cars.o: /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h
-Cars.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-Cars.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+Cars.o: /usr/include/stdio.h /usr/include/bits/types.h
 Cars.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 Cars.o: /usr/include/_G_config.h /usr/include/wchar.h
 Cars.o: /usr/include/bits/wchar.h /usr/include/gconv.h
@@ -98,12 +100,10 @@ Cars.o: ../../paint/Paint.h ../../texture/Texture.h
 Cars.o: ../../../include/SDL_image.h ../../../include/SDL.h
 Cars.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 Cars.o: /usr/include/GL/glext.h /usr/include/GL/glu.h ../../paint/Color.h
-Cars.o: ../../core/Renderable.h ../../object3D/Point3D.h /usr/include/math.h
-Cars.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-Cars.o: /usr/include/bits/mathcalls.h ../../object3D/Object3D.h
-Cars.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
-Cars.o: ../../transform/Transform.h ../../transform/Rotate.h
-Cars.o: ../../interpolation/InterpolationEngine.h
+Cars.o: ../../core/Renderable.h ../../object3D/Point3D.h
+Cars.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+Cars.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+Cars.o: ../../transform/Rotate.h ../../interpolation/InterpolationEngine.h
 Cars.o: ../../interpolation/InterpolationListener.h
 Cars.o: ../../interpolation/Interpolator.h
 Cars.o: ../../interpolation/InterpolatorFactory.h
@@ -113,7 +113,10 @@ Cars.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
 Cars.o: ../../event/keyboard/KeyboardStub.h ../../event/keyboard/Keyboard.h
 Cars.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 Cars.o: ../../event/timer/TimerStub.h ../../paint/Color.h ../../core/Camera.h
-Cars.o: ../../core/CameraListener.h ../../transform/Transformable.h
+Cars.o: ../../core/CameraListener.h ../../transform/Orientation.h
+Cars.o: ../../transform/Translate.h ../../event/Action.h
+Cars.o: ../../interpolation/InterpolatorFactory.h
+Cars.o: ../../interpolation/Interpolator.h
 Cars.o: ../../transform/CoordinateSystemFactory.h
 Cars.o: ../../transform/CoordinateSystem.h
 Cars.o: ../../transform/OpenGLCoordinateSystem.h
@@ -150,7 +153,7 @@ Cars.o: ../../event/keyboard/KeyboardSkeleton.h
 Cars.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
 Cars.o: ../../event/InputEventProxyFactory.h
 Cars.o: ../../event/FullEventProxyFactory.h
-Cars.o: ../../event/InputEventHandlerFactory.h
+Cars.o: ../../event/InputEventHandlerFactory.h ../../event/Action.h
 Cars.o: ../../interpolation/InterpolationListener.h
 Cars.o: ../../interpolation/CameraRoller.h
 Cars.o: ../../interpolation/TimedInterpolation.h
@@ -175,10 +178,10 @@ Cars.o: ../../object2D/Object2D.h ../../core/Window.h
 Cars.o: ../../object2D/Object2D.h ../../object2D/String2D.h
 Cars.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
 Cars.o: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
-Cars.o: ../../transform/Transform.h ../../object3D/Arc3D.h
-Cars.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
-Cars.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
-Cars.o: ../../object3D/Sprite3DListener.h
+Cars.o: ../../transform/Transformable.h ../../transform/Transform.h
+Cars.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+Cars.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
+Cars.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
 Cars.o: ../../object3D/NoDepthTestQuadrilateral3D.h
 Cars.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
 Cars.o: ../../texture/TextureScale.h ../../object3D/Point3D.h
@@ -208,9 +211,8 @@ Cars.o: ../../terrain/FunctionHeightFieldStrategy.h ../../multicast/mcsend.h
 Cars.o: ../../multicast/MulticastSocket.h ../../multicast/mcreceive.h
 Cars.o: ../../multicast/Multicast.h ../../multicast/MulticastSocketPool.h
 Cars.o: ../../paint/Paint.h ../../paint/Color.h ../../transform/Orientation.h
-Cars.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
-Cars.o: ../../transform/Translate.h ../../transform/Rotate.h
-Cars.o: ../../transform/OpenGLCoordinateSystem.h
+Cars.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+Cars.o: ../../transform/Rotate.h ../../transform/OpenGLCoordinateSystem.h
 Cars.o: ../../transform/TransformFactory.h
 Cars.o: ../../transform/MathCoordinateSystem.h
 Cars.o: ../../transform/EngineerCoordinateSystem.h

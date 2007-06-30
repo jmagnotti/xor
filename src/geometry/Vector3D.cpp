@@ -268,8 +268,9 @@ float Vector3D::get(int dimension)
 
 float Vector3D::getX() const
 {
-    return 0;
-   	//return _position[0];
+	// WHY, OH WHY????????? -ML 07/07
+    //return 0;
+   	return _position[0];
 }
 
 float Vector3D::getY() const

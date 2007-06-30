@@ -283,7 +283,7 @@ void Orientation::moveAlongFocalVector(float distance)
 	fy *= -distance;
 	fz *= -distance;
 
-	incrementPosition(new Vector3D(fx, fy, fz), 500);
+	incrementPosition(new Vector3D(fx, fy, fz));
 }
 
 

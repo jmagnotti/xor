@@ -36,14 +36,16 @@ depend: $(SRCS)
 # DO NOT DELETE THIS LINE -- make depend needs it
 
 HelloWorld.o: ../../xor.h ../../event/timer/TimerStub.h
-HelloWorld.o: ../../event/timer/Timer.h ../../../include/SDL.h
-HelloWorld.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
-HelloWorld.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
-HelloWorld.o: ../../../include/begin_code.h ../../../include/close_code.h
-HelloWorld.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+HelloWorld.o: ../../event/timer/Timer.h /usr/include/math.h
 HelloWorld.o: /usr/include/features.h /usr/include/sys/cdefs.h
 HelloWorld.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-HelloWorld.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+HelloWorld.o: /usr/include/gnu/stubs-32.h /usr/include/bits/huge_val.h
+HelloWorld.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_main.h
+HelloWorld.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+HelloWorld.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+HelloWorld.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+HelloWorld.o: /usr/include/stdio.h /usr/include/bits/types.h
 HelloWorld.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 HelloWorld.o: /usr/include/_G_config.h /usr/include/wchar.h
 HelloWorld.o: /usr/include/bits/wchar.h /usr/include/gconv.h
@@ -106,8 +108,6 @@ HelloWorld.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
 HelloWorld.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
 HelloWorld.o: /usr/include/GL/glu.h ../../paint/Color.h
 HelloWorld.o: ../../core/Renderable.h ../../object3D/Point3D.h
-HelloWorld.o: /usr/include/math.h /usr/include/bits/huge_val.h
-HelloWorld.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
 HelloWorld.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
 HelloWorld.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
 HelloWorld.o: ../../transform/Rotate.h
@@ -122,7 +122,10 @@ HelloWorld.o: ../../event/keyboard/KeyboardStub.h
 HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
 HelloWorld.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
 HelloWorld.o: ../../paint/Color.h ../../core/Camera.h
-HelloWorld.o: ../../core/CameraListener.h ../../transform/Transformable.h
+HelloWorld.o: ../../core/CameraListener.h ../../transform/Orientation.h
+HelloWorld.o: ../../transform/Translate.h ../../event/Action.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/Interpolator.h
 HelloWorld.o: ../../transform/CoordinateSystemFactory.h
 HelloWorld.o: ../../transform/CoordinateSystem.h
 HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
@@ -167,7 +170,7 @@ HelloWorld.o: ../../event/mouse/MouseSkeleton.h
 HelloWorld.o: ../../event/timer/TimerSkeleton.h
 HelloWorld.o: ../../event/InputEventProxyFactory.h
 HelloWorld.o: ../../event/FullEventProxyFactory.h
-HelloWorld.o: ../../event/InputEventHandlerFactory.h
+HelloWorld.o: ../../event/InputEventHandlerFactory.h ../../event/Action.h
 HelloWorld.o: ../../interpolation/InterpolationListener.h
 HelloWorld.o: ../../interpolation/CameraRoller.h
 HelloWorld.o: ../../interpolation/TimedInterpolation.h
@@ -192,7 +195,8 @@ HelloWorld.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
 HelloWorld.o: ../../core/Window.h ../../object2D/Object2D.h
 HelloWorld.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 HelloWorld.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
-HelloWorld.o: ../../object2D/Transformable2D.h ../../transform/Transform.h
+HelloWorld.o: ../../object2D/Transformable2D.h
+HelloWorld.o: ../../transform/Transformable.h ../../transform/Transform.h
 HelloWorld.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
 HelloWorld.o: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
 HelloWorld.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
@@ -232,8 +236,8 @@ HelloWorld.o: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
 HelloWorld.o: ../../multicast/mcreceive.h ../../multicast/Multicast.h
 HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
 HelloWorld.o: ../../paint/Color.h ../../transform/Orientation.h
-HelloWorld.o: ../../transform/Translate.h ../../transform/CoordinateSystem.h
-HelloWorld.o: ../../transform/Translate.h ../../transform/Rotate.h
+HelloWorld.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+HelloWorld.o: ../../transform/Rotate.h
 HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
 HelloWorld.o: ../../transform/TransformFactory.h
 HelloWorld.o: ../../transform/MathCoordinateSystem.h

@@ -36,20 +36,22 @@ depend: $(SRCS)
 # DO NOT DELETE THIS LINE -- make depend needs it
 
 CoordinateSystem.o: ../../xor.h ../../event/timer/TimerStub.h
-CoordinateSystem.o: ../../event/timer/Timer.h ../../../include/SDL.h
-CoordinateSystem.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+CoordinateSystem.o: ../../event/timer/Timer.h /usr/include/math.h
+CoordinateSystem.o: /usr/include/features.h /usr/include/sys/cdefs.h
+CoordinateSystem.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+CoordinateSystem.o: /usr/include/gnu/stubs-32.h /usr/include/bits/huge_val.h
+CoordinateSystem.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+CoordinateSystem.o: ../../../include/SDL.h ../../../include/SDL_main.h
+CoordinateSystem.o: ../../../include/SDL_types.h
 CoordinateSystem.o: ../../../include/SDL_getenv.h
 CoordinateSystem.o: ../../../include/SDL_error.h
 CoordinateSystem.o: ../../../include/begin_code.h
 CoordinateSystem.o: ../../../include/close_code.h
 CoordinateSystem.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
-CoordinateSystem.o: /usr/include/features.h /usr/include/sys/cdefs.h
-CoordinateSystem.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
-CoordinateSystem.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
-CoordinateSystem.o: /usr/include/bits/typesizes.h /usr/include/libio.h
-CoordinateSystem.o: /usr/include/_G_config.h /usr/include/wchar.h
-CoordinateSystem.o: /usr/include/bits/wchar.h /usr/include/gconv.h
-CoordinateSystem.o: /usr/include/bits/stdio_lim.h
+CoordinateSystem.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+CoordinateSystem.o: /usr/include/libio.h /usr/include/_G_config.h
+CoordinateSystem.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+CoordinateSystem.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
 CoordinateSystem.o: /usr/include/bits/sys_errlist.h
 CoordinateSystem.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
 CoordinateSystem.o: ../../../include/SDL_byteorder.h
@@ -117,9 +119,7 @@ CoordinateSystem.o: ../../../include/SDL_image.h ../../../include/SDL.h
 CoordinateSystem.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
 CoordinateSystem.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
 CoordinateSystem.o: ../../paint/Color.h ../../core/Renderable.h
-CoordinateSystem.o: ../../object3D/Point3D.h /usr/include/math.h
-CoordinateSystem.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-CoordinateSystem.o: /usr/include/bits/mathcalls.h ../../object3D/Object3D.h
+CoordinateSystem.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
 CoordinateSystem.o: ../../core/XavierConfiguration.h
 CoordinateSystem.o: ../../transform/CoordinateSystem.h
 CoordinateSystem.o: ../../transform/Transform.h ../../transform/Rotate.h
@@ -137,7 +137,10 @@ CoordinateSystem.o: ../../event/keyboard/Keyboard.h
 CoordinateSystem.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
 CoordinateSystem.o: ../../event/timer/TimerStub.h ../../paint/Color.h
 CoordinateSystem.o: ../../core/Camera.h ../../core/CameraListener.h
-CoordinateSystem.o: ../../transform/Transformable.h
+CoordinateSystem.o: ../../transform/Orientation.h ../../transform/Translate.h
+CoordinateSystem.o: ../../event/Action.h
+CoordinateSystem.o: ../../interpolation/InterpolatorFactory.h
+CoordinateSystem.o: ../../interpolation/Interpolator.h
 CoordinateSystem.o: ../../transform/CoordinateSystemFactory.h
 CoordinateSystem.o: ../../transform/CoordinateSystem.h
 CoordinateSystem.o: ../../transform/OpenGLCoordinateSystem.h
@@ -183,6 +186,7 @@ CoordinateSystem.o: ../../event/timer/TimerSkeleton.h
 CoordinateSystem.o: ../../event/InputEventProxyFactory.h
 CoordinateSystem.o: ../../event/FullEventProxyFactory.h
 CoordinateSystem.o: ../../event/InputEventHandlerFactory.h
+CoordinateSystem.o: ../../event/Action.h
 CoordinateSystem.o: ../../interpolation/InterpolationListener.h
 CoordinateSystem.o: ../../interpolation/CameraRoller.h
 CoordinateSystem.o: ../../interpolation/TimedInterpolation.h
@@ -210,6 +214,7 @@ CoordinateSystem.o: ../../object2D/Object2D.h ../../object2D/String2D.h
 CoordinateSystem.o: ../../util/BitmapFontUtil.h
 CoordinateSystem.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
 CoordinateSystem.o: ../../object2D/Transformable2D.h
+CoordinateSystem.o: ../../transform/Transformable.h
 CoordinateSystem.o: ../../transform/Transform.h ../../object3D/Arc3D.h
 CoordinateSystem.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
 CoordinateSystem.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
@@ -255,7 +260,6 @@ CoordinateSystem.o: ../../multicast/MulticastSocket.h
 CoordinateSystem.o: ../../multicast/mcreceive.h ../../multicast/Multicast.h
 CoordinateSystem.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
 CoordinateSystem.o: ../../paint/Color.h ../../transform/Orientation.h
-CoordinateSystem.o: ../../transform/Translate.h
 CoordinateSystem.o: ../../transform/CoordinateSystem.h
 CoordinateSystem.o: ../../transform/Translate.h ../../transform/Rotate.h
 CoordinateSystem.o: ../../transform/OpenGLCoordinateSystem.h
