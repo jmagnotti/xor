@@ -87,46 +87,6 @@ public:
 		}
 	}
 
-	//void handleKey_p()
-	//{
-		//Vector3D * position = ctrl->getCamera()->getOrientation()->getPosition();
-		//float pitch = ctrl->getCamera()->getOrientation()->getPitch();
-		//float yaw = ctrl->getCamera()->getOrientation()->getYaw();
-		//float roll = ctrl->getCamera()->getOrientation()->getRoll();
-		//cout << "x=" << position->getX() << "  y=" << position->getY() << "  z=" << position->getZ() << endl;
-		//cout << "pitch=" << pitch << "  yaw=" << yaw << "  roll=" << roll << endl;
-	//}
-
-	//void handleKey_a()
-	//{
-		//ctrl->getCamera()->getOrientation()->incrementYaw(-10.0f);
-	//}
-
-	//void handleKey_d()
-	//{
-		//ctrl->getCamera()->getOrientation()->incrementPitch(10.0f);
-	//}
-
-	void handleKey_w()
-	{
-		//ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
-	}
-
-	void handleKey_s()
-	{
-		//ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
-	}
-
-	//void handleKey_q()
-	//{
-		//ctrl->getCamera()->getOrientation()->incrementRoll(-5.0f);
-	//}
-
-	//void handleKey_e()
-	//{
-		//ctrl->getCamera()->getOrientation()->incrementRoll(5.0f);
-	//}
-
 	void handleKey_c()
 	{
 		ctrl->getCamera()->getOrientation()->incrementPitch(-5.0f);

@@ -123,41 +123,6 @@ public:
 		//ctrl->getCamera()->setFocalPoint(new Vector3D(0,0,0));
 	//}
 
-	//void handleKey_p()
-	//{
-		//ctrl->getCamera()->print();
-
-	//}
-
-	//void handleKey_a()
-	//{
-		//ctrl->getCamera()->incrementRotation(0, 10.0f, new TimedInterpolation(300,NULL));
-	//}
-
-	//void handleKey_d()
-	//{
-		//ctrl->getCamera()->incrementRotation(0, -10.0f, new TimedInterpolation(300,NULL));
-	//}
-
-	//void handleKey_w()
-	//{
-		//ctrl->getCamera()->walk(0.15f, new TimedInterpolation(300,NULL));
-	//}
-
-	//void handleKey_s()
-	//{
-		//ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(300,NULL));
-	//}
-
-	//void handleKey_q()
-	//{
-		//ctrl->getCamera()->incrementRotation(2, 5.0f, new TimedInterpolation(300,NULL));
-	//}
-
-	//void handleKey_e()
-	//{
-		//ctrl->getCamera()->incrementRotation(2, -5.0f, new TimedInterpolation(300,NULL));
-	//}
 
 	//void handleKey_c()
 	//{
@@ -203,32 +168,6 @@ public:
 		//Waypoint * wp1 = new Waypoint(o1, speed, wait, wp2);
 
 		//wp1->apply(ctrl->getCamera());
-	//}
-	
-	//void handleMouseMotion(MouseMotionEvent * mme)
-	//{
-		//Mouse * mouse = ctrl->getMouse();
-
-		//if (mouse->isLeftButtonDown()) {
-			// rotate camera
-			//float xChange = (float)(mouse->getCurrentX() - mouse->getPreviousX()) / 2.0f;
-			//float yChange = (float)(mouse->getCurrentY() - mouse->getPreviousY()) / 2.0f;
-
-			//ctrl->getCamera()->incrementRotation(
-					//Orientation::THETA, -xChange, new TimedInterpolation(100,NULL));
-			//ctrl->getCamera()->incrementRotation(
-					//Orientation::PHI, -yChange, new TimedInterpolation(100,NULL));
-		//}
-	//}
-	
-	//void handleMouseButtonPressed(MouseButtonDown * mbd)
-	//{
-        //cout << "MOUSE DOWN: button=" << mbd->getButton() << endl;
-	//}
-
-	//void handleMouseButtonReleased(MouseButtonUp * mbu)
-	//{
-        //cout << "MOUSE UP: button=" << mbu->getButton() << endl;
 	//}
 	
 private:

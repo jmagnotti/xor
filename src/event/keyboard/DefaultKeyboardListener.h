@@ -56,9 +56,7 @@ protected:
 	
 	virtual void handleKey_F();
 
-#ifdef DEBUG
 	virtual void handleKey_p();
-#endif
 
 	
 private:
