@@ -4,9 +4,12 @@
 <comment>Edited by Kris 6/28/07</comment>
 <entry key="VLC">perl lapyxexecute.pl vlc</entry>
 <entry key="Kill VLC">perl lapyxexecute.pl killallvlc</entry>
-<entry key="Cars">perl lapyxexecute.pl cars</entry>
-<entry key="Kill Cars">perl lapyxexecute.pl killallcars</entry>
-<entry key="Photoalbum">perl lapyxexecute.pl photoalbum</entry>
-<entry key="Kill Photoalbum">perl lapyxexecute.pl killallphotoalbum</entry>
-<entry key="Restart GDM">perl lapyxexecute.pl restartgdm</entry>
+<entry key="Cars">
+	cd /home/display/master2/xor/src/demo/photoalbum && ./PhotoAlbum
+</entry>
+<entry key="Kill Cars">killall Cars</entry>
+<entry key="Photoalbum">
+	cd /home/display/master2/xor/src/demo/photoalbum && ./PhotoAlbum
+</entry>
+<entry key="Kill Photoalbum">killall PhotoAlbum</entry>
 </properties>
