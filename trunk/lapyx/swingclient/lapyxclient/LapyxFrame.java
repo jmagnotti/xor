@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.Vector;
 
@@ -33,14 +35,14 @@ import javax.swing.border.Border;
  * 
  */
 
-public class LapyxFrame extends JFrame implements ActionListener {
+public class LapyxFrame extends JFrame implements ActionListener, WindowListener {
+	
 	private JList demoList;
-
 	private JScrollPane scrollableDemoList;
-
 	private NetworkSettings nws;
-
 	private NetworkSettingsFrame nsf;
+	
+	private TCPClient client; // talks to the server
 
 	/**
 	 * The default constructor
@@ -76,9 +78,10 @@ public class LapyxFrame extends JFrame implements ActionListener {
 		addComponentsToPane(this.getContentPane());
 
 		LapyxMouseCommands lmc = new LapyxMouseCommands();
-
+		
+		// connect to daemon
+		openTCP();
 		demoList.addMouseListener(lmc);
-
 	}
 
 	/**
@@ -123,14 +126,28 @@ public class LapyxFrame extends JFrame implements ActionListener {
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2,
 				ActionEvent.ALT_MASK));
 		menuItem.addActionListener(this);
-
 		submenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Reconnect");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3,
+				ActionEvent.ALT_MASK));
+		menuItem.addActionListener(this);
+		submenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Connect");
+		menuItem.addActionListener(this);
+		submenu.add(menuItem);
+		
+		menuItem = new JMenuItem("Disconnect");
+		menuItem.addActionListener(this);
+		submenu.add(menuItem);
+		
 		menu.add(submenu);
 
 		this.setJMenuBar(menuBar);
 
 		/*
-		 * // All of the positions availible to me pane.add(button,
+		 * // All of the positions available to me pane.add(button,
 		 * BorderLayout.PAGE_START); pane.add(button, BorderLayout.CENTER);
 		 * pane.add(button, BorderLayout.LINE_START); pane.add(button,
 		 * BorderLayout.PAGE_END); pane.add(button, BorderLayout.LINE_END);
@@ -144,8 +161,7 @@ public class LapyxFrame extends JFrame implements ActionListener {
 		pane.add(scrollableDemoList, BorderLayout.CENTER);
 
 		// add logo
-		pane
-				.add(new JLabel(loadImage("img/logo.png")),
+		pane.add(new JLabel(loadImage("img/logo.png")),
 						BorderLayout.PAGE_START);
 		// add side
 		pane.add(new JLabel(loadImage("img/side.png")), BorderLayout.WEST);
@@ -165,16 +181,45 @@ public class LapyxFrame extends JFrame implements ActionListener {
 			this.dispose();
 		} else if (command.equals("Master Server")) {
 			System.out.println("Attempting to open a popup.");
-			// TODO:
-			// For some strange reason nws.getMasterHost()
-			// does not work inside the network settings frame.
-			// I think it is a threading problem.
-			// NetworkSettingsFrame nwsf = new NetworkSettingsFrame(nws,
-			// nws.getMasterHost());
+			// make a new frame
 			nsf = new NetworkSettingsFrame(nws);
 			nsf.setVisible(true);
+		} else if (command.equals("Reconnect") || command.equals("Connect")) {
+			System.out.println("Reconnecting...");
+			if (client != null)
+				client.cleanUp();
+			openTCP();
+		} else if (command.equals("Disconnect")) { 
+			if (client != null)
+				client.cleanUp();
+			client = null;
 		}
 	}
+	
+	/**
+	 * This is from the WindowListener interface.  It gets
+	 * called when dispose is called on this frame.  Here 
+	 * we can close our network connection(s).
+	 */
+	public void windowClosed(WindowEvent e)
+	{
+		System.out.println("Closing socket connection...");
+		client.cleanUp();
+	}
+	
+	/**
+	 * Forced on us from the WindowListener interface. Unused.
+	 */
+	public void windowOpened(WindowEvent e) {}
+	public void windowDeiconified(WindowEvent e) {}
+	public void windowIconified(WindowEvent e) {}
+	public void windowActivated(WindowEvent e) {}
+	public void windowDeactivated(WindowEvent e) {}
+	public void windowClosing(WindowEvent e) {
+		System.out.println("Closing socket connection...");
+		client.cleanUp();
+	}
+	
 
 	/**
 	 * Makes the Swing List object from a vector of demo entries.
@@ -199,6 +244,24 @@ public class LapyxFrame extends JFrame implements ActionListener {
 
 		return icon;
 	}
+	
+	/**
+	 * Does the error handling involved with opening a TCP Connection
+	 */
+	private void openTCP()
+	{
+		try {
+			client = new TCPClient(nws.getMasterHost());
+		} catch (IOException ioe) {
+			JOptionPane.showMessageDialog(this,
+					"Couldn't open a connection to the Lapyx Daemon.\n" +
+					"Ensure that it running and check the network \n" +
+					"settings.  Attemping to launch demos now will \n" +
+					"not work.", "Network Error",
+					JOptionPane.WARNING_MESSAGE);
+		}
+
+	}
 
 	/** ***************** INNER CLASSES ****************** */
 
@@ -210,13 +273,11 @@ public class LapyxFrame extends JFrame implements ActionListener {
 	 * TCP client to send that message.
 	 */
 	private class LapyxMouseCommands extends MouseAdapter {
-		private final TCPClient client; // talks to the server
-
 		/**
 		 * The default constructor... Readies a new TCPClient
 		 */
 		public LapyxMouseCommands() {
-			client = new TCPClient(nws.getMasterHost());
+			
 		}
 
 		@Override
@@ -231,7 +292,9 @@ public class LapyxFrame extends JFrame implements ActionListener {
 
 				System.out.println(something.getName());
 
-				client.sendData(something.getName());
+				// ensure we even have a channel to send data into
+				if (client != null)
+					client.sendData(something.getName());
 			}
 		}
 	}
@@ -242,11 +305,9 @@ public class LapyxFrame extends JFrame implements ActionListener {
 	 * even customize the highlight color(s).
 	 */
 	class ImgTextCellRenderer extends JLabel implements ListCellRenderer {
-		private final Color VERYLIGHTGRAY = new Color(237, 237, 237); // highlight
-																		// color
-
-		private final Color VERYLIGHTGREEN = new Color(241, 247, 223);// alt
-																		// highlight
+		// alternating highlight colors
+		private final Color VERYLIGHTGREY = new Color(237, 237, 237);
+		private final Color VERYLIGHTGREEN = new Color(241, 247, 223);
 
 		/**
 		 * This default constructor does nothing more than to set the label to
@@ -257,17 +318,13 @@ public class LapyxFrame extends JFrame implements ActionListener {
 		}
 
 		/**
-		 * This method is called by the JList (or something) everytime a cell
+		 * This method is called by the JList (or something) every time a cell
 		 * needs to be redrawn. It's the method responsible for our custom look.
 		 * 
-		 * @param list
-		 *            List this Component belongs to
-		 * @param value
-		 *            Value of this Component in the list
-		 * @param index
-		 *            Index (from 0) in the list
-		 * @param isSelected
-		 *            Whether or not the user selected this item
+		 * @param list List this Component belongs to
+		 * @param value Value of this Component in the list
+		 * @param index Index (from 0) in the list
+		 * @param isSelected Whether or not the user selected this item
 		 * @param cellHasFocus
 		 */
 		public Component getListCellRendererComponent(JList list, Object value,
@@ -276,9 +333,9 @@ public class LapyxFrame extends JFrame implements ActionListener {
 			setText(entry.getName());
 			setIcon(entry.getScreenshot());
 
-			// alternate hightlight colors, white if not selected
+			// alternate highlight colors, white if not selected
 			if (isSelected)
-				setBackground(index % 2 == 0 ? VERYLIGHTGRAY : VERYLIGHTGREEN);
+				setBackground(index % 2 == 0 ? VERYLIGHTGREY : VERYLIGHTGREEN);
 			else
 				setBackground(Color.white);
 

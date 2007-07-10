@@ -26,7 +26,7 @@ public class TCPClient
 	 * @param host Host to connect to
 	 * @param data The string to send
      */
-    public TCPClient(String host)
+    public TCPClient(String host) throws IOException
     {
     	this.host = host;
     	openConnection();
@@ -60,35 +60,30 @@ public class TCPClient
 		 	// Dump some console output
 		 	// DEBUG
 		 	System.out.println("Sent: " + data);
-		 	
-		 	cleanUp();
 		}
 	}
 	
 	/**
 	 * Open up a new connection
 	 */
-	public void openConnection()
+	public void openConnection() throws IOException
 	{
-		try {
-			// open connection to predetermined host and port
-			s = new Socket(host, port); 
-			// give us a way to throw data at the connection
-			out = new PrintWriter(s.getOutputStream());
-		} catch (IOException ioe) {
-			System.out.println("Error opening socket!");
-		}
+		// open connection to predetermined host and port
+		s = new Socket(host, port); 
+		// give us a way to throw data at the connection
+		out = new PrintWriter(s.getOutputStream());
 	}
 	
 	/**
 	 * Safely closes our socket
 	 */
-	private void cleanUp()
+	public void cleanUp()
 	{
 		try {
 			// ensure it hasn't been closed already
 			if(!s.isClosed())
 			{
+				sendData("!Exit!"); // tell daemon we're leaving
 				s.close();
 			}
 		} catch (IOException ioe) {

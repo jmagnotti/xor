@@ -26,7 +26,7 @@ public class LapyxDaemon
 	
 	/**
 	 * Opens the XML file and reads them from it, then listens
-	 * for incomming connections on PORT_NUMBER.
+	 * for incoming connections on PORT_NUMBER.
 	 */
 	LapyxDaemon() 
 	{
@@ -80,6 +80,9 @@ public class LapyxDaemon
 
 		public void run() 
 		{
+			// this will be false when 
+			boolean sessionRunning = true;
+			
 			System.out.println("Entering new thread.");
 			try {
 				BufferedReader reader = new BufferedReader(
@@ -88,13 +91,27 @@ public class LapyxDaemon
 				// the data sent over the socket
                 new InputStreamReader(socket.getInputStream())); 
 				
-				// now actually read, and echo
-				String str = reader.readLine();
-				System.out.println("Received \"" + str+ "\".");
-				
-				// execute the program in str on all nodes via ssh
-				sendToAllNodes(str);
-				
+				while(sessionRunning)
+				{
+					System.out.println("Attemping to read a line...");
+					// now actually read, and echo
+					String str = reader.readLine();
+					System.out.println("Received \"" + str+ "\".");
+					
+					if(str != null) {
+						// Client wants to disconnect
+						if(str.equals("!Exit!")) {
+							sessionRunning = false;
+						} else {
+							// execute the program in str on all nodes via ssh
+							sendToAllNodes(str);
+						}
+					} else {
+						System.out.println("Read null from the stream. Socket must" +
+								"have been lost.");
+						sessionRunning = false;
+					}
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block 
 				e.printStackTrace(); 
@@ -105,20 +122,31 @@ public class LapyxDaemon
 		
 		private void sendToAllNodes(String program)
 		{
+			boolean needOffsets; // is this an XOR launch?
 			SSHBuddy ssh; 
 			// look up the command to run for 
 			// the given program name
 			String cmdToSend = programs.getProperty(program);
 			
+			// if we find the work XOR in the program name we know
+			// we have to launch an XOR app.
+			needOffsets = program.contains("XOR");
+			
+			
 			// ensure that we actually looked something up
 			if (cmdToSend != null) {
 				System.out.println("Sending \"" + cmdToSend + "\" now.");
-				try {
-					ssh = new SSHBuddy("wall-node", "display", "/home/display/.ssh/id_rsa");
-					ssh.sendCommandToNodes(cmdToSend, 15, 58);
-				} catch (IOException ioe) {
-					System.out.println("Couldn't open the public key file!");
-				}
+				//try {
+					//ssh = new SSHBuddy("wall-node", "display", "/home/display/.ssh/id_rsa");
+					ssh = new SSHBuddy("wall-node", "display", "display", true);
+					
+					if(needOffsets)
+						ssh.sendXORCommandToNodes(cmdToSend, 16, 58);
+					else
+						ssh.sendCommandToNodes(cmdToSend, 16, 58);
+				//} catch (IOException ioe) {
+				//	System.out.println("Couldn't open the public key file!");
+				//}
 			}
 		}
     } 

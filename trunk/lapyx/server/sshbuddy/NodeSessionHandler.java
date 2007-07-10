@@ -36,14 +36,16 @@ public class NodeSessionHandler implements Runnable
 	
 	NodeSessionHandler(Node node, SshAuthenticationClient authClient)
 	{
+		this.targetNode = node;
 		this.authClient = authClient;
 	}
 	
-	@Override
+	//@Override
 	public void run() {
 		SshClient client = new SshClient();
 		try {
-			
+			System.out.println("Attemping to ssh to " + targetNode.getHostname() + ".\n"
+					+ "Sending command \"" + targetNode.getCommand() + "\".");
 			client.connect(targetNode.getHostname(), new IgnoreHostKeyVerification());
 
 			int result;  // get's the status of the authentication (unused for now)
