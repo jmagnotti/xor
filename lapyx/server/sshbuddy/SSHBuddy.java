@@ -15,6 +15,7 @@ import com.sshtools.j2ssh.transport.publickey.SshPrivateKeyFile;
  * nodes. It takes care of figuring out authentication
  * and lets the NodeSessionHandlers loose with it.
  * 
+ * 
  * @author Kris Kalish (adapted from code by John Magnotti)
  *
  */
@@ -69,7 +70,7 @@ public class SSHBuddy
 	 * @param loRange The beginning of the range of nodes to start this on
 	 * @param hiRange The high end of the range to start the demo on
 	 */
-	public void sendCommandToNodes(String baseXORCmd, int loRange, int hiRange)
+	public void sendXORCommandToNodes(String baseXORCmd, int loRange, int hiRange)
 	{
 		Vector<Node> nodes; // some place to store all of our nodes
 		
@@ -77,15 +78,46 @@ public class SSHBuddy
 		NodeGenerator nodeGen = new NodeGenerator(baseHostname, 
 				loRange, hiRange, baseXORCmd);
 		
-		nodes = nodeGen.generateWallNodes();
+		System.out.println("Generating wall nodes...");
+		nodes = nodeGen.generateWallXORNodes();
 		
 		// start a new thread to ssh into each node and execute that command
 		for(int i = 0; i < nodes.size(); i++)
 		{
+			System.out.println("Starting thread for node " + i + ".");
 			Thread t = new Thread(
 					new NodeSessionHandler(nodes.elementAt(i), authClient));
 			t.start();
 		}
 	}
-
+	
+	/**
+	 * This method is also highly specialized.  It will send the command
+	 * contained in the string "cmd" to all of the nodes in the range
+	 * specified.
+	 * 
+	 * @param cmmd The command to send to all nodes
+	 * @param loRange The beginning of the range of nodes to start this on
+	 * @param hiRange The high end of the range to start the demo on
+	 */
+	public void sendCommandToNodes(String cmd, int loRange, int hiRange)
+	{
+		Vector<Node> nodes; // some place to store all of our nodes
+		
+		// generate hostname to XOR offset relationship
+		NodeGenerator nodeGen = new NodeGenerator(baseHostname, 
+				loRange, hiRange, cmd);
+		
+		System.out.println("Generating wall nodes...");
+		nodes = nodeGen.generateWallNodes();
+		
+		// start a new thread to ssh into each node and execute that command
+		for(int i = 0; i < nodes.size(); i++)
+		{
+			System.out.println("Starting thread for node " + i + ".");
+			Thread t = new Thread(
+					new NodeSessionHandler(nodes.elementAt(i), authClient));
+			t.start();
+		}
+	}
 }

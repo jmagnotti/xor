@@ -28,7 +28,7 @@ public class NetworkSettingsFrame extends JFrame implements ActionListener {
 
 	private String defaultHost;
 
-	// the string to catch in the action listender
+	// the string to catch in the action listener
 	private final String updateCommand = "update";
 
 	/**

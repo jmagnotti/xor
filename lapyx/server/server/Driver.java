@@ -1,6 +1,8 @@
+package server;
 import java.io.*;
 
-public class LapyxDriver
+
+public class Driver
 {
 	public static void main(String args[])
 	{
