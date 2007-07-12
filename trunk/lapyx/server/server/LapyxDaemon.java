@@ -24,6 +24,8 @@ public class LapyxDaemon
 	private ServerSocket socket; 
 	private Properties programs; // maps program names to script paths
 	
+	private final NodeConnectionManager ncm;
+	
 	/**
 	 * Opens the XML file and reads them from it, then listens
 	 * for incoming connections on PORT_NUMBER.
@@ -52,6 +54,8 @@ public class LapyxDaemon
 		} catch (IOException e) {
 				e.printStackTrace(); 
 		} 
+		
+		ncm = new NodeConnectionManager("wall-node", 16, 58, "display", "display");
 	} 
 
     public void start() throws IOException 
@@ -120,33 +124,22 @@ public class LapyxDaemon
 			System.out.println("Leaving thread.");
 		} 
 		
+		/**
+		 * 
+		 * @param program Raw data sent from client (program name)
+		 */
 		private void sendToAllNodes(String program)
 		{
-			boolean needOffsets; // is this an XOR launch?
-			SSHBuddy ssh; 
-			// look up the command to run for 
-			// the given program name
-			String cmdToSend = programs.getProperty(program);
-			
-			// if we find the work XOR in the program name we know
-			// we have to launch an XOR app.
-			needOffsets = program.contains("XOR");
-			
-			
-			// ensure that we actually looked something up
-			if (cmdToSend != null) {
-				System.out.println("Sending \"" + cmdToSend + "\" now.");
-				//try {
-					//ssh = new SSHBuddy("wall-node", "display", "/home/display/.ssh/id_rsa");
-					ssh = new SSHBuddy("wall-node", "display", "display", true);
-					
-					if(needOffsets)
-						ssh.sendXORCommandToNodes(cmdToSend, 16, 58);
-					else
-						ssh.sendCommandToNodes(cmdToSend, 16, 58);
-				//} catch (IOException ioe) {
-				//	System.out.println("Couldn't open the public key file!");
-				//}
+			String command; // the command looked up in properties
+			command = programs.getProperty(program);
+			if(program.contains("XOR")) // XOR command
+			{
+				// Send a launch xor demo command
+				LaunchXORDemo lxd = new LaunchXORDemo(command);
+				ncm.sendToNodes(lxd, 15, 58);
+			} else if(command != null) { // regular command
+				RegularCommand rc = new RegularCommand(command);
+				ncm.sendToNodes(rc, 16, 58);
 			}
 		}
     } 
