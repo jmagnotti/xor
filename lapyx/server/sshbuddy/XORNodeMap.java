@@ -58,7 +58,7 @@ public class XORNodeMap
 		{
 			// calculate XOR offset for these nodes
 			int colOffset = -1 * ((16 - i) / 3 + 2) - 3;
-			int rowOffset = (i - 16) % 3 - 1;
+			int rowOffset = -1 * ((i - 16) % 3 - 1);
 			nodeToOffset.put(i, colOffset + " " + rowOffset);
 		}
 		

@@ -136,7 +136,7 @@ public class LapyxDaemon
 			{
 				// Send a launch xor demo command
 				LaunchXORDemo lxd = new LaunchXORDemo(command);
-				ncm.sendToNodes(lxd, 15, 58);
+				ncm.sendToNodes(lxd, 16, 58);
 			} else if(command != null) { // regular command
 				RegularCommand rc = new RegularCommand(command);
 				ncm.sendToNodes(rc, 16, 58);

@@ -67,7 +67,7 @@ public class NodeConnectionManager
 	{
 		for(int i = loRange; i <= hiRange; i++)
 		{
-			CommandSender cs = new CommandSender(baseHostname + " " + i,
+			CommandSender cs = new CommandSender(baseHostname + i,
 					i, authClient);
 			threads.put(i, cs);
 			

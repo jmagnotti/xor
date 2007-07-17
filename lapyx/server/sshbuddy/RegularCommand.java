@@ -11,7 +11,7 @@ public class RegularCommand implements LapyxCommand
 		this.command = command;
 	}
 	
-	@Override
+	//@Override
 	public void process(CommandSender r)
 	{
 		r.sendCommand(command);
