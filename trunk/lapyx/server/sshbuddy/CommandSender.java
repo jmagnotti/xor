@@ -1,9 +1,11 @@
 package sshbuddy;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import com.sshtools.j2ssh.SshClient;
@@ -25,6 +27,7 @@ public class CommandSender implements Runnable
 	private SshClient 			 client;
 	private SessionChannelClient session;
 	private OutputStream 		 out;
+	private BufferedWriter       writer;
 	private InputStream 		 in;
 	private BufferedReader 		 reader;
 	private int                  retry_count;
@@ -35,6 +38,8 @@ public class CommandSender implements Runnable
 	 * because this thread is useless without an auth client.
 	 */
 	protected CommandSender(String host, int nodeNum) {
+		commands = new ArrayList<LapyxCommand>();
+		
 		map = XORNodeMap.getInstance();
 		this.host 	 = host;
 		this.nodeNum = nodeNum;
@@ -75,8 +80,10 @@ public class CommandSender implements Runnable
 			session = client.openSessionChannel();
 			session.startShell();
 
+			System.out.println("Initializing output stream.");
 			// Create an output stream to write bytes to (send commands)
-			OutputStream out = session.getOutputStream();
+			out = session.getOutputStream();
+			//writer = new BufferedWriter(new OutputStreamWriter(out));
 
 			// Make an input stream so we can read responses 
 			// This isn't completely necessary.
@@ -115,9 +122,23 @@ public class CommandSender implements Runnable
 
 	public void sendCommand(String string)
 	{
+		System.out.println("Sending command \"" + string +"\" to " + host + ".");
+		
 		try {
 			out.write(string.getBytes());
+			out.close();
 			
+			/* DIRTY HACK!
+			 * For whatever reason the output stream bytes do not get
+			 * sent until the stream is closed. At which point, there is
+			 * no way to reopen the stream.  To remedy this, I create a 
+			 * new session and get a new output stream for each command
+			 * sent.
+			 */
+			session = client.openSessionChannel();
+			session.startShell();
+			out = session.getOutputStream();
+
 			// read response
 			String line = reader.readLine();
 			
@@ -129,6 +150,7 @@ public class CommandSender implements Runnable
 			retry_count = 0; // reset retry count
 			
 		} catch (IOException ioe) {
+			System.out.println(ioe);
 			System.out.println("Failed to send... retrying...");
 			// retry three times
 			if (retry_count < 3){
@@ -155,12 +177,13 @@ public class CommandSender implements Runnable
 		return done;
 	}
 
-	@Override
+	//@Override
 	public void run() {
 		while (!isDone()) {
 			if (!commands.isEmpty()) {
 				for (LapyxCommand lc : commands)
 					lc.process(this);
+				clearCommands();
 			}
 
 			try {

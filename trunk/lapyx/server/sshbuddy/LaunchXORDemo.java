@@ -11,7 +11,7 @@ public class LaunchXORDemo implements LapyxCommand
 		this.command = command;
 	}
 
-	@Override
+	//@Override
 	public void process(CommandSender r)
 	{
 		r.sendXORCommand(command);
