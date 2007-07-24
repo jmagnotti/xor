@@ -23,7 +23,7 @@ public:
 
 private:
 
-	Action();
+	DelayedAction();
 
 	Action * _action;
 	int _delay;
