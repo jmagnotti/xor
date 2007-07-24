@@ -1,0 +1,35 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR -framework OpenGL
+
+#Packages
+SRCS = Sphere.cpp BrickParser.cpp Ball.cpp BreakableBrick.cpp Brick.cpp BrickCollection.cpp Breakout.cpp Game.cpp GameSpace.cpp GameState.cpp LoseState.cpp Paddle.cpp PlayState.cpp ReadyState.cpp WinState.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Breakout
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Breakout:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it

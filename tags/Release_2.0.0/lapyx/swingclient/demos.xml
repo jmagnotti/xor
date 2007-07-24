@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Edited by Kris 6/28/07</comment>
+<entry key="VLC">perl lapyxexecute.pl vlc</entry>
+<entry key="Kill VLC">perl lapyxexecute.pl killallvlc</entry>
+<entry key="XORCars">perl lapyxexecute.pl cars</entry>
+<entry key="Kill Cars">perl lapyxexecute.pl killallcars</entry>
+<entry key="XORPhotoalbum">perl lapyxexecute.pl photoalbum</entry>
+<entry key="Kill Photoalbum">perl lapyxexecute.pl killallphotoalbum</entry>
+</properties>

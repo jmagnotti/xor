@@ -1,0 +1,207 @@
+#Makefile for keyboard demo, *nix
+#
+CC = g++ -g
+
+LIBS = -L../../../lib -lmingw32 -mwindows -lSDLmain -lSDL -lopengl32 -lglu32 -lm -lXOR
+
+#Packages
+SRCS = CubeDemo.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = CubeDemo
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+HelloWorld:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -f Makefile.mingw $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+CubeDemoo: ../../xor.h ../../event/timer/TimerStub.h
+CubeDemoo: ../../event/timer/Timer.h ../../../include/SDL.h
+CubeDemoo: ../../../include/SDL_main.h ../../../include/SDL_types.h
+CubeDemoo: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+CubeDemoo: ../../../include/begin_code.h ../../../include/close_code.h
+CubeDemoo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+CubeDemoo: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+CubeDemoo: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+CubeDemoo: ../../../include/SDL_events.h ../../../include/SDL_active.h
+CubeDemoo: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+CubeDemoo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+CubeDemoo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+CubeDemoo: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
+CubeDemoo: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CubeDemoo: ../../multicast/MulticastSocketPool.h
+CubeDemoo: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+CubeDemoo: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+CubeDemoo: ../../core/Controller.h ../../../include/SDL.h
+CubeDemoo: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CubeDemoo: ../../event/keyboard/KeyboardListener.h
+CubeDemoo: ../../event/keyboard/KeyEvent.h
+CubeDemoo: ../../event/keyboard/KeyEventFactory.h
+CubeDemoo: ../../event/keyboard/KeyDownEvent.h
+CubeDemoo: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CubeDemoo: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+CubeDemoo: ../../event/mouse/MouseEventFactory.h
+CubeDemoo: ../../event/mouse/MouseButtonDown.h
+CubeDemoo: ../../event/mouse/MouseClickEvent.h
+CubeDemoo: ../../event/mouse/MouseButtonUp.h
+CubeDemoo: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CubeDemoo: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CubeDemoo: ../../event/timer/Timer.h ../../core/Window.h
+CubeDemoo: ../../event/reshape/ReshapeListener.h
+CubeDemoo: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CubeDemoo: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CubeDemoo: ../../geometry/Vector2D.h ../../core/World.h
+CubeDemoo: ../../core/Renderable.h ../../object3D/Object3D.h
+CubeDemoo: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CubeDemoo: ../../geometry/Vector3D.h ../../paint/Paint.h
+CubeDemoo: ../../texture/Texture.h ../../../include/SDL_image.h
+CubeDemoo: ../../../include/SDL.h ../../../include/SDL_opengl.h
+CubeDemoo: ../../paint/Color.h ../../core/Renderable.h
+CubeDemoo: ../../object3D/Point3D.h ../../object3D/Object3D.h
+CubeDemoo: ../../core/XavierConfiguration.h
+CubeDemoo: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+CubeDemoo: ../../transform/Rotate.h ../../interpolation/InterpolationEngine.h
+CubeDemoo: ../../interpolation/InterpolationListener.h
+CubeDemoo: ../../interpolation/Interpolator.h
+CubeDemoo: ../../interpolation/InterpolatorFactory.h
+CubeDemoo: ../../interpolation/LinearInterpolator.h
+CubeDemoo: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
+CubeDemoo: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+CubeDemoo: ../../event/keyboard/KeyboardStub.h
+CubeDemoo: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+CubeDemoo: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+CubeDemoo: ../../paint/Color.h ../../core/Camera.h
+CubeDemoo: ../../core/CameraListener.h ../../object3D/Transformable.h
+CubeDemoo: ../../transform/Transform.h
+CubeDemoo: ../../transform/CoordinateSystemFactory.h
+CubeDemoo: ../../transform/CoordinateSystem.h
+CubeDemoo: ../../transform/OpenGLCoordinateSystem.h
+CubeDemoo: ../../transform/MacCoordinateSystem.h
+CubeDemoo: ../../transform/MathCoordinateSystem.h
+CubeDemoo: ../../transform/LeftOpenGLCoordinateSystem.h
+CubeDemoo: ../../transform/EngineerCoordinateSystem.h
+CubeDemoo: ../../event/timer/TimerListener.h
+CubeDemoo: ../../event/reshape/ReshapeEvent.h
+CubeDemoo: ../../event/timer/IntervalTimer.h
+CubeDemoo: ../../event/timer/TimerListener.h ../../event/keyboard/KeyEvent.h
+CubeDemoo: ../../event/keyboard/SpecialKeyEvent.h
+CubeDemoo: ../../event/keyboard/KeyboardStub.h
+CubeDemoo: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
+CubeDemoo: ../../event/keyboard/KeyboardSkeleton.h
+CubeDemoo: ../../event/keyboard/KeyboardListener.h
+CubeDemoo: ../../event/keyboard/DefaultKeyboardListener.h
+CubeDemoo: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+CubeDemoo: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CubeDemoo: ../../event/keyboard/RegularKeyEvent.h
+CubeDemoo: ../../event/keyboard/KeyDownEvent.h
+CubeDemoo: ../../event/keyboard/KeyEventFactory.h
+CubeDemoo: ../../event/reshape/ReshapeEvent.h
+CubeDemoo: ../../event/reshape/ReshapeListener.h
+CubeDemoo: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+CubeDemoo: ../../event/mouse/MouseSkeleton.h
+CubeDemoo: ../../event/mouse/MouseListener.h
+CubeDemoo: ../../event/mouse/MouseClickEvent.h
+CubeDemoo: ../../event/mouse/DefaultMouseListener.h
+CubeDemoo: ../../object3D/Transformable.h ../../event/mouse/MouseButtonDown.h
+CubeDemoo: ../../event/mouse/MouseMotionEvent.h
+CubeDemoo: ../../event/mouse/MouseEventFactory.h
+CubeDemoo: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CubeDemoo: ../../event/FullEventHandlerFactory.h
+CubeDemoo: ../../event/keyboard/KeyboardSkeleton.h
+CubeDemoo: ../../event/mouse/MouseSkeleton.h
+CubeDemoo: ../../event/timer/TimerSkeleton.h
+CubeDemoo: ../../event/InputEventProxyFactory.h
+CubeDemoo: ../../event/FullEventProxyFactory.h
+CubeDemoo: ../../event/InputEventHandlerFactory.h ../../event/EventFactory.h
+CubeDemoo: ../../interpolation/InterpolationListener.h
+CubeDemoo: ../../interpolation/CameraRoller.h ../../interpolation/Waypoint.h
+CubeDemoo: ../../interpolation/TimedInterpolation.h
+CubeDemoo: ../../interpolation/InterpolatorFactory.h
+CubeDemoo: ../../interpolation/TimedInterpolation.h
+CubeDemoo: ../../interpolation/LinearInterpolator.h
+CubeDemoo: ../../interpolation/InterpolationEngine.h
+CubeDemoo: ../../interpolation/ContinuousInterpolation.h
+CubeDemoo: ../../interpolation/Interpolator.h
+CubeDemoo: ../../interpolation/WaypointCollection.h
+CubeDemoo: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+CubeDemoo: ../../core/DebugCamera.h ../../core/Controller.h
+CubeDemoo: ../../core/Controller.h ../../core/XavierConfiguration.h
+CubeDemoo: ../../core/World.h ../../core/Window.h ../../core/Camera.h
+CubeDemoo: ../../core/Renderable.h ../../geometry/Vector3D.h
+CubeDemoo: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+CubeDemoo: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+CubeDemoo: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+CubeDemoo: ../../geometry/Vector2D.h ../../model/MilkshapeModel.h
+CubeDemoo: ../../model/Model.h ../../texture/TextureFactory.h
+CubeDemoo: ../../texture/Texture.h ../../model/Model.h
+CubeDemoo: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CubeDemoo: ../../shape/CollisionRenderable.h ../../texture/Texture.h
+CubeDemoo: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+CubeDemoo: ../../util/PointScale.h ../../terrain/NullHeightFieldStrategy.h
+CubeDemoo: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+CubeDemoo: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CubeDemoo: ../../terrain/HeightField.h ../../terrain/HeightFieldStrategy.h
+CubeDemoo: ../../terrain/ImageHeightFieldStrategy.h
+CubeDemoo: ../../terrain/HeightFieldFactory.h
+CubeDemoo: ../../terrain/MatrixHeightFieldStrategy.h
+CubeDemoo: ../../terrain/FunctionHeightFieldStrategy.h
+CubeDemoo: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
+CubeDemoo: ../../multicast/mcreceive.h ../../multicast/Multicast.h
+CubeDemoo: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+CubeDemoo: ../../paint/Color.h ../../transform/Orientation.h
+CubeDemoo: ../../transform/Translate.h ../../transform/CoordinateSystem.h
+CubeDemoo: ../../transform/Translate.h ../../transform/Rotate.h
+CubeDemoo: ../../transform/OpenGLCoordinateSystem.h
+CubeDemoo: ../../transform/TransformFactory.h
+CubeDemoo: ../../transform/MathCoordinateSystem.h
+CubeDemoo: ../../transform/EngineerCoordinateSystem.h
+CubeDemoo: ../../transform/Transform.h
+CubeDemoo: ../../transform/LeftOpenGLCoordinateSystem.h
+CubeDemoo: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
+CubeDemoo: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
+CubeDemoo: ../../util/GraphicsConversionUtility.h ../../util/BehaviorParser.h
+CubeDemoo: ../../transform/TransformFactory.h ../../util/xmlParser.h
+CubeDemoo: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+CubeDemoo: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CubeDemoo: ../../object2D/Object2D.h ../../core/Window.h
+CubeDemoo: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CubeDemoo: ../../util/PointScale.h ../../object2D/Rectangle2D.h
+CubeDemoo: ../../object2D/Object2D.h ../../object2D/String2D.h
+CubeDemoo: ../../object2D/Point2D.h ../../object3D/Arc3D.h
+CubeDemoo: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+CubeDemoo: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+CubeDemoo: ../../object3D/Sprite3DListener.h ../../object3D/Transformable.h
+CubeDemoo: ../../object3D/NoDepthTestQuadrilateral3D.h
+CubeDemoo: ../../object3D/Quadrilateral3D.h ../../object3D/Point3D.h
+CubeDemoo: ../../object3D/Quadrilateral3D.h ../../object3D/RectangularPrism.h
+CubeDemoo: ../../geometry/RectangularVolume.h
+CubeDemoo: ../../object3D/NormalPolygon3D.h
+CubeDemoo: ../../object3D/ExtrudedNormalPolygon3D.h
+CubeDemoo: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+CubeDemoo: ../../object3D/RectangularPrism.h
+CubeDemoo: ../../object3D/Object3DCollection.h
+CubeDemoo: ../../object3D/CompiledObject3D.h
+CubeDemoo: ../../object3D/Sprite3DListener.h ../../object3D/Particle.h
+CubeDemoo: ../../object3D/Object3DCollection.h
+CubeDemoo: ../../object3D/RectangularPrismFactory.h
+CubeDemoo: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h

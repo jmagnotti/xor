@@ -1,0 +1,565 @@
+#Makefile for maze demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS = KeyHandler.cpp Maze.cpp MazeParser.cpp MazeDriver.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Maze
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Maze:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+Mazeo: Maze.h ../../xor.h ../../event/timer/TimerStub.h
+Mazeo: ../../event/timer/Timer.h ../../../include/SDL.h
+Mazeo: ../../../include/SDL_main.h ../../../include/SDL_types.h
+Mazeo: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+Mazeo: ../../../include/begin_code.h ../../../include/close_code.h
+Mazeo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+Mazeo: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+Mazeo: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+Mazeo: ../../../include/SDL_events.h ../../../include/SDL_active.h
+Mazeo: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+Mazeo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+Mazeo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+Mazeo: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
+Mazeo: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Mazeo: ../../multicast/MulticastSocketPool.h
+Mazeo: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+Mazeo: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+Mazeo: ../../core/Controller.h ../../../include/SDL.h
+Mazeo: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+Mazeo: ../../event/keyboard/KeyboardListener.h
+Mazeo: ../../event/keyboard/KeyEvent.h ../../event/keyboard/KeyEventFactory.h
+Mazeo: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyUpEvent.h
+Mazeo: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+Mazeo: ../../event/mouse/MouseEvent.h ../../event/mouse/MouseEventFactory.h
+Mazeo: ../../event/mouse/MouseButtonDown.h
+Mazeo: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseButtonUp.h
+Mazeo: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Mazeo: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+Mazeo: ../../event/timer/Timer.h ../../core/Window.h
+Mazeo: ../../event/reshape/ReshapeListener.h
+Mazeo: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Mazeo: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+Mazeo: ../../geometry/Vector2D.h ../../core/Renderable.h ../../core/World.h
+Mazeo: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+Mazeo: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+Mazeo: ../../paint/Paint.h ../../texture/Texture.h
+Mazeo: ../../../include/SDL_image.h ../../../include/SDL.h
+Mazeo: ../../../include/SDL_opengl.h ../../paint/Color.h
+Mazeo: ../../core/Renderable.h ../../object3D/Point3D.h
+Mazeo: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+Mazeo: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+Mazeo: ../../transform/Rotate.h ../../interpolation/InterpolationEngine.h
+Mazeo: ../../interpolation/InterpolationListener.h
+Mazeo: ../../interpolation/Interpolator.h
+Mazeo: ../../interpolation/InterpolatorFactory.h
+Mazeo: ../../interpolation/LinearInterpolator.h
+Mazeo: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
+Mazeo: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+Mazeo: ../../event/keyboard/KeyboardStub.h ../../event/keyboard/Keyboard.h
+Mazeo: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+Mazeo: ../../event/timer/TimerStub.h ../../paint/Color.h ../../core/Camera.h
+Mazeo: ../../core/CameraListener.h ../../transform/Orientation.h
+Mazeo: ../../transform/Translate.h ../../event/Action.h
+Mazeo: ../../interpolation/InterpolatorFactory.h
+Mazeo: ../../interpolation/Interpolator.h
+Mazeo: ../../transform/CoordinateSystemFactory.h
+Mazeo: ../../transform/CoordinateSystem.h
+Mazeo: ../../transform/OpenGLCoordinateSystem.h
+Mazeo: ../../transform/MacCoordinateSystem.h
+Mazeo: ../../transform/MathCoordinateSystem.h
+Mazeo: ../../transform/LeftOpenGLCoordinateSystem.h
+Mazeo: ../../transform/EngineerCoordinateSystem.h
+Mazeo: ../../event/timer/TimerListener.h ../../event/reshape/ReshapeEvent.h
+Mazeo: ../../event/timer/IntervalTimer.h ../../event/timer/TimerListener.h
+Mazeo: ../../event/keyboard/KeyEvent.h ../../event/keyboard/SpecialKeyEvent.h
+Mazeo: ../../event/keyboard/KeyboardStub.h ../../event/keyboard/KeyUpEvent.h
+Mazeo: ../../event/keyboard/Keyboard.h
+Mazeo: ../../event/keyboard/KeyboardSkeleton.h
+Mazeo: ../../event/keyboard/KeyboardListener.h
+Mazeo: ../../event/keyboard/DefaultKeyboardListener.h
+Mazeo: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Mazeo: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Mazeo: ../../event/keyboard/RegularKeyEvent.h
+Mazeo: ../../event/keyboard/KeyDownEvent.h
+Mazeo: ../../event/keyboard/KeyEventFactory.h
+Mazeo: ../../event/reshape/ReshapeEvent.h
+Mazeo: ../../event/reshape/ReshapeListener.h
+Mazeo: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+Mazeo: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseListener.h
+Mazeo: ../../event/mouse/MouseClickEvent.h
+Mazeo: ../../event/mouse/DefaultMouseListener.h
+Mazeo: ../../event/mouse/MouseButtonDown.h
+Mazeo: ../../event/mouse/MouseMotionEvent.h
+Mazeo: ../../event/mouse/MouseEventFactory.h ../../event/mouse/MouseStub.h
+Mazeo: ../../event/mouse/Mouse.h ../../event/EventFactory.h
+Mazeo: ../../event/FullEventHandlerFactory.h
+Mazeo: ../../event/keyboard/KeyboardSkeleton.h
+Mazeo: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
+Mazeo: ../../event/InputEventProxyFactory.h
+Mazeo: ../../event/FullEventProxyFactory.h
+Mazeo: ../../event/InputEventHandlerFactory.h ../../event/Action.h
+Mazeo: ../../interpolation/InterpolationListener.h
+Mazeo: ../../interpolation/CameraRoller.h
+Mazeo: ../../interpolation/TimedInterpolation.h
+Mazeo: ../../interpolation/InterpolatorFactory.h
+Mazeo: ../../interpolation/Waypoint.h
+Mazeo: ../../interpolation/TimedInterpolation.h
+Mazeo: ../../interpolation/InterpolationEngine.h
+Mazeo: ../../interpolation/LinearInterpolator.h
+Mazeo: ../../interpolation/ContinuousInterpolation.h
+Mazeo: ../../interpolation/Interpolator.h
+Mazeo: ../../interpolation/WaypointCollection.h
+Mazeo: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+Mazeo: ../../core/DebugCamera.h ../../core/Controller.h
+Mazeo: ../../core/Controller.h ../../core/Renderable.h
+Mazeo: ../../core/XavierConfiguration.h ../../core/World.h
+Mazeo: ../../core/Window.h ../../core/Camera.h ../../geometry/Vector3D.h
+Mazeo: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+Mazeo: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Mazeo: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+Mazeo: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+Mazeo: ../../object2D/Object2D.h ../../core/Window.h
+Mazeo: ../../object2D/Object2D.h ../../object2D/String2D.h
+Mazeo: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Mazeo: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
+Mazeo: ../../transform/Transformable.h ../../transform/Transform.h
+Mazeo: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+Mazeo: ../../object3D/Triangle3D.h ../../object3D/Object3D.h
+Mazeo: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+Mazeo: ../../object3D/NoDepthTestQuadrilateral3D.h
+Mazeo: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+Mazeo: ../../texture/TextureScale.h ../../object3D/Point3D.h
+Mazeo: ../../object3D/Quadrilateral3D.h ../../object3D/RectangularPrism.h
+Mazeo: ../../geometry/RectangularVolume.h ../../object3D/NormalPolygon3D.h
+Mazeo: ../../object3D/Transformable3D.h
+Mazeo: ../../object3D/ExtrudedNormalPolygon3D.h
+Mazeo: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+Mazeo: ../../object3D/RectangularPrism.h ../../object3D/Object3DCollection.h
+Mazeo: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+Mazeo: ../../object3D/Sprite3DListener.h ../../object3D/Object3DCollection.h
+Mazeo: ../../object3D/CompiledObject3D.h
+Mazeo: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+Mazeo: ../../model/MilkshapeModel.h ../../model/Model.h
+Mazeo: ../../texture/TextureFactory.h ../../texture/Texture.h
+Mazeo: ../../model/Model.h ../../model/ModelFactory.h
+Mazeo: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+Mazeo: ../../texture/Texture.h ../../texture/TextureFactory.h
+Mazeo: ../../texture/TextureScale.h ../../terrain/NullHeightFieldStrategy.h
+Mazeo: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Mazeo: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+Mazeo: ../../terrain/HeightFieldStrategy.h
+Mazeo: ../../terrain/ImageHeightFieldStrategy.h
+Mazeo: ../../terrain/HeightFieldFactory.h
+Mazeo: ../../terrain/MatrixHeightFieldStrategy.h
+Mazeo: ../../terrain/FunctionHeightFieldStrategy.h ../../multicast/mcsend.h
+Mazeo: ../../multicast/MulticastSocket.h ../../multicast/mcreceive.h
+Mazeo: ../../multicast/Multicast.h ../../multicast/MulticastSocketPool.h
+Mazeo: ../../paint/Paint.h ../../paint/Color.h ../../transform/Orientation.h
+Mazeo: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+Mazeo: ../../transform/Rotate.h ../../transform/OpenGLCoordinateSystem.h
+Mazeo: ../../transform/TransformFactory.h
+Mazeo: ../../transform/MathCoordinateSystem.h
+Mazeo: ../../transform/EngineerCoordinateSystem.h ../../transform/Transform.h
+Mazeo: ../../transform/LeftOpenGLCoordinateSystem.h ../../transform/Stretch.h
+Mazeo: ../../transform/MacCoordinateSystem.h
+Mazeo: ../../transform/CoordinateSystemFactory.h ../../transform/Scale.h
+Mazeo: ../../transform/Transformable.h ../../util/GraphicsConversionUtility.h
+Mazeo: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+Mazeo: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
+Mazeo: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+Mazeo: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+MazeDrivero: MazeDriver.h ../../xor.h ../../event/timer/TimerStub.h
+MazeDrivero: ../../event/timer/Timer.h ../../../include/SDL.h
+MazeDrivero: ../../../include/SDL_main.h ../../../include/SDL_types.h
+MazeDrivero: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+MazeDrivero: ../../../include/begin_code.h ../../../include/close_code.h
+MazeDrivero: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+MazeDrivero: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+MazeDrivero: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+MazeDrivero: ../../../include/SDL_events.h ../../../include/SDL_active.h
+MazeDrivero: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+MazeDrivero: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+MazeDrivero: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+MazeDrivero: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
+MazeDrivero: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+MazeDrivero: ../../multicast/MulticastSocketPool.h
+MazeDrivero: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+MazeDrivero: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+MazeDrivero: ../../core/Controller.h ../../../include/SDL.h
+MazeDrivero: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+MazeDrivero: ../../event/keyboard/KeyboardListener.h
+MazeDrivero: ../../event/keyboard/KeyEvent.h
+MazeDrivero: ../../event/keyboard/KeyEventFactory.h
+MazeDrivero: ../../event/keyboard/KeyDownEvent.h
+MazeDrivero: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+MazeDrivero: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+MazeDrivero: ../../event/mouse/MouseEventFactory.h
+MazeDrivero: ../../event/mouse/MouseButtonDown.h
+MazeDrivero: ../../event/mouse/MouseClickEvent.h
+MazeDrivero: ../../event/mouse/MouseButtonUp.h
+MazeDrivero: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+MazeDrivero: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+MazeDrivero: ../../event/timer/Timer.h ../../core/Window.h
+MazeDrivero: ../../event/reshape/ReshapeListener.h
+MazeDrivero: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+MazeDrivero: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+MazeDrivero: ../../geometry/Vector2D.h ../../core/Renderable.h
+MazeDrivero: ../../core/World.h ../../object3D/Object3D.h
+MazeDrivero: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+MazeDrivero: ../../geometry/Vector3D.h ../../paint/Paint.h
+MazeDrivero: ../../texture/Texture.h ../../../include/SDL_image.h
+MazeDrivero: ../../../include/SDL.h ../../../include/SDL_opengl.h
+MazeDrivero: ../../paint/Color.h ../../core/Renderable.h
+MazeDrivero: ../../object3D/Point3D.h ../../object3D/Object3D.h
+MazeDrivero: ../../core/XavierConfiguration.h
+MazeDrivero: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+MazeDrivero: ../../transform/Rotate.h
+MazeDrivero: ../../interpolation/InterpolationEngine.h
+MazeDrivero: ../../interpolation/InterpolationListener.h
+MazeDrivero: ../../interpolation/Interpolator.h
+MazeDrivero: ../../interpolation/InterpolatorFactory.h
+MazeDrivero: ../../interpolation/LinearInterpolator.h
+MazeDrivero: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
+MazeDrivero: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+MazeDrivero: ../../event/keyboard/KeyboardStub.h
+MazeDrivero: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+MazeDrivero: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+MazeDrivero: ../../paint/Color.h ../../core/Camera.h
+MazeDrivero: ../../core/CameraListener.h ../../transform/Orientation.h
+MazeDrivero: ../../transform/Translate.h ../../event/Action.h
+MazeDrivero: ../../interpolation/InterpolatorFactory.h
+MazeDrivero: ../../interpolation/Interpolator.h
+MazeDrivero: ../../transform/CoordinateSystemFactory.h
+MazeDrivero: ../../transform/CoordinateSystem.h
+MazeDrivero: ../../transform/OpenGLCoordinateSystem.h
+MazeDrivero: ../../transform/MacCoordinateSystem.h
+MazeDrivero: ../../transform/MathCoordinateSystem.h
+MazeDrivero: ../../transform/LeftOpenGLCoordinateSystem.h
+MazeDrivero: ../../transform/EngineerCoordinateSystem.h
+MazeDrivero: ../../event/timer/TimerListener.h
+MazeDrivero: ../../event/reshape/ReshapeEvent.h
+MazeDrivero: ../../event/timer/IntervalTimer.h
+MazeDrivero: ../../event/timer/TimerListener.h
+MazeDrivero: ../../event/keyboard/KeyEvent.h
+MazeDrivero: ../../event/keyboard/SpecialKeyEvent.h
+MazeDrivero: ../../event/keyboard/KeyboardStub.h
+MazeDrivero: ../../event/keyboard/KeyUpEvent.h
+MazeDrivero: ../../event/keyboard/Keyboard.h
+MazeDrivero: ../../event/keyboard/KeyboardSkeleton.h
+MazeDrivero: ../../event/keyboard/KeyboardListener.h
+MazeDrivero: ../../event/keyboard/DefaultKeyboardListener.h
+MazeDrivero: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+MazeDrivero: ../../interpolation/InterpolationEngine.h ../../core/World.h
+MazeDrivero: ../../event/keyboard/RegularKeyEvent.h
+MazeDrivero: ../../event/keyboard/KeyDownEvent.h
+MazeDrivero: ../../event/keyboard/KeyEventFactory.h
+MazeDrivero: ../../event/reshape/ReshapeEvent.h
+MazeDrivero: ../../event/reshape/ReshapeListener.h
+MazeDrivero: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+MazeDrivero: ../../event/mouse/MouseSkeleton.h
+MazeDrivero: ../../event/mouse/MouseListener.h
+MazeDrivero: ../../event/mouse/MouseClickEvent.h
+MazeDrivero: ../../event/mouse/DefaultMouseListener.h
+MazeDrivero: ../../event/mouse/MouseButtonDown.h
+MazeDrivero: ../../event/mouse/MouseMotionEvent.h
+MazeDrivero: ../../event/mouse/MouseEventFactory.h
+MazeDrivero: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+MazeDrivero: ../../event/EventFactory.h ../../event/FullEventHandlerFactory.h
+MazeDrivero: ../../event/keyboard/KeyboardSkeleton.h
+MazeDrivero: ../../event/mouse/MouseSkeleton.h
+MazeDrivero: ../../event/timer/TimerSkeleton.h
+MazeDrivero: ../../event/InputEventProxyFactory.h
+MazeDrivero: ../../event/FullEventProxyFactory.h
+MazeDrivero: ../../event/InputEventHandlerFactory.h ../../event/Action.h
+MazeDrivero: ../../interpolation/InterpolationListener.h
+MazeDrivero: ../../interpolation/CameraRoller.h
+MazeDrivero: ../../interpolation/TimedInterpolation.h
+MazeDrivero: ../../interpolation/InterpolatorFactory.h
+MazeDrivero: ../../interpolation/Waypoint.h
+MazeDrivero: ../../interpolation/TimedInterpolation.h
+MazeDrivero: ../../interpolation/InterpolationEngine.h
+MazeDrivero: ../../interpolation/LinearInterpolator.h
+MazeDrivero: ../../interpolation/ContinuousInterpolation.h
+MazeDrivero: ../../interpolation/Interpolator.h
+MazeDrivero: ../../interpolation/WaypointCollection.h
+MazeDrivero: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+MazeDrivero: ../../core/DebugCamera.h ../../core/Controller.h
+MazeDrivero: ../../core/Controller.h ../../core/Renderable.h
+MazeDrivero: ../../core/XavierConfiguration.h ../../core/World.h
+MazeDrivero: ../../core/Window.h ../../core/Camera.h
+MazeDrivero: ../../geometry/Vector3D.h ../../geometry/Dimension2D.h
+MazeDrivero: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+MazeDrivero: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+MazeDrivero: ../../geometry/CylindricalVolume.h ../../geometry/Vector2D.h
+MazeDrivero: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+MazeDrivero: ../../core/Window.h ../../object2D/Object2D.h
+MazeDrivero: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+MazeDrivero: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+MazeDrivero: ../../object2D/Transformable2D.h ../../transform/Transformable.h
+MazeDrivero: ../../transform/Transform.h ../../object3D/Arc3D.h
+MazeDrivero: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+MazeDrivero: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+MazeDrivero: ../../object3D/Sprite3DListener.h
+MazeDrivero: ../../object3D/NoDepthTestQuadrilateral3D.h
+MazeDrivero: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+MazeDrivero: ../../texture/TextureScale.h ../../object3D/Point3D.h
+MazeDrivero: ../../object3D/Quadrilateral3D.h
+MazeDrivero: ../../object3D/RectangularPrism.h
+MazeDrivero: ../../geometry/RectangularVolume.h
+MazeDrivero: ../../object3D/NormalPolygon3D.h
+MazeDrivero: ../../object3D/Transformable3D.h
+MazeDrivero: ../../object3D/ExtrudedNormalPolygon3D.h
+MazeDrivero: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+MazeDrivero: ../../object3D/RectangularPrism.h
+MazeDrivero: ../../object3D/Object3DCollection.h
+MazeDrivero: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+MazeDrivero: ../../object3D/Sprite3DListener.h
+MazeDrivero: ../../object3D/Object3DCollection.h
+MazeDrivero: ../../object3D/CompiledObject3D.h
+MazeDrivero: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+MazeDrivero: ../../model/MilkshapeModel.h ../../model/Model.h
+MazeDrivero: ../../texture/TextureFactory.h ../../texture/Texture.h
+MazeDrivero: ../../model/Model.h ../../model/ModelFactory.h
+MazeDrivero: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+MazeDrivero: ../../texture/Texture.h ../../texture/TextureFactory.h
+MazeDrivero: ../../texture/TextureScale.h
+MazeDrivero: ../../terrain/NullHeightFieldStrategy.h
+MazeDrivero: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+MazeDrivero: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+MazeDrivero: ../../terrain/HeightFieldStrategy.h
+MazeDrivero: ../../terrain/ImageHeightFieldStrategy.h
+MazeDrivero: ../../terrain/HeightFieldFactory.h
+MazeDrivero: ../../terrain/MatrixHeightFieldStrategy.h
+MazeDrivero: ../../terrain/FunctionHeightFieldStrategy.h
+MazeDrivero: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
+MazeDrivero: ../../multicast/mcreceive.h ../../multicast/Multicast.h
+MazeDrivero: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+MazeDrivero: ../../paint/Color.h ../../transform/Orientation.h
+MazeDrivero: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+MazeDrivero: ../../transform/Rotate.h
+MazeDrivero: ../../transform/OpenGLCoordinateSystem.h
+MazeDrivero: ../../transform/TransformFactory.h
+MazeDrivero: ../../transform/MathCoordinateSystem.h
+MazeDrivero: ../../transform/EngineerCoordinateSystem.h
+MazeDrivero: ../../transform/Transform.h
+MazeDrivero: ../../transform/LeftOpenGLCoordinateSystem.h
+MazeDrivero: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
+MazeDrivero: ../../transform/CoordinateSystemFactory.h
+MazeDrivero: ../../transform/Scale.h ../../transform/Transformable.h
+MazeDrivero: ../../util/GraphicsConversionUtility.h
+MazeDrivero: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+MazeDrivero: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
+MazeDrivero: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+MazeDrivero: ../../util/BitmapFontUtil.h ../../util/PointScale.h Maze.h
+MazeDrivero: MazeParser.h
+MazeParsero: MazeParser.h ../../xor.h ../../event/timer/TimerStub.h
+MazeParsero: ../../event/timer/Timer.h ../../../include/SDL.h
+MazeParsero: ../../../include/SDL_main.h ../../../include/SDL_types.h
+MazeParsero: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+MazeParsero: ../../../include/begin_code.h ../../../include/close_code.h
+MazeParsero: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+MazeParsero: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+MazeParsero: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+MazeParsero: ../../../include/SDL_events.h ../../../include/SDL_active.h
+MazeParsero: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+MazeParsero: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+MazeParsero: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+MazeParsero: ../../../include/SDL_version.h ../../event/timer/TimerListener.h
+MazeParsero: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+MazeParsero: ../../multicast/MulticastSocketPool.h
+MazeParsero: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+MazeParsero: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+MazeParsero: ../../core/Controller.h ../../../include/SDL.h
+MazeParsero: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+MazeParsero: ../../event/keyboard/KeyboardListener.h
+MazeParsero: ../../event/keyboard/KeyEvent.h
+MazeParsero: ../../event/keyboard/KeyEventFactory.h
+MazeParsero: ../../event/keyboard/KeyDownEvent.h
+MazeParsero: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+MazeParsero: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+MazeParsero: ../../event/mouse/MouseEventFactory.h
+MazeParsero: ../../event/mouse/MouseButtonDown.h
+MazeParsero: ../../event/mouse/MouseClickEvent.h
+MazeParsero: ../../event/mouse/MouseButtonUp.h
+MazeParsero: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+MazeParsero: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+MazeParsero: ../../event/timer/Timer.h ../../core/Window.h
+MazeParsero: ../../event/reshape/ReshapeListener.h
+MazeParsero: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+MazeParsero: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+MazeParsero: ../../geometry/Vector2D.h ../../core/Renderable.h
+MazeParsero: ../../core/World.h ../../object3D/Object3D.h
+MazeParsero: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+MazeParsero: ../../geometry/Vector3D.h ../../paint/Paint.h
+MazeParsero: ../../texture/Texture.h ../../../include/SDL_image.h
+MazeParsero: ../../../include/SDL.h ../../../include/SDL_opengl.h
+MazeParsero: ../../paint/Color.h ../../core/Renderable.h
+MazeParsero: ../../object3D/Point3D.h ../../object3D/Object3D.h
+MazeParsero: ../../core/XavierConfiguration.h
+MazeParsero: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+MazeParsero: ../../transform/Rotate.h
+MazeParsero: ../../interpolation/InterpolationEngine.h
+MazeParsero: ../../interpolation/InterpolationListener.h
+MazeParsero: ../../interpolation/Interpolator.h
+MazeParsero: ../../interpolation/InterpolatorFactory.h
+MazeParsero: ../../interpolation/LinearInterpolator.h
+MazeParsero: ../../util/GraphicsConversionUtility.h ../../transform/Scale.h
+MazeParsero: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+MazeParsero: ../../event/keyboard/KeyboardStub.h
+MazeParsero: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+MazeParsero: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+MazeParsero: ../../paint/Color.h ../../core/Camera.h
+MazeParsero: ../../core/CameraListener.h ../../transform/Orientation.h
+MazeParsero: ../../transform/Translate.h ../../event/Action.h
+MazeParsero: ../../interpolation/InterpolatorFactory.h
+MazeParsero: ../../interpolation/Interpolator.h
+MazeParsero: ../../transform/CoordinateSystemFactory.h
+MazeParsero: ../../transform/CoordinateSystem.h
+MazeParsero: ../../transform/OpenGLCoordinateSystem.h
+MazeParsero: ../../transform/MacCoordinateSystem.h
+MazeParsero: ../../transform/MathCoordinateSystem.h
+MazeParsero: ../../transform/LeftOpenGLCoordinateSystem.h
+MazeParsero: ../../transform/EngineerCoordinateSystem.h
+MazeParsero: ../../event/timer/TimerListener.h
+MazeParsero: ../../event/reshape/ReshapeEvent.h
+MazeParsero: ../../event/timer/IntervalTimer.h
+MazeParsero: ../../event/timer/TimerListener.h
+MazeParsero: ../../event/keyboard/KeyEvent.h
+MazeParsero: ../../event/keyboard/SpecialKeyEvent.h
+MazeParsero: ../../event/keyboard/KeyboardStub.h
+MazeParsero: ../../event/keyboard/KeyUpEvent.h
+MazeParsero: ../../event/keyboard/Keyboard.h
+MazeParsero: ../../event/keyboard/KeyboardSkeleton.h
+MazeParsero: ../../event/keyboard/KeyboardListener.h
+MazeParsero: ../../event/keyboard/DefaultKeyboardListener.h
+MazeParsero: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+MazeParsero: ../../interpolation/InterpolationEngine.h ../../core/World.h
+MazeParsero: ../../event/keyboard/RegularKeyEvent.h
+MazeParsero: ../../event/keyboard/KeyDownEvent.h
+MazeParsero: ../../event/keyboard/KeyEventFactory.h
+MazeParsero: ../../event/reshape/ReshapeEvent.h
+MazeParsero: ../../event/reshape/ReshapeListener.h
+MazeParsero: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+MazeParsero: ../../event/mouse/MouseSkeleton.h
+MazeParsero: ../../event/mouse/MouseListener.h
+MazeParsero: ../../event/mouse/MouseClickEvent.h
+MazeParsero: ../../event/mouse/DefaultMouseListener.h
+MazeParsero: ../../event/mouse/MouseButtonDown.h
+MazeParsero: ../../event/mouse/MouseMotionEvent.h
+MazeParsero: ../../event/mouse/MouseEventFactory.h
+MazeParsero: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+MazeParsero: ../../event/EventFactory.h ../../event/FullEventHandlerFactory.h
+MazeParsero: ../../event/keyboard/KeyboardSkeleton.h
+MazeParsero: ../../event/mouse/MouseSkeleton.h
+MazeParsero: ../../event/timer/TimerSkeleton.h
+MazeParsero: ../../event/InputEventProxyFactory.h
+MazeParsero: ../../event/FullEventProxyFactory.h
+MazeParsero: ../../event/InputEventHandlerFactory.h ../../event/Action.h
+MazeParsero: ../../interpolation/InterpolationListener.h
+MazeParsero: ../../interpolation/CameraRoller.h
+MazeParsero: ../../interpolation/TimedInterpolation.h
+MazeParsero: ../../interpolation/InterpolatorFactory.h
+MazeParsero: ../../interpolation/Waypoint.h
+MazeParsero: ../../interpolation/TimedInterpolation.h
+MazeParsero: ../../interpolation/InterpolationEngine.h
+MazeParsero: ../../interpolation/LinearInterpolator.h
+MazeParsero: ../../interpolation/ContinuousInterpolation.h
+MazeParsero: ../../interpolation/Interpolator.h
+MazeParsero: ../../interpolation/WaypointCollection.h
+MazeParsero: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+MazeParsero: ../../core/DebugCamera.h ../../core/Controller.h
+MazeParsero: ../../core/Controller.h ../../core/Renderable.h
+MazeParsero: ../../core/XavierConfiguration.h ../../core/World.h
+MazeParsero: ../../core/Window.h ../../core/Camera.h
+MazeParsero: ../../geometry/Vector3D.h ../../geometry/Dimension2D.h
+MazeParsero: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+MazeParsero: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+MazeParsero: ../../geometry/CylindricalVolume.h ../../geometry/Vector2D.h
+MazeParsero: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+MazeParsero: ../../core/Window.h ../../object2D/Object2D.h
+MazeParsero: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+MazeParsero: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+MazeParsero: ../../object2D/Transformable2D.h ../../transform/Transformable.h
+MazeParsero: ../../transform/Transform.h ../../object3D/Arc3D.h
+MazeParsero: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+MazeParsero: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+MazeParsero: ../../object3D/Sprite3DListener.h
+MazeParsero: ../../object3D/NoDepthTestQuadrilateral3D.h
+MazeParsero: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+MazeParsero: ../../texture/TextureScale.h ../../object3D/Point3D.h
+MazeParsero: ../../object3D/Quadrilateral3D.h
+MazeParsero: ../../object3D/RectangularPrism.h
+MazeParsero: ../../geometry/RectangularVolume.h
+MazeParsero: ../../object3D/NormalPolygon3D.h
+MazeParsero: ../../object3D/Transformable3D.h
+MazeParsero: ../../object3D/ExtrudedNormalPolygon3D.h
+MazeParsero: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+MazeParsero: ../../object3D/RectangularPrism.h
+MazeParsero: ../../object3D/Object3DCollection.h
+MazeParsero: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+MazeParsero: ../../object3D/Sprite3DListener.h
+MazeParsero: ../../object3D/Object3DCollection.h
+MazeParsero: ../../object3D/CompiledObject3D.h
+MazeParsero: ../../object3D/RectangularPrismFactory.h ../../object3D/Cube.h
+MazeParsero: ../../model/MilkshapeModel.h ../../model/Model.h
+MazeParsero: ../../texture/TextureFactory.h ../../texture/Texture.h
+MazeParsero: ../../model/Model.h ../../model/ModelFactory.h
+MazeParsero: ../../model/MilkshapeModel.h ../../shape/CollisionRenderable.h
+MazeParsero: ../../texture/Texture.h ../../texture/TextureFactory.h
+MazeParsero: ../../texture/TextureScale.h
+MazeParsero: ../../terrain/NullHeightFieldStrategy.h
+MazeParsero: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+MazeParsero: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+MazeParsero: ../../terrain/HeightFieldStrategy.h
+MazeParsero: ../../terrain/ImageHeightFieldStrategy.h
+MazeParsero: ../../terrain/HeightFieldFactory.h
+MazeParsero: ../../terrain/MatrixHeightFieldStrategy.h
+MazeParsero: ../../terrain/FunctionHeightFieldStrategy.h
+MazeParsero: ../../multicast/mcsend.h ../../multicast/MulticastSocket.h
+MazeParsero: ../../multicast/mcreceive.h ../../multicast/Multicast.h
+MazeParsero: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+MazeParsero: ../../paint/Color.h ../../transform/Orientation.h
+MazeParsero: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+MazeParsero: ../../transform/Rotate.h
+MazeParsero: ../../transform/OpenGLCoordinateSystem.h
+MazeParsero: ../../transform/TransformFactory.h
+MazeParsero: ../../transform/MathCoordinateSystem.h
+MazeParsero: ../../transform/EngineerCoordinateSystem.h
+MazeParsero: ../../transform/Transform.h
+MazeParsero: ../../transform/LeftOpenGLCoordinateSystem.h
+MazeParsero: ../../transform/Stretch.h ../../transform/MacCoordinateSystem.h
+MazeParsero: ../../transform/CoordinateSystemFactory.h
+MazeParsero: ../../transform/Scale.h ../../transform/Transformable.h
+MazeParsero: ../../util/GraphicsConversionUtility.h
+MazeParsero: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+MazeParsero: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
+MazeParsero: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+MazeParsero: ../../util/BitmapFontUtil.h ../../util/PointScale.h Maze.h

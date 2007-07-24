@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="Xavier">
+    <xsd:complexType>
+      <xsd:sequence maxOccurs="unbounded">
+	      <xsd:element ref="Servers" />
+      </xsd:sequence>
+    <xsd:attribute name="Name" type="xsd:string" use="required" />
+  </xsd:complexType>
+  </xsd:element>
+
+<xsd:element name="Servers">
+  <xsd:complexType>
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element ref="Server" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Server">
+  <xsd:complexType>
+    <xsd:attribute name="Name" type="xsd:string" use="required" />
+    <xsd:attribute name="Address" type="xsd:string" use="required" />
+    <xsd:attribute name="xOffset" type="xsd:double" use="required" />
+    <xsd:attribute name="yOffset" type="xsd:double" use="required" />
+  </xsd:complexType>
+</xsd:element>  
+
+</xsd:schema>
+

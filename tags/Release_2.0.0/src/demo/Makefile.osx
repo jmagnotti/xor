@@ -1,0 +1,24 @@
+demos: helloworld/HelloWorld cubedemo/HelloWorld coordinatesystem/CoordinateSystem interpolationdemo/InterpolationDemo maze/Maze
+
+helloworld/HelloWorld:
+	cd helloworld && make -f Makefile.osx depend && make -f Makefile.osx
+
+cubedemo/HelloWorld:
+	cd cubedemo && make -f Makefile.osx depend && make -f Makefile.osx
+
+coordinatesystem/CoordinateSystem:
+	cd coordinatesystem && make -f Makefile.osx depend && make -f Makefile.osx
+
+interpolationdemo/InterpolationDemo:
+	cd interpolationdemo && make -f Makefile.osx depend && make -f Makefile.osx
+
+maze/Maze:
+	cd maze && make -f Makefile.osx depend && make -f Makefile.osx
+
+clean:
+	cd helloworld && make -f Makefile.osx clean
+	cd cubedemo && make -f Makefile.osx clean
+	cd coordinatesystem && make -f Makefile.osx clean
+	cd interpolationdemo && make -f Makefile.osx clean
+	cd maze && make -f Makefile.osx clean
+

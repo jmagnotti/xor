@@ -1,0 +1,251 @@
+#Makefile for coordinate system demo, *nix
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS = InterpolationDemo.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = InterpolationDemo
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+InterpolationDemo:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+InterpolationDemoo: ../../xor.h ../../event/timer/TimerStub.h
+InterpolationDemoo: ../../event/timer/Timer.h ../../../include/SDL.h
+InterpolationDemoo: ../../../include/SDL_main.h ../../../include/SDL_types.h
+InterpolationDemoo: ../../../include/SDL_getenv.h
+InterpolationDemoo: ../../../include/SDL_error.h
+InterpolationDemoo: ../../../include/begin_code.h
+InterpolationDemoo: ../../../include/close_code.h
+InterpolationDemoo: ../../../include/SDL_rwops.h ../../../include/SDL_timer.h
+InterpolationDemoo: ../../../include/SDL_audio.h
+InterpolationDemoo: ../../../include/SDL_byteorder.h
+InterpolationDemoo: ../../../include/SDL_cdrom.h
+InterpolationDemoo: ../../../include/SDL_joystick.h
+InterpolationDemoo: ../../../include/SDL_events.h
+InterpolationDemoo: ../../../include/SDL_active.h
+InterpolationDemoo: ../../../include/SDL_keyboard.h
+InterpolationDemoo: ../../../include/SDL_keysym.h
+InterpolationDemoo: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+InterpolationDemoo: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+InterpolationDemoo: ../../../include/SDL_version.h
+InterpolationDemoo: ../../event/timer/TimerListener.h
+InterpolationDemoo: ../../multicast/MulticastSocket.h
+InterpolationDemoo: ../../multicast/Multicast.h
+InterpolationDemoo: ../../multicast/MulticastSocketPool.h
+InterpolationDemoo: ../../multicast/MulticastSocket.h
+InterpolationDemoo: ../../event/timer/Timer.h
+InterpolationDemoo: ../../event/timer/TimerSkeleton.h
+InterpolationDemoo: ../../../include/SDL_thread.h ../../core/Controller.h
+InterpolationDemoo: ../../../include/SDL.h ../../event/EventFactory.h
+InterpolationDemoo: ../../event/keyboard/Keyboard.h
+InterpolationDemoo: ../../event/keyboard/KeyboardListener.h
+InterpolationDemoo: ../../event/keyboard/KeyEvent.h
+InterpolationDemoo: ../../event/keyboard/KeyEventFactory.h
+InterpolationDemoo: ../../event/keyboard/KeyDownEvent.h
+InterpolationDemoo: ../../event/keyboard/KeyUpEvent.h
+InterpolationDemoo: ../../event/mouse/Mouse.h
+InterpolationDemoo: ../../event/mouse/MouseListener.h
+InterpolationDemoo: ../../event/mouse/MouseEvent.h
+InterpolationDemoo: ../../event/mouse/MouseEventFactory.h
+InterpolationDemoo: ../../event/mouse/MouseButtonDown.h
+InterpolationDemoo: ../../event/mouse/MouseClickEvent.h
+InterpolationDemoo: ../../event/mouse/MouseButtonUp.h
+InterpolationDemoo: ../../event/mouse/MouseMotionEvent.h
+InterpolationDemoo: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+InterpolationDemoo: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+InterpolationDemoo: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+InterpolationDemoo: ../../event/reshape/ReshapeEvent.h
+InterpolationDemoo: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+InterpolationDemoo: ../../geometry/Dimension2D.h ../../geometry/Vector2D.h
+InterpolationDemoo: ../../core/Renderable.h ../../core/World.h
+InterpolationDemoo: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+InterpolationDemoo: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+InterpolationDemoo: ../../paint/Paint.h ../../texture/Texture.h
+InterpolationDemoo: ../../../include/SDL_image.h ../../../include/SDL.h
+InterpolationDemoo: ../../../include/SDL_opengl.h ../../paint/Color.h
+InterpolationDemoo: ../../core/Renderable.h ../../object3D/Point3D.h
+InterpolationDemoo: ../../object3D/Object3D.h
+InterpolationDemoo: ../../core/XavierConfiguration.h
+InterpolationDemoo: ../../transform/CoordinateSystem.h
+InterpolationDemoo: ../../transform/Transform.h ../../transform/Rotate.h
+InterpolationDemoo: ../../interpolation/InterpolationEngine.h
+InterpolationDemoo: ../../interpolation/InterpolationListener.h
+InterpolationDemoo: ../../interpolation/Interpolator.h
+InterpolationDemoo: ../../interpolation/InterpolatorFactory.h
+InterpolationDemoo: ../../interpolation/LinearInterpolator.h
+InterpolationDemoo: ../../util/GraphicsConversionUtility.h
+InterpolationDemoo: ../../transform/Scale.h
+InterpolationDemoo: ../../event/InputEventProxyFactory.h
+InterpolationDemoo: ../../event/EventFactory.h
+InterpolationDemoo: ../../event/keyboard/KeyboardStub.h
+InterpolationDemoo: ../../event/keyboard/Keyboard.h
+InterpolationDemoo: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+InterpolationDemoo: ../../event/timer/TimerStub.h ../../paint/Color.h
+InterpolationDemoo: ../../core/Camera.h ../../core/CameraListener.h
+InterpolationDemoo: ../../transform/Orientation.h ../../transform/Translate.h
+InterpolationDemoo: ../../event/Action.h
+InterpolationDemoo: ../../interpolation/InterpolatorFactory.h
+InterpolationDemoo: ../../interpolation/Interpolator.h
+InterpolationDemoo: ../../transform/CoordinateSystemFactory.h
+InterpolationDemoo: ../../transform/CoordinateSystem.h
+InterpolationDemoo: ../../transform/OpenGLCoordinateSystem.h
+InterpolationDemoo: ../../transform/MacCoordinateSystem.h
+InterpolationDemoo: ../../transform/MathCoordinateSystem.h
+InterpolationDemoo: ../../transform/LeftOpenGLCoordinateSystem.h
+InterpolationDemoo: ../../transform/EngineerCoordinateSystem.h
+InterpolationDemoo: ../../event/timer/TimerListener.h
+InterpolationDemoo: ../../event/reshape/ReshapeEvent.h
+InterpolationDemoo: ../../event/timer/IntervalTimer.h
+InterpolationDemoo: ../../event/timer/TimerListener.h
+InterpolationDemoo: ../../event/keyboard/KeyEvent.h
+InterpolationDemoo: ../../event/keyboard/SpecialKeyEvent.h
+InterpolationDemoo: ../../event/keyboard/KeyboardStub.h
+InterpolationDemoo: ../../event/keyboard/KeyUpEvent.h
+InterpolationDemoo: ../../event/keyboard/Keyboard.h
+InterpolationDemoo: ../../event/keyboard/KeyboardSkeleton.h
+InterpolationDemoo: ../../event/keyboard/KeyboardListener.h
+InterpolationDemoo: ../../event/keyboard/DefaultKeyboardListener.h
+InterpolationDemoo: ../../interpolation/TimedInterpolation.h
+InterpolationDemoo: ../../core/Controller.h
+InterpolationDemoo: ../../interpolation/InterpolationEngine.h
+InterpolationDemoo: ../../core/World.h ../../event/keyboard/RegularKeyEvent.h
+InterpolationDemoo: ../../event/keyboard/KeyDownEvent.h
+InterpolationDemoo: ../../event/keyboard/KeyEventFactory.h
+InterpolationDemoo: ../../event/reshape/ReshapeEvent.h
+InterpolationDemoo: ../../event/reshape/ReshapeListener.h
+InterpolationDemoo: ../../event/mouse/MouseButtonUp.h
+InterpolationDemoo: ../../event/mouse/MouseEvent.h
+InterpolationDemoo: ../../event/mouse/MouseSkeleton.h
+InterpolationDemoo: ../../event/mouse/MouseListener.h
+InterpolationDemoo: ../../event/mouse/MouseClickEvent.h
+InterpolationDemoo: ../../event/mouse/DefaultMouseListener.h
+InterpolationDemoo: ../../event/mouse/MouseButtonDown.h
+InterpolationDemoo: ../../event/mouse/MouseMotionEvent.h
+InterpolationDemoo: ../../event/mouse/MouseEventFactory.h
+InterpolationDemoo: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+InterpolationDemoo: ../../event/EventFactory.h
+InterpolationDemoo: ../../event/FullEventHandlerFactory.h
+InterpolationDemoo: ../../event/keyboard/KeyboardSkeleton.h
+InterpolationDemoo: ../../event/mouse/MouseSkeleton.h
+InterpolationDemoo: ../../event/timer/TimerSkeleton.h
+InterpolationDemoo: ../../event/InputEventProxyFactory.h
+InterpolationDemoo: ../../event/FullEventProxyFactory.h
+InterpolationDemoo: ../../event/InputEventHandlerFactory.h
+InterpolationDemoo: ../../event/Action.h
+InterpolationDemoo: ../../interpolation/InterpolationListener.h
+InterpolationDemoo: ../../interpolation/CameraRoller.h
+InterpolationDemoo: ../../interpolation/TimedInterpolation.h
+InterpolationDemoo: ../../interpolation/InterpolatorFactory.h
+InterpolationDemoo: ../../interpolation/Waypoint.h
+InterpolationDemoo: ../../interpolation/TimedInterpolation.h
+InterpolationDemoo: ../../interpolation/InterpolationEngine.h
+InterpolationDemoo: ../../interpolation/LinearInterpolator.h
+InterpolationDemoo: ../../interpolation/ContinuousInterpolation.h
+InterpolationDemoo: ../../interpolation/Interpolator.h
+InterpolationDemoo: ../../interpolation/WaypointCollection.h
+InterpolationDemoo: ../../interpolation/Waypoint.h
+InterpolationDemoo: ../../core/CameraListener.h ../../core/DebugCamera.h
+InterpolationDemoo: ../../core/Controller.h ../../core/Controller.h
+InterpolationDemoo: ../../core/Renderable.h ../../core/XavierConfiguration.h
+InterpolationDemoo: ../../core/World.h ../../core/Window.h
+InterpolationDemoo: ../../core/Camera.h ../../geometry/Vector3D.h
+InterpolationDemoo: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+InterpolationDemoo: ../../geometry/RectangularVolume.h
+InterpolationDemoo: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+InterpolationDemoo: ../../geometry/CylindricalVolume.h
+InterpolationDemoo: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+InterpolationDemoo: ../../object2D/Object2D.h ../../core/Window.h
+InterpolationDemoo: ../../object2D/Object2D.h ../../object2D/String2D.h
+InterpolationDemoo: ../../util/BitmapFontUtil.h
+InterpolationDemoo: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+InterpolationDemoo: ../../object2D/Transformable2D.h
+InterpolationDemoo: ../../transform/Transformable.h
+InterpolationDemoo: ../../transform/Transform.h ../../object3D/Arc3D.h
+InterpolationDemoo: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
+InterpolationDemoo: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+InterpolationDemoo: ../../object3D/Sprite3DListener.h
+InterpolationDemoo: ../../object3D/NoDepthTestQuadrilateral3D.h
+InterpolationDemoo: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+InterpolationDemoo: ../../texture/TextureScale.h ../../object3D/Point3D.h
+InterpolationDemoo: ../../object3D/Quadrilateral3D.h
+InterpolationDemoo: ../../object3D/RectangularPrism.h
+InterpolationDemoo: ../../geometry/RectangularVolume.h
+InterpolationDemoo: ../../object3D/NormalPolygon3D.h
+InterpolationDemoo: ../../object3D/Transformable3D.h
+InterpolationDemoo: ../../object3D/ExtrudedNormalPolygon3D.h
+InterpolationDemoo: ../../object3D/NormalPolygon3D.h
+InterpolationDemoo: ../../object3D/AdornablePrism.h
+InterpolationDemoo: ../../object3D/RectangularPrism.h
+InterpolationDemoo: ../../object3D/Object3DCollection.h
+InterpolationDemoo: ../../object3D/CompiledObject3D.h
+InterpolationDemoo: ../../object3D/Particle.h
+InterpolationDemoo: ../../object3D/Sprite3DListener.h
+InterpolationDemoo: ../../object3D/Object3DCollection.h
+InterpolationDemoo: ../../object3D/CompiledObject3D.h
+InterpolationDemoo: ../../object3D/RectangularPrismFactory.h
+InterpolationDemoo: ../../object3D/Cube.h ../../model/MilkshapeModel.h
+InterpolationDemoo: ../../model/Model.h ../../texture/TextureFactory.h
+InterpolationDemoo: ../../texture/Texture.h ../../model/Model.h
+InterpolationDemoo: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+InterpolationDemoo: ../../shape/CollisionRenderable.h ../../texture/Texture.h
+InterpolationDemoo: ../../texture/TextureFactory.h
+InterpolationDemoo: ../../texture/TextureScale.h
+InterpolationDemoo: ../../terrain/NullHeightFieldStrategy.h
+InterpolationDemoo: ../../terrain/HeightFieldStrategy.h
+InterpolationDemoo: ../../terrain/HeightField.h
+InterpolationDemoo: ../../object3D/Quadrilateral3D.h
+InterpolationDemoo: ../../terrain/HeightField.h
+InterpolationDemoo: ../../terrain/HeightFieldStrategy.h
+InterpolationDemoo: ../../terrain/ImageHeightFieldStrategy.h
+InterpolationDemoo: ../../terrain/HeightFieldFactory.h
+InterpolationDemoo: ../../terrain/MatrixHeightFieldStrategy.h
+InterpolationDemoo: ../../terrain/FunctionHeightFieldStrategy.h
+InterpolationDemoo: ../../multicast/mcsend.h
+InterpolationDemoo: ../../multicast/MulticastSocket.h
+InterpolationDemoo: ../../multicast/mcreceive.h ../../multicast/Multicast.h
+InterpolationDemoo: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+InterpolationDemoo: ../../paint/Color.h ../../transform/Orientation.h
+InterpolationDemoo: ../../transform/CoordinateSystem.h
+InterpolationDemoo: ../../transform/Translate.h ../../transform/Rotate.h
+InterpolationDemoo: ../../transform/OpenGLCoordinateSystem.h
+InterpolationDemoo: ../../transform/TransformFactory.h
+InterpolationDemoo: ../../transform/MathCoordinateSystem.h
+InterpolationDemoo: ../../transform/EngineerCoordinateSystem.h
+InterpolationDemoo: ../../transform/Transform.h
+InterpolationDemoo: ../../transform/LeftOpenGLCoordinateSystem.h
+InterpolationDemoo: ../../transform/Stretch.h
+InterpolationDemoo: ../../transform/MacCoordinateSystem.h
+InterpolationDemoo: ../../transform/CoordinateSystemFactory.h
+InterpolationDemoo: ../../transform/Scale.h ../../transform/Transformable.h
+InterpolationDemoo: ../../util/GraphicsConversionUtility.h
+InterpolationDemoo: ../../util/BehaviorParser.h
+InterpolationDemoo: ../../transform/TransformFactory.h ../../util/xmlParser.h
+InterpolationDemoo: ../../util/FramesPerSecondCounter.h
+InterpolationDemoo: ../../object2D/String2D.h
+InterpolationDemoo: ../../util/BitmapFontConstants.h
+InterpolationDemoo: ../../util/BitmapFontUtil.h ../../util/PointScale.h

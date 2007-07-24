@@ -1,0 +1,843 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -framework Cocoa -lSDL -lSDLmain -lXOR 
+
+#Packages
+SRCS = MuseumTester.cpp Museum.cpp Room.cpp DoorExtracter.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = Museum
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+Museum:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+MuseumTester.o: ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+MuseumTester.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+MuseumTester.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+MuseumTester.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+MuseumTester.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
+MuseumTester.o: /usr/include/_types.h /usr/include/sys/_types.h
+MuseumTester.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+MuseumTester.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+MuseumTester.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+MuseumTester.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+MuseumTester.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+MuseumTester.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+MuseumTester.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+MuseumTester.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+MuseumTester.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
+MuseumTester.o: /usr/include/stddef.h ../../core/World.h
+MuseumTester.o: /usr/include/stdlib.h /usr/include/sys/wait.h
+MuseumTester.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+MuseumTester.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+MuseumTester.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+MuseumTester.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+MuseumTester.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+MuseumTester.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+MuseumTester.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+MuseumTester.o: ../../shape/Renderable.h ../../shape/Object3D.h
+MuseumTester.o: ../../transform/Transformable.h ../../transform/Transform.h
+MuseumTester.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+MuseumTester.o: ../../interpolation/InterpolationEngine.h
+MuseumTester.o: ../../interpolation/InterpolationListener.h
+MuseumTester.o: ../../interpolation/Interpolator.h
+MuseumTester.o: ../../interpolation/InterpolatorFactory.h
+MuseumTester.o: ../../interpolation/LinearInterpolator.h
+MuseumTester.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+MuseumTester.o: /usr/include/architecture/ppc/math.h
+MuseumTester.o: ../../transform/Stretch.h ../../transform/Translate.h
+MuseumTester.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+MuseumTester.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+MuseumTester.o: ../../transform/Orientation.h ../../paint/Paint.h
+MuseumTester.o: /usr/include/string.h ../../texture/Texture.h
+MuseumTester.o: ../../../include/SDL_image.h ../../../include/SDL.h
+MuseumTester.o: ../../geometry/Vector2D.h ../../paint/Color.h
+MuseumTester.o: ../../shape/Renderable.h ../../core/Window.h
+MuseumTester.o: ../../event/reshape/ReshapeListener.h
+MuseumTester.o: ../../event/reshape/ReshapeEvent.h
+MuseumTester.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+MuseumTester.o: ../../core/CameraListener.h ../../paint/Color.h
+MuseumTester.o: ../../transform/CoordinateSystem.h
+MuseumTester.o: ../../transform/CoordinateSystemFactory.h
+MuseumTester.o: ../../transform/CoordinateSystem.h
+MuseumTester.o: ../../transform/OpenGLCoordinateSystem.h
+MuseumTester.o: ../../transform/MacCoordinateSystem.h
+MuseumTester.o: ../../transform/MathCoordinateSystem.h
+MuseumTester.o: ../../transform/LeftOpenGLCoordinateSystem.h
+MuseumTester.o: ../../transform/EngineerCoordinateSystem.h
+MuseumTester.o: ../../event/timer/TimerListener.h
+MuseumTester.o: ../../event/reshape/ReshapeEvent.h
+MuseumTester.o: ../../core/CameraListener.h ../../core/Controller.h
+MuseumTester.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+MuseumTester.o: ../../event/keyboard/KeyboardListener.h
+MuseumTester.o: ../../event/keyboard/KeyEvent.h
+MuseumTester.o: ../../event/keyboard/KeyEventFactory.h
+MuseumTester.o: ../../event/keyboard/KeyDownEvent.h
+MuseumTester.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+MuseumTester.o: ../../event/mouse/MouseListener.h
+MuseumTester.o: ../../event/mouse/MouseEvent.h
+MuseumTester.o: ../../event/mouse/MouseEventFactory.h
+MuseumTester.o: ../../event/mouse/MouseButtonDown.h
+MuseumTester.o: ../../event/mouse/MouseClickEvent.h
+MuseumTester.o: ../../event/mouse/MouseButtonUp.h
+MuseumTester.o: ../../event/mouse/MouseMotionEvent.h
+MuseumTester.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+MuseumTester.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+MuseumTester.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+MuseumTester.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+MuseumTester.o: ../../event/InputEventProxyFactory.h
+MuseumTester.o: ../../event/EventFactory.h
+MuseumTester.o: ../../event/keyboard/KeyboardStub.h
+MuseumTester.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+MuseumTester.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+MuseumTester.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+MuseumTester.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+MuseumTester.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+MuseumTester.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+MuseumTester.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+MuseumTester.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+MuseumTester.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+MuseumTester.o: /usr/include/signal.h /usr/include/sys/time.h
+MuseumTester.o: /usr/include/time.h /usr/include/machine/_limits.h
+MuseumTester.o: ../../multicast/MulticastSocketPool.h
+MuseumTester.o: ../../multicast/MulticastSocket.h
+MuseumTester.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+MuseumTester.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+MuseumTester.o: ../../event/timer/Timer.h ../../core/Camera.h
+MuseumTester.o: ../../core/DebugCamera.h ../../core/Controller.h
+MuseumTester.o: ../../core/Window.h ../../core/World.h
+MuseumTester.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
+MuseumTester.o: ../../event/FullEventHandlerFactory.h
+MuseumTester.o: ../../event/keyboard/KeyboardSkeleton.h
+MuseumTester.o: /usr/include/SDL/SDL_thread.h
+MuseumTester.o: ../../event/mouse/MouseSkeleton.h
+MuseumTester.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+MuseumTester.o: ../../event/FullEventProxyFactory.h
+MuseumTester.o: ../../event/InputEventHandlerFactory.h
+MuseumTester.o: ../../event/InputEventProxyFactory.h
+MuseumTester.o: ../../event/keyboard/DefaultKeyboardListener.h
+MuseumTester.o: ../../interpolation/TimedInterpolation.h
+MuseumTester.o: ../../core/Controller.h
+MuseumTester.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+MuseumTester.o: ../../event/keyboard/Keyboard.h
+MuseumTester.o: ../../event/keyboard/KeyboardListener.h
+MuseumTester.o: ../../event/keyboard/KeyboardSkeleton.h
+MuseumTester.o: ../../event/keyboard/KeyboardStub.h
+MuseumTester.o: ../../event/keyboard/KeyDownEvent.h
+MuseumTester.o: ../../event/keyboard/KeyEvent.h
+MuseumTester.o: ../../event/keyboard/KeyEventFactory.h
+MuseumTester.o: ../../event/keyboard/KeyUpEvent.h
+MuseumTester.o: ../../event/keyboard/RegularKeyEvent.h
+MuseumTester.o: ../../event/keyboard/SpecialKeyEvent.h
+MuseumTester.o: ../../event/mouse/DefaultMouseListener.h
+MuseumTester.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+MuseumTester.o: ../../event/mouse/MouseButtonDown.h
+MuseumTester.o: ../../event/mouse/MouseButtonUp.h
+MuseumTester.o: ../../event/mouse/MouseClickEvent.h
+MuseumTester.o: ../../event/mouse/MouseEvent.h
+MuseumTester.o: ../../event/mouse/MouseEventFactory.h
+MuseumTester.o: ../../event/mouse/MouseListener.h
+MuseumTester.o: ../../event/mouse/MouseMotionEvent.h
+MuseumTester.o: ../../event/mouse/MouseSkeleton.h
+MuseumTester.o: ../../event/mouse/MouseStub.h
+MuseumTester.o: ../../event/reshape/ReshapeEvent.h
+MuseumTester.o: ../../event/reshape/ReshapeListener.h
+MuseumTester.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+MuseumTester.o: ../../event/timer/TimerListener.h
+MuseumTester.o: ../../event/timer/TimerSkeleton.h
+MuseumTester.o: ../../event/timer/TimerStub.h
+MuseumTester.o: ../../geometry/CylindricalVolume.h
+MuseumTester.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+MuseumTester.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+MuseumTester.o: ../../geometry/Dimension3D.h
+MuseumTester.o: ../../geometry/RectangularVolume.h
+MuseumTester.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+MuseumTester.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+MuseumTester.o: ../../interpolation/ContinuousInterpolation.h
+MuseumTester.o: ../../interpolation/TimedInterpolation.h
+MuseumTester.o: ../../interpolation/InterpolationEngine.h
+MuseumTester.o: ../../interpolation/InterpolationListener.h
+MuseumTester.o: ../../interpolation/Interpolator.h
+MuseumTester.o: ../../interpolation/InterpolatorFactory.h
+MuseumTester.o: ../../interpolation/LinearInterpolator.h
+MuseumTester.o: ../../interpolation/TimedInterpolation.h
+MuseumTester.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+MuseumTester.o: ../../interpolation/WaypointCollection.h
+MuseumTester.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+MuseumTester.o: ../../model/Model.h ../../texture/TextureFactory.h
+MuseumTester.o: ../../texture/Texture.h ../../model/Model.h
+MuseumTester.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+MuseumTester.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+MuseumTester.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+MuseumTester.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+MuseumTester.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+MuseumTester.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+MuseumTester.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+MuseumTester.o: ../../geometry/RectangularVolume.h
+MuseumTester.o: ../../shape/Object3DCollection.h
+MuseumTester.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
+MuseumTester.o: ../../shape/CollisionRenderable.h
+MuseumTester.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+MuseumTester.o: ../../shape/ExtrudedNormalPolygon3D.h
+MuseumTester.o: ../../shape/NormalPolygon3D.h
+MuseumTester.o: ../../shape/NoDepthTestQuadrilateral3D.h
+MuseumTester.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+MuseumTester.o: ../../core/Window.h ../../shape/Object3D.h
+MuseumTester.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+MuseumTester.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+MuseumTester.o: ../../shape/Point2D.h ../../shape/Point3D.h
+MuseumTester.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+MuseumTester.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+MuseumTester.o: ../../shape/RectangularPrismFactory.h
+MuseumTester.o: ../../shape/Renderable.h ../../shape/Sprite.h
+MuseumTester.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+MuseumTester.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+MuseumTester.o: ../../terrain/FunctionHeightFieldStrategy.h
+MuseumTester.o: ../../terrain/HeightFieldStrategy.h
+MuseumTester.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+MuseumTester.o: ../../terrain/HeightField.h
+MuseumTester.o: ../../terrain/HeightFieldFactory.h
+MuseumTester.o: ../../terrain/HeightFieldStrategy.h
+MuseumTester.o: ../../terrain/ImageHeightFieldStrategy.h
+MuseumTester.o: ../../terrain/MatrixHeightFieldStrategy.h
+MuseumTester.o: ../../terrain/NullHeightFieldStrategy.h
+MuseumTester.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+MuseumTester.o: ../../texture/TextureScale.h
+MuseumTester.o: ../../transform/CoordinateSystem.h
+MuseumTester.o: ../../transform/CoordinateSystemFactory.h
+MuseumTester.o: ../../transform/EngineerCoordinateSystem.h
+MuseumTester.o: ../../transform/LeftOpenGLCoordinateSystem.h
+MuseumTester.o: ../../transform/MacCoordinateSystem.h
+MuseumTester.o: ../../transform/MathCoordinateSystem.h
+MuseumTester.o: ../../transform/OpenGLCoordinateSystem.h
+MuseumTester.o: ../../transform/Orientation.h ../../transform/Rotate.h
+MuseumTester.o: ../../transform/Scale.h ../../transform/Stretch.h
+MuseumTester.o: ../../transform/Transform.h ../../transform/Transformable.h
+MuseumTester.o: ../../transform/TransformFactory.h
+MuseumTester.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+MuseumTester.o: ../../transform/TransformFactory.h
+MuseumTester.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+MuseumTester.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+MuseumTester.o: ../../util/GraphicsConversionUtility.h
+MuseumTester.o: ../../util/PointScale.h ../../util/xmlParser.h
+MuseumTester.o: /usr/include/wchar.h /usr/include/stdarg.h
+MuseumTester.o: /usr/include/_wctype.h /usr/include/ctype.h
+MuseumTester.o: /usr/include/runetype.h Museum.h Room.h DoorExtracter.h
+Museum.o: Museum.h ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+Museum.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+Museum.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+Museum.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+Museum.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
+Museum.o: /usr/include/_types.h /usr/include/sys/_types.h
+Museum.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Museum.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+Museum.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+Museum.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+Museum.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+Museum.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+Museum.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+Museum.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+Museum.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
+Museum.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
+Museum.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+Museum.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+Museum.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+Museum.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Museum.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+Museum.o: /usr/include/libkern/OSByteOrder.h
+Museum.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+Museum.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Museum.o: ../../shape/Renderable.h ../../shape/Object3D.h
+Museum.o: ../../transform/Transformable.h ../../transform/Transform.h
+Museum.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+Museum.o: ../../interpolation/InterpolationEngine.h
+Museum.o: ../../interpolation/InterpolationListener.h
+Museum.o: ../../interpolation/Interpolator.h
+Museum.o: ../../interpolation/InterpolatorFactory.h
+Museum.o: ../../interpolation/LinearInterpolator.h
+Museum.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+Museum.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+Museum.o: ../../transform/Translate.h ../../transform/Rotate.h
+Museum.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+Museum.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+Museum.o: ../../paint/Paint.h /usr/include/string.h ../../texture/Texture.h
+Museum.o: ../../../include/SDL_image.h ../../../include/SDL.h
+Museum.o: ../../geometry/Vector2D.h ../../paint/Color.h
+Museum.o: ../../shape/Renderable.h ../../core/Window.h
+Museum.o: ../../event/reshape/ReshapeListener.h
+Museum.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Museum.o: ../../geometry/Dimension2D.h ../../core/CameraListener.h
+Museum.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
+Museum.o: ../../transform/CoordinateSystemFactory.h
+Museum.o: ../../transform/CoordinateSystem.h
+Museum.o: ../../transform/OpenGLCoordinateSystem.h
+Museum.o: ../../transform/MacCoordinateSystem.h
+Museum.o: ../../transform/MathCoordinateSystem.h
+Museum.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Museum.o: ../../transform/EngineerCoordinateSystem.h
+Museum.o: ../../event/timer/TimerListener.h
+Museum.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+Museum.o: ../../core/Controller.h ../../event/EventFactory.h
+Museum.o: ../../event/keyboard/Keyboard.h
+Museum.o: ../../event/keyboard/KeyboardListener.h
+Museum.o: ../../event/keyboard/KeyEvent.h
+Museum.o: ../../event/keyboard/KeyEventFactory.h
+Museum.o: ../../event/keyboard/KeyDownEvent.h
+Museum.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+Museum.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+Museum.o: ../../event/mouse/MouseEventFactory.h
+Museum.o: ../../event/mouse/MouseButtonDown.h
+Museum.o: ../../event/mouse/MouseClickEvent.h
+Museum.o: ../../event/mouse/MouseButtonUp.h
+Museum.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Museum.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
+Museum.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+Museum.o: ../../shape/Point3D.h ../../shape/Object3D.h
+Museum.o: ../../core/XavierConfiguration.h
+Museum.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+Museum.o: ../../event/keyboard/KeyboardStub.h
+Museum.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Museum.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+Museum.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+Museum.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+Museum.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+Museum.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+Museum.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+Museum.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+Museum.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+Museum.o: /usr/include/signal.h /usr/include/sys/time.h /usr/include/time.h
+Museum.o: /usr/include/machine/_limits.h
+Museum.o: ../../multicast/MulticastSocketPool.h
+Museum.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+Museum.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+Museum.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+Museum.o: ../../core/Camera.h ../../core/DebugCamera.h
+Museum.o: ../../core/Controller.h ../../core/Window.h ../../core/World.h
+Museum.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
+Museum.o: ../../event/FullEventHandlerFactory.h
+Museum.o: ../../event/keyboard/KeyboardSkeleton.h
+Museum.o: /usr/include/SDL/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+Museum.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+Museum.o: ../../event/FullEventProxyFactory.h
+Museum.o: ../../event/InputEventHandlerFactory.h
+Museum.o: ../../event/InputEventProxyFactory.h
+Museum.o: ../../event/keyboard/DefaultKeyboardListener.h
+Museum.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Museum.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Museum.o: ../../event/keyboard/Keyboard.h
+Museum.o: ../../event/keyboard/KeyboardListener.h
+Museum.o: ../../event/keyboard/KeyboardSkeleton.h
+Museum.o: ../../event/keyboard/KeyboardStub.h
+Museum.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyEvent.h
+Museum.o: ../../event/keyboard/KeyEventFactory.h
+Museum.o: ../../event/keyboard/KeyUpEvent.h
+Museum.o: ../../event/keyboard/RegularKeyEvent.h
+Museum.o: ../../event/keyboard/SpecialKeyEvent.h
+Museum.o: ../../event/mouse/DefaultMouseListener.h
+Museum.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+Museum.o: ../../event/mouse/MouseButtonDown.h
+Museum.o: ../../event/mouse/MouseButtonUp.h
+Museum.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseEvent.h
+Museum.o: ../../event/mouse/MouseEventFactory.h
+Museum.o: ../../event/mouse/MouseListener.h
+Museum.o: ../../event/mouse/MouseMotionEvent.h
+Museum.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+Museum.o: ../../event/reshape/ReshapeEvent.h
+Museum.o: ../../event/reshape/ReshapeListener.h
+Museum.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+Museum.o: ../../event/timer/TimerListener.h ../../event/timer/TimerSkeleton.h
+Museum.o: ../../event/timer/TimerStub.h ../../geometry/CylindricalVolume.h
+Museum.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+Museum.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+Museum.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+Museum.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+Museum.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+Museum.o: ../../interpolation/ContinuousInterpolation.h
+Museum.o: ../../interpolation/TimedInterpolation.h
+Museum.o: ../../interpolation/InterpolationEngine.h
+Museum.o: ../../interpolation/InterpolationListener.h
+Museum.o: ../../interpolation/Interpolator.h
+Museum.o: ../../interpolation/InterpolatorFactory.h
+Museum.o: ../../interpolation/LinearInterpolator.h
+Museum.o: ../../interpolation/TimedInterpolation.h
+Museum.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+Museum.o: ../../interpolation/WaypointCollection.h
+Museum.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+Museum.o: ../../model/Model.h ../../texture/TextureFactory.h
+Museum.o: ../../texture/Texture.h ../../model/Model.h
+Museum.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Museum.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+Museum.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+Museum.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+Museum.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+Museum.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+Museum.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+Museum.o: ../../geometry/RectangularVolume.h ../../shape/Object3DCollection.h
+Museum.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
+Museum.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
+Museum.o: ../../shape/Cube.h ../../shape/ExtrudedNormalPolygon3D.h
+Museum.o: ../../shape/NormalPolygon3D.h
+Museum.o: ../../shape/NoDepthTestQuadrilateral3D.h
+Museum.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+Museum.o: ../../core/Window.h ../../shape/Object3D.h
+Museum.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+Museum.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+Museum.o: ../../shape/Point2D.h ../../shape/Point3D.h
+Museum.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+Museum.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+Museum.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+Museum.o: ../../shape/Sprite.h ../../shape/String2D.h
+Museum.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Museum.o: ../../shape/Triangle3D.h
+Museum.o: ../../terrain/FunctionHeightFieldStrategy.h
+Museum.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Museum.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+Museum.o: ../../terrain/HeightFieldFactory.h
+Museum.o: ../../terrain/HeightFieldStrategy.h
+Museum.o: ../../terrain/ImageHeightFieldStrategy.h
+Museum.o: ../../terrain/MatrixHeightFieldStrategy.h
+Museum.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+Museum.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+Museum.o: ../../transform/CoordinateSystem.h
+Museum.o: ../../transform/CoordinateSystemFactory.h
+Museum.o: ../../transform/EngineerCoordinateSystem.h
+Museum.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Museum.o: ../../transform/MacCoordinateSystem.h
+Museum.o: ../../transform/MathCoordinateSystem.h
+Museum.o: ../../transform/OpenGLCoordinateSystem.h
+Museum.o: ../../transform/Orientation.h ../../transform/Rotate.h
+Museum.o: ../../transform/Scale.h ../../transform/Stretch.h
+Museum.o: ../../transform/Transform.h ../../transform/Transformable.h
+Museum.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+Museum.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+Museum.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+Museum.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+Museum.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+Museum.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
+Museum.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
+Museum.o: Room.h DoorExtracter.h
+Room.o: Room.h ../../xor.h ../../core/Camera.h /usr/include/SDL/SDL.h
+Room.o: /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_types.h
+Room.o: /usr/include/SDL/SDL_getenv.h /usr/include/SDL/SDL_error.h
+Room.o: /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h
+Room.o: /usr/include/SDL/SDL_rwops.h /usr/include/stdio.h
+Room.o: /usr/include/_types.h /usr/include/sys/_types.h
+Room.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Room.o: /usr/include/ppc/_types.h /usr/include/SDL/SDL_timer.h
+Room.o: /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_byteorder.h
+Room.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+Room.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+Room.o: /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h
+Room.o: /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h
+Room.o: /usr/include/SDL/SDL_mutex.h /usr/include/SDL/SDL_quit.h
+Room.o: /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_opengl.h
+Room.o: /usr/include/stddef.h ../../core/World.h /usr/include/stdlib.h
+Room.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+Room.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+Room.o: /usr/include/ppc/signal.h /usr/include/sys/resource.h
+Room.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Room.o: /usr/include/sys/_endian.h /usr/include/stdint.h
+Room.o: /usr/include/libkern/OSByteOrder.h
+Room.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+Room.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Room.o: ../../shape/Renderable.h ../../shape/Object3D.h
+Room.o: ../../transform/Transformable.h ../../transform/Transform.h
+Room.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+Room.o: ../../interpolation/InterpolationEngine.h
+Room.o: ../../interpolation/InterpolationListener.h
+Room.o: ../../interpolation/Interpolator.h
+Room.o: ../../interpolation/InterpolatorFactory.h
+Room.o: ../../interpolation/LinearInterpolator.h
+Room.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+Room.o: /usr/include/architecture/ppc/math.h ../../transform/Stretch.h
+Room.o: ../../transform/Translate.h ../../transform/Rotate.h
+Room.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+Room.o: ../../geometry/Vector3D.h ../../transform/Orientation.h
+Room.o: ../../paint/Paint.h /usr/include/string.h ../../texture/Texture.h
+Room.o: ../../../include/SDL_image.h ../../../include/SDL.h
+Room.o: ../../geometry/Vector2D.h ../../paint/Color.h
+Room.o: ../../shape/Renderable.h ../../core/Window.h
+Room.o: ../../event/reshape/ReshapeListener.h
+Room.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Room.o: ../../geometry/Dimension2D.h ../../core/CameraListener.h
+Room.o: ../../paint/Color.h ../../transform/CoordinateSystem.h
+Room.o: ../../transform/CoordinateSystemFactory.h
+Room.o: ../../transform/CoordinateSystem.h
+Room.o: ../../transform/OpenGLCoordinateSystem.h
+Room.o: ../../transform/MacCoordinateSystem.h
+Room.o: ../../transform/MathCoordinateSystem.h
+Room.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Room.o: ../../transform/EngineerCoordinateSystem.h
+Room.o: ../../event/timer/TimerListener.h ../../event/reshape/ReshapeEvent.h
+Room.o: ../../core/CameraListener.h ../../core/Controller.h
+Room.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+Room.o: ../../event/keyboard/KeyboardListener.h
+Room.o: ../../event/keyboard/KeyEvent.h
+Room.o: ../../event/keyboard/KeyEventFactory.h
+Room.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyUpEvent.h
+Room.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseListener.h
+Room.o: ../../event/mouse/MouseEvent.h ../../event/mouse/MouseEventFactory.h
+Room.o: ../../event/mouse/MouseButtonDown.h
+Room.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseButtonUp.h
+Room.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Room.o: ../../event/timer/TimerListener.h ../../event/keyboard/Keyboard.h
+Room.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+Room.o: ../../shape/Point3D.h ../../shape/Object3D.h
+Room.o: ../../core/XavierConfiguration.h ../../event/InputEventProxyFactory.h
+Room.o: ../../event/EventFactory.h ../../event/keyboard/KeyboardStub.h
+Room.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Room.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+Room.o: /usr/include/machine/param.h /usr/include/ppc/param.h
+Room.o: /usr/include/netinet/in.h /usr/include/netinet6/in6.h
+Room.o: /usr/include/arpa/inet.h /usr/include/sys/param.h
+Room.o: /usr/include/sys/syslimits.h /usr/include/limits.h
+Room.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+Room.o: /usr/include/ppc/_limits.h /usr/include/unistd.h
+Room.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+Room.o: /usr/include/signal.h /usr/include/sys/time.h /usr/include/time.h
+Room.o: /usr/include/machine/_limits.h ../../multicast/MulticastSocketPool.h
+Room.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+Room.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+Room.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+Room.o: ../../core/Camera.h ../../core/DebugCamera.h ../../core/Controller.h
+Room.o: ../../core/Window.h ../../core/World.h
+Room.o: ../../core/XavierConfiguration.h ../../event/EventFactory.h
+Room.o: ../../event/FullEventHandlerFactory.h
+Room.o: ../../event/keyboard/KeyboardSkeleton.h /usr/include/SDL/SDL_thread.h
+Room.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
+Room.o: ../../core/Controller.h ../../event/FullEventProxyFactory.h
+Room.o: ../../event/InputEventHandlerFactory.h
+Room.o: ../../event/InputEventProxyFactory.h
+Room.o: ../../event/keyboard/DefaultKeyboardListener.h
+Room.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Room.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Room.o: ../../event/keyboard/Keyboard.h
+Room.o: ../../event/keyboard/KeyboardListener.h
+Room.o: ../../event/keyboard/KeyboardSkeleton.h
+Room.o: ../../event/keyboard/KeyboardStub.h
+Room.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyEvent.h
+Room.o: ../../event/keyboard/KeyEventFactory.h
+Room.o: ../../event/keyboard/KeyUpEvent.h
+Room.o: ../../event/keyboard/RegularKeyEvent.h
+Room.o: ../../event/keyboard/SpecialKeyEvent.h
+Room.o: ../../event/mouse/DefaultMouseListener.h
+Room.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+Room.o: ../../event/mouse/MouseButtonDown.h ../../event/mouse/MouseButtonUp.h
+Room.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseEvent.h
+Room.o: ../../event/mouse/MouseEventFactory.h
+Room.o: ../../event/mouse/MouseListener.h
+Room.o: ../../event/mouse/MouseMotionEvent.h
+Room.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+Room.o: ../../event/reshape/ReshapeEvent.h
+Room.o: ../../event/reshape/ReshapeListener.h
+Room.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+Room.o: ../../event/timer/TimerListener.h ../../event/timer/TimerSkeleton.h
+Room.o: ../../event/timer/TimerStub.h ../../geometry/CylindricalVolume.h
+Room.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+Room.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+Room.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+Room.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+Room.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+Room.o: ../../interpolation/ContinuousInterpolation.h
+Room.o: ../../interpolation/TimedInterpolation.h
+Room.o: ../../interpolation/InterpolationEngine.h
+Room.o: ../../interpolation/InterpolationListener.h
+Room.o: ../../interpolation/Interpolator.h
+Room.o: ../../interpolation/InterpolatorFactory.h
+Room.o: ../../interpolation/LinearInterpolator.h
+Room.o: ../../interpolation/TimedInterpolation.h
+Room.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+Room.o: ../../interpolation/WaypointCollection.h
+Room.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+Room.o: ../../model/Model.h ../../texture/TextureFactory.h
+Room.o: ../../texture/Texture.h ../../model/Model.h
+Room.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Room.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+Room.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+Room.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+Room.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+Room.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+Room.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+Room.o: ../../geometry/RectangularVolume.h ../../shape/Object3DCollection.h
+Room.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
+Room.o: ../../shape/CollisionRenderable.h ../../shape/CompiledObject3D.h
+Room.o: ../../shape/Cube.h ../../shape/ExtrudedNormalPolygon3D.h
+Room.o: ../../shape/NormalPolygon3D.h
+Room.o: ../../shape/NoDepthTestQuadrilateral3D.h
+Room.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+Room.o: ../../core/Window.h ../../shape/Object3D.h
+Room.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+Room.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+Room.o: ../../shape/Point2D.h ../../shape/Point3D.h
+Room.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+Room.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+Room.o: ../../shape/RectangularPrismFactory.h ../../shape/Renderable.h
+Room.o: ../../shape/Sprite.h ../../shape/String2D.h
+Room.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Room.o: ../../shape/Triangle3D.h ../../terrain/FunctionHeightFieldStrategy.h
+Room.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Room.o: ../../shape/Quadrilateral3D.h ../../terrain/HeightField.h
+Room.o: ../../terrain/HeightFieldFactory.h
+Room.o: ../../terrain/HeightFieldStrategy.h
+Room.o: ../../terrain/ImageHeightFieldStrategy.h
+Room.o: ../../terrain/MatrixHeightFieldStrategy.h
+Room.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+Room.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+Room.o: ../../transform/CoordinateSystem.h
+Room.o: ../../transform/CoordinateSystemFactory.h
+Room.o: ../../transform/EngineerCoordinateSystem.h
+Room.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Room.o: ../../transform/MacCoordinateSystem.h
+Room.o: ../../transform/MathCoordinateSystem.h
+Room.o: ../../transform/OpenGLCoordinateSystem.h
+Room.o: ../../transform/Orientation.h ../../transform/Rotate.h
+Room.o: ../../transform/Scale.h ../../transform/Stretch.h
+Room.o: ../../transform/Transform.h ../../transform/Transformable.h
+Room.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+Room.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+Room.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+Room.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+Room.o: ../../util/GraphicsConversionUtility.h ../../util/PointScale.h
+Room.o: ../../util/xmlParser.h /usr/include/wchar.h /usr/include/stdarg.h
+Room.o: /usr/include/_wctype.h /usr/include/ctype.h /usr/include/runetype.h
+Room.o: DoorExtracter.h
+DoorExtracter.o: DoorExtracter.h ../../xor.h ../../core/Camera.h
+DoorExtracter.o: /usr/include/SDL/SDL.h /usr/include/SDL/SDL_main.h
+DoorExtracter.o: /usr/include/SDL/SDL_types.h /usr/include/SDL/SDL_getenv.h
+DoorExtracter.o: /usr/include/SDL/SDL_error.h /usr/include/SDL/begin_code.h
+DoorExtracter.o: /usr/include/SDL/close_code.h /usr/include/SDL/SDL_rwops.h
+DoorExtracter.o: /usr/include/stdio.h /usr/include/_types.h
+DoorExtracter.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+DoorExtracter.o: /usr/include/machine/_types.h /usr/include/ppc/_types.h
+DoorExtracter.o: /usr/include/SDL/SDL_timer.h /usr/include/SDL/SDL_audio.h
+DoorExtracter.o: /usr/include/SDL/SDL_byteorder.h
+DoorExtracter.o: /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_joystick.h
+DoorExtracter.o: /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h
+DoorExtracter.o: /usr/include/SDL/SDL_keyboard.h
+DoorExtracter.o: /usr/include/SDL/SDL_keysym.h /usr/include/SDL/SDL_mouse.h
+DoorExtracter.o: /usr/include/SDL/SDL_video.h /usr/include/SDL/SDL_mutex.h
+DoorExtracter.o: /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_version.h
+DoorExtracter.o: /usr/include/SDL/SDL_opengl.h /usr/include/stddef.h
+DoorExtracter.o: ../../core/World.h /usr/include/stdlib.h
+DoorExtracter.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+DoorExtracter.o: /usr/include/sys/appleapiopts.h
+DoorExtracter.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+DoorExtracter.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+DoorExtracter.o: /usr/include/ppc/endian.h /usr/include/sys/_endian.h
+DoorExtracter.o: /usr/include/stdint.h /usr/include/libkern/OSByteOrder.h
+DoorExtracter.o: /usr/include/libkern/ppc/OSByteOrder.h /usr/include/alloca.h
+DoorExtracter.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+DoorExtracter.o: ../../shape/Renderable.h ../../shape/Object3D.h
+DoorExtracter.o: ../../transform/Transformable.h ../../transform/Transform.h
+DoorExtracter.o: ../../transform/Scale.h ../../geometry/Vector3D.h
+DoorExtracter.o: ../../interpolation/InterpolationEngine.h
+DoorExtracter.o: ../../interpolation/InterpolationListener.h
+DoorExtracter.o: ../../interpolation/Interpolator.h
+DoorExtracter.o: ../../interpolation/InterpolatorFactory.h
+DoorExtracter.o: ../../interpolation/LinearInterpolator.h
+DoorExtracter.o: ../../util/GraphicsConversionUtility.h /usr/include/math.h
+DoorExtracter.o: /usr/include/architecture/ppc/math.h
+DoorExtracter.o: ../../transform/Stretch.h ../../transform/Translate.h
+DoorExtracter.o: ../../transform/Rotate.h ../../geometry/Dimension3D.h
+DoorExtracter.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+DoorExtracter.o: ../../transform/Orientation.h ../../paint/Paint.h
+DoorExtracter.o: /usr/include/string.h ../../texture/Texture.h
+DoorExtracter.o: ../../../include/SDL_image.h ../../../include/SDL.h
+DoorExtracter.o: ../../geometry/Vector2D.h ../../paint/Color.h
+DoorExtracter.o: ../../shape/Renderable.h ../../core/Window.h
+DoorExtracter.o: ../../event/reshape/ReshapeListener.h
+DoorExtracter.o: ../../event/reshape/ReshapeEvent.h
+DoorExtracter.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+DoorExtracter.o: ../../core/CameraListener.h ../../paint/Color.h
+DoorExtracter.o: ../../transform/CoordinateSystem.h
+DoorExtracter.o: ../../transform/CoordinateSystemFactory.h
+DoorExtracter.o: ../../transform/CoordinateSystem.h
+DoorExtracter.o: ../../transform/OpenGLCoordinateSystem.h
+DoorExtracter.o: ../../transform/MacCoordinateSystem.h
+DoorExtracter.o: ../../transform/MathCoordinateSystem.h
+DoorExtracter.o: ../../transform/LeftOpenGLCoordinateSystem.h
+DoorExtracter.o: ../../transform/EngineerCoordinateSystem.h
+DoorExtracter.o: ../../event/timer/TimerListener.h
+DoorExtracter.o: ../../event/reshape/ReshapeEvent.h
+DoorExtracter.o: ../../core/CameraListener.h ../../core/Controller.h
+DoorExtracter.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+DoorExtracter.o: ../../event/keyboard/KeyboardListener.h
+DoorExtracter.o: ../../event/keyboard/KeyEvent.h
+DoorExtracter.o: ../../event/keyboard/KeyEventFactory.h
+DoorExtracter.o: ../../event/keyboard/KeyDownEvent.h
+DoorExtracter.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+DoorExtracter.o: ../../event/mouse/MouseListener.h
+DoorExtracter.o: ../../event/mouse/MouseEvent.h
+DoorExtracter.o: ../../event/mouse/MouseEventFactory.h
+DoorExtracter.o: ../../event/mouse/MouseButtonDown.h
+DoorExtracter.o: ../../event/mouse/MouseClickEvent.h
+DoorExtracter.o: ../../event/mouse/MouseButtonUp.h
+DoorExtracter.o: ../../event/mouse/MouseMotionEvent.h
+DoorExtracter.o: ../../event/timer/Timer.h ../../event/timer/TimerListener.h
+DoorExtracter.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+DoorExtracter.o: ../../event/timer/Timer.h ../../shape/Point3D.h
+DoorExtracter.o: ../../shape/Object3D.h ../../core/XavierConfiguration.h
+DoorExtracter.o: ../../event/InputEventProxyFactory.h
+DoorExtracter.o: ../../event/EventFactory.h
+DoorExtracter.o: ../../event/keyboard/KeyboardStub.h
+DoorExtracter.o: ../../multicast/MulticastSocket.h
+DoorExtracter.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+DoorExtracter.o: /usr/include/sys/socket.h /usr/include/machine/param.h
+DoorExtracter.o: /usr/include/ppc/param.h /usr/include/netinet/in.h
+DoorExtracter.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+DoorExtracter.o: /usr/include/sys/param.h /usr/include/sys/syslimits.h
+DoorExtracter.o: /usr/include/limits.h /usr/include/machine/limits.h
+DoorExtracter.o: /usr/include/ppc/limits.h /usr/include/ppc/_limits.h
+DoorExtracter.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+DoorExtracter.o: /usr/include/sys/select.h /usr/include/signal.h
+DoorExtracter.o: /usr/include/sys/time.h /usr/include/time.h
+DoorExtracter.o: /usr/include/machine/_limits.h
+DoorExtracter.o: ../../multicast/MulticastSocketPool.h
+DoorExtracter.o: ../../multicast/MulticastSocket.h
+DoorExtracter.o: ../../event/keyboard/Keyboard.h
+DoorExtracter.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+DoorExtracter.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
+DoorExtracter.o: ../../core/Camera.h ../../core/DebugCamera.h
+DoorExtracter.o: ../../core/Controller.h ../../core/Window.h
+DoorExtracter.o: ../../core/World.h ../../core/XavierConfiguration.h
+DoorExtracter.o: ../../event/EventFactory.h
+DoorExtracter.o: ../../event/FullEventHandlerFactory.h
+DoorExtracter.o: ../../event/keyboard/KeyboardSkeleton.h
+DoorExtracter.o: /usr/include/SDL/SDL_thread.h
+DoorExtracter.o: ../../event/mouse/MouseSkeleton.h
+DoorExtracter.o: ../../event/timer/TimerSkeleton.h ../../core/Controller.h
+DoorExtracter.o: ../../event/FullEventProxyFactory.h
+DoorExtracter.o: ../../event/InputEventHandlerFactory.h
+DoorExtracter.o: ../../event/InputEventProxyFactory.h
+DoorExtracter.o: ../../event/keyboard/DefaultKeyboardListener.h
+DoorExtracter.o: ../../interpolation/TimedInterpolation.h
+DoorExtracter.o: ../../core/Controller.h
+DoorExtracter.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+DoorExtracter.o: ../../event/keyboard/Keyboard.h
+DoorExtracter.o: ../../event/keyboard/KeyboardListener.h
+DoorExtracter.o: ../../event/keyboard/KeyboardSkeleton.h
+DoorExtracter.o: ../../event/keyboard/KeyboardStub.h
+DoorExtracter.o: ../../event/keyboard/KeyDownEvent.h
+DoorExtracter.o: ../../event/keyboard/KeyEvent.h
+DoorExtracter.o: ../../event/keyboard/KeyEventFactory.h
+DoorExtracter.o: ../../event/keyboard/KeyUpEvent.h
+DoorExtracter.o: ../../event/keyboard/RegularKeyEvent.h
+DoorExtracter.o: ../../event/keyboard/SpecialKeyEvent.h
+DoorExtracter.o: ../../event/mouse/DefaultMouseListener.h
+DoorExtracter.o: ../../transform/Transformable.h ../../event/mouse/Mouse.h
+DoorExtracter.o: ../../event/mouse/MouseButtonDown.h
+DoorExtracter.o: ../../event/mouse/MouseButtonUp.h
+DoorExtracter.o: ../../event/mouse/MouseClickEvent.h
+DoorExtracter.o: ../../event/mouse/MouseEvent.h
+DoorExtracter.o: ../../event/mouse/MouseEventFactory.h
+DoorExtracter.o: ../../event/mouse/MouseListener.h
+DoorExtracter.o: ../../event/mouse/MouseMotionEvent.h
+DoorExtracter.o: ../../event/mouse/MouseSkeleton.h
+DoorExtracter.o: ../../event/mouse/MouseStub.h
+DoorExtracter.o: ../../event/reshape/ReshapeEvent.h
+DoorExtracter.o: ../../event/reshape/ReshapeListener.h
+DoorExtracter.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+DoorExtracter.o: ../../event/timer/TimerListener.h
+DoorExtracter.o: ../../event/timer/TimerSkeleton.h
+DoorExtracter.o: ../../event/timer/TimerStub.h
+DoorExtracter.o: ../../geometry/CylindricalVolume.h
+DoorExtracter.o: ../../shape/CollisionRenderable.h ../../shape/Point3D.h
+DoorExtracter.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+DoorExtracter.o: ../../geometry/Dimension3D.h
+DoorExtracter.o: ../../geometry/RectangularVolume.h
+DoorExtracter.o: ../../geometry/Dimension3D.h ../../geometry/Vector2D.h
+DoorExtracter.o: ../../geometry/Vector3D.h ../../interpolation/CameraRoller.h
+DoorExtracter.o: ../../interpolation/ContinuousInterpolation.h
+DoorExtracter.o: ../../interpolation/TimedInterpolation.h
+DoorExtracter.o: ../../interpolation/InterpolationEngine.h
+DoorExtracter.o: ../../interpolation/InterpolationListener.h
+DoorExtracter.o: ../../interpolation/Interpolator.h
+DoorExtracter.o: ../../interpolation/InterpolatorFactory.h
+DoorExtracter.o: ../../interpolation/LinearInterpolator.h
+DoorExtracter.o: ../../interpolation/TimedInterpolation.h
+DoorExtracter.o: ../../interpolation/Waypoint.h ../../transform/Orientation.h
+DoorExtracter.o: ../../interpolation/WaypointCollection.h
+DoorExtracter.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+DoorExtracter.o: ../../model/Model.h ../../texture/TextureFactory.h
+DoorExtracter.o: ../../texture/Texture.h ../../model/Model.h
+DoorExtracter.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+DoorExtracter.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+DoorExtracter.o: ../../multicast/Multicast.h
+DoorExtracter.o: ../../multicast/MulticastSocket.h
+DoorExtracter.o: ../../multicast/MulticastSocketPool.h ../../paint/Color.h
+DoorExtracter.o: ../../paint/Paint.h ../../shape/AdornablePrism.h
+DoorExtracter.o: ../../shape/RectangularPrism.h ../../util/PointScale.h
+DoorExtracter.o: ../../shape/Quadrilateral3D.h ../../texture/TextureScale.h
+DoorExtracter.o: ../../geometry/RectangularVolume.h
+DoorExtracter.o: ../../shape/Object3DCollection.h
+DoorExtracter.o: ../../shape/CompiledObject3D.h ../../shape/Arc3D.h
+DoorExtracter.o: ../../shape/CollisionRenderable.h
+DoorExtracter.o: ../../shape/CompiledObject3D.h ../../shape/Cube.h
+DoorExtracter.o: ../../shape/ExtrudedNormalPolygon3D.h
+DoorExtracter.o: ../../shape/NormalPolygon3D.h
+DoorExtracter.o: ../../shape/NoDepthTestQuadrilateral3D.h
+DoorExtracter.o: ../../shape/NormalPolygon3D.h ../../shape/Object2D.h
+DoorExtracter.o: ../../core/Window.h ../../shape/Object3D.h
+DoorExtracter.o: ../../shape/Object3DCollection.h ../../shape/Particle.h
+DoorExtracter.o: ../../shape/CollisionRenderable.h ../../shape/Point.h
+DoorExtracter.o: ../../shape/Point2D.h ../../shape/Point3D.h
+DoorExtracter.o: ../../shape/Quadrilateral3D.h ../../shape/Rectangle2D.h
+DoorExtracter.o: ../../shape/Object2D.h ../../shape/RectangularPrism.h
+DoorExtracter.o: ../../shape/RectangularPrismFactory.h
+DoorExtracter.o: ../../shape/Renderable.h ../../shape/Sprite.h
+DoorExtracter.o: ../../shape/String2D.h ../../util/BitmapFontUtil.h
+DoorExtracter.o: ../../util/BitmapFontConstants.h ../../shape/Triangle3D.h
+DoorExtracter.o: ../../terrain/FunctionHeightFieldStrategy.h
+DoorExtracter.o: ../../terrain/HeightFieldStrategy.h
+DoorExtracter.o: ../../terrain/HeightField.h ../../shape/Quadrilateral3D.h
+DoorExtracter.o: ../../terrain/HeightField.h
+DoorExtracter.o: ../../terrain/HeightFieldFactory.h
+DoorExtracter.o: ../../terrain/HeightFieldStrategy.h
+DoorExtracter.o: ../../terrain/ImageHeightFieldStrategy.h
+DoorExtracter.o: ../../terrain/MatrixHeightFieldStrategy.h
+DoorExtracter.o: ../../terrain/NullHeightFieldStrategy.h
+DoorExtracter.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+DoorExtracter.o: ../../texture/TextureScale.h
+DoorExtracter.o: ../../transform/CoordinateSystem.h
+DoorExtracter.o: ../../transform/CoordinateSystemFactory.h
+DoorExtracter.o: ../../transform/EngineerCoordinateSystem.h
+DoorExtracter.o: ../../transform/LeftOpenGLCoordinateSystem.h
+DoorExtracter.o: ../../transform/MacCoordinateSystem.h
+DoorExtracter.o: ../../transform/MathCoordinateSystem.h
+DoorExtracter.o: ../../transform/OpenGLCoordinateSystem.h
+DoorExtracter.o: ../../transform/Orientation.h ../../transform/Rotate.h
+DoorExtracter.o: ../../transform/Scale.h ../../transform/Stretch.h
+DoorExtracter.o: ../../transform/Transform.h ../../transform/Transformable.h
+DoorExtracter.o: ../../transform/TransformFactory.h
+DoorExtracter.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+DoorExtracter.o: ../../transform/TransformFactory.h
+DoorExtracter.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+DoorExtracter.o: ../../util/FramesPerSecondCounter.h ../../shape/String2D.h
+DoorExtracter.o: ../../util/GraphicsConversionUtility.h
+DoorExtracter.o: ../../util/PointScale.h ../../util/xmlParser.h
+DoorExtracter.o: /usr/include/wchar.h /usr/include/stdarg.h
+DoorExtracter.o: /usr/include/_wctype.h /usr/include/ctype.h
+DoorExtracter.o: /usr/include/runetype.h
