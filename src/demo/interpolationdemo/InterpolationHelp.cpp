@@ -23,14 +23,11 @@ void MoveAction::execute()
 {
 	Transformable3D * temp = ((Transformable3D*)(Controller::GetInstance()->getModel()->getObject(_object)));
 	if (temp != NULL)
-		temp->addTransform(Translate::CreateTranslate(_movement,
-				InterpolationDemo::LENGTH, _action));
+		temp->addTransform(Translate::CreateTranslate(_movement, InterpolationDemo::LENGTH, _action));
 }
-
 
 NoFogConfig::NoFogConfig()
-{
-}
+{}
 
 bool NoFogConfig::isGLFogEnabled()
 {

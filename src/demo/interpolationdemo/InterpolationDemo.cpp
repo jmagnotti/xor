@@ -88,32 +88,30 @@ void InterpolationDemo::run()
 void InterpolationDemo::roll(int which)
 {
 	World * world = Controller::GetInstance()->getModel();
-	MoveAction * left, * right, * down;
+	Action * left, * right, * down;
 	Transformable3D * temp;
 
 	static char buffer[100][10];
 	for (int i=0; i < _rows; i++)
 	{
 
-		for (int j=0; j < _cols; j++)
-		{
+		for (int j=0; j < _cols; j++) {
 			sprintf(buffer[i*_cols + j], "%d,%d", i, j);
 
 			temp = (Transformable3D*) (world->getObject(buffer[i*_cols+j]));
-			if (temp != NULL)
-			{
+			if (temp != NULL) {
 
                 srand(time(NULL));      //seed the generator
                 int wait = rand() % 1000;
 
+                // move LEFT->DOWN->RIGHT, so we need to create them in the reverse order
+                right = new DelayedAction(new MoveAction(buffer[i*_cols+j], new Vector3D(1, 0, 0), NULL), 1000);
+                down = new MoveAction(buffer[i*_cols+j], new Vector3D(0, -1, 0), right);
+                left = new DelayedAction(new MoveAction(buffer[i*_cols+j], new Vector3D(-1, 0, 0), down), 1000);
 
-				temp->addTransform(Translate::CreateTranslate(new
-				Vector3D(0,1,0), InterpolationDemo::LENGTH, new
-				MoveAction(buffer[i*_cols+j], new Vector3D(1, 0,
-								0), new MoveAction(buffer[i*_cols+j], new
-								Vector3D(0, -1, 0), new
-								MoveAction(buffer[i*_cols+j], new
-										Vector3D (-1, 0,0), NULL)))));
+                temp->addTransform(Translate::CreateTranslate(new
+                            Vector3D(0,1,0), InterpolationDemo::LENGTH, left));
+
 				temp->addTransform(Rotate::CreateRotate (360, Rotate::ROLL,
 						InterpolationDemo::LENGTH, centers[i][j]));
 				temp->addTransform(Rotate::CreateRotate (360, Rotate::YAW,
