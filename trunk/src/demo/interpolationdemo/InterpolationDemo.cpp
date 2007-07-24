@@ -22,28 +22,24 @@ InterpolationDemo::InterpolationDemo(int rows, int cols)
 	cubes = new Transformable3D ** [rows];
 	centers = new Vector3D ** [rows];
 
-	Paint * paint = new Paint(Color::WHITE, Paint::HEIGHT_BASED);
-
-	for (int i=0; i < rows; i++)
-	{
+	//Paint * paint = new Paint(Color::WHITE, Paint::HEIGHT_BASED);
+    TextureFactory * tf = TextureFactory::GetInstance();
+	for (int i=0; i < rows; i++) {
 		cubes[i] = new Transformable3D * [cols];
 		centers[i] = new Vector3D * [cols];
 
-		for (int j=0; j < cols; j++)
-		{
+		for (int j=0; j < cols; j++) {
 			float xpos = startx + size*j + j*offsetx;
 			float ypos = starty + size*i + i*offsety;
 
-			Paint * p = paint->clone();
+			Paint * p = new Paint(tf->createTexture("monkey.png"));
 			p->setColorFrom(0, (float)(i/(float)rows));
 			p->setColorFrom(1, (float)(j/(float)cols));
 
-			cubes[i][j] = new Transformable3D(new Cube(
-							new Vector3D(xpos, ypos, depth), size, p));
+			cubes[i][j] = new Transformable3D(new Cube(new Vector3D(xpos, ypos, depth), size, p));
 			centers[i][j] = new Vector3D(xpos + size/2.0, ypos + size/2.0, depth + size/2.0);
 
-			cout << "Cube "<< i << ", "<< j << " at: "<< xpos << " "<< ypos
-					<< "\t";
+			//cout << "Cube "<< i << ", "<< j << " at: "<< xpos << " "<< ypos << "\t";
 			//            cout << "Center at: " << centers[i][j]->toString() << endl;
 		}
 		cout << endl << endl;;
