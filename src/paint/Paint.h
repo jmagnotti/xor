@@ -138,6 +138,12 @@ public:
 	void setGradient		(int  grad);
 	void setTexture			(Texture * tex);
 
+    /**
+     * Easy way to change 
+     */
+    void setColorTo(int which,   float value);
+    void setColorFrom(int which, float value);
+
 
 private:
 

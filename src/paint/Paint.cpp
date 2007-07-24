@@ -15,6 +15,12 @@ Paint::Paint(Paint * paint)
 void Paint::buildPaint(const float colorTo[4], const float colorFrom[4], 
         const int gradientType, float autoGrad, Texture * texture)
 {
+    //cout << "Passed in as: " << endl;
+
+    //cout << "Using paint: r: " << colorTo[0] << ", g: " << colorTo[1] << ", b: " << colorTo[2] << endl;
+    //cout << "Using paint: r: " << colorFrom[0] << ", g: " << colorFrom[1] << ", b: " << colorFrom[2] << endl;
+    //cout << "---" << endl;
+
     for(int i=0; i<4; i++) {
         _colorTo[i]   = colorTo[i];
         _colorFrom[i] = colorFrom[i];
@@ -36,15 +42,11 @@ void Paint::buildPaint(const float colorTo[4], const float colorFrom[4],
         if (_autoGradient > 0.0f)
             recalculateGradient();
 
-        for(int i=0; i<4; i++)
-            _colorDiff[i] = _colorTo[i] - _colorFrom[i];
+        buildDifferenceArray();
     }
 
-    /*
-    cout    << "Paint built with: "
-            << _colorFrom[0] << " " <<  _colorFrom[1] << " " << _colorFrom[2] << " " <<  _colorFrom[3] << ", to : " 
-            << _colorTo[0] << " " <<  _colorTo[1] << " " << _colorTo[2] << " " <<  _colorTo[3] << endl;
-    */
+    //cout << "Using paint: r: " << colorTo[0] << ", g: " << colorTo[1] << ", b: " << colorTo[2] << endl;
+    //cout << "Using paint: r: " << colorFrom[0] << ", g: " << colorFrom[1] << ", b: " << colorFrom[2] << endl;
 }
 
 
@@ -159,6 +161,12 @@ Paint::Paint(const float color[4], Texture * tex)
  */
 void Paint::activateColorAtPosition(Vector3D * scale)
 {
+    /*
+        cout <<  "  r: " << scale->getY() << " x " << _colorDiff[0] << " + " << _colorFrom[0] << endl;
+        cout <<  "  g: " << scale->getY() << " x " << _colorDiff[1] << " + " << _colorFrom[1] << endl;
+        cout <<  "  b: " << scale->getY() << " x " << _colorDiff[2] << " + " << _colorFrom[2] << endl;
+    */
+
     switch(_gradientType) {
         case LENGTH_BASED:
             glColor4f(  scale->getX() * _colorDiff[0] + _colorFrom[0],
@@ -314,6 +322,17 @@ void Paint::setColorTo(const float ct[4])
         _colorTo[i] = ct[i];
 }
 
+void Paint::setColorTo(int which, float value)
+{
+    if (which >= 0 && which <= 4)
+        _colorTo[which] = value;
+}
+
+void Paint::setColorFrom(int which, float value)
+{
+    if (which >=0 && which <= 4)
+        _colorFrom[which] = value;
+}
 
 /*
  * Sets the gradient type of the paint object
@@ -332,6 +351,8 @@ void Paint::setTexture(Texture *tex)
 	_textured = true;
 	_texture = tex;
 }
+
+
 
 
 /*

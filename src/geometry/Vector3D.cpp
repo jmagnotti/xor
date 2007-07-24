@@ -83,7 +83,7 @@ Vector3D::Vector3D(char * vals)
 {
     char * result = NULL;
     char delims[] = " ";
-
+//FIXME why not try...catch ?
     result = strtok(vals, delims); 
     _position[0] = atof(result);
 
@@ -260,7 +260,7 @@ bool Vector3D::operator == (Vector3D * other)
 
 float Vector3D::get(int dimension) 
 {
-	if (dimension < 3 && dimension >= 0)
+	if (dimension >=  Vector3D::X && dimension <= Vector3D::Z)
 		return _position[dimension];
 	else
 		return 0;
@@ -268,8 +268,6 @@ float Vector3D::get(int dimension)
 
 float Vector3D::getX() const
 {
-	// WHY, OH WHY????????? -ML 07/07
-    //return 0;
    	return _position[0];
 }
 

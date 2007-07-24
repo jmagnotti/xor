@@ -3,7 +3,7 @@
 
 #include "../../xor.h"
 #include "Icon2D.h"
-#include "Action.h"
+#include "GridAction.h"
 
 using namespace XOR;
 
@@ -18,7 +18,7 @@ public:
     /**
      * Explicit constructor
      */
-    ActionItem(Icon2D * icon, Action * action);
+    ActionItem(Icon2D * icon, GridAction * action);
 
     /**
      * Returns the hull of the item's icon
@@ -45,7 +45,7 @@ public:
 
 
 private:
-	Action * _action;
+	GridAction * _action;
 	bool _downInBounds;
 	Icon2D * _icon;
 };

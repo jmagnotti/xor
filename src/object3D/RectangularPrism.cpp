@@ -116,7 +116,7 @@ Quadrilateral3D * RectangularPrism::removeFace(int faceToRemove)
 void RectangularPrism::renderObject()
 {
     /*
-     * Rendering order is important
+     * Rendering order is important, so the map just won't do
 	map<const int, Quadrilateral3D*>::iterator iter   = _faces.begin();
 	map<const int, Quadrilateral3D*>::iterator finish = _faces.end();
 	
@@ -125,6 +125,9 @@ void RectangularPrism::renderObject()
 		++iter;
 	}
     */
+
+    
+    //cout << "id: " << this << " RectangularPrism::renderObject" << "at : " << getBaseVector()->toString() << endl;
 
     for (int i=0; i<6; i++) {
         if (_faces[_order[i]] != NULL) 

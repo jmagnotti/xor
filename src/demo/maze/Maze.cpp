@@ -93,7 +93,7 @@ void Maze::optimize()
 	set<RectangularPrism*>::iterator finish = renderables.end();
 
 	while(iter != finish) {
-		//(*iter)->removeFace(RectangularPrism::BOTTOM);
+		(*iter)->removeFace(RectangularPrism::BOTTOM);
 		iter++;
 	}
 

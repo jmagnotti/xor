@@ -11,7 +11,13 @@ Transform::Transform()
  */
 void Transform::pop(void)
 {
-	//cout << "popping" << endl;
+	
+#ifdef DEBUG
+    Logger::GetInstance()->decrementTabLevel();
+    Logger::GetInstance()->printTabs();
+    cout << "Translate^::pop()" << endl;
+#endif
+    
 	glPopMatrix();
 }
 

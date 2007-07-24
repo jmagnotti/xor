@@ -15,6 +15,24 @@ class FullScreen : public XavierConfiguration
 };
 
 
+class RShape : public Object3D
+{
+		Dimension3D * getDimension()
+		{}
+
+		Vector3D * getBaseVector()
+		{}
+
+        void renderObject()
+        {
+            glBegin(GL_QUADS);
+                glVertex3f(0,0,0);
+                glVertex3f(1,0,0);
+                glVertex3f(1,1,0);
+                glVertex3f(0,1,0);
+            glEnd();
+        }
+};
 /**
  * Shows the simplicity of XOR
  */
@@ -27,8 +45,16 @@ int main(int argc, char ** argv)
 
 	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
-    Cube * cube = new Cube(new Vector3D(0,0,-1), 3.0f, new Paint(Color::WHITE, Paint::HEIGHT_BASED));
 
+    /*
+    cout    << "R: " << Color::RED[0] << " " 
+            << "G: " << Color::RED[1] << " " 
+            << "B: " << Color::RED[2] << endl;
+
+    */
+    Cube * cube = new Cube(new Vector3D(0,0,0), 1.0f, new Paint(Color::RED, Paint::HEIGHT_BASED));
+
+    //ctrl->setModel(new RShape());
     ctrl->setModel(cube);
 
     // this call runs the demo.

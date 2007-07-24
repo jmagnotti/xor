@@ -3,7 +3,7 @@
 namespace XOR {
 
 // initialize static defaults
-const double Camera::DEFAULT_FOV		= 60;
+const double Camera::DEFAULT_FOV		= 90;
 const double Camera::DEFAULT_NEAR_CLIP	= 0.01f;
 const double Camera::DEFAULT_FAR_CLIP	= 1000.0f;
 

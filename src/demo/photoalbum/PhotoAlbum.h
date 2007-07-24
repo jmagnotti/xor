@@ -25,8 +25,8 @@ class PhotoAlbum : public Object3D, public InterpolationListener
 		void revertPic(int index);
 		void magnottiTransform();
 		void resetAllPhotos();
-		void highlightPic();    // brings an image to front
-		void unhighlightPic(int index);
+		//void highlightPic();    // brings an image to front
+		//void unhighlightPic(int index);
 
 		void lockKeys(int expectedInterpolations);
 		void unlockKeys();	

@@ -9,9 +9,11 @@ Transformable3D::Transformable3D(Object3D * obj)
 
 void Transformable3D::render()
 {
+    //cout << "id: " << this << " Transformable3D::render()" << endl;
 	doTransform();
 		_object3D->render();
 	undoTransform();
+    //cout << "id: " << this << " End Transformable3D::render()" << endl;
 }
 
 Dimension3D * Transformable3D::getDimension()

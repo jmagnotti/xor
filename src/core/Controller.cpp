@@ -76,7 +76,7 @@ Controller::~Controller()
 Controller * Controller::GetInstance()
 {
     if (_controller == NULL)
-        _controller = new Controller();
+        _controller = new Controller(new XavierConfiguration());
 
     return _controller;
 }

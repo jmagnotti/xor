@@ -35,6 +35,10 @@ public:
     static const int CUBIC_INTERPOLATOR     = 3;
 
 
+    // used by Transforms
+    virtual vector<Vector3D*> * build(Vector3D * target, int numSteps)=0;
+    virtual vector<float> * build(float target, int numSteps)=0;
+
     /**
      * Because the interpolator has a reference to the original values, they do
      * not need to be passed in.
@@ -65,7 +69,6 @@ public:
      */
     virtual const int getType()=0;
 
-    virtual vector<Vector3D*> build(Vector3D * target, int numSteps)=0;
 
 protected:
 

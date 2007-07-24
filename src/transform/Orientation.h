@@ -20,6 +20,7 @@ namespace XOR {
  * use Quaternions | Eigenaxes.
  *
  * @author John Magnotti
+ * @author Michael Lam
  * @version 1.1
  */
 class Orientation : public Transform
@@ -55,7 +56,7 @@ public:
     Orientation * clone();
 
 	/**
-	 * Can't push the inverse of an orientation. Invocation does nothing.
+	 * Calls the inverse method on each transform contained by the orientation. This is (almost) never appropriate.
 	 */
 	void pushInverse(void);
 
@@ -92,6 +93,10 @@ public:
 	void transform(Dimension2D * size);
 
 
+    /**
+     * Increments the objects world position in the current direction of the
+     * focal vector.
+     */
 	void moveAlongFocalVector(float distance);
 
 	Vector3D * getPosition();
@@ -119,9 +124,9 @@ public:
 	//void setPitch(float angle, int milliseconds);
 	//void setYaw(float angl, int milliseconds);
 	//
-	//void incrementRoll(float angle, int milliseconds);
-	//void incrementPitch(float angle, int milliseconds);
-	//void incrementYaw(float angl, int milliseconds);
+	void incrementRoll(float angle, int milliseconds);
+	void incrementPitch(float angle, int milliseconds);
+	void incrementYaw(float angl, int milliseconds);
 	//
 	//void setPosition(Vector3D * position, int milliseconds);
 	void incrementPosition(Vector3D * position, int milliseconds);
@@ -140,6 +145,9 @@ private:
 	vector<Rotate*> _yaw;
 	vector<Rotate*> _roll;
 	vector<Translate*> _position;
+	
+	bool _translated;
+	bool _hasPitch, _hasYaw, _hasRoll;
 
     //Rotate    * _roll, * _theta, * _phi;
     //Translate * _position;

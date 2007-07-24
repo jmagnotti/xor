@@ -6,23 +6,33 @@ namespace XOR {
 const Vector3D * Rotate::PITCH  = new Vector3D(1,0,0);
 const Vector3D * Rotate::YAW    = new Vector3D(0,1,0);
 const Vector3D * Rotate::ROLL   = new Vector3D(0,0,1);
+const Vector3D * Rotate::ORIGIN = new Vector3D(0,0,0);
+
 
 /*
  * Destructor
  */
 Rotate::~Rotate()
-{}
+{
+    delete _center;
+    delete _centeringTranslate;
+}
 
+InterpolatedRotate::~InterpolatedRotate()
+{
+	if (_action != NULL)
+		delete _action;
+    
+    //necessary ?
+//    _steps.clear();
+}
 
 /*
  * Default Constructor
  */
 Rotate::Rotate()
 {
-    _angle = 0.0f;
-
-    //_values.push_back(&_angle);
-
+    _angle  = 0.0f;
     _xCoord = _yCoord = _zCoord = 0;
 }
 
@@ -30,22 +40,25 @@ Rotate::Rotate()
 /*
  * Explicit constructor
  */
-Rotate::Rotate(float angle, float x, float y, float z)
+Rotate::Rotate(float angle, float x, float y, float z, const Vector3D * center)
 {
-	_angle = angle;
-	//_angle = GraphicsConversionUtility::GetInstance()->floatModulus(angle + 360.0f, 360);
-	//cout << _angle << endl;
+    _center = center;
+    _centeringTranslate = Translate::CreateTranslate((Vector3D*)_center);
+
+	_angle  = angle;
 
 	_xCoord	= x;
 	_yCoord	= y;
 	_zCoord	= z;
-
-    //_values.push_back(&_angle);
 }
 
-Rotate::Rotate(float angle, const Vector3D * axis)
+Rotate::Rotate(float angle, const Vector3D * axis, const Vector3D * center)
 {
-	_angle = angle;
+    _center = center;
+    _centeringTranslate = Translate::CreateTranslate((Vector3D*)_center);
+
+	_angle  = angle;
+
 	_xCoord = axis->getX();
 	_yCoord = axis->getY();
 	_zCoord = axis->getZ();
@@ -56,7 +69,9 @@ Rotate::Rotate(float angle, const Vector3D * axis)
  */
 void Rotate::clone(Rotate * other)
 {
-    _angle = other->_angle;
+    _angle  = other->_angle;
+
+    _center = other->_center;
 
     _xCoord = other->_xCoord;
     _yCoord = other->_yCoord;
@@ -64,47 +79,39 @@ void Rotate::clone(Rotate * other)
 }
 
 
-/* 
- * increment the rotation values
-void Rotate::increment(float angle, InterpolationEngine * interpolation)
-{
-    if (interpolation != NULL) {
-		_out.clear();
-        _out.push_back(_angle + angle);
-
-        interpolation->setup(_values, _out);
-        interpolation->start();
-    }
-    else {
-        _angle += angle;
-        _angle = GraphicsConversionUtility::GetInstance()->floatModulus(_angle, 360);
-    }
-}
-*/
- 
-/*
-void Rotate::set(float angle, InterpolationEngine * interpolation)
-{
-    if (interpolation != NULL) {
-        _out.clear();
-        _out.push_back(angle);
-
-        interpolation->setup(_values, _out);
-        interpolation->start();
-    }
-    else
-        _angle = angle;
-}    
-*/
-
-
 /*
  * pushes a matrix then applies the rotate
  */
 void Rotate::push()
 {
-	glPushMatrix();
-	glRotatef(_angle, _xCoord, _yCoord, _zCoord);
+
+    if (_center != Rotate::ORIGIN) {
+        _centeringTranslate->push();
+#ifdef DEBUG
+        Logger::GetInstance()->printTabs();
+        cout << "Rotate::push()" << endl;
+        Logger::GetInstance()->incrementTabLevel();
+#endif
+        glPushMatrix();
+        	glRotatef(_angle, _xCoord, _yCoord, _zCoord);
+
+        _centeringTranslate->pushInverse();
+    }
+    else {
+        glPushMatrix();
+        glRotatef(_angle, _xCoord, _yCoord, _zCoord);
+    }
+
+}
+
+void Rotate::pop()
+{
+    if (_center != Rotate::ORIGIN) {
+        _centeringTranslate->pop();
+        _centeringTranslate->pop();
+    }
+
+    Transform::pop();
 }
 
 
@@ -113,12 +120,30 @@ void Rotate::push()
  */
 void Rotate::pushInverse()
 {
-	glPushMatrix();
-	glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
+
+    if (_center != Rotate::ORIGIN) {
+        _centeringTranslate->pushInverse();
+#ifdef DEBUG
+        Logger::GetInstance()->printTabs();
+        cout << "Rotate::pushInverse()" << endl;
+        Logger::GetInstance()->incrementTabLevel();
+#endif
+        glPushMatrix();
+        	glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
+
+        _centeringTranslate->push();
+    }
+    else {
+        glPushMatrix();
+        glRotatef(-(_angle), _xCoord, _yCoord, _zCoord);
+    }
 }
 
 void Rotate::print()
 {
+#ifdef DEBUG
+    Logger::GetInstance()->printTabs();
+#endif
     cout << "ang: " << _angle << ", x: " << _xCoord << ", y: " << _yCoord 
          << ", z: " << _zCoord << endl;
 }
@@ -128,25 +153,36 @@ void Rotate::toIdentity()
     _angle = 0.0f;
 }
 
-Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis)
+Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis, const Vector3D * center)
 {
-	return new ImmediateRotate(angle, axis);
+	return new ImmediateRotate(angle, axis, center);
 }
 
-Rotate * Rotate::CreateRotate(float angle, float x, float y, float z)
+Rotate * Rotate::CreateRotate(float angle, float x, float y, float z, const Vector3D * center)
 {
-	return new ImmediateRotate(angle, x, y, z);
+	return new ImmediateRotate(angle, x, y, z, center);
 }
 
-Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis, int milliseconds)
+Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis, int milliseconds, const Vector3D * center)
 {
-	return new InterpolatedRotate(angle, axis, milliseconds);
+	return new InterpolatedRotate(angle, axis, milliseconds, center);
 }
 
-
-Rotate * Rotate::CreateRotate(float angle, float x, float y, float z, int milliseconds)
+Rotate * Rotate::CreateRotate(float angle, const Vector3D * axis, 
+        int milliseconds, Action * action, const Vector3D * center)
 {
-	return new InterpolatedRotate(angle, x, y, z, milliseconds);
+	return new InterpolatedRotate(angle, axis, milliseconds, action, center);
+}
+
+Rotate * Rotate::CreateRotate(float angle, float x, float y, float z, int milliseconds, const Vector3D * center)
+{
+	return new InterpolatedRotate(angle, x, y, z, milliseconds, center);
+}
+
+Rotate * Rotate::CreateRotate(float angle, float x, float y, float z, 
+        int milliseconds, Action * action, const Vector3D * center)
+{
+	return new InterpolatedRotate(angle, x, y, z, milliseconds, action, center);
 }
 
 //TODO Fill these in
@@ -154,9 +190,6 @@ void Rotate::transform(Vector3D * position){}
 void Rotate::transform(Dimension3D * size){}
 void Rotate::transform(Vector2D * position){}
 void Rotate::transform(Dimension2D * size){}
-//Rotate * Rotate::createTransformedInstance(Vector3D * point){}
-//Rotate * Rotate::createTransformedInstance(Vector3D * point, int milliseconds){}
-//END TODO
 
 float Rotate::getAngle()
 {
@@ -165,42 +198,96 @@ float Rotate::getAngle()
 
 void InterpolatedRotate::push()
 {
-	if (_remaining > 0) {
-		_angle += _step;
-        
-        _remaining--;
-    }
-
+    interpolate();
     Rotate::push();
+}
+
+void Rotate::setAngle(float angle)
+{
+	_angle = angle;
+}
+
+void InterpolatedRotate::interpolate()
+{
+	if (_remaining > 0) {
+		_angle += (*_steps)[_total - _remaining];
+
+        -- _remaining;
+
+        /*
+        if (_remaining <= 0) {
+            cout << "setting _angle to " << _target << " from " << _angle << endl;
+
+            _angle = _target;
+
+            */
+        if (_action != NULL)
+            _action->execute();
+        //}
+    }
 }
 
 void InterpolatedRotate::pushInverse()
 {
-	if (_remaining > 0) {
-		_angle += _step;
-        
-        _remaining--;
-    }
-
+    interpolate();
     Rotate::pushInverse();
 }
 
 /**
- * CTOR for InterpolatedRotate
+ * initializes InterpolatedRotate
  */
-InterpolatedRotate::InterpolatedRotate(float angle, const Vector3D * axis, int milliseconds) :
-    Rotate(angle, axis) {
-       //do something with the time 
+void InterpolatedRotate::build(float target, int milliseconds, Action * action)
+{
+    _total  = _remaining = Timer::millisecondsToFrames(milliseconds);
+    _target = target;
+
+    _steps = InterpolatorFactory::GetInstance()->
+             getDefaultInterpolator()->build(target, _total);
+
+    _action = action;
 }
 
-InterpolatedRotate::InterpolatedRotate(float angle, float x, float y, float z, int milliseconds) :
-    Rotate(angle, x, y, z) {}
+/**
+ * CTORs for InterpolatedRotate
+ */
+InterpolatedRotate::InterpolatedRotate(float angle, const Vector3D * axis, int
+        milliseconds, const Vector3D * center) :
+    Rotate(0, axis, center) 
+{
+    build(angle, milliseconds, NULL);
+}
 
-ImmediateRotate::ImmediateRotate(float angle, const Vector3D * axis) 
-    : Rotate(angle, axis) {}
+InterpolatedRotate::InterpolatedRotate(float angle, const Vector3D * axis, int
+        milliseconds, Action * action, const Vector3D * center) :
+    Rotate(0, axis, center) 
+{
+    build(angle, milliseconds, action);
+}
 
-ImmediateRotate::ImmediateRotate(float angle, float x, float y, float z) 
-    : Rotate(angle, x, y, z) {}
+InterpolatedRotate::InterpolatedRotate(float angle, float x, float y, float z,
+        int milliseconds, const Vector3D * center) :
+    Rotate(0, x, y, z, center) 
+{
+    build(angle, milliseconds, NULL);
+}
+
+InterpolatedRotate::InterpolatedRotate(float angle, float x, float y, float z,
+        int milliseconds, Action * action, const Vector3D * center) :
+    Rotate(0, x, y, z, center) 
+{
+    build(angle, milliseconds, action);
+}
+
+/**
+ * ImmediateRotates just pass through to Rotate
+ */
+ImmediateRotate::ImmediateRotate(float angle, const Vector3D * axis, const
+        Vector3D * center) 
+    : Rotate(angle, axis, center) {}
+
+ImmediateRotate::ImmediateRotate(float angle, float x, float y, float z, const
+        Vector3D * center) 
+    : Rotate(angle, x, y, z, center) {}
 
 }
 
