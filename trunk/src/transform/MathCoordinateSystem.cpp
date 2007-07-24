@@ -13,7 +13,7 @@ MathCoordinateSystem::MathCoordinateSystem()
 {
 	_rotations[0] = Rotate::CreateRotate(-90.0,1,0,0);
 	_rotations[1] = Rotate::CreateRotate(-90.0,0,0,1);
-	_rotations[2] = Rotate::CreateRotate(0,0,0,0);
+	_rotations[2] = Rotate::CreateRotate(0,0,0,0, Rotate::ORIGIN);
 	_scale = new Scale();
 }
 

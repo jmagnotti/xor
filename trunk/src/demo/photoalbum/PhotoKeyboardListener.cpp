@@ -12,19 +12,19 @@ PhotoKeyboardListener::PhotoKeyboardListener(Controller * ctrl, PhotoAlbum * pho
 
 void PhotoKeyboardListener::handleKey_R()
 {
-	_ctrl->getCamera()->clear();
+	//_ctrl->getCamera()->clear();
 }
 
 
 void PhotoKeyboardListener::handleKey_S()
 {
-	_ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1), new TimedInterpolation(1000, _photoalbum));
+	//_ctrl->getCamera()->incrementTranslation(new Vector3D(0,0,1), new TimedInterpolation(1000, _photoalbum));
 }
 
 void PhotoKeyboardListener::handleKey_A()
 {
-	_ctrl->getCamera()->incrementTranslation(
-		new Vector3D(0,0,-1), new TimedInterpolation(1000, _photoalbum));
+	//_ctrl->getCamera()->incrementTranslation(
+		//new Vector3D(0,0,-1), new TimedInterpolation(1000, _photoalbum));
 }
 	
 /** 
@@ -67,42 +67,42 @@ void PhotoKeyboardListener::handleKey_F5()
 
 void PhotoKeyboardListener::handleKey_a()
 {
-	_ctrl->getCamera()->incrementRotation(0, -10.0f);
+	//_ctrl->getCamera()->incrementRotation(0, -10.0f);
 }
 
 void PhotoKeyboardListener::handleKey_d()
 {
-	_ctrl->getCamera()->incrementRotation(0, 10.0f);
+	//_ctrl->getCamera()->incrementRotation(0, 10.0f);
 }
 
 void PhotoKeyboardListener::handleKey_w()
 {
-	_ctrl->getCamera()->walk(0.15f, new TimedInterpolation(200,NULL));
+	//_ctrl->getCamera()->walk(0.15f, new TimedInterpolation(200,NULL));
 }
 
 void PhotoKeyboardListener::handleKey_s()
 {
-	_ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(200,NULL));
+	//_ctrl->getCamera()->walk(-0.15f, new TimedInterpolation(200,NULL));
 }
 
 void PhotoKeyboardListener::handleKey_q()
 {
-	_ctrl->getCamera()->incrementRotation(2, 5.0f);
+	//_ctrl->getCamera()->incrementRotation(2, 5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_e()
 {
-	_ctrl->getCamera()->incrementRotation(2, -5.0f);
+	//_ctrl->getCamera()->incrementRotation(2, -5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_c()
 {
-	_ctrl->getCamera()->incrementRotation(1, 5.0f);
+	//_ctrl->getCamera()->incrementRotation(1, 5.0f);
 }
 
 void PhotoKeyboardListener::handleKey_z()
 {
-	_ctrl->getCamera()->incrementRotation(1, -5.0f);
+	//_ctrl->getCamera()->incrementRotation(1, -5.0f);
 }
 
 /**

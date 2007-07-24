@@ -104,20 +104,42 @@ void LinearInterpolator::setScale(vector<float*> & in, vector<float> & out, int 
 */
 }
 
-vector<Vector3D*> LinearInterpolator::build(Vector3D * target, int numSteps)
+vector<Vector3D*> * LinearInterpolator::build(Vector3D * target, int numSteps)
 {
-    Vector3D * stepAmount = (*target) / ((float) numSteps);
-    Vector3D * temp = stepAmount;
+    vector<Vector3D*> * steps;
+    steps = new vector<Vector3D*>();
 
-    while(numSteps > 0) {
-        _steps.push_back(temp);
-        temp = (*temp) + stepAmount;
+    Vector3D * stepAmount = (*target) / ((float) numSteps);
+
+    while(numSteps >= 0) {
+        // FIXME this could cause deletion problems (not being deleted as of
+        //current) since the same Vector3D is  being used at each spot.
+        //Possible solution is to have an  InterpolationStep object that
+        //provides iterator-esque access to the  step value and knows how to
+        //free its memory.  
+        //steps->push_back(stepAmount); 
+        //Possible Temporary Solution: Clone the vector which will use more
+        //mem, but will not cause SEGFAULTs
+        steps->push_back(stepAmount->clone());
         --numSteps;
     }
 
-    delete temp; delete stepAmount;
+    return steps; 
+}
 
-    return _steps; 
+vector<float> * LinearInterpolator::build(float target, int numSteps)
+{
+    vector<float> * steps;
+    steps = new vector<float>();
+
+    float stepAmount =  target / (float) numSteps;
+
+    while(numSteps >= 0) {
+        steps->push_back(stepAmount);
+        --numSteps;
+    }
+
+    return steps;
 }
 
 

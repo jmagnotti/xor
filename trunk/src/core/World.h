@@ -3,8 +3,10 @@
 
 
 #include <stdlib.h>
+#include <string>
 #include <map>
 
+#include "../util/Logger.h"
 #include "Renderable.h"
 #include "../object3D/Object3D.h"
 
@@ -74,7 +76,7 @@ public:
 	/**
 	 * Removes a renderable from the worlds vector
 	 */
-	void removeObject(char *);
+	Renderable * removeObject(char *);
 
 
 	/**
@@ -87,6 +89,13 @@ public:
 	 * soon to be handled by Obj3D?
 	 */
 	Vector3D * getBaseVector() {return new Vector3D(0,0,0);}
+
+    /**
+     * Prints the names and ids of all objects stored at the world level. Note
+     * that this is not recursive, and will only return values corresponding to
+     * calls to World::addObject()
+     */
+    void printObjectStats();
 
 
 protected:
@@ -104,7 +113,7 @@ private:
 
 	static World * _world;
 
-	map<char*, Renderable*> _objects;
+	map<string, Renderable*> _objects;
 
 };
 

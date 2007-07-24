@@ -86,9 +86,9 @@ void PhotoAlbum::bringToFront(int index)
 	//need to move about .53 in the x and about -0.3 in the y
 
 	// need scale the pic back to it's original form before messing with it
-	unhighlightPic(index);	
+	//////unhighlightPic(index);	
 
-	pics[index]->incrementScalar(new Vector3D(3, 3, 0));
+	//pics[index]->incrementScalar(new Vector3D(3, 3, 0));
 	//pics[index]->setTranslation(new Vector3D(-3,-3, 0), new TimedInterpolation(500, this));
 
 }
@@ -103,14 +103,14 @@ void PhotoAlbum::setCurrentPic(int index)
 		// scale down previous picture
 		if(currentPic != index) // didn't actually change
 		{
-			unhighlightPic(currentPic);
+			//unhighlightPic(currentPic);
 		}
 		// change the current picture
 		currentPic = index;	
 		
 		lockKeys(1); 
 		// scale up
-		highlightPic();
+		//highlightPic();
 		// print out the index of currently highlighted pic
 	}
 }
@@ -124,7 +124,7 @@ void PhotoAlbum::toggleViewMode()
 	// mode
 	if(keyboardLocked) {
 
-		pics[currentPic]->clear();  // put pic back
+		//pics[currentPic]->clear();  // put pic back
 		receivedInterpolations++;   // cheat a little bit
 		unlockKeys();
 		setCurrentPic(currentPic);  // put it in highlighted state
@@ -209,9 +209,11 @@ void PhotoAlbum::magnottiTransform()
 			numOfInterpolations += 3;
 			TimedInterpolation * tmpInterp;
 			tmpInterp = interpolationManager->getInterpolation(i);
+            /*
 			(*iter)->incrementRotation(Orientation::ROLL, 360, tmpInterp);
 			(*iter)->incrementRotation(Orientation::THETA, 360, tmpInterp);
 			(*iter)->incrementRotation(Orientation::PHI, 360, tmpInterp);
+            */
 			++i;
 			++iter; 
 		}
@@ -222,8 +224,10 @@ void PhotoAlbum::magnottiTransform()
 
 void PhotoAlbum::resetAllPhotos()
 {
+    /*
 	for(int i = 0; i < 36; i++)
 		pics[i]->clear();
+        */
 
 	// we have to bring the current pic back
 	// because clear() puts everything in its
@@ -232,6 +236,7 @@ void PhotoAlbum::resetAllPhotos()
 	setCurrentPic(currentPic);
 }
 
+/*
 void PhotoAlbum::highlightPic()
 {
 	// TODO: replace the object's paint object with an alpha blended colorized one
@@ -239,12 +244,15 @@ void PhotoAlbum::highlightPic()
 	//	new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(fileNames[numOfPics].c_str())))));
 		pics[currentPic]->incrementScalar(new Vector3D(.2, .2, .2), new TimedInterpolation(150, this));
 }
+*/
 
+    /*
 void PhotoAlbum::unhighlightPic(int index)
 {
 	pics[index]->incrementScalar(new Vector3D(-.2,-.2,-.2), new TimedInterpolation(300,this));
 }
 
+    */
 /**
  * lockKeys(int) will lock the keyboard until it's
  * reached the expected amount of interpolations
@@ -318,9 +326,9 @@ void PhotoAlbum::parseXML()
 
 			Vector3D * vOff = new Vector3D(i*squareDiameter + offset*i, j*squareDiameter + offset*j, z);
 
-			Cube * c = new Cube( new Vector3D(0,0,0), squareDiameter, new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(fileNames[numOfPics].c_str())));
+			Cube * c = new Cube( vOff, squareDiameter, new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(fileNames[numOfPics].c_str())));
 
-			c->setTranslation(vOff);
+			//c->setTranslation(vOff);
 
 			pics.push_back(new CompiledObject3D(c));
 

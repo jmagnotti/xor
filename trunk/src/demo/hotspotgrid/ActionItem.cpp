@@ -3,7 +3,7 @@
 /**
  * Explicit constructor
  */
-ActionItem::ActionItem(Icon2D * icon, Action * action)
+ActionItem::ActionItem(Icon2D * icon, GridAction * action)
 {
     _icon = icon;
     _action = action;

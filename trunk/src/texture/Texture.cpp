@@ -67,36 +67,38 @@ void Texture::loadFromFile()
     texture = IMG_Load(_path);
 
     if (texture == NULL) cout << IMG_GetError() << endl;
+    else {
 
-    if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
- 
-    glEnable(GL_TEXTURE_2D);
-    glGenTextures(1, &_id);
-    glBindTexture(GL_TEXTURE_2D, _id);
+        if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
+     
+        glEnable(GL_TEXTURE_2D);
+        glGenTextures(1, &_id);
+        glBindTexture(GL_TEXTURE_2D, _id);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-    glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+        glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 
-	_width  = texture->w;
-	_height = texture->h;
+        _width  = texture->w;
+        _height = texture->h;
 
-	//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-	if (texture->format->BytesPerPixel == 4)
-		//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-        glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
-                GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
-	else
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
-                GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
+        //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
+        if (texture->format->BytesPerPixel == 4)
+            //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
+            glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
+                    GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
+        else
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
+                    GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
 
 
-    if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
+        if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
 
-    SDL_FreeSurface(texture);
+        SDL_FreeSurface(texture);
+    }
 }
 
 /**

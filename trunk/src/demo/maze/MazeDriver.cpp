@@ -1,5 +1,4 @@
 #include "MazeDriver.h"
-#include "KeyHandler.h"
 
 
 /**
@@ -14,41 +13,37 @@ MazeDriver::MazeDriver()
     // initialize the maze
     initializeMaze();
 
-    //ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
-    new KeyHandler(ctrl);
-
-    // we want a world object that is created around the maze
-    //World * world = World::GetInstance(_maze);
-
+    ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
     ctrl->getMouse()->addListener(new DefaultMouseListener());
 
-	//ctrl->getTimer()->setInterval(100);
 	
     // the next step is to move the world so that we are at the starting point
     // of the maze. notice that we are rotating the entire world, so the
     // translation will even effect objects added later, like the Terrain.
     // Also note that we had to invert the starting point to get the desired
     // effect.
-    ctrl->getCamera()->incrementRotation(Orientation::THETA, 180);
+	ctrl->getCamera()->getOrientation()->incrementYaw(180);
+    //ctrl->getCamera()->addTransform(new Rotation(Rotation::YAW, 180));//(Orientation::THETA, 180);
 
     // add the world to the controller note that since the world is a
     // renderable no cast is necessary
-    ctrl->setModel(_maze);//new CompiledObject3D(_maze));
+    ctrl->setModel(new CompiledObject3D(_maze));
 
     // just to show that we can, let's add a string to the world
-    ctrl->getModel()->addObject("text", new String2D("Enjoy the show"));
+    //ctrl->getModel()->addObject("text", new String2D("Enjoy the show"));
+//    ctrl->getModel()->addObject("text", new Cube(new Vector3D(0,0,-1), 3.0f, new Paint(Color::YELLOW)));
 
     // lets add some grass
     //Terrain * grass = new Terrain(new Point3D(0,0,0), _maze->getSize());
 
-    //ctrl->getModel()->addRenderable("grass", grass);
 	
-    //FPS counter ctrl->setFramesPerSecondCounter(new
-    FramesPerSecondCounter();
+    //FPS counter 
+    //ctrl->setFramesPerSecondCounter(new FramesPerSecondCounter());
     
     // starts the visualization all other actions will be performed by
     // callbacks and listeners
-    ctrl->run(); }
+    ctrl->run(); 
+}
 
 
 /**
@@ -59,7 +54,7 @@ void MazeDriver::initializeMaze()
 { 
     MazeParser * mp = MazeParser::GetInstance("resources/maze1.mz");
     _maze = mp->parse(); 
-    _maze->optimize();
+    //_maze->optimize();
 
     delete mp;
 }

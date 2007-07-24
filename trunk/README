@@ -9,12 +9,12 @@ $ done
 
 #-1	This list should be prioritized
 
-#0 World.cpp needs to have functions built to allow for more control of movement. 
+$#0 World.cpp needs to have functions built to allow for more control of movement. 
 	This means access to the two velocity variables. 
 
 #1 Collision detection needs to be implemented. Where should this be placed, when should it be called, how can we optimize it without damaging the design?  
 
--#2 All event listeners & generators need to be properly implemented
+$#2 All event listeners & generators need to be properly implemented
 
 $#3 The demo program should be updated to reflect changes in the object code
 
@@ -24,7 +24,7 @@ This will help when the maze is able to display things other than cubes, as only
 	$Because of the scope of Renderable, maze now takes a RectangularPrism, which is specific enough to solve problems like adding a String2D to the maze, but still generic enough that the current implementation with Cubes still works.
 
 	
-#5 Maze should also have addRenderableList() 
+$#5 Maze should also have addRenderableList() 
 	#Which means there should be a RenderableList object.
 	#Because of change to Req.4, maybe a RectangularPrismList? This could get "out of control hot" if optimizations are added to do things like remove redundant vertices.
 
@@ -38,7 +38,7 @@ $#7 Texture needs to be implemented inside Paint.cpp
 -#8 Lighting should be calculated for all Quadrilaterals
 	There should be some way for people to know that certain objects support lighting. This could be done with a call to reflects() or something. reflects() could be added to Renderable.h and thus force everyone to implement it. And reflects() will return false if any of the objects do not support lighting. A compensatory way to get around this could be to internally handle all of the glEnable(...) calls and enable and disable around nonsupporting objects.
 
-#9 Terrain needs to be implemented -- consider supporting terrain formats should use the strategy pattern to handle terrain reformation. The default strategy should just create one big square (no changes between iterations)
+$#9 Terrain needs to be implemented -- consider supporting terrain formats should use the strategy pattern to handle terrain reformation. The default strategy should just create one big square (no changes between iterations)
 	# Look at code in the Terrain Filter for some examples of terrain generation etc.
 
 $#10 Remove TexturedQuadrilateral3D
@@ -76,11 +76,13 @@ $#14 Have decorators for renderables to be able to have renderers listen to time
 
 #17 Points, Dimensions, Colors should have respective parent classes defined and implemented
 
-#18 NormalPolygon2D should have an extrude(int dimension) method which returns a NormalPolygon3D object
+$#18 NormalPolygon3D should have an extrude(int dimension) method which returns a ExtrudedNormalPolygon3D object
 
 #19 Textures should always use GL_MODULATE and GL_REPEAT. If no modulation is needed, modulate with WHITE. If repeating is not the desired behavior, then stretch the texture so it won't tile.
 
 #20 All Renderables need to have an XML to GOR friendly constructor of format: static #{CLASS_NAME} Create#{CLASS_NAME}(string, ..., string) Note: The constructors should ONLY take in strings. Because of this blatant inefficiency, the following text should appear in each of the constructors comment block: 
 		 * This constructor is to be used only by the XML-to-GOR Tool. 
 		 * Use the other constructors for other uses, as they are MUCH more efficient.
+		 
+#21 Switch to using for loops for iterating through vectors<>, as this is safer (why?) in some cases. 
 

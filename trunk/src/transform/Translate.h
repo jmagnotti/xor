@@ -86,6 +86,13 @@ public:
 	 */
 	virtual void pushInverse(void);
 
+	
+	/**
+	 * Direct access to the translate member.
+	 * Calling class is responsible for deleting the memory associated with position.
+	 */
+	void setTranslation(Vector3D * position);
+	
 
 	/**
 	 * Returns the translation as a Vector3D
@@ -148,7 +155,7 @@ public:
 
 private:
 
-	vector<Vector3D*> _steps;
+	vector<Vector3D*> * _steps;
 
 	Vector3D * _target;
 

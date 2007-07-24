@@ -56,7 +56,8 @@ public:
     /**
      *
      */
-    vector<Vector3D*> build(Vector3D * target, int numSteps);
+    vector<Vector3D*> * build(Vector3D * target, int numSteps);
+    vector<float> * build(float target, int numSteps);
 
 
     /**

@@ -3,7 +3,8 @@
 namespace XOR {
 
 // set the static instance to 0
-DefaultKeyboardListener * DefaultKeyboardListener::_defaultKeyboardListener = NULL;
+DefaultKeyboardListener * DefaultKeyboardListener::
+    _defaultKeyboardListener = NULL;
 
 
 /* 

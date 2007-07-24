@@ -5,6 +5,7 @@
 #include <vector>
 #include "Transform.h"
 
+#include "Translate.h"
 
 using namespace std;
 
@@ -70,6 +71,10 @@ protected:
     virtual void doInverseTransform(); 
 
     vector<Transform*> _transforms;
+    
+private:
+	
+	static int _transformCount;
 
 };
 

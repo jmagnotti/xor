@@ -13,7 +13,7 @@ namespace XOR {
 /**
  * Enhances the standard timer by doing all the messy interval
  * and remaining-ticks calculation. All the application developer needs
- * to know is the desired millisecond interval and whether the even is
+ * to know is the desired millisecond interval and whether the event is
  * one-time or recurring.
  */
 class IntervalTimer : public TimerListener

@@ -15,9 +15,9 @@ World::World()
 
 World::~World()
 {
-	map<char*, Renderable*>::iterator iter   = _objects.begin();
-	map<char*, Renderable*>::iterator finish = _objects.end();
-	map<char*, Renderable*>::iterator prev;
+	map<string, Renderable*>::iterator iter   = _objects.begin();
+	map<string, Renderable*>::iterator finish = _objects.end();
+	map<string, Renderable*>::iterator prev;
 
     while(iter != finish) {
         prev = iter;
@@ -76,17 +76,21 @@ void World::addObject(char * name, Renderable * object)
  */
 Renderable * World::getObject(char * name)
 {
-	return _objects[name];
+	return _objects[string(name)];
 }
 
 
 /*
  * Remove an object from the world
  */
-//#FIXME return the removed object so it can be deleted if desired
-void World::removeObject(char * name)
+Renderable * World::removeObject(char * name)
 {
-	_objects.erase(name);
+    Renderable * temp =  _objects[string(name)];
+
+    if (temp != NULL)
+        _objects.erase(string(name));
+
+    return temp;
 }
 
 
@@ -113,13 +117,37 @@ bool World::IsWorldObject(Renderable * world)
  */
 void World::renderObject()
 {
-	map<char*, Renderable*>::iterator iter   = _objects.begin();
-	map<char*, Renderable*>::iterator finish = _objects.end();
+#ifdef DEBUG
+    Logger::GetInstance()->printTabs();
+    cout << "BEGIN RENDER LOOP" << endl;
+    Logger::GetInstance()->incrementTabLevel();
+#endif
+    
+	map<string, Renderable*>::iterator iter   = _objects.begin();
+	map<string, Renderable*>::iterator finish = _objects.end();
 
     while(iter != finish) {
         iter->second->render();
         ++iter;
     }
+#ifdef DEBUG
+    Logger::GetInstance()->decrementTabLevel();
+    Logger::GetInstance()->printTabs();
+    cout << "END RENDER LOOP" << endl;
+#endif
+}
+
+void World::printObjectStats()
+{
+	map<string, Renderable*>::iterator iter   = _objects.begin();
+
+    while(iter != _objects.end()) {
+        cout << "Object name: " << iter->first 
+             << ", id: "        << iter->second 
+             << endl;
+        ++iter;
+    }
+
 }
 
 }

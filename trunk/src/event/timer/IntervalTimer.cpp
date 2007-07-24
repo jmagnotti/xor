@@ -20,7 +20,7 @@ IntervalTimer * IntervalTimer::GetInstance()
 {
 	if (_intervalTimer == NULL) {
 		_intervalTimer = new IntervalTimer();
-		Controller::GetInstance(NULL)->getTimer()->addListener(_intervalTimer);
+		Controller::GetInstance()->getTimer()->addListener(_intervalTimer);
 	}
 	return _intervalTimer;
 }
@@ -92,7 +92,7 @@ void IntervalTimer::handleTick()
 		if ((*iter)->_done == false) {
 			if ((*iter)->_ticksRemaining <= 0) {
 				(*iter)->_listener->handleTick();
-				if ((*iter)->_recurring == false)
+				if (! (*iter)->_recurring)
 					(*iter)->_done = true;
 				else
 					resetTicksRemaining(*iter);
@@ -126,7 +126,7 @@ void IntervalTimer::purgeDone()
     bool removed = false;
 	bool clear = false;
 
-	while (clear == false) {
+	while (!clear) {
 		removed = false;
 
 		list<ListenerProperties*>::iterator iter   = listeners.begin();
