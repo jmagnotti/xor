@@ -20,7 +20,7 @@ MAIN = PhotoGlass
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
 
-InterpolationDemo:	$(OBJS) 
+PhotoGlass:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:
@@ -34,267 +34,931 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-InterpolationDemo.o: InterpolationDemo.h ../../xor.h ../../model/Model.h
-InterpolationDemo.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
-InterpolationDemo.o: /usr/include/stdlib.h /usr/include/features.h
-InterpolationDemo.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
-InterpolationDemo.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
-InterpolationDemo.o: /usr/include/sys/types.h /usr/include/bits/types.h
-InterpolationDemo.o: /usr/include/bits/typesizes.h /usr/include/time.h
-InterpolationDemo.o: /usr/include/endian.h /usr/include/bits/endian.h
-InterpolationDemo.o: /usr/include/sys/select.h /usr/include/bits/select.h
-InterpolationDemo.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
-InterpolationDemo.o: /usr/include/sys/sysmacros.h
-InterpolationDemo.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-InterpolationDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
-InterpolationDemo.o: ../../geometry/Vector3D.h ../../paint/Paint.h
-InterpolationDemo.o: /usr/include/string.h ../../texture/Texture.h
-InterpolationDemo.o: ../../../include/SDL.h ../../../include/SDL_main.h
-InterpolationDemo.o: ../../../include/SDL_types.h
-InterpolationDemo.o: ../../../include/SDL_getenv.h
-InterpolationDemo.o: ../../../include/SDL_error.h
-InterpolationDemo.o: ../../../include/begin_code.h
-InterpolationDemo.o: ../../../include/close_code.h
-InterpolationDemo.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
-InterpolationDemo.o: /usr/include/libio.h /usr/include/_G_config.h
-InterpolationDemo.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-InterpolationDemo.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
-InterpolationDemo.o: /usr/include/bits/sys_errlist.h
-InterpolationDemo.o: ../../../include/SDL_timer.h
-InterpolationDemo.o: ../../../include/SDL_audio.h
-InterpolationDemo.o: ../../../include/SDL_byteorder.h
-InterpolationDemo.o: ../../../include/SDL_cdrom.h
-InterpolationDemo.o: ../../../include/SDL_joystick.h
-InterpolationDemo.o: ../../../include/SDL_events.h
-InterpolationDemo.o: ../../../include/SDL_active.h
-InterpolationDemo.o: ../../../include/SDL_keyboard.h
-InterpolationDemo.o: ../../../include/SDL_keysym.h
-InterpolationDemo.o: ../../../include/SDL_mouse.h
-InterpolationDemo.o: ../../../include/SDL_video.h
-InterpolationDemo.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
-InterpolationDemo.o: ../../../include/SDL_version.h
-InterpolationDemo.o: ../../../include/SDL_image.h ../../../include/SDL.h
-InterpolationDemo.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
-InterpolationDemo.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
-InterpolationDemo.o: ../../geometry/Vector2D.h ../../paint/Color.h
-InterpolationDemo.o: ../../core/Renderable.h ../../texture/TextureFactory.h
-InterpolationDemo.o: ../../event/reshape/ReshapeListener.h
-InterpolationDemo.o: ../../event/reshape/ReshapeEvent.h
-InterpolationDemo.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
-InterpolationDemo.o: ../../event/reshape/ReshapeEvent.h
-InterpolationDemo.o: ../../core/Controller.h ../../event/EventFactory.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardListener.h
-InterpolationDemo.o: ../../event/keyboard/KeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyEventFactory.h
-InterpolationDemo.o: ../../event/keyboard/KeyDownEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyUpEvent.h
-InterpolationDemo.o: ../../event/mouse/Mouse.h
-InterpolationDemo.o: ../../event/mouse/MouseListener.h
-InterpolationDemo.o: ../../event/mouse/MouseEvent.h
-InterpolationDemo.o: ../../event/mouse/MouseEventFactory.h
-InterpolationDemo.o: ../../event/mouse/MouseButtonDown.h
-InterpolationDemo.o: ../../event/mouse/MouseClickEvent.h
-InterpolationDemo.o: ../../event/mouse/MouseButtonUp.h
-InterpolationDemo.o: ../../event/mouse/MouseMotionEvent.h
-InterpolationDemo.o: ../../event/timer/Timer.h /usr/include/math.h
-InterpolationDemo.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
-InterpolationDemo.o: /usr/include/bits/mathcalls.h
-InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
-InterpolationDemo.o: ../../core/Window.h ../../geometry/Dimension2D.h
-InterpolationDemo.o: ../../core/Renderable.h ../../core/World.h
-InterpolationDemo.o: ../../util/Logger.h ../../object3D/Point3D.h
-InterpolationDemo.o: ../../object3D/Object3D.h
-InterpolationDemo.o: ../../core/XavierConfiguration.h
-InterpolationDemo.o: ../../transform/CoordinateSystem.h
-InterpolationDemo.o: ../../transform/Transform.h ../../transform/Rotate.h
-InterpolationDemo.o: ../../transform/Translate.h ../../event/Action.h
-InterpolationDemo.o: ../../interpolation/InterpolatorFactory.h
-InterpolationDemo.o: ../../interpolation/Interpolator.h
-InterpolationDemo.o: ../../interpolation/LinearInterpolator.h
-InterpolationDemo.o: ../../util/GraphicsConversionUtility.h
-InterpolationDemo.o: ../../interpolation/Interpolator.h
-InterpolationDemo.o: ../../transform/Scale.h
-InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
-InterpolationDemo.o: ../../interpolation/InterpolationListener.h
-InterpolationDemo.o: ../../interpolation/InterpolatorFactory.h
-InterpolationDemo.o: ../../event/InputEventProxyFactory.h
-InterpolationDemo.o: ../../event/EventFactory.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardStub.h
-InterpolationDemo.o: ../../multicast/MulticastSocket.h
-InterpolationDemo.o: ../../multicast/Multicast.h /usr/include/sys/socket.h
-InterpolationDemo.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
-InterpolationDemo.o: /usr/include/bits/socket.h /usr/include/limits.h
-InterpolationDemo.o: /usr/include/bits/posix1_lim.h
-InterpolationDemo.o: /usr/include/bits/local_lim.h
-InterpolationDemo.o: /usr/include/linux/limits.h
-InterpolationDemo.o: /usr/include/bits/posix2_lim.h
-InterpolationDemo.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
-InterpolationDemo.o: /usr/include/asm-x86_64/socket.h
-InterpolationDemo.o: /usr/include/asm/sockios.h
-InterpolationDemo.o: /usr/include/asm-x86_64/sockios.h
-InterpolationDemo.o: /usr/include/netinet/in.h /usr/include/stdint.h
-InterpolationDemo.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
-InterpolationDemo.o: /usr/include/arpa/inet.h /usr/include/unistd.h
-InterpolationDemo.o: /usr/include/bits/posix_opt.h
-InterpolationDemo.o: /usr/include/bits/confname.h /usr/include/getopt.h
-InterpolationDemo.o: ../../multicast/MulticastSocketPool.h
-InterpolationDemo.o: ../../multicast/MulticastSocket.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
-InterpolationDemo.o: ../../event/timer/TimerStub.h ../../event/timer/Timer.h
-InterpolationDemo.o: ../../paint/Color.h ../../core/Camera.h
-InterpolationDemo.o: ../../core/CameraListener.h
-InterpolationDemo.o: ../../transform/Orientation.h
-InterpolationDemo.o: ../../transform/CoordinateSystemFactory.h
-InterpolationDemo.o: ../../transform/CoordinateSystem.h
-InterpolationDemo.o: ../../transform/OpenGLCoordinateSystem.h
-InterpolationDemo.o: ../../transform/MacCoordinateSystem.h
-InterpolationDemo.o: ../../transform/MathCoordinateSystem.h
-InterpolationDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
-InterpolationDemo.o: ../../transform/EngineerCoordinateSystem.h
-InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../texture/Texture.h ../../model/ModelFactory.h
-InterpolationDemo.o: ../../model/Model.h ../../model/MilkshapeModel.h
-InterpolationDemo.o: ../../model/MilkshapeModel.h
-InterpolationDemo.o: ../../geometry/Dimension3D.h
-InterpolationDemo.o: ../../geometry/CylindricalVolume.h
-InterpolationDemo.o: ../../geometry/Vector3D.h ../../geometry/Vector2D.h
-InterpolationDemo.o: ../../geometry/Dimension2D.h
-InterpolationDemo.o: ../../geometry/RectangularVolume.h
-InterpolationDemo.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
-InterpolationDemo.o: ../../core/Controller.h ../../core/Renderable.h
-InterpolationDemo.o: ../../core/World.h ../../core/DebugCamera.h
-InterpolationDemo.o: ../../core/Controller.h ../../core/XavierConfiguration.h
-InterpolationDemo.o: ../../core/Window.h ../../core/CameraListener.h
-InterpolationDemo.o: ../../core/Camera.h ../../object2D/Object2D.h
-InterpolationDemo.o: ../../core/Window.h ../../object2D/Transformable2D.h
-InterpolationDemo.o: ../../transform/Transformable.h
-InterpolationDemo.o: ../../transform/Transform.h ../../object2D/Object2D.h
-InterpolationDemo.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-InterpolationDemo.o: ../../util/BitmapFontUtil.h
-InterpolationDemo.o: ../../util/BitmapFontConstants.h
-InterpolationDemo.o: ../../object2D/Point2D.h ../../paint/Color.h
-InterpolationDemo.o: ../../paint/Paint.h
-InterpolationDemo.o: ../../terrain/FunctionHeightFieldStrategy.h
-InterpolationDemo.o: ../../terrain/HeightFieldStrategy.h
-InterpolationDemo.o: ../../terrain/HeightField.h
-InterpolationDemo.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
-InterpolationDemo.o: ../../texture/TextureScale.h
-InterpolationDemo.o: ../../terrain/HeightFieldFactory.h
-InterpolationDemo.o: ../../terrain/HeightField.h
-InterpolationDemo.o: ../../terrain/ImageHeightFieldStrategy.h
-InterpolationDemo.o: ../../terrain/HeightFieldStrategy.h
-InterpolationDemo.o: ../../terrain/NullHeightFieldStrategy.h
-InterpolationDemo.o: ../../terrain/MatrixHeightFieldStrategy.h
-InterpolationDemo.o: ../../object3D/Object3D.h ../../object3D/Arc3D.h
-InterpolationDemo.o: ../../object3D/Point3D.h ../../object3D/Triangle3D.h
-InterpolationDemo.o: ../../object3D/Object3DCollection.h
-InterpolationDemo.o: ../../object3D/CompiledObject3D.h
-InterpolationDemo.o: ../../object3D/Point3D.h
-InterpolationDemo.o: ../../object3D/RectangularPrismFactory.h
-InterpolationDemo.o: ../../object3D/ExtrudedNormalPolygon3D.h
-InterpolationDemo.o: ../../object3D/NormalPolygon3D.h
-InterpolationDemo.o: ../../object3D/CompiledObject3D.h
-InterpolationDemo.o: ../../object3D/NormalPolygon3D.h
-InterpolationDemo.o: ../../object3D/RectangularPrism.h
-InterpolationDemo.o: ../../object3D/Quadrilateral3D.h
-InterpolationDemo.o: ../../geometry/RectangularVolume.h
-InterpolationDemo.o: ../../object3D/Particle.h ../../object3D/Cube.h
-InterpolationDemo.o: ../../object3D/RectangularPrism.h
-InterpolationDemo.o: ../../object3D/NoDepthTestQuadrilateral3D.h
-InterpolationDemo.o: ../../object3D/Quadrilateral3D.h
-InterpolationDemo.o: ../../object3D/Transformable3D.h
-InterpolationDemo.o: ../../object3D/Sprite3DListener.h
-InterpolationDemo.o: ../../object3D/AdornablePrism.h
-InterpolationDemo.o: ../../object3D/Object3DCollection.h
-InterpolationDemo.o: ../../object3D/Sprite3D.h
-InterpolationDemo.o: ../../object3D/Sprite3DListener.h
-InterpolationDemo.o: ../../shape/CollisionRenderable.h
-InterpolationDemo.o: ../../multicast/mcsend.h ../../multicast/mcreceive.h
-InterpolationDemo.o: ../../multicast/MulticastSocketPool.h
-InterpolationDemo.o: ../../multicast/Multicast.h
-InterpolationDemo.o: ../../multicast/MulticastSocket.h
-InterpolationDemo.o: ../../texture/Texture.h ../../texture/TextureScale.h
-InterpolationDemo.o: ../../texture/TextureFactory.h
-InterpolationDemo.o: ../../event/reshape/ReshapeEvent.h
-InterpolationDemo.o: ../../event/reshape/ReshapeListener.h
-InterpolationDemo.o: ../../event/mouse/MouseEventFactory.h
-InterpolationDemo.o: ../../event/mouse/MouseButtonUp.h
-InterpolationDemo.o: ../../event/mouse/Mouse.h
-InterpolationDemo.o: ../../event/mouse/MouseListener.h
-InterpolationDemo.o: ../../event/mouse/MouseEvent.h
-InterpolationDemo.o: ../../event/mouse/MouseMotionEvent.h
-InterpolationDemo.o: ../../event/mouse/DefaultMouseListener.h
-InterpolationDemo.o: ../../core/Controller.h
-InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
-InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
-InterpolationDemo.o: ../../event/mouse/MouseSkeleton.h
-InterpolationDemo.o: ../../../include/SDL_thread.h
-InterpolationDemo.o: ../../event/mouse/MouseButtonDown.h
-InterpolationDemo.o: ../../event/mouse/MouseStub.h
-InterpolationDemo.o: ../../event/mouse/MouseClickEvent.h
-InterpolationDemo.o: ../../event/FullEventProxyFactory.h
-InterpolationDemo.o: ../../event/EventFactory.h
-InterpolationDemo.o: ../../event/keyboard/DefaultKeyboardListener.h
-InterpolationDemo.o: ../../core/World.h
-InterpolationDemo.o: ../../event/keyboard/KeyEventFactory.h
-InterpolationDemo.o: ../../event/keyboard/KeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyDownEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardListener.h
-InterpolationDemo.o: ../../event/keyboard/Keyboard.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardStub.h
-InterpolationDemo.o: ../../event/keyboard/RegularKeyEvent.h
-InterpolationDemo.o: ../../event/keyboard/KeyUpEvent.h
-InterpolationDemo.o: ../../event/keyboard/SpecialKeyEvent.h
-InterpolationDemo.o: ../../event/InputEventProxyFactory.h
-InterpolationDemo.o: ../../event/FullEventHandlerFactory.h
-InterpolationDemo.o: ../../event/keyboard/KeyboardSkeleton.h
-InterpolationDemo.o: ../../event/mouse/MouseSkeleton.h
-InterpolationDemo.o: ../../event/timer/TimerSkeleton.h
-InterpolationDemo.o: ../../event/DelayedAction.h ../../event/Action.h
-InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../event/timer/IntervalTimer.h
-InterpolationDemo.o: ../../event/InputEventHandlerFactory.h
-InterpolationDemo.o: ../../event/Action.h ../../event/timer/IntervalTimer.h
-InterpolationDemo.o: ../../event/timer/TimerListener.h
-InterpolationDemo.o: ../../event/timer/Timer.h
-InterpolationDemo.o: ../../event/timer/TimerSkeleton.h
-InterpolationDemo.o: ../../event/timer/TimerStub.h
-InterpolationDemo.o: ../../interpolation/Interpolator.h
-InterpolationDemo.o: ../../interpolation/WaypointCollection.h
-InterpolationDemo.o: ../../interpolation/Waypoint.h
-InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
-InterpolationDemo.o: ../../interpolation/ContinuousInterpolation.h
-InterpolationDemo.o: ../../interpolation/InterpolationListener.h
-InterpolationDemo.o: ../../interpolation/InterpolatorFactory.h
-InterpolationDemo.o: ../../interpolation/LinearInterpolator.h
-InterpolationDemo.o: ../../interpolation/InterpolationEngine.h
-InterpolationDemo.o: ../../interpolation/TimedInterpolation.h
-InterpolationDemo.o: ../../interpolation/Waypoint.h
-InterpolationDemo.o: ../../interpolation/CameraRoller.h
-InterpolationDemo.o: ../../util/BitmapFontConstants.h ../../util/Logger.h
-InterpolationDemo.o: ../../util/BitmapFontUtil.h ../../util/BehaviorParser.h
-InterpolationDemo.o: ../../transform/TransformFactory.h
-InterpolationDemo.o: ../../util/PointScale.h
-InterpolationDemo.o: ../../util/GraphicsConversionUtility.h
-InterpolationDemo.o: ../../util/xmlParser.h
-InterpolationDemo.o: ../../util/FramesPerSecondCounter.h
-InterpolationDemo.o: ../../object2D/String2D.h
-InterpolationDemo.o: ../../transform/MathCoordinateSystem.h
-InterpolationDemo.o: ../../transform/Transform.h
-InterpolationDemo.o: ../../transform/Transformable.h
-InterpolationDemo.o: ../../transform/LeftOpenGLCoordinateSystem.h
-InterpolationDemo.o: ../../transform/Scale.h ../../transform/Rotate.h
-InterpolationDemo.o: ../../transform/Translate.h
-InterpolationDemo.o: ../../transform/OpenGLCoordinateSystem.h
-InterpolationDemo.o: ../../transform/EngineerCoordinateSystem.h
-InterpolationDemo.o: ../../transform/CoordinateSystemFactory.h
-InterpolationDemo.o: ../../transform/CoordinateSystem.h
-InterpolationDemo.o: ../../transform/Orientation.h
-InterpolationDemo.o: ../../transform/TransformFactory.h
-InterpolationDemo.o: ../../transform/MacCoordinateSystem.h
-InterpolationDemo.o: ../../transform/Stretch.h
+PhotoGlass.o: PhotoGlass.h ../../xor.h ../../event/timer/TimerStub.h
+PhotoGlass.o: ../../event/timer/Timer.h /usr/include/math.h
+PhotoGlass.o: /usr/include/features.h /usr/include/sys/cdefs.h
+PhotoGlass.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+PhotoGlass.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+PhotoGlass.o: ../../../include/SDL.h ../../../include/SDL_main.h
+PhotoGlass.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+PhotoGlass.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+PhotoGlass.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+PhotoGlass.o: /usr/include/stdio.h /usr/include/bits/types.h
+PhotoGlass.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+PhotoGlass.o: /usr/include/libio.h /usr/include/_G_config.h
+PhotoGlass.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+PhotoGlass.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+PhotoGlass.o: /usr/include/bits/sys_errlist.h ../../../include/SDL_timer.h
+PhotoGlass.o: ../../../include/SDL_audio.h ../../../include/SDL_byteorder.h
+PhotoGlass.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+PhotoGlass.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+PhotoGlass.o: ../../../include/SDL_keyboard.h ../../../include/SDL_keysym.h
+PhotoGlass.o: ../../../include/SDL_mouse.h ../../../include/SDL_video.h
+PhotoGlass.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+PhotoGlass.o: ../../../include/SDL_version.h
+PhotoGlass.o: ../../event/timer/TimerListener.h
+PhotoGlass.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+PhotoGlass.o: /usr/include/sys/types.h /usr/include/time.h
+PhotoGlass.o: /usr/include/endian.h /usr/include/bits/endian.h
+PhotoGlass.o: /usr/include/sys/select.h /usr/include/bits/select.h
+PhotoGlass.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+PhotoGlass.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+PhotoGlass.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+PhotoGlass.o: /usr/include/alloca.h /usr/include/string.h
+PhotoGlass.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+PhotoGlass.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+PhotoGlass.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+PhotoGlass.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+PhotoGlass.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
+PhotoGlass.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
+PhotoGlass.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
+PhotoGlass.o: /usr/include/netinet/in.h /usr/include/stdint.h
+PhotoGlass.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+PhotoGlass.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+PhotoGlass.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+PhotoGlass.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
+PhotoGlass.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+PhotoGlass.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+PhotoGlass.o: ../../core/Controller.h ../../../include/SDL.h
+PhotoGlass.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+PhotoGlass.o: ../../event/keyboard/KeyboardListener.h
+PhotoGlass.o: ../../event/keyboard/KeyEvent.h
+PhotoGlass.o: ../../event/keyboard/KeyEventFactory.h
+PhotoGlass.o: ../../event/keyboard/KeyDownEvent.h
+PhotoGlass.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+PhotoGlass.o: ../../event/mouse/MouseListener.h
+PhotoGlass.o: ../../event/mouse/MouseEvent.h
+PhotoGlass.o: ../../event/mouse/MouseEventFactory.h
+PhotoGlass.o: ../../event/mouse/MouseButtonDown.h
+PhotoGlass.o: ../../event/mouse/MouseClickEvent.h
+PhotoGlass.o: ../../event/mouse/MouseButtonUp.h
+PhotoGlass.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+PhotoGlass.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+PhotoGlass.o: ../../event/timer/Timer.h ../../core/Window.h
+PhotoGlass.o: ../../event/reshape/ReshapeListener.h
+PhotoGlass.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+PhotoGlass.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+PhotoGlass.o: ../../geometry/Vector2D.h ../../core/Renderable.h
+PhotoGlass.o: ../../core/World.h ../../util/Logger.h
+PhotoGlass.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+PhotoGlass.o: ../../geometry/Dimension3D.h ../../geometry/Vector3D.h
+PhotoGlass.o: ../../paint/Paint.h ../../texture/Texture.h
+PhotoGlass.o: ../../../include/SDL_image.h ../../../include/SDL.h
+PhotoGlass.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+PhotoGlass.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+PhotoGlass.o: ../../paint/Color.h ../../core/Renderable.h
+PhotoGlass.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+PhotoGlass.o: ../../core/XavierConfiguration.h
+PhotoGlass.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+PhotoGlass.o: ../../transform/Rotate.h ../../transform/Translate.h
+PhotoGlass.o: ../../event/Action.h ../../interpolation/InterpolatorFactory.h
+PhotoGlass.o: ../../interpolation/Interpolator.h
+PhotoGlass.o: ../../interpolation/LinearInterpolator.h
+PhotoGlass.o: ../../util/GraphicsConversionUtility.h
+PhotoGlass.o: ../../interpolation/Interpolator.h ../../transform/Scale.h
+PhotoGlass.o: ../../interpolation/InterpolationEngine.h
+PhotoGlass.o: ../../interpolation/InterpolationListener.h
+PhotoGlass.o: ../../interpolation/InterpolatorFactory.h
+PhotoGlass.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+PhotoGlass.o: ../../event/keyboard/KeyboardStub.h
+PhotoGlass.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+PhotoGlass.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+PhotoGlass.o: ../../paint/Color.h ../../core/Camera.h
+PhotoGlass.o: ../../core/CameraListener.h ../../transform/Orientation.h
+PhotoGlass.o: ../../transform/CoordinateSystemFactory.h
+PhotoGlass.o: ../../transform/CoordinateSystem.h
+PhotoGlass.o: ../../transform/OpenGLCoordinateSystem.h
+PhotoGlass.o: ../../transform/MacCoordinateSystem.h
+PhotoGlass.o: ../../transform/MathCoordinateSystem.h
+PhotoGlass.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PhotoGlass.o: ../../transform/EngineerCoordinateSystem.h
+PhotoGlass.o: ../../event/timer/TimerListener.h
+PhotoGlass.o: ../../event/reshape/ReshapeEvent.h
+PhotoGlass.o: ../../event/timer/IntervalTimer.h
+PhotoGlass.o: ../../event/timer/TimerListener.h
+PhotoGlass.o: ../../event/keyboard/SpecialKeyEvent.h
+PhotoGlass.o: ../../event/keyboard/KeyEvent.h
+PhotoGlass.o: ../../event/keyboard/KeyboardStub.h
+PhotoGlass.o: ../../event/keyboard/KeyUpEvent.h
+PhotoGlass.o: ../../event/keyboard/Keyboard.h
+PhotoGlass.o: ../../event/keyboard/KeyboardSkeleton.h
+PhotoGlass.o: ../../event/keyboard/KeyboardListener.h
+PhotoGlass.o: ../../event/keyboard/RegularKeyEvent.h
+PhotoGlass.o: ../../event/keyboard/DefaultKeyboardListener.h
+PhotoGlass.o: ../../interpolation/TimedInterpolation.h
+PhotoGlass.o: ../../core/Controller.h
+PhotoGlass.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+PhotoGlass.o: ../../event/keyboard/KeyDownEvent.h
+PhotoGlass.o: ../../event/keyboard/KeyEventFactory.h
+PhotoGlass.o: ../../event/reshape/ReshapeListener.h
+PhotoGlass.o: ../../event/reshape/ReshapeEvent.h
+PhotoGlass.o: ../../event/mouse/MouseButtonUp.h
+PhotoGlass.o: ../../event/mouse/MouseEvent.h
+PhotoGlass.o: ../../event/mouse/MouseClickEvent.h
+PhotoGlass.o: ../../event/mouse/MouseSkeleton.h
+PhotoGlass.o: ../../event/mouse/MouseListener.h ../../event/mouse/Mouse.h
+PhotoGlass.o: ../../event/mouse/DefaultMouseListener.h
+PhotoGlass.o: ../../event/mouse/MouseButtonDown.h
+PhotoGlass.o: ../../event/mouse/MouseMotionEvent.h
+PhotoGlass.o: ../../event/mouse/MouseEventFactory.h
+PhotoGlass.o: ../../event/mouse/MouseStub.h ../../event/Action.h
+PhotoGlass.o: ../../event/EventFactory.h
+PhotoGlass.o: ../../event/FullEventHandlerFactory.h
+PhotoGlass.o: ../../event/keyboard/KeyboardSkeleton.h
+PhotoGlass.o: ../../event/mouse/MouseSkeleton.h
+PhotoGlass.o: ../../event/timer/TimerSkeleton.h
+PhotoGlass.o: ../../event/InputEventProxyFactory.h
+PhotoGlass.o: ../../event/FullEventProxyFactory.h
+PhotoGlass.o: ../../event/InputEventHandlerFactory.h
+PhotoGlass.o: ../../event/DelayedAction.h ../../event/Action.h
+PhotoGlass.o: ../../event/timer/TimerListener.h
+PhotoGlass.o: ../../event/timer/IntervalTimer.h
+PhotoGlass.o: ../../interpolation/ContinuousInterpolation.h
+PhotoGlass.o: ../../interpolation/TimedInterpolation.h
+PhotoGlass.o: ../../interpolation/InterpolationListener.h
+PhotoGlass.o: ../../interpolation/CameraRoller.h
+PhotoGlass.o: ../../interpolation/TimedInterpolation.h
+PhotoGlass.o: ../../interpolation/InterpolatorFactory.h
+PhotoGlass.o: ../../interpolation/Waypoint.h
+PhotoGlass.o: ../../interpolation/InterpolationEngine.h
+PhotoGlass.o: ../../interpolation/LinearInterpolator.h
+PhotoGlass.o: ../../interpolation/Interpolator.h
+PhotoGlass.o: ../../interpolation/WaypointCollection.h
+PhotoGlass.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+PhotoGlass.o: ../../core/DebugCamera.h ../../core/Controller.h
+PhotoGlass.o: ../../core/World.h ../../core/Controller.h
+PhotoGlass.o: ../../core/Renderable.h ../../core/Window.h ../../core/Camera.h
+PhotoGlass.o: ../../core/XavierConfiguration.h ../../geometry/Dimension2D.h
+PhotoGlass.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+PhotoGlass.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+PhotoGlass.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+PhotoGlass.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+PhotoGlass.o: ../../object2D/Object2D.h ../../core/Window.h
+PhotoGlass.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+PhotoGlass.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+PhotoGlass.o: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
+PhotoGlass.o: ../../transform/Transformable.h ../../transform/Transform.h
+PhotoGlass.o: ../../object3D/Triangle3D.h ../../object3D/Arc3D.h
+PhotoGlass.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+PhotoGlass.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+PhotoGlass.o: ../../object3D/Point3D.h
+PhotoGlass.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+PhotoGlass.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+PhotoGlass.o: ../../texture/TextureScale.h ../../object3D/Quadrilateral3D.h
+PhotoGlass.o: ../../object3D/RectangularPrism.h
+PhotoGlass.o: ../../geometry/RectangularVolume.h
+PhotoGlass.o: ../../object3D/Transformable3D.h
+PhotoGlass.o: ../../object3D/NormalPolygon3D.h
+PhotoGlass.o: ../../object3D/ExtrudedNormalPolygon3D.h
+PhotoGlass.o: ../../object3D/NormalPolygon3D.h
+PhotoGlass.o: ../../object3D/AdornablePrism.h
+PhotoGlass.o: ../../object3D/RectangularPrism.h
+PhotoGlass.o: ../../object3D/Object3DCollection.h
+PhotoGlass.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+PhotoGlass.o: ../../object3D/Sprite3DListener.h
+PhotoGlass.o: ../../object3D/Object3DCollection.h
+PhotoGlass.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+PhotoGlass.o: ../../object3D/RectangularPrismFactory.h
+PhotoGlass.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+PhotoGlass.o: ../../texture/Texture.h ../../texture/TextureScale.h
+PhotoGlass.o: ../../shape/CollisionRenderable.h ../../model/MilkshapeModel.h
+PhotoGlass.o: ../../model/Model.h ../../texture/TextureFactory.h
+PhotoGlass.o: ../../model/Model.h ../../model/ModelFactory.h
+PhotoGlass.o: ../../model/MilkshapeModel.h
+PhotoGlass.o: ../../terrain/NullHeightFieldStrategy.h
+PhotoGlass.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+PhotoGlass.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+PhotoGlass.o: ../../terrain/HeightFieldStrategy.h
+PhotoGlass.o: ../../terrain/ImageHeightFieldStrategy.h
+PhotoGlass.o: ../../terrain/HeightFieldFactory.h
+PhotoGlass.o: ../../terrain/MatrixHeightFieldStrategy.h
+PhotoGlass.o: ../../terrain/FunctionHeightFieldStrategy.h
+PhotoGlass.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PhotoGlass.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+PhotoGlass.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+PhotoGlass.o: ../../paint/Color.h ../../transform/Orientation.h
+PhotoGlass.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+PhotoGlass.o: ../../transform/Rotate.h ../../transform/Transformable.h
+PhotoGlass.o: ../../transform/OpenGLCoordinateSystem.h
+PhotoGlass.o: ../../transform/TransformFactory.h
+PhotoGlass.o: ../../transform/EngineerCoordinateSystem.h
+PhotoGlass.o: ../../transform/MathCoordinateSystem.h
+PhotoGlass.o: ../../transform/Transform.h ../../transform/Stretch.h
+PhotoGlass.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PhotoGlass.o: ../../transform/MacCoordinateSystem.h ../../transform/Scale.h
+PhotoGlass.o: ../../transform/CoordinateSystemFactory.h
+PhotoGlass.o: ../../util/GraphicsConversionUtility.h
+PhotoGlass.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+PhotoGlass.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
+PhotoGlass.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+PhotoGlass.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+PhotoGlass.o: ../../util/Logger.h Arrangement.h Picture.h
+WingArrangement.o: Arrangement.h ../../xor.h ../../event/timer/TimerStub.h
+WingArrangement.o: ../../event/timer/Timer.h /usr/include/math.h
+WingArrangement.o: /usr/include/features.h /usr/include/sys/cdefs.h
+WingArrangement.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+WingArrangement.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+WingArrangement.o: ../../../include/SDL.h ../../../include/SDL_main.h
+WingArrangement.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+WingArrangement.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+WingArrangement.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+WingArrangement.o: /usr/include/stdio.h /usr/include/bits/types.h
+WingArrangement.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+WingArrangement.o: /usr/include/libio.h /usr/include/_G_config.h
+WingArrangement.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+WingArrangement.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+WingArrangement.o: /usr/include/bits/sys_errlist.h
+WingArrangement.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+WingArrangement.o: ../../../include/SDL_byteorder.h
+WingArrangement.o: ../../../include/SDL_cdrom.h
+WingArrangement.o: ../../../include/SDL_joystick.h
+WingArrangement.o: ../../../include/SDL_events.h
+WingArrangement.o: ../../../include/SDL_active.h
+WingArrangement.o: ../../../include/SDL_keyboard.h
+WingArrangement.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+WingArrangement.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+WingArrangement.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+WingArrangement.o: ../../event/timer/TimerListener.h
+WingArrangement.o: ../../multicast/MulticastSocket.h
+WingArrangement.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+WingArrangement.o: /usr/include/time.h /usr/include/endian.h
+WingArrangement.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+WingArrangement.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+WingArrangement.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+WingArrangement.o: /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h
+WingArrangement.o: /usr/include/stdlib.h /usr/include/alloca.h
+WingArrangement.o: /usr/include/string.h /usr/include/sys/socket.h
+WingArrangement.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+WingArrangement.o: /usr/include/bits/socket.h /usr/include/limits.h
+WingArrangement.o: /usr/include/bits/posix1_lim.h
+WingArrangement.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+WingArrangement.o: /usr/include/bits/posix2_lim.h
+WingArrangement.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+WingArrangement.o: /usr/include/asm-i386/socket.h /usr/include/asm/sockios.h
+WingArrangement.o: /usr/include/asm-i386/sockios.h /usr/include/netinet/in.h
+WingArrangement.o: /usr/include/stdint.h /usr/include/bits/in.h
+WingArrangement.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
+WingArrangement.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+WingArrangement.o: /usr/include/bits/confname.h /usr/include/getopt.h
+WingArrangement.o: ../../multicast/MulticastSocketPool.h
+WingArrangement.o: ../../multicast/MulticastSocket.h
+WingArrangement.o: ../../event/timer/Timer.h
+WingArrangement.o: ../../event/timer/TimerSkeleton.h
+WingArrangement.o: ../../../include/SDL_thread.h ../../core/Controller.h
+WingArrangement.o: ../../../include/SDL.h ../../event/EventFactory.h
+WingArrangement.o: ../../event/keyboard/Keyboard.h
+WingArrangement.o: ../../event/keyboard/KeyboardListener.h
+WingArrangement.o: ../../event/keyboard/KeyEvent.h
+WingArrangement.o: ../../event/keyboard/KeyEventFactory.h
+WingArrangement.o: ../../event/keyboard/KeyDownEvent.h
+WingArrangement.o: ../../event/keyboard/KeyUpEvent.h
+WingArrangement.o: ../../event/mouse/Mouse.h
+WingArrangement.o: ../../event/mouse/MouseListener.h
+WingArrangement.o: ../../event/mouse/MouseEvent.h
+WingArrangement.o: ../../event/mouse/MouseEventFactory.h
+WingArrangement.o: ../../event/mouse/MouseButtonDown.h
+WingArrangement.o: ../../event/mouse/MouseClickEvent.h
+WingArrangement.o: ../../event/mouse/MouseButtonUp.h
+WingArrangement.o: ../../event/mouse/MouseMotionEvent.h
+WingArrangement.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+WingArrangement.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+WingArrangement.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+WingArrangement.o: ../../event/reshape/ReshapeEvent.h
+WingArrangement.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+WingArrangement.o: ../../geometry/Dimension2D.h ../../geometry/Vector2D.h
+WingArrangement.o: ../../core/Renderable.h ../../core/World.h
+WingArrangement.o: ../../util/Logger.h ../../object3D/Object3D.h
+WingArrangement.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+WingArrangement.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+WingArrangement.o: ../../texture/Texture.h ../../../include/SDL_image.h
+WingArrangement.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
+WingArrangement.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+WingArrangement.o: /usr/include/GL/glu.h ../../paint/Color.h
+WingArrangement.o: ../../core/Renderable.h ../../object3D/Point3D.h
+WingArrangement.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+WingArrangement.o: ../../transform/CoordinateSystem.h
+WingArrangement.o: ../../transform/Transform.h ../../transform/Rotate.h
+WingArrangement.o: ../../transform/Translate.h ../../event/Action.h
+WingArrangement.o: ../../interpolation/InterpolatorFactory.h
+WingArrangement.o: ../../interpolation/Interpolator.h
+WingArrangement.o: ../../interpolation/LinearInterpolator.h
+WingArrangement.o: ../../util/GraphicsConversionUtility.h
+WingArrangement.o: ../../interpolation/Interpolator.h ../../transform/Scale.h
+WingArrangement.o: ../../interpolation/InterpolationEngine.h
+WingArrangement.o: ../../interpolation/InterpolationListener.h
+WingArrangement.o: ../../interpolation/InterpolatorFactory.h
+WingArrangement.o: ../../event/InputEventProxyFactory.h
+WingArrangement.o: ../../event/EventFactory.h
+WingArrangement.o: ../../event/keyboard/KeyboardStub.h
+WingArrangement.o: ../../event/keyboard/Keyboard.h
+WingArrangement.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+WingArrangement.o: ../../event/timer/TimerStub.h ../../paint/Color.h
+WingArrangement.o: ../../core/Camera.h ../../core/CameraListener.h
+WingArrangement.o: ../../transform/Orientation.h
+WingArrangement.o: ../../transform/CoordinateSystemFactory.h
+WingArrangement.o: ../../transform/CoordinateSystem.h
+WingArrangement.o: ../../transform/OpenGLCoordinateSystem.h
+WingArrangement.o: ../../transform/MacCoordinateSystem.h
+WingArrangement.o: ../../transform/MathCoordinateSystem.h
+WingArrangement.o: ../../transform/LeftOpenGLCoordinateSystem.h
+WingArrangement.o: ../../transform/EngineerCoordinateSystem.h
+WingArrangement.o: ../../event/timer/TimerListener.h
+WingArrangement.o: ../../event/reshape/ReshapeEvent.h
+WingArrangement.o: ../../event/timer/IntervalTimer.h
+WingArrangement.o: ../../event/timer/TimerListener.h
+WingArrangement.o: ../../event/keyboard/SpecialKeyEvent.h
+WingArrangement.o: ../../event/keyboard/KeyEvent.h
+WingArrangement.o: ../../event/keyboard/KeyboardStub.h
+WingArrangement.o: ../../event/keyboard/KeyUpEvent.h
+WingArrangement.o: ../../event/keyboard/Keyboard.h
+WingArrangement.o: ../../event/keyboard/KeyboardSkeleton.h
+WingArrangement.o: ../../event/keyboard/KeyboardListener.h
+WingArrangement.o: ../../event/keyboard/RegularKeyEvent.h
+WingArrangement.o: ../../event/keyboard/DefaultKeyboardListener.h
+WingArrangement.o: ../../interpolation/TimedInterpolation.h
+WingArrangement.o: ../../core/Controller.h
+WingArrangement.o: ../../interpolation/InterpolationEngine.h
+WingArrangement.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+WingArrangement.o: ../../event/keyboard/KeyEventFactory.h
+WingArrangement.o: ../../event/reshape/ReshapeListener.h
+WingArrangement.o: ../../event/reshape/ReshapeEvent.h
+WingArrangement.o: ../../event/mouse/MouseButtonUp.h
+WingArrangement.o: ../../event/mouse/MouseEvent.h
+WingArrangement.o: ../../event/mouse/MouseClickEvent.h
+WingArrangement.o: ../../event/mouse/MouseSkeleton.h
+WingArrangement.o: ../../event/mouse/MouseListener.h
+WingArrangement.o: ../../event/mouse/Mouse.h
+WingArrangement.o: ../../event/mouse/DefaultMouseListener.h
+WingArrangement.o: ../../event/mouse/MouseButtonDown.h
+WingArrangement.o: ../../event/mouse/MouseMotionEvent.h
+WingArrangement.o: ../../event/mouse/MouseEventFactory.h
+WingArrangement.o: ../../event/mouse/MouseStub.h ../../event/Action.h
+WingArrangement.o: ../../event/EventFactory.h
+WingArrangement.o: ../../event/FullEventHandlerFactory.h
+WingArrangement.o: ../../event/keyboard/KeyboardSkeleton.h
+WingArrangement.o: ../../event/mouse/MouseSkeleton.h
+WingArrangement.o: ../../event/timer/TimerSkeleton.h
+WingArrangement.o: ../../event/InputEventProxyFactory.h
+WingArrangement.o: ../../event/FullEventProxyFactory.h
+WingArrangement.o: ../../event/InputEventHandlerFactory.h
+WingArrangement.o: ../../event/DelayedAction.h ../../event/Action.h
+WingArrangement.o: ../../event/timer/TimerListener.h
+WingArrangement.o: ../../event/timer/IntervalTimer.h
+WingArrangement.o: ../../interpolation/ContinuousInterpolation.h
+WingArrangement.o: ../../interpolation/TimedInterpolation.h
+WingArrangement.o: ../../interpolation/InterpolationListener.h
+WingArrangement.o: ../../interpolation/CameraRoller.h
+WingArrangement.o: ../../interpolation/TimedInterpolation.h
+WingArrangement.o: ../../interpolation/InterpolatorFactory.h
+WingArrangement.o: ../../interpolation/Waypoint.h
+WingArrangement.o: ../../interpolation/InterpolationEngine.h
+WingArrangement.o: ../../interpolation/LinearInterpolator.h
+WingArrangement.o: ../../interpolation/Interpolator.h
+WingArrangement.o: ../../interpolation/WaypointCollection.h
+WingArrangement.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+WingArrangement.o: ../../core/DebugCamera.h ../../core/Controller.h
+WingArrangement.o: ../../core/World.h ../../core/Controller.h
+WingArrangement.o: ../../core/Renderable.h ../../core/Window.h
+WingArrangement.o: ../../core/Camera.h ../../core/XavierConfiguration.h
+WingArrangement.o: ../../geometry/Dimension2D.h ../../geometry/Vector3D.h
+WingArrangement.o: ../../geometry/Dimension3D.h
+WingArrangement.o: ../../geometry/RectangularVolume.h
+WingArrangement.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+WingArrangement.o: ../../geometry/CylindricalVolume.h
+WingArrangement.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+WingArrangement.o: ../../object2D/Object2D.h ../../core/Window.h
+WingArrangement.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+WingArrangement.o: ../../util/BitmapFontUtil.h
+WingArrangement.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+WingArrangement.o: ../../object2D/Transformable2D.h
+WingArrangement.o: ../../transform/Transformable.h
+WingArrangement.o: ../../transform/Transform.h ../../object3D/Triangle3D.h
+WingArrangement.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+WingArrangement.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+WingArrangement.o: ../../object3D/Sprite3DListener.h ../../object3D/Point3D.h
+WingArrangement.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+WingArrangement.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+WingArrangement.o: ../../texture/TextureScale.h
+WingArrangement.o: ../../object3D/Quadrilateral3D.h
+WingArrangement.o: ../../object3D/RectangularPrism.h
+WingArrangement.o: ../../geometry/RectangularVolume.h
+WingArrangement.o: ../../object3D/Transformable3D.h
+WingArrangement.o: ../../object3D/NormalPolygon3D.h
+WingArrangement.o: ../../object3D/ExtrudedNormalPolygon3D.h
+WingArrangement.o: ../../object3D/NormalPolygon3D.h
+WingArrangement.o: ../../object3D/AdornablePrism.h
+WingArrangement.o: ../../object3D/RectangularPrism.h
+WingArrangement.o: ../../object3D/Object3DCollection.h
+WingArrangement.o: ../../object3D/CompiledObject3D.h
+WingArrangement.o: ../../object3D/Particle.h
+WingArrangement.o: ../../object3D/Sprite3DListener.h
+WingArrangement.o: ../../object3D/Object3DCollection.h
+WingArrangement.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+WingArrangement.o: ../../object3D/RectangularPrismFactory.h
+WingArrangement.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+WingArrangement.o: ../../texture/Texture.h ../../texture/TextureScale.h
+WingArrangement.o: ../../shape/CollisionRenderable.h
+WingArrangement.o: ../../model/MilkshapeModel.h ../../model/Model.h
+WingArrangement.o: ../../texture/TextureFactory.h ../../model/Model.h
+WingArrangement.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+WingArrangement.o: ../../terrain/NullHeightFieldStrategy.h
+WingArrangement.o: ../../terrain/HeightFieldStrategy.h
+WingArrangement.o: ../../terrain/HeightField.h
+WingArrangement.o: ../../object3D/Quadrilateral3D.h
+WingArrangement.o: ../../terrain/HeightField.h
+WingArrangement.o: ../../terrain/HeightFieldStrategy.h
+WingArrangement.o: ../../terrain/ImageHeightFieldStrategy.h
+WingArrangement.o: ../../terrain/HeightFieldFactory.h
+WingArrangement.o: ../../terrain/MatrixHeightFieldStrategy.h
+WingArrangement.o: ../../terrain/FunctionHeightFieldStrategy.h
+WingArrangement.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+WingArrangement.o: ../../multicast/MulticastSocket.h
+WingArrangement.o: ../../multicast/Multicast.h
+WingArrangement.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+WingArrangement.o: ../../paint/Color.h ../../transform/Orientation.h
+WingArrangement.o: ../../transform/CoordinateSystem.h
+WingArrangement.o: ../../transform/Translate.h ../../transform/Rotate.h
+WingArrangement.o: ../../transform/Transformable.h
+WingArrangement.o: ../../transform/OpenGLCoordinateSystem.h
+WingArrangement.o: ../../transform/TransformFactory.h
+WingArrangement.o: ../../transform/EngineerCoordinateSystem.h
+WingArrangement.o: ../../transform/MathCoordinateSystem.h
+WingArrangement.o: ../../transform/Transform.h ../../transform/Stretch.h
+WingArrangement.o: ../../transform/LeftOpenGLCoordinateSystem.h
+WingArrangement.o: ../../transform/MacCoordinateSystem.h
+WingArrangement.o: ../../transform/Scale.h
+WingArrangement.o: ../../transform/CoordinateSystemFactory.h
+WingArrangement.o: ../../util/GraphicsConversionUtility.h
+WingArrangement.o: ../../util/BehaviorParser.h
+WingArrangement.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
+WingArrangement.o: ../../util/FramesPerSecondCounter.h
+WingArrangement.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+WingArrangement.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+WingArrangement.o: ../../util/Logger.h Picture.h
+InterpolationHelp.o: PhotoGlass.h ../../xor.h ../../event/timer/TimerStub.h
+InterpolationHelp.o: ../../event/timer/Timer.h /usr/include/math.h
+InterpolationHelp.o: /usr/include/features.h /usr/include/sys/cdefs.h
+InterpolationHelp.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+InterpolationHelp.o: /usr/include/bits/mathdef.h
+InterpolationHelp.o: /usr/include/bits/mathcalls.h ../../../include/SDL.h
+InterpolationHelp.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+InterpolationHelp.o: ../../../include/SDL_getenv.h
+InterpolationHelp.o: ../../../include/SDL_error.h
+InterpolationHelp.o: ../../../include/begin_code.h
+InterpolationHelp.o: ../../../include/close_code.h
+InterpolationHelp.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+InterpolationHelp.o: /usr/include/bits/types.h /usr/include/bits/wordsize.h
+InterpolationHelp.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+InterpolationHelp.o: /usr/include/_G_config.h /usr/include/wchar.h
+InterpolationHelp.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+InterpolationHelp.o: /usr/include/bits/stdio_lim.h
+InterpolationHelp.o: /usr/include/bits/sys_errlist.h
+InterpolationHelp.o: ../../../include/SDL_timer.h
+InterpolationHelp.o: ../../../include/SDL_audio.h
+InterpolationHelp.o: ../../../include/SDL_byteorder.h
+InterpolationHelp.o: ../../../include/SDL_cdrom.h
+InterpolationHelp.o: ../../../include/SDL_joystick.h
+InterpolationHelp.o: ../../../include/SDL_events.h
+InterpolationHelp.o: ../../../include/SDL_active.h
+InterpolationHelp.o: ../../../include/SDL_keyboard.h
+InterpolationHelp.o: ../../../include/SDL_keysym.h
+InterpolationHelp.o: ../../../include/SDL_mouse.h
+InterpolationHelp.o: ../../../include/SDL_video.h
+InterpolationHelp.o: ../../../include/SDL_mutex.h ../../../include/SDL_quit.h
+InterpolationHelp.o: ../../../include/SDL_version.h
+InterpolationHelp.o: ../../event/timer/TimerListener.h
+InterpolationHelp.o: ../../multicast/MulticastSocket.h
+InterpolationHelp.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+InterpolationHelp.o: /usr/include/time.h /usr/include/endian.h
+InterpolationHelp.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+InterpolationHelp.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+InterpolationHelp.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+InterpolationHelp.o: /usr/include/bits/pthreadtypes.h
+InterpolationHelp.o: /usr/include/bits/sched.h /usr/include/stdlib.h
+InterpolationHelp.o: /usr/include/alloca.h /usr/include/string.h
+InterpolationHelp.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+InterpolationHelp.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+InterpolationHelp.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+InterpolationHelp.o: /usr/include/bits/local_lim.h
+InterpolationHelp.o: /usr/include/linux/limits.h
+InterpolationHelp.o: /usr/include/bits/posix2_lim.h
+InterpolationHelp.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+InterpolationHelp.o: /usr/include/asm-i386/socket.h
+InterpolationHelp.o: /usr/include/asm/sockios.h
+InterpolationHelp.o: /usr/include/asm-i386/sockios.h
+InterpolationHelp.o: /usr/include/netinet/in.h /usr/include/stdint.h
+InterpolationHelp.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+InterpolationHelp.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+InterpolationHelp.o: /usr/include/bits/posix_opt.h
+InterpolationHelp.o: /usr/include/bits/confname.h /usr/include/getopt.h
+InterpolationHelp.o: ../../multicast/MulticastSocketPool.h
+InterpolationHelp.o: ../../multicast/MulticastSocket.h
+InterpolationHelp.o: ../../event/timer/Timer.h
+InterpolationHelp.o: ../../event/timer/TimerSkeleton.h
+InterpolationHelp.o: ../../../include/SDL_thread.h ../../core/Controller.h
+InterpolationHelp.o: ../../../include/SDL.h ../../event/EventFactory.h
+InterpolationHelp.o: ../../event/keyboard/Keyboard.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardListener.h
+InterpolationHelp.o: ../../event/keyboard/KeyEvent.h
+InterpolationHelp.o: ../../event/keyboard/KeyEventFactory.h
+InterpolationHelp.o: ../../event/keyboard/KeyDownEvent.h
+InterpolationHelp.o: ../../event/keyboard/KeyUpEvent.h
+InterpolationHelp.o: ../../event/mouse/Mouse.h
+InterpolationHelp.o: ../../event/mouse/MouseListener.h
+InterpolationHelp.o: ../../event/mouse/MouseEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseEventFactory.h
+InterpolationHelp.o: ../../event/mouse/MouseButtonDown.h
+InterpolationHelp.o: ../../event/mouse/MouseClickEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseButtonUp.h
+InterpolationHelp.o: ../../event/mouse/MouseMotionEvent.h
+InterpolationHelp.o: ../../event/timer/Timer.h
+InterpolationHelp.o: ../../event/keyboard/Keyboard.h
+InterpolationHelp.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+InterpolationHelp.o: ../../core/Window.h
+InterpolationHelp.o: ../../event/reshape/ReshapeListener.h
+InterpolationHelp.o: ../../event/reshape/ReshapeEvent.h
+InterpolationHelp.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+InterpolationHelp.o: ../../geometry/Dimension2D.h ../../geometry/Vector2D.h
+InterpolationHelp.o: ../../core/Renderable.h ../../core/World.h
+InterpolationHelp.o: ../../util/Logger.h ../../object3D/Object3D.h
+InterpolationHelp.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+InterpolationHelp.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+InterpolationHelp.o: ../../texture/Texture.h ../../../include/SDL_image.h
+InterpolationHelp.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
+InterpolationHelp.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+InterpolationHelp.o: /usr/include/GL/glu.h ../../paint/Color.h
+InterpolationHelp.o: ../../core/Renderable.h ../../object3D/Point3D.h
+InterpolationHelp.o: ../../object3D/Object3D.h
+InterpolationHelp.o: ../../core/XavierConfiguration.h
+InterpolationHelp.o: ../../transform/CoordinateSystem.h
+InterpolationHelp.o: ../../transform/Transform.h ../../transform/Rotate.h
+InterpolationHelp.o: ../../transform/Translate.h ../../event/Action.h
+InterpolationHelp.o: ../../interpolation/InterpolatorFactory.h
+InterpolationHelp.o: ../../interpolation/Interpolator.h
+InterpolationHelp.o: ../../interpolation/LinearInterpolator.h
+InterpolationHelp.o: ../../util/GraphicsConversionUtility.h
+InterpolationHelp.o: ../../interpolation/Interpolator.h
+InterpolationHelp.o: ../../transform/Scale.h
+InterpolationHelp.o: ../../interpolation/InterpolationEngine.h
+InterpolationHelp.o: ../../interpolation/InterpolationListener.h
+InterpolationHelp.o: ../../interpolation/InterpolatorFactory.h
+InterpolationHelp.o: ../../event/InputEventProxyFactory.h
+InterpolationHelp.o: ../../event/EventFactory.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardStub.h
+InterpolationHelp.o: ../../event/keyboard/Keyboard.h
+InterpolationHelp.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+InterpolationHelp.o: ../../event/timer/TimerStub.h ../../paint/Color.h
+InterpolationHelp.o: ../../core/Camera.h ../../core/CameraListener.h
+InterpolationHelp.o: ../../transform/Orientation.h
+InterpolationHelp.o: ../../transform/CoordinateSystemFactory.h
+InterpolationHelp.o: ../../transform/CoordinateSystem.h
+InterpolationHelp.o: ../../transform/OpenGLCoordinateSystem.h
+InterpolationHelp.o: ../../transform/MacCoordinateSystem.h
+InterpolationHelp.o: ../../transform/MathCoordinateSystem.h
+InterpolationHelp.o: ../../transform/LeftOpenGLCoordinateSystem.h
+InterpolationHelp.o: ../../transform/EngineerCoordinateSystem.h
+InterpolationHelp.o: ../../event/timer/TimerListener.h
+InterpolationHelp.o: ../../event/reshape/ReshapeEvent.h
+InterpolationHelp.o: ../../event/timer/IntervalTimer.h
+InterpolationHelp.o: ../../event/timer/TimerListener.h
+InterpolationHelp.o: ../../event/keyboard/SpecialKeyEvent.h
+InterpolationHelp.o: ../../event/keyboard/KeyEvent.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardStub.h
+InterpolationHelp.o: ../../event/keyboard/KeyUpEvent.h
+InterpolationHelp.o: ../../event/keyboard/Keyboard.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardSkeleton.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardListener.h
+InterpolationHelp.o: ../../event/keyboard/RegularKeyEvent.h
+InterpolationHelp.o: ../../event/keyboard/DefaultKeyboardListener.h
+InterpolationHelp.o: ../../interpolation/TimedInterpolation.h
+InterpolationHelp.o: ../../core/Controller.h
+InterpolationHelp.o: ../../interpolation/InterpolationEngine.h
+InterpolationHelp.o: ../../core/World.h ../../event/keyboard/KeyDownEvent.h
+InterpolationHelp.o: ../../event/keyboard/KeyEventFactory.h
+InterpolationHelp.o: ../../event/reshape/ReshapeListener.h
+InterpolationHelp.o: ../../event/reshape/ReshapeEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseButtonUp.h
+InterpolationHelp.o: ../../event/mouse/MouseEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseClickEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseSkeleton.h
+InterpolationHelp.o: ../../event/mouse/MouseListener.h
+InterpolationHelp.o: ../../event/mouse/Mouse.h
+InterpolationHelp.o: ../../event/mouse/DefaultMouseListener.h
+InterpolationHelp.o: ../../event/mouse/MouseButtonDown.h
+InterpolationHelp.o: ../../event/mouse/MouseMotionEvent.h
+InterpolationHelp.o: ../../event/mouse/MouseEventFactory.h
+InterpolationHelp.o: ../../event/mouse/MouseStub.h ../../event/Action.h
+InterpolationHelp.o: ../../event/EventFactory.h
+InterpolationHelp.o: ../../event/FullEventHandlerFactory.h
+InterpolationHelp.o: ../../event/keyboard/KeyboardSkeleton.h
+InterpolationHelp.o: ../../event/mouse/MouseSkeleton.h
+InterpolationHelp.o: ../../event/timer/TimerSkeleton.h
+InterpolationHelp.o: ../../event/InputEventProxyFactory.h
+InterpolationHelp.o: ../../event/FullEventProxyFactory.h
+InterpolationHelp.o: ../../event/InputEventHandlerFactory.h
+InterpolationHelp.o: ../../event/DelayedAction.h ../../event/Action.h
+InterpolationHelp.o: ../../event/timer/TimerListener.h
+InterpolationHelp.o: ../../event/timer/IntervalTimer.h
+InterpolationHelp.o: ../../interpolation/ContinuousInterpolation.h
+InterpolationHelp.o: ../../interpolation/TimedInterpolation.h
+InterpolationHelp.o: ../../interpolation/InterpolationListener.h
+InterpolationHelp.o: ../../interpolation/CameraRoller.h
+InterpolationHelp.o: ../../interpolation/TimedInterpolation.h
+InterpolationHelp.o: ../../interpolation/InterpolatorFactory.h
+InterpolationHelp.o: ../../interpolation/Waypoint.h
+InterpolationHelp.o: ../../interpolation/InterpolationEngine.h
+InterpolationHelp.o: ../../interpolation/LinearInterpolator.h
+InterpolationHelp.o: ../../interpolation/Interpolator.h
+InterpolationHelp.o: ../../interpolation/WaypointCollection.h
+InterpolationHelp.o: ../../interpolation/Waypoint.h
+InterpolationHelp.o: ../../core/CameraListener.h ../../core/DebugCamera.h
+InterpolationHelp.o: ../../core/Controller.h ../../core/World.h
+InterpolationHelp.o: ../../core/Controller.h ../../core/Renderable.h
+InterpolationHelp.o: ../../core/Window.h ../../core/Camera.h
+InterpolationHelp.o: ../../core/XavierConfiguration.h
+InterpolationHelp.o: ../../geometry/Dimension2D.h ../../geometry/Vector3D.h
+InterpolationHelp.o: ../../geometry/Dimension3D.h
+InterpolationHelp.o: ../../geometry/RectangularVolume.h
+InterpolationHelp.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+InterpolationHelp.o: ../../geometry/CylindricalVolume.h
+InterpolationHelp.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+InterpolationHelp.o: ../../object2D/Object2D.h ../../core/Window.h
+InterpolationHelp.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+InterpolationHelp.o: ../../util/BitmapFontUtil.h
+InterpolationHelp.o: ../../util/BitmapFontConstants.h
+InterpolationHelp.o: ../../object2D/Point2D.h
+InterpolationHelp.o: ../../object2D/Transformable2D.h
+InterpolationHelp.o: ../../transform/Transformable.h
+InterpolationHelp.o: ../../transform/Transform.h ../../object3D/Triangle3D.h
+InterpolationHelp.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+InterpolationHelp.o: ../../object3D/Object3D.h ../../object3D/Sprite3D.h
+InterpolationHelp.o: ../../object3D/Sprite3DListener.h
+InterpolationHelp.o: ../../object3D/Point3D.h
+InterpolationHelp.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+InterpolationHelp.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+InterpolationHelp.o: ../../texture/TextureScale.h
+InterpolationHelp.o: ../../object3D/Quadrilateral3D.h
+InterpolationHelp.o: ../../object3D/RectangularPrism.h
+InterpolationHelp.o: ../../geometry/RectangularVolume.h
+InterpolationHelp.o: ../../object3D/Transformable3D.h
+InterpolationHelp.o: ../../object3D/NormalPolygon3D.h
+InterpolationHelp.o: ../../object3D/ExtrudedNormalPolygon3D.h
+InterpolationHelp.o: ../../object3D/NormalPolygon3D.h
+InterpolationHelp.o: ../../object3D/AdornablePrism.h
+InterpolationHelp.o: ../../object3D/RectangularPrism.h
+InterpolationHelp.o: ../../object3D/Object3DCollection.h
+InterpolationHelp.o: ../../object3D/CompiledObject3D.h
+InterpolationHelp.o: ../../object3D/Particle.h
+InterpolationHelp.o: ../../object3D/Sprite3DListener.h
+InterpolationHelp.o: ../../object3D/Object3DCollection.h
+InterpolationHelp.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+InterpolationHelp.o: ../../object3D/RectangularPrismFactory.h
+InterpolationHelp.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+InterpolationHelp.o: ../../texture/Texture.h ../../texture/TextureScale.h
+InterpolationHelp.o: ../../shape/CollisionRenderable.h
+InterpolationHelp.o: ../../model/MilkshapeModel.h ../../model/Model.h
+InterpolationHelp.o: ../../texture/TextureFactory.h ../../model/Model.h
+InterpolationHelp.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+InterpolationHelp.o: ../../terrain/NullHeightFieldStrategy.h
+InterpolationHelp.o: ../../terrain/HeightFieldStrategy.h
+InterpolationHelp.o: ../../terrain/HeightField.h
+InterpolationHelp.o: ../../object3D/Quadrilateral3D.h
+InterpolationHelp.o: ../../terrain/HeightField.h
+InterpolationHelp.o: ../../terrain/HeightFieldStrategy.h
+InterpolationHelp.o: ../../terrain/ImageHeightFieldStrategy.h
+InterpolationHelp.o: ../../terrain/HeightFieldFactory.h
+InterpolationHelp.o: ../../terrain/MatrixHeightFieldStrategy.h
+InterpolationHelp.o: ../../terrain/FunctionHeightFieldStrategy.h
+InterpolationHelp.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+InterpolationHelp.o: ../../multicast/MulticastSocket.h
+InterpolationHelp.o: ../../multicast/Multicast.h
+InterpolationHelp.o: ../../multicast/MulticastSocketPool.h
+InterpolationHelp.o: ../../paint/Paint.h ../../paint/Color.h
+InterpolationHelp.o: ../../transform/Orientation.h
+InterpolationHelp.o: ../../transform/CoordinateSystem.h
+InterpolationHelp.o: ../../transform/Translate.h ../../transform/Rotate.h
+InterpolationHelp.o: ../../transform/Transformable.h
+InterpolationHelp.o: ../../transform/OpenGLCoordinateSystem.h
+InterpolationHelp.o: ../../transform/TransformFactory.h
+InterpolationHelp.o: ../../transform/EngineerCoordinateSystem.h
+InterpolationHelp.o: ../../transform/MathCoordinateSystem.h
+InterpolationHelp.o: ../../transform/Transform.h ../../transform/Stretch.h
+InterpolationHelp.o: ../../transform/LeftOpenGLCoordinateSystem.h
+InterpolationHelp.o: ../../transform/MacCoordinateSystem.h
+InterpolationHelp.o: ../../transform/Scale.h
+InterpolationHelp.o: ../../transform/CoordinateSystemFactory.h
+InterpolationHelp.o: ../../util/GraphicsConversionUtility.h
+InterpolationHelp.o: ../../util/BehaviorParser.h
+InterpolationHelp.o: ../../transform/TransformFactory.h
+InterpolationHelp.o: ../../util/xmlParser.h
+InterpolationHelp.o: ../../util/FramesPerSecondCounter.h
+InterpolationHelp.o: ../../object2D/String2D.h
+InterpolationHelp.o: ../../util/BitmapFontConstants.h
+InterpolationHelp.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+InterpolationHelp.o: ../../util/Logger.h Arrangement.h Picture.h
+Picture.o: Picture.h ../../xor.h ../../event/timer/TimerStub.h
+Picture.o: ../../event/timer/Timer.h /usr/include/math.h
+Picture.o: /usr/include/features.h /usr/include/sys/cdefs.h
+Picture.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+Picture.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+Picture.o: ../../../include/SDL.h ../../../include/SDL_main.h
+Picture.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+Picture.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+Picture.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+Picture.o: /usr/include/stdio.h /usr/include/bits/types.h
+Picture.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+Picture.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+Picture.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+Picture.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+Picture.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+Picture.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+Picture.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+Picture.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+Picture.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+Picture.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+Picture.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+Picture.o: ../../event/timer/TimerListener.h
+Picture.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Picture.o: /usr/include/sys/types.h /usr/include/time.h /usr/include/endian.h
+Picture.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+Picture.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+Picture.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+Picture.o: /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h
+Picture.o: /usr/include/stdlib.h /usr/include/alloca.h /usr/include/string.h
+Picture.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+Picture.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+Picture.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+Picture.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+Picture.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
+Picture.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
+Picture.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
+Picture.o: /usr/include/netinet/in.h /usr/include/stdint.h
+Picture.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+Picture.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+Picture.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+Picture.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
+Picture.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+Picture.o: ../../event/timer/TimerSkeleton.h ../../../include/SDL_thread.h
+Picture.o: ../../core/Controller.h ../../../include/SDL.h
+Picture.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+Picture.o: ../../event/keyboard/KeyboardListener.h
+Picture.o: ../../event/keyboard/KeyEvent.h
+Picture.o: ../../event/keyboard/KeyEventFactory.h
+Picture.o: ../../event/keyboard/KeyDownEvent.h
+Picture.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+Picture.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+Picture.o: ../../event/mouse/MouseEventFactory.h
+Picture.o: ../../event/mouse/MouseButtonDown.h
+Picture.o: ../../event/mouse/MouseClickEvent.h
+Picture.o: ../../event/mouse/MouseButtonUp.h
+Picture.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+Picture.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+Picture.o: ../../event/timer/Timer.h ../../core/Window.h
+Picture.o: ../../event/reshape/ReshapeListener.h
+Picture.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+Picture.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+Picture.o: ../../geometry/Vector2D.h ../../core/Renderable.h
+Picture.o: ../../core/World.h ../../util/Logger.h ../../object3D/Object3D.h
+Picture.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+Picture.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+Picture.o: ../../texture/Texture.h ../../../include/SDL_image.h
+Picture.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
+Picture.o: /usr/include/GL/gl.h /usr/include/GL/glext.h /usr/include/GL/glu.h
+Picture.o: ../../paint/Color.h ../../core/Renderable.h
+Picture.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+Picture.o: ../../core/XavierConfiguration.h
+Picture.o: ../../transform/CoordinateSystem.h ../../transform/Transform.h
+Picture.o: ../../transform/Rotate.h ../../transform/Translate.h
+Picture.o: ../../event/Action.h ../../interpolation/InterpolatorFactory.h
+Picture.o: ../../interpolation/Interpolator.h
+Picture.o: ../../interpolation/LinearInterpolator.h
+Picture.o: ../../util/GraphicsConversionUtility.h
+Picture.o: ../../interpolation/Interpolator.h ../../transform/Scale.h
+Picture.o: ../../interpolation/InterpolationEngine.h
+Picture.o: ../../interpolation/InterpolationListener.h
+Picture.o: ../../interpolation/InterpolatorFactory.h
+Picture.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+Picture.o: ../../event/keyboard/KeyboardStub.h
+Picture.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+Picture.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+Picture.o: ../../paint/Color.h ../../core/Camera.h
+Picture.o: ../../core/CameraListener.h ../../transform/Orientation.h
+Picture.o: ../../transform/CoordinateSystemFactory.h
+Picture.o: ../../transform/CoordinateSystem.h
+Picture.o: ../../transform/OpenGLCoordinateSystem.h
+Picture.o: ../../transform/MacCoordinateSystem.h
+Picture.o: ../../transform/MathCoordinateSystem.h
+Picture.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Picture.o: ../../transform/EngineerCoordinateSystem.h
+Picture.o: ../../event/timer/TimerListener.h
+Picture.o: ../../event/reshape/ReshapeEvent.h
+Picture.o: ../../event/timer/IntervalTimer.h
+Picture.o: ../../event/timer/TimerListener.h
+Picture.o: ../../event/keyboard/SpecialKeyEvent.h
+Picture.o: ../../event/keyboard/KeyEvent.h
+Picture.o: ../../event/keyboard/KeyboardStub.h
+Picture.o: ../../event/keyboard/KeyUpEvent.h ../../event/keyboard/Keyboard.h
+Picture.o: ../../event/keyboard/KeyboardSkeleton.h
+Picture.o: ../../event/keyboard/KeyboardListener.h
+Picture.o: ../../event/keyboard/RegularKeyEvent.h
+Picture.o: ../../event/keyboard/DefaultKeyboardListener.h
+Picture.o: ../../interpolation/TimedInterpolation.h ../../core/Controller.h
+Picture.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+Picture.o: ../../event/keyboard/KeyDownEvent.h
+Picture.o: ../../event/keyboard/KeyEventFactory.h
+Picture.o: ../../event/reshape/ReshapeListener.h
+Picture.o: ../../event/reshape/ReshapeEvent.h
+Picture.o: ../../event/mouse/MouseButtonUp.h ../../event/mouse/MouseEvent.h
+Picture.o: ../../event/mouse/MouseClickEvent.h
+Picture.o: ../../event/mouse/MouseSkeleton.h
+Picture.o: ../../event/mouse/MouseListener.h ../../event/mouse/Mouse.h
+Picture.o: ../../event/mouse/DefaultMouseListener.h
+Picture.o: ../../event/mouse/MouseButtonDown.h
+Picture.o: ../../event/mouse/MouseMotionEvent.h
+Picture.o: ../../event/mouse/MouseEventFactory.h
+Picture.o: ../../event/mouse/MouseStub.h ../../event/Action.h
+Picture.o: ../../event/EventFactory.h ../../event/FullEventHandlerFactory.h
+Picture.o: ../../event/keyboard/KeyboardSkeleton.h
+Picture.o: ../../event/mouse/MouseSkeleton.h
+Picture.o: ../../event/timer/TimerSkeleton.h
+Picture.o: ../../event/InputEventProxyFactory.h
+Picture.o: ../../event/FullEventProxyFactory.h
+Picture.o: ../../event/InputEventHandlerFactory.h ../../event/DelayedAction.h
+Picture.o: ../../event/Action.h ../../event/timer/TimerListener.h
+Picture.o: ../../event/timer/IntervalTimer.h
+Picture.o: ../../interpolation/ContinuousInterpolation.h
+Picture.o: ../../interpolation/TimedInterpolation.h
+Picture.o: ../../interpolation/InterpolationListener.h
+Picture.o: ../../interpolation/CameraRoller.h
+Picture.o: ../../interpolation/TimedInterpolation.h
+Picture.o: ../../interpolation/InterpolatorFactory.h
+Picture.o: ../../interpolation/Waypoint.h
+Picture.o: ../../interpolation/InterpolationEngine.h
+Picture.o: ../../interpolation/LinearInterpolator.h
+Picture.o: ../../interpolation/Interpolator.h
+Picture.o: ../../interpolation/WaypointCollection.h
+Picture.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+Picture.o: ../../core/DebugCamera.h ../../core/Controller.h
+Picture.o: ../../core/World.h ../../core/Controller.h ../../core/Renderable.h
+Picture.o: ../../core/Window.h ../../core/Camera.h
+Picture.o: ../../core/XavierConfiguration.h ../../geometry/Dimension2D.h
+Picture.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+Picture.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+Picture.o: ../../geometry/Dimension.h ../../geometry/CylindricalVolume.h
+Picture.o: ../../geometry/Vector2D.h ../../object2D/Rectangle2D.h
+Picture.o: ../../object2D/Object2D.h ../../core/Window.h
+Picture.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+Picture.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+Picture.o: ../../object2D/Point2D.h ../../object2D/Transformable2D.h
+Picture.o: ../../transform/Transformable.h ../../transform/Transform.h
+Picture.o: ../../object3D/Triangle3D.h ../../object3D/Arc3D.h
+Picture.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+Picture.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+Picture.o: ../../object3D/Point3D.h
+Picture.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+Picture.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+Picture.o: ../../texture/TextureScale.h ../../object3D/Quadrilateral3D.h
+Picture.o: ../../object3D/RectangularPrism.h
+Picture.o: ../../geometry/RectangularVolume.h
+Picture.o: ../../object3D/Transformable3D.h ../../object3D/NormalPolygon3D.h
+Picture.o: ../../object3D/ExtrudedNormalPolygon3D.h
+Picture.o: ../../object3D/NormalPolygon3D.h ../../object3D/AdornablePrism.h
+Picture.o: ../../object3D/RectangularPrism.h
+Picture.o: ../../object3D/Object3DCollection.h
+Picture.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+Picture.o: ../../object3D/Sprite3DListener.h
+Picture.o: ../../object3D/Object3DCollection.h
+Picture.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+Picture.o: ../../object3D/RectangularPrismFactory.h ../../texture/Texture.h
+Picture.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+Picture.o: ../../texture/TextureScale.h ../../shape/CollisionRenderable.h
+Picture.o: ../../model/MilkshapeModel.h ../../model/Model.h
+Picture.o: ../../texture/TextureFactory.h ../../model/Model.h
+Picture.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+Picture.o: ../../terrain/NullHeightFieldStrategy.h
+Picture.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+Picture.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+Picture.o: ../../terrain/HeightFieldStrategy.h
+Picture.o: ../../terrain/ImageHeightFieldStrategy.h
+Picture.o: ../../terrain/HeightFieldFactory.h
+Picture.o: ../../terrain/MatrixHeightFieldStrategy.h
+Picture.o: ../../terrain/FunctionHeightFieldStrategy.h
+Picture.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+Picture.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+Picture.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+Picture.o: ../../paint/Color.h ../../transform/Orientation.h
+Picture.o: ../../transform/CoordinateSystem.h ../../transform/Translate.h
+Picture.o: ../../transform/Rotate.h ../../transform/Transformable.h
+Picture.o: ../../transform/OpenGLCoordinateSystem.h
+Picture.o: ../../transform/TransformFactory.h
+Picture.o: ../../transform/EngineerCoordinateSystem.h
+Picture.o: ../../transform/MathCoordinateSystem.h ../../transform/Transform.h
+Picture.o: ../../transform/Stretch.h
+Picture.o: ../../transform/LeftOpenGLCoordinateSystem.h
+Picture.o: ../../transform/MacCoordinateSystem.h ../../transform/Scale.h
+Picture.o: ../../transform/CoordinateSystemFactory.h
+Picture.o: ../../util/GraphicsConversionUtility.h ../../util/BehaviorParser.h
+Picture.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
+Picture.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+Picture.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+Picture.o: ../../util/PointScale.h ../../util/Logger.h
