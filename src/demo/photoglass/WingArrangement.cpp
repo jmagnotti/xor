@@ -1,4 +1,6 @@
 #include "Arrangement.h"
+#include "PhotoGlass.h"
+#include <iostream>
 
 using namespace XOR;
 using namespace std;
@@ -56,6 +58,14 @@ void WingArrangement::arrange(vector<Picture*> pictures)
 			}
 		}
 	}
+	// now move the pictures into a meaningful spot
+	for(int ii = 0; ii < HEIGHT; ii++) {
+		for(int jj = 0; jj < WIDTH; jj++) {
+			cout << "Creating MoveAction for " << ii << "," << jj << "." << endl;
+			new MoveAction(map[ii][jj]->getTransformable(), new Vector3D(ii - 2, jj - 6, -1), NULL);
+		}
+	}
+	
 }
 
 Picture * WingArrangement::findNextNorthNeighbor(int ii, int jj, Picture * map[5][11])

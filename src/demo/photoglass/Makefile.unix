@@ -4,7 +4,7 @@ CC = g++
 LIBS = -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
-SRCS = PhotoGlass.cpp WingArrangement.cpp InterpolationHelp.cpp Picture.cpp
+SRCS = PhotoGlass.cpp WingArrangement.cpp InterpolationHelp.cpp Picture.cpp PictureLoader.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -252,7 +252,7 @@ PhotoGlass.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
 PhotoGlass.o: ../../util/xmlParser.h ../../util/FramesPerSecondCounter.h
 PhotoGlass.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
 PhotoGlass.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
-PhotoGlass.o: ../../util/Logger.h Arrangement.h Picture.h
+PhotoGlass.o: ../../util/Logger.h Arrangement.h Picture.h PictureLoader.h
 WingArrangement.o: Arrangement.h ../../xor.h ../../event/timer/TimerStub.h
 WingArrangement.o: ../../event/timer/Timer.h /usr/include/math.h
 WingArrangement.o: /usr/include/features.h /usr/include/sys/cdefs.h
@@ -962,3 +962,236 @@ Picture.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
 Picture.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
 Picture.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 Picture.o: ../../util/PointScale.h ../../util/Logger.h
+PictureLoader.o: PictureLoader.h ../../xor.h ../../event/timer/TimerStub.h
+PictureLoader.o: ../../event/timer/Timer.h /usr/include/math.h
+PictureLoader.o: /usr/include/features.h /usr/include/sys/cdefs.h
+PictureLoader.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+PictureLoader.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+PictureLoader.o: ../../../include/SDL.h ../../../include/SDL_main.h
+PictureLoader.o: ../../../include/SDL_types.h ../../../include/SDL_getenv.h
+PictureLoader.o: ../../../include/SDL_error.h ../../../include/begin_code.h
+PictureLoader.o: ../../../include/close_code.h ../../../include/SDL_rwops.h
+PictureLoader.o: /usr/include/stdio.h /usr/include/bits/types.h
+PictureLoader.o: /usr/include/bits/wordsize.h /usr/include/bits/typesizes.h
+PictureLoader.o: /usr/include/libio.h /usr/include/_G_config.h
+PictureLoader.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+PictureLoader.o: /usr/include/gconv.h /usr/include/bits/stdio_lim.h
+PictureLoader.o: /usr/include/bits/sys_errlist.h ../../../include/SDL_timer.h
+PictureLoader.o: ../../../include/SDL_audio.h
+PictureLoader.o: ../../../include/SDL_byteorder.h
+PictureLoader.o: ../../../include/SDL_cdrom.h ../../../include/SDL_joystick.h
+PictureLoader.o: ../../../include/SDL_events.h ../../../include/SDL_active.h
+PictureLoader.o: ../../../include/SDL_keyboard.h
+PictureLoader.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+PictureLoader.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+PictureLoader.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+PictureLoader.o: ../../event/timer/TimerListener.h
+PictureLoader.o: ../../multicast/MulticastSocket.h
+PictureLoader.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+PictureLoader.o: /usr/include/time.h /usr/include/endian.h
+PictureLoader.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+PictureLoader.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+PictureLoader.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+PictureLoader.o: /usr/include/bits/pthreadtypes.h /usr/include/bits/sched.h
+PictureLoader.o: /usr/include/stdlib.h /usr/include/alloca.h
+PictureLoader.o: /usr/include/string.h /usr/include/sys/socket.h
+PictureLoader.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+PictureLoader.o: /usr/include/bits/socket.h /usr/include/limits.h
+PictureLoader.o: /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h
+PictureLoader.o: /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h
+PictureLoader.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+PictureLoader.o: /usr/include/asm-i386/socket.h /usr/include/asm/sockios.h
+PictureLoader.o: /usr/include/asm-i386/sockios.h /usr/include/netinet/in.h
+PictureLoader.o: /usr/include/stdint.h /usr/include/bits/in.h
+PictureLoader.o: /usr/include/bits/byteswap.h /usr/include/arpa/inet.h
+PictureLoader.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+PictureLoader.o: /usr/include/bits/confname.h /usr/include/getopt.h
+PictureLoader.o: ../../multicast/MulticastSocketPool.h
+PictureLoader.o: ../../multicast/MulticastSocket.h ../../event/timer/Timer.h
+PictureLoader.o: ../../event/timer/TimerSkeleton.h
+PictureLoader.o: ../../../include/SDL_thread.h ../../core/Controller.h
+PictureLoader.o: ../../../include/SDL.h ../../event/EventFactory.h
+PictureLoader.o: ../../event/keyboard/Keyboard.h
+PictureLoader.o: ../../event/keyboard/KeyboardListener.h
+PictureLoader.o: ../../event/keyboard/KeyEvent.h
+PictureLoader.o: ../../event/keyboard/KeyEventFactory.h
+PictureLoader.o: ../../event/keyboard/KeyDownEvent.h
+PictureLoader.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+PictureLoader.o: ../../event/mouse/MouseListener.h
+PictureLoader.o: ../../event/mouse/MouseEvent.h
+PictureLoader.o: ../../event/mouse/MouseEventFactory.h
+PictureLoader.o: ../../event/mouse/MouseButtonDown.h
+PictureLoader.o: ../../event/mouse/MouseClickEvent.h
+PictureLoader.o: ../../event/mouse/MouseButtonUp.h
+PictureLoader.o: ../../event/mouse/MouseMotionEvent.h
+PictureLoader.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+PictureLoader.o: ../../event/mouse/Mouse.h ../../event/timer/Timer.h
+PictureLoader.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+PictureLoader.o: ../../event/reshape/ReshapeEvent.h
+PictureLoader.o: ../../geometry/Dimension2D.h ../../geometry/Dimension.h
+PictureLoader.o: ../../geometry/Dimension2D.h ../../geometry/Vector2D.h
+PictureLoader.o: ../../core/Renderable.h ../../core/World.h
+PictureLoader.o: ../../util/Logger.h ../../object3D/Object3D.h
+PictureLoader.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+PictureLoader.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+PictureLoader.o: ../../texture/Texture.h ../../../include/SDL_image.h
+PictureLoader.o: ../../../include/SDL.h ../../../include/SDL_opengl.h
+PictureLoader.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+PictureLoader.o: /usr/include/GL/glu.h ../../paint/Color.h
+PictureLoader.o: ../../core/Renderable.h ../../object3D/Point3D.h
+PictureLoader.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+PictureLoader.o: ../../transform/CoordinateSystem.h
+PictureLoader.o: ../../transform/Transform.h ../../transform/Rotate.h
+PictureLoader.o: ../../transform/Translate.h ../../event/Action.h
+PictureLoader.o: ../../interpolation/InterpolatorFactory.h
+PictureLoader.o: ../../interpolation/Interpolator.h
+PictureLoader.o: ../../interpolation/LinearInterpolator.h
+PictureLoader.o: ../../util/GraphicsConversionUtility.h
+PictureLoader.o: ../../interpolation/Interpolator.h ../../transform/Scale.h
+PictureLoader.o: ../../interpolation/InterpolationEngine.h
+PictureLoader.o: ../../interpolation/InterpolationListener.h
+PictureLoader.o: ../../interpolation/InterpolatorFactory.h
+PictureLoader.o: ../../event/InputEventProxyFactory.h
+PictureLoader.o: ../../event/EventFactory.h
+PictureLoader.o: ../../event/keyboard/KeyboardStub.h
+PictureLoader.o: ../../event/keyboard/Keyboard.h
+PictureLoader.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+PictureLoader.o: ../../event/timer/TimerStub.h ../../paint/Color.h
+PictureLoader.o: ../../core/Camera.h ../../core/CameraListener.h
+PictureLoader.o: ../../transform/Orientation.h
+PictureLoader.o: ../../transform/CoordinateSystemFactory.h
+PictureLoader.o: ../../transform/CoordinateSystem.h
+PictureLoader.o: ../../transform/OpenGLCoordinateSystem.h
+PictureLoader.o: ../../transform/MacCoordinateSystem.h
+PictureLoader.o: ../../transform/MathCoordinateSystem.h
+PictureLoader.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PictureLoader.o: ../../transform/EngineerCoordinateSystem.h
+PictureLoader.o: ../../event/timer/TimerListener.h
+PictureLoader.o: ../../event/reshape/ReshapeEvent.h
+PictureLoader.o: ../../event/timer/IntervalTimer.h
+PictureLoader.o: ../../event/timer/TimerListener.h
+PictureLoader.o: ../../event/keyboard/SpecialKeyEvent.h
+PictureLoader.o: ../../event/keyboard/KeyEvent.h
+PictureLoader.o: ../../event/keyboard/KeyboardStub.h
+PictureLoader.o: ../../event/keyboard/KeyUpEvent.h
+PictureLoader.o: ../../event/keyboard/Keyboard.h
+PictureLoader.o: ../../event/keyboard/KeyboardSkeleton.h
+PictureLoader.o: ../../event/keyboard/KeyboardListener.h
+PictureLoader.o: ../../event/keyboard/RegularKeyEvent.h
+PictureLoader.o: ../../event/keyboard/DefaultKeyboardListener.h
+PictureLoader.o: ../../interpolation/TimedInterpolation.h
+PictureLoader.o: ../../core/Controller.h
+PictureLoader.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+PictureLoader.o: ../../event/keyboard/KeyDownEvent.h
+PictureLoader.o: ../../event/keyboard/KeyEventFactory.h
+PictureLoader.o: ../../event/reshape/ReshapeListener.h
+PictureLoader.o: ../../event/reshape/ReshapeEvent.h
+PictureLoader.o: ../../event/mouse/MouseButtonUp.h
+PictureLoader.o: ../../event/mouse/MouseEvent.h
+PictureLoader.o: ../../event/mouse/MouseClickEvent.h
+PictureLoader.o: ../../event/mouse/MouseSkeleton.h
+PictureLoader.o: ../../event/mouse/MouseListener.h ../../event/mouse/Mouse.h
+PictureLoader.o: ../../event/mouse/DefaultMouseListener.h
+PictureLoader.o: ../../event/mouse/MouseButtonDown.h
+PictureLoader.o: ../../event/mouse/MouseMotionEvent.h
+PictureLoader.o: ../../event/mouse/MouseEventFactory.h
+PictureLoader.o: ../../event/mouse/MouseStub.h ../../event/Action.h
+PictureLoader.o: ../../event/EventFactory.h
+PictureLoader.o: ../../event/FullEventHandlerFactory.h
+PictureLoader.o: ../../event/keyboard/KeyboardSkeleton.h
+PictureLoader.o: ../../event/mouse/MouseSkeleton.h
+PictureLoader.o: ../../event/timer/TimerSkeleton.h
+PictureLoader.o: ../../event/InputEventProxyFactory.h
+PictureLoader.o: ../../event/FullEventProxyFactory.h
+PictureLoader.o: ../../event/InputEventHandlerFactory.h
+PictureLoader.o: ../../event/DelayedAction.h ../../event/Action.h
+PictureLoader.o: ../../event/timer/TimerListener.h
+PictureLoader.o: ../../event/timer/IntervalTimer.h
+PictureLoader.o: ../../interpolation/ContinuousInterpolation.h
+PictureLoader.o: ../../interpolation/TimedInterpolation.h
+PictureLoader.o: ../../interpolation/InterpolationListener.h
+PictureLoader.o: ../../interpolation/CameraRoller.h
+PictureLoader.o: ../../interpolation/TimedInterpolation.h
+PictureLoader.o: ../../interpolation/InterpolatorFactory.h
+PictureLoader.o: ../../interpolation/Waypoint.h
+PictureLoader.o: ../../interpolation/InterpolationEngine.h
+PictureLoader.o: ../../interpolation/LinearInterpolator.h
+PictureLoader.o: ../../interpolation/Interpolator.h
+PictureLoader.o: ../../interpolation/WaypointCollection.h
+PictureLoader.o: ../../interpolation/Waypoint.h ../../core/CameraListener.h
+PictureLoader.o: ../../core/DebugCamera.h ../../core/Controller.h
+PictureLoader.o: ../../core/World.h ../../core/Controller.h
+PictureLoader.o: ../../core/Renderable.h ../../core/Window.h
+PictureLoader.o: ../../core/Camera.h ../../core/XavierConfiguration.h
+PictureLoader.o: ../../geometry/Dimension2D.h ../../geometry/Vector3D.h
+PictureLoader.o: ../../geometry/Dimension3D.h
+PictureLoader.o: ../../geometry/RectangularVolume.h
+PictureLoader.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+PictureLoader.o: ../../geometry/CylindricalVolume.h ../../geometry/Vector2D.h
+PictureLoader.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+PictureLoader.o: ../../core/Window.h ../../object2D/Object2D.h
+PictureLoader.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+PictureLoader.o: ../../util/BitmapFontConstants.h ../../object2D/Point2D.h
+PictureLoader.o: ../../object2D/Transformable2D.h
+PictureLoader.o: ../../transform/Transformable.h ../../transform/Transform.h
+PictureLoader.o: ../../object3D/Triangle3D.h ../../object3D/Arc3D.h
+PictureLoader.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+PictureLoader.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+PictureLoader.o: ../../object3D/Point3D.h
+PictureLoader.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+PictureLoader.o: ../../object3D/Quadrilateral3D.h ../../util/PointScale.h
+PictureLoader.o: ../../texture/TextureScale.h
+PictureLoader.o: ../../object3D/Quadrilateral3D.h
+PictureLoader.o: ../../object3D/RectangularPrism.h
+PictureLoader.o: ../../geometry/RectangularVolume.h
+PictureLoader.o: ../../object3D/Transformable3D.h
+PictureLoader.o: ../../object3D/NormalPolygon3D.h
+PictureLoader.o: ../../object3D/ExtrudedNormalPolygon3D.h
+PictureLoader.o: ../../object3D/NormalPolygon3D.h
+PictureLoader.o: ../../object3D/AdornablePrism.h
+PictureLoader.o: ../../object3D/RectangularPrism.h
+PictureLoader.o: ../../object3D/Object3DCollection.h
+PictureLoader.o: ../../object3D/CompiledObject3D.h ../../object3D/Particle.h
+PictureLoader.o: ../../object3D/Sprite3DListener.h
+PictureLoader.o: ../../object3D/Object3DCollection.h
+PictureLoader.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+PictureLoader.o: ../../object3D/RectangularPrismFactory.h
+PictureLoader.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+PictureLoader.o: ../../texture/Texture.h ../../texture/TextureScale.h
+PictureLoader.o: ../../shape/CollisionRenderable.h
+PictureLoader.o: ../../model/MilkshapeModel.h ../../model/Model.h
+PictureLoader.o: ../../texture/TextureFactory.h ../../model/Model.h
+PictureLoader.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+PictureLoader.o: ../../terrain/NullHeightFieldStrategy.h
+PictureLoader.o: ../../terrain/HeightFieldStrategy.h
+PictureLoader.o: ../../terrain/HeightField.h ../../object3D/Quadrilateral3D.h
+PictureLoader.o: ../../terrain/HeightField.h
+PictureLoader.o: ../../terrain/HeightFieldStrategy.h
+PictureLoader.o: ../../terrain/ImageHeightFieldStrategy.h
+PictureLoader.o: ../../terrain/HeightFieldFactory.h
+PictureLoader.o: ../../terrain/MatrixHeightFieldStrategy.h
+PictureLoader.o: ../../terrain/FunctionHeightFieldStrategy.h
+PictureLoader.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PictureLoader.o: ../../multicast/MulticastSocket.h
+PictureLoader.o: ../../multicast/Multicast.h
+PictureLoader.o: ../../multicast/MulticastSocketPool.h ../../paint/Paint.h
+PictureLoader.o: ../../paint/Color.h ../../transform/Orientation.h
+PictureLoader.o: ../../transform/CoordinateSystem.h
+PictureLoader.o: ../../transform/Translate.h ../../transform/Rotate.h
+PictureLoader.o: ../../transform/Transformable.h
+PictureLoader.o: ../../transform/OpenGLCoordinateSystem.h
+PictureLoader.o: ../../transform/TransformFactory.h
+PictureLoader.o: ../../transform/EngineerCoordinateSystem.h
+PictureLoader.o: ../../transform/MathCoordinateSystem.h
+PictureLoader.o: ../../transform/Transform.h ../../transform/Stretch.h
+PictureLoader.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PictureLoader.o: ../../transform/MacCoordinateSystem.h
+PictureLoader.o: ../../transform/Scale.h
+PictureLoader.o: ../../transform/CoordinateSystemFactory.h
+PictureLoader.o: ../../util/GraphicsConversionUtility.h
+PictureLoader.o: ../../util/BehaviorParser.h
+PictureLoader.o: ../../transform/TransformFactory.h ../../util/xmlParser.h
+PictureLoader.o: ../../util/FramesPerSecondCounter.h
+PictureLoader.o: ../../object2D/String2D.h ../../util/BitmapFontConstants.h
+PictureLoader.o: ../../util/BitmapFontUtil.h ../../util/PointScale.h
+PictureLoader.o: ../../util/Logger.h Arrangement.h Picture.h

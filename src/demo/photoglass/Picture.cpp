@@ -4,11 +4,11 @@
 using namespace XOR;
 using namespace std;
 
-Picture::Picture(Cube * picture)
+Picture::Picture(Transformable3D * picture)
 {
 	// make the cube transformable so we can move it
 	// and all of that good stuff
-	_cube = new Transformable3D(picture);
+	_cube = picture;
 
 	_north = NULL;
 	_south = NULL;

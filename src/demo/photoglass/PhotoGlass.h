@@ -3,6 +3,7 @@
 
 #include "../../xor.h"
 #include "Arrangement.h"
+//#include "PictureLoader.h"
 #include <iostream>
 #include <vector>
 
@@ -38,18 +39,20 @@ public:
 	Transformer(PhotoGlass * demo);
 
 };
+
 class MoveAction : public Action
 {
 public:
 	MoveAction(char * object, Vector3D * move, Action * action);
-
+	MoveAction(Transformable3D * object, Vector3D * move, Action * action);
 	void execute();
 
 private:
 
 	char * _object;
+	Transformable3D * _tobject;
 	Action * _action;
-	Vector3D * _movement;
+	Vector3D * _movement; // how much to move by?
 	MoveAction()
 	{}
 };
