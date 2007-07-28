@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace XOR;
+
 /**
  * This constructor gets things off the ground.
  */ 
