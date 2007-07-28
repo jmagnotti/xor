@@ -13,6 +13,19 @@ MoveAction::MoveAction(char * object, Vector3D * move, Action * action)
 {
 	_object = object;
 	_movement = move;
+	// resolve char* to real object
+	_tobject = ((Transformable3D*)(Controller::GetInstance()->getModel()->getObject(_object)));
+	if (action == NULL)
+		_action = new PrintWhenDone();
+	else
+		_action = action;
+}
+
+MoveAction::MoveAction(Transformable3D * object, Vector3D * move, Action * action)
+{
+	_movement = move;
+	// copy reference to transformable 3d object 
+	_tobject = object; 
 	if (action == NULL)
 		_action = new PrintWhenDone();
 	else
@@ -21,9 +34,8 @@ MoveAction::MoveAction(char * object, Vector3D * move, Action * action)
 
 void MoveAction::execute()
 {
-	Transformable3D * temp = ((Transformable3D*)(Controller::GetInstance()->getModel()->getObject(_object)));
-	if (temp != NULL)
-		temp->addTransform(Translate::CreateTranslate(_movement, 3000, _action));
+	if (_tobject != NULL)
+		_tobject->addTransform(Translate::CreateTranslate(_movement, 3000, _action));
 }
 
 NoFogConfig::NoFogConfig()

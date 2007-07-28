@@ -1,5 +1,8 @@
 #include "PhotoGlass.h"
+#include "PictureLoader.h"
 #include <string>
+#include <iostream>
+
 
 using namespace XOR;
 
@@ -13,6 +16,11 @@ PhotoGlass::PhotoGlass()
 	ctrl->getKeyboard()->addListener(new Transformer(this));
 	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
+	PictureLoader * pl = new FakePictureLoader(10);
+	pictures = pl->load();	
+
+	cout << "Attempting to set arrangement..." << endl;
+	setArrangement(new WingArrangement());
 	ctrl->setModel(new String2D("PhotoGlass"));
 }
 

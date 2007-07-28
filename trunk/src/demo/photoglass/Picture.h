@@ -10,7 +10,7 @@ class Picture
 {
 public:
 
-	Picture(Cube * picture);	
+	Picture(Transformable3D * picture);	
 
 	void setNorth(Picture * picture);
 	void setSouth(Picture * picture);

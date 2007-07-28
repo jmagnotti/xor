@@ -21,9 +21,11 @@ int main()
 		//cout << "received: " << misocketz.receive() << endl;	
 		snum = misocketz.receive();
 		number = atoi(snum.c_str());
+		//cout << "rec: " << snum << endl;
 		if(number != prevnumber + 1)
 		{
 			cout << "Missed number before " << number << 
+
 				" " << misses << " Missed packetts" << endl;
 			misses++;
 		}	
