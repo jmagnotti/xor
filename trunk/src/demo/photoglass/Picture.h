@@ -12,6 +12,12 @@ public:
 
 	Picture(Transformable3D * picture);	
 
+	void setDefaultPosition(Vector3D * pos);
+	
+	void highlight();
+	void goToDefault(int speed = 100); // go to default position	
+	void undo();
+
 	void setNorth(Picture * picture);
 	void setSouth(Picture * picture);
 	void setEast(Picture * picture);
@@ -26,17 +32,16 @@ public:
 	
 private:
 	Transformable3D * _cube;
-	// conceptual position, in relation to 
-	// the other pictures
-	int cPosition[2]; // x y
-
-	// actual position
-	Vector3D * position;
+	// Position to default to
+	Vector3D * _defpos;
+	Vector3D * _highlightpos;
 
 	Picture * _north;
 	Picture * _south;
 	Picture * _east;
 	Picture * _west;	
+
+	void calcHighlight(Vector3D * start);
 };
 
 

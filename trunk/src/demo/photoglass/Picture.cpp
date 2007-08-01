@@ -16,6 +16,54 @@ Picture::Picture(Transformable3D * picture)
 	_west = NULL;
 }
 
+void Picture::goToDefault(int speed)
+{
+	_cube->addTransform(Translate::CreateTranslate(_defpos, speed));
+}
+
+void Picture::undo()
+{
+	_cube->addTransform(Translate::CreateTranslate(
+				new Vector3D(0,0,-1), 100));
+}
+/**
+ * highlights this picture
+ * in this case by translating to the highlight position
+ */
+void Picture::highlight()
+{
+	_cube->addTransform(Translate::CreateTranslate(_highlightpos, 100));
+}
+
+/**
+ * Sets the default position that this picture
+ * should revert to.
+ */
+void Picture::setDefaultPosition(Vector3D * pos)
+{
+//	if(_defpos != NULL)
+//		delete _defpos;
+	_defpos = pos;
+	calcHighlight(pos);
+}
+
+/** 
+ * Calculates the highlight position by starting from
+ * the vector passed in and moving moving closer to
+ * the camera.
+ */
+void Picture::calcHighlight(Vector3D * start)
+{
+	// delete the old one
+//	if(_highlightpos != NULL) 
+//		delete _highlightpos;
+/*	_highlightpos = new Vector3D(
+			start->getX(),
+			start->getY(),
+			start->getZ() + 1);*/
+	_highlightpos = new Vector3D(0,0,1);
+}
+
 /**
  * In order to navigate the pictures easily
  * each picture is going to keep track of 

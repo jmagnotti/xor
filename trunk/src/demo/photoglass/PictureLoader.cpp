@@ -26,7 +26,6 @@ vector<Picture*> FakePictureLoader::load()
 		Picture * pic;
 		Transformable3D * cube = new Transformable3D(new Cube(new Vector3D(0.0f, 0.0f, -1.0f ), 1.0f, p));
 		pic = new Picture(cube);
-
 		fakepics.push_back(pic);
 	}
 

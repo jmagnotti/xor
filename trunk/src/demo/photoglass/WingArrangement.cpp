@@ -10,9 +10,13 @@ void Arrangement::arrange(vector<Picture*> pictures)
 
 void WingArrangement::arrange(vector<Picture*> pictures) 
 {
+	cout << "in arrange()" << endl;
 	// width height of wall
 	const int HEIGHT = 5;
 	const int WIDTH  = 11;
+	const float GAP = 0.5f; // space between pics
+	const float YOFF = 0.0f; // shifts the pics up to the top
+	const float XOFF = -1.0f;
 	// priority map
 	// what should be filled first
 	int priomap[HEIGHT][WIDTH] = {
@@ -24,33 +28,47 @@ void WingArrangement::arrange(vector<Picture*> pictures)
 	};
 
 	Picture * map[HEIGHT][WIDTH];
+	// zero map
+	for(int ii = 0; ii < HEIGHT; ii++)
+		for(int jj = 0;  jj < WIDTH; jj++)
+			map[ii][jj] = NULL;
 
-	int searchrow = 0;
-	int searchcol = 0;
-	
-	// here's our super sweet 
-	// sloppily written way of generating 
-	// an array of pointers so we can
-	// build a quad linked list
-	for(int i = 0; i < pictures.size(); i++) {
-		
-		bool match = false;
-		for(int ii = searchrow; ii < HEIGHT && !match; ii++) {
-			for(int jj = searchcol; jj <  WIDTH && !match; jj++) {
-				if(priomap[ii][jj] == 1) {
-					map[ii][jj] = pictures[i];
-					searchrow = ii;
-					searchcol = jj;
-					match = true;
-				}
+	int matches = 0;
+	int maxmatch = pictures.size();
+
+	cout << "Copying pointers in arrange()" << endl;
+	for(int ii = 0; ii < HEIGHT && matches < maxmatch; ii++) {
+		for(int jj = 0; jj < WIDTH && matches < maxmatch; jj++) { 
+			if(priomap[ii][jj] == 1) {
+				cout << "Setting map[" << ii << "][" << jj << "]" << endl;
+				map[ii][jj] = pictures[matches++];
 			}
 		}
 	}
 
+	for(int ii = 0; ii < HEIGHT && matches < maxmatch; ii++) {
+		for(int jj = 0; jj < WIDTH && matches < maxmatch; jj++) { 
+			if(priomap[ii][jj] == 2) {
+				cout << "Setting map[" << ii << "][" << jj << "]" << endl;
+				map[ii][jj] = pictures[matches++];
+			}
+		}
+	}
+	
+	for(int ii = 0; ii < HEIGHT && matches < maxmatch; ii++) {
+		for(int jj = 0; jj < WIDTH && matches < maxmatch; jj++) { 
+			if(priomap[ii][jj] == 3){
+				cout << "Setting map[" << ii << "][" << jj << "]" << endl;
+				map[ii][jj] = pictures[matches++];
+			}
+		}
+	}
+	cout << "Building qll in arrange()" << endl;
 	// now build the quad linked list
 	for(int ii = 0; ii < HEIGHT; ii++) {
 		for(int jj = 0; jj < WIDTH; jj++) { 
 			if(map[ii][jj] != NULL) {
+				cout << "Setting neighbors for " << ii << ", " << jj << endl;
 				map[ii][jj]->setNorth(findNextNorthNeighbor(ii,jj,map));
 				map[ii][jj]->setSouth(findNextSouthNeighbor(ii,jj,map));
 				map[ii][jj]->setEast(findNextEastNeighbor(ii,jj,map));
@@ -58,11 +76,23 @@ void WingArrangement::arrange(vector<Picture*> pictures)
 			}
 		}
 	}
+	cout << "Attempting to translate in arrange()" << endl;
 	// now move the pictures into a meaningful spot
 	for(int ii = 0; ii < HEIGHT; ii++) {
 		for(int jj = 0; jj < WIDTH; jj++) {
-			cout << "Creating MoveAction for " << ii << "," << jj << "." << endl;
-			new MoveAction(map[ii][jj]->getTransformable(), new Vector3D(ii - 2, jj - 6, -1), NULL);
+			if(map[ii][jj] != NULL) {
+				cout << "Creating MoveAction for " << ii << "," << jj << "." << endl;
+								
+				// To place all of our cubes we'll need to do some dirty
+				// work.  Since the center of the 5x5 corresponds to
+				// array index [6][2] we'll subtract that from ii/jj
+				// so it stays in the center
+				map[ii][jj]->setDefaultPosition(
+							new Vector3D((jj- 6) + (jj - 6) * GAP + XOFF, // x
+								(ii - 2)+ (ii - 2) * GAP + YOFF,	    // y
+								-9));                               //z
+				map[ii][jj]->goToDefault(3000);
+			}
 		}
 	}
 	
