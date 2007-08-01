@@ -10,7 +10,6 @@
 using namespace XOR;
 using namespace std;
 
-class Transformer;
 
 class PhotoGlass
 {
@@ -20,25 +19,19 @@ public:
 	PhotoGlass();
 	void setArrangement(Arrangement * arrangement);
 	void run();
+	void changeSelection(int direction);
 
 private:
+	void displayPictures();
+	void cleanPictures();
+	Controller * ctrl;
 	Arrangement * _arrangement;
 	vector<Picture*> pictures;
-};
 
-class Transformer : public DefaultKeyboardListener
-{
-
-private:
-
-	PhotoGlass * _demo;
-
-	void handleKey_5();
-
-public:
-	Transformer(PhotoGlass * demo);
+	Picture * _currentpic;
 
 };
+
 
 class MoveAction : public Action
 {
@@ -83,4 +76,4 @@ public:
 	bool isFullScreen();
 };
 
-#endif			// INTERPOLATIONDEMO_H
+#endif			// PHOTOGLASS_H

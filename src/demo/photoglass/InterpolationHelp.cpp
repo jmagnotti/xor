@@ -61,13 +61,4 @@ Dimension2D * NoFogConfig::getWindowSize() const
 	return new Dimension2D(1680, 1050);
 }
 
-Transformer::Transformer(PhotoGlass * id)
-{
-	_demo = id;
-}
-
-void Transformer::handleKey_5()
-{
-	//_demo->roll(5);
-}
 
