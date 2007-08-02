@@ -106,5 +106,6 @@ void GlassKeyListener::handleKey_l()
  */
 void GlassKeyListener::handleKey_Space()
 {
+	_photoglass->toggleFocus();
 }
 

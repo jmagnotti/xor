@@ -4,7 +4,7 @@ CC = g++
 LIBS = -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
-SRCS = PhotoGlass.cpp WingArrangement.cpp InterpolationHelp.cpp Picture.cpp PictureLoader.cpp GlassKeyListener.cpp
+SRCS = PhotoGlass.cpp WingArrangement.cpp InterpolationHelp.cpp Picture.cpp PictureLoader.cpp GlassKeyListener.cpp xmlParser/xmlParser.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -30,7 +30,10 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
+			wget -nc http://xor.googlecode.com/files/ComputerGiants.tar.gz
+			tar zxvf ComputerGiants.tar.gz
 			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 

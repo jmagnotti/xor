@@ -15,8 +15,10 @@ public:
 	void setDefaultPosition(Vector3D * pos);
 	
 	void highlight();
+	void unhighlight();
 	void goToDefault(int speed = 100); // go to default position	
-	void undo();
+	void focus();
+	void unfocus();
 
 	void setNorth(Picture * picture);
 	void setSouth(Picture * picture);
@@ -34,14 +36,22 @@ private:
 	Transformable3D * _cube;
 	// Position to default to
 	Vector3D * _defpos;
-	Vector3D * _highlightpos;
+	
+	// not actually the highlight position
+	// its a vector to translate by to higlight
+	Vector3D * _highlight;
+	Vector3D * _unhighlight;
+
+	// the vectors need to translate to focus
+	// and unfocus
+	Vector3D * _focus;
+	Vector3D * _unfocus;
+	void calcFocus(Vector3D * start);
 
 	Picture * _north;
 	Picture * _south;
 	Picture * _east;
 	Picture * _west;	
-
-	void calcHighlight(Vector3D * start);
 };
 
 
