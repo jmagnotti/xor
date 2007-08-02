@@ -26,7 +26,8 @@ PhotoGlass::PhotoGlass()
 	Object3DCollection * collection = new Object3DCollection();
 	ctrl->getModel()->addObject("test", cube);
     */	
-	PictureLoader * pl = new FakePictureLoader(25+18);
+	//PictureLoader * pl = new FakePictureLoader(25+18);
+	PictureLoader * pl = new XMLPictureLoader("ComputerGiants/ComputerGiants.xml");
 	pictures = pl->load();	
 	_currentpic = pictures[0];
 	displayPictures();	
@@ -40,7 +41,9 @@ PhotoGlass::PhotoGlass()
 	cube->addTransform(Translate::CreateTranslate(new Vector3D(-1,-1,-11), 3000, NULL));
 	*/	
 	cout << "Attempting to set arrangement..." << endl;
-	setArrangement(new WingArrangement());
+	setArrangement(new WingArrangement(_currentpic));
+	lock = false;
+	focus = false;
 }
 
 /**
@@ -76,10 +79,24 @@ void PhotoGlass::changeSelection(int direction)
 			nextpic = _currentpic;
 			break;
 	}
-	
-	_currentpic->undo();
-	nextpic->highlight();
-	_currentpic = nextpic;
+	if(!lock) {		
+		_currentpic->unhighlight();
+		nextpic->highlight();
+		_currentpic = nextpic;
+	}
+}
+
+void PhotoGlass::toggleFocus()
+{
+	if(!focus) {
+		_currentpic->focus();
+		lock = true;
+		focus = true;	
+	} else if(focus) {
+		_currentpic->unfocus();
+		lock = false;
+		focus = false;
+	}
 }
 
 /** 

@@ -20,6 +20,7 @@ public:
 	void setArrangement(Arrangement * arrangement);
 	void run();
 	void changeSelection(int direction);
+	void toggleFocus();
 
 private:
 	void displayPictures();
@@ -29,6 +30,9 @@ private:
 	vector<Picture*> pictures;
 
 	Picture * _currentpic;
+
+	bool lock;
+	bool focus; // true if a pic has focus
 
 };
 

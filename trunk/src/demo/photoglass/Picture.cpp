@@ -10,6 +10,9 @@ Picture::Picture(Transformable3D * picture)
 	// and all of that good stuff
 	_cube = picture;
 
+	_highlight = new Vector3D(0, 0, 1);
+	_unhighlight = new Vector3D(0, 0, -1);
+
 	_north = NULL;
 	_south = NULL;
 	_east = NULL;
@@ -21,18 +24,28 @@ void Picture::goToDefault(int speed)
 	_cube->addTransform(Translate::CreateTranslate(_defpos, speed));
 }
 
-void Picture::undo()
-{
-	_cube->addTransform(Translate::CreateTranslate(
-				new Vector3D(0,0,-1), 100));
-}
 /**
  * highlights this picture
  * in this case by translating to the highlight position
  */
 void Picture::highlight()
 {
-	_cube->addTransform(Translate::CreateTranslate(_highlightpos, 100));
+	_cube->addTransform(Translate::CreateTranslate(_highlight, 100));
+}
+
+void Picture::unhighlight()
+{
+	_cube->addTransform(Translate::CreateTranslate(_unhighlight, 100));
+}
+
+void Picture::focus()
+{
+	_cube->addTransform(Translate::CreateTranslate(_focus, 100));
+}
+
+void Picture::unfocus()
+{
+	_cube->addTransform(Translate::CreateTranslate(_unfocus, 100));
 }
 
 /**
@@ -44,24 +57,24 @@ void Picture::setDefaultPosition(Vector3D * pos)
 //	if(_defpos != NULL)
 //		delete _defpos;
 	_defpos = pos;
-	calcHighlight(pos);
+	calcFocus(pos);
 }
 
-/** 
- * Calculates the highlight position by starting from
- * the vector passed in and moving moving closer to
- * the camera.
- */
-void Picture::calcHighlight(Vector3D * start)
+void Picture::calcFocus(Vector3D * start)
 {
-	// delete the old one
-//	if(_highlightpos != NULL) 
-//		delete _highlightpos;
-/*	_highlightpos = new Vector3D(
-			start->getX(),
-			start->getY(),
-			start->getZ() + 1);*/
-	_highlightpos = new Vector3D(0,0,1);
+	// consts (where we want the pic to end
+	const float endx = -1.0f;
+	const float endy = -0.6f;
+	const float endz = -2.0f;
+
+	_focus = new Vector3D(
+			endx - start->getX(),
+			endy - start->getY(),
+			endz - start->getZ());
+	_unfocus = new Vector3D(
+			_focus->getX() * -1,
+			_focus->getY() * -1,
+			_focus->getZ() * -1);
 }
 
 /**

@@ -4,6 +4,7 @@
 #include "../../xor.h"
 #include "Arrangement.h"
 #include "Picture.h"
+#include "xmlParser/xmlParser.h"
 #include <iostream>
 #include <vector>
 
@@ -31,10 +32,14 @@ public:
 	virtual vector<Picture*> load();
 };
 
-class XMLPictureLoader : PictureLoader
+class XMLPictureLoader : public PictureLoader
 {
 	public:
+		XMLPictureLoader(char * file);
 		virtual vector<Picture*> load();
+	private:
+		char * _file;
+		Transformable3D * loadCube(const char * path);
 };
 
 class FakePictureLoader : public PictureLoader

@@ -8,6 +8,11 @@ void Arrangement::arrange(vector<Picture*> pictures)
 {
 }
 
+WingArrangement::WingArrangement(Picture * highlight)
+{
+	_highlight = highlight;
+}
+
 void WingArrangement::arrange(vector<Picture*> pictures) 
 {
 	cout << "in arrange()" << endl;
@@ -91,6 +96,8 @@ void WingArrangement::arrange(vector<Picture*> pictures)
 							new Vector3D((jj- 6) + (jj - 6) * GAP + XOFF, // x
 								(ii - 2)+ (ii - 2) * GAP + YOFF,	    // y
 								-9));                               //z
+				if(map[ii][jj] == _highlight) 
+					_highlight->highlight();
 				map[ii][jj]->goToDefault(3000);
 			}
 		}
@@ -157,7 +164,7 @@ Picture * WingArrangement::findNextEastNeighbor(int ii, int jj, Picture * map[5]
 		for(int i = 1; i < 11 && !found; i++) 
 		{
 			// if we've reached the top, loop to left
-			if(++curCol > 11)
+			if(++curCol >= 11)
 				curCol = 0;	
 			if(map[ii][curCol] != NULL) {
 				found = true;
@@ -178,7 +185,7 @@ Picture * WingArrangement::findNextWestNeighbor(int ii, int jj, Picture * map[5]
 		bool found = false; // have we found a neighbor
 		// we'll check up to 11 cols east of the current 
 		// index (jj)
-		for(int i = 1; i < 11 && !found; i++) 
+		for(int i = 1; i > 0 && !found; i++) 
 		{
 			// if we've reached the top, loop to left
 			if(--curCol < 0)
