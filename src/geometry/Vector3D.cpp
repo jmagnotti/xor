@@ -315,13 +315,13 @@ void Vector3D::setPosition(float position[3])
 
 void Vector3D::setPosition(const int position, float value)
 {
-	if (position >=  Vector3D::X && position <= Vector3D::Z)
+	//if (position >=  Vector3D::X && position <= Vector3D::Z)
 		_position[position] = value;
 }
 
 void Vector3D::incrementPosition(const int position, float increment)
 {
-	if (position >=  Vector3D::X && position <= Vector3D::Z)
+	//if (position >=  Vector3D::X && position <= Vector3D::Z)
 		_position[position] += increment;
 }
 

@@ -278,7 +278,6 @@ void Controller::EventLoop()
 {
     SDL_Event event;
 
-    //FIXME
     Controller * ctrl = Controller::GetInstance();
 
     // we are using WaitEvent(...) because we want everything to be called

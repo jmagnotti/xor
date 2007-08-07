@@ -45,7 +45,7 @@ void Paddle::handlePositionChange(Vector3D * position, int id)
 void Paddle::endFrame()
 {
 	_position->incrementPosition(Vector3D::X, - _velocity);
-	incrementTranslation(new Vector3D(-_velocity, 0, 0));
+	//incrementTranslation(new Vector3D(-_velocity, 0, 0));
 }
 
 Paddle::~Paddle()

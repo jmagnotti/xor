@@ -1,0 +1,324 @@
+
+#Makefile for helloworld demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS = TestRectangularPrism.cpp 
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = TestRectangularPrism
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+run:		all
+			./$(MAIN)
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+TestRectangularPrism:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakeQuick 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+TestRectangularPrism.o: ../../xor.h ../../core/Camera.h
+TestRectangularPrism.o: ../../../include/SDL.h ../../../include/SDL_main.h
+TestRectangularPrism.o: ../../../include/SDL_types.h
+TestRectangularPrism.o: ../../../include/SDL_getenv.h
+TestRectangularPrism.o: ../../../include/SDL_error.h
+TestRectangularPrism.o: ../../../include/begin_code.h
+TestRectangularPrism.o: ../../../include/close_code.h
+TestRectangularPrism.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+TestRectangularPrism.o: /usr/include/features.h /usr/include/sys/cdefs.h
+TestRectangularPrism.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+TestRectangularPrism.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+TestRectangularPrism.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+TestRectangularPrism.o: /usr/include/_G_config.h /usr/include/wchar.h
+TestRectangularPrism.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+TestRectangularPrism.o: /usr/include/bits/stdio_lim.h
+TestRectangularPrism.o: /usr/include/bits/sys_errlist.h
+TestRectangularPrism.o: ../../../include/SDL_timer.h
+TestRectangularPrism.o: ../../../include/SDL_audio.h
+TestRectangularPrism.o: ../../../include/SDL_byteorder.h
+TestRectangularPrism.o: ../../../include/SDL_cdrom.h
+TestRectangularPrism.o: ../../../include/SDL_joystick.h
+TestRectangularPrism.o: ../../../include/SDL_events.h
+TestRectangularPrism.o: ../../../include/SDL_active.h
+TestRectangularPrism.o: ../../../include/SDL_keyboard.h
+TestRectangularPrism.o: ../../../include/SDL_keysym.h
+TestRectangularPrism.o: ../../../include/SDL_mouse.h
+TestRectangularPrism.o: ../../../include/SDL_video.h
+TestRectangularPrism.o: ../../../include/SDL_mutex.h
+TestRectangularPrism.o: ../../../include/SDL_quit.h
+TestRectangularPrism.o: ../../../include/SDL_version.h
+TestRectangularPrism.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+TestRectangularPrism.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+TestRectangularPrism.o: ../../core/World.h /usr/include/stdlib.h
+TestRectangularPrism.o: /usr/include/sys/types.h /usr/include/time.h
+TestRectangularPrism.o: /usr/include/endian.h /usr/include/bits/endian.h
+TestRectangularPrism.o: /usr/include/sys/select.h /usr/include/bits/select.h
+TestRectangularPrism.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+TestRectangularPrism.o: /usr/include/sys/sysmacros.h
+TestRectangularPrism.o: /usr/include/bits/pthreadtypes.h
+TestRectangularPrism.o: /usr/include/alloca.h ../../util/Logger.h
+TestRectangularPrism.o: ../../core/Renderable.h ../../object3D/Object3D.h
+TestRectangularPrism.o: ../../geometry/Vector3D.h
+TestRectangularPrism.o: ../../geometry/Dimension3D.h
+TestRectangularPrism.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+TestRectangularPrism.o: ../../paint/Paint.h /usr/include/string.h
+TestRectangularPrism.o: ../../texture/Texture.h ../../../include/SDL_image.h
+TestRectangularPrism.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+TestRectangularPrism.o: ../../paint/Color.h ../../core/Renderable.h
+TestRectangularPrism.o: ../../core/Window.h
+TestRectangularPrism.o: ../../event/reshape/ReshapeListener.h
+TestRectangularPrism.o: ../../event/reshape/ReshapeEvent.h
+TestRectangularPrism.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
+TestRectangularPrism.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+TestRectangularPrism.o: ../../transform/Orientation.h
+TestRectangularPrism.o: ../../transform/Transform.h
+TestRectangularPrism.o: ../../transform/Translate.h ../../event/timer/Timer.h
+TestRectangularPrism.o: /usr/include/math.h /usr/include/bits/huge_val.h
+TestRectangularPrism.o: /usr/include/bits/mathdef.h
+TestRectangularPrism.o: /usr/include/bits/mathcalls.h
+TestRectangularPrism.o: ../../event/timer/TimerListener.h
+TestRectangularPrism.o: ../../event/Action.h
+TestRectangularPrism.o: ../../interpolation/InterpolatorFactory.h
+TestRectangularPrism.o: ../../interpolation/Interpolator.h
+TestRectangularPrism.o: ../../interpolation/LinearInterpolator.h
+TestRectangularPrism.o: ../../util/GraphicsConversionUtility.h
+TestRectangularPrism.o: ../../interpolation/Interpolator.h
+TestRectangularPrism.o: ../../transform/Rotate.h ../../geometry/Containment.h
+TestRectangularPrism.o: ../../transform/OrientationListener.h
+TestRectangularPrism.o: ../../event/ContinuousAction.h ../../event/Action.h
+TestRectangularPrism.o: ../../event/timer/TimerListener.h
+TestRectangularPrism.o: ../../event/timer/TimerListenerManager.h
+TestRectangularPrism.o: ../../event/timer/Timer.h ../../core/Controller.h
+TestRectangularPrism.o: ../../event/EventFactory.h
+TestRectangularPrism.o: ../../event/keyboard/Keyboard.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardListener.h
+TestRectangularPrism.o: ../../event/keyboard/KeyEvent.h
+TestRectangularPrism.o: ../../event/keyboard/KeyEventFactory.h
+TestRectangularPrism.o: ../../event/keyboard/KeyDownEvent.h
+TestRectangularPrism.o: ../../event/keyboard/KeyUpEvent.h
+TestRectangularPrism.o: ../../event/mouse/Mouse.h
+TestRectangularPrism.o: ../../event/mouse/MouseListener.h
+TestRectangularPrism.o: ../../event/mouse/MouseEvent.h
+TestRectangularPrism.o: ../../event/mouse/MouseEventFactory.h
+TestRectangularPrism.o: ../../event/mouse/MouseButtonDown.h
+TestRectangularPrism.o: ../../event/mouse/MouseClickEvent.h
+TestRectangularPrism.o: ../../event/mouse/MouseButtonUp.h
+TestRectangularPrism.o: ../../event/mouse/MouseMotionEvent.h
+TestRectangularPrism.o: ../../event/timer/Timer.h
+TestRectangularPrism.o: ../../event/keyboard/Keyboard.h
+TestRectangularPrism.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+TestRectangularPrism.o: ../../object3D/Object3D.h
+TestRectangularPrism.o: ../../core/XavierConfiguration.h
+TestRectangularPrism.o: ../../transform/CoordinateSystem.h
+TestRectangularPrism.o: ../../transform/Scale.h
+TestRectangularPrism.o: ../../interpolation/InterpolationEngine.h
+TestRectangularPrism.o: ../../interpolation/InterpolationListener.h
+TestRectangularPrism.o: ../../interpolation/InterpolatorFactory.h
+TestRectangularPrism.o: ../../event/InputEventProxyFactory.h
+TestRectangularPrism.o: ../../event/EventFactory.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardStub.h
+TestRectangularPrism.o: ../../multicast/MulticastSocket.h
+TestRectangularPrism.o: ../../multicast/Multicast.h /usr/include/sys/socket.h
+TestRectangularPrism.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+TestRectangularPrism.o: /usr/include/bits/socket.h /usr/include/limits.h
+TestRectangularPrism.o: /usr/include/bits/posix1_lim.h
+TestRectangularPrism.o: /usr/include/bits/local_lim.h
+TestRectangularPrism.o: /usr/include/linux/limits.h
+TestRectangularPrism.o: /usr/include/bits/posix2_lim.h
+TestRectangularPrism.o: /usr/include/bits/sockaddr.h
+TestRectangularPrism.o: /usr/include/asm/socket.h
+TestRectangularPrism.o: /usr/include/asm-i386/socket.h
+TestRectangularPrism.o: /usr/include/asm/sockios.h
+TestRectangularPrism.o: /usr/include/asm-i386/sockios.h
+TestRectangularPrism.o: /usr/include/netinet/in.h /usr/include/stdint.h
+TestRectangularPrism.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+TestRectangularPrism.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+TestRectangularPrism.o: /usr/include/bits/posix_opt.h
+TestRectangularPrism.o: /usr/include/bits/confname.h /usr/include/getopt.h
+TestRectangularPrism.o: ../../multicast/MulticastSocketPool.h
+TestRectangularPrism.o: ../../multicast/MulticastSocket.h
+TestRectangularPrism.o: ../../event/keyboard/Keyboard.h
+TestRectangularPrism.o: ../../event/mouse/MouseStub.h
+TestRectangularPrism.o: ../../event/mouse/Mouse.h
+TestRectangularPrism.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+TestRectangularPrism.o: ../../transform/CoordinateSystemFactory.h
+TestRectangularPrism.o: ../../transform/CoordinateSystem.h
+TestRectangularPrism.o: ../../transform/OpenGLCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/MacCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/MathCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/LeftOpenGLCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/EngineerCoordinateSystem.h
+TestRectangularPrism.o: ../../event/timer/TimerListener.h
+TestRectangularPrism.o: ../../event/reshape/ReshapeEvent.h
+TestRectangularPrism.o: ../../core/Controller.h ../../core/DebugCamera.h
+TestRectangularPrism.o: ../../core/Controller.h ../../core/Renderable.h
+TestRectangularPrism.o: ../../core/Window.h ../../core/World.h
+TestRectangularPrism.o: ../../core/XavierConfiguration.h ../../event/Action.h
+TestRectangularPrism.o: ../../event/DelayedAction.h
+TestRectangularPrism.o: ../../event/timer/IntervalTimer.h
+TestRectangularPrism.o: ../../event/EventFactory.h
+TestRectangularPrism.o: ../../event/FullEventHandlerFactory.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardSkeleton.h
+TestRectangularPrism.o: ../../../include/SDL_thread.h
+TestRectangularPrism.o: ../../event/mouse/MouseSkeleton.h
+TestRectangularPrism.o: ../../event/timer/TimerSkeleton.h
+TestRectangularPrism.o: ../../event/FullEventProxyFactory.h
+TestRectangularPrism.o: ../../event/InputEventHandlerFactory.h
+TestRectangularPrism.o: ../../event/InputEventProxyFactory.h
+TestRectangularPrism.o: ../../event/ContinuousAction.h
+TestRectangularPrism.o: ../../event/keyboard/DefaultKeyboardListener.h
+TestRectangularPrism.o: ../../interpolation/TimedInterpolation.h
+TestRectangularPrism.o: ../../core/Controller.h
+TestRectangularPrism.o: ../../interpolation/InterpolationEngine.h
+TestRectangularPrism.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardListener.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardSkeleton.h
+TestRectangularPrism.o: ../../event/keyboard/KeyboardStub.h
+TestRectangularPrism.o: ../../event/keyboard/KeyDownEvent.h
+TestRectangularPrism.o: ../../event/keyboard/KeyEvent.h
+TestRectangularPrism.o: ../../event/keyboard/KeyEventFactory.h
+TestRectangularPrism.o: ../../event/keyboard/KeyUpEvent.h
+TestRectangularPrism.o: ../../event/keyboard/RegularKeyEvent.h
+TestRectangularPrism.o: ../../event/keyboard/SpecialKeyEvent.h
+TestRectangularPrism.o: ../../event/mouse/DefaultMouseListener.h
+TestRectangularPrism.o: ../../event/mouse/Mouse.h
+TestRectangularPrism.o: ../../event/mouse/MouseButtonDown.h
+TestRectangularPrism.o: ../../event/mouse/MouseButtonUp.h
+TestRectangularPrism.o: ../../event/mouse/MouseClickEvent.h
+TestRectangularPrism.o: ../../event/mouse/MouseEvent.h
+TestRectangularPrism.o: ../../event/mouse/MouseEventFactory.h
+TestRectangularPrism.o: ../../event/mouse/MouseListener.h
+TestRectangularPrism.o: ../../event/mouse/MouseMotionEvent.h
+TestRectangularPrism.o: ../../event/mouse/MouseSkeleton.h
+TestRectangularPrism.o: ../../event/mouse/MouseStub.h
+TestRectangularPrism.o: ../../event/reshape/ReshapeEvent.h
+TestRectangularPrism.o: ../../event/reshape/ReshapeListener.h
+TestRectangularPrism.o: ../../event/timer/IntervalTimer.h
+TestRectangularPrism.o: ../../event/timer/Timer.h
+TestRectangularPrism.o: ../../event/timer/TimerListener.h
+TestRectangularPrism.o: ../../event/timer/TimerSkeleton.h
+TestRectangularPrism.o: ../../event/timer/TimerStub.h
+TestRectangularPrism.o: ../../event/timer/TimerListenerManager.h
+TestRectangularPrism.o: ../../geometry/CylindricalVolume.h
+TestRectangularPrism.o: ../../geometry/Dimension.h
+TestRectangularPrism.o: ../../geometry/Dimension2D.h
+TestRectangularPrism.o: ../../geometry/Dimension3D.h
+TestRectangularPrism.o: ../../geometry/RectangularVolume.h
+TestRectangularPrism.o: ../../geometry/Dimension3D.h
+TestRectangularPrism.o: ../../geometry/Containment.h
+TestRectangularPrism.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+TestRectangularPrism.o: ../../geometry/Containment.h
+TestRectangularPrism.o: ../../interpolation/CameraRoller.h
+TestRectangularPrism.o: ../../interpolation/ContinuousInterpolation.h
+TestRectangularPrism.o: ../../interpolation/TimedInterpolation.h
+TestRectangularPrism.o: ../../interpolation/InterpolationEngine.h
+TestRectangularPrism.o: ../../interpolation/InterpolationListener.h
+TestRectangularPrism.o: ../../interpolation/Interpolator.h
+TestRectangularPrism.o: ../../interpolation/InterpolatorFactory.h
+TestRectangularPrism.o: ../../interpolation/LinearInterpolator.h
+TestRectangularPrism.o: ../../interpolation/TimedInterpolation.h
+TestRectangularPrism.o: ../../interpolation/Waypoint.h
+TestRectangularPrism.o: ../../interpolation/WaypointCollection.h
+TestRectangularPrism.o: ../../interpolation/Waypoint.h
+TestRectangularPrism.o: ../../model/MilkshapeModel.h ../../model/Model.h
+TestRectangularPrism.o: ../../texture/TextureFactory.h
+TestRectangularPrism.o: ../../texture/Texture.h ../../model/Model.h
+TestRectangularPrism.o: ../../model/ModelFactory.h
+TestRectangularPrism.o: ../../model/MilkshapeModel.h
+TestRectangularPrism.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+TestRectangularPrism.o: ../../multicast/Multicast.h
+TestRectangularPrism.o: ../../multicast/MulticastSocket.h
+TestRectangularPrism.o: ../../multicast/MulticastSocketPool.h
+TestRectangularPrism.o: ../../object2D/Object2D.h ../../core/Window.h
+TestRectangularPrism.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+TestRectangularPrism.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+TestRectangularPrism.o: ../../util/BitmapFontUtil.h
+TestRectangularPrism.o: ../../util/BitmapFontConstants.h
+TestRectangularPrism.o: ../../object2D/Transformable2D.h
+TestRectangularPrism.o: ../../transform/Transformable.h
+TestRectangularPrism.o: ../../transform/Transform.h
+TestRectangularPrism.o: ../../object3D/AdornablePrism.h
+TestRectangularPrism.o: ../../object3D/RectangularPrism.h
+TestRectangularPrism.o: ../../util/PointScale.h
+TestRectangularPrism.o: ../../object3D/Quadrilateral3D.h
+TestRectangularPrism.o: ../../texture/TextureScale.h
+TestRectangularPrism.o: ../../geometry/RectangularVolume.h
+TestRectangularPrism.o: ../../object3D/Object3DCollection.h
+TestRectangularPrism.o: ../../object3D/CompiledObject3D.h
+TestRectangularPrism.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+TestRectangularPrism.o: ../../object3D/CompiledObject3D.h
+TestRectangularPrism.o: ../../object3D/Cube.h
+TestRectangularPrism.o: ../../object3D/ExtrudedNormalPolygon3D.h
+TestRectangularPrism.o: ../../object3D/NormalPolygon3D.h
+TestRectangularPrism.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+TestRectangularPrism.o: ../../object3D/NormalPolygon3D.h
+TestRectangularPrism.o: ../../object3D/Object3D.h
+TestRectangularPrism.o: ../../object3D/Object3DCollection.h
+TestRectangularPrism.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+TestRectangularPrism.o: ../../object3D/Quadrilateral3D.h
+TestRectangularPrism.o: ../../object3D/RectangularPrism.h
+TestRectangularPrism.o: ../../object3D/RectangularPrismFactory.h
+TestRectangularPrism.o: ../../object3D/Sprite3D.h
+TestRectangularPrism.o: ../../object3D/Sprite3DListener.h
+TestRectangularPrism.o: ../../object3D/Sprite3DListener.h
+TestRectangularPrism.o: ../../object3D/Transformable3D.h
+TestRectangularPrism.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+TestRectangularPrism.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+TestRectangularPrism.o: ../../terrain/FunctionHeightFieldStrategy.h
+TestRectangularPrism.o: ../../terrain/HeightFieldStrategy.h
+TestRectangularPrism.o: ../../terrain/HeightField.h
+TestRectangularPrism.o: ../../object3D/Quadrilateral3D.h
+TestRectangularPrism.o: ../../terrain/HeightField.h
+TestRectangularPrism.o: ../../terrain/HeightFieldFactory.h
+TestRectangularPrism.o: ../../terrain/HeightFieldStrategy.h
+TestRectangularPrism.o: ../../terrain/ImageHeightFieldStrategy.h
+TestRectangularPrism.o: ../../terrain/MatrixHeightFieldStrategy.h
+TestRectangularPrism.o: ../../terrain/NullHeightFieldStrategy.h
+TestRectangularPrism.o: ../../texture/Texture.h
+TestRectangularPrism.o: ../../texture/TextureFactory.h
+TestRectangularPrism.o: ../../texture/TextureScale.h
+TestRectangularPrism.o: ../../transform/CoordinateSystem.h
+TestRectangularPrism.o: ../../transform/CoordinateSystemFactory.h
+TestRectangularPrism.o: ../../transform/EngineerCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/IdentityTransform.h
+TestRectangularPrism.o: ../../transform/LeftOpenGLCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/MacCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/MathCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/OpenGLCoordinateSystem.h
+TestRectangularPrism.o: ../../transform/Orientation.h
+TestRectangularPrism.o: ../../transform/Rotate.h ../../transform/Scale.h
+TestRectangularPrism.o: ../../transform/Stretch.h ../../transform/Transform.h
+TestRectangularPrism.o: ../../transform/Transformable.h
+TestRectangularPrism.o: ../../transform/TransformFactory.h
+TestRectangularPrism.o: ../../transform/Translate.h
+TestRectangularPrism.o: ../../transform/OrientationListener.h
+TestRectangularPrism.o: ../../util/BehaviorParser.h
+TestRectangularPrism.o: ../../transform/TransformFactory.h
+TestRectangularPrism.o: ../../util/BitmapFontConstants.h
+TestRectangularPrism.o: ../../util/BitmapFontUtil.h
+TestRectangularPrism.o: ../../util/FramesPerSecondCounter.h
+TestRectangularPrism.o: ../../object2D/String2D.h
+TestRectangularPrism.o: ../../util/GraphicsConversionUtility.h
+TestRectangularPrism.o: ../../util/Logger.h ../../util/PointScale.h
+TestRectangularPrism.o: ../../util/xmlParser.h

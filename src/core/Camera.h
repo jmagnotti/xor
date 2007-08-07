@@ -8,7 +8,6 @@
 
 #include "World.h"
 #include "Window.h"
-#include "CameraListener.h"
 
 #include "../paint/Color.h"
 #include "../geometry/Dimension2D.h"
@@ -22,8 +21,11 @@
 
 namespace XOR {
 
+class Orientation;
+
 /**
- * Designed to maintain the state of the camera of the world.
+ * Designed to maintain the state of the camera of the world, and allow for
+ * manipulation of a view stack (through Orientation).
  *
  * @author John Magnotti
  * @author Michael Lam
@@ -68,13 +70,13 @@ public:
     /**
      * Add a listener to the collection
      */
-    void addListener(CameraListener * cl);
+//    void addListener(PositionListener * pl);
 
 
     /**
      * Removes the given listener from the collection if it exists
      */
-    void removeListener(CameraListener * cl);
+//    void removeListener(PositionListener * pl);
 
 
 	/**
@@ -212,7 +214,7 @@ protected:
     /**
      * Sends out the camera's position to all the listeners.
      */
-    void notifyListeners();
+//    void notifyListeners();
 
 	Camera();
 
@@ -253,7 +255,7 @@ private:
 	int        _colorDepth;
 	Uint32     _videoFlags;
 
-    list<CameraListener*> _listeners;
+//    list<PositionListener*> _listeners;
 
     SDL_Event _reshape;
 };

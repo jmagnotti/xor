@@ -51,7 +51,7 @@ public:
      *                  measured in arbitrary world coordinates.
      * @param size      The extent of the texture. This is measured in
      *                  arbitrary world coordinates.
-     * @param mappings  A constant defining which sides should be used to
+     * @param mapping  A constant defining which sides should be used to
      *                  calculate the u,v mappings.
      * @param mode      A constant defining how to handle texture values larger
      *                  than 1.0f. 

@@ -161,11 +161,6 @@ Paint::Paint(const float color[4], Texture * tex)
  */
 void Paint::activateColorAtPosition(Vector3D * scale)
 {
-    /*
-        cout <<  "  r: " << scale->getY() << " x " << _colorDiff[0] << " + " << _colorFrom[0] << endl;
-        cout <<  "  g: " << scale->getY() << " x " << _colorDiff[1] << " + " << _colorFrom[1] << endl;
-        cout <<  "  b: " << scale->getY() << " x " << _colorDiff[2] << " + " << _colorFrom[2] << endl;
-    */
 
     switch(_gradientType) {
         case LENGTH_BASED:

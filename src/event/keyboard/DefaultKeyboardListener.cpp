@@ -13,6 +13,9 @@ DefaultKeyboardListener * DefaultKeyboardListener::
 DefaultKeyboardListener::DefaultKeyboardListener()
 {}
 
+DefaultKeyboardListener::~DefaultKeyboardListener()
+{
+}
 
 /*
  * handle keys being released.
@@ -43,14 +46,14 @@ void DefaultKeyboardListener::handleKeyUp(KeyUpEvent * kue)
      
 void DefaultKeyboardListener::handleKeyDown(KeyDownEvent * kde)
 {
-	// Exit on Esc or Window+q
+	// Exit on Esc or Meta+q
     if ((kde->getKey() == SDLK_ESCAPE) ||
         (kde->getKey() == SDLK_q && kde->isMetaPressed())) 
 	{
-        // seems like this should push an exit event
-        // #FIXME
         Controller::CleanUpAndExit();
     }
+    
+    
 }
 
 
@@ -147,33 +150,36 @@ void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 		case SDLK_QUOTEDBL:		handleKey_DblQuote();	break;
 
         // Do these ever get called?
-		case SDLK_BACKQUOTE:	handleKey_BackQuote();	break;
-		case SDLK_EXCLAIM:		handleKey_Exclaim();	break;
-		case SDLK_AT:			handleKey_At();			break;
-		case SDLK_HASH:			handleKey_Hash();		break;
-		case SDLK_DOLLAR:		handleKey_Dollar();		break;
-		case SDLK_CARET:		handleKey_Caret();		break;
-		case SDLK_AMPERSAND:	handleKey_Ampersand();	break;
-		case SDLK_ASTERISK:		handleKey_Asterisk();	break;
-		case SDLK_LEFTPAREN:	handleKey_LParen();		break;
-		case SDLK_RIGHTPAREN:	handleKey_RParen();		break;
+		// handled by Shift cases on the number keys
+		/*
+			case SDLK_BACKQUOTE:	handleKey_BackQuote();	break;
+			case SDLK_EXCLAIM:		handleKey_Exclaim();	break;
+			case SDLK_AT:			handleKey_At();			break;
+			case SDLK_HASH:			handleKey_Hash();		break;
+			case SDLK_DOLLAR:		handleKey_Dollar();		break;
+			case SDLK_CARET:		handleKey_Caret();		break;
+			case SDLK_AMPERSAND:	handleKey_Ampersand();	break;
+			case SDLK_ASTERISK:		handleKey_Asterisk();	break;
+			case SDLK_LEFTPAREN:	handleKey_LParen();		break;
+			case SDLK_RIGHTPAREN:	handleKey_RParen();		break;
+		*/
         //--
 
-		case SDLK_PLUS:			handleKey_Plus();		break;
-		case SDLK_COMMA:		handleKey_Comma();		break;
-		case SDLK_MINUS:		handleKey_Minus();		break;
-		case SDLK_PERIOD:		handleKey_Period();		break;
-		case SDLK_SLASH:		handleKey_FwdSlash();	break;
-		case SDLK_COLON:		handleKey_Colon();		break;
-		case SDLK_SEMICOLON:	handleKey_Semicolon();	break;
-		case SDLK_LESS:			handleKey_Less();		break;
-		case SDLK_EQUALS:		handleKey_Equal();		break;
-		case SDLK_GREATER:		handleKey_Greater();	break;
-		case SDLK_QUESTION:		handleKey_Question();	break;
-		case SDLK_LEFTBRACKET:	handleKey_LBracket();	break;
-		case SDLK_RIGHTBRACKET:	handleKey_RBracket();	break;
-		case SDLK_BACKSLASH:	handleKey_BackSlash();	break;
-		case SDLK_UNDERSCORE:	handleKey_Underscore();	break;
+		// Looks like some of these aren't registering (SHIFT problem
+		// from before)
+		//case SDLK_PLUS:			handleKey_Plus();		break;
+		case SDLK_COMMA:		if (shift) handleKey_Less();		else handleKey_Comma();		break;
+		case SDLK_MINUS:		if (shift) handleKey_Underscore();	else handleKey_Minus();		break;
+		case SDLK_PERIOD:		if (shift) handleKey_Greater();		else handleKey_Period();	break;
+		case SDLK_SLASH:		if (shift) handleKey_Question();	else handleKey_FwdSlash();	break;
+		case SDLK_SEMICOLON:	if (shift) handleKey_Colon();	else handleKey_Semicolon();		break;
+		case SDLK_EQUALS:		if (shift) handleKey_Plus();		else handleKey_Equal();		break;
+
+		// why don't we have SHIFTed versions of these? "| { }"
+		case SDLK_BACKSLASH:	if (!shift) handleKey_BackSlash();	break;
+		case SDLK_LEFTBRACKET:	if (!shift) handleKey_LBracket();	break;
+		case SDLK_RIGHTBRACKET:	if (!shift) handleKey_RBracket();	break;
+
 		case SDLK_DELETE:		handleKey_Delete();		break;
 		case SDLK_UP:			handleKey_Up();			break;
 		case SDLK_DOWN:			handleKey_Down();		break;
@@ -184,9 +190,13 @@ void DefaultKeyboardListener::handleKeyPressed(KeyEvent * ke)
 		case SDLK_END:			handleKey_End();		break;
 		case SDLK_PAGEUP:		handleKey_PageUp();		break;
 		case SDLK_PAGEDOWN:		handleKey_PageDown();	break;
+
+		//NumLock() sometimes will get called on
+		//MouseEvents, if NumLock is on already
 		case SDLK_NUMLOCK:		handleKey_NumLock();	break;
 		case SDLK_CAPSLOCK:		handleKey_CapsLock();	break;
 		case SDLK_SCROLLOCK:	handleKey_ScrlLock();	break;
+
 		case SDLK_PRINT:		handleKey_PrtScrn();	break;
 		case SDLK_SYSREQ:		handleKey_SysReq();		break;
 		case SDLK_BREAK:		handleKey_Break();		break;
