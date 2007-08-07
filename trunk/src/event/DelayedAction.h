@@ -8,6 +8,9 @@
 namespace XOR
 {
 
+/**
+ * Invokes the specified action after the at least the amount specified by the delay.
+ */
 class DelayedAction : public Action, public TimerListener
 {
 

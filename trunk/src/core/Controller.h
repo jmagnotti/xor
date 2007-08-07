@@ -25,6 +25,9 @@
 
 namespace XOR {
 
+class Camera;
+class XavierConfiguration;
+
 /**
  * This is the main controller. Be sure that only controller logic goes in
  * here.

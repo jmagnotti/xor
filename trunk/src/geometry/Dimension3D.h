@@ -20,6 +20,10 @@ class Dimension3D : public Dimension
 
 public:
 
+	static const int WIDTH;
+	static const int HEIGHT;
+	static const int DEPTH;
+
 	Dimension3D();
     
 
@@ -51,13 +55,15 @@ public:
 	float   getHeight();
 	float   getDepth();
 
-    float get(int dimension);
+    float get(const int dimension);
 
     Vector3D * toVector();
 
     void increment(Dimension3D * other);
 
     char * toString();
+
+	void set(const int dimension, float value);
 
     /**
      * Addition operation

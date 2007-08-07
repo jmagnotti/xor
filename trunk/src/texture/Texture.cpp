@@ -67,9 +67,10 @@ void Texture::loadFromFile()
     texture = IMG_Load(_path);
 
     if (texture == NULL) cout << IMG_GetError() << endl;
+
     else {
 
-        if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
+        //if (SDL_MUSTLOCK(texture)) SDL_LockSurface(texture);
      
         glEnable(GL_TEXTURE_2D);
         glGenTextures(1, &_id);
@@ -85,17 +86,18 @@ void Texture::loadFromFile()
         _width  = texture->w;
         _height = texture->h;
 
-        //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-        if (texture->format->BytesPerPixel == 4)
+        if (texture->format->BytesPerPixel == 4) {
             //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
             glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
                     GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
-        else
+		}
+        else {
+			//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0,
                     GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
+		}
 
-
-        if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
+        //if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
 
         SDL_FreeSurface(texture);
     }

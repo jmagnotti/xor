@@ -2,7 +2,7 @@
 #define RECTANGULARPRISM_H
 
 
-#include <map>
+#include <vector>
 
 #include "../util/GraphicsConversionUtility.h"
 #include "../util/PointScale.h"
@@ -15,7 +15,8 @@
 namespace XOR {
 
 /**
- * A three-dimensional object with six quadrilateral sides. Should be six Rectangular sides. #FIXME
+ * A three-dimensional object with six quadrilateral sides. Should be six
+ * Rectangular sides. #FIXME
  *
  */
 class RectangularPrism : public Object3D
@@ -80,12 +81,12 @@ public:
 	 * Removes a face from the cube. Ex. Remove BOTTOM so that the Cube floor and the terrain
 	 * do not overlap.
 	 */
-	Quadrilateral3D * removeFace(int faceToRemove);
+	Quadrilateral3D * removeFace(const int faceToRemove);
 
 
     /**
-     * Set the order in which the quads are being rendered. This is useful is
-     * depth testing is enabled. This could also be used to implement culling
+     * Set the order in which the quads are being rendered. This is useful if
+     * depth testing is disabled. This could also be used to implement culling
      * by padding the array with -1.
      */
     void setRenderingOrder(int order[6]);
@@ -155,7 +156,7 @@ protected:
 	Vector3D *			_normals[6];
 	RectangularVolume *	_volume;
 	
-	map<const int, Quadrilateral3D*> _faces;
+	vector<Quadrilateral3D*> _faces;
 
 };
 

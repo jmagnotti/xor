@@ -144,8 +144,6 @@ Point3D * Point3D::invert()
  */
 void Point3D::render(void)
 {
-    //cout << "render at " << getX() << " "<< getY() << " "<< getZ() << endl;
-
 	glColor3fv(getColor());
 	glVertex3fv(_position->toArray());	
 }

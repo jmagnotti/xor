@@ -89,11 +89,15 @@ Camera::~Camera()
  */
 World * Camera::setModel(World * world)
 {
-    World * old_model = _model;
-
-	_model = world;
-
-    return old_model;
+    if (_model != NULL) {
+        World * old_model = _model;
+        _model = world;
+        return old_model;
+   }
+   else {
+        _model = world;
+       return NULL;
+   }
 }
 
 
@@ -180,25 +184,23 @@ void Camera::handleReshape(int width, int height)
 
 /*
  * add listener
- */
-void Camera::addListener(CameraListener * cl)
+void Camera::addListener(PositionListener * pl)
 {
-    _listeners.push_back(cl);
+    _listeners.push_back(pl);
 }
-
+*/
 
 /*
  * remove listener
- */
-void Camera::removeListener(CameraListener * cl)
+void Camera::removeListener(PositionListener * pl)
 {
     bool removed = false;
 
-    list<CameraListener*>::iterator iter   = _listeners.begin();
-    list<CameraListener*>::iterator finish = _listeners.end();
+    list<PositionListener*>::iterator iter   = _listeners.begin();
+    list<PositionListener*>::iterator finish = _listeners.end();
 
     while (!removed && iter != finish) {
-        if (*iter == cl) {
+        if (*iter == pl) {
             _listeners.erase(iter);
             removed = true;
 		}
@@ -207,16 +209,16 @@ void Camera::removeListener(CameraListener * cl)
 		}
     }
 }
+ */
 
 
 /*
  * notify everyone of the movement
- */
 void Camera::notifyListeners()
 {
-    list<CameraListener*>::iterator iter   = _listeners.begin();
-	list<CameraListener*>::iterator next   = _listeners.begin();
-    list<CameraListener*>::iterator finish = _listeners.end();
+    list<PositionListener*>::iterator iter   = _listeners.begin();
+	list<PositionListener*>::iterator next   = _listeners.begin();
+    list<PositionListener*>::iterator finish = _listeners.end();
 
     while (iter != finish) {
 		++next;
@@ -225,6 +227,7 @@ void Camera::notifyListeners()
         iter = next;
     }
 }
+ */
 
 
 /*

@@ -14,7 +14,7 @@ Ball::Ball(Vector3D * origin, float radius)
 	_paint  = new Paint(tf->createTexture("ball.png"));
 	_currentPosition = _origin = origin;
 
-	setTranslation(_currentPosition);
+	//setTranslation(_currentPosition);
 	//_sphere = 
 	//	new CompiledObject3D(
 	//			new Sphere(origin, radius, 10, 10)
@@ -34,7 +34,7 @@ void Ball::updatePosition()
 	//FIXME have to keep track of the balls position for collisions
 	_currentPosition->increment(_movementVector);
 	//cout << _currentPosition->toString() << endl;
-	setTranslation(_currentPosition);
+	//setTranslation(_currentPosition);
 }
 
 Vector3D * Ball::getBaseVector()

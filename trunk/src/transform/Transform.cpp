@@ -11,7 +11,6 @@ Transform::Transform()
  */
 void Transform::pop(void)
 {
-	
 #ifdef DEBUG
     Logger::GetInstance()->decrementTabLevel();
     Logger::GetInstance()->printTabs();

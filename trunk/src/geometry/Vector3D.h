@@ -181,6 +181,7 @@ public:
 	 * change the position of the vector
 	 */
 	void setPosition(float position[3]);
+	// no checks on position, so use the constants above
 	void setPosition(const int position, float value);
 	void incrementPosition(const int position, float increment);
 

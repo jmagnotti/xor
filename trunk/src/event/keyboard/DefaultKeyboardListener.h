@@ -28,7 +28,7 @@ public:
 	 * Singleton Accessor  
 	static DefaultKeyboardListener * GetInstance();
 	 */
-	
+	virtual ~DefaultKeyboardListener();
 
 	void handleKeyEvent(KeyEvent * ke);
 

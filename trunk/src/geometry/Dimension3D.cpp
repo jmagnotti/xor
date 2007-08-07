@@ -3,6 +3,10 @@
 
 namespace XOR {
 
+const int Dimension3D::WIDTH  = 0;
+const int Dimension3D::HEIGHT = 1;
+const int Dimension3D::DEPTH  = 2;
+
 /*
  * Default Constructor
  */
@@ -67,8 +71,14 @@ Dimension3D::Dimension3D(char * vals)
     }
 }
 
+void Dimension3D::set(const int dimension, float value)
+{
+	_dimension[dimension] = value;
+}
+
 
 // Getters //
+
 int     Dimension3D::getDimensionality() 			
                                     { return 3;             }
 
@@ -76,6 +86,16 @@ float   Dimension3D::getWidth()     { return _dimension[0];	}
 float   Dimension3D::getHeight()    { return _dimension[1]; }
 float   Dimension3D::getDepth()     { return _dimension[2]; }
 
+float Dimension3D::get(const int dimension) 
+{ 
+	return _dimension[dimension]; 
+}
+
+char * Dimension3D::toString()
+{
+    Vector3D * temp = toVector();
+    return temp->toString();
+}
 
 /*
  * returns the dimension as a vector

@@ -77,6 +77,8 @@ public:
 
 	Dimension2D * getWindowSize() const;
 
+	EventFactory * getEventFactory();
+
 	bool isFullScreen();
 };
 

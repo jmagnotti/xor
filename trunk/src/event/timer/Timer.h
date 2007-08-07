@@ -35,7 +35,9 @@ public:
 
 
 	/**
-	 * State is just an int that is passed along to the timerListeners
+	 * Most timer implementations pass around a state variable, this state
+	 * represents the default state of operation. As of XOR_2.0.0 this is
+	 * the only state implemented.
 	 */
 	static const int			DEFAULT_TIMER_STATE		= 1;
 

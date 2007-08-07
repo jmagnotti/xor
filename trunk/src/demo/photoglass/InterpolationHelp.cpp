@@ -51,6 +51,11 @@ bool NoFogConfig::isFullScreen()
 	return true;
 }
 
+EventFactory * NoFogConfig::getEventFactory()
+{
+	return InputEventHandlerFactory::GetInstance();
+}
+
 Uint32 NoFogConfig::getVideoFlags()
 {
 	return XavierConfiguration::getVideoFlags();

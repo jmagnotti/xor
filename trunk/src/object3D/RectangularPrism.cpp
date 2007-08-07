@@ -65,30 +65,39 @@ void RectangularPrism::calculateNormals()
 
 	gcu->normalize(_normals);
 
-    map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
-    map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+    for(int i=0; i<_faces.size(); i++)
+        _faces[i]->setNormal(_normals[i]);
 
-    while (iter != end) {
-        iter->second->setNormal(_normals[iter->first]);
-        ++iter;
-    }
+    //map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
+    //map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+
+    //while (iter != end) {
+        //iter->second->setNormal(_normals[iter->first]);
+        //++iter;
+    //}
 }
 
 
 /*
  * Sets the color of the RectangularPrism
+ * #FIXME this is not the expected behavior
  */
 void RectangularPrism::setPaint(Paint * paint)
 {
 	_paint = paint;
 
-    map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
-    map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+    for(int i=0; i<_faces.size(); i++)
+        _faces[i]->setPaint(paint);
 
-    while (iter != end) {
-        iter->second->setPaint(paint);
-        ++iter;
-    }
+    /*
+        map<const int, Quadrilateral3D*>::iterator iter = _faces.begin();
+        map<const int, Quadrilateral3D*>::iterator end  = _faces.end();
+
+        while (iter != end) {
+            iter->second->setPaint(paint);
+            ++iter;
+        }
+    */
 
 }
 
@@ -96,14 +105,15 @@ void RectangularPrism::setPaint(Paint * paint)
 /*
  * Removes a face from the rendering collection
  */
-Quadrilateral3D * RectangularPrism::removeFace(int faceToRemove)
+Quadrilateral3D * RectangularPrism::removeFace(const int faceToRemove)
 {
     Quadrilateral3D * removedFace = NULL;
 
+    //cout << "Trying to remove face: " << faceToRemove << endl;
     // make sure the int is a valid face
-	if (faceToRemove <= REAR && faceToRemove >= TOP) {
+	if (faceToRemove <= RectangularPrism::REAR && faceToRemove >= RectangularPrism::TOP) {
         removedFace = _faces[faceToRemove];
-		_faces.erase(faceToRemove);
+        _faces[faceToRemove] = NULL;
     }
 
     return removedFace;
@@ -143,7 +153,9 @@ void RectangularPrism::renderObject()
  */
 void RectangularPrism::setFaces()
 {
-    // we need a a PointScale that will default to 0 for the Quads that are on
+	//cout << "Top of RectangularPrism::setFaces" << endl;
+
+	// we need a a PointScale that will default to 0 for the Quads that are on
     // the "low" end of the dimension
     PointScale   * psLow  = new PointScale(0,1,0);
     PointScale   * psHigh = new PointScale(0,1,1);
@@ -183,8 +195,8 @@ void RectangularPrism::setFaces()
 
 	// clear any existing faces
     // #FIXME memory leak potential
-	if (! _faces.empty())
-        _faces.clear();
+//	if  (_faces.size() > 0)
+//        _faces.clear();
 
 
     /* Cube Configuration:
@@ -198,19 +210,19 @@ void RectangularPrism::setFaces()
      0---------3
 
     */
-
+//cout << "Ready to set faces" << endl;
 
     // TOP AND BOTTOM
-    _faces[TOP]    = new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint, psHigh, tsXZ);	    	//highYside
-    _faces[BOTTOM] = new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, psLow, tsXZ);	//lowYside
+    _faces.push_back(new Quadrilateral3D(_points[7], _points[6], _points[5], _points[4], _paint, psHigh, tsXZ));	//highYside
+    _faces.push_back(new Quadrilateral3D(_points[3], _points[2], _points[1], _points[0], _paint, psLow, tsXZ));	//lowYside
 
     // RIGHT AND LEFT
-    _faces[RIGHT]  = new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint, psHigh, tsYZ);  	      	//highXside
-    _faces[LEFT]   = new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, psLow, tsYZ);	//lowXside
+    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[7], _points[3], _paint, psHigh, tsYZ)); //highXside
+    _faces.push_back(new Quadrilateral3D(_points[1], _points[5], _points[4], _points[0], _paint, psLow, tsYZ));	//lowXside
 
     // FRONT AND BACK
-    _faces[FRONT]  = new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint, psHigh, tsXY);    		//highZ side
-    _faces[REAR]   = new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, psLow, tsXY);	//lowZ side
+    _faces.push_back(new Quadrilateral3D(_points[3], _points[7], _points[4], _points[0], _paint, psHigh, tsXY)); //highZ side
+    _faces.push_back(new Quadrilateral3D(_points[2], _points[6], _points[5], _points[1], _paint, psLow, tsXY));	//lowZ side
 }
 
 
@@ -266,12 +278,16 @@ bool RectangularPrism::checkCollision(Vector3D * position)
 
 void RectangularPrism::printInfo()
 {
-    map<const int, Quadrilateral3D*>::iterator iter   = _faces.begin();
-    map<const int, Quadrilateral3D*>::iterator finish = _faces.end();
+    //map<const int, Quadrilateral3D*>::iterator iter   = _faces.begin();
+    //map<const int, Quadrilateral3D*>::iterator finish = _faces.end();
     
-    while (iter != finish) {
-        iter->second->print();
-        ++iter;
+    //while (iter != finish) {
+        //iter->second->print();
+        //++iter;
+    //}
+    for(int i=0;i<_faces.size();i++) {
+        if (_faces[i] != NULL)
+            _faces[i]->print();
     }
 }
 

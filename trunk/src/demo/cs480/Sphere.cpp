@@ -7,7 +7,7 @@ Sphere::Sphere(Vector3D * origin, float radius, int vStack, int hStack)
 	_radius = radius;
 	_vStack = vStack;
 	_hStack = hStack;
-	setTranslation(_origin);
+	//setTranslation(_origin);
 }
 
 void Sphere::renderObject()

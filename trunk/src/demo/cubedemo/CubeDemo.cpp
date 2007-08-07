@@ -12,7 +12,7 @@ public:
 
 	EventFactory * getEventFactory() const
 	{
-		return FullEventProxyFactory::GetInstance();
+		return FullEventHandlerFactory::GetInstance();
 	}
 
 	Dimension2D * getWindowSize() const
@@ -62,17 +62,19 @@ public:
 			glVertex3f(x - size/2.0, y, -1);
 			glEnd();
 
-			glBegin(GL_LINES);
-			glVertex3f(x + size/2.0, y, 0);
-			glVertex3f(x + size/2.0, y, -1);
+            /*
+                glBegin(GL_LINES);
+                glVertex3f(x + size/2.0, y, 0);
+                glVertex3f(x + size/2.0, y, -1);
 
-			glVertex3f(x, y + (size/2.0)*1.73, -1);
-			glVertex3f(x, y + (size/2.0)*1.73, 0);
+                glVertex3f(x, y + (size/2.0)*1.73, -1);
+                glVertex3f(x, y + (size/2.0)*1.73, 0);
 
-			glVertex3f(x - size/2.0, y, -1);
-			glVertex3f(x - size/2.0, y, 0);
+                glVertex3f(x - size/2.0, y, -1);
+                glVertex3f(x - size/2.0, y, 0);
 
-			glEnd();
+                glEnd();
+            */
 		}
 		else if (limit > 0&& limit < 10)
 		{

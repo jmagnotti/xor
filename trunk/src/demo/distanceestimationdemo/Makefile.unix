@@ -1,0 +1,621 @@
+#Makefile for helloworld demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS =DistanceEstimation.cpp SmoothMovementKeyHandler.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = DistanceEstimation
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+run:		all
+			./$(MAIN)
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+DistanceEstimation:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+DistanceEstimation.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
+DistanceEstimation.o: ../../../include/SDL_main.h
+DistanceEstimation.o: ../../../include/SDL_types.h
+DistanceEstimation.o: ../../../include/SDL_getenv.h
+DistanceEstimation.o: ../../../include/SDL_error.h
+DistanceEstimation.o: ../../../include/begin_code.h
+DistanceEstimation.o: ../../../include/close_code.h
+DistanceEstimation.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+DistanceEstimation.o: /usr/include/features.h /usr/include/sys/cdefs.h
+DistanceEstimation.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+DistanceEstimation.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+DistanceEstimation.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+DistanceEstimation.o: /usr/include/_G_config.h /usr/include/wchar.h
+DistanceEstimation.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+DistanceEstimation.o: /usr/include/bits/stdio_lim.h
+DistanceEstimation.o: /usr/include/bits/sys_errlist.h
+DistanceEstimation.o: ../../../include/SDL_timer.h
+DistanceEstimation.o: ../../../include/SDL_audio.h
+DistanceEstimation.o: ../../../include/SDL_byteorder.h
+DistanceEstimation.o: ../../../include/SDL_cdrom.h
+DistanceEstimation.o: ../../../include/SDL_joystick.h
+DistanceEstimation.o: ../../../include/SDL_events.h
+DistanceEstimation.o: ../../../include/SDL_active.h
+DistanceEstimation.o: ../../../include/SDL_keyboard.h
+DistanceEstimation.o: ../../../include/SDL_keysym.h
+DistanceEstimation.o: ../../../include/SDL_mouse.h
+DistanceEstimation.o: ../../../include/SDL_video.h
+DistanceEstimation.o: ../../../include/SDL_mutex.h
+DistanceEstimation.o: ../../../include/SDL_quit.h
+DistanceEstimation.o: ../../../include/SDL_version.h
+DistanceEstimation.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+DistanceEstimation.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+DistanceEstimation.o: ../../core/World.h /usr/include/stdlib.h
+DistanceEstimation.o: /usr/include/sys/types.h /usr/include/time.h
+DistanceEstimation.o: /usr/include/endian.h /usr/include/bits/endian.h
+DistanceEstimation.o: /usr/include/sys/select.h /usr/include/bits/select.h
+DistanceEstimation.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+DistanceEstimation.o: /usr/include/sys/sysmacros.h
+DistanceEstimation.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+DistanceEstimation.o: ../../util/Logger.h ../../core/Renderable.h
+DistanceEstimation.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+DistanceEstimation.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+DistanceEstimation.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+DistanceEstimation.o: /usr/include/string.h ../../texture/Texture.h
+DistanceEstimation.o: ../../../include/SDL_image.h ../../../include/SDL.h
+DistanceEstimation.o: ../../geometry/Vector2D.h ../../paint/Color.h
+DistanceEstimation.o: ../../core/Renderable.h ../../core/Window.h
+DistanceEstimation.o: ../../event/reshape/ReshapeListener.h
+DistanceEstimation.o: ../../event/reshape/ReshapeEvent.h
+DistanceEstimation.o: ../../../include/SDL.h ../../geometry/Dimension2D.h
+DistanceEstimation.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+DistanceEstimation.o: ../../transform/Orientation.h
+DistanceEstimation.o: ../../transform/Transform.h ../../transform/Translate.h
+DistanceEstimation.o: ../../event/timer/Timer.h /usr/include/math.h
+DistanceEstimation.o: /usr/include/bits/huge_val.h
+DistanceEstimation.o: /usr/include/bits/mathdef.h
+DistanceEstimation.o: /usr/include/bits/mathcalls.h
+DistanceEstimation.o: ../../event/timer/TimerListener.h ../../event/Action.h
+DistanceEstimation.o: ../../interpolation/InterpolatorFactory.h
+DistanceEstimation.o: ../../interpolation/Interpolator.h
+DistanceEstimation.o: ../../interpolation/LinearInterpolator.h
+DistanceEstimation.o: ../../util/GraphicsConversionUtility.h
+DistanceEstimation.o: ../../interpolation/Interpolator.h
+DistanceEstimation.o: ../../transform/Rotate.h ../../geometry/Containment.h
+DistanceEstimation.o: ../../transform/OrientationListener.h
+DistanceEstimation.o: ../../event/ContinuousAction.h ../../event/Action.h
+DistanceEstimation.o: ../../event/timer/TimerListener.h
+DistanceEstimation.o: ../../event/timer/TimerListenerManager.h
+DistanceEstimation.o: ../../event/timer/Timer.h ../../core/Controller.h
+DistanceEstimation.o: ../../event/EventFactory.h
+DistanceEstimation.o: ../../event/keyboard/Keyboard.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardListener.h
+DistanceEstimation.o: ../../event/keyboard/KeyEvent.h
+DistanceEstimation.o: ../../event/keyboard/KeyEventFactory.h
+DistanceEstimation.o: ../../event/keyboard/KeyDownEvent.h
+DistanceEstimation.o: ../../event/keyboard/KeyUpEvent.h
+DistanceEstimation.o: ../../event/mouse/Mouse.h
+DistanceEstimation.o: ../../event/mouse/MouseListener.h
+DistanceEstimation.o: ../../event/mouse/MouseEvent.h
+DistanceEstimation.o: ../../event/mouse/MouseEventFactory.h
+DistanceEstimation.o: ../../event/mouse/MouseButtonDown.h
+DistanceEstimation.o: ../../event/mouse/MouseClickEvent.h
+DistanceEstimation.o: ../../event/mouse/MouseButtonUp.h
+DistanceEstimation.o: ../../event/mouse/MouseMotionEvent.h
+DistanceEstimation.o: ../../event/timer/Timer.h
+DistanceEstimation.o: ../../event/keyboard/Keyboard.h
+DistanceEstimation.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+DistanceEstimation.o: ../../object3D/Object3D.h
+DistanceEstimation.o: ../../core/XavierConfiguration.h
+DistanceEstimation.o: ../../transform/CoordinateSystem.h
+DistanceEstimation.o: ../../transform/Scale.h
+DistanceEstimation.o: ../../interpolation/InterpolationEngine.h
+DistanceEstimation.o: ../../interpolation/InterpolationListener.h
+DistanceEstimation.o: ../../interpolation/InterpolatorFactory.h
+DistanceEstimation.o: ../../event/InputEventProxyFactory.h
+DistanceEstimation.o: ../../event/EventFactory.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardStub.h
+DistanceEstimation.o: ../../multicast/MulticastSocket.h
+DistanceEstimation.o: ../../multicast/Multicast.h /usr/include/sys/socket.h
+DistanceEstimation.o: /usr/include/sys/uio.h /usr/include/bits/uio.h
+DistanceEstimation.o: /usr/include/bits/socket.h /usr/include/limits.h
+DistanceEstimation.o: /usr/include/bits/posix1_lim.h
+DistanceEstimation.o: /usr/include/bits/local_lim.h
+DistanceEstimation.o: /usr/include/linux/limits.h
+DistanceEstimation.o: /usr/include/bits/posix2_lim.h
+DistanceEstimation.o: /usr/include/bits/sockaddr.h /usr/include/asm/socket.h
+DistanceEstimation.o: /usr/include/asm-i386/socket.h
+DistanceEstimation.o: /usr/include/asm/sockios.h
+DistanceEstimation.o: /usr/include/asm-i386/sockios.h
+DistanceEstimation.o: /usr/include/netinet/in.h /usr/include/stdint.h
+DistanceEstimation.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+DistanceEstimation.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+DistanceEstimation.o: /usr/include/bits/posix_opt.h
+DistanceEstimation.o: /usr/include/bits/confname.h /usr/include/getopt.h
+DistanceEstimation.o: ../../multicast/MulticastSocketPool.h
+DistanceEstimation.o: ../../multicast/MulticastSocket.h
+DistanceEstimation.o: ../../event/keyboard/Keyboard.h
+DistanceEstimation.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+DistanceEstimation.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+DistanceEstimation.o: ../../transform/CoordinateSystemFactory.h
+DistanceEstimation.o: ../../transform/CoordinateSystem.h
+DistanceEstimation.o: ../../transform/OpenGLCoordinateSystem.h
+DistanceEstimation.o: ../../transform/MacCoordinateSystem.h
+DistanceEstimation.o: ../../transform/MathCoordinateSystem.h
+DistanceEstimation.o: ../../transform/LeftOpenGLCoordinateSystem.h
+DistanceEstimation.o: ../../transform/EngineerCoordinateSystem.h
+DistanceEstimation.o: ../../event/timer/TimerListener.h
+DistanceEstimation.o: ../../event/reshape/ReshapeEvent.h
+DistanceEstimation.o: ../../core/Controller.h ../../core/DebugCamera.h
+DistanceEstimation.o: ../../core/Controller.h ../../core/Renderable.h
+DistanceEstimation.o: ../../core/Window.h ../../core/World.h
+DistanceEstimation.o: ../../core/XavierConfiguration.h ../../event/Action.h
+DistanceEstimation.o: ../../event/DelayedAction.h
+DistanceEstimation.o: ../../event/timer/IntervalTimer.h
+DistanceEstimation.o: ../../event/EventFactory.h
+DistanceEstimation.o: ../../event/FullEventHandlerFactory.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardSkeleton.h
+DistanceEstimation.o: ../../../include/SDL_thread.h
+DistanceEstimation.o: ../../event/mouse/MouseSkeleton.h
+DistanceEstimation.o: ../../event/timer/TimerSkeleton.h
+DistanceEstimation.o: ../../event/FullEventProxyFactory.h
+DistanceEstimation.o: ../../event/InputEventHandlerFactory.h
+DistanceEstimation.o: ../../event/InputEventProxyFactory.h
+DistanceEstimation.o: ../../event/ContinuousAction.h
+DistanceEstimation.o: ../../event/keyboard/DefaultKeyboardListener.h
+DistanceEstimation.o: ../../interpolation/TimedInterpolation.h
+DistanceEstimation.o: ../../core/Controller.h
+DistanceEstimation.o: ../../interpolation/InterpolationEngine.h
+DistanceEstimation.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardListener.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardSkeleton.h
+DistanceEstimation.o: ../../event/keyboard/KeyboardStub.h
+DistanceEstimation.o: ../../event/keyboard/KeyDownEvent.h
+DistanceEstimation.o: ../../event/keyboard/KeyEvent.h
+DistanceEstimation.o: ../../event/keyboard/KeyEventFactory.h
+DistanceEstimation.o: ../../event/keyboard/KeyUpEvent.h
+DistanceEstimation.o: ../../event/keyboard/RegularKeyEvent.h
+DistanceEstimation.o: ../../event/keyboard/SpecialKeyEvent.h
+DistanceEstimation.o: ../../event/mouse/DefaultMouseListener.h
+DistanceEstimation.o: ../../event/mouse/Mouse.h
+DistanceEstimation.o: ../../event/mouse/MouseButtonDown.h
+DistanceEstimation.o: ../../event/mouse/MouseButtonUp.h
+DistanceEstimation.o: ../../event/mouse/MouseClickEvent.h
+DistanceEstimation.o: ../../event/mouse/MouseEvent.h
+DistanceEstimation.o: ../../event/mouse/MouseEventFactory.h
+DistanceEstimation.o: ../../event/mouse/MouseListener.h
+DistanceEstimation.o: ../../event/mouse/MouseMotionEvent.h
+DistanceEstimation.o: ../../event/mouse/MouseSkeleton.h
+DistanceEstimation.o: ../../event/mouse/MouseStub.h
+DistanceEstimation.o: ../../event/reshape/ReshapeEvent.h
+DistanceEstimation.o: ../../event/reshape/ReshapeListener.h
+DistanceEstimation.o: ../../event/timer/IntervalTimer.h
+DistanceEstimation.o: ../../event/timer/Timer.h
+DistanceEstimation.o: ../../event/timer/TimerListener.h
+DistanceEstimation.o: ../../event/timer/TimerSkeleton.h
+DistanceEstimation.o: ../../event/timer/TimerStub.h
+DistanceEstimation.o: ../../event/timer/TimerListenerManager.h
+DistanceEstimation.o: ../../geometry/CylindricalVolume.h
+DistanceEstimation.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+DistanceEstimation.o: ../../geometry/Dimension3D.h
+DistanceEstimation.o: ../../geometry/RectangularVolume.h
+DistanceEstimation.o: ../../geometry/Dimension3D.h
+DistanceEstimation.o: ../../geometry/Containment.h ../../geometry/Vector2D.h
+DistanceEstimation.o: ../../geometry/Vector3D.h ../../geometry/Containment.h
+DistanceEstimation.o: ../../interpolation/CameraRoller.h
+DistanceEstimation.o: ../../interpolation/ContinuousInterpolation.h
+DistanceEstimation.o: ../../interpolation/TimedInterpolation.h
+DistanceEstimation.o: ../../interpolation/InterpolationEngine.h
+DistanceEstimation.o: ../../interpolation/InterpolationListener.h
+DistanceEstimation.o: ../../interpolation/Interpolator.h
+DistanceEstimation.o: ../../interpolation/InterpolatorFactory.h
+DistanceEstimation.o: ../../interpolation/LinearInterpolator.h
+DistanceEstimation.o: ../../interpolation/TimedInterpolation.h
+DistanceEstimation.o: ../../interpolation/Waypoint.h
+DistanceEstimation.o: ../../interpolation/WaypointCollection.h
+DistanceEstimation.o: ../../interpolation/Waypoint.h
+DistanceEstimation.o: ../../model/MilkshapeModel.h ../../model/Model.h
+DistanceEstimation.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+DistanceEstimation.o: ../../model/Model.h ../../model/ModelFactory.h
+DistanceEstimation.o: ../../model/MilkshapeModel.h
+DistanceEstimation.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+DistanceEstimation.o: ../../multicast/Multicast.h
+DistanceEstimation.o: ../../multicast/MulticastSocket.h
+DistanceEstimation.o: ../../multicast/MulticastSocketPool.h
+DistanceEstimation.o: ../../object2D/Object2D.h ../../core/Window.h
+DistanceEstimation.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+DistanceEstimation.o: ../../object2D/Object2D.h ../../object2D/String2D.h
+DistanceEstimation.o: ../../util/BitmapFontUtil.h
+DistanceEstimation.o: ../../util/BitmapFontConstants.h
+DistanceEstimation.o: ../../object2D/Transformable2D.h
+DistanceEstimation.o: ../../transform/Transformable.h
+DistanceEstimation.o: ../../transform/Transform.h
+DistanceEstimation.o: ../../object3D/AdornablePrism.h
+DistanceEstimation.o: ../../object3D/RectangularPrism.h
+DistanceEstimation.o: ../../util/PointScale.h
+DistanceEstimation.o: ../../object3D/Quadrilateral3D.h
+DistanceEstimation.o: ../../texture/TextureScale.h
+DistanceEstimation.o: ../../geometry/RectangularVolume.h
+DistanceEstimation.o: ../../object3D/Object3DCollection.h
+DistanceEstimation.o: ../../object3D/CompiledObject3D.h
+DistanceEstimation.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+DistanceEstimation.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+DistanceEstimation.o: ../../object3D/ExtrudedNormalPolygon3D.h
+DistanceEstimation.o: ../../object3D/NormalPolygon3D.h
+DistanceEstimation.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+DistanceEstimation.o: ../../object3D/NormalPolygon3D.h
+DistanceEstimation.o: ../../object3D/Object3D.h
+DistanceEstimation.o: ../../object3D/Object3DCollection.h
+DistanceEstimation.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+DistanceEstimation.o: ../../object3D/Quadrilateral3D.h
+DistanceEstimation.o: ../../object3D/RectangularPrism.h
+DistanceEstimation.o: ../../object3D/RectangularPrismFactory.h
+DistanceEstimation.o: ../../object3D/Sprite3D.h
+DistanceEstimation.o: ../../object3D/Sprite3DListener.h
+DistanceEstimation.o: ../../object3D/Sprite3DListener.h
+DistanceEstimation.o: ../../object3D/Transformable3D.h
+DistanceEstimation.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+DistanceEstimation.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+DistanceEstimation.o: ../../terrain/FunctionHeightFieldStrategy.h
+DistanceEstimation.o: ../../terrain/HeightFieldStrategy.h
+DistanceEstimation.o: ../../terrain/HeightField.h
+DistanceEstimation.o: ../../object3D/Quadrilateral3D.h
+DistanceEstimation.o: ../../terrain/HeightField.h
+DistanceEstimation.o: ../../terrain/HeightFieldFactory.h
+DistanceEstimation.o: ../../terrain/HeightFieldStrategy.h
+DistanceEstimation.o: ../../terrain/ImageHeightFieldStrategy.h
+DistanceEstimation.o: ../../terrain/MatrixHeightFieldStrategy.h
+DistanceEstimation.o: ../../terrain/NullHeightFieldStrategy.h
+DistanceEstimation.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+DistanceEstimation.o: ../../texture/TextureScale.h
+DistanceEstimation.o: ../../transform/CoordinateSystem.h
+DistanceEstimation.o: ../../transform/CoordinateSystemFactory.h
+DistanceEstimation.o: ../../transform/EngineerCoordinateSystem.h
+DistanceEstimation.o: ../../transform/IdentityTransform.h
+DistanceEstimation.o: ../../transform/LeftOpenGLCoordinateSystem.h
+DistanceEstimation.o: ../../transform/MacCoordinateSystem.h
+DistanceEstimation.o: ../../transform/MathCoordinateSystem.h
+DistanceEstimation.o: ../../transform/OpenGLCoordinateSystem.h
+DistanceEstimation.o: ../../transform/Orientation.h ../../transform/Rotate.h
+DistanceEstimation.o: ../../transform/Scale.h ../../transform/Stretch.h
+DistanceEstimation.o: ../../transform/Transform.h
+DistanceEstimation.o: ../../transform/Transformable.h
+DistanceEstimation.o: ../../transform/TransformFactory.h
+DistanceEstimation.o: ../../transform/Translate.h
+DistanceEstimation.o: ../../transform/OrientationListener.h
+DistanceEstimation.o: ../../util/BehaviorParser.h
+DistanceEstimation.o: ../../transform/TransformFactory.h
+DistanceEstimation.o: ../../util/BitmapFontConstants.h
+DistanceEstimation.o: ../../util/BitmapFontUtil.h
+DistanceEstimation.o: ../../util/FramesPerSecondCounter.h
+DistanceEstimation.o: ../../object2D/String2D.h
+DistanceEstimation.o: ../../util/GraphicsConversionUtility.h
+DistanceEstimation.o: ../../util/Logger.h ../../util/PointScale.h
+DistanceEstimation.o: ../../util/xmlParser.h SmoothMovementKeyHandler.h
+SmoothMovementKeyHandler.o: SmoothMovementKeyHandler.h ../../xor.h
+SmoothMovementKeyHandler.o: ../../core/Camera.h ../../../include/SDL.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_main.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_types.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_getenv.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_error.h
+SmoothMovementKeyHandler.o: ../../../include/begin_code.h
+SmoothMovementKeyHandler.o: ../../../include/close_code.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+SmoothMovementKeyHandler.o: /usr/include/features.h /usr/include/sys/cdefs.h
+SmoothMovementKeyHandler.o: /usr/include/bits/wordsize.h
+SmoothMovementKeyHandler.o: /usr/include/gnu/stubs.h
+SmoothMovementKeyHandler.o: /usr/include/gnu/stubs-32.h
+SmoothMovementKeyHandler.o: /usr/include/bits/types.h
+SmoothMovementKeyHandler.o: /usr/include/bits/typesizes.h
+SmoothMovementKeyHandler.o: /usr/include/libio.h /usr/include/_G_config.h
+SmoothMovementKeyHandler.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+SmoothMovementKeyHandler.o: /usr/include/gconv.h
+SmoothMovementKeyHandler.o: /usr/include/bits/stdio_lim.h
+SmoothMovementKeyHandler.o: /usr/include/bits/sys_errlist.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_timer.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_audio.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_byteorder.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_cdrom.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_joystick.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_events.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_active.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_keyboard.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_keysym.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_mouse.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_video.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_mutex.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_quit.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_version.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_opengl.h
+SmoothMovementKeyHandler.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+SmoothMovementKeyHandler.o: /usr/include/GL/glu.h ../../core/World.h
+SmoothMovementKeyHandler.o: /usr/include/stdlib.h /usr/include/sys/types.h
+SmoothMovementKeyHandler.o: /usr/include/time.h /usr/include/endian.h
+SmoothMovementKeyHandler.o: /usr/include/bits/endian.h
+SmoothMovementKeyHandler.o: /usr/include/sys/select.h
+SmoothMovementKeyHandler.o: /usr/include/bits/select.h
+SmoothMovementKeyHandler.o: /usr/include/bits/sigset.h
+SmoothMovementKeyHandler.o: /usr/include/bits/time.h
+SmoothMovementKeyHandler.o: /usr/include/sys/sysmacros.h
+SmoothMovementKeyHandler.o: /usr/include/bits/pthreadtypes.h
+SmoothMovementKeyHandler.o: /usr/include/alloca.h ../../util/Logger.h
+SmoothMovementKeyHandler.o: ../../core/Renderable.h ../../object3D/Object3D.h
+SmoothMovementKeyHandler.o: ../../geometry/Vector3D.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension3D.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension.h
+SmoothMovementKeyHandler.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+SmoothMovementKeyHandler.o: /usr/include/string.h ../../texture/Texture.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_image.h
+SmoothMovementKeyHandler.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+SmoothMovementKeyHandler.o: ../../paint/Color.h ../../core/Renderable.h
+SmoothMovementKeyHandler.o: ../../core/Window.h
+SmoothMovementKeyHandler.o: ../../event/reshape/ReshapeListener.h
+SmoothMovementKeyHandler.o: ../../event/reshape/ReshapeEvent.h
+SmoothMovementKeyHandler.o: ../../../include/SDL.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension2D.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+SmoothMovementKeyHandler.o: ../../transform/Orientation.h
+SmoothMovementKeyHandler.o: ../../transform/Transform.h
+SmoothMovementKeyHandler.o: ../../transform/Translate.h
+SmoothMovementKeyHandler.o: ../../event/timer/Timer.h /usr/include/math.h
+SmoothMovementKeyHandler.o: /usr/include/bits/huge_val.h
+SmoothMovementKeyHandler.o: /usr/include/bits/mathdef.h
+SmoothMovementKeyHandler.o: /usr/include/bits/mathcalls.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListener.h
+SmoothMovementKeyHandler.o: ../../event/Action.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolatorFactory.h
+SmoothMovementKeyHandler.o: ../../interpolation/Interpolator.h
+SmoothMovementKeyHandler.o: ../../interpolation/LinearInterpolator.h
+SmoothMovementKeyHandler.o: ../../util/GraphicsConversionUtility.h
+SmoothMovementKeyHandler.o: ../../interpolation/Interpolator.h
+SmoothMovementKeyHandler.o: ../../transform/Rotate.h
+SmoothMovementKeyHandler.o: ../../geometry/Containment.h
+SmoothMovementKeyHandler.o: ../../transform/OrientationListener.h
+SmoothMovementKeyHandler.o: ../../event/ContinuousAction.h
+SmoothMovementKeyHandler.o: ../../event/Action.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListener.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListenerManager.h
+SmoothMovementKeyHandler.o: ../../event/timer/Timer.h ../../core/Controller.h
+SmoothMovementKeyHandler.o: ../../event/EventFactory.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/Keyboard.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardListener.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyEventFactory.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyDownEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyUpEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/Mouse.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseListener.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseEventFactory.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseButtonDown.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseClickEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseButtonUp.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseMotionEvent.h
+SmoothMovementKeyHandler.o: ../../event/timer/Timer.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/Keyboard.h
+SmoothMovementKeyHandler.o: ../../event/mouse/Mouse.h
+SmoothMovementKeyHandler.o: ../../object3D/Point3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Object3D.h
+SmoothMovementKeyHandler.o: ../../core/XavierConfiguration.h
+SmoothMovementKeyHandler.o: ../../transform/CoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/Scale.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolationEngine.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolationListener.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolatorFactory.h
+SmoothMovementKeyHandler.o: ../../event/InputEventProxyFactory.h
+SmoothMovementKeyHandler.o: ../../event/EventFactory.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardStub.h
+SmoothMovementKeyHandler.o: ../../multicast/MulticastSocket.h
+SmoothMovementKeyHandler.o: ../../multicast/Multicast.h
+SmoothMovementKeyHandler.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+SmoothMovementKeyHandler.o: /usr/include/bits/uio.h
+SmoothMovementKeyHandler.o: /usr/include/bits/socket.h /usr/include/limits.h
+SmoothMovementKeyHandler.o: /usr/include/bits/posix1_lim.h
+SmoothMovementKeyHandler.o: /usr/include/bits/local_lim.h
+SmoothMovementKeyHandler.o: /usr/include/linux/limits.h
+SmoothMovementKeyHandler.o: /usr/include/bits/posix2_lim.h
+SmoothMovementKeyHandler.o: /usr/include/bits/sockaddr.h
+SmoothMovementKeyHandler.o: /usr/include/asm/socket.h
+SmoothMovementKeyHandler.o: /usr/include/asm-i386/socket.h
+SmoothMovementKeyHandler.o: /usr/include/asm/sockios.h
+SmoothMovementKeyHandler.o: /usr/include/asm-i386/sockios.h
+SmoothMovementKeyHandler.o: /usr/include/netinet/in.h /usr/include/stdint.h
+SmoothMovementKeyHandler.o: /usr/include/bits/in.h
+SmoothMovementKeyHandler.o: /usr/include/bits/byteswap.h
+SmoothMovementKeyHandler.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+SmoothMovementKeyHandler.o: /usr/include/bits/posix_opt.h
+SmoothMovementKeyHandler.o: /usr/include/bits/confname.h
+SmoothMovementKeyHandler.o: /usr/include/getopt.h
+SmoothMovementKeyHandler.o: ../../multicast/MulticastSocketPool.h
+SmoothMovementKeyHandler.o: ../../multicast/MulticastSocket.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/Keyboard.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseStub.h
+SmoothMovementKeyHandler.o: ../../event/mouse/Mouse.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+SmoothMovementKeyHandler.o: ../../transform/CoordinateSystemFactory.h
+SmoothMovementKeyHandler.o: ../../transform/CoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/OpenGLCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/MacCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/MathCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/EngineerCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListener.h
+SmoothMovementKeyHandler.o: ../../event/reshape/ReshapeEvent.h
+SmoothMovementKeyHandler.o: ../../core/Controller.h ../../core/DebugCamera.h
+SmoothMovementKeyHandler.o: ../../core/Controller.h ../../core/Renderable.h
+SmoothMovementKeyHandler.o: ../../core/Window.h ../../core/World.h
+SmoothMovementKeyHandler.o: ../../core/XavierConfiguration.h
+SmoothMovementKeyHandler.o: ../../event/Action.h ../../event/DelayedAction.h
+SmoothMovementKeyHandler.o: ../../event/timer/IntervalTimer.h
+SmoothMovementKeyHandler.o: ../../event/EventFactory.h
+SmoothMovementKeyHandler.o: ../../event/FullEventHandlerFactory.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardSkeleton.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_thread.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseSkeleton.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerSkeleton.h
+SmoothMovementKeyHandler.o: ../../event/FullEventProxyFactory.h
+SmoothMovementKeyHandler.o: ../../event/InputEventHandlerFactory.h
+SmoothMovementKeyHandler.o: ../../event/InputEventProxyFactory.h
+SmoothMovementKeyHandler.o: ../../event/ContinuousAction.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/DefaultKeyboardListener.h
+SmoothMovementKeyHandler.o: ../../interpolation/TimedInterpolation.h
+SmoothMovementKeyHandler.o: ../../core/Controller.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolationEngine.h
+SmoothMovementKeyHandler.o: ../../core/World.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/Keyboard.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardListener.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardSkeleton.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyboardStub.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyDownEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyEventFactory.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/KeyUpEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/RegularKeyEvent.h
+SmoothMovementKeyHandler.o: ../../event/keyboard/SpecialKeyEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/DefaultMouseListener.h
+SmoothMovementKeyHandler.o: ../../event/mouse/Mouse.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseButtonDown.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseButtonUp.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseClickEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseEventFactory.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseListener.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseMotionEvent.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseSkeleton.h
+SmoothMovementKeyHandler.o: ../../event/mouse/MouseStub.h
+SmoothMovementKeyHandler.o: ../../event/reshape/ReshapeEvent.h
+SmoothMovementKeyHandler.o: ../../event/reshape/ReshapeListener.h
+SmoothMovementKeyHandler.o: ../../event/timer/IntervalTimer.h
+SmoothMovementKeyHandler.o: ../../event/timer/Timer.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListener.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerSkeleton.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerStub.h
+SmoothMovementKeyHandler.o: ../../event/timer/TimerListenerManager.h
+SmoothMovementKeyHandler.o: ../../geometry/CylindricalVolume.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension2D.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension3D.h
+SmoothMovementKeyHandler.o: ../../geometry/RectangularVolume.h
+SmoothMovementKeyHandler.o: ../../geometry/Dimension3D.h
+SmoothMovementKeyHandler.o: ../../geometry/Containment.h
+SmoothMovementKeyHandler.o: ../../geometry/Vector2D.h
+SmoothMovementKeyHandler.o: ../../geometry/Vector3D.h
+SmoothMovementKeyHandler.o: ../../geometry/Containment.h
+SmoothMovementKeyHandler.o: ../../interpolation/CameraRoller.h
+SmoothMovementKeyHandler.o: ../../interpolation/ContinuousInterpolation.h
+SmoothMovementKeyHandler.o: ../../interpolation/TimedInterpolation.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolationEngine.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolationListener.h
+SmoothMovementKeyHandler.o: ../../interpolation/Interpolator.h
+SmoothMovementKeyHandler.o: ../../interpolation/InterpolatorFactory.h
+SmoothMovementKeyHandler.o: ../../interpolation/LinearInterpolator.h
+SmoothMovementKeyHandler.o: ../../interpolation/TimedInterpolation.h
+SmoothMovementKeyHandler.o: ../../interpolation/Waypoint.h
+SmoothMovementKeyHandler.o: ../../interpolation/WaypointCollection.h
+SmoothMovementKeyHandler.o: ../../interpolation/Waypoint.h
+SmoothMovementKeyHandler.o: ../../model/MilkshapeModel.h ../../model/Model.h
+SmoothMovementKeyHandler.o: ../../texture/TextureFactory.h
+SmoothMovementKeyHandler.o: ../../texture/Texture.h ../../model/Model.h
+SmoothMovementKeyHandler.o: ../../model/ModelFactory.h
+SmoothMovementKeyHandler.o: ../../model/MilkshapeModel.h
+SmoothMovementKeyHandler.o: ../../multicast/mcreceive.h
+SmoothMovementKeyHandler.o: ../../multicast/mcsend.h
+SmoothMovementKeyHandler.o: ../../multicast/Multicast.h
+SmoothMovementKeyHandler.o: ../../multicast/MulticastSocket.h
+SmoothMovementKeyHandler.o: ../../multicast/MulticastSocketPool.h
+SmoothMovementKeyHandler.o: ../../object2D/Object2D.h ../../core/Window.h
+SmoothMovementKeyHandler.o: ../../object2D/Point2D.h
+SmoothMovementKeyHandler.o: ../../object2D/Rectangle2D.h
+SmoothMovementKeyHandler.o: ../../object2D/Object2D.h
+SmoothMovementKeyHandler.o: ../../object2D/String2D.h
+SmoothMovementKeyHandler.o: ../../util/BitmapFontUtil.h
+SmoothMovementKeyHandler.o: ../../util/BitmapFontConstants.h
+SmoothMovementKeyHandler.o: ../../object2D/Transformable2D.h
+SmoothMovementKeyHandler.o: ../../transform/Transformable.h
+SmoothMovementKeyHandler.o: ../../transform/Transform.h
+SmoothMovementKeyHandler.o: ../../object3D/AdornablePrism.h
+SmoothMovementKeyHandler.o: ../../object3D/RectangularPrism.h
+SmoothMovementKeyHandler.o: ../../util/PointScale.h
+SmoothMovementKeyHandler.o: ../../object3D/Quadrilateral3D.h
+SmoothMovementKeyHandler.o: ../../texture/TextureScale.h
+SmoothMovementKeyHandler.o: ../../geometry/RectangularVolume.h
+SmoothMovementKeyHandler.o: ../../object3D/Object3DCollection.h
+SmoothMovementKeyHandler.o: ../../object3D/CompiledObject3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+SmoothMovementKeyHandler.o: ../../object3D/CompiledObject3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Cube.h
+SmoothMovementKeyHandler.o: ../../object3D/ExtrudedNormalPolygon3D.h
+SmoothMovementKeyHandler.o: ../../object3D/NormalPolygon3D.h
+SmoothMovementKeyHandler.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+SmoothMovementKeyHandler.o: ../../object3D/NormalPolygon3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Object3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Object3DCollection.h
+SmoothMovementKeyHandler.o: ../../object3D/Particle.h
+SmoothMovementKeyHandler.o: ../../object3D/Point3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Quadrilateral3D.h
+SmoothMovementKeyHandler.o: ../../object3D/RectangularPrism.h
+SmoothMovementKeyHandler.o: ../../object3D/RectangularPrismFactory.h
+SmoothMovementKeyHandler.o: ../../object3D/Sprite3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Sprite3DListener.h
+SmoothMovementKeyHandler.o: ../../object3D/Sprite3DListener.h
+SmoothMovementKeyHandler.o: ../../object3D/Transformable3D.h
+SmoothMovementKeyHandler.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+SmoothMovementKeyHandler.o: ../../paint/Paint.h
+SmoothMovementKeyHandler.o: ../../shape/CollisionRenderable.h
+SmoothMovementKeyHandler.o: ../../terrain/FunctionHeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../terrain/HeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../terrain/HeightField.h
+SmoothMovementKeyHandler.o: ../../object3D/Quadrilateral3D.h
+SmoothMovementKeyHandler.o: ../../terrain/HeightField.h
+SmoothMovementKeyHandler.o: ../../terrain/HeightFieldFactory.h
+SmoothMovementKeyHandler.o: ../../terrain/HeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../terrain/ImageHeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../terrain/MatrixHeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../terrain/NullHeightFieldStrategy.h
+SmoothMovementKeyHandler.o: ../../texture/Texture.h
+SmoothMovementKeyHandler.o: ../../texture/TextureFactory.h
+SmoothMovementKeyHandler.o: ../../texture/TextureScale.h
+SmoothMovementKeyHandler.o: ../../transform/CoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/CoordinateSystemFactory.h
+SmoothMovementKeyHandler.o: ../../transform/EngineerCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/IdentityTransform.h
+SmoothMovementKeyHandler.o: ../../transform/LeftOpenGLCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/MacCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/MathCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/OpenGLCoordinateSystem.h
+SmoothMovementKeyHandler.o: ../../transform/Orientation.h
+SmoothMovementKeyHandler.o: ../../transform/Rotate.h ../../transform/Scale.h
+SmoothMovementKeyHandler.o: ../../transform/Stretch.h
+SmoothMovementKeyHandler.o: ../../transform/Transform.h
+SmoothMovementKeyHandler.o: ../../transform/Transformable.h
+SmoothMovementKeyHandler.o: ../../transform/TransformFactory.h
+SmoothMovementKeyHandler.o: ../../transform/Translate.h
+SmoothMovementKeyHandler.o: ../../transform/OrientationListener.h
+SmoothMovementKeyHandler.o: ../../util/BehaviorParser.h
+SmoothMovementKeyHandler.o: ../../transform/TransformFactory.h
+SmoothMovementKeyHandler.o: ../../util/BitmapFontConstants.h
+SmoothMovementKeyHandler.o: ../../util/BitmapFontUtil.h
+SmoothMovementKeyHandler.o: ../../util/FramesPerSecondCounter.h
+SmoothMovementKeyHandler.o: ../../object2D/String2D.h
+SmoothMovementKeyHandler.o: ../../util/GraphicsConversionUtility.h
+SmoothMovementKeyHandler.o: ../../util/Logger.h ../../util/PointScale.h
+SmoothMovementKeyHandler.o: ../../util/xmlParser.h
