@@ -74,5 +74,23 @@ Texture * TextureFactory::createTexture(const char * pathToFile)
 	return temp;
 }
 
+/* 
+ * Creates a texture from a char array of image data.
+ * Useful for loading the multicast pictures.
+ */
+Texture * TextureFactory::createTextureFromMem(char * data, int size, const char * name)
+{
+	Texture * temp = textures[name];
+
+	if (temp == NULL) {
+        temp = new Texture(data, size);
+
+		//put the texture into the map, using the path as the key
+		textures[name] = temp;
+	}
+
+	return temp;
+}
+
 }
 

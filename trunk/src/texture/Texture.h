@@ -22,6 +22,8 @@ public:
 	 */
 	Texture(const char * fileName);
 
+	Texture(char * data, int size);
+
     /**
      * Makes this texture the currently activated texture. This should not
 	 * be called by a user application, but rather is used by the
@@ -88,6 +90,8 @@ private:
 	 * Reads the file from disk using the given path.
 	 */
 	void loadFromFile();
+	void loadRwops(char * data, int size);
+	void buildTexture(SDL_Surface * texture); 
 
 	const char * _path;
 

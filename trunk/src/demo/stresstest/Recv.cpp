@@ -18,8 +18,8 @@ int main()
 	int misses = 0;	
 	while(1) {
 		// spy the network
-		//cout << "received: " << misocketz.receive() << endl;	
-		snum = misocketz.receive();
+		cout << "received: " << misocketz.receive() << endl;	
+		/*snum = misocketz.receive();
 		number = atoi(snum.c_str());
 		//cout << "rec: " << snum << endl;
 		if(number != prevnumber + 1)
@@ -29,7 +29,7 @@ int main()
 				" " << misses << " Missed packetts" << endl;
 			misses++;
 		}	
-		prevnumber = number;
+		prevnumber = number;*/
 	}
 }
 

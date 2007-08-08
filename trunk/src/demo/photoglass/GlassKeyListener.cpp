@@ -14,6 +14,7 @@ GlassKeyListener::GlassKeyListener(PhotoGlass * photoglass)
 
 void GlassKeyListener::handleKey_F5()
 {
+	_photoglass->multicastLoad();
 }
 
 /* 
@@ -62,12 +63,12 @@ void GlassKeyListener::handleKey_z()
  */
 void GlassKeyListener::handleKey_Down()
 {
-	_photoglass->changeSelection(1);
+	_photoglass->changeSelection(2);
 }
 
 void GlassKeyListener::handleKey_Up()
 {
-	_photoglass->changeSelection(2);
+	_photoglass->changeSelection(1);
 }
 void GlassKeyListener::handleKey_Left()
 {

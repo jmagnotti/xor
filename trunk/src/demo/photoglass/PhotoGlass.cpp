@@ -27,8 +27,8 @@ PhotoGlass::PhotoGlass()
 	ctrl->getModel()->addObject("test", cube);
     */	
 	//PictureLoader * pl = new FakePictureLoader(25+18);
-	PictureLoader * pl = new XMLPictureLoader("ComputerGiants/ComputerGiants.xml");
-	pictures = pl->load();	
+	_pl = new XMLPictureLoader("ComputerGiants/ComputerGiants.xml");
+	pictures = _pl->load();	
 	_currentpic = pictures[0];
 	displayPictures();	
 	//Transformable3D * temp = pictures[0]->getTransformable();
@@ -44,6 +44,17 @@ PhotoGlass::PhotoGlass()
 	setArrangement(new WingArrangement(_currentpic));
 	lock = false;
 	focus = false;
+}
+
+void PhotoGlass::multicastLoad()
+{
+	cleanPictures();
+	delete _pl;
+	_pl = new MulticastPictureLoader();
+	pictures = _pl->load();
+	_currentpic = pictures[0];
+	displayPictures();
+	setArrangement(new WingArrangement(_currentpic));
 }
 
 /**

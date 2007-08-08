@@ -127,6 +127,45 @@ string MulticastSocket::receive()
 }
 
 
+/*
+ * Receives a packet from the multicast group.  Stores how much was
+ * read and returns a pointer to a char array representing the data.
+ *
+ * to get how much data was read use getBytesRead()
+ */
+char * MulticastDataSocket::receiveBytes()
+{
+	char buffer[MAX_LENGTH+1];
+    int length;
+
+    unsigned int from_len;
+
+    if (! _bound) {
+        bind(_socket, (struct sockaddr *) &_multicastAddress, sizeof(_multicastAddress));
+        setsockopt(_socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (opt_type)&_request, sizeof(_request));
+        _bound = true;
+    }
+
+	/* clear the receive buffers & structs */
+	memset(buffer, 0, sizeof(buffer));
+    from_len = sizeof(_remoteAddress);
+    memset(&_remoteAddress, 0, from_len);
+
+	length = recvfrom(_socket, buffer, MAX_LENGTH, 0, (struct sockaddr*) &_remoteAddress, (socklen_t *) &from_len);
+
+    //cout << "Receive " <<  length << " bytes" << endl;
+
+	// take note of how much was read
+	_bytesRead = length;
+
+    return buffer;
+}
+
+int MulticastDataSocket::getBytesRead()
+{
+	return _bytesRead;
+}
+
 MulticastMouseSocket::MulticastMouseSocket() :
 	MulticastSocket(MULTICAST_GROUP, 1234)
 {}
@@ -146,6 +185,10 @@ MulticastTimerSocket::MulticastTimerSocket() :
 
 MulticastErrorSocket::MulticastErrorSocket() :
 	MulticastSocket(MULTICAST_GROUP, 1238)
+{}
+
+MulticastDataSocket::MulticastDataSocket() :
+	MulticastSocket(MULTICAST_GROUP, 1239)
 {}
 
 }
