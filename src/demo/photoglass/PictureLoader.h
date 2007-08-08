@@ -26,10 +26,24 @@ class MulticastPictureLoader : public PictureLoader
 {
 
 public:
+	MulticastPictureLoader();
 	/**
-	 * Loads pictures somehow, who cares
+	 * Loads pictures from a Multicast Socket 
 	 */
 	virtual vector<Picture*> load();
+
+private:
+	MulticastDataSocket * _mds;
+	/** 
+	 * A couple of helper functions. Docs in cpp file
+	 */
+	void readHeader(); // reads first packet
+	Picture * readPicture();
+
+	
+
+	int _numpics; // number of pics we'll receive
+
 };
 
 class XMLPictureLoader : public PictureLoader

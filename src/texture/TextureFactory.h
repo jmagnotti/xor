@@ -35,6 +35,8 @@ public:
 	 */
 	Texture * createTexture(const char * pathToFile);
 
+	Texture * createTextureFromMem(char * data, int size, const char * name);
+
 
     /**
      * Because the reshape results in a new rendering context, the textures

@@ -94,7 +94,7 @@ void WingArrangement::arrange(vector<Picture*> pictures)
 				// so it stays in the center
 				map[ii][jj]->setDefaultPosition(
 							new Vector3D((jj- 6) + (jj - 6) * GAP + XOFF, // x
-								(ii - 2)+ (ii - 2) * GAP + YOFF,	    // y
+								-1 * ((ii - 2)+ (ii - 2) * GAP) + YOFF,	    // y
 								-9));                               //z
 				if(map[ii][jj] == _highlight) 
 					_highlight->highlight();

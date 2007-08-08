@@ -3,7 +3,7 @@
 
 #include "../../xor.h"
 #include "Arrangement.h"
-//#include "PictureLoader.h"
+#include "PictureLoader.h"
 #include <iostream>
 #include <vector>
 
@@ -21,8 +21,10 @@ public:
 	void run();
 	void changeSelection(int direction);
 	void toggleFocus();
+	void multicastLoad();
 
 private:
+	PictureLoader * _pl;
 	void displayPictures();
 	void cleanPictures();
 	Controller * ctrl;

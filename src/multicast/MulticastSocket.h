@@ -70,7 +70,7 @@ public:
 private:
 
 	MulticastSocket();
-
+protected:
     struct sockaddr_in  _remoteAddress;
     struct sockaddr_in  _multicastAddress;
 	struct ip_mreq 		_request;
@@ -146,6 +146,26 @@ public:
 
 };
 
+
+/*
+ * This is a special Multicast Socket for dealing
+ * with raw data (eg bytes).
+ *
+ * TODO: Rewrite multicast with some sort of sweet
+ * return type Proxy so we can overload receive
+ */
+class MulticastDataSocket : public MulticastSocket
+{
+
+public:
+    MulticastDataSocket();
+
+	char * receiveBytes();
+	int getBytesRead();
+private:
+	int _bytesRead;
+	
+};
 
 }
 
