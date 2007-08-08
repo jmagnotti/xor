@@ -5,12 +5,6 @@
 using namespace XOR;
 using namespace std;
 
-vector<Picture*> PictureLoader::load()
-{
-	vector<Picture*> somepics;
-	return somepics;
-}
-
 XMLPictureLoader::XMLPictureLoader(char * file)
 {
 	_file = file;		

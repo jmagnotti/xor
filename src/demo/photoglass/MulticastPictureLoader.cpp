@@ -84,6 +84,7 @@ Picture * MulticastPictureLoader::readPicture()
 	// we can actually make a picture out of it.
 	
 	TextureFactory * tf = TextureFactory::GetInstance();
+	cout << name << endl;
 	Paint * p = new Paint(tf->createTextureFromMem(data, length, name.c_str()));
 	Transformable3D * cube = new Transformable3D(new Cube(new Vector3D(0.0f, 0.0f, -1.0f ), 1.0f, p));
 	picture = new Picture(cube);

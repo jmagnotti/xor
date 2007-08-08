@@ -18,7 +18,7 @@ public:
 	/**
 	 * Loads pictures somehow, who cares
 	 */
-	virtual vector<Picture*> load();
+	virtual vector<Picture*> load()=0;
 
 };
 
@@ -30,7 +30,7 @@ public:
 	/**
 	 * Loads pictures from a Multicast Socket 
 	 */
-	virtual vector<Picture*> load();
+	vector<Picture*> load();
 
 private:
 	MulticastDataSocket * _mds;
@@ -50,7 +50,8 @@ class XMLPictureLoader : public PictureLoader
 {
 	public:
 		XMLPictureLoader(char * file);
-		virtual vector<Picture*> load();
+		vector<Picture*> load();
+
 	private:
 		char * _file;
 		Transformable3D * loadCube(const char * path);
