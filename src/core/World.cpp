@@ -67,7 +67,7 @@ World * World::GetInstance(Renderable * object)
  */
 void World::addObject(char * name, Renderable * object)
 {
-	_objects[name] = object;
+	_objects[string(name)] = object;
 }
 
 
