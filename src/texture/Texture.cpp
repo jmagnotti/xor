@@ -137,6 +137,9 @@ void Texture::buildTexture(SDL_Surface * texture)
  */
 void Texture::setActive()
 {
+#ifdef DEBUG
+	cout << "Binding texture: " << getPath() << endl;
+#endif
 	glBindTexture(GL_TEXTURE_2D, _id);
 }
 

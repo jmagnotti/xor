@@ -89,6 +89,10 @@ Texture * TextureFactory::createTextureFromMem(char * data, int size, const char
 		textures[name] = temp;
 	}
 
+#ifdef DEBUG
+	cout << "returning texture: " << name << endl;
+#endif
+
 	return temp;
 }
 
