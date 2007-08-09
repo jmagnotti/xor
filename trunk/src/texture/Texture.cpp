@@ -71,7 +71,7 @@ void Texture::loadRwops(char * data, int size)
     // use SDL IMG library to load
     SDL_Surface * texture = NULL;
 	SDL_RWops * rw = SDL_RWFromMem(data, size);
-	texture = IMG_Load_RW(rw, 1);
+	texture = IMG_Load_RW(rw, 0);
 
     if (texture == NULL) cout << IMG_GetError() << endl;
 

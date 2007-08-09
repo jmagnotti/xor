@@ -3,6 +3,7 @@
 
 
 #include <map>
+#include <string>
 
 #include "../../include/SDL_opengl.h"
 
@@ -72,7 +73,7 @@ private:
     void initializeTextureSettings();
 
 	//container for textures
-	map<const char *, Texture *> textures;
+	map<string, Texture *> textures;
 
 	static TextureFactory * _textureFactory;
 

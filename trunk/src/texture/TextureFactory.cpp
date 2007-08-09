@@ -23,8 +23,8 @@ void TextureFactory::handleReshape(ReshapeEvent * event)
 {
    initializeTextureSettings();
 
-   map<const char*, Texture*>::iterator iter   = textures.begin();
-   map<const char*, Texture*>::iterator finish = textures.end();
+   map<string, Texture*>::iterator iter   = textures.begin();
+   map<string, Texture*>::iterator finish = textures.end();
 
    while (iter != finish) {
        iter->second->regenerate();
@@ -62,7 +62,7 @@ TextureFactory * TextureFactory::GetInstance()
  */
 Texture * TextureFactory::createTexture(const char * pathToFile)
 {
-	Texture * temp = textures[pathToFile];
+	Texture * temp = textures[string(pathToFile)];
 
 	if (temp == NULL) {
         temp = new Texture(pathToFile);
@@ -80,13 +80,13 @@ Texture * TextureFactory::createTexture(const char * pathToFile)
  */
 Texture * TextureFactory::createTextureFromMem(char * data, int size, const char * name)
 {
-	Texture * temp = textures[name];
+	Texture * temp = textures[string(name)];
 
 	if (temp == NULL) {
         temp = new Texture(data, size);
 
 		//put the texture into the map, using the path as the key
-		textures[name] = temp;
+		textures[string(name)] = temp;
 	}
 
 #ifdef DEBUG
