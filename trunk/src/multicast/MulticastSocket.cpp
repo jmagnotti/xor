@@ -123,7 +123,7 @@ string MulticastSocket::receive()
 	message = string(buffer);
     //cout << "returning: " << message << endl;
 
-    return message;
+    return string(message.c_str());
 }
 
 
