@@ -20,6 +20,9 @@ class EventFactory
 
 public:
 
+	// can we do this?
+	//virtual ~EventFactory(){}
+
     /**
      */
     virtual Keyboard * getKeyboard()=0;

@@ -160,10 +160,15 @@ void Quadrilateral3D::renderObject()
         //glNormal3fv(_normals[i]->toArray());
 
 
-    glBegin(GL_QUADS);
-        for(int i=0; i<4; i++) {
+    glBegin(GL_TRIANGLE_STRIP);
+        for(int i=0; i<2; i++) {
             _paint->activateTextureAtPosition(_vertexTextureWeights[_textureCoords[i]]);
             _paint->activateColorAtPosition(_vertexColorWeights[i]);
+            glVertex3fv(_vertices[i]->toArray()); 
+        }
+		for(int i=3; i>=2; i--) {
+			_paint->activateTextureAtPosition(_vertexTextureWeights[_textureCoords[i]]);
+			_paint->activateColorAtPosition(_vertexColorWeights[i]);
             glVertex3fv(_vertices[i]->toArray()); 
         }
     glEnd();

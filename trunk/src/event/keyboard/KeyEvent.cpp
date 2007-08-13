@@ -3,8 +3,8 @@
 
 namespace XOR {
 
-const int KeyEvent::KEY_DOWN_EVENT    = 0;
-const int KeyEvent::KEY_UP_EVENT      = 1;
+const int KeyEvent::KEY_DOWN_EVENT    = SDL_KEYDOWN;
+const int KeyEvent::KEY_UP_EVENT      = SDL_KEYUP;
 
 KeyEvent::KeyEvent()
 {}

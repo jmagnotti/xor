@@ -65,6 +65,7 @@ public:
 	 *  Returns the animation time
 	 */
 	int getElapsedTime();
+	int getElapsedFrames();
 
 	
 	/**
@@ -151,9 +152,10 @@ private:
 
 	list<TimerListener*> listeners;
 
-    bool                   _started;
-	int                    _state;
-	static unsigned int    _interval;
+    bool					_started;
+	int						_state;
+    unsigned int			_frames;
+	static unsigned int		_interval;
     
     SDL_TimerID         _timerHandle;
     

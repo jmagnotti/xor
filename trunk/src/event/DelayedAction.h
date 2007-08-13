@@ -9,7 +9,11 @@ namespace XOR
 {
 
 /**
- * Invokes the specified action after the at least the amount specified by the delay.
+ * Invokes the specified action after at least the amount specified by the delay.
+ *
+ * @author John Magnotti
+ * @author Michael Lam
+ * @version 1.0
  */
 class DelayedAction : public Action, public TimerListener
 {
@@ -29,6 +33,7 @@ private:
 	DelayedAction();
 
 	Action * _action;
+
 	int _delay;
 };
 

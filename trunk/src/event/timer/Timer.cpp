@@ -1,4 +1,5 @@
 #include "Timer.h"
+#include <math.h>
 
 
 namespace XOR {
@@ -34,6 +35,11 @@ Timer::Timer(unsigned int interval)
     _sdlTimerEvent.user.code = TIMER_TICK_EVENT;
     _sdlTimerEvent.user.data1 = 0;
     _sdlTimerEvent.user.data2 = 0;
+}
+
+int Timer::getElapsedFrames()
+{
+	return (int) ceil((getElapsedTime() / (double)getInterval()));
 }
 
 

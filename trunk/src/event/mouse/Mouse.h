@@ -47,29 +47,6 @@ public:
 
 
     /**
-	 * Add a listener to the pool
-	 */
-    void addListener(MouseListener * listener);
-
-
-	/**
-	 * Removes a listener from the pool
-	 */
-    void removeListener(MouseListener * listener);
-
-
-    /**
-     * Handles mouse clicks from SDL
-     */
-    void click(SDL_Event * event);
-
-
-    /**
-     * Handles mouse motions from SDL
-     */
-    void move(SDL_Event * event);
-
-    /**
      * Forces the mouse cursor to the given position. This generates a mouse
      * event in the process.
      *
@@ -78,18 +55,15 @@ public:
      */
     static void ForceMove(int xpos, int ypos);
 
-
 	/**
 	 * Fires an event to listeners. Delegated to implementing classes.
 	 */
 	virtual void fireEvent(MouseEvent * me)=0;
 
-
     /**
      * Easier way to access mouse motion. Also fires a mouse move event.
      */
     static void SetMousePosition(int xpos, int ypos);
-
 
     /**
      * Push the event onto the SDL Event queue
@@ -97,6 +71,25 @@ public:
      */
     static void FireSDLEvent(SDL_Event * event);
 
+    /**
+	 * Add a listener to the pool
+	 */
+    void addListener(MouseListener * listener);
+
+	/**
+	 * Removes a listener from the pool
+	 */
+    void removeListener(MouseListener * listener);
+
+    /**
+     * Handles mouse clicks from SDL
+     */
+    void click(SDL_Event * event);
+
+    /**
+     * Handles mouse motions from SDL
+     */
+    void move(SDL_Event * event); 
 
     /**
      * Show/hide the cursor.

@@ -1,5 +1,7 @@
 #include "KeyEventFactory.h"
 
+#include <iostream>
+using namespace std;
 
 namespace XOR {
 
@@ -52,6 +54,7 @@ KeyEvent * KeyEventFactory::ConstructInstance(string event)
  */
 SDL_Event * KeyEventFactory::ConstructSDLEvent(string event)
 {
+	//cout << "Trying to create keyboard event from : " << event << endl;
 	char * result = NULL;
 	char delims[] = " ";
 
@@ -65,12 +68,14 @@ SDL_Event * KeyEventFactory::ConstructSDLEvent(string event)
 	int mod = atoi(result);
 
 	if (type == SDL_KEYDOWN) {
+		//cout << "\tKeyDown" << endl;
         _sdlKeyDownEvent.key.keysym.sym = (SDLKey)key;
         _sdlKeyDownEvent.key.keysym.mod = (SDLMod)mod;
 
         return & _sdlKeyDownEvent;
     }
     else {
+		//cout << "\tKeyUp" << endl;
         _sdlKeyUpEvent.key.keysym.sym = (SDLKey)key;
         _sdlKeyUpEvent.key.keysym.mod = (SDLMod)mod;
 
