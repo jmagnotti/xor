@@ -15,6 +15,10 @@ namespace XOR {
  * and remaining-ticks calculation. All the application developer needs
  * to know is the desired millisecond interval and whether the event is
  * one-time or recurring.
+ *
+ * @author John Magnotti
+ * @author Michael Lam
+ * @version 1.0
  */
 class IntervalTimer : public TimerListener
 {
@@ -31,37 +35,31 @@ public:
 	 */
 	static IntervalTimer * GetInstance();
 
-
 	/**
 	 * Add a recurring listener
 	 */
 	void addRegularListener(TimerListener * tl, int milliseconds);
-
 
 	/**
 	 * Add a one-time listener
 	 */
 	void addCallbackListener(TimerListener * tl, int milliseconds);
 
-
 	/**
 	 * Add a one-time or recurring listener
 	 */
 	void addListener(TimerListener * tl, int milliseconds, bool recurring);
-
 
 	/**
 	 * Remove a listener
 	 */
 	void removeListener(TimerListener * tl);
 
-
 	/**
 	 * Performs the remaining-tick calculations and calls handleTock()
 	 * if the interval is up.
 	 */
 	void handleTick(); 
-
 
 private:
 
@@ -77,18 +75,15 @@ private:
 		bool			_done;
 	};
 
-
 	/**
 	 * Recalculate ticks remaining on a given listener
 	 */
 	void resetTicksRemaining(ListenerProperties * lp);
 
-
 	/**
 	 * Clear all "done" timers
 	 */
 	void purgeDone();
-
 
 	static IntervalTimer * _intervalTimer;
 

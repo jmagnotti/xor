@@ -1,5 +1,7 @@
 #include "MouseEventFactory.h"
 
+#include <iostream>
+using namespace std;
 
 namespace XOR {
 
@@ -64,6 +66,7 @@ MouseEvent * MouseEventFactory::ConstructInstance(string event)
 
 SDL_Event * MouseEventFactory::ConstructSDLEvent(string event)
 {
+	//cout << "Attempting to build a mouse event from: " << event << endl;
 	char * result = NULL;
 	char delims[] = " ";
 
@@ -75,6 +78,7 @@ SDL_Event * MouseEventFactory::ConstructSDLEvent(string event)
 	int param3 = atoi(strtok(NULL, delims));
 
 	if (type == MouseEvent::MOUSE_MOTION) {
+		//cout << "Mouse Motion" << endl;
 		int param4 = atoi(strtok(NULL, delims));
         _sdlMouseMoveEvent.motion.x = xpos;
         _sdlMouseMoveEvent.motion.y = ypos;
@@ -84,6 +88,7 @@ SDL_Event * MouseEventFactory::ConstructSDLEvent(string event)
         return & _sdlMouseMoveEvent;
 	}
     else if (type == MouseEvent::MOUSE_BUTTON_UP) {
+		//cout << "Mouse Up" << endl;
         _sdlMouseUpEvent.button.x = xpos;
         _sdlMouseUpEvent.button.y = ypos;
         _sdlMouseUpEvent.button.button = param3;
@@ -91,6 +96,7 @@ SDL_Event * MouseEventFactory::ConstructSDLEvent(string event)
         return & _sdlMouseUpEvent;
 	}
     else {
+		//cout << "Mouse Down" << endl;
         _sdlMouseDownEvent.button.x = xpos;
         _sdlMouseDownEvent.button.y = ypos;
         _sdlMouseDownEvent.button.button = param3;

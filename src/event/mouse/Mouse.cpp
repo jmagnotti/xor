@@ -11,14 +11,10 @@ namespace XOR {
 Mouse::Mouse()
 {
     _cursorVisible = false;
-	_currentX = 0;
-	_currentY = 0;
-	_previousX = 0;
-	_previousY = 0;
+	_currentX  = 0; _currentY = 0;
+	_previousX = 0; _previousY = 0;
 
-	_leftButtonDown = false;
-	_rightButtonDown = false;
-	_middleButtonDown = false;
+	_leftButtonDown = false; _middleButtonDown = false; _rightButtonDown = false;
 
     setCursorVisibility(_cursorVisible);
 	_defaultMouseListener = NULL;
@@ -40,7 +36,6 @@ MouseListener * Mouse::setDefaultMouseListener(MouseListener * defaultListener)
 	return returnVal;
 }
 
-
 /*
  * adds a listener
  */
@@ -50,7 +45,6 @@ void Mouse::addListener(MouseListener * listener)
 		_listeners.push_back(listener);
 }
 
-
 /*
  * fire a click event
  */
@@ -58,7 +52,6 @@ void Mouse::click(SDL_Event * event)
 {
     fireEvent(MouseEventFactory::ConstructInstance(event));
 }
-
 
 /*
  * fire a move event
@@ -68,7 +61,6 @@ void Mouse::move(SDL_Event * event)
     fireEvent(MouseEventFactory::ConstructInstance(event));
 }
 
-
 /*
  * Force move
  */
@@ -77,7 +69,6 @@ void Mouse::ForceMove(int xpos, int ypos)
     SDL_WarpMouse(xpos, ypos);
 }
 
-
 /*
  * Pushes the SDL event onto the main event queue
  */
@@ -85,7 +76,6 @@ void Mouse::FireSDLEvent(SDL_Event * event)
 {
     SDL_PushEvent(event);
 }
-
 
 /*
  * updates state variables from a motion event.
@@ -98,7 +88,6 @@ void Mouse::updateFromEvent(MouseMotionEvent * mme)
     _currentX = mme->getXPosition();
     _currentY = mme->getYPosition();
 }
-
 
 /*
  * save state from a click event
@@ -125,7 +114,6 @@ void Mouse::updateFromEvent(MouseClickEvent * mce)
 	}
 }
 
-
 /*
  * sends an event to listeners
  */
@@ -146,7 +134,6 @@ void Mouse::notifyListeners(MouseEvent * me)
     }
 }
 
-
 /*
  * Removes the mouselistener from the pool
  */
@@ -166,7 +153,6 @@ void Mouse::removeListener(MouseListener * ml)
     }
 }
 
-
 /*
  * sets the visibility of the cursor
  */
@@ -178,7 +164,6 @@ void Mouse::setCursorVisibility(bool show)
     }
 }
 
-
 /*
  * current X accessor
  */
@@ -186,7 +171,6 @@ int Mouse::getCurrentX()
 {
 	return _currentX;
 }
-
 
 /*
  * current Y accessor
@@ -196,7 +180,6 @@ int Mouse::getCurrentY()
 	return _currentY;
 }
 
-
 /*
  * previous X accessor
  */
@@ -204,7 +187,6 @@ int Mouse::getPreviousX()
 {
 	return _previousX;
 }
-
 
 /*
  * previous Y accessor
@@ -214,7 +196,6 @@ int Mouse::getPreviousY()
 	return _previousY;
 }
 
-
 /*
  * left button status accessor
  */
@@ -222,7 +203,6 @@ bool Mouse::isLeftButtonDown()
 {
 	return _leftButtonDown;
 }
-
 
 /*
  * right button status accessor
@@ -232,7 +212,6 @@ bool Mouse::isRightButtonDown()
 	return _rightButtonDown;
 }
 
-
 /*
  * middle button status accessor
  */
@@ -240,7 +219,6 @@ bool Mouse::isMiddleButtonDown()
 {
 	return _middleButtonDown;
 }
-
 
 }
 

@@ -126,7 +126,7 @@ void Controller::defaultSDLGLConfiguration()
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 
     // supposedly this is only needed on non-OS X setups
-    // set the framebuffer size for R,G,B, & A
+    // set the framebuffer size for R, G, B, & A
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
@@ -226,9 +226,12 @@ void Controller::run(void)
 {
 	_camera->handleReshape((int) _window->getSize()->getWidth(),
 			(int)_window->getSize()->getHeight());
+	//cout << "First Reshape" << endl;
 
     // start ticking
     _timer->start();
+
+	//cout << "Timer Started" << endl;
 
     // sit around and wait for something to do 
     Controller::EventLoop();
