@@ -26,11 +26,6 @@ class IntervalTimer : public TimerListener
 public:
 
 	/**
-	 * Default constructor
-	 */
-	IntervalTimer();
-
-	/**
 	 * Singleton accessor
 	 */
 	static IntervalTimer * GetInstance();
@@ -88,6 +83,11 @@ private:
 	static IntervalTimer * _intervalTimer;
 
 	list<ListenerProperties*> listeners;
+
+	/**
+	 * Default constructor
+	 */
+	IntervalTimer();
 
 };
 

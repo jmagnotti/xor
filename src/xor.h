@@ -136,6 +136,7 @@
 #include "util/Logger.h"
 #include "util/PointScale.h"
 #include "util/xmlParser.h"
+#include "audio/AudioPlayer.h"
 
 #endif			// XOR_H
 

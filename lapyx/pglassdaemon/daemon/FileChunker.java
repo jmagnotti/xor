@@ -24,7 +24,7 @@ public class FileChunker {
 		// then create the byte array
 		if(file.exists()) {
 			filename = file.getName();
-			FileInputStream fis;
+			final FileInputStream fis;
 			//debug
 			size = (int) file.length();
 			System.out.println("Creating new byte array with length of " + file.length()
@@ -35,7 +35,8 @@ public class FileChunker {
 				// debug
 				System.out.println("Populating array...");
 				int bytesread = fis.read(data);
-				System.out.println("Read " + bytesread + " bytes.");
+				System.out.println("Read " + bytesread + " bytes of " + file.length() + " total.");
+				fis.close();
 			} catch (FileNotFoundException fnfe) {
 				// should never hit this
 			} catch (IOException ioe) {

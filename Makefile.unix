@@ -10,7 +10,7 @@ LIBS = -lGL -lGLU -lSDL -lSDL_image -lm
 LIBDIR = /usr/lib
 
 #Packages
-SRCS = src/core/Camera.cpp src/core/Controller.cpp src/core/DebugCamera.cpp src/core/Window.cpp src/core/World.cpp src/core/XavierConfiguration.cpp src/event/DelayedAction.cpp src/event/FullEventHandlerFactory.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/ContinuousAction.cpp src/event/InputEventProxyFactory.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/mouse/MouseStub.cpp src/event/reshape/ReshapeEvent.cpp src/event/timer/IntervalTimer.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/TimerStub.cpp src/event/timer/TimerListenerManager.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Containment.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/Waypoint.cpp src/interpolation/WaypointCollection.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/multicast/mcsend.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/object2D/Object2D.cpp src/object2D/Rectangle2D.cpp src/object2D/String2D.cpp src/object2D/Transformable2D.cpp src/object3D/AdornablePrism.cpp src/object3D/Arc3D.cpp src/object3D/CompiledObject3D.cpp src/object3D/Cube.cpp src/object3D/ExtrudedNormalPolygon3D.cpp src/object3D/NoDepthTestQuadrilateral3D.cpp src/object3D/NormalPolygon3D.cpp src/object3D/Object3D.cpp src/object3D/Object3DCollection.cpp src/object3D/Particle.cpp src/object3D/Point3D.cpp src/object3D/Quadrilateral3D.cpp src/object3D/RectangularPrism.cpp src/object3D/Sprite3D.cpp src/object3D/Transformable3D.cpp src/object3D/Triangle3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/terrain/HeightFieldFactory.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/transform/CoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/IdentityTransform.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/MacCoordinateSystem.cpp src/transform/MathCoordinateSystem.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/Orientation.cpp src/transform/Rotate.cpp src/transform/Scale.cpp src/transform/Stretch.cpp src/transform/Transform.cpp src/transform/Transformable.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp src/util/Logger.cpp src/util/PointScale.cpp src/util/xmlParser.cpp 
+SRCS = src/core/Camera.cpp src/core/Controller.cpp src/core/DebugCamera.cpp src/core/Window.cpp src/core/World.cpp src/core/XavierConfiguration.cpp src/event/DelayedAction.cpp src/event/FullEventHandlerFactory.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/ContinuousAction.cpp src/event/InputEventProxyFactory.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/mouse/MouseStub.cpp src/event/reshape/ReshapeEvent.cpp src/event/timer/IntervalTimer.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/TimerStub.cpp src/event/timer/TimerListenerManager.cpp src/event/EventRecorderFactory.cpp src/event/EventPlayerFactory.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/geometry/Containment.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/Waypoint.cpp src/interpolation/WaypointCollection.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/multicast/mcsend.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/object2D/Object2D.cpp src/object2D/Rectangle2D.cpp src/object2D/String2D.cpp src/object2D/Transformable2D.cpp src/object3D/AdornablePrism.cpp src/object3D/Arc3D.cpp src/object3D/CompiledObject3D.cpp src/object3D/Cube.cpp src/object3D/ExtrudedNormalPolygon3D.cpp src/object3D/NoDepthTestQuadrilateral3D.cpp src/object3D/NormalPolygon3D.cpp src/object3D/Object3D.cpp src/object3D/Object3DCollection.cpp src/object3D/Particle.cpp src/object3D/Point3D.cpp src/object3D/Quadrilateral3D.cpp src/object3D/RectangularPrism.cpp src/object3D/Sprite3D.cpp src/object3D/Transformable3D.cpp src/object3D/Triangle3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/terrain/HeightFieldFactory.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/transform/CoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/IdentityTransform.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/MacCoordinateSystem.cpp src/transform/MathCoordinateSystem.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/Orientation.cpp src/transform/Rotate.cpp src/transform/Scale.cpp src/transform/Stretch.cpp src/transform/Transform.cpp src/transform/Transformable.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp src/util/Logger.cpp src/util/PointScale.cpp src/util/xmlParser.cpp src/audio/AudioPlayer.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -2051,7 +2051,13 @@ src/event/timer/IntervalTimer.o: src/transform/LeftOpenGLCoordinateSystem.h
 src/event/timer/IntervalTimer.o: src/transform/EngineerCoordinateSystem.h
 src/event/timer/IntervalTimer.o: src/event/timer/TimerListener.h
 src/event/timer/IntervalTimer.o: src/event/reshape/ReshapeEvent.h
-src/event/timer/Timer.o: src/event/timer/Timer.h
+src/event/timer/Timer.o: src/event/timer/Timer.h /usr/include/math.h
+src/event/timer/Timer.o: /usr/include/features.h /usr/include/sys/cdefs.h
+src/event/timer/Timer.o: /usr/include/bits/wordsize.h
+src/event/timer/Timer.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/event/timer/Timer.o: /usr/include/bits/huge_val.h
+src/event/timer/Timer.o: /usr/include/bits/mathdef.h
+src/event/timer/Timer.o: /usr/include/bits/mathcalls.h
 src/event/timer/TimerSkeleton.o: src/event/timer/TimerSkeleton.h
 src/event/timer/TimerSkeleton.o: include/SDL_thread.h include/SDL_main.h
 src/event/timer/TimerSkeleton.o: include/SDL_types.h include/SDL_mutex.h
@@ -2408,6 +2414,305 @@ src/event/timer/TimerListenerManager.o: src/transform/LeftOpenGLCoordinateSystem
 src/event/timer/TimerListenerManager.o: src/transform/EngineerCoordinateSystem.h
 src/event/timer/TimerListenerManager.o: src/event/timer/TimerListener.h
 src/event/timer/TimerListenerManager.o: src/event/reshape/ReshapeEvent.h
+src/event/EventRecorderFactory.o: src/event/EventRecorderFactory.h
+src/event/EventRecorderFactory.o: src/core/Controller.h include/SDL.h
+src/event/EventRecorderFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/EventRecorderFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/EventRecorderFactory.o: include/begin_code.h include/close_code.h
+src/event/EventRecorderFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/EventRecorderFactory.o: /usr/include/features.h
+src/event/EventRecorderFactory.o: /usr/include/sys/cdefs.h
+src/event/EventRecorderFactory.o: /usr/include/bits/wordsize.h
+src/event/EventRecorderFactory.o: /usr/include/gnu/stubs.h
+src/event/EventRecorderFactory.o: /usr/include/gnu/stubs-32.h
+src/event/EventRecorderFactory.o: /usr/include/bits/types.h
+src/event/EventRecorderFactory.o: /usr/include/bits/typesizes.h
+src/event/EventRecorderFactory.o: /usr/include/libio.h
+src/event/EventRecorderFactory.o: /usr/include/_G_config.h
+src/event/EventRecorderFactory.o: /usr/include/wchar.h
+src/event/EventRecorderFactory.o: /usr/include/bits/wchar.h
+src/event/EventRecorderFactory.o: /usr/include/gconv.h
+src/event/EventRecorderFactory.o: /usr/include/bits/stdio_lim.h
+src/event/EventRecorderFactory.o: /usr/include/bits/sys_errlist.h
+src/event/EventRecorderFactory.o: include/SDL_timer.h include/SDL_audio.h
+src/event/EventRecorderFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/EventRecorderFactory.o: include/SDL_joystick.h include/SDL_events.h
+src/event/EventRecorderFactory.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/EventRecorderFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/EventRecorderFactory.o: include/SDL_video.h include/SDL_mutex.h
+src/event/EventRecorderFactory.o: include/SDL_quit.h include/SDL_version.h
+src/event/EventRecorderFactory.o: src/event/EventFactory.h
+src/event/EventRecorderFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventRecorderFactory.o: /usr/include/stdlib.h
+src/event/EventRecorderFactory.o: /usr/include/sys/types.h
+src/event/EventRecorderFactory.o: /usr/include/time.h /usr/include/endian.h
+src/event/EventRecorderFactory.o: /usr/include/bits/endian.h
+src/event/EventRecorderFactory.o: /usr/include/sys/select.h
+src/event/EventRecorderFactory.o: /usr/include/bits/select.h
+src/event/EventRecorderFactory.o: /usr/include/bits/sigset.h
+src/event/EventRecorderFactory.o: /usr/include/bits/time.h
+src/event/EventRecorderFactory.o: /usr/include/sys/sysmacros.h
+src/event/EventRecorderFactory.o: /usr/include/bits/pthreadtypes.h
+src/event/EventRecorderFactory.o: /usr/include/alloca.h include/SDL.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyboardListener.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyEvent.h
+src/event/EventRecorderFactory.o: /usr/include/string.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyEventFactory.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyDownEvent.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyUpEvent.h
+src/event/EventRecorderFactory.o: src/event/mouse/Mouse.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseListener.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseEvent.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseEventFactory.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseButtonDown.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseClickEvent.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseButtonUp.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseMotionEvent.h
+src/event/EventRecorderFactory.o: src/event/timer/Timer.h
+src/event/EventRecorderFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventRecorderFactory.o: src/event/mouse/Mouse.h
+src/event/EventRecorderFactory.o: src/event/timer/Timer.h /usr/include/math.h
+src/event/EventRecorderFactory.o: /usr/include/bits/huge_val.h
+src/event/EventRecorderFactory.o: /usr/include/bits/mathdef.h
+src/event/EventRecorderFactory.o: /usr/include/bits/mathcalls.h
+src/event/EventRecorderFactory.o: src/event/timer/TimerListener.h
+src/event/EventRecorderFactory.o: src/core/Window.h
+src/event/EventRecorderFactory.o: src/event/reshape/ReshapeListener.h
+src/event/EventRecorderFactory.o: src/event/reshape/ReshapeEvent.h
+src/event/EventRecorderFactory.o: src/geometry/Dimension2D.h
+src/event/EventRecorderFactory.o: src/geometry/Dimension.h
+src/event/EventRecorderFactory.o: src/geometry/Dimension2D.h
+src/event/EventRecorderFactory.o: src/geometry/Vector2D.h
+src/event/EventRecorderFactory.o: src/core/Renderable.h src/core/World.h
+src/event/EventRecorderFactory.o: src/util/Logger.h src/object3D/Object3D.h
+src/event/EventRecorderFactory.o: src/geometry/Vector3D.h
+src/event/EventRecorderFactory.o: src/geometry/Dimension3D.h
+src/event/EventRecorderFactory.o: src/geometry/Vector3D.h src/paint/Paint.h
+src/event/EventRecorderFactory.o: src/texture/Texture.h include/SDL_image.h
+src/event/EventRecorderFactory.o: include/SDL.h include/SDL_opengl.h
+src/event/EventRecorderFactory.o: /usr/include/GL/gl.h
+src/event/EventRecorderFactory.o: /usr/include/GL/glext.h
+src/event/EventRecorderFactory.o: /usr/include/GL/glu.h src/paint/Color.h
+src/event/EventRecorderFactory.o: src/core/Renderable.h
+src/event/EventRecorderFactory.o: src/object3D/Point3D.h
+src/event/EventRecorderFactory.o: src/object3D/Object3D.h
+src/event/EventRecorderFactory.o: src/core/XavierConfiguration.h
+src/event/EventRecorderFactory.o: src/transform/CoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/Transform.h
+src/event/EventRecorderFactory.o: src/transform/Rotate.h
+src/event/EventRecorderFactory.o: src/transform/Translate.h
+src/event/EventRecorderFactory.o: src/event/Action.h
+src/event/EventRecorderFactory.o: src/interpolation/InterpolatorFactory.h
+src/event/EventRecorderFactory.o: src/interpolation/Interpolator.h
+src/event/EventRecorderFactory.o: src/interpolation/LinearInterpolator.h
+src/event/EventRecorderFactory.o: src/util/GraphicsConversionUtility.h
+src/event/EventRecorderFactory.o: src/interpolation/Interpolator.h
+src/event/EventRecorderFactory.o: src/transform/Scale.h
+src/event/EventRecorderFactory.o: src/interpolation/InterpolationEngine.h
+src/event/EventRecorderFactory.o: src/interpolation/InterpolationListener.h
+src/event/EventRecorderFactory.o: src/interpolation/InterpolatorFactory.h
+src/event/EventRecorderFactory.o: src/event/InputEventProxyFactory.h
+src/event/EventRecorderFactory.o: src/event/EventFactory.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyboardStub.h
+src/event/EventRecorderFactory.o: src/multicast/MulticastSocket.h
+src/event/EventRecorderFactory.o: src/multicast/Multicast.h
+src/event/EventRecorderFactory.o: /usr/include/sys/socket.h
+src/event/EventRecorderFactory.o: /usr/include/sys/uio.h
+src/event/EventRecorderFactory.o: /usr/include/bits/uio.h
+src/event/EventRecorderFactory.o: /usr/include/bits/socket.h
+src/event/EventRecorderFactory.o: /usr/include/limits.h
+src/event/EventRecorderFactory.o: /usr/include/bits/posix1_lim.h
+src/event/EventRecorderFactory.o: /usr/include/bits/local_lim.h
+src/event/EventRecorderFactory.o: /usr/include/linux/limits.h
+src/event/EventRecorderFactory.o: /usr/include/bits/posix2_lim.h
+src/event/EventRecorderFactory.o: /usr/include/bits/sockaddr.h
+src/event/EventRecorderFactory.o: /usr/include/asm/socket.h
+src/event/EventRecorderFactory.o: /usr/include/asm-i386/socket.h
+src/event/EventRecorderFactory.o: /usr/include/asm/sockios.h
+src/event/EventRecorderFactory.o: /usr/include/asm-i386/sockios.h
+src/event/EventRecorderFactory.o: /usr/include/netinet/in.h
+src/event/EventRecorderFactory.o: /usr/include/stdint.h
+src/event/EventRecorderFactory.o: /usr/include/bits/in.h
+src/event/EventRecorderFactory.o: /usr/include/bits/byteswap.h
+src/event/EventRecorderFactory.o: /usr/include/arpa/inet.h
+src/event/EventRecorderFactory.o: /usr/include/unistd.h
+src/event/EventRecorderFactory.o: /usr/include/bits/posix_opt.h
+src/event/EventRecorderFactory.o: /usr/include/bits/confname.h
+src/event/EventRecorderFactory.o: /usr/include/getopt.h
+src/event/EventRecorderFactory.o: src/multicast/MulticastSocketPool.h
+src/event/EventRecorderFactory.o: src/multicast/MulticastSocket.h
+src/event/EventRecorderFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseStub.h
+src/event/EventRecorderFactory.o: src/event/mouse/Mouse.h
+src/event/EventRecorderFactory.o: src/event/timer/TimerStub.h
+src/event/EventRecorderFactory.o: src/event/timer/Timer.h src/paint/Color.h
+src/event/EventRecorderFactory.o: src/core/Camera.h
+src/event/EventRecorderFactory.o: src/transform/Orientation.h
+src/event/EventRecorderFactory.o: src/geometry/Containment.h
+src/event/EventRecorderFactory.o: src/transform/OrientationListener.h
+src/event/EventRecorderFactory.o: src/event/ContinuousAction.h
+src/event/EventRecorderFactory.o: src/event/Action.h
+src/event/EventRecorderFactory.o: src/event/timer/TimerListener.h
+src/event/EventRecorderFactory.o: src/event/timer/TimerListenerManager.h
+src/event/EventRecorderFactory.o: src/core/Controller.h
+src/event/EventRecorderFactory.o: src/transform/CoordinateSystemFactory.h
+src/event/EventRecorderFactory.o: src/transform/CoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/OpenGLCoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/MacCoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/MathCoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/event/EventRecorderFactory.o: src/transform/EngineerCoordinateSystem.h
+src/event/EventRecorderFactory.o: src/event/timer/TimerListener.h
+src/event/EventRecorderFactory.o: src/event/reshape/ReshapeEvent.h
+src/event/EventRecorderFactory.o: src/event/mouse/MouseListener.h
+src/event/EventRecorderFactory.o: src/event/keyboard/KeyboardListener.h
+src/event/EventPlayerFactory.o: src/event/EventPlayerFactory.h
+src/event/EventPlayerFactory.o: src/event/EventFactory.h
+src/event/EventPlayerFactory.o: src/event/EventRecorderFactory.h
+src/event/EventPlayerFactory.o: src/core/Controller.h include/SDL.h
+src/event/EventPlayerFactory.o: include/SDL_main.h include/SDL_types.h
+src/event/EventPlayerFactory.o: include/SDL_getenv.h include/SDL_error.h
+src/event/EventPlayerFactory.o: include/begin_code.h include/close_code.h
+src/event/EventPlayerFactory.o: include/SDL_rwops.h /usr/include/stdio.h
+src/event/EventPlayerFactory.o: /usr/include/features.h
+src/event/EventPlayerFactory.o: /usr/include/sys/cdefs.h
+src/event/EventPlayerFactory.o: /usr/include/bits/wordsize.h
+src/event/EventPlayerFactory.o: /usr/include/gnu/stubs.h
+src/event/EventPlayerFactory.o: /usr/include/gnu/stubs-32.h
+src/event/EventPlayerFactory.o: /usr/include/bits/types.h
+src/event/EventPlayerFactory.o: /usr/include/bits/typesizes.h
+src/event/EventPlayerFactory.o: /usr/include/libio.h /usr/include/_G_config.h
+src/event/EventPlayerFactory.o: /usr/include/wchar.h
+src/event/EventPlayerFactory.o: /usr/include/bits/wchar.h
+src/event/EventPlayerFactory.o: /usr/include/gconv.h
+src/event/EventPlayerFactory.o: /usr/include/bits/stdio_lim.h
+src/event/EventPlayerFactory.o: /usr/include/bits/sys_errlist.h
+src/event/EventPlayerFactory.o: include/SDL_timer.h include/SDL_audio.h
+src/event/EventPlayerFactory.o: include/SDL_byteorder.h include/SDL_cdrom.h
+src/event/EventPlayerFactory.o: include/SDL_joystick.h include/SDL_events.h
+src/event/EventPlayerFactory.o: include/SDL_active.h include/SDL_keyboard.h
+src/event/EventPlayerFactory.o: include/SDL_keysym.h include/SDL_mouse.h
+src/event/EventPlayerFactory.o: include/SDL_video.h include/SDL_mutex.h
+src/event/EventPlayerFactory.o: include/SDL_quit.h include/SDL_version.h
+src/event/EventPlayerFactory.o: src/event/EventFactory.h
+src/event/EventPlayerFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventPlayerFactory.o: /usr/include/stdlib.h
+src/event/EventPlayerFactory.o: /usr/include/sys/types.h /usr/include/time.h
+src/event/EventPlayerFactory.o: /usr/include/endian.h
+src/event/EventPlayerFactory.o: /usr/include/bits/endian.h
+src/event/EventPlayerFactory.o: /usr/include/sys/select.h
+src/event/EventPlayerFactory.o: /usr/include/bits/select.h
+src/event/EventPlayerFactory.o: /usr/include/bits/sigset.h
+src/event/EventPlayerFactory.o: /usr/include/bits/time.h
+src/event/EventPlayerFactory.o: /usr/include/sys/sysmacros.h
+src/event/EventPlayerFactory.o: /usr/include/bits/pthreadtypes.h
+src/event/EventPlayerFactory.o: /usr/include/alloca.h include/SDL.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyboardListener.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyEvent.h
+src/event/EventPlayerFactory.o: /usr/include/string.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyEventFactory.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyDownEvent.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyUpEvent.h
+src/event/EventPlayerFactory.o: src/event/mouse/Mouse.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseListener.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseEvent.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseEventFactory.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseButtonDown.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseClickEvent.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseButtonUp.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseMotionEvent.h
+src/event/EventPlayerFactory.o: src/event/timer/Timer.h
+src/event/EventPlayerFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventPlayerFactory.o: src/event/mouse/Mouse.h
+src/event/EventPlayerFactory.o: src/event/timer/Timer.h /usr/include/math.h
+src/event/EventPlayerFactory.o: /usr/include/bits/huge_val.h
+src/event/EventPlayerFactory.o: /usr/include/bits/mathdef.h
+src/event/EventPlayerFactory.o: /usr/include/bits/mathcalls.h
+src/event/EventPlayerFactory.o: src/event/timer/TimerListener.h
+src/event/EventPlayerFactory.o: src/core/Window.h
+src/event/EventPlayerFactory.o: src/event/reshape/ReshapeListener.h
+src/event/EventPlayerFactory.o: src/event/reshape/ReshapeEvent.h
+src/event/EventPlayerFactory.o: src/geometry/Dimension2D.h
+src/event/EventPlayerFactory.o: src/geometry/Dimension.h
+src/event/EventPlayerFactory.o: src/geometry/Dimension2D.h
+src/event/EventPlayerFactory.o: src/geometry/Vector2D.h src/core/Renderable.h
+src/event/EventPlayerFactory.o: src/core/World.h src/util/Logger.h
+src/event/EventPlayerFactory.o: src/object3D/Object3D.h
+src/event/EventPlayerFactory.o: src/geometry/Vector3D.h
+src/event/EventPlayerFactory.o: src/geometry/Dimension3D.h
+src/event/EventPlayerFactory.o: src/geometry/Vector3D.h src/paint/Paint.h
+src/event/EventPlayerFactory.o: src/texture/Texture.h include/SDL_image.h
+src/event/EventPlayerFactory.o: include/SDL.h include/SDL_opengl.h
+src/event/EventPlayerFactory.o: /usr/include/GL/gl.h /usr/include/GL/glext.h
+src/event/EventPlayerFactory.o: /usr/include/GL/glu.h src/paint/Color.h
+src/event/EventPlayerFactory.o: src/core/Renderable.h src/object3D/Point3D.h
+src/event/EventPlayerFactory.o: src/object3D/Object3D.h
+src/event/EventPlayerFactory.o: src/core/XavierConfiguration.h
+src/event/EventPlayerFactory.o: src/transform/CoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/Transform.h
+src/event/EventPlayerFactory.o: src/transform/Rotate.h
+src/event/EventPlayerFactory.o: src/transform/Translate.h src/event/Action.h
+src/event/EventPlayerFactory.o: src/interpolation/InterpolatorFactory.h
+src/event/EventPlayerFactory.o: src/interpolation/Interpolator.h
+src/event/EventPlayerFactory.o: src/interpolation/LinearInterpolator.h
+src/event/EventPlayerFactory.o: src/util/GraphicsConversionUtility.h
+src/event/EventPlayerFactory.o: src/interpolation/Interpolator.h
+src/event/EventPlayerFactory.o: src/transform/Scale.h
+src/event/EventPlayerFactory.o: src/interpolation/InterpolationEngine.h
+src/event/EventPlayerFactory.o: src/interpolation/InterpolationListener.h
+src/event/EventPlayerFactory.o: src/interpolation/InterpolatorFactory.h
+src/event/EventPlayerFactory.o: src/event/InputEventProxyFactory.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyboardStub.h
+src/event/EventPlayerFactory.o: src/multicast/MulticastSocket.h
+src/event/EventPlayerFactory.o: src/multicast/Multicast.h
+src/event/EventPlayerFactory.o: /usr/include/sys/socket.h
+src/event/EventPlayerFactory.o: /usr/include/sys/uio.h
+src/event/EventPlayerFactory.o: /usr/include/bits/uio.h
+src/event/EventPlayerFactory.o: /usr/include/bits/socket.h
+src/event/EventPlayerFactory.o: /usr/include/limits.h
+src/event/EventPlayerFactory.o: /usr/include/bits/posix1_lim.h
+src/event/EventPlayerFactory.o: /usr/include/bits/local_lim.h
+src/event/EventPlayerFactory.o: /usr/include/linux/limits.h
+src/event/EventPlayerFactory.o: /usr/include/bits/posix2_lim.h
+src/event/EventPlayerFactory.o: /usr/include/bits/sockaddr.h
+src/event/EventPlayerFactory.o: /usr/include/asm/socket.h
+src/event/EventPlayerFactory.o: /usr/include/asm-i386/socket.h
+src/event/EventPlayerFactory.o: /usr/include/asm/sockios.h
+src/event/EventPlayerFactory.o: /usr/include/asm-i386/sockios.h
+src/event/EventPlayerFactory.o: /usr/include/netinet/in.h
+src/event/EventPlayerFactory.o: /usr/include/stdint.h /usr/include/bits/in.h
+src/event/EventPlayerFactory.o: /usr/include/bits/byteswap.h
+src/event/EventPlayerFactory.o: /usr/include/arpa/inet.h
+src/event/EventPlayerFactory.o: /usr/include/unistd.h
+src/event/EventPlayerFactory.o: /usr/include/bits/posix_opt.h
+src/event/EventPlayerFactory.o: /usr/include/bits/confname.h
+src/event/EventPlayerFactory.o: /usr/include/getopt.h
+src/event/EventPlayerFactory.o: src/multicast/MulticastSocketPool.h
+src/event/EventPlayerFactory.o: src/multicast/MulticastSocket.h
+src/event/EventPlayerFactory.o: src/event/keyboard/Keyboard.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseStub.h
+src/event/EventPlayerFactory.o: src/event/mouse/Mouse.h
+src/event/EventPlayerFactory.o: src/event/timer/TimerStub.h
+src/event/EventPlayerFactory.o: src/event/timer/Timer.h src/paint/Color.h
+src/event/EventPlayerFactory.o: src/core/Camera.h src/transform/Orientation.h
+src/event/EventPlayerFactory.o: src/geometry/Containment.h
+src/event/EventPlayerFactory.o: src/transform/OrientationListener.h
+src/event/EventPlayerFactory.o: src/event/ContinuousAction.h
+src/event/EventPlayerFactory.o: src/event/Action.h
+src/event/EventPlayerFactory.o: src/event/timer/TimerListener.h
+src/event/EventPlayerFactory.o: src/event/timer/TimerListenerManager.h
+src/event/EventPlayerFactory.o: src/core/Controller.h
+src/event/EventPlayerFactory.o: src/transform/CoordinateSystemFactory.h
+src/event/EventPlayerFactory.o: src/transform/CoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/OpenGLCoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/MacCoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/MathCoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/LeftOpenGLCoordinateSystem.h
+src/event/EventPlayerFactory.o: src/transform/EngineerCoordinateSystem.h
+src/event/EventPlayerFactory.o: src/event/timer/TimerListener.h
+src/event/EventPlayerFactory.o: src/event/reshape/ReshapeEvent.h
+src/event/EventPlayerFactory.o: src/event/mouse/MouseListener.h
+src/event/EventPlayerFactory.o: src/event/keyboard/KeyboardListener.h
 src/geometry/Dimension.o: src/geometry/Dimension.h
 src/geometry/Dimension2D.o: src/geometry/Dimension2D.h
 src/geometry/Dimension2D.o: src/geometry/Dimension.h
@@ -6337,3 +6642,19 @@ src/util/xmlParser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 src/util/xmlParser.o: /usr/include/sys/sysmacros.h
 src/util/xmlParser.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
 src/util/xmlParser.o: src/util/xmlParser.h
+src/audio/AudioPlayer.o: src/audio/AudioPlayer.h include/SDL_mixer.h
+src/audio/AudioPlayer.o: include/SDL_types.h include/SDL_rwops.h
+src/audio/AudioPlayer.o: /usr/include/stdio.h /usr/include/features.h
+src/audio/AudioPlayer.o: /usr/include/sys/cdefs.h
+src/audio/AudioPlayer.o: /usr/include/bits/wordsize.h
+src/audio/AudioPlayer.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h
+src/audio/AudioPlayer.o: /usr/include/bits/types.h
+src/audio/AudioPlayer.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+src/audio/AudioPlayer.o: /usr/include/_G_config.h /usr/include/wchar.h
+src/audio/AudioPlayer.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+src/audio/AudioPlayer.o: /usr/include/bits/stdio_lim.h
+src/audio/AudioPlayer.o: /usr/include/bits/sys_errlist.h include/begin_code.h
+src/audio/AudioPlayer.o: include/close_code.h include/SDL_audio.h
+src/audio/AudioPlayer.o: include/SDL_main.h include/SDL_error.h
+src/audio/AudioPlayer.o: include/SDL_byteorder.h include/SDL_endian.h
+src/audio/AudioPlayer.o: include/SDL_version.h

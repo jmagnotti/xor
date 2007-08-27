@@ -16,7 +16,7 @@ public class PhotoSender extends XORDataSocket
 		sendString(numpics.toString());
 		for(int i = 0; i < numpics; i++)
 		{
-			System.out.println("=========Sending pic " + i + "==============");
+			System.out.println("=========Sending pic " + i + " named: " + pics.get(i).getName() + "==");
 			sendPicture(pics.get(i));
 			try {
 				Thread.sleep(10);
