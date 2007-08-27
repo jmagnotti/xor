@@ -27,7 +27,7 @@ public:
         _orientation->moveAlongFocalVector(_amount);
     }
 
-    inline void changeAmount(float delta)
+    inline void incrementAmount(float delta)
     {
         _amount += delta;
     }
@@ -83,11 +83,17 @@ void Orientation::notifyPositionChange(Vector3D * delta, Vector3D * newPosition)
 
     int which;
 
+	//cout << "." << endl;
+	//cout << newPosition->toString() << endl;
+	//cout << "." << endl;
+
     while (iter != finish) {
         ++next;
 
+
         // which is a mask containing the sides that need to be truncated
         which = (*iter)->handlePositionChange(newPosition);
+
 		if (which > 0) {
 			if ((which & Containment::X) == Containment::X)
 				delta->setPosition(Vector3D::X, 0);

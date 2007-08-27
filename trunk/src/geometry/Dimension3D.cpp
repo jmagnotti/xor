@@ -19,8 +19,7 @@ Dimension3D::Dimension3D()
 /*
  * Explicit Constructor
  */
-Dimension3D::Dimension3D(float rad)
-{
+Dimension3D::Dimension3D(float rad) {
     _dimension = new float[3];
 
     for (int i=0; i<3; i++)
@@ -93,7 +92,9 @@ float Dimension3D::get(const int dimension)
 
 char * Dimension3D::toString()
 {
-    Vector3D * temp = toVector();
+    static Vector3D * temp;
+	temp = toVector();
+
     return temp->toString();
 }
 

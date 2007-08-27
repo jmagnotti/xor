@@ -1,0 +1,254 @@
+#Makefile for helloworld demo, *nix
+#
+CC = g++
+
+LIBS = -lSDL -lGL -lGLU -lm -lXOR
+
+#Packages
+SRCS = HelloWorld.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+MAIN = HelloWorld
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+HelloWorld:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.unix 2>/dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+HelloWorld.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
+HelloWorld.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
+HelloWorld.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
+HelloWorld.o: ../../../include/begin_code.h ../../../include/close_code.h
+HelloWorld.o: ../../../include/SDL_rwops.h /usr/include/stdio.h
+HelloWorld.o: /usr/include/features.h /usr/include/sys/cdefs.h
+HelloWorld.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+HelloWorld.o: /usr/include/gnu/stubs-32.h /usr/include/bits/types.h
+HelloWorld.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+HelloWorld.o: /usr/include/_G_config.h /usr/include/wchar.h
+HelloWorld.o: /usr/include/bits/wchar.h /usr/include/gconv.h
+HelloWorld.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+HelloWorld.o: ../../../include/SDL_timer.h ../../../include/SDL_audio.h
+HelloWorld.o: ../../../include/SDL_byteorder.h ../../../include/SDL_cdrom.h
+HelloWorld.o: ../../../include/SDL_joystick.h ../../../include/SDL_events.h
+HelloWorld.o: ../../../include/SDL_active.h ../../../include/SDL_keyboard.h
+HelloWorld.o: ../../../include/SDL_keysym.h ../../../include/SDL_mouse.h
+HelloWorld.o: ../../../include/SDL_video.h ../../../include/SDL_mutex.h
+HelloWorld.o: ../../../include/SDL_quit.h ../../../include/SDL_version.h
+HelloWorld.o: ../../../include/SDL_opengl.h /usr/include/GL/gl.h
+HelloWorld.o: /usr/include/GL/glext.h /usr/include/GL/glu.h
+HelloWorld.o: ../../core/World.h /usr/include/stdlib.h
+HelloWorld.o: /usr/include/sys/types.h /usr/include/time.h
+HelloWorld.o: /usr/include/endian.h /usr/include/bits/endian.h
+HelloWorld.o: /usr/include/sys/select.h /usr/include/bits/select.h
+HelloWorld.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+HelloWorld.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+HelloWorld.o: /usr/include/alloca.h ../../util/Logger.h
+HelloWorld.o: ../../core/Renderable.h ../../object3D/Object3D.h
+HelloWorld.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+HelloWorld.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+HelloWorld.o: ../../paint/Paint.h /usr/include/string.h
+HelloWorld.o: ../../texture/Texture.h ../../../include/SDL_image.h
+HelloWorld.o: ../../../include/SDL.h ../../geometry/Vector2D.h
+HelloWorld.o: ../../paint/Color.h ../../core/Renderable.h ../../core/Window.h
+HelloWorld.o: ../../event/reshape/ReshapeListener.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../../include/SDL.h
+HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+HelloWorld.o: ../../core/CameraListener.h ../../paint/Color.h
+HelloWorld.o: ../../transform/Orientation.h ../../transform/Transform.h
+HelloWorld.o: ../../transform/Translate.h ../../event/timer/Timer.h
+HelloWorld.o: /usr/include/math.h /usr/include/bits/huge_val.h
+HelloWorld.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+HelloWorld.o: ../../event/timer/TimerListener.h ../../event/Action.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h
+HelloWorld.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+HelloWorld.o: ../../event/ContinuousAction.h ../../event/Action.h
+HelloWorld.o: ../../event/timer/TimerListener.h
+HelloWorld.o: ../../event/timer/TimerListenerManager.h
+HelloWorld.o: ../../event/timer/Timer.h ../../core/Controller.h
+HelloWorld.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/keyboard/KeyboardListener.h
+HelloWorld.o: ../../event/keyboard/KeyEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
+HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../event/mouse/MouseListener.h
+HelloWorld.o: ../../event/mouse/MouseEvent.h
+HelloWorld.o: ../../event/mouse/MouseEventFactory.h
+HelloWorld.o: ../../event/mouse/MouseButtonDown.h
+HelloWorld.o: ../../event/mouse/MouseClickEvent.h
+HelloWorld.o: ../../event/mouse/MouseButtonUp.h
+HelloWorld.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+HelloWorld.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+HelloWorld.o: ../../core/XavierConfiguration.h
+HelloWorld.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+HelloWorld.o: /usr/include/sys/socket.h /usr/include/sys/uio.h
+HelloWorld.o: /usr/include/bits/uio.h /usr/include/bits/socket.h
+HelloWorld.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+HelloWorld.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+HelloWorld.o: /usr/include/bits/posix2_lim.h /usr/include/bits/sockaddr.h
+HelloWorld.o: /usr/include/asm/socket.h /usr/include/asm-i386/socket.h
+HelloWorld.o: /usr/include/asm/sockios.h /usr/include/asm-i386/sockios.h
+HelloWorld.o: /usr/include/netinet/in.h /usr/include/stdint.h
+HelloWorld.o: /usr/include/bits/in.h /usr/include/bits/byteswap.h
+HelloWorld.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+HelloWorld.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+HelloWorld.o: /usr/include/getopt.h ../../multicast/MulticastSocketPool.h
+HelloWorld.o: ../../multicast/MulticastSocket.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+HelloWorld.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+HelloWorld.o: ../../core/Camera.h ../../transform/CoordinateSystemFactory.h
+HelloWorld.o: ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/MacCoordinateSystem.h
+HelloWorld.o: ../../transform/MathCoordinateSystem.h
+HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
+HelloWorld.o: ../../event/timer/TimerListener.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+HelloWorld.o: ../../core/Controller.h ../../core/DebugCamera.h
+HelloWorld.o: ../../core/Controller.h ../../core/Renderable.h
+HelloWorld.o: ../../core/Window.h ../../core/World.h
+HelloWorld.o: ../../core/XavierConfiguration.h ../../event/Action.h
+HelloWorld.o: ../../event/DelayedAction.h ../../event/timer/IntervalTimer.h
+HelloWorld.o: ../../event/EventFactory.h
+HelloWorld.o: ../../event/FullEventHandlerFactory.h
+HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
+HelloWorld.o: ../../../include/SDL_thread.h ../../event/mouse/MouseSkeleton.h
+HelloWorld.o: ../../event/timer/TimerSkeleton.h
+HelloWorld.o: ../../event/FullEventProxyFactory.h
+HelloWorld.o: ../../event/InputEventHandlerFactory.h
+HelloWorld.o: ../../event/InputEventProxyFactory.h
+HelloWorld.o: ../../event/ContinuousAction.h
+HelloWorld.o: ../../event/keyboard/DefaultKeyboardListener.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../core/Controller.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+HelloWorld.o: ../../event/keyboard/Keyboard.h
+HelloWorld.o: ../../event/keyboard/KeyboardListener.h
+HelloWorld.o: ../../event/keyboard/KeyboardSkeleton.h
+HelloWorld.o: ../../event/keyboard/KeyboardStub.h
+HelloWorld.o: ../../event/keyboard/KeyDownEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEvent.h
+HelloWorld.o: ../../event/keyboard/KeyEventFactory.h
+HelloWorld.o: ../../event/keyboard/KeyUpEvent.h
+HelloWorld.o: ../../event/keyboard/RegularKeyEvent.h
+HelloWorld.o: ../../event/keyboard/SpecialKeyEvent.h
+HelloWorld.o: ../../event/mouse/DefaultMouseListener.h
+HelloWorld.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+HelloWorld.o: ../../event/mouse/MouseButtonUp.h
+HelloWorld.o: ../../event/mouse/MouseClickEvent.h
+HelloWorld.o: ../../event/mouse/MouseEvent.h
+HelloWorld.o: ../../event/mouse/MouseEventFactory.h
+HelloWorld.o: ../../event/mouse/MouseListener.h
+HelloWorld.o: ../../event/mouse/MouseMotionEvent.h
+HelloWorld.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+HelloWorld.o: ../../event/reshape/ReshapeEvent.h
+HelloWorld.o: ../../event/reshape/ReshapeListener.h
+HelloWorld.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+HelloWorld.o: ../../event/timer/TimerListener.h
+HelloWorld.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+HelloWorld.o: ../../event/timer/TimerListenerManager.h
+HelloWorld.o: ../../geometry/CylindricalVolume.h ../../geometry/Dimension.h
+HelloWorld.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+HelloWorld.o: ../../geometry/RectangularVolume.h ../../geometry/Dimension3D.h
+HelloWorld.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+HelloWorld.o: ../../interpolation/CameraRoller.h
+HelloWorld.o: ../../interpolation/ContinuousInterpolation.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../interpolation/InterpolationEngine.h
+HelloWorld.o: ../../interpolation/InterpolationListener.h
+HelloWorld.o: ../../interpolation/Interpolator.h
+HelloWorld.o: ../../interpolation/InterpolatorFactory.h
+HelloWorld.o: ../../interpolation/LinearInterpolator.h
+HelloWorld.o: ../../interpolation/TimedInterpolation.h
+HelloWorld.o: ../../interpolation/Waypoint.h
+HelloWorld.o: ../../interpolation/WaypointCollection.h
+HelloWorld.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+HelloWorld.o: ../../model/Model.h ../../texture/TextureFactory.h
+HelloWorld.o: ../../texture/Texture.h ../../model/Model.h
+HelloWorld.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+HelloWorld.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+HelloWorld.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+HelloWorld.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+HelloWorld.o: ../../core/Window.h ../../object2D/Point2D.h
+HelloWorld.o: ../../object2D/Rectangle2D.h ../../object2D/Object2D.h
+HelloWorld.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+HelloWorld.o: ../../util/BitmapFontConstants.h
+HelloWorld.o: ../../object2D/Transformable2D.h
+HelloWorld.o: ../../transform/Transformable.h ../../transform/Transform.h
+HelloWorld.o: ../../object3D/AdornablePrism.h
+HelloWorld.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+HelloWorld.o: ../../geometry/RectangularVolume.h
+HelloWorld.o: ../../object3D/Object3DCollection.h
+HelloWorld.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+HelloWorld.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+HelloWorld.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+HelloWorld.o: ../../object3D/NormalPolygon3D.h
+HelloWorld.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+HelloWorld.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+HelloWorld.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+HelloWorld.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+HelloWorld.o: ../../object3D/RectangularPrism.h
+HelloWorld.o: ../../object3D/RectangularPrismFactory.h
+HelloWorld.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+HelloWorld.o: ../../object3D/Sprite3DListener.h
+HelloWorld.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+HelloWorld.o: ../../paint/Color.h ../../paint/Paint.h
+HelloWorld.o: ../../shape/CollisionRenderable.h
+HelloWorld.o: ../../terrain/FunctionHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+HelloWorld.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+HelloWorld.o: ../../terrain/HeightFieldFactory.h
+HelloWorld.o: ../../terrain/HeightFieldStrategy.h
+HelloWorld.o: ../../terrain/ImageHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/MatrixHeightFieldStrategy.h
+HelloWorld.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+HelloWorld.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+HelloWorld.o: ../../transform/CoordinateSystem.h
+HelloWorld.o: ../../transform/CoordinateSystemFactory.h
+HelloWorld.o: ../../transform/EngineerCoordinateSystem.h
+HelloWorld.o: ../../transform/IdentityTransform.h
+HelloWorld.o: ../../transform/LeftOpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/MacCoordinateSystem.h
+HelloWorld.o: ../../transform/MathCoordinateSystem.h
+HelloWorld.o: ../../transform/OpenGLCoordinateSystem.h
+HelloWorld.o: ../../transform/Orientation.h ../../transform/Rotate.h
+HelloWorld.o: ../../transform/Scale.h ../../transform/Stretch.h
+HelloWorld.o: ../../transform/Transform.h ../../transform/Transformable.h
+HelloWorld.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+HelloWorld.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+HelloWorld.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+HelloWorld.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+HelloWorld.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+HelloWorld.o: ../../util/PointScale.h ../../util/xmlParser.h

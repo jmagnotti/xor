@@ -12,7 +12,8 @@ public:
 
     ViewerBox(Vector3D * origin, Dimension3D * size, float buffer)
     {
-        _bounds = new RectangularVolume(origin, size); _buffer = buffer;
+        _bounds = new RectangularVolume(origin, size); 
+		_buffer = buffer;
     }
 
     /**
@@ -25,15 +26,14 @@ public:
         // fill the containment object with information
         _bounds->contains(container, *position + _buffer);
         _bounds->contains(container, *position - _buffer);
-
+		
 		// we always to stop Y movement
         unsigned int mask = container->getInverseMask() | Containment::Y;
         return mask; 
     }
 
-    inline void handleRotationChange(float angle, const Vector3D * axis)
-    {
-    }
+	inline void handleRotationChange(float angle, const Vector3D * axis)
+    {}
 
 private:
 
@@ -45,11 +45,44 @@ class Record : public XavierConfiguration
 {
 public:
 
+	unsigned int getTimerInterval()
+	{
+		return 10;
+	}
+
 	Record()
 	{}
 
+	const float * getBackgroundColor() {
+		return Color::BLACK;
+	}
 	EventFactory * getEventFactory() const {
 		return new EventRecorderFactory(InputEventProxyFactory::GetInstance());
+	}
+
+	bool isGLFogEnabled()
+	{
+		return false;
+	}
+
+	double getFarClip()
+	{
+		return 2000.0;
+	}
+
+	double getNearClip()
+	{
+		return .00001;
+	}
+
+	bool isFullscreen()
+	{
+		return true;
+	}
+
+	Dimension2D * getWindowSize() const 
+	{
+		return new Dimension2D(1680, 1050);
 	}
 };
 
@@ -76,7 +109,7 @@ public:
 		TextureFactory * tf = TextureFactory::GetInstance();
 		RectangularPrism * rp = new RectangularPrism(new Vector3D(-15,-4, 4),
 				new Dimension3D(30, 20, -1000),
-				new Paint(tf->createTexture("of_floor5.jpg")));
+				new Paint(tf->createTexture("of_floor3.jpg")));
 
 		ctrl->getCamera()->getOrientation()->addListener(
 				new ViewerBox(rp->getBaseVector(), rp->getDimension(), 1.0f));

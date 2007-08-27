@@ -259,7 +259,9 @@ PlayBack.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
 PlayBack.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
 PlayBack.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
 PlayBack.o: ../../util/PointScale.h ../../util/xmlParser.h
-PlayBack.o: DistanceEstimation.cpp SmoothMovementKeyHandler.h
+PlayBack.o: ../../audio/AudioPlayer.h ../../../include/SDL_mixer.h
+PlayBack.o: ../../../include/SDL_endian.h DistanceEstimation.cpp
+PlayBack.o: SmoothMovementKeyHandler.h
 Record.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
 Record.o: ../../../include/SDL_main.h ../../../include/SDL_types.h
 Record.o: ../../../include/SDL_getenv.h ../../../include/SDL_error.h
@@ -470,7 +472,9 @@ Record.o: ../../transform/TransformFactory.h ../../util/BitmapFontConstants.h
 Record.o: ../../util/BitmapFontUtil.h ../../util/FramesPerSecondCounter.h
 Record.o: ../../object2D/String2D.h ../../util/GraphicsConversionUtility.h
 Record.o: ../../util/Logger.h ../../util/PointScale.h ../../util/xmlParser.h
-Record.o: DistanceEstimation.cpp SmoothMovementKeyHandler.h
+Record.o: ../../audio/AudioPlayer.h ../../../include/SDL_mixer.h
+Record.o: ../../../include/SDL_endian.h DistanceEstimation.cpp
+Record.o: SmoothMovementKeyHandler.h
 DistanceEstimation.o: ../../xor.h ../../core/Camera.h ../../../include/SDL.h
 DistanceEstimation.o: ../../../include/SDL_main.h
 DistanceEstimation.o: ../../../include/SDL_types.h
@@ -750,7 +754,10 @@ DistanceEstimation.o: ../../util/FramesPerSecondCounter.h
 DistanceEstimation.o: ../../object2D/String2D.h
 DistanceEstimation.o: ../../util/GraphicsConversionUtility.h
 DistanceEstimation.o: ../../util/Logger.h ../../util/PointScale.h
-DistanceEstimation.o: ../../util/xmlParser.h SmoothMovementKeyHandler.h
+DistanceEstimation.o: ../../util/xmlParser.h ../../audio/AudioPlayer.h
+DistanceEstimation.o: ../../../include/SDL_mixer.h
+DistanceEstimation.o: ../../../include/SDL_endian.h
+DistanceEstimation.o: SmoothMovementKeyHandler.h
 SmoothMovementKeyHandler.o: SmoothMovementKeyHandler.h ../../xor.h
 SmoothMovementKeyHandler.o: ../../core/Camera.h ../../../include/SDL.h
 SmoothMovementKeyHandler.o: ../../../include/SDL_main.h
@@ -1064,4 +1071,6 @@ SmoothMovementKeyHandler.o: ../../util/FramesPerSecondCounter.h
 SmoothMovementKeyHandler.o: ../../object2D/String2D.h
 SmoothMovementKeyHandler.o: ../../util/GraphicsConversionUtility.h
 SmoothMovementKeyHandler.o: ../../util/Logger.h ../../util/PointScale.h
-SmoothMovementKeyHandler.o: ../../util/xmlParser.h
+SmoothMovementKeyHandler.o: ../../util/xmlParser.h ../../audio/AudioPlayer.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_mixer.h
+SmoothMovementKeyHandler.o: ../../../include/SDL_endian.h

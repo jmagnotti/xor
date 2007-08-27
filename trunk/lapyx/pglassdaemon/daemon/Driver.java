@@ -14,14 +14,25 @@ public class Driver
 		File pic2 = new File("2.jpg");
 		File pic3 = new File("3.jpg");
 		
-		somepics.add(new FileChunker(pic1));
-		somepics.add(new FileChunker(pic2));
 		somepics.add(new FileChunker(pic3));
-		somepics.add(new FileChunker(pic1));
 		somepics.add(new FileChunker(pic2));
+		somepics.add(new FileChunker(pic1));
+
 		somepics.add(new FileChunker(pic3));
-		somepics.add(new FileChunker(pic1));
 		somepics.add(new FileChunker(pic2));
+		somepics.add(new FileChunker(pic1));
+		
+		somepics.add(new FileChunker(pic3));
+		somepics.add(new FileChunker(pic2));
+		somepics.add(new FileChunker(pic1));
+		
+		somepics.add(new FileChunker(pic3));
+		somepics.add(new FileChunker(pic2));
+		somepics.add(new FileChunker(pic1));
+		
+		somepics.add(new FileChunker(pic3));
+		somepics.add(new FileChunker(pic2));
+		somepics.add(new FileChunker(pic1));
 		
 		PhotoSender ps = new PhotoSender();
 		ps.sendPictures(somepics);

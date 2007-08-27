@@ -119,7 +119,7 @@ void Controller::CleanUpAndExit()
  */
 void Controller::defaultSDLGLConfiguration()
 {
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
+	SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_TIMER);
     _camera->setupSDLVideo(getWindow()->getSize());
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);

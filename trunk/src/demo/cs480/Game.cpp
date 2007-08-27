@@ -1,9 +1,13 @@
 #include "Game.h"
 
-class GameConfig : public XavierConfiguration { EventFactory * getEventFactory()
+class GameConfig : public XavierConfiguration { 
+	
+	EventFactory * getEventFactory()
 	{
 		return InputEventHandlerFactory::GetInstance();
-	} bool isGLDepthTestEnabled()
+	} 
+	
+	bool isGLDepthTestEnabled()
 	{
 		return true;
 	}
@@ -30,11 +34,7 @@ class GameConfig : public XavierConfiguration { EventFactory * getEventFactory()
 
 };
 
-
-
-
 Game * Game::_game = NULL;
-
 
 /*
  * destructor

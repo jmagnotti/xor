@@ -153,15 +153,13 @@ void RectangularPrism::renderObject()
  */
 void RectangularPrism::setFaces()
 {
-	//cout << "Top of RectangularPrism::setFaces" << endl;
-
 	// we need a a PointScale that will default to 0 for the Quads that are on
     // the "low" end of the dimension
     PointScale   * psLow  = new PointScale(0,1,0);
     PointScale   * psHigh = new PointScale(0,1,1);
 
     // a texture scaler for the sides that should be mapped according to their
-    // XY. These quad has no Z extent.
+    // XY. These quads have no Z extent.
     TextureScale * tsXY = new TextureScale(
             new Vector2D(_points[0]->getX(),  _points[0]->getY()), 
 
@@ -169,10 +167,10 @@ void RectangularPrism::setFaces()
                             _points[7]->getY() - _points[0]->getY()),
 
             TextureScale::X_AND_Y, 
-            TextureScale::STRETCHED);
+            TextureScale::TILED);
 
     // a texture scaler for the sides that should be mapped according to their
-    // XZ. These quad has no Y extent.
+    // XZ. These quads have no Y extent.
     TextureScale * tsXZ = new TextureScale(
             new Vector2D(_points[0]->getX(),  _points[0]->getZ()), 
 
@@ -180,10 +178,10 @@ void RectangularPrism::setFaces()
                             _points[2]->getZ() - _points[0]->getZ()),
 
             TextureScale::X_AND_Z, 
-            TextureScale::STRETCHED);
+            TextureScale::TILED);
 
     // a texture scaler for the sides that should be mapped according to their
-    // YZ. These quad has no X extent.
+    // YZ. These quads have no X extent.
     TextureScale * tsYZ = new TextureScale(
             new Vector2D(_points[0]->getY(),  _points[0]->getZ()), 
 
@@ -191,7 +189,7 @@ void RectangularPrism::setFaces()
                             _points[5]->getZ() - _points[0]->getZ()),
 
             TextureScale::Z_AND_Y, 
-            TextureScale::STRETCHED);
+            TextureScale::TILED);
 
 	// clear any existing faces
     // #FIXME memory leak potential
