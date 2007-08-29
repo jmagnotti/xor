@@ -6,7 +6,7 @@ namespace XOR
 /**
  * helper for smooth movement
  */
-class MovementHelper : public Action
+class MovementHelper : public ContinuousAction
 {
 
 public:
@@ -16,25 +16,19 @@ public:
         //don't delete _orientation, we don't own it.
     }
 
-    MovementHelper(Orientation * orientation, float amount)
+    MovementHelper(Orientation * orientation)
     {
         _orientation = orientation;
-        _amount = amount;
     }
 
     inline void execute()
     {
-        _orientation->moveAlongFocalVector(_amount);
-    }
-
-    inline void incrementAmount(float delta)
-    {
-        _amount += delta;
+        _orientation->moveAlongFocalVector(
+				_orientation->getCurrentWalkIncrement());
     }
 
 private:
 
-    float _amount;
     Orientation * _orientation;
 
 };
@@ -137,6 +131,9 @@ Orientation::Orientation()
  */
 Orientation::~Orientation()
 {
+	if (_action != NULL)
+		delete _action;
+
     //FIXME: memory leak?
 }
 
@@ -177,7 +174,7 @@ void Orientation::clone(Orientation * other)
  */
 Orientation * Orientation::clone()
 {
-    cout << "Orientation::clone() not implemented, returning NULL"<< endl;
+    cout << "Orientation::clone() not implemented, returning NULL" << endl;
     // FIXME: copy transform stacks
     //
     //Orientation * cloned = new Orientation(getPosition(), getPitch(), getYaw(), getRoll());
@@ -602,7 +599,7 @@ void Orientation::startMovingAlongFocalVector(float distance)
     setCurrentWalkIncrement(distance);
 
     if (_action != NULL) {
-        _action->stopExecuting();
+        _action->incrementAmount(distance);
     }
     else {
         _action = new ContinuousAction(new MovementHelper(this, distance));
@@ -625,8 +622,6 @@ void Orientation::stopMovingAlongFocalVector()
 {
     if (_action != NULL) {
         _action->stopExecuting();
-        delete _action;
-        _action = NULL;
     }
 }
 

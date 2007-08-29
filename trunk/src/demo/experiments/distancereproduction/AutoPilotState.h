@@ -3,13 +3,22 @@
 
 
 #include <vector>
+#include <map>
 #include "../../../xor.h"
 
 #include "ExperimentalState.h"
 #include "Experiment.h"
+#include "SampleWithoutReplacement.h"
 
 using namespace XOR;
 using namespace std;
+
+/** heavy-weight struct **/
+class Pair() {
+public: 
+	float speed; int distance; 
+	Pair(float speed, int distance);
+};
 
 /**
  * This project was developed for the Virtual Environment Laboratory at
@@ -47,9 +56,15 @@ private:
 
 	AutoPilotState();
 
+	const float HIGH_SPEED, MID_SPEED, LOW_SPEED;
+
+	const int LONG_DISTANCE, SHORT_DISTANCE;
+
+	map<int, Pair*> _pairings;
+
 	void generateSequence();
 
-	vector<float> _speeds;
+	vector<int> _distances;
 
 	static AutoPilotState * _autoPilotState;
 
@@ -57,6 +72,7 @@ private:
 
 	int _trialNumber;
 };
+
 
 
 #endif			// AUTOPILOTSTATE_H
