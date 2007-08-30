@@ -1,5 +1,24 @@
 #include "SampleWithoutReplacement.h"
 
+SampleWithoutReplacement::SampleWithoutReplacement(int min, int max, int useCount)
+{
+	srand(time(NULL)); //seed the generator
+
+	for (int i=min; i<=max; i++)
+		_population.push_back(i);
+
+	_maxUse	= useCount;
+
+	// get a descriptive on how many samples WOULD be possible,
+	// to save calculations later
+	_maxSamples = _population.size() * _maxUse;	
+	_samplesRemaining = _maxSamples; 
+
+	//set all samples to 0
+	for (int i=0; i<_population.size(); i++)
+		_mappings[_population[i]] = 0;
+
+}
 SampleWithoutReplacement::SampleWithoutReplacement(vector<int> population, int useCount)
 {
 	srand(time(NULL)); //seed the generator
@@ -9,7 +28,9 @@ SampleWithoutReplacement::SampleWithoutReplacement(vector<int> population, int u
 
 	// get a descriptive on how many samples WOULD be possible,
 	// to save calculations later
-	_maxSamples = population.size() * _maxUse;	_samplesRemaining = _maxSamples; 
+	_maxSamples = _population.size() * _maxUse;
+	_samplesRemaining = _maxSamples; 
+
 	//set all samples to 0
 	for (int i=0; i<_population.size(); i++)
 		_mappings[_population[i]] = 0;

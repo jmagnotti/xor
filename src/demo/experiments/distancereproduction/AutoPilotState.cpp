@@ -4,15 +4,16 @@ AutoPilotState * AutoPilotState::_autoPilotState = NULL;
 
 AutoPilotState::AutoPilotState(Experiment * e)
 {
-	HIGH_SPEED    = 14.66667;
-	MID_SPEED    = 14.66667;
-	LOW_SPEED    = 14.66667;
+	int interval = Controller::GetInstance()->getTimer()->getInterpolator();
+
+	HIGH_SPEED   = 14.66667/interval/1000.0;
+	MID_SPEED    = 10.36667/interval/1000.0;
+	LOW_SPEED    = 4.4/interval/1000.0;
 
 	LONG_DISTANCE = 100;
 	SHORT_DISTANCE = 60;
 
 	_experiment = e;
-	_trialNumber = 0;
 
 	_pairings[0] = new Pair(HIGH_SPEED, SHORT_DISTANCE);
 	_pairings[1] = new Pair(HIGH_SPEED, LONG_DISTANCE);
@@ -48,42 +49,41 @@ void AutoPilotState::enterState()
 {
 	//add the interpolation
 	Controller::GetInstance()->getCamera()->getOrientation()->
-		startMovingAlongFocalVector(_speeds[_trialNumber]);
+		startMovingAlongFocalVector(
+			_trials[_experiment->getCurrentTrial()]->distance);
 
-	IntervalTimer::GetInstance()->addCallbackListener(this,
-			_times[_trialNumber]);
+	Controller::GetInstance()->getCamera()->getOrientation()->addListener(this);
 }
 
 void AutoPilotState::handleTick()
 {
-	//called when the object is in position
-	Controller::GetInstance()->getCamera()->getOrientation()->
-		stopMovingAlongFocalVector();
+	// do nothing
+}
 
-	++_trialNumber;
-
-	_experiment->setState(UserDrivenState::GetInstance(_trialNumber,
-				_speeds[_trialNumber]));
+int AutoPilotState::handlePositionChange(Vector3D * position)
+{
+	if (_currentTarget->getZ() >=
+			position->getZ()) {
+		_experiment->setState(UserDrivenState::GetInstance(
+					_experiment->getCurrentTrial(), 
+					_trials[_experiment->getCurrentTrial()]->speed));
+	}
 }
 
 void AutoPilotState::exitState()
 {
 	//remove the interpolation
+	Controller::GetInstance()->getCamera()->getOrientation()->
+		stopMovingAlongFocalVector();
 }
 
 void AutoPilotState::generateSequence()
 {
-	vector<int> poss_distances;
-	vector<int> poss_speeds;
-	poss_distances.push_back(60);
-	poss_distances.push_back(100);
+	SampleWithoutReplacement * swor = new SampleWithoutReplacement(
+			0, _pairings.size() - 1, 
+			ceil((float)(_experiment->getNumberOfTrials()) / _pairings.size()));
 
-	poss_speeds.push_back(4.);
-	poss_speeds.push_back();
-	poss_speeds.push_back();
-
-	// calculate a random sequence of translations for the camera
-	SampleWithoutReplacement * rnd_d  = SampleWithoutReplacement(poss_distances, 42);
-	SampleWithoutReplacement * rnd_s = SampleWithoutReplacement(poss_speeds, 27);
-	
+	for (int i=0; i<_experiment->getNumberOfTrials(); i++) {
+		_trials.push_back(_pairings[swor->sample()]);
+	}
 }

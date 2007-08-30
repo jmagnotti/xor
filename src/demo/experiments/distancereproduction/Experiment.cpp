@@ -19,7 +19,7 @@ void Experiment::handleMouseEvent(MouseEvent * me)
 	_state->handleMouseEvent(me);
 }
 
-void ExperimentalState::setState(ExperimentalState * state)
+void Experimental::setState(ExperimentalState * state)
 {
 	if (_state != NULL)
 		_state->exitState();
@@ -27,4 +27,10 @@ void ExperimentalState::setState(ExperimentalState * state)
 	_state = state;
 	_state->enterState();	
 }
+
+int Experiment::getCurrentTrial()
+{
+	return _currentTrial;
+}
+
 
