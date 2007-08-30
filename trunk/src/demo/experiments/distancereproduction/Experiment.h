@@ -34,9 +34,13 @@ public:
 
 	void setState(ExperimentalState * state);
 
+	int getCurrentTrial();
+
 private:
 
 	ExperimentalState * _state;
+
+	int _currentTrial;
 };
 
 

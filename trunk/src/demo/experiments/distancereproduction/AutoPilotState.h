@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <map>
+#include <math.h>
 #include "../../../xor.h"
 
 #include "ExperimentalState.h"
@@ -14,7 +15,7 @@ using namespace XOR;
 using namespace std;
 
 /** heavy-weight struct **/
-class Pair() {
+class Pair {
 public: 
 	float speed; int distance; 
 	Pair(float speed, int distance);
@@ -33,7 +34,7 @@ public:
  *
  * @version 1.0
  */
-class AutoPilotState : public ExperimentalState
+class AutoPilotState : public ExperimentalState, public OrientationListener
 {
 
 public:
@@ -46,6 +47,10 @@ public:
 
 	void handleTick();
 
+	int handlePositionChange(Vector3D * position);
+
+	int handleRotationChange(float angle, const Vector3D * axis);
+
 protected:
 
 	void enterState();
@@ -54,17 +59,18 @@ protected:
 
 private:
 
-	AutoPilotState();
+	AutoPilotState(Experiment * e);
 
-	const float HIGH_SPEED, MID_SPEED, LOW_SPEED;
-
-	const int LONG_DISTANCE, SHORT_DISTANCE;
+	// should be declared const
+	float HIGH_SPEED, MID_SPEED, LOW_SPEED;
+	int LONG_DISTANCE, SHORT_DISTANCE;
 
 	map<int, Pair*> _pairings;
 
 	void generateSequence();
 
-	vector<int> _distances;
+	vector<Pair*> _trials;
+	Vector3D * _currentTarget;
 
 	static AutoPilotState * _autoPilotState;
 
