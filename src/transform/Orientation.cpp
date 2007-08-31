@@ -6,7 +6,7 @@ namespace XOR
 /**
  * helper for smooth movement
  */
-class MovementHelper : public ContinuousAction
+class MovementHelper : public Action
 {
 
 public:
@@ -599,10 +599,10 @@ void Orientation::startMovingAlongFocalVector(float distance)
     setCurrentWalkIncrement(distance);
 
     if (_action != NULL) {
-        _action->incrementAmount(distance);
+        //_action->incrementAmount(distance);
     }
     else {
-        _action = new ContinuousAction(new MovementHelper(this, distance));
+        _action = new ContinuousAction(new MovementHelper(this));
         _action->execute();
     }
 
