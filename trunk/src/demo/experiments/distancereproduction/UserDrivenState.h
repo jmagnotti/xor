@@ -1,6 +1,5 @@
-#ifndef AUTOPILOTSTATE_H
-#define AUTOPILOTSTATE_H
-
+#ifndef USERDRIVENSTATE_H
+#define USERDRIVENSTATE_H
 
 #include <vector>
 #include <map>
@@ -8,41 +7,31 @@
 #include "../../../xor.h"
 
 #include "ExperimentalState.h"
-#include "PreTrialState.h"
+#include "TrialCompletedState.h"
 #include "Experiment.h"
 #include "SampleWithoutReplacement.h"
 
 using namespace XOR;
 using namespace std;
 
-class PreTrialState;
-
-/** heavy-weight struct **/
-class Pair {
-public: 
-	float speed; int distance; 
-	Pair(float speed, int distance);
-};
+class TrialCompletedState;
 
 /**
  * This project was developed for the Virtual Environment Laboratory at
  * Auburn University.
  *
- * Interpolates the camera's position without user-input.
- * Uses singleton to ensure that the sequence is generated exactly once,
- * without having to worry.
  *
  * @author John Magnotti (john.magnotti@auburn.edu)
  * @supervisor Jeffrey Katz (katzjf@auburn.edu)
  *
  * @version 1.0
  */
-class AutoPilotState : public ExperimentalState, public OrientationListener
+class UserDrivenState : public ExperimentalState, public OrientationListener
 {
 
 public:
 
-	static AutoPilotState * GetInstance(Experiment * e);
+	static UserDrivenState * GetInstance(Experiment * e);
 
 	void handleKeyEvent(KeyEvent * ke);
 
@@ -54,35 +43,27 @@ public:
 
 	void handleRotationChange(float angle, const Vector3D * axis);
 
-protected:
-
 	void enterState();
 
 	void exitState();
 
 private:
 
-	AutoPilotState(Experiment * e);
-
-	// should be declared const
-	float HIGH_SPEED, MID_SPEED, LOW_SPEED;
-	int LONG_DISTANCE, SHORT_DISTANCE;
-
-	map<int, Pair*> _pairings;
+	UserDrivenState(Experiment * e);
 
 	void generateSequence();
 
-	vector<Pair*> _trials;
 	Vector3D * _currentTarget;
 
-	static AutoPilotState * _autoPilotState;
+	static UserDrivenState * _userDrivenState;
 
 	Experiment * _experiment;
 
 	int _trialNumber;
+	Vector3D * _lastPos;
 };
 
 
 
-#endif			// AUTOPILOTSTATE_H
+#endif			// USERDRIVENSTATE_H
 

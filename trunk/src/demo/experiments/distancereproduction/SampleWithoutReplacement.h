@@ -15,10 +15,11 @@ using namespace std;
  * Auburn University.
  *
  * @author John Magnotti (john.magnotti@auburn.edu)
- * @supervisor Kent Bodily (bodilke@auburn.edu)
+ * @supervisor Jeffrey Katz (katzjf@auburn.edu)
  *
  * @version 1.0
  */
+// consider <T> with other data types
 class SampleWithoutReplacement
 {
 
@@ -30,6 +31,11 @@ public:
 	 * the number to 1.
 	 */
 	SampleWithoutReplacement(vector<int> population, int useCount);
+
+	/**
+	 *
+	 */
+	SampleWithoutReplacement(int min, int max, int useCount);
 
 	/**
 	 * returns -99 for over-samplings. ENSURE you are not including this in
