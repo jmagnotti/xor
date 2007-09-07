@@ -15,34 +15,38 @@ class ExperimentalState;
  * Constructs the environment and passing events to the current state.
  *
  * @author John Magnotti (john.magnotti@auburn.edu)
- * @supervisor Kent Bodily (bodilke@auburn.edu)
+ * @supervisor Jeffrey Katz (katzjf@auburn.edu)
  *
  * @version 1.0
  */
-class Experiment : public KeyListener, public MouseListener
+class Experiment : public KeyboardListener, public MouseListener
 {
 
 public:
 
-	Experiment();
+	Experiment(Controller * ctrl);
 
 	virtual ~Experiment();
 
 	void handleKeyEvent(KeyEvent * ke);
 
-	void handleMouseEvent(MouseEvent * ke);
+	void handleMouseEvent(MouseEvent * me);
 
 	void setState(ExperimentalState * state);
 
 	int getCurrentTrial();
+
+	int getNumberOfTrials();
+
+	void incrementTrialCounter();
 
 private:
 
 	ExperimentalState * _state;
 
 	int _currentTrial;
+	int _maxTrials;
 };
-
 
 #endif			// EXPERIMENT_H
 

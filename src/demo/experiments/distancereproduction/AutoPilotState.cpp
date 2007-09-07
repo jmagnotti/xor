@@ -1,14 +1,25 @@
 #include "AutoPilotState.h"
 
+Pair::Pair(float speed, int distance)
+{
+	this->speed = speed;
+	this->distance = distance;
+}
+
 AutoPilotState * AutoPilotState::_autoPilotState = NULL;
 
 AutoPilotState::AutoPilotState(Experiment * e)
 {
-	int interval = Controller::GetInstance()->getTimer()->getInterpolator();
+	// put us at the 'target' spot to begin with
+	// FIXME
+	//Controller::GetInstance()->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,-100));
 
-	HIGH_SPEED   = 14.66667/interval/1000.0;
-	MID_SPEED    = 10.36667/interval/1000.0;
-	LOW_SPEED    = 4.4/interval/1000.0;
+	int interval = Controller::GetInstance()->getTimer()->getInterval();
+
+	HIGH_SPEED    = 14.66667/interval/1000.0;
+	MID_SPEED     = 10.36667/interval/1000.0;
+	//WALKING_SPEED = 
+	LOW_SPEED     = 4.4/interval/1000.0;
 
 	LONG_DISTANCE = 100;
 	SHORT_DISTANCE = 60;
@@ -47,27 +58,29 @@ void AutoPilotState::handleMouseEvent(MouseEvent * me)
 
 void AutoPilotState::enterState()
 {
-	//add the interpolation
-	Controller::GetInstance()->getCamera()->getOrientation()->
-		startMovingAlongFocalVector(
-			_trials[_experiment->getCurrentTrial()]->distance);
+	cout << "Enter AutoPilotState" << endl;
 
+	static const int offset = 80;
+	_currentTarget = new Vector3D(0, 0, -offset);
+
+	Controller::GetInstance()->getCamera()->getOrientation()->setPosition(new Vector3D(0,0,0));
 	Controller::GetInstance()->getCamera()->getOrientation()->addListener(this);
-}
 
-void AutoPilotState::handleTick()
-{
-	// do nothing
+	//add the interpolation
+	Controller::GetInstance()->getCamera()->getOrientation()->startMovingAlongFocalVector(.14667f);
+			
+			//	_trials[_experiment->getCurrentTrial()]->distance);
 }
 
 int AutoPilotState::handlePositionChange(Vector3D * position)
 {
-	if (_currentTarget->getZ() >=
-			position->getZ()) {
-		_experiment->setState(UserDrivenState::GetInstance(
-					_experiment->getCurrentTrial(), 
-					_trials[_experiment->getCurrentTrial()]->speed));
+	if (_currentTarget->getZ() >= position->getZ()) {
+		_experiment->setState(PreTrialState::GetInstance(_experiment));
 	}
+
+	//cout << _currentTarget->toString() << "\t" << position->toString() << endl;
+
+	return 0;
 }
 
 void AutoPilotState::exitState()
@@ -75,15 +88,26 @@ void AutoPilotState::exitState()
 	//remove the interpolation
 	Controller::GetInstance()->getCamera()->getOrientation()->
 		stopMovingAlongFocalVector();
+
+	Controller::GetInstance()->getCamera()->getOrientation()->removeListener(this);
+
+	Controller::GetInstance()->getCamera()->getOrientation()->setPosition(new Vector3D(0,0,0));
 }
 
 void AutoPilotState::generateSequence()
 {
 	SampleWithoutReplacement * swor = new SampleWithoutReplacement(
-			0, _pairings.size() - 1, 
-			ceil((float)(_experiment->getNumberOfTrials()) / _pairings.size()));
+			0, _pairings.size() - 1, (int) (
+				ceil((float)(_experiment->getNumberOfTrials()) / _pairings.size())
+			));
 
 	for (int i=0; i<_experiment->getNumberOfTrials(); i++) {
 		_trials.push_back(_pairings[swor->sample()]);
 	}
 }
+
+void AutoPilotState::handleRotationChange(float amount, const Vector3D * axis)
+{
+	// do nothing
+}
+

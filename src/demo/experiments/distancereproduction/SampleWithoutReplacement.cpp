@@ -17,9 +17,7 @@ SampleWithoutReplacement::SampleWithoutReplacement(int min, int max, int useCoun
 	//set all samples to 0
 	for (int i=0; i<_population.size(); i++)
 		_mappings[_population[i]] = 0;
-
-}
-SampleWithoutReplacement::SampleWithoutReplacement(vector<int> population, int useCount)
+} SampleWithoutReplacement::SampleWithoutReplacement(vector<int> population, int useCount)
 {
 	srand(time(NULL)); //seed the generator
 
