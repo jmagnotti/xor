@@ -300,7 +300,7 @@ public class LapyxFrame extends JFrame implements ActionListener, WindowListener
 	}
 
 	/**
-	 * Since a JList is nothing more than a bunch of JLabels with a rendered,
+	 * Since a JList is nothing more than a bunch of JLabels with a renderer,
 	 * this class replaces the default so we can add pictures with our text and
 	 * even customize the highlight color(s).
 	 */

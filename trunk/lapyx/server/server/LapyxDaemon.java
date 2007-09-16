@@ -1,7 +1,7 @@
 package server;
 /**
- * The LapyxDaemon class is a simple multithreaded server
- * that waits for incomming connections and creates a new
+ * The LapyxDaemon class is a simple multi-threaded server
+ * that waits for incoming connections and creates a new
  * thread to handle them.  The nested class ConnectionHandler
  * Will launch an application based on the string it receives
  * 
