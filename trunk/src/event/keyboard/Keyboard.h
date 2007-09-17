@@ -23,7 +23,7 @@ namespace XOR
  * @author John Magnotti
  * @author Michael Lam
  * 
- * @verion 1.0
+ * @version 1.0
  */
 class Keyboard
 {

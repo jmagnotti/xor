@@ -96,7 +96,7 @@ public class SSHBuddy
 	 * contained in the string "cmd" to all of the nodes in the range
 	 * specified.
 	 * 
-	 * @param cmmd The command to send to all nodes
+	 * @param cmd The command to send to all nodes
 	 * @param loRange The beginning of the range of nodes to start this on
 	 * @param hiRange The high end of the range to start the demo on
 	 */

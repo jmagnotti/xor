@@ -34,16 +34,8 @@ public:
     static TimerSkeleton * GetInstance();
      */
 
+
 	/**
-	 * Singleton Accessor.
-	 *
-	 * @param listen. Whether the timer should spawn a mutlicast listen thread.
-	 * Defaults to true.
-	 */
-    static TimerSkeleton * GetInstance();
-
-
-    /**
      * This is the timer tick that does all the work. they are separated so 
      * people don't have to rely on the static method above.
      */
