@@ -24,7 +24,6 @@ public class TCPClient
      * Explicit Value Constructor
 	 *
 	 * @param host Host to connect to
-	 * @param data The string to send
      */
     public TCPClient(String host) throws IOException
     {

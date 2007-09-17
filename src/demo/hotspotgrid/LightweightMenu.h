@@ -40,7 +40,7 @@ public:
 	/**
 	 * Sets the menu visibility
 	 *
-	 * @param isVisible - the menu visiblity (true or false)
+	 * @param vis - the menu visiblity (true or false)
 	 */
 	void setVisible(bool vis);
 

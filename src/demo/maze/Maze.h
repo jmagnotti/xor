@@ -74,7 +74,7 @@ public:
     vector<Transform*> getTransforms();
 
     /**
-     * #FIXME HARD CODED SIZE METHOD
+     * FIXME HARD CODED SIZE METHOD
      */
     int getSize()
     {

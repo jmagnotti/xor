@@ -16,7 +16,7 @@ namespace XOR {
 
 /**
  * A three-dimensional object with six quadrilateral sides. Should be six
- * Rectangular sides. #FIXME
+ * Rectangular sides. FIXME
  *
  */
 class RectangularPrism : public Object3D
