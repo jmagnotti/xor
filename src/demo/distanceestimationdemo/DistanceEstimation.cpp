@@ -5,7 +5,7 @@
 
 using namespace XOR;
 
-class ViewerBox : public OrientationListener
+class ViewerBox : public OrientationListener, public TimerListener
 {
 
 public: 
@@ -21,6 +21,7 @@ public:
      */
     int handlePositionChange(Vector3D * position)
     {
+
         Containment * container = new Containment();
 
         // fill the containment object with information
@@ -34,6 +35,11 @@ public:
 
 	inline void handleRotationChange(float angle, const Vector3D * axis)
     {}
+
+	void handleTick()
+	{
+		cout << "TICK" << SDL_GetTicks() << endl;
+	}
 
 private:
 
