@@ -41,11 +41,38 @@ PhotoGlass::PhotoGlass()
 	cube->addTransform(Translate::CreateTranslate(new Vector3D(-1,-1,-11), 3000, NULL));
 	*/	
 	cout << "Attempting to set arrangement..." << endl;
-	setArrangement(new WingArrangement(_currentpic));
+//	setArrangement(new WingArrangement(_currentpic));
+	setArrangement(new RectangleArrangement(_currentpic, 7, 7));
 	lock = false;
 	focus = false;
 }
 
+/**
+ * For starting in wall mode... This should probably be
+ * consolidated into the default constructor
+ */
+PhotoGlass::PhotoGlass(int xoffset, int yoffset)
+{
+	//ctrl = Controller::GetInstance(new NoFogConfig());
+	ctrl = Controller::GetInstance(new XavierConfiguration());
+	ctrl->getKeyboard()->addListener(new GlassKeyListener(this));
+	ctrl->getMouse()->addListener(new DefaultMouseListener());
+
+	ctrl->setModel(new String2D("PhotoGlass"));
+
+	ctrl->getCamera()->setWallMode(Camera::WALL_MODE_STANDARD);
+	ctrl->getCamera()->setWallOffset(xoffset, yoffset);
+
+	_pl = new XMLPictureLoader("ComputerGiants/ComputerGiants.xml");
+	pictures = _pl->load();	
+	_currentpic = pictures[0];
+	displayPictures();	
+
+	cout << "Attempting to set arrangement..." << endl;
+	setArrangement(new RectangleArrangement(_currentpic, 7, 7));
+	lock = false;
+	focus = false;
+}
 void PhotoGlass::multicastLoad()
 {
 	cleanPictures();
@@ -156,7 +183,17 @@ void PhotoGlass::run()
 
 int main(int argc, char *argv[])
 {
-	PhotoGlass * demo = new PhotoGlass();
+	PhotoGlass * demo;
+	// if we get args, pass em in, otherwise default to usual mode
+	if(argc == 3) 
+	{
+		cout << "xoff: " << atoi(argv[1]) << " yoff: " << atoi(argv[2]) << endl;
+		demo = new PhotoGlass(atoi(argv[1]), atoi(argv[2]));
+
+	}
+	else	
+		demo = new PhotoGlass();
+
 	demo->run();
 	return 0;
 }

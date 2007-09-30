@@ -17,6 +17,7 @@ class PhotoGlass
 public:
 
 	PhotoGlass();
+	PhotoGlass(int xoffset, int yoffset);
 	void setArrangement(Arrangement * arrangement);
 	void run();
 	void changeSelection(int direction);
