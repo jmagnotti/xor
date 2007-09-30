@@ -2,7 +2,7 @@
 #
 CC = g++
 
-LIBS = -lSDL -lGL -lGLU -lm -lXOR
+LIBS = -lSDL_mixer -lSDL -lGL -lGLU -lm -lXOR
 
 #Packages
 SRCS = PlayBack.cpp Record.cpp DistanceEstimation.cpp SmoothMovementKeyHandler.cpp
