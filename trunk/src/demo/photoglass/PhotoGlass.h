@@ -52,9 +52,24 @@ private:
 	char * _object;
 	Transformable3D * _tobject;
 	Action * _action;
+	Transform * _transform;
 	Vector3D * _movement; // how much to move by?
 	MoveAction()
 	{}
+};
+/**
+ * Removes the transform from the transformable
+ */
+class DeleteWhenDone : public Action
+{
+public:
+	DeleteWhenDone(Transformable * transformable, Transform * transform);
+	DeleteWhenDone(Transformable * transformable);
+	void setTransform(Transform * transform);
+	void execute(); 	
+private:
+	Transform * _transform;
+	Transformable * _transformable;
 };
 
 class PrintWhenDone : public Action
@@ -80,7 +95,7 @@ public:
 
 	Dimension2D * getWindowSize() const;
 
-	EventFactory * getEventFactory();
+	EventFactory * getEventFactory() const;
 
 	bool isFullScreen();
 };

@@ -1,5 +1,6 @@
 #include "Picture.h"
 #include <vector>
+#include "PhotoGlass.h"
 
 using namespace XOR;
 using namespace std;
@@ -21,7 +22,10 @@ Picture::Picture(Transformable3D * picture)
 
 void Picture::goToDefault(int speed)
 {
-	_cube->addTransform(Translate::CreateTranslate(_defpos, speed));
+	//_cube->addTransform(Translate::CreateTranslate(_defpos, speed));
+	// TODO this stuff could be reused...	
+	Action * goToDefault = new MoveAction(_cube, _defpos, NULL);
+	goToDefault->execute();
 }
 
 /**
@@ -30,12 +34,16 @@ void Picture::goToDefault(int speed)
  */
 void Picture::highlight()
 {
-	_cube->addTransform(Translate::CreateTranslate(_highlight, 100));
+//	_cube->addTransform(Translate::CreateTranslate(_highlight, 100));
+	Action * highlight = new MoveAction(_cube, _highlight, NULL);
+	highlight->execute();
 }
 
 void Picture::unhighlight()
 {
-	_cube->addTransform(Translate::CreateTranslate(_unhighlight, 100));
+	//_cube->addTransform(Translate::CreateTranslate(_unhighlight, 100));
+	Action * unhighlight = new MoveAction(_cube, _unhighlight, NULL);
+	unhighlight->execute();
 }
 
 void Picture::focus()
