@@ -53,15 +53,19 @@ PhotoGlass::PhotoGlass()
  */
 PhotoGlass::PhotoGlass(int xoffset, int yoffset)
 {
-	//ctrl = Controller::GetInstance(new NoFogConfig());
-	ctrl = Controller::GetInstance(new XavierConfiguration());
+	ctrl = Controller::GetInstance(new NoFogConfig());
 	ctrl->getKeyboard()->addListener(new GlassKeyListener(this));
 	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
 	ctrl->setModel(new String2D("PhotoGlass"));
-
+	
+	// wall mode stuff -----------
+	SDL_ShowCursor(false);
 	ctrl->getCamera()->setWallMode(Camera::WALL_MODE_STANDARD);
-	ctrl->getCamera()->setWallOffset(xoffset, yoffset);
+	ctrl->getCamera()->setWallOffset(xoffset - 2, yoffset);
+
+	//ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,50,0));
+	//ctrl->getCamera()->getOrientation()->setFocalPoint(new Vector3D(0,0,0));
 
 	_pl = new XMLPictureLoader("ComputerGiants/ComputerGiants.xml");
 	pictures = _pl->load();	

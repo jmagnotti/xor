@@ -4,7 +4,6 @@
 #include "../../xor.h"
 #include "Arrangement.h"
 #include "Picture.h"
-#include "xmlParser/xmlParser.h"
 #include <iostream>
 #include <vector>
 
