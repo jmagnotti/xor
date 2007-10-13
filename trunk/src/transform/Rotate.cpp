@@ -8,7 +8,7 @@ const Vector3D * Rotate::YAW    = new Vector3D(0,1,0);
 const Vector3D * Rotate::ROLL   = new Vector3D(0,0,1);
 const Vector3D * Rotate::ORIGIN = new Vector3D(0,0,0);
 
-
+#define DEBUG
 /*
  * Destructor
  */
@@ -88,9 +88,9 @@ void Rotate::push()
     if (_center != Rotate::ORIGIN) {
         _centeringTranslate->push();
 #ifdef DEBUG
-        Logger::GetInstance()->printTabs();
+        //Logger::GetInstance()->printTabs();
         cout << "Rotate::push()" << endl;
-        Logger::GetInstance()->incrementTabLevel();
+        //Logger::GetInstance()->incrementTabLevel();
 #endif
         glPushMatrix();
         	glRotatef(_angle, _xCoord, _yCoord, _zCoord);
@@ -106,6 +106,10 @@ void Rotate::push()
 
 void Rotate::pop()
 {
+	#ifdef DEBUG
+		cout << "Rotate::pop()" << endl;
+	#endif
+
     if (_center != Rotate::ORIGIN) {
         _centeringTranslate->pop();
         _centeringTranslate->pop();

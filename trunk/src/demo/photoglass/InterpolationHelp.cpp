@@ -44,7 +44,8 @@ MoveAction::MoveAction(Transformable3D * object, Vector3D * move, Action * actio
 void MoveAction::execute()
 {
 	if (_tobject != NULL)
-		_tobject->addTransform(Translate::CreateTranslate(_movement, 3000, _action));
+		_tobject->addTransform(_transform);
+		//_tobject->addTransform(Translate::CreateTranslate(_movement, 3000, _action));
 }
 
 DeleteWhenDone::DeleteWhenDone(Transformable * transformable, Transform * transform)

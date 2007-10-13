@@ -1,4 +1,5 @@
 #include "Translate.h"
+#define DEBUG
 
 namespace XOR
 {
@@ -109,10 +110,10 @@ void Translate::push()
 	glTranslatef(_translation[0], _translation[1], _translation[2]);
 
 #ifdef DEBUG
-	Logger::GetInstance()->printTabs();
+	//Logger::GetInstance()->printTabs();
 	cout << "Translate::push()" << endl;
-	Logger::GetInstance()->incrementTabLevel();
-	Logger::printTabs();
+	//Logger::GetInstance()->incrementTabLevel();
+	//Logger::printTabs();
 	cout << "pushed: " << _translation[0] << " " << _translation[1] << " " << _translation[2] << endl;
 #endif
 }

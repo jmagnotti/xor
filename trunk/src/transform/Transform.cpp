@@ -1,5 +1,5 @@
 #include "Transform.h"
-
+#define DEBUG
 namespace XOR {
 
 Transform::Transform()
@@ -12,9 +12,9 @@ Transform::Transform()
 void Transform::pop(void)
 {
 #ifdef DEBUG
-    Logger::GetInstance()->decrementTabLevel();
-    Logger::GetInstance()->printTabs();
-    cout << "Translate^::pop()" << endl;
+    //Logger::GetInstance()->decrementTabLevel();
+    //Logger::GetInstance()->printTabs();
+    cout << "Transform::pop()" << endl;
 #endif
     
 	glPopMatrix();
