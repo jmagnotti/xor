@@ -10,6 +10,9 @@
 using namespace XOR;
 using namespace std;
 
+class Arrangement;
+class Picture;
+class PictureLoader;
 
 class PhotoGlass
 {

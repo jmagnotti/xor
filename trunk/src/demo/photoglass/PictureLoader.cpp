@@ -20,9 +20,12 @@ vector<Picture*> XMLPictureLoader::load()
 	// xmlParser uses this for some crap
 	int cubeIterator = 0;
 	int numCubes = xAlbumNode.nChildNode("cube");
+	int faceIterator;
+	int faceCount;
 	for(int i = 0; i < numCubes; i++) {
-		int faceIterator = 0;
-		int faceCount = 0;
+		faceIterator = 0;
+		faceCount = 0;
+
 		XMLNode xCubeNode = xAlbumNode.getChildNode("cube", &cubeIterator);
 
 		faceCount = xCubeNode.nChildNode("face");

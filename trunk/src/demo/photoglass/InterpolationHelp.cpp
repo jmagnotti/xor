@@ -69,7 +69,7 @@ void DeleteWhenDone::execute()
 	cout << "Deleting transform..." << endl;
 	if(_transformable != NULL && _transform != NULL)
 	{
-		_transformable->removeTransform(_transform);
+//		_transformable->removeTransform(_transform);
 		cout << "Delete is done!!" << endl;
 	}
 }
@@ -90,8 +90,8 @@ bool NoFogConfig::isFullScreen()
 EventFactory * NoFogConfig::getEventFactory() const
 {
 	cout << "NoFogConfig::getEventFactory" << endl;
-	//return InputEventHandlerFactory::GetInstance();
-	return FullEventHandlerFactory::GetInstance();
+	return InputEventHandlerFactory::GetInstance();
+	//return FullEventHandlerFactory::GetInstance();
 }
 
 Uint32 NoFogConfig::getVideoFlags()

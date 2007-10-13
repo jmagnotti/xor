@@ -134,7 +134,8 @@ void PhotoGlass::toggleFocus()
 		_currentpic->focus();
 		lock = true;
 		focus = true;	
-	} else if(focus) {
+	} 
+	else if(focus) {
 		_currentpic->unfocus();
 		lock = false;
 		focus = false;
@@ -149,8 +150,7 @@ void PhotoGlass::toggleFocus()
 void PhotoGlass::displayPictures()
 {
 //	Object3DCollection * collection = new Object3DCollection();
-	for(int i = 0; i < pictures.size(); i++)
-	{
+	for(int i = 0; i < pictures.size(); i++) {
 		char buf[10];
 		sprintf(buf, "%d", i);
 		ctrl->getModel()->addObject(buf, pictures[i]->getTransformable());	
@@ -165,8 +165,8 @@ void PhotoGlass::displayPictures()
  */
 void PhotoGlass::cleanPictures()
 {
-	for(int i = 0; i < pictures.size(); i++)
-	{
+	cout << "CLEANING" << endl;
+	for(int i = 0; i < pictures.size(); i++) {
 		char buf[10];
 		sprintf(buf, "%d", i);
 		ctrl->getModel()->removeObject(buf);
@@ -189,8 +189,7 @@ int main(int argc, char *argv[])
 {
 	PhotoGlass * demo;
 	// if we get args, pass em in, otherwise default to usual mode
-	if(argc == 3) 
-	{
+	if(argc == 3) {
 		cout << "xoff: " << atoi(argv[1]) << " yoff: " << atoi(argv[2]) << endl;
 		demo = new PhotoGlass(atoi(argv[1]), atoi(argv[2]));
 
