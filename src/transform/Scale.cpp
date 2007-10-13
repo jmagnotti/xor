@@ -1,7 +1,7 @@
 #include "Scale.h"
 
+#define DEBUG
 namespace XOR {
-
 /*
  *
  */
@@ -46,6 +46,10 @@ Scale::Scale(Vector3D * scalar)
  */
 void Scale::push()
 {
+	#ifdef DEBUG
+		cout << "Scale::push()" << endl;
+	#endif
+
     glPushMatrix();
         glScalef(_xScale, _yScale, _zScale);
 }

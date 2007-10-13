@@ -1,5 +1,5 @@
 #include "Stretch.h"
-
+#define DEBUG
 
 namespace XOR {
 
@@ -38,6 +38,10 @@ Stretch::Stretch(Vector3D * origin, Vector3D * stretch)
  */
 void Stretch::push()
 {
+	#ifdef DEBUG
+		cout << "Stretch::push()" << endl;
+	#endif
+
 	_translate->pushInverse();
 	_scale->push();
 	_translate->push();

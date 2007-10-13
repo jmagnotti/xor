@@ -153,6 +153,9 @@ public class IcarusFrame extends JFrame {
 		jta.setVisible(true);
 	}
 
+	/**
+	 * Creates a frame slider to control frame rate
+	 */
 	private void makeFrameSlider() {
 		JSlider slider = new JSlider(10, 100);
 		slider.setMajorTickSpacing(10);
@@ -161,11 +164,21 @@ public class IcarusFrame extends JFrame {
 		slider.setVisible(true);
 
 		slider.addChangeListener(new ChangeListener() {
+			/*
+			 * (non-Javadoc)
+			 * 
+			 * @see javax.swing.event.ChangeListener#stateChanged(javax.swing.event.ChangeEvent)
+			 */
 			public void stateChanged(ChangeEvent arg0) {
 				JSlider source = (JSlider) arg0.getSource();
 				if (!source.getValueIsAdjusting()) {
 					int interval = 110 - source.getValue();
 					ticker.setInterval(interval);
+					// pauses ticker if interval is set to 100
+					if (ticker.getInterval() == 100)
+						ticker.setKeepGoing(false);
+					else
+						ticker.setKeepGoing(true);
 				}
 			}
 		});
@@ -176,27 +189,14 @@ public class IcarusFrame extends JFrame {
 
 	}
 
+	/**
+	 * Creates a zoom slider to zoom in and out
+	 */
 	private void makeZoomSlider() {
 		JSlider slider = new JSlider(JSlider.VERTICAL, 10, 100, 55);
 		slider.setMajorTickSpacing(20);
 		slider.setPaintTicks(true);
 		slider.setVisible(true);
-
-		// for (int i = 0; i < 3; i++) {
-		// MulticastTextArea mtext = new MulticastTextArea(5, 20);
-		// add(mtext);
-		// layout.putConstraint(SpringLayout.WEST, mtext, 15,
-		// SpringLayout.WEST, this);
-		// layout.putConstraint(SpringLayout.NORTH, mtext, 15 + i * 100,
-		// SpringLayout.NORTH, this);
-		// }
-		//
-		// JButton button = makeButton(new MulticastAction.KeyboardAction(
-		// "Keyboard w", keyFactory.createKeyString("w",
-		// KeyEventFactory.KEY_DOWN)), "MovU.png");
-		//		
-		// layout.putConstraint(SpringLayout.EAST, this, 5, SpringLayout.EAST,
-		// button);
 
 		val = slider.getValue();
 		slider.addChangeListener(new ChangeListener() {
@@ -288,6 +288,15 @@ public class IcarusFrame extends JFrame {
 		JButton buttonESC = makeButton(new MulticastAction.KeyboardAction(
 				"Keyboard escape", keyFactory.createKeyString("escape",
 						KeyEventFactory.KEY_UP)), "X.png");
+
+		/*
+		 * JButton buttonSpace = makeButton(new MulticastAction.KeyboardAction(
+		 * "Keyboard space", keyFactory.createKeyString("space",
+		 * KeyEventFactory.KEY_DOWN)), "X.png");
+		 * layout.putConstraint(SpringLayout.NORTH, buttonSpace, 0,
+		 * SpringLayout.SOUTH, buttonD); layout.putConstraint(SpringLayout.WEST,
+		 * buttonSpace, 0, SpringLayout.EAST, buttonL);
+		 */
 	}
 
 }

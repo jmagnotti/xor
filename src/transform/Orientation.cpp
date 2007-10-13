@@ -1,5 +1,5 @@
 #include "Orientation.h"
-
+#define DEBUG
 namespace XOR
 {
 
@@ -189,6 +189,10 @@ Orientation * Orientation::clone()
  */
 void Orientation::push()
 {
+	#ifdef DEBUG
+		cout << "Orientation::push()" << endl;
+	#endif
+
     // first the position
 
     vector<Translate*>::iterator position_iter = _position.begin();
@@ -260,8 +264,10 @@ void Orientation::pushInverse()
  */
 void Orientation::pop()
 {
+	#ifdef DEBUG
     //	cout << "start pop: "<< SDL_GetTicks() << endl;
-
+		cout << "Orientation::pop()" << endl;
+	#endif
     // reverse of push
 
     vector<Rotate*>::iterator yaw_iter = _yaw.begin();

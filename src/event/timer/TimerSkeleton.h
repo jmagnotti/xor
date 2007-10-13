@@ -30,9 +30,8 @@ public:
 
 
     /**
-	 * Singleton Accessor.
+	 * Singleton Accessor.*/
     static TimerSkeleton * GetInstance();
-     */
 
 
 	/**
