@@ -8,6 +8,9 @@
 using namespace XOR;
 using namespace std;
 
+class PhotoGlass;
+class Picture;
+
 class Arrangement
 {
 public:

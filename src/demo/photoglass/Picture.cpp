@@ -1,9 +1,4 @@
 #include "Picture.h"
-#include <vector>
-#include "PhotoGlass.h"
-
-using namespace XOR;
-using namespace std;
 
 Picture::Picture(Transformable3D * picture)
 {

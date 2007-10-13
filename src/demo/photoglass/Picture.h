@@ -1,13 +1,20 @@
 #ifndef PICTURE_H
 #define PICTURE_H
 
+#include <vector>
+
 #include "../../xor.h"
+#include "PhotoGlass.h"
 
 using namespace XOR;
+using namespace std;
 
+class PictureLoader;
+class PhotoGlass;
 
 class Picture 
 {
+
 public:
 
 	Picture(Transformable3D * picture);	
@@ -54,5 +61,5 @@ private:
 	Picture * _west;	
 };
 
+#endif			// PICTURE_H
 
-#endif			// ARRANGEMENT_H
