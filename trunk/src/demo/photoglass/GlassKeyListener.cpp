@@ -109,10 +109,10 @@ void GlassKeyListener::handleKey_Space()
 {
 	static int __number = 0;
 
-	if (__number != Transform::_num) {
-		__number = Transform::_num;
-		cout << "TRANSFORMS:\t" << __number << endl;
-	}
+	//if (__number != Transform::_num) {
+		//__number = Transform::_num;
+		//cout << "TRANSFORMS:\t" << __number << endl;
+	//}
 	_photoglass->toggleFocus();
 }
 

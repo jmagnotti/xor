@@ -13,7 +13,7 @@ using namespace XOR;
 
 PhotoGlass::PhotoGlass()
 {
-	ctrl = Controller::GetInstance(new NoFogConfig());
+	ctrl = Controller::GetInstance(new NoFogConfig(true));
 	ctrl->getKeyboard()->addListener(new GlassKeyListener(this));
 	ctrl->getMouse()->addListener(new DefaultMouseListener());
 
@@ -41,8 +41,8 @@ PhotoGlass::PhotoGlass()
 	cube->addTransform(Translate::CreateTranslate(new Vector3D(-1,-1,-11), 3000, NULL));
 	*/	
 	cout << "Attempting to set arrangement..." << endl;
-//	setArrangement(new WingArrangement(_currentpic));
-	setArrangement(new RectangleArrangement(_currentpic, 7, 7));
+	//setArrangement(new RectangleArrangement(_currentpic, 7, 7));
+	setArrangement(new WingArrangement(_currentpic));
 	lock = false;
 	focus = false;
 }
@@ -73,7 +73,8 @@ PhotoGlass::PhotoGlass(int xoffset, int yoffset)
 	displayPictures();	
 
 	cout << "Attempting to set arrangement..." << endl;
-	setArrangement(new RectangleArrangement(_currentpic, 7, 7));
+	//setArrangement(new RectangleArrangement(_currentpic, 7, 7));
+	setArrangement(new WingArrangement(_currentpic));
 	lock = false;
 	focus = false;
 }
