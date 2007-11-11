@@ -32,7 +32,7 @@ MoveAction::MoveAction(Transformable3D * object, Vector3D * move, Action * actio
 		_action = action;
 	
 	// store the transform so it can be deleted
-	_transform = Translate::CreateTranslate(_movement, 3000, _action);
+	_transform = Translate::CreateTranslate(_movement, 300, _action);
 	try {
 		DeleteWhenDone* dwd = dynamic_cast<DeleteWhenDone*>(_action);
 		dwd->setTransform(_transform);
@@ -75,7 +75,15 @@ void DeleteWhenDone::execute()
 }
 
 NoFogConfig::NoFogConfig()
-{}
+{
+	master = false;
+}
+
+NoFogConfig::NoFogConfig(bool isMaster)
+{
+	master = isMaster;
+}
+
 
 bool NoFogConfig::isGLFogEnabled()
 {
@@ -89,14 +97,17 @@ bool NoFogConfig::isFullScreen()
 
 EventFactory * NoFogConfig::getEventFactory() const
 {
-	cout << "NoFogConfig::getEventFactory" << endl;
-	return InputEventHandlerFactory::GetInstance();
-	//return FullEventHandlerFactory::GetInstance();
+	//cout << "NoFogConfig::getEventFactory" << endl;
+	if(master)
+		return InputEventHandlerFactory::GetInstance();
+	// else
+	return FullEventHandlerFactory::GetInstance();
 }
 
 Uint32 NoFogConfig::getVideoFlags()
 {
-	return XavierConfiguration::getVideoFlags();
+	//return XavierConfiguration::getVideoFlags();
+	return SDL_OPENGL | SDL_FULLSCREEN;
 }
 
 Dimension2D * NoFogConfig::getWindowSize() const

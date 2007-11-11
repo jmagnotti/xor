@@ -91,6 +91,7 @@ class NoFogConfig : public XavierConfiguration
 public:
 
 	NoFogConfig();
+	NoFogConfig(bool isMaster);
 
 	bool isGLFogEnabled();
 
@@ -101,6 +102,9 @@ public:
 	EventFactory * getEventFactory() const;
 
 	bool isFullScreen();
+
+private:
+	bool master;
 };
 
 #endif			// PHOTOGLASS_H
