@@ -1,0 +1,38 @@
+thetaPrime3 = sin(theta1)
+thetaPrime4 = cos(theta1)
+thetaPrime5 = sin(theta2)
+thetaPrime6 = cos(theta2)
+thetaPrime7 = sin(theta1 - theta2)
+thetaPrime8 = cos(theta1 - theta2)
+thetaPrime9 = pow(l1*(mu - pow(cos(theta1 - theta2),2)), -1)
+thetaPrime10 = pow(l2*(mu - pow(cos(theta1 - theta2), 2)), -1)
+
+
+thetaPrime3 = theta4 * omega1
+thetaPrime4 = -(theta3 * omega1)
+thetaPrime5 = theta6 * omega2
+thetaPrime6 = -(theta5 * omega2)
+thetaPrime7 = theta8(omega1 - omega2)
+thetaPrime8 = -(theta7*(omega1-omega2))
+thetaPrime9 = -pow(theta9,2) * (2*l1*theta8*theta7*(omega1 - omega2))
+thetaPrime10 = -pow(theta10,2) * (2*l2*theta8*theta7*(omega1 - omega2))
+
+
+
+
+
+
+a1 = g*(theta5*theta8 - mu*theta3)
+a2 = (l2* pow(omega2,2) + l1 * pow(omega1,2) * theta8) * theta7
+
+omegaPrime1 = (a1 - a2) * theta9
+
+b1 = g*mu*(theta3*theta8 - mu*theta5)
+b2 = (mu*l1*pow(omega1,2) + l2*pow(omega2,2)*theta8) * theta7
+
+omegaPrime2 = (b1 + b2) * theta 10
+
+
+questions:
+
+where do i get thetas 3 - 10?
