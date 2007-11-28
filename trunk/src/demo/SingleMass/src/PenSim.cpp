@@ -69,10 +69,15 @@ void PenSim::Run()
 void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 {	
 	//get theta values
-	ThetaReader::read(thetaFile, _thetas);
+	//_thetas = ThetaReader::read(thetaFile);
 	
+	//order here is CRITICAL, the GLPendulum CANNOT be
+	//instantiated until the render context is set up
+	//because of the quadric objects used
+	_ctrl = Controller::GetInstance();
+	_world = _ctrl->getModel();
 	_pendulum = new GLPendulum(penLen, base);
-	
-	World* world = Controller::GetInstance()->getModel();
-	world->addObject("Pendulum1", _pendulum);
+	//bus error here
+	_world->addObject("Pendulum1", _pendulum);
+	//_ctrl->run();
 }

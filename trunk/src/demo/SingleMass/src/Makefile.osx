@@ -1,0 +1,38 @@
+#Makefile for libgor.la, *nix
+#
+CC = g++ 
+LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain
+
+#Packages
+SRCS = PenTest.cpp Driver.cpp GLPendulum.cpp PenSim.cpp ThetaReader.cpp
+
+OBJS = $(SRCS:.cpp=.o)	
+
+MAIN = PenTest
+
+# 
+# The following part of the makefile is generic; it can be used to 
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+#Change this so that the executable is put in a "bin" directory of sorts
+all:		$(MAIN)
+
+PenTest:	$(OBJS) 
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.c.o:
+			$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+clean:
+			$(RM) $(OBJS) $(MAIN)
+
+depend: $(SRCS)
+			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it
+
+PenTest.o: GLPendulum.o ../../../xor.h
+GLPendulum.o: GLPendulum.cpp GLPendulum.h ../../../xor.h

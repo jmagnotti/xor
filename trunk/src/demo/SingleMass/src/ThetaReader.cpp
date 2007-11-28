@@ -1,9 +1,10 @@
 #include "ThetaReader.h"
 
-void ThetaReader::read(char* filename, vector<float> thetas)
+vector<float> ThetaReader::read(char* filename)
 {
 	FILE * in;
 	char lineBuffer[256];
+	vector<float> tmp;
 	
 	//open the file for reading
 	in = fopen(filename, "r");
@@ -11,7 +12,7 @@ void ThetaReader::read(char* filename, vector<float> thetas)
 	//if the file doesn't exist, return NULL
 	if(in == NULL)
 	{
-		printf("Can't find init file");
+		printf("Can't find theta file");
 		fflush(in);
 	}
 	else
@@ -22,11 +23,12 @@ void ThetaReader::read(char* filename, vector<float> thetas)
 			if(fgets(lineBuffer, 256, in) == NULL)
 				break; 
 				
-			thetas.push_back(atof(lineBuffer));
+			tmp.push_back(atof(lineBuffer));
 		}
 	
 		//finished reading the file
 		fclose(in);
 	}
 	
+	return tmp;
 }

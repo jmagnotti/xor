@@ -1,14 +1,14 @@
-SingleMass: SingleMass.o GLPendulum.o ../../sva/sva.o
-	g++ -o ../bin/SingleMass -Wall SingleMass.o GLPendulum.o ../../sva/sva.o -framework GLUT -framework OpenGL
+PenTest: SimTest.o PenSim.o ThetaReader.o GLPendulum.o
+	g++ -o PenTest -Wall SimTest.o PenSim.o ThetaReader.o GLPendulum.o -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain
 
-GenerateThetas: SinglePendulum.o
-	g++ -o ../bin/GenerateThetas -Wall SinglePendulum.o
+SimTest.o: SimTest.cpp ../../../xor.h
+	g++ -c -Wno-deprecated SimTest.cpp
 
-SinglePendulum.o: SinglePendulum.c qpicard.h
-	g++ -c SinglePendulum.c
+PenSim.o: PenSim.cpp PenSim.h ../../../xor.h
+	g++ -c PenSim.cpp
 
-GLPendulum.o: GLPendulum.cpp GLPendulum.h
+GLPendulum.o: GLPendulum.cpp GLPendulum.h ../../../xor.h
 	g++ -c GLPendulum.cpp
 
-SingleMass.o: SingleMass.cpp
-	g++ -c SingleMass.cpp
+ThetaReader.o: ThetaReader.cpp ThetaReader.h
+	g++ -c ThetaReader.cpp

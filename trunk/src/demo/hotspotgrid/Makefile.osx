@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++ 
-LIBS = -framework Cocoa -framework OpenGL -lSDL -lSDLmain -lXOR 
+LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -lSDL -lSDLmain -lXOR 
 
 #Packages
 SRCS = HotspotGrid.cpp HotspotDriver.cpp PrintMousePosition.cpp Icon2D.cpp RectangularHull.cpp ActionItem.cpp PrintAction.cpp
