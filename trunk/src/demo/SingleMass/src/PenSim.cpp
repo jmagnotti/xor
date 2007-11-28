@@ -75,9 +75,9 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 	//instantiated until the render context is set up
 	//because of the quadric objects used
 	_ctrl = Controller::GetInstance();
-	_world = _ctrl->getModel();
+	_world = World::GetInstance(_pendulum);
 	_pendulum = new GLPendulum(penLen, base);
+	//_world->addObject("Pendulum1", _pendulum);
 	//bus error here
-	_world->addObject("Pendulum1", _pendulum);
-	//_ctrl->run();
+	_ctrl->run();
 }

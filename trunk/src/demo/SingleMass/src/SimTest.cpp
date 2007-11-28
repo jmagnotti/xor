@@ -1,4 +1,8 @@
 #include "PenSim.h"
+#include "../../../xor.h"
+
+using namespace XOR;
+
 
 int main(int argc, char* argv[])
 {
