@@ -1,4 +1,5 @@
 #include "GLPendulum.h"
+#include "stdio.h"
 
 GLPendulum::GLPendulum(float length, Vector3D* base) : _length(length), _base(base)
 {
@@ -11,7 +12,7 @@ GLPendulum::~GLPendulum()
 
 void GLPendulum::renderObject()
 {
-	
+	printf("Rendering Pendulum");
 }
 
 Vector3D* GLPendulum::getBaseVector()
