@@ -50,8 +50,6 @@ private:
 	static PenSim* _sim;
 	//theta vector
 	vector<float> _thetas;
-	//the controller
-	Controller* _ctrl;
 	//the model
 	World* _world;
 		
