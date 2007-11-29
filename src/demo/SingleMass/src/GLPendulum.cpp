@@ -12,7 +12,7 @@ GLPendulum::~GLPendulum()
 
 void GLPendulum::renderObject()
 {
-	printf("Rendering Pendulum");
+	printf("Rendering Pendulum\n");
 }
 
 Vector3D* GLPendulum::getBaseVector()
@@ -24,3 +24,5 @@ Dimension3D* GLPendulum::getDimension()
 {
 	return NULL; //for now
 }
+
+void GLPendulum::render(){	printf("Rendering Pendulum\n");}

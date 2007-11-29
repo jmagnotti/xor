@@ -5,13 +5,14 @@
 
 using namespace XOR;
 
-class GLPendulum : public Object3D
+class GLPendulum : public Renderable
 {
 public:
 	GLPendulum(float length, Vector3D* base);
 	~GLPendulum();
 	void renderObject();
 	Vector3D* getBaseVector();
+	void render();
 	
 	//unused but required for Object3D inheritance
 	Dimension3D* getDimension();

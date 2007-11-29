@@ -1,7 +1,6 @@
 #ifndef XOR_H
 #define XOR_H
 
-#include "audio/AudioPlayer.h"
 #include "core/Camera.h"
 #include "core/CameraListener.h"
 #include "core/Controller.h"

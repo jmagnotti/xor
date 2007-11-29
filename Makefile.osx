@@ -7,7 +7,7 @@ MAKEFILE = Makefile.osx
 MKDP = makedepend
 CC = g++
 LFLAGS = -dynamiclib
-LIBS = -framework OpenGL -framework SDL_mixer -lSDL -lSDL_image -lm
+LIBS = -L/sw/lib -framework OpenGL -framework SDL -framework SDL_mixer -lSDL -framework SDL_image -lm
 
 # Notice that libdir does not specify the ending /
 LIBDIR = /usr/local/lib
@@ -60,16 +60,6 @@ depend:		$(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
-src/audio/AudioPlayer.o: src/audio/AudioPlayer.h include/SDL_mixer.h
-src/audio/AudioPlayer.o: include/SDL_types.h include/SDL_rwops.h
-src/audio/AudioPlayer.o: /usr/include/stdio.h /usr/include/_types.h
-src/audio/AudioPlayer.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
-src/audio/AudioPlayer.o: /usr/include/machine/_types.h
-src/audio/AudioPlayer.o: /usr/include/i386/_types.h include/begin_code.h
-src/audio/AudioPlayer.o: include/close_code.h include/SDL_audio.h
-src/audio/AudioPlayer.o: include/SDL_main.h include/SDL_error.h
-src/audio/AudioPlayer.o: include/SDL_byteorder.h include/SDL_endian.h
-src/audio/AudioPlayer.o: include/SDL_version.h
 src/core/Camera.o: src/core/Camera.h include/SDL.h include/SDL_main.h
 src/core/Camera.o: include/SDL_types.h include/SDL_getenv.h
 src/core/Camera.o: include/SDL_error.h include/begin_code.h
