@@ -72,10 +72,10 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 	//get theta values
 	//_thetas = ThetaReader::read(thetaFile);
 
-	_ctrl = Controller::GetInstance();
-
 	_pendulum = new GLPendulum(penLen, base);
 
 	_world = World::GetInstance(_pendulum);
-	//_ctrl->run();
+	
+	//bus error here
+	Controller::GetInstance()->run();
 }
