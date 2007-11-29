@@ -3,10 +3,10 @@
 
 using namespace XOR;
 
-
 int main(int argc, char* argv[])
 {
 	PenSim* ps1 = PenSim::GetInstance();
 	ps1->init(1.0f, new Vector3D(0.0f,0.0f,0.0f), NULL);
+	
 	return 0;
 }

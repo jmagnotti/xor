@@ -38,6 +38,7 @@ void PenSim::Exit()
 	if(_sim != NULL)
 	{
 		delete _sim;
+		delete _pendulum;
 		Controller::GetInstance()->CleanUpAndExit();
 	}
 }
@@ -70,14 +71,11 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 {	
 	//get theta values
 	//_thetas = ThetaReader::read(thetaFile);
-	
-	//order here is CRITICAL, the GLPendulum CANNOT be
-	//instantiated until the render context is set up
-	//because of the quadric objects used
+
 	_ctrl = Controller::GetInstance();
+
 	_pendulum = new GLPendulum(penLen, base);
+
 	_world = World::GetInstance(_pendulum);
-	//_world->addObject("Pendulum1", _pendulum);
-	//bus error here
-	_ctrl->run();
+	//_ctrl->run();
 }
