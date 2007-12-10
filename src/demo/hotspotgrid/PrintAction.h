@@ -1,10 +1,8 @@
 #ifndef PRINTACTION_H
 #define PRINTACTION_H
 
-#include "Action.h"
-#include <iostream>
+#include "../../xor.h"
 
-using namespace std;
 using namespace XOR;
 
 /**
@@ -18,7 +16,7 @@ public:
     
     PrintAction(int x, int y);
 
-    void performAction();
+    void execute();
 
 private:
 	int  _x;

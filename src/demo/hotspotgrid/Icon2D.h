@@ -69,6 +69,15 @@ public:
      */
     void renderObject();
 
+	/**
+	 * Gets base vector
+	 */
+	Vector2D* getBaseVector();
+	
+	/**
+	 * Gets the dimensions
+	 */
+	Dimension2D* getDimension();
 
 private:
 	RectangularHull * _bounds;

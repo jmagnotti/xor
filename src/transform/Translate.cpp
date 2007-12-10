@@ -1,5 +1,4 @@
 #include "Translate.h"
-#define DEBUG
 
 namespace XOR
 {

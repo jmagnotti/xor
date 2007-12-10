@@ -10,7 +10,7 @@ PrintAction::PrintAction(int x, int y)
     _y = y;
 }
 
-void PrintAction::performAction()
+void PrintAction::execute()
 {
     cout << "Action fired @: " << _x << ", " << _y << endl;
 }

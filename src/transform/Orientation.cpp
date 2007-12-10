@@ -1,5 +1,4 @@
 #include "Orientation.h"
-#define DEBUG
 namespace XOR
 {
 
