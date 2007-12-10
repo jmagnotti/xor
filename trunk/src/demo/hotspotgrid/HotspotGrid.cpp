@@ -12,7 +12,7 @@ HotspotGrid::HotspotGrid(Vector2D * origin, Dimension2D * gridSize)
     _maxSize = gridSize;
     _origin = origin;
     _bounds = new RectangularHull(origin, _currentSize);
-	setVisible(false);
+	//setVisible(false);
 }
 
 

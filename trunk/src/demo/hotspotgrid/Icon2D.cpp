@@ -78,3 +78,19 @@ bool Icon2D::inBounds(int xPos, int yPos)
 {
     return _bounds->inHull(xPos, yPos);
 }
+
+/**
+ * Gets base vector
+ */
+Vector2D* Icon2D::getBaseVector()
+{
+	return NULL;
+}
+
+/**
+ * Gets dimensions
+ */
+Dimension2D* Icon2D::getDimension()
+{
+	return NULL;
+}

@@ -10,8 +10,8 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-    Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
-    ctrl->defaultConfiguration();
+    Controller * ctrl = Controller::GetInstance();//(new XavierConfiguration());
+    //ctrl->defaultConfiguration();
     ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
     
     Vector2D * gridOrigin = new Vector2D(500,500);

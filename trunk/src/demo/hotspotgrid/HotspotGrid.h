@@ -2,7 +2,6 @@
 #define HOTSPOTGRID_H
 
 #include "../../xor.h"
-#include "Action.h"
 #include "ActionItem.h"
 #include <vector>
 #include "RectangularHull.h"
@@ -13,7 +12,7 @@ using namespace XOR;
 /**
  * Hotspot grid class
  */
-class HotspotGrid : public LightweightMenu
+class HotspotGrid : public MouseListener, public Object2D//: public LightweightMenu
 {
 public:
 

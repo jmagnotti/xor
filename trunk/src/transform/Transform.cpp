@@ -1,5 +1,4 @@
 #include "Transform.h"
-#define DEBUG
 namespace XOR {
 
 Transform::Transform()

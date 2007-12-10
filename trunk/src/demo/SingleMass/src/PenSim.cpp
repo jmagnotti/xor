@@ -47,20 +47,7 @@ void PenSim::Exit()
  * Run the simulation
  */
 void PenSim::Run()
-{
-	// _sim -> init(label, base, filename);
-	// 	
-	// 	for(int i = 0; i < _thetas.size(); i++)
-	// 	{
-	// 		glPushMatrix();
-	// 			glBegin();
-	// 				glRotate(_thetas[i], 0.0f,0.0f);
-	// 				_pendulum->renderObject();
-	// 			glEnd();
-	// 		glPopMatrix();
-	// 	}
-	// 	
-	// 	Exit();
+{		
 
 }
 
@@ -69,13 +56,19 @@ void PenSim::Run()
  */
 void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 {	
-	//get theta values
-	//_thetas = ThetaReader::read(thetaFile);
-
-	_pendulum = new GLPendulum(penLen, base);
-
-	_world = World::GetInstance(_pendulum);
+	//init controller and set up viewport
+	Controller * ctrl = Controller::GetInstance(new XavierConfiguration());
+	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,5));
+	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,0));
 	
-	//bus error here
-	Controller::GetInstance()->run();
+	//create pendulum
+	_pendulum = new GLPendulum(1.0f, new Vector3D(0,0,0), ThetaReader::read(thetaFile));
+	
+	//setup the world
+	ctrl->setModel(new String2D("Pendulum Test"));
+	ctrl->getModel()->addObject("Pen1", _pendulum);
+	ctrl->setModel(new String2D("PenTest"));
+	
+	//start the controller
+	ctrl->run();
 }

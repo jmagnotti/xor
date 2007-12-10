@@ -56,7 +56,7 @@ public:
 	/**
 	 * Add an item to the menu
 	 */
-	void addItem(MenuItem * mi);
+	void addItem(ActionItem * ai);
 
 	
 private:
