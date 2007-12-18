@@ -1,11 +1,11 @@
 #include "ThetaReader.h"
 
 //for reading in theta values from a file
-vector<float> ThetaReader::read(char* filename)
+vector<double> ThetaReader::read(char* filename)
 {
 	FILE * in;
 	char lineBuffer[256];
-	vector<float> tmp;
+	vector<double> tmp;
 	
 	//open the file for reading
 	in = fopen(filename, "r");

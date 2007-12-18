@@ -14,7 +14,7 @@ public:
 	 * Static method reads float values for theta, one per line,
 	 * from the input file and returns them as a vector
 	 */
-	static vector<float> read(char* filename);
+	static vector<double> read(char* filename);
 //	static vector<Vector3D*> readXY(char* xfile, char* yfile);
 };
 #endif
