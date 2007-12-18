@@ -22,11 +22,16 @@ public:
 	Dimension3D* getDimension();
 	
 private:
-	float _length;
-	float _theta;
+	//our two vectors
 	vector<float> _thetas;
 	vector<Vector3D*> _tracePoints;
+	//the iterators
 	vector<float>::iterator _currentTheta;
+	vector<Vector3D*>::iterator _currentPoint;
+	vector<Vector3D*>::iterator _pointsAdvanced;
+	//other class attributes
+	float _length;
+	float _theta;
 	Vector3D* _base;
 	GLUquadric* _bob;
 	GLUquadric* _string;

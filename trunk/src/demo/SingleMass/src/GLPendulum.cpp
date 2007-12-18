@@ -18,6 +18,7 @@ GLPendulum::GLPendulum(float length, Vector3D* base, vector<float> thetas) : _le
 	_bob = gluNewQuadric();
 	_string = gluNewQuadric();
 	_currentTheta = _thetas.begin();
+	_pointsAdvanced = _tracePoints.begin();
 	buildTrace();
 }
 
@@ -54,7 +55,9 @@ void GLPendulum::updatePosition()
 
 void GLPendulum::endFrame()
 {
-	//updatePosition();
+	//iterate the vector iterator
+	(_currentTheta == _thetas.end()) ? (_currentTheta = _thetas.begin()) : (_currentTheta++);
+	(_pointsAdvanced == _tracePoints.end()) ? (_pointsAdvanced = _tracePoints.begin()) : (_pointsAdvanced++);
 }
 
 void GLPendulum::buildTrace()
@@ -78,7 +81,7 @@ void GLPendulum::buildTrace()
 void GLPendulum::renderObject()
 {
 	//get the current theta value
-	float theta = *(_currentTheta);
+	double theta = (*(_currentTheta) * 180)/PI;
 			
 	// Set materials for 3D objects
 	glMaterialfv(GL_FRONT, GL_AMBIENT, brassAmbient);
@@ -95,21 +98,27 @@ void GLPendulum::renderObject()
    		glRotatef(theta, 0, 0, 1);
 
 		//translate to the bob position
-  		glTranslatef(0, _length, 0);
+  		glTranslatef(0, -_length, 0);
 		
 		//set draw color
 		glColor3f(1.0f,0.0f,.5);
 						
 		//draw the bob
-   		gluSphere(_bob, 0.25, 20, 20);
+   		gluSphere(_bob, 0.1 * _length, 20, 20);
 		
 		//draw the string
 		glRotatef(-90.0, 1.0, 0, 0);
 		gluCylinder(_string, 0.01f * _length, 0.01f* _length, _length, 10, 10);
+		
+		glBegin(GL_POINTS);
+			_currentPoint = _tracePoints.begin();
+			while(_currentPoint != _pointsAdvanced)
+			{
+				glVertex3f((*_currentPoint)->getX(), (*_currentPoint)->getY(), (*_currentPoint)->getZ());
+				_currentPoint++;
+			}
+		glEnd();
 
 	}
-   	glPopMatrix();
-
-	//iterate the vector iterator
-	(_currentTheta == _thetas.end()) ? (_currentTheta = _thetas.begin()) : (_currentTheta++);	
+   	glPopMatrix();		
 }

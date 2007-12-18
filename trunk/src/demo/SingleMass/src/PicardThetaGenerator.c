@@ -28,11 +28,11 @@ int main()
 
 /* Open the file for the numerical data. */
 
-   fp1 = fopen("ThetaValues", "w");
+   fp1 = fopen("../data/ThetaValues", "w");
 
-   fp2 = fopen("FcxValues", "w");
+   fp2 = fopen("../data/XConstraintValues", "w");
 
-   fp3 = fopen("FcyValues", "w");
+   fp3 = fopen("../data/YConstraintValues", "w");
 
 
 /* Zero out all the coefficients. */
@@ -238,11 +238,18 @@ int main()
         alpha[i][0] = temp; 
 
      }      
-    fprintf(fp1,"   %8.16e \n",alpha[1][0]);
+	 fprintf(fp1,"   %8.16e \n",alpha[1][0]);
 	 fprintf(fp2,"   %8.16e \n",mass*(-Amp*omega*omega*alpha[5][0]-len*alpha[2][0]*alpha[2][0]*alpha[3][0]+len*alpha[4][0]
 	 *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0]))); 
 	 fprintf(fp3,"   %8.16e \n",mass*(grav+len*alpha[2][0]*alpha[2][0]*alpha[4][0]+len*alpha[3][0]
 	 *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0])));
+	
+	 // fprintf(fp1,"   %8.16e ",alpha[1][0]);
+	 // fprintf(fp1,"   %8.16e ",mass*(-Amp*omega*omega*alpha[5][0]-len*alpha[2][0]*alpha[2][0]*alpha[3][0]+len*alpha[4][0]
+	 // *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0]))); 
+	 // fprintf(fp1,"   %8.16e \n",mass*(grav+len*alpha[2][0]*alpha[2][0]*alpha[4][0]+len*alpha[3][0]
+	 // *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0])));
+    
    }  
 
    for (i=1; i<=ne; i++)

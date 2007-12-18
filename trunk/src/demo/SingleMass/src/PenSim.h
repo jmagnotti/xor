@@ -23,11 +23,6 @@ public:
 	 */
 	void init(float penLen, Vector3D* base, char* filename);
 	
-	/**
-	 * Run method
-	 */
-	void Run();
-	
 private:
 	/**
 	 * Default constructor
