@@ -1,6 +1,7 @@
 #include "PenSim.h"
 
 class PenConfig : public XavierConfiguration {
+public:	
 	
 	bool isLightingEnabled()
 	{
@@ -9,7 +10,8 @@ class PenConfig : public XavierConfiguration {
 	
 	unsigned int getTimerInterval()
 	{
-		return 30;
+		printf("here");
+		return 10;
 	}
 };
 
@@ -73,7 +75,7 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 	//setup the world
 	ctrl->setModel(new String2D("Pendulum Test"));
 	ctrl->getModel()->addObject("Pen1", _pendulum);
-	ctrl->setModel(new String2D("PenTest"));
+	ctrl->getModel()->addObject("String1", new String2D("PenTest"));
 	
 	//start the controller
 	ctrl->run();
