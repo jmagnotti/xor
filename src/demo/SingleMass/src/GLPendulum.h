@@ -12,26 +12,22 @@ using namespace std;
 class GLPendulum : public Sprite3D
 {
 public:
-	GLPendulum(float length, Vector3D* base, vector<float> thetas);
+	GLPendulum(float length, Vector3D* base, vector<double> thetas);
 	~GLPendulum();
 	void renderObject();
 	void endFrame();
-	void updatePosition();
-	void buildTrace();
+	//void buildTrace();
 	Vector3D* getBaseVector();
 	Dimension3D* getDimension();
 	
 private:
 	//our two vectors
-	vector<float> _thetas;
+	vector<double> _thetas; //in degrees
 	vector<Vector3D*> _tracePoints;
-	//the iterators
-	vector<float>::iterator _currentTheta;
-	vector<Vector3D*>::iterator _currentPoint;
-	vector<Vector3D*>::iterator _pointsAdvanced;
 	//other class attributes
 	float _length;
 	float _theta;
+	unsigned int _currentTheta;
 	Vector3D* _base;
 	GLUquadric* _bob;
 	GLUquadric* _string;

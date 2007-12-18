@@ -21,19 +21,15 @@ int main()
 
    double h, tyme, r;
    double bcsum,dsum,sum1,sum2,sum22,sum3,sum32,sum33,temp,temp1;
-   double Icm,grav,mu1,mu2,len,mass,phi,omega,Amp,rho,psi,nu1,nu2;
+
+   double grav,mu,len,mass,phi,omega,Amp;
    int i,j,k,n,m,ns,num_time_steps;
 
-   FILE *fp1,*fp2,*fp3;
+   FILE *fp1,*fp2;
 
 /* Open the file for the numerical data. */
 
-   fp1 = fopen("../data/ThetaValues", "w");
-
-   fp2 = fopen("../data/XConstraintValues", "w");
-
-   fp3 = fopen("../data/YConstraintValues", "w");
-
+   fp1 = fopen("ThetaValues", "w");
 
 /* Zero out all the coefficients. */
 
@@ -66,52 +62,63 @@ int main()
    }
    }
 
-/* Set up the coefficients in your equation. */ 
+/* Set up the coefficients in your equation. */
+
+   
 
    grav = 10;
-	len = 10; 
+
+   mu = 0.2;
+
+   len = 10;
+
    mass = 1;
-	Icm = 0; 
-   mu1 = 0.8;
-	mu2 = 0.2; 
-	Amp = 1.;
-	omega = 1;  
+
+   
+
    phi = 0;
-	
-	rho = -mass*len/(mass*len*len+Icm);  /* -grav/len; */
-	psi = mass*len*Amp*omega*omega/(mass*len*len+Icm);  /* Amp/mass */
-	nu1 = -mu1/(mass*len*len+Icm);  /* -mu1/mass */
-	nu2 = -mu2/(mass*len*len+Icm); /* -mu2/mass */
+
+   omega = 1;
+
+	Amp = 1.;
+
 
    b[1][2] = 1.0;
-	b[2][3] = rho; 
-	if (mu1>0) b[2][2] = nu1;
-	if (mu2>0) d[2][2][2] = nu2; 
-	d[2][4][5] = psi;
-	d[3][2][4] = 1.0;
+
+   b[2][2] = -mu/mass;
+
+   b[2][3] = -grav/len;
+
+   d[3][2][4] = 1.0;
+
    d[4][2][3] = -1.0;
-   b[5][6] = omega;
-   b[6][5] = -omega;
+
+   b[5][6] = -omega;
+
+   b[6][5] = omega;
 
 /* Give the initial conditions which are also the zeroth coefficients in
    the Maclaurin solutions. */
 
    alpha[1][0] = atan(1.0);
    alpha[2][0] = 0.0;
-   alpha[3][0] = sin(alpha[1][0]);
-   alpha[4][0] = cos(alpha[1][0]);
-   alpha[5][0] = Amp*sin(phi);
-   alpha[6][0] = -Amp*cos(phi);
+   alpha[3][0] = cos(alpha[1][0]);
+
+   alpha[4][0] = sin(alpha[1][0]);
+
+   alpha[5][0] = Amp*cos(phi);
+
+   alpha[6][0] = -Amp*sin(phi);
       
    printf("  %28.16lf ",alpha[1][0]); 
    printf("  %28.16lf ",alpha[2][0]); 
 
 /* h is the local time step */
       
-   h = pow(1/2.,8.);
+   h = pow(1/2.,6.);
       
    printf("   %8.16e \n",h);
-   fprintf(fp1,"   %8.16e \n",alpha[1][0]);
+  fprintf(fp1,"   %8.16e \n",alpha[1][0]);
 
 /* tyme is the global time step */
 
@@ -238,18 +245,7 @@ int main()
         alpha[i][0] = temp; 
 
      }      
-	 fprintf(fp1,"   %8.16e \n",alpha[1][0]);
-	 fprintf(fp2,"   %8.16e \n",mass*(-Amp*omega*omega*alpha[5][0]-len*alpha[2][0]*alpha[2][0]*alpha[3][0]+len*alpha[4][0]
-	 *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0]))); 
-	 fprintf(fp3,"   %8.16e \n",mass*(grav+len*alpha[2][0]*alpha[2][0]*alpha[4][0]+len*alpha[3][0]
-	 *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0])));
-	
-	 // fprintf(fp1,"   %8.16e ",alpha[1][0]);
-	 // fprintf(fp1,"   %8.16e ",mass*(-Amp*omega*omega*alpha[5][0]-len*alpha[2][0]*alpha[2][0]*alpha[3][0]+len*alpha[4][0]
-	 // *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0]))); 
-	 // fprintf(fp1,"   %8.16e \n",mass*(grav+len*alpha[2][0]*alpha[2][0]*alpha[4][0]+len*alpha[3][0]
-	 // *(rho*alpha[3][0]+psi*alpha[4][0]*alpha[5][0]+nu1*alpha[2][0]+nu2*alpha[2][0]*alpha[2][0])));
-    
+    fprintf(fp1,"   %8.16e \n",alpha[1][0]);
    }  
 
    for (i=1; i<=ne; i++)
