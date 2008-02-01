@@ -40,7 +40,7 @@ private:
 	void Exit();
 
 	// the pendulum
-	Sprite3D* _pendulum;	
+ 	GLPendulum * _pendulum;	
 	//the class singleton
 	static PenSim* _sim;
 	//theta vector

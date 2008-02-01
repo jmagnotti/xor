@@ -115,7 +115,7 @@ int main()
 
 /* tyme is the global time step */
 
-   tyme = pow(2.,11.)*h;
+   tyme = pow(2.,15 .)*h;
 
 /* num_time_steps is the number of iterations in the global time step */
 

@@ -4,11 +4,11 @@ CC = g++
 LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain -lSDL
 
 #Packages
-SRCS = SimTest.cpp GLPendulum.cpp PenSim.cpp ThetaReader.cpp
+SRCS = SingleMass.cpp GLPendulum.cpp PenSim.cpp ThetaReader.cpp
 
 OBJS = $(SRCS:.cpp=.o)	
 
-MAIN = SimTest
+MAIN = SingleMass
 
 # 
 # The following part of the makefile is generic; it can be used to 
@@ -20,7 +20,7 @@ MAIN = SimTest
 #Change this so that the executable is put in a "bin" directory of sorts
 all:		$(MAIN)
 
-SimTest:	$(OBJS) 
+SingleMass:	$(OBJS) 
 			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
 .c.o:
