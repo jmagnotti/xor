@@ -10,7 +10,6 @@
 #include "../interpolation/InterpolationEngine.h"
 #include "Transform.h"
 
-#define DEBUG
 namespace XOR { 
 /**
  * Performs a Scalar Matrix transform. For each point rendered after the Scalar
