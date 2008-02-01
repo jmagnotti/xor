@@ -14,12 +14,26 @@ namespace GLPendulumConstants
 using namespace GLPendulumConstants;
 using namespace std;
 
-GLPendulum::GLPendulum(float length, Vector3D* base, vector<double> thetas) : _length(length), _base(base), _thetas(thetas)
+GLPendulum::GLPendulum(float length, Vector3D* base, vector<double> thetas)
 {
+	_length = length;
+	_base = base;
+	_thetas = thetas;
 	_bob = gluNewQuadric();
 	_string = gluNewQuadric();
 	_currentTheta = 0;
 	_currentThetaString = new String2D("Just initializing, shouldn't see this",10,25);
+	//_drawTrace = false;
+	
+	_tracePoints.resize(_thetas.size());
+	
+	cout << _thetas.size() << endl;
+	cout << _tracePoints.size() << endl;
+	
+	// for(vector<Vector3D*>::iterator itr = _tracePoints.begin(); itr != _tracePoints.end(); itr++)
+	// {
+	// 	
+	// }
 }
 
 GLPendulum::~GLPendulum()
@@ -27,6 +41,7 @@ GLPendulum::~GLPendulum()
 	delete _base;
 	gluDeleteQuadric(_bob);
 	gluDeleteQuadric(_string);
+	delete _currentThetaString;
 	
 	//delete the points in the trace vector
 	// vector<Vector3D*>::iterator tmp;
@@ -61,40 +76,9 @@ void GLPendulum::endFrame()
 		_currentTheta = 0;
 }
 
-// void GLPendulum::buildTrace()
-// {
-// 	vector<float>::iterator currentTheta;
-// 	float thetaRad;
-// 	
-// 	currentTheta = _thetas.begin();
-// 	
-// 	while(currentTheta != _thetas.end())
-// 	{
-// 		//convert from degrees to rads
-// 		thetaRad = (*(currentTheta) * PI)/180.0f;
-// 		//create a new glvertex and push it onto the trace vector
-// 		_tracePoints.push_back(new Vector3D(_length * sin(thetaRad), _length * cos(thetaRad), 0.0f));
-// 		//increment the iterator
-// 		currentTheta++;
-// 	}
-// }
-
 void GLPendulum::drawTrace()
 {
-	if(_currentTheta < 1)
-	{
-		// glPushMatrix();
-		// 	{
-		// 		for(int i = 0; i < _currentTheta; i++)
-		// 		{
-		// 			glBegin(GL_LINE_STRIP);
-		// 				//glVertex3fv( (GLfloat*) _tracePoints[i-1]->toArray());
-		// 				//glVertex3fv( (GLfloat*) _tracePoints[i]->toArray());
-		// 			glEnd();
-		// 		}
-		// 	}
-		// 	glPopMatrix();
-	}
+	
 }
 
 void GLPendulum::renderObject()
@@ -164,6 +148,9 @@ void GLPendulum::renderObject()
 		
 	}
    	glPopMatrix();
-
-	drawTrace();
+	
+	//if(_drawTrace)
+	{
+		drawTrace();
+	}
 }

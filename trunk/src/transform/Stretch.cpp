@@ -1,5 +1,4 @@
 #include "Stretch.h"
-#define DEBUG
 
 namespace XOR {
 

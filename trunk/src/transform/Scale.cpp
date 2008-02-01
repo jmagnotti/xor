@@ -1,6 +1,5 @@
 #include "Scale.h"
 
-#define DEBUG
 namespace XOR {
 /*
  *
