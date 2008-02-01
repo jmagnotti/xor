@@ -1,5 +1,5 @@
-GenerateThetas: PicardThetaGenerator.o
-	g++ -o ../bin/GenerateThetas -Wall PicardThetaGenerator.o
+GenerateThetas: SinglePendulum.o
+	g++ -o GenerateThetas -Wall SinglePendulum.o
 
-PicardThetaGenerator.o: PicardThetaGenerator.c qpicard.h
-	g++ -c PicardThetaGenerator.c
+SinglePendulum.o: SinglePendulum.c qpicard.h
+	g++ -c SinglePendulum.c
