@@ -9,12 +9,22 @@
 
 using namespace XOR;
 
+
+/**
+ * PenSim is intended to be a class the encapsulates a pendulum simulation. The idea is
+ * that a single simulation can spawn an arbitrary number of pendulums with differing initial
+ * conditions.
+ *
+ *@author Everette Clemmer
+ */
 class PenSim
 {
 
 public:
 	/**
-	 * Singleton Accessor
+	 * Singleton Accessor returns the instance of the PenSim or creats a new one if no instance
+	 * has been defined yet. Not sure if singleton pattern is appropriate here, might consider
+	 * factory pattern if we want to create multiple simulations with different initial conditions
 	 */
 	static PenSim* GetInstance();
 	
@@ -25,7 +35,7 @@ public:
 	
 private:
 	/**
-	 * Default constructor
+	 * Default constructor, should never be called outside of the get Instance method
 	 */
 	PenSim();
 	

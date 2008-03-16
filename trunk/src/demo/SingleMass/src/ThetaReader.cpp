@@ -1,36 +1,33 @@
 #include "ThetaReader.h"
+#include <fstream>
+#include <math.h>
 
-//for reading in theta values from a file
-vector<double> ThetaReader::read(char* filename)
+void ThetaReader::read(char* filename, vector<double>& thetaVector, int outputUnits)
 {
-	FILE * in;
-	char lineBuffer[256];
-	vector<double> tmp;
+	ifstream in(filename);
+	double thetaValue;
+	double radiansToDegreesRatio;
 	
-	//open the file for reading
-	in = fopen(filename, "r");
-	
-	//if the file doesn't exist, return NULL
-	if(in == NULL)
+	if(outputUnits == DEGREES)
+	{
+		radiansToDegreesRatio = 180.0/M_PI;
+	}
+	else
+		radiansToDegreesRatio = 1.0;
+
+	//alert the user if the file doesn't exist
+	if(! in)
 	{
 		printf("Can't find theta file");
 	}
 	else
 	{		
-		while(! feof(in))
+		while(in)
 		{
-			//read a line
-			if(fgets(lineBuffer, 256, in) == NULL)
-				break; 
-			//push the value onto the vector
-			//thetafile is in rads so need to convert to deg	
-			tmp.push_back((atof(lineBuffer) * 180) / 3.1415926535);
-			printf("%f", (atof(lineBuffer) * 180) / 3.1415926535);
-		}
-	
-		//finished reading the file
-		fclose(in);
-	}
-	
-	return tmp;
-}
+			//puts the current value from the file into theta value
+			in >> thetaValue;
+			//convert the radian value if specified and push onto the vector
+			thetaVector.push_back(thetaValue*radiansToDegreesRatio);			
+		}//end while
+	}//end if block
+}// end read
