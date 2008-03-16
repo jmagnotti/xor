@@ -1,11 +1,12 @@
 #include "PenSim.h"
 
 class PenConfig : public XavierConfiguration {
+	
 public:	
 	
 	PenConfig()
 	{
-		printf("makin pen config");
+		//does nothing until initialized
 	}
 	
 	bool isLightingEnabled()
@@ -72,14 +73,19 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,5));
 	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,0));
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+	 
 	//create pendulum
-	_pendulum = new GLPendulum(1.0f, new Vector3D(0,0,0), ThetaReader::read(thetaFile));  //returns theta in degrees
-	Controller::GetInstance()->getTimer()->addListener(_pendulum);
+	vector<double> thetaVector;
+	ThetaReader::read(thetaFile, thetaVector, ThetaReader::RADIANS);
+	_pendulum = new GLPendulum(1.0f, new Vector3D(0,0,0), thetaVector, true);
 	
+	//add the pedulum as a timer listener
+	Controller::GetInstance()->getTimer()->addListener(_pendulum);
+	 
 	//setup the world
 	ctrl->setModel(new String2D("Pendulum Test"));
-	ctrl->getModel()->addObject("Pen1", _pendulum);
 	ctrl->getModel()->addObject("ThetaString", _pendulum->getThetaString());
+	ctrl->getModel()->addObject("Pen1", _pendulum);
 	
 	//set up lighting
 	GLfloat white[] = {1.0f, 1.0f, 1.0f, 1.0f};
@@ -92,8 +98,7 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
     glLightfv(GL_LIGHT0, GL_DIFFUSE, white);
     glLightfv(GL_LIGHT0, GL_SPECULAR, white);
     glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
-	
-	
+
 	//start the controller
-	ctrl->run();
+	 ctrl->run();
 }

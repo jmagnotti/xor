@@ -31,12 +31,19 @@ public:
 	*@param base - the pendulum origin (nail)
 	*@param thetas - the theta values for the simulation
 	*/
-	GLPendulum(float length, Vector3D* base, vector<double> thetas);
+	GLPendulum(float length, Vector3D* base, vector<double> thetas, bool drawTrace);
 	
 	/**
 	* Destructor
 	*/
 	~GLPendulum();
+	
+	/**
+	* Method initializes the _tracePoints vector from _thetas
+	* will probably be removed in favor of real time calcs when
+	* i make the app multithreaded
+	*/
+	void buildTrace();
 	
 	/**
 	* Required for any sprite 3d object. Called by the sprite handler to
@@ -83,16 +90,18 @@ public:
 	
 private:
 	vector<double> _thetas; //in degrees
-	vector<Vector3D*> _tracePoints;//not sure if this is necessary yet
+	//vector<Vector3D*> _tracePoints;//not sure if this is necessary yet
+	
+	int _currentTheta;
+	//int _currentTracePoint;
 	
 	//other class attributes
 	float _length;
 	float _theta;
-	unsigned int _currentTheta;
-	//boolean _drawTrace;
+	bool _drawTrace;
+	
 	String2D* _currentThetaString;
 	Vector3D* _base;
-	//Vector3D* _lastTracePoint;
 	GLUquadric* _bob;
 	GLUquadric* _string;
 };
