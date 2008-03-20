@@ -5,28 +5,30 @@ MAKEFILE = Makefile.mingw
 CFLAGS = -O3
 CC = g++
 LFLAGS = -shared
-LIBS = -mwindows -lws2_32 -lmingw32 lib/SDL_image.dll lib/libSDL.dll.a lib/libSDLmain.a -lopengl32 -lglu32 -lm
-#Notice that libs dir does not specify the ending /
-LIBDIR = /usr/local/lib
+
+#Notice that libs dir does not specify the ending '\'
+LIBDIR = C:\Dev-Cpp\lib
+LIBS = -L$(LIBDIR) -mwindows -lws2_32 -lmingw32 lib\SDL_image.dll lib\libSDL.dll.a lib\libSDLmain.a -lopengl32 -lglu32 -lm
 
 #Packages
-SRCS = src/core/Camera.cpp src/core/Controller.cpp src/core/DebugCamera.cpp src/core/Window.cpp src/core/World.cpp src/core/XavierConfiguration.cpp src/event/FullEventHandlerFactory.cpp src/event/FullEventProxyFactory.cpp src/event/InputEventHandlerFactory.cpp src/event/InputEventProxyFactory.cpp src/event/keyboard/DefaultKeyboardListener.cpp src/event/keyboard/Keyboard.cpp src/event/keyboard/KeyboardSkeleton.cpp src/event/keyboard/KeyboardStub.cpp src/event/keyboard/KeyDownEvent.cpp src/event/keyboard/KeyEvent.cpp src/event/keyboard/KeyEventFactory.cpp src/event/keyboard/KeyUpEvent.cpp src/event/keyboard/RegularKeyEvent.cpp src/event/keyboard/SpecialKeyEvent.cpp src/event/mouse/DefaultMouseListener.cpp src/event/mouse/Mouse.cpp src/event/mouse/MouseButtonDown.cpp src/event/mouse/MouseButtonUp.cpp src/event/mouse/MouseClickEvent.cpp src/event/mouse/MouseEvent.cpp src/event/mouse/MouseEventFactory.cpp src/event/mouse/MouseMotionEvent.cpp src/event/mouse/MouseSkeleton.cpp src/event/mouse/MouseStub.cpp src/event/reshape/ReshapeEvent.cpp src/event/timer/IntervalTimer.cpp src/event/timer/Timer.cpp src/event/timer/TimerSkeleton.cpp src/event/timer/TimerStub.cpp src/geometry/Dimension.cpp src/geometry/Dimension2D.cpp src/geometry/Dimension3D.cpp src/geometry/RectangularVolume.cpp src/geometry/Vector2D.cpp src/geometry/Vector3D.cpp src/interpolation/CameraRoller.cpp src/interpolation/InterpolationEngine.cpp src/interpolation/InterpolatorFactory.cpp src/interpolation/LinearInterpolator.cpp src/interpolation/TimedInterpolation.cpp src/interpolation/Waypoint.cpp src/interpolation/WaypointCollection.cpp src/model/MilkshapeModel.cpp src/model/Model.cpp src/model/ModelFactory.cpp src/multicast/mcsend.cpp src/multicast/MulticastSocket.cpp src/multicast/MulticastSocketPool.cpp src/object2D/Object2D.cpp src/object2D/Rectangle2D.cpp src/object2D/String2D.cpp src/object3D/AdornablePrism.cpp src/object3D/Arc3D.cpp src/object3D/CompiledObject3D.cpp src/object3D/Cube.cpp src/object3D/ExtrudedNormalPolygon3D.cpp src/object3D/NoDepthTestQuadrilateral3D.cpp src/object3D/NormalPolygon3D.cpp src/object3D/Object3D.cpp src/object3D/Object3DCollection.cpp src/object3D/Particle.cpp src/object3D/Point3D.cpp src/object3D/Quadrilateral3D.cpp src/object3D/RectangularPrism.cpp src/object3D/Sprite3D.cpp src/object3D/Transformable.cpp src/object3D/Triangle3D.cpp src/paint/Color.cpp src/paint/Paint.cpp src/terrain/FunctionHeightFieldStrategy.cpp src/terrain/HeightField.cpp src/terrain/HeightFieldFactory.cpp src/terrain/ImageHeightFieldStrategy.cpp src/terrain/MatrixHeightFieldStrategy.cpp src/terrain/NullHeightFieldStrategy.cpp src/texture/Texture.cpp src/texture/TextureFactory.cpp src/texture/TextureScale.cpp src/transform/CoordinateSystem.cpp src/transform/CoordinateSystemFactory.cpp src/transform/EngineerCoordinateSystem.cpp src/transform/LeftOpenGLCoordinateSystem.cpp src/transform/MacCoordinateSystem.cpp src/transform/MathCoordinateSystem.cpp src/transform/OpenGLCoordinateSystem.cpp src/transform/Orientation.cpp src/transform/Rotate.cpp src/transform/Scale.cpp src/transform/Stretch.cpp src/transform/Transform.cpp src/transform/TransformFactory.cpp src/transform/Translate.cpp src/util/BehaviorParser.cpp src/util/BitmapFontUtil.cpp src/util/FramesPerSecondCounter.cpp src/util/GraphicsConversionUtility.cpp src/util/PointScale.cpp src/util/xmlParser.cpp 
+SRCS = src\event\EventRecorderFactory.cpp src\event\EventPlayerFactory.cpp src\event\timer\TimerListenerManager.cpp src\event\ContinuousAction.cpp src\event\DelayedAction.cpp src\geometry\Containment.cpp src\core\Camera.cpp src\core\Controller.cpp src\core\DebugCamera.cpp src\core\Window.cpp src\core\World.cpp src\core\XavierConfiguration.cpp src\event\FullEventHandlerFactory.cpp src\event\FullEventProxyFactory.cpp src\event\InputEventHandlerFactory.cpp src\event\InputEventProxyFactory.cpp src\event\keyboard\DefaultKeyboardListener.cpp src\event\keyboard\Keyboard.cpp src\event\keyboard\KeyboardSkeleton.cpp src\event\keyboard\KeyboardStub.cpp src\event\keyboard\KeyDownEvent.cpp src\event\keyboard\KeyEvent.cpp src\event\keyboard\KeyEventFactory.cpp src\event\keyboard\KeyUpEvent.cpp src\event\keyboard\RegularKeyEvent.cpp src\event\keyboard\SpecialKeyEvent.cpp src\event\mouse\DefaultMouseListener.cpp src\event\mouse\Mouse.cpp src\event\mouse\MouseButtonDown.cpp src\event\mouse\MouseButtonUp.cpp src\event\mouse\MouseClickEvent.cpp src\event\mouse\MouseEvent.cpp src\event\mouse\MouseEventFactory.cpp src\event\mouse\MouseMotionEvent.cpp src\event\mouse\MouseSkeleton.cpp src\event\mouse\MouseStub.cpp src\event\reshape\ReshapeEvent.cpp src\event\timer\IntervalTimer.cpp src\event\timer\Timer.cpp src\event\timer\TimerSkeleton.cpp src\event\timer\TimerStub.cpp src\geometry\Dimension.cpp src\geometry\Dimension2D.cpp src\geometry\Dimension3D.cpp src\geometry\RectangularVolume.cpp src\geometry\Vector2D.cpp src\geometry\Vector3D.cpp src\interpolation\CameraRoller.cpp src\interpolation\InterpolationEngine.cpp src\interpolation\InterpolatorFactory.cpp src\interpolation\LinearInterpolator.cpp src\interpolation\TimedInterpolation.cpp src\interpolation\Waypoint.cpp src\interpolation\WaypointCollection.cpp src\model\MilkshapeModel.cpp src\model\Model.cpp src\model\ModelFactory.cpp src\multicast\mcsend.cpp src\multicast\MulticastSocket.cpp src\multicast\MulticastSocketPool.cpp src\object2D\Object2D.cpp src\object2D\Rectangle2D.cpp src\object2D\String2D.cpp src\object3D\AdornablePrism.cpp src\object3D\Arc3D.cpp src\object3D\CompiledObject3D.cpp src\object3D\Cube.cpp src\object3D\ExtrudedNormalPolygon3D.cpp src\object3D\NoDepthTestQuadrilateral3D.cpp src\object3D\NormalPolygon3D.cpp src\object3D\Object3D.cpp src\object3D\Object3DCollection.cpp src\object3D\Particle.cpp src\object3D\Point3D.cpp src\object3D\Quadrilateral3D.cpp src\object3D\RectangularPrism.cpp src\object3D\Sprite3D.cpp src\transform\Transformable.cpp src\object3D\Triangle3D.cpp src\paint\Color.cpp src\paint\Paint.cpp src\terrain\FunctionHeightFieldStrategy.cpp src\terrain\HeightField.cpp src\terrain\HeightFieldFactory.cpp src\terrain\ImageHeightFieldStrategy.cpp src\terrain\MatrixHeightFieldStrategy.cpp src\terrain\NullHeightFieldStrategy.cpp src\texture\Texture.cpp src\texture\TextureFactory.cpp src\texture\TextureScale.cpp src\transform\CoordinateSystem.cpp src\transform\CoordinateSystemFactory.cpp src\transform\EngineerCoordinateSystem.cpp src\transform\LeftOpenGLCoordinateSystem.cpp src\transform\MacCoordinateSystem.cpp src\transform\MathCoordinateSystem.cpp src\transform\OpenGLCoordinateSystem.cpp src\transform\Orientation.cpp src\transform\Rotate.cpp src\transform\Scale.cpp src\transform\Stretch.cpp src\transform\Transform.cpp src\transform\TransformFactory.cpp src\transform\Translate.cpp src\util\BehaviorParser.cpp src\util\BitmapFontUtil.cpp src\util\FramesPerSecondCounter.cpp src\util\GraphicsConversionUtility.cpp src\util\PointScale.cpp src\util\xmlParser.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = libXOR.so
+MAIN = XOR.DLL
 
-#
+CP = COPY /Y
+
 # The following part of the makefile is generic; it can be used to
 # build any executable just by changing the definitions above and by
 # deleting dependencies appended to the file from 'make depend'
-#
+
 
 all:		$(MAIN)
-		cp -f $(MAIN) ./lib/$(MAIN)
+#$(CP) $(MAIN) lib
 
 install:	$(SPECIAL)
-		cp -f ./lib/$(MAIN) $(LIBDIR)/$(MAIN)
+#$(CP) lib\$(MAIN) $(LIBDIR)\$(MAIN)
 
 $(MAIN):	$(OBJS)
 		$(CC) $(LFLAGS) -o $(MAIN) $(OBJS) $(LIBS)
@@ -38,7 +40,7 @@ clean:
 		$(RM) $(OBJS) $(MAIN)
 
 depend:		$(SRCS)
-		$(MKDP) -f$(MAKEFILE) 2> /dev/null $(INCLUDES) $^
+		$(MKDP) -f$(MAKEFILE) 2> \dev\null $(INCLUDES) $^
 
 
 # DO NOT DELETE THIS LINE -- make depend needs it

@@ -21,11 +21,17 @@ public:
 
     // Do not use the constants in Vector3D, as they are 0-based. 
     // Since we are &ing these later, they are different.
-    static const unsigned int X;
-    static const unsigned int Y;
-    static const unsigned int Z;
-    static const unsigned int NIL;
-    static const unsigned int ALL;
+    //static const unsigned int X;
+    //static const unsigned int Y;
+    //static const unsigned int Z;
+    //static const unsigned int NIL;
+    //static const unsigned int ALL;
+
+#define CONTAINMENT_X 0x00000001
+#define CONTAINMENT_Y 0x00000010
+#define CONTAINMENT_Z 0x00000100
+#define CONTAINMENT_ALL 0x00000111
+#define CONTAINMENT_NIL 0x00000000
 
     Containment();
 

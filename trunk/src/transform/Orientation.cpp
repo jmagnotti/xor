@@ -88,11 +88,11 @@ void Orientation::notifyPositionChange(Vector3D * delta, Vector3D * newPosition)
         which = (*iter)->handlePositionChange(newPosition);
 
 		if (which > 0) {
-			if ((which & Containment::X) == Containment::X)
+			if ((which & CONTAINMENT_X) == CONTAINMENT_X)
 				delta->setPosition(Vector3D::X, 0);
-			if ((which & Containment::Y) == Containment::Y)
+			if ((which & CONTAINMENT_Y) == CONTAINMENT_Y)
 				delta->setPosition(Vector3D::Y, 0);
-			if ((which & Containment::Z) == Containment::Z)
+			if ((which & CONTAINMENT_Z) == CONTAINMENT_Z)
 				delta->setPosition(Vector3D::Z, 0);
 		}
         iter = next;

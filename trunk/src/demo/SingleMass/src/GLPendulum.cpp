@@ -25,13 +25,6 @@ GLPendulum::GLPendulum(float length, Vector3D* base, vector<double> thetas, bool
 	_length = length;
 	_string = gluNewQuadric();
 	_thetas = thetas;
-
-	// for (int i=0; i<_thetas.size(); i++)
-	// {
-	// 	_tracePoints.push_back(new Vector3D(_length*cos((double)_thetas[i]),
-	// 										_length*sin((double)_thetas[i]),
-	// 										0.0f));
-	// }
 }
 
 GLPendulum::~GLPendulum()
@@ -40,11 +33,6 @@ GLPendulum::~GLPendulum()
 	gluDeleteQuadric(_string);
 	delete _base;
 	delete _currentThetaString;
-	
-	// for(int i = 0; i < _tracePoints.size(); i++)
-	// {
-	// 	delete _tracePoints[i];
-	// }
 }
 
 Vector3D* GLPendulum::getBaseVector()
@@ -64,47 +52,37 @@ String2D * GLPendulum::getThetaString()
 
 void GLPendulum::endFrame()
 {
-	if(_currentTheta < _thetas.size())
-	{
-		_currentTheta++;
-		//_currentTracePoint++;
-	}
-	else
-	{
-		_currentTheta = 0;
-		//_currentTracePoint = 0;
-	}
+    _currentTheta += 10;
+
+	if (_currentTheta >= _thetas.size()) _currentTheta = 0;
 }
 
 void GLPendulum::drawTrace()
 {
-	double thetaDeg;
-	
-	glPushMatrix();
-		glBegin(GL_LINE_STRIP);
-		{
-		   	glRotatef(_thetas[_currentTheta], 0, 0, 1);
-			glColor3f(0.0f,1.0f,0.0f);
-
-			for(int i = 0; i < _currentTheta; i++)
-			{
-				//convert radians to degrees and scale
-				thetaDeg = _thetas[i] * (M_PI/180) * 1000;
-
-				glVertex3f( _length*(sin(thetaDeg)),
-				 			-_length*(cos(thetaDeg)),
-				 			0.0f);
-			}
-		}
-		glEnd();
-	glPopMatrix();
+    double x;
+    glColor3f(1.0f,1.0f,1.0f);
+    glPushMatrix();
+        glRotatef(90, 0, 0, 1);
+        glLineWidth(4);
+        glBegin(GL_LINE_STRIP);
+        for(int i=0; i <= _currentTheta; i++) {
+            //convert radians to degrees and scale
+            x = _thetas[i] * (M_PI/180.0f) * 15;
+            glVertex3f(-cos(x), -sin(x), 0);
+        }
+        glEnd();
+    glPopMatrix();
+    glColor3f(1.0f,0.3f,0.3f);
 }
 
 void GLPendulum::renderObject()
 {
+    cout << "GLPendulum::renderObject()" << endl;
+    cout << "CT at: " << _currentTheta << endl;
 	//get the current theta value, convert to degrees and scale
 	//otherwise theta is < 1
-	double theta = _thetas[_currentTheta] * (M_PI/180) * 1000;
+	double theta = _thetas[_currentTheta] * (M_PI/180.0) * 1000.0;
+    //cout << _currentTheta << endl;
 	
 	//this code converts the theta value into a char* as required for the
 	//set text method of String2D.
@@ -132,11 +110,9 @@ void GLPendulum::renderObject()
    	glMaterialf(GL_FRONT, GL_SHININESS, brassShininess);
    		
  	// Draw the pendulum
- 	glMatrixMode(GL_MODELVIEW);
+ 	//glMatrixMode(GL_MODELVIEW);
 
  	glPushMatrix();
-	{
-		
 		glEnable(GL_LIGHTING);
 		
 		//rotate to draw position
@@ -146,22 +122,27 @@ void GLPendulum::renderObject()
 	  	glTranslatef(0, -_length, 0);
 		
 		//draw the bob
-	    gluSphere(_bob, 0.1, 20, 20);
+	    //gluSphere(_bob, 0.1, 50, 50);
+        glBegin(GL_QUADS);
+            glVertex3f(-.5,-.5,0);
+            glVertex3f(.5,-.5,0);
+            glVertex3f(.5,.5,0);
+            glVertex3f(-.5,.5,0);
+        glEnd();
 		
 		//draw the string
 		glRotatef(-90.0, 1.0, 0, 0);
 		
 		//draw the cylinder
-		gluCylinder(_string, 0.01f * _length, 0.01f* _length, _length, 10, 10);
+		gluDisk(_string, 0.01f * _length, 0.01f* _length, _length, 10);
 		
-		glDisable(GL_LIGHTING);
-	}
+		//glDisable(GL_LIGHTING);
 	glPopMatrix();
 
-	if(_drawTrace)
-	{
+	//if(_drawTrace)
+	//{
 		//draws a circle of radius _length around the nail positon 0,0,0
 		//this is clearly where i need to be drawing, but my numbers are off
 		drawTrace();
-	}
+	//}
 }

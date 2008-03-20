@@ -2,8 +2,9 @@
 #define GLPENDULUM_H
 
 #include "../../../xor.h"
-#include <OpenGL/glu.h>
-#include <OpenGL/gl.h>
+//These are included by xor.h as part of SDL, which is done in a platform //independent sort of way, so let's just use that one. 
+//#include <OpenGL/glu.h> 
+//#include <OpenGL/gl.h>
 #include <iostream>
 #include <sstream>
 #include <string>

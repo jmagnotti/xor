@@ -52,7 +52,7 @@ void EventPlayerFactory::parse()
 		fin >> buffer;	// read in frame
 		frame = atoi(buffer);
 
-		if (EventRecorderFactory::MOUSE_EVENT == type) {
+		if (EventRecorderFactory::ERF_MOUSE_EVENT == type) {
 			message = "";
 			//read in the type of mouse event
 			memset(buffer, '\0', sizeof(buffer));
@@ -82,7 +82,7 @@ void EventPlayerFactory::parse()
 			//cout << "Adding mouseevent: " << message << " for frame: " << frame << endl;
 			_mousePlayer->addEvent(message, frame);
 		}
-		else if (EventRecorderFactory::KEYBOARD_EVENT) {
+		else if (EventRecorderFactory::ERF_KEYBOARD_EVENT) {
 			message = "";
 			// read in Type, Key, and MODs
 			for(int i=0; i<3; i++) {
