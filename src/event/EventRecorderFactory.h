@@ -36,9 +36,9 @@ public:
 
     static const char * EVENTS_FILE;
 
-    static const int KEYBOARD_EVENT;
-    static const int MOUSE_EVENT;
-    static const int TIMER_EVENT;
+    static const int ERF_KEYBOARD_EVENT;
+    static const int ERF_MOUSE_EVENT;
+    static const int ERF_TIMER_EVENT;
 
 
     EventRecorderFactory(EventFactory * factory);

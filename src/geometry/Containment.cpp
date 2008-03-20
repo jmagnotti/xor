@@ -3,11 +3,11 @@
 namespace XOR
 {
 
-const unsigned int Containment::X =   0x00000001;
-const unsigned int Containment::Y =   0x00000010;
-const unsigned int Containment::Z =   0x00000100;
-const unsigned int Containment::ALL = 0x00000111;
-const unsigned int Containment::NIL = 0x00000000;
+//const unsigned int Containment::X =   0x00000001;
+//const unsigned int Containment::Y =   0x00000010;
+//const unsigned int Containment::Z =   0x00000100;
+//const unsigned int Containment::ALL = 0x00000111;
+//const unsigned int Containment::NIL = 0x00000000;
 
 Containment::Containment()
 {
@@ -76,19 +76,19 @@ Vector3D * Containment::getPointEstimate()
 
 unsigned int Containment::getContainmentMask()
 {
-    unsigned int mask = Containment::NIL;
+    unsigned int mask = CONTAINMENT_NIL;
 
     if (isXContained()) {
         //        cout << "X contained ";
-        mask |= Containment::X;
+        mask |= CONTAINMENT_X;
     }
     if (isYContained()) {
         //        cout << "Y contained ";
-        mask |= Containment::Y;
+        mask |= CONTAINMENT_Y;
     }
     if (isZContained()) {
         //        cout << "Z contained ";
-        mask |= Containment::Z;
+        mask |= CONTAINMENT_Z;
     }
 
     return mask;
@@ -113,7 +113,7 @@ void Containment::print()
 
 unsigned int Containment::getInverseMask()
 {
-    return getContainmentMask() ^ Containment::ALL;
+    return getContainmentMask() ^ CONTAINMENT_ALL;
 }
 
 }

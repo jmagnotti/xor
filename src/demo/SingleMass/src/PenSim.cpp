@@ -16,7 +16,7 @@ public:
 	
 	unsigned int getTimerInterval()
 	{
-		return 10;
+		return 30;
 	}
 };
 
@@ -42,7 +42,7 @@ PenSim::~PenSim()
 /**
  * Singleton Accessor
  */
-PenSim* PenSim::GetInstance()
+PenSim * PenSim::GetInstance()
 {
 	if(_sim == NULL)
 		_sim = new PenSim();
@@ -55,11 +55,10 @@ PenSim* PenSim::GetInstance()
  */
 void PenSim::Exit()
 {
-	if(_sim != NULL)
-	{
+    Controller::GetInstance()->CleanUpAndExit();
+
+	if(_sim != NULL) {
 		delete _sim;
-		delete _pendulum;
-		Controller::GetInstance()->CleanUpAndExit();
 	}
 }
 
@@ -73,10 +72,14 @@ void PenSim::init(float penLen, Vector3D* base, char* thetaFile)
 	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,5));
 	ctrl->getCamera()->getOrientation()->incrementPosition(new Vector3D(0,0,0));
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
+	ctrl->getMouse()->addListener(new DefaultMouseListener());
 	 
 	//create pendulum
 	vector<double> thetaVector;
 	ThetaReader::read(thetaFile, thetaVector, ThetaReader::RADIANS);
+    for (int i=0; i<thetaVector.size(); i++) {
+        cout << thetaVector[i] << endl;
+    }
 	_pendulum = new GLPendulum(1.0f, new Vector3D(0,0,0), thetaVector, true);
 	
 	//add the pedulum as a timer listener
