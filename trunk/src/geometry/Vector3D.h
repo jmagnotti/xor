@@ -1,8 +1,9 @@
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
 
+#include <cstdlib>
+#include <cstring>
 #include <string>
-#include <stdlib.h>
 #include <iostream>
 
 using namespace std;

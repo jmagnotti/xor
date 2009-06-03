@@ -2,6 +2,7 @@
 #define TRANSFORMABLE_H
 
 
+#include <algorithm>
 #include <vector>
 #include "Transform.h"
 
