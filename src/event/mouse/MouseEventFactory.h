@@ -4,6 +4,7 @@
 
 #include "../../../include/SDL.h"
 
+#include <cstdlib>
 #include <string>
 #include "MouseEvent.h"
 #include "MouseButtonDown.h"

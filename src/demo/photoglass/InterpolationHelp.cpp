@@ -1,4 +1,6 @@
+#include <typeinfo> // for bad_cast
 #include "PhotoGlass.h"
+
 
 PrintWhenDone::PrintWhenDone()
 {

@@ -2,6 +2,7 @@
 #define MOUSEMOTIONEVENT_H
 
 
+#include <cstring>
 #include <string>
 #include "../../../include/SDL.h"
 
