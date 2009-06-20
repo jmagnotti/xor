@@ -1,6 +1,7 @@
 #ifndef PRINTACTION_H
 #define PRINTACTION_H
 
+#include <iostream>
 #include "../../xor.h"
 
 using namespace XOR;

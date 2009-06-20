@@ -4,13 +4,14 @@
 
 #include <vector>
 #include <stdio.h>
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 
 #include "../geometry/Vector3D.h"
 #include "../interpolation/InterpolationEngine.h"
 #include "Transform.h"
 
 namespace XOR { 
+
 /**
  * Performs a Scalar Matrix transform. For each point rendered after the Scalar
  * S(2,4,6) has been pushed, the point will be render at Px*2 Py*4, Pz*6.

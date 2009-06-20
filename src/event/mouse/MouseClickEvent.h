@@ -4,7 +4,7 @@
 
 #include <cstring>
 #include <string>
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 
 #include "MouseEvent.h"
 

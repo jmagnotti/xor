@@ -2,7 +2,7 @@
 #define KEYDOWNEVENT_H
 
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 #include "KeyEvent.h"
 
 

@@ -2,7 +2,7 @@
 #define CONTROLLER_H
 
 
-#include "../../include/SDL.h"
+#include <SDL/SDL.h>
 
 // sub-controllers
 #include "../event/EventFactory.h"
@@ -22,11 +22,11 @@
 // view
 #include "Camera.h"
 
-
 namespace XOR {
 
-class Camera;
 class XavierConfiguration;
+class Camera;
+
 
 /**
  * This is the main controller. Be sure that only controller logic goes in

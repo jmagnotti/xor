@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace XOR;
 
 /**
  * Explicit Constructor
@@ -9,7 +10,7 @@ using namespace std;
 Icon2D::Icon2D(Vector2D * origin, Dimension2D * size, char * iconPath)
 {
     TextureFactory * factory = TextureFactory::GetInstance();
-    _paint = new Paint(Color::WHITE, Paint::HEIGHT_BASED, factory->createTexture(iconPath));     
+    _paint = new Paint(Color::YELLOW, Paint::HEIGHT_BASED, factory->createTexture(iconPath));     
     _icon   = new Rectangle2D(origin, size, _paint);
 
     _bounds = new RectangularHull(origin, size);

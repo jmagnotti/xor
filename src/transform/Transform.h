@@ -1,7 +1,7 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 #include "../geometry/Vector3D.h"
 #include "../util/Logger.h"
 #include "../geometry/Dimension3D.h"
@@ -86,3 +86,4 @@ public:
 }
 
 #endif			// TRANSFORM_H
+

@@ -9,6 +9,8 @@
 #include "Transform.h"
 #include "Translate.h"
 #include "Rotate.h"
+
+#include "../event/ContinuousAction.h"
 #include "../geometry/Containment.h"
 #include "OrientationListener.h"
 #include "../event/ContinuousAction.h"
@@ -57,12 +59,12 @@ public:
      */
     void push();
 
-    void clone(Orientation * other);
+	void clone(Orientation * other);
 
     /**
      * Returns a new Orientation whose values are equivalent.
      */
-    Orientation * clone();
+	Orientation * clone();
 
     /**
      * Calls the inverse method on each transform contained by the
@@ -73,25 +75,25 @@ public:
     /**
      * debug transform info
      */
-    void print();
+	void print();
 
     /**
      * @see Transform
      */
     void pop();
 
-    /**
-     * @see Transform
-     */
-    void toIdentity();
+	/**
+	 * @see Transform
+	 */
+	void toIdentity(void);
 
-    /**
+	/**
      * @see Transform
      */
     void transform(Vector3D * position);
     void transform(Vector2D * position);
 
-    /**
+	/**
      * @see Transform
      */
     void transform(Dimension3D * size);
@@ -112,7 +114,7 @@ public:
      */
     void moveAlongFocalVector();
 
-    /**
+	/**
      * Drags the object back along the focal vector (or ahead if a negative
      * value was supplied to moveAlongFocalVector), Using the magnitude of
      * the previous movement. Used mainly as a way to undo camera
@@ -135,7 +137,7 @@ public:
      */
     void startMovingAlongFocalVector();
 
-    /**
+	/**
      * Returns the current walk velocity.
      */
     float getWalkVelocity();
@@ -146,7 +148,7 @@ public:
      * called without specifying the actual parameters.
      */
     float getCurrentWalkIncrement();
-
+	
     /**
      * Sets the current walk velocity step. This is the value that will
      * be used if startMovingAlongFocalVector or moveAlongFocalVector is
@@ -154,12 +156,27 @@ public:
      */
     void setCurrentWalkIncrement(float distance);
 
+	void setPosition(Vector3D * position);
+	void incrementPosition(Vector3D * position);
+
+	float getRoll();
+	float getPitch();
+	float getYaw();
+
     /**
      * Adds a specific amount to the "walk"
      */
     void startMovingAlongFocalVector(float distance);
 
-    /**
+	void setRoll(float angle);
+	void setPitch(float angle);
+	void setYaw(float angle);
+
+	void incrementRoll(float angle);
+	void incrementPitch(float angle);
+	void incrementYaw(float angle);
+
+	/**
      * Stops incrementing the position of the object.
      */
     void stopMovingAlongFocalVector();
@@ -169,24 +186,6 @@ public:
      */
     void stopMovingAlongFocalVector(float distance);
 
-    Vector3D * getPosition();
-
-    void setPosition(Vector3D * position);
-    void incrementPosition(Vector3D * position);
-
-    float getRoll();
-    float getPitch();
-    float getYaw();
-
-    void setRoll(float angle);
-    void setPitch(float angle);
-    void setYaw(float angle);
-
-    void incrementRoll(float angle);
-    void incrementPitch(float angle);
-    void incrementYaw(float angle);
-
-    void setFocalPoint(Vector3D * focalPoint);
 
     // interpolated transforms
 
@@ -196,14 +195,16 @@ public:
     //
     void incrementRoll(float angle, int milliseconds);
     void incrementPitch(float angle, int milliseconds);
-    void incrementYaw(float angl, int milliseconds);
+    void incrementYaw(float angle, int milliseconds);
     //
     //void setPosition(Vector3D * position, int milliseconds);
     void incrementPosition(Vector3D * position, int milliseconds);
-    //void setFocalPoint(Vector3D * focalPoint, int milliseconds);
+    void setFocalPoint(Vector3D * focalPoint);//, int milliseconds);
 
     //float  getFocalDistance();
     //Vector3D * getFocalPoint() const;
+	//
+	Vector3D * getPosition();
 
 
     void addListener(OrientationListener * listener);
@@ -221,10 +222,10 @@ private:
 
     //void updateFromFocalPoint();
 
-    vector<Rotate*> _pitch;
-    vector<Rotate*> _yaw;
-    vector<Rotate*> _roll;
-    vector<Translate*> _position;
+	vector<Rotate*> _pitch;
+	vector<Rotate*> _yaw;
+	vector<Rotate*> _roll;
+	vector<Translate*> _position;
 
     bool _translated;
     bool _hasPitch, _hasYaw, _hasRoll;
@@ -237,9 +238,9 @@ private:
     //Rotate    * _roll, * _theta, * _phi;
     //Translate * _position;
 
-    //Vector3D  * _focalPoint;
+	//Vector3D  * _focalPoint;
 
-    //float _focalDistance;
+	//float _focalDistance;
 };
 
 }

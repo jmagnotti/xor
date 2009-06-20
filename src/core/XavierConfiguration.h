@@ -2,7 +2,7 @@
 #define XAVIERCONFIGURATION_H
 
 
-#include "../../include/SDL.h"
+#include <SDL/SDL.h>
 
 #include "../transform/CoordinateSystem.h"
 #include "../geometry/Vector2D.h"

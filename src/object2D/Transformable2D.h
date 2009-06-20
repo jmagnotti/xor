@@ -8,6 +8,7 @@
 #include "../geometry/Dimension2D.h"
 
 #include "Object2D.h"
+#include <SDL/sdl.h>
 
 using namespace std;
 

@@ -8,6 +8,13 @@ namespace XOR {
 Rectangle2D::Rectangle2D()
 {}
 
+Rectangle2D::~Rectangle2D()
+{
+	delete _paint;
+	delete _start;
+	delete _finish;
+}
+
 
 /*
  * Explicit Constructor.
