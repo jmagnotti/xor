@@ -37,4 +37,3 @@ void PrintMousePosition::handleMouseEvent(MouseEvent * me)
         delete mouseFarPosition;
     }
 }
-
