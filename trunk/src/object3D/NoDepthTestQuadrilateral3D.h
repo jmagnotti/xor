@@ -2,7 +2,7 @@
 #define NODEPTHTESTQUADRILATERAL3D_H
 
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 
 #include "Quadrilateral3D.h"
 

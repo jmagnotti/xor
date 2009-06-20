@@ -2,7 +2,7 @@
 #define OBJECT2D_H
 
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 
 #include "../core/Controller.h"
 

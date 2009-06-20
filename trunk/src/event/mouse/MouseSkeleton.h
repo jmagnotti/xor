@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <list>
 
-#include "../../../include/SDL_thread.h"
+#include <SDL/SDL_thread.h>
 #include "../../multicast/MulticastSocket.h"
 #include "../../multicast/MulticastSocketPool.h"
 

@@ -10,12 +10,11 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
-    Controller * ctrl = Controller::GetInstance();//(new XavierConfiguration());
-    //ctrl->defaultConfiguration();
+    Controller * ctrl = Controller::GetInstance();
     ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
     
-    Vector2D * gridOrigin = new Vector2D(500,500);
-    Dimension2D * gridSize = new Dimension2D(200,50);
+    Vector2D * gridOrigin = new Vector2D(100,100);
+    Dimension2D * gridSize = new Dimension2D(500,500);
 
     PrintAction * pa;    
     pa = new PrintAction(100,100);
@@ -23,31 +22,28 @@ int main(int argc, char * argv[])
     new PrintMousePosition(ctrl);
    
     Dimension2D * iconSize;
-    iconSize = new Dimension2D(50,50);
+    iconSize = new Dimension2D(100,100);
 
     Icon2D * icon;
-    icon = new Icon2D(gridOrigin, iconSize, "./images/x_red.png");
+    icon = new Icon2D(gridOrigin, iconSize, "aquab.bmp");
 
     ActionItem * ai;
     ai = new ActionItem(icon, pa);
  
     HotspotGrid * hsg = new HotspotGrid(gridOrigin, gridSize);
 
-    hsg->addAction(ai);
+    if (hsg->addAction(ai))
+		cout << "SUCCESS" << endl;
     
-    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/y_green.png");
-   
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "aquab.bmp");
     ai = new ActionItem(icon, pa);
-
     hsg->addAction(ai);    
 
-    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/z_blue.png");
-   
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "aquab.bmp");
     ai = new ActionItem(icon, pa);
     hsg->addAction(ai);    
     
-    icon = new Icon2D(hsg->getNextLocation(), iconSize, "./images/white.png");
-   
+    icon = new Icon2D(hsg->getNextLocation(), iconSize, "aquab.bmp");
     ai = new ActionItem(icon, pa);
     hsg->addAction(ai);    
 

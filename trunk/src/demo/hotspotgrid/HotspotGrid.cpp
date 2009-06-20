@@ -98,3 +98,11 @@ bool HotspotGrid::addAction(Action * a, char * iconPath)
     return addAction(new ActionItem(new Icon2D(getNextLocation(), new Dimension2D(_maxSize->getHeight(),_maxSize->getHeight()), iconPath), a));
 }
 
+void HotspotGrid::setVisible(bool vis) {
+	
+}
+
+bool HotspotGrid::isVisible() {
+	return true;
+}
+

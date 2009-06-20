@@ -79,6 +79,7 @@ public:
 	 */
 	Dimension2D* getDimension();
 
+
 private:
 	RectangularHull * _bounds;
 	Rectangle2D * _icon;

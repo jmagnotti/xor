@@ -1,18 +1,18 @@
 #ifndef HOTSPOTGRID_H
 #define HOTSPOTGRID_H
 
-#include "../../xor.h"
-#include "ActionItem.h"
 #include <vector>
+#include "../../xor.h"
+
+#include "ActionItem.h"
 #include "RectangularHull.h"
-#include "LightweightMenu.h"
 
 using namespace XOR;
 
 /**
  * Hotspot grid class
  */
-class HotspotGrid : public MouseListener, public Object2D//: public LightweightMenu
+class HotspotGrid : public Object2D, public MouseListener
 {
 public:
 
@@ -44,19 +44,19 @@ public:
     /**
      * Returns the origin vector of the grid
      */
-    Vector2D* getBaseVector();
+    Vector2D * getBaseVector();
 
 
     /**
      * Returns the dimensions of the grid
      */
-    Dimension2D* getDimension();
+    Dimension2D * getDimension();
 
 
     /**
      * Returns the next available grid location
      */
-    Vector2D* getNextLocation();
+    Vector2D * getNextLocation();
 
 
     /**
@@ -64,6 +64,22 @@ public:
      */
     void renderObject();
 
+
+
+	/**
+	 * Sets the menu visibility
+	 *
+	 * @param isVisible - the menu visiblity (true or false)
+	 */
+	void setVisible(bool vis);
+
+	
+	/**
+	 * Gets the menu visibility
+	 *
+	 * @return - the menu visibility (true or false)
+	 */
+	bool isVisible();
 
 private:
 

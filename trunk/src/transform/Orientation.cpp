@@ -7,30 +7,26 @@ namespace XOR
  */
 class MovementHelper : public Action
 {
-
 public:
 
-    ~MovementHelper()
-    {
-        //don't delete _orientation, we don't own it.
-    }
+	MovementHelper(Orientation * orientation, float amount)
+	{
+		_orientation = orientation;
+		_amount = amount;
+	}
 
-    MovementHelper(Orientation * orientation)
-    {
-        _orientation = orientation;
-    }
-
-    inline void execute()
-    {
-        _orientation->moveAlongFocalVector(
-				_orientation->getCurrentWalkIncrement());
-    }
+	void execute()
+	{
+		_orientation->moveAlongFocalVector(_amount);
+	}
 
 private:
 
-    Orientation * _orientation;
+	float _amount;
+	Orientation * _orientation;
 
 };
+
 
 /**
  * Adds a listener
@@ -115,11 +111,14 @@ void Orientation::notifyRotationChange(float newAngle, const Vector3D * axis)
         iter = next;
     }
 }
+
 /**
  * default constructor - null orientation
  */
 Orientation::Orientation()
 {
+	_action = NULL;
+	_translated = _hasPitch = _hasRoll = _hasYaw = false;
     _currentWalkIncrement = 1.0f;
     _action = NULL;
     _translated = _hasPitch = _hasRoll = _hasYaw = false;
@@ -139,8 +138,7 @@ Orientation::~Orientation()
 /*
  * new orientation based on existing transforms
  */
-Orientation::Orientation(Translate * position, Rotate * pitch, Rotate * yaw,
-                         Rotate * roll)
+Orientation::Orientation(Translate * position, Rotate * pitch, Rotate * yaw, Rotate * roll)
 {
     _translated = _hasPitch = _hasRoll = _hasYaw = false;
 
@@ -165,7 +163,6 @@ Orientation::Orientation(Translate * position, Vector3D * focalPoint)
 void Orientation::clone(Orientation * other)
 {
     // FIXME: copy transform stacks
-
 }
 
 /*
@@ -193,7 +190,6 @@ void Orientation::push()
 	#endif
 
     // first the position
-
     vector<Translate*>::iterator position_iter = _position.begin();
     while (position_iter != _position.end()) {
         (*position_iter)->push();
@@ -201,19 +197,16 @@ void Orientation::push()
     }
 
     // order is important: roll, pitch, yaw
-
     vector<Rotate*>::iterator roll_iter = _roll.begin();
     while (roll_iter != _roll.end()) {
         (*roll_iter)->push();
         ++roll_iter;
     }
-
     vector<Rotate*>::iterator pitch_iter = _pitch.begin();
     while (pitch_iter != _pitch.end()) {
         (*pitch_iter)->push();
         ++pitch_iter;
     }
-
     vector<Rotate*>::iterator yaw_iter = _yaw.begin();
     while (yaw_iter != _yaw.end()) {
         (*yaw_iter)->push();
@@ -235,27 +228,21 @@ void Orientation::pushInverse()
         (*roll_iter)->pushInverse();
         ++roll_iter;
     }
-
-    vector<Rotate*>::iterator pitch_iter = _pitch.begin();
-    while (pitch_iter != _pitch.end()) {
-        (*pitch_iter)->pushInverse();
-        ++pitch_iter;
-    }
-
+	vector<Rotate*>::iterator pitch_iter = _pitch.begin();
+	while (pitch_iter != _pitch.end()) {
+		(*pitch_iter)->pushInverse();
+		++pitch_iter;
+	}
     vector<Rotate*>::iterator yaw_iter = _yaw.begin();
     while (yaw_iter != _yaw.end()) {
         (*yaw_iter)->pushInverse();
         ++yaw_iter;
     }
-
     vector<Translate*>::iterator position_iter = _position.begin();
     while (position_iter != _position.end()) {
         (*position_iter)->pushInverse();
         ++position_iter;
     }
-
-    //	cout << "stop pushInv: "<< SDL_GetTicks() << endl;
-
 }
 
 /*
@@ -280,19 +267,17 @@ void Orientation::pop()
         (*pitch_iter)->pop();
         ++pitch_iter;
     }
-
     vector<Rotate*>::iterator roll_iter = _roll.begin();
     while (roll_iter != _roll.end()) {
         (*roll_iter)->pop();
         ++roll_iter;
     }
 
-    vector<Translate*>::iterator position_iter = _position.begin();
+	vector<Translate*>::iterator position_iter = _position.begin();
     while (position_iter != _position.end()) {
         (*position_iter)->pop();
         ++position_iter;
     }
-
     //	cout << "stop pop: "<< SDL_GetTicks() << endl;
 }
 
@@ -303,28 +288,15 @@ void Orientation::setPosition(Vector3D * position)
 
 void Orientation::incrementPosition(Vector3D * position)
 {
-
-    if (_translated) {
-		Vector3D * newPos = *position + _position[0]->toVector();
-        // send the new position off for approval
-        notifyPositionChange(position, newPos);
-				
-		delete newPos;
-		newPos = *position + _position[0]->toVector();
-
-        _position[0]->setTranslation(newPos);
-
-        delete position;
-        delete newPos;
-    }
-    else {
-        // send the new position off for approval
-        notifyPositionChange(position, position);
-        setPosition(position);
-        _translated = true;
-    }
-
-    //    delete position;
+	if (_translated) {
+		Vector3D * pos = *(_position[0]->toVector()) + position;
+		_position[0]->setTranslation(pos);
+		delete pos;
+	}
+	else {
+		setPosition(position);
+		_translated = true;
+	}
 }
 
 void Orientation::incrementPosition(Vector3D * position, int milliseconds)
@@ -537,6 +509,7 @@ void Orientation::setCurrentWalkIncrement(float distance)
 
 void Orientation::setFocalPoint(Vector3D * focalPoint)
 {
+
     Vector3D * position = getPosition();
     float x = focalPoint->getX() - position->getX();
     float y = focalPoint->getY() - position->getY();
@@ -560,7 +533,6 @@ void Orientation::print()
             << position->getZ()<< endl;
     cout << "pitch="<< getPitch() << "  yaw="<< getYaw() << "  roll="
             << getRoll() << endl;
-
     return;
     /*
      float distance = sqrt(
@@ -607,7 +579,7 @@ void Orientation::startMovingAlongFocalVector(float distance)
         //_action->incrementAmount(distance);
     }
     else {
-        _action = new ContinuousAction(new MovementHelper(this));
+        _action = new ContinuousAction(new MovementHelper(this, distance));
         _action->execute();
     }
 
@@ -623,26 +595,29 @@ float Orientation::getCurrentWalkIncrement()
     return _currentWalkIncrement;
 }
 
-void Orientation::stopMovingAlongFocalVector()
-{
-    if (_action != NULL) {
-        _action->stopExecuting();
-    }
-}
-
 void Orientation::transform(Vector2D * position)
 {
-}
-void Orientation::transform(Dimension2D * size)
-{
+	cout << "EMPTY" << endl;
+	//if (_action != NULL) {
+		//_action->stopExecuting();
+		//delete _action;
+	//}
+	//_action = new ContinuousAction(new MovementHelper(this, getCurrentWalkIncrement()));
+	//_action->execute();
 }
 
-void Orientation::transform(Vector3D * position)
+void Orientation::stopMovingAlongFocalVector()
 {
+	if (_action != NULL) {
+		_action->stopExecuting();
+		delete _action;
+		_action = NULL;
+	}
 }
-void Orientation::transform(Dimension3D * size)
-{
-}
+
+void Orientation::transform(Dimension2D * size) { }
+void Orientation::transform(Vector3D * position) { }
+void Orientation::transform(Dimension3D * size) { }
 
 }
 

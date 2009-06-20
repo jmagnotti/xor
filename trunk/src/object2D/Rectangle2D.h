@@ -22,6 +22,7 @@ public:
 	 * Default Constructor.
 	 */
     Rectangle2D();
+    ~Rectangle2D();
 
 
     /*

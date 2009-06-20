@@ -6,7 +6,7 @@
 #include <string>
 #include <math.h>
 
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL_opengl.h>
 
 #include "../paint/Paint.h"
 #include "../geometry/Vector3D.h"

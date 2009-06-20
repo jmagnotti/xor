@@ -1,10 +1,10 @@
-#ifndef VIEWER_H
-#define VIEWER_H
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #include <list>
 
-#include "../../include/SDL.h"
-#include "../../include/SDL_opengl.h"
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
 
 #include "World.h"
 #include "Window.h"
@@ -21,6 +21,7 @@
 
 namespace XOR {
 
+class Controller;
 class Orientation;
 
 /**
@@ -262,5 +263,4 @@ private:
 
 }
 
-#endif          //VIEWER_H
-
+#endif          //CAMERA_H

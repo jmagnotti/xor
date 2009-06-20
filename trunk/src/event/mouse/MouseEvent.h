@@ -2,7 +2,7 @@
 #define MOUSEEVENT_H
 
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 
 
 namespace XOR {

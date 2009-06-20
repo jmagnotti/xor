@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <list>
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 
 #include "MouseListener.h"
 #include "MouseEvent.h"

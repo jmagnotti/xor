@@ -2,7 +2,7 @@
 #define MOUSEEVENTFACTORY_H
 
 
-#include "../../../include/SDL.h"
+#include <SDL/SDL.h>
 
 #include <cstdlib>
 #include <string>
