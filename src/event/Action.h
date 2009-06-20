@@ -27,4 +27,3 @@ public:
 }
 
 #endif			// ACTION_H
-
