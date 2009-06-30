@@ -8,7 +8,11 @@
 using namespace XOR;
 
 /**
- * A 2 Dimensional Icon class
+ * An image in two dimensional space that receives information about "focus" events of interest.
+ *
+ * @author John Magnotti
+ * @author Everette Clemmer
+ * @version 1.0
  */
 class Icon2D : public Object2D
 {

@@ -4,14 +4,14 @@ PrintAction::PrintAction()
 {}
 
 
-PrintAction::PrintAction(int x, int y)
+PrintAction::PrintAction(int x)
 {
     _x = x;
-    _y = y;
+    //_y = y;
 }
 
 void PrintAction::execute()
 {
-    cout << "Action fired @: " << _x << ", " << _y << endl;
+    cout << "Action fired @: " << _x << endl;
 }
   

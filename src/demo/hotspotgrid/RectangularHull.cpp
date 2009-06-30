@@ -4,7 +4,7 @@
 using namespace std;
 
 /**
- * Explicit Constructori. Takes the origin point of the hull and its
+ * Explicit Constructor. Takes the origin point of the hull and its
  * dimensionality.
  */
 RectangularHull::RectangularHull(Vector2D * origin, Dimension2D * dimension)
@@ -27,25 +27,16 @@ Dimension2D * RectangularHull::getHull()
  */
 void RectangularHull::adjustFor(Vector2D * point)
 {
-     if(point->getX() > (_origin->getX() + _dimension->getWidth()))
-     {
-        _dimension->setWidth(point->getX() - _origin->getX());
-     }
-    
-     else if(point->getX() < _origin->getX())
-     {
-        _origin->setPosition(0, point->getX());
-     }
-    
-     else if(point->getY() > (_origin->getY() + _dimension->getHeight()))
-     {
-        _dimension->setHeight(point->getY() - _origin->getY());
-     }
-     
-    else if(point->getY() < _origin->getY())
-    {
-        _origin->setPosition(1, point->getY());
-    }
+	if(point->getX() > (_origin->getX() + _dimension->getWidth()))
+		_dimension->setWidth(point->getX() - _origin->getX());
+	else if(point->getX() < _origin->getX())
+		_origin->setPosition(0, point->getX());
+
+
+	if(point->getY() > (_origin->getY() + _dimension->getHeight()))
+		_dimension->setHeight(point->getY() - _origin->getY());
+	else if(point->getY() < _origin->getY())
+		_origin->setPosition(1, point->getY());
 }
 
 /**
@@ -69,17 +60,18 @@ Dimension2D * RectangularHull::getDimension()
  * Determine if the x and y are inside the hull
  */
 bool RectangularHull::inHull(int xPos, int yPos)
-{     if(xPos >= _origin->getX() && xPos <= (_origin->getX() + _dimension->getWidth())
+{     
+
+	if(xPos >= _origin->getX() && xPos <= (_origin->getX() + _dimension->getWidth())
         && yPos >= _origin->getY() && yPos <= (_origin->getY() + _dimension->getHeight()))
     {
         return true;
     }
 
-    else
-         return false;
+	 return false;
 }
 
-/**
+/*
  * Returns whether or not the vector is in the hull
  */
 bool RectangularHull::inHull(Vector2D * point)

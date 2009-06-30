@@ -15,7 +15,7 @@ class PrintAction : public Action
 public:
 
     
-    PrintAction(int x, int y);
+    PrintAction(int x);
 
     void execute();
 

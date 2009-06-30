@@ -30,16 +30,16 @@ void ActionItem::handleMouseEvent(MouseEvent * me)
 
     if (me->getType() == MouseEvent::MOUSE_MOTION) {
         //mouse over
-        if(_icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY()))
+        if(_icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY())) {
             _icon->mouseEnter();
+	}
         else {
             _icon->mouseLeave();
             _downInBounds = false;
         }
     }
     // mouse button down event
-    else if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN)
-    {
+    else if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
         //mouse down
         if(mouse->isLeftButtonDown() && 
            _icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY()))
@@ -48,14 +48,14 @@ void ActionItem::handleMouseEvent(MouseEvent * me)
             _downInBounds = true;
         }
     }
-
     // mouse up
     else {
         if(!(mouse->isLeftButtonDown())) {
             _icon->mouseRelease();
 
-            if (_downInBounds)
+            if (_downInBounds) {
                 execute();
+	    }
         
             _downInBounds = false;
         }
