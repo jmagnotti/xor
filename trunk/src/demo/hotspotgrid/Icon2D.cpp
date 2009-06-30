@@ -9,8 +9,8 @@ using namespace XOR;
  */
 Icon2D::Icon2D(Vector2D * origin, Dimension2D * size, char * iconPath)
 {
-    TextureFactory * factory = TextureFactory::GetInstance();
-    _paint = new Paint(Color::YELLOW, Paint::HEIGHT_BASED, factory->createTexture(iconPath));     
+    //TextureFactory * factory = TextureFactory::GetInstance();
+    _paint = new Paint(Color::RED);//factory->createTexture(iconPath));     
     _icon   = new Rectangle2D(origin, size, _paint);
 
     _bounds = new RectangularHull(origin, size);
@@ -36,7 +36,7 @@ void Icon2D::renderObject()
  */
 void Icon2D::mouseEnter()
 {
-  cout << "Mouse In" << endl;
+  //cout << "Mouse In" << endl;
 }
 
 /**
@@ -44,7 +44,7 @@ void Icon2D::mouseEnter()
  */
 void Icon2D::mouseLeave()
 {
-    cout << "Mouse Out" << endl;
+    //cout << "Mouse Out" << endl;
 }
 
 /**
@@ -52,7 +52,7 @@ void Icon2D::mouseLeave()
  */
 void Icon2D::mousePress()
 {
-    cout << "Mouse Pressed" << endl;
+    //cout << "Mouse Pressed: " << Controller::GetInstance()->getTimer()->getElapsedTime() << endl;
 }
 
 /**
@@ -60,7 +60,7 @@ void Icon2D::mousePress()
  */
 void Icon2D::mouseRelease()
 {
-    cout << "Mouse Released" << endl;
+    //cout << "Mouse Released" << endl;
 }
 
 /**
