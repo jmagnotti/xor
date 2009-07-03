@@ -40,7 +40,7 @@ public:
 	/**
      * Singleton accessor that also sets the high-level model. This removes all
      * other renderables. Transforms are NOT changed. If you want to get a
-     * fresh start, call this GetInstance method, then call clear. Note that
+     * fresh start, call this GetInstance method, then call clean. Note that
      * calling setDefaults() will trash any World configuration set by
      * Controller.setDefaultConfiguration().
 	 */

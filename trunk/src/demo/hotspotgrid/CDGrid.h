@@ -2,18 +2,21 @@
 #define CDGRID_H
 
 #include <vector>
+#include <sstream>
 #include "../../xor.h"
 
 #include "ActionItem.h"
 #include "RectangularHull.h"
 
 using namespace XOR;
+using namespace std;
 
 /**
  * Hotspot grid class
  */
 class CDGrid : public Object2D, public MouseListener
 {
+
 public:
 
     /**
@@ -33,6 +36,12 @@ public:
      * and calling performAction for the action associated with that grid location
      */
     void handleMouseEvent(MouseEvent * me);
+
+
+	/*
+	 * Allows the states to turn on/off mouse listening
+	 */
+	void setMouseListen(bool flag);
     
     
     /**
@@ -74,16 +83,25 @@ public:
 	 */
 	bool isVisible();
 
+
+	void setVisibleLocations(vector<int> locs);
+
+	void setPictures(vector<int> picIDs);
+
+	void showFixation();
+
+
 private:
 
 	vector<ActionItem*> _actions;
+	vector<int>	_locations;
+	vector<int>	_pictureIDs;
 
 	RectangularHull * _bounds;
 	Dimension2D * _size;
 	Vector2D * _origin;
 
-	bool _visible;
-
+	bool _visible, _mouseHandle;
 };
 
 

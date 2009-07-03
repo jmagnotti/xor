@@ -5,19 +5,21 @@ using namespace XOR;
 /**
  * Explicit constructor
  */
-ActionItem::ActionItem(Icon2D * icon, Action * action)
+ActionItem::ActionItem(Action * action, Rectangle2D * pic)
 {
-    _icon = icon;
     _action = action;
     _downInBounds = false;
+
+	_picture = pic;
+    _bounds = new RectangularHull(_picture->getBaseVector(), _picture->getDimension());
 }
 
 /**
  * Returns the hull of the item's icon
  */
-Dimension2D * ActionItem::getIconHull()
+Dimension2D * ActionItem::getHull()
 {
-    return _icon->getIconHull();
+    return NULL;
 }
 
 /**
@@ -29,38 +31,27 @@ void ActionItem::handleMouseEvent(MouseEvent * me)
     Mouse * mouse = Controller::GetInstance(NULL)->getMouse();
 
     if (me->getType() == MouseEvent::MOUSE_MOTION) {
-        //mouse over
-        if(_icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY())) {
-            _icon->mouseEnter();
-	}
-        else {
-            _icon->mouseLeave();
+        if(! _bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
             _downInBounds = false;
-        }
     }
     // mouse button down event
     else if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
         //mouse down
         if(mouse->isLeftButtonDown() && 
-           _icon->inBounds(mouse->getCurrentX(), mouse->getCurrentY()))
+				_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
         {
-            _icon->mousePress();
             _downInBounds = true;
         }
     }
     // mouse up
     else {
         if(!(mouse->isLeftButtonDown())) {
-            _icon->mouseRelease();
-
-            if (_downInBounds) {
+            if (_downInBounds)
                 execute();
-	    }
         
             _downInBounds = false;
         }
     }
-
 }
 
 /**
@@ -71,11 +62,21 @@ void ActionItem::execute()
     _action->execute();
 }
 
-/**
- * Calls the render() method
- */
-void ActionItem::renderObject()
+void ActionItem::setPaint(Paint *p) 
 {
-    _icon->renderObject();
+	_picture->setPaint(p);
 }
 
+void ActionItem::renderObject()
+{
+    _picture->renderObject();
+}
+
+Dimension2D * ActionItem::getDimension() {
+	return _picture->getDimension();
+}
+
+Vector2D * ActionItem::getBaseVector() 
+{
+	return _picture->getBaseVector();
+}

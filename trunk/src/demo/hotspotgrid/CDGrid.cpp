@@ -1,5 +1,4 @@
 #include "CDGrid.h"
-#include <iostream>
 
 using namespace std;
 using namespace XOR;
@@ -7,6 +6,7 @@ using namespace XOR;
 
 CDGrid::CDGrid()
 {
+	_visible = true;
     _origin = new Vector2D(20,20);
     _size = new Dimension2D(0,20);
     _bounds = new RectangularHull(_origin, _size);
@@ -14,22 +14,25 @@ CDGrid::CDGrid()
 
 void CDGrid::renderObject()
 {
-    if (_visible)
-	for(int i=0; i<_actions.size(); i++)
-	    _actions[i]->renderObject();
+    if (_visible) {
+		//we need to set the appropriate pictures for the requested locations
+		for(int l=0; l<_locations.size(); l++) {
+			stringstream ss ("resources/image", ios::app | stringstream::in | stringstream::out);
+			if (_locations[l] != 0) {
+				ss << _pictureIDs[l] << ".jpg";
+				Paint * p = new Paint(TextureFactory::GetInstance()->createTexture(ss.str().c_str()));
+				_actions[_locations[l]]->setPaint(p);
+			}
+			_actions[_locations[l]]->renderObject();
+		}
+	}
 }
 
 void CDGrid::handleMouseEvent(MouseEvent * me)
 {
-    Vector2D * tmp;
-    tmp = new Vector2D(me->getXPosition(), me->getYPosition()); 
-
-   //if (_bounds->inHull(tmp)) {
-        for(int i = 0; i < _actions.size(); i++)
-	    _actions[i]->handleMouseEvent(me);
-   //}
-
-    delete tmp;
+	if (_mouseHandle)
+		for(int i=0; i<_actions.size(); i++)
+			_actions[i]->handleMouseEvent(me);
 }
 
 /**
@@ -63,3 +66,29 @@ void CDGrid::setVisible(bool vis) {
 bool CDGrid::isVisible() {
     return _visible;
 }
+
+void CDGrid::setVisibleLocations(vector<int> locs)
+{
+	_locations.clear();
+	_locations = locs;
+}
+
+void CDGrid::setPictures(vector<int> picIDs)
+{
+	_pictureIDs.clear();
+	_pictureIDs = picIDs;
+}
+
+void CDGrid::showFixation() {
+	_locations.clear();
+	_pictureIDs.clear();
+	_locations.push_back(0);
+	_visible = true;
+}
+
+void CDGrid::setMouseListen(bool flag)
+{
+	_mouseHandle = flag;
+}
+
+

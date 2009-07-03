@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "../../xor.h"
+#include "CDSecondDisplay.h"
 
 using namespace XOR;
 

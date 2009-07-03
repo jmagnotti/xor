@@ -56,9 +56,7 @@ World * World::GetInstance()
 World * World::GetInstance(Renderable * object)
 {
 	if (_world == NULL)
-	{
 		_world = new World(object);
-	}
 
 	return _world;
 }

@@ -12,6 +12,7 @@ PrintAction::PrintAction(int x)
 
 void PrintAction::execute()
 {
-    cout << "Action fired @: " << _x << endl;
+	CDSecondDisplay::GetInstance()->handleChoice(_x);
+    //cout << "Action fired @: " << _x << endl;
 }
   
