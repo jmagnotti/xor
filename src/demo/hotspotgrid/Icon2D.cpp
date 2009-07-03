@@ -9,10 +9,9 @@ using namespace XOR;
  */
 Icon2D::Icon2D(Vector2D * origin, Dimension2D * size, char * iconPath)
 {
-    //TextureFactory * factory = TextureFactory::GetInstance();
-    _paint = new Paint(Color::RED);//factory->createTexture(iconPath));     
+    TextureFactory * factory = TextureFactory::GetInstance();
+    _paint = new Paint( factory->createTexture(iconPath));     
     _icon   = new Rectangle2D(origin, size, _paint);
-
     _bounds = new RectangularHull(origin, size);
 }
 

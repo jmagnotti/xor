@@ -130,6 +130,7 @@ void Rectangle2D::renderObject()
  */
 void Rectangle2D::setPaint(Paint * paint)
 {
+	delete _paint;
 	_paint = paint;
 }
 
