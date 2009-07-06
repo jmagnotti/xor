@@ -112,19 +112,19 @@ void Texture::buildTexture(SDL_Surface * texture)
     glGenTextures(1, &_id);
     glBindTexture(GL_TEXTURE_2D, _id);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
      _width  = texture->w;
      _height = texture->h;
 
      if (texture->format->BytesPerPixel == 4) {
-        //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-        glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
+        gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
+        //glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
 	 }
 	 else {
-		//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
+		gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
+        //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
 	 }
 	 //if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
 	 SDL_FreeSurface(texture);
