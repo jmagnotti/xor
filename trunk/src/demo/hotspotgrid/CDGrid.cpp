@@ -17,12 +17,12 @@ void CDGrid::renderObject()
     if (_visible) {
 		//we need to set the appropriate pictures for the requested locations
 		for(int l=0; l<_locations.size(); l++) {
-			stringstream ss ("resources/image", ios::app | stringstream::in | stringstream::out);
-			if (_locations[l] != 0) {
-				ss << _pictureIDs[l] << ".jpg";
-				Paint * p = new Paint(TextureFactory::GetInstance()->createTexture(ss.str().c_str()));
+			//stringstream ss ("images/image", ios::app | stringstream::in | stringstream::out);
+			//if (_locations[l] != 0) {
+				//ss << _pictureIDs[l] << ".jpg";
+				Paint * p = new Paint(TextureFactory::GetInstance()->createTexture("C:/images/red.jpg"));//ss.str().c_str()));
 				_actions[_locations[l]]->setPaint(p);
-			}
+			//}
 			_actions[_locations[l]]->renderObject();
 		}
 	}

@@ -24,19 +24,18 @@ int findInVec(vector<int> haystack, int needle)
 	return ret;
 }
 
-
 Session::Session()
 {
 	srand(time(NULL));
-	int NUM_PICS = 18;
+	int NUM_PICS = 29;
 	int NUM_LOCS = 25;
 
 	//number of repeated stimuli
 
-	int DISPLAY_SIZE = 6;
+	int DISPLAY_SIZE = 8;
 	int PROBE_SIZE = 1; //max is DISPLAY_SIZE-1
 
-	_trials = 12;
+	_trials = 16;
 	_currentTrial = 1;
 
 	vector<int> pics;
@@ -48,15 +47,16 @@ Session::Session()
 	//we don't include loc[0] which is the fixation point
 	for(int i=1; i<NUM_LOCS; i++) { locs.push_back(i); }
 
-
 	vector<int> delays;
 	vector<int> delayTimes;
 	delayTimes.push_back(0);
-	delayTimes.push_back(50);
-	delayTimes.push_back(200);
-	delayTimes.push_back(800);
-	delayTimes.push_back(3200);
-	delayTimes.push_back(12800);
+	delayTimes.push_back(17);
+	delayTimes.push_back(34);
+	delayTimes.push_back(68);
+	delayTimes.push_back(136);
+	delayTimes.push_back(272);
+	delayTimes.push_back(544);
+	delayTimes.push_back(1088);
 
 	//make sure this is clean division
 	int blocks = _trials / delayTimes.size();
@@ -70,25 +70,25 @@ Session::Session()
 
 	// build all the trial info
 	for(int i=0; i<_trials; i++) {
-		//cout << "\nTrial: " << i << endl;
+		cout << "\nTrial: " << i << endl;
 		
 		//we need to grab 8 random pictures	
 		vector<int> p;
 		Helper::SampleWOReplacement(pics, &p, DISPLAY_SIZE);
 
-		//cout << "1st Pics: "; printVec(p);
+		cout << "1st Pics: "; printVec(p);
 
 		//we need to grab 8 random locations
 		vector<int> l;
 		Helper::SampleWOReplacement(locs, &l, DISPLAY_SIZE);
 		
-		//cout << "1st Locs: "; printVec(l);
+		cout << "1st Locs: "; printVec(l);
 
 		_initialLocations.push_back(l);
 		_initialPictureIDs.push_back(p);
 
 		//for the second display we want to grab one pic for a comparison and two locations,
-		//Importantly, the second image mustn't be in the previous display
+		//Importantly, the last (i=PROBE_SIZE) image mustn't be in the previous display
 		vector<int> p2;
 		for(int i=0; i<PROBE_SIZE; i++) {
 			p2.push_back(p[i]);
@@ -97,23 +97,23 @@ Session::Session()
 		vector<int> p3;
 		Helper::FreshSampleWOReplacement(pics, &p3, p, 1);
 		p2.push_back(p3[0]);
-		
+
 		//we need to save the corresponding location to remain and the
 		//one to change
 		vector<int> l2;
 		for (int i=0; i<= PROBE_SIZE; i++)
 			l2.push_back(l[i]);
 
-		//we need to the two pics in the same vec
+		//we need to put the two pics in the same vec
 		//let's be safe in case we later add more stim
 		//for(int i=0; i<p3.size(); i++)
 		//p2.push_back(p3[i]);
-
-		//cout << "2nd Pics: "; printVec(p2);
-		cout << "2nd Locs: "; printVec(l2);
-
 		_secondLocations.push_back(l2);
 		_secondPictureIDs.push_back(p2);
+
+		cout << "2nd Pics: "; printVec(p2);
+		cout << "2nd Locs: "; printVec(l2);
+
 	}
 }
 
@@ -153,7 +153,13 @@ Session * Session::GetInstance()
 bool Session::nextTrial()
 {
 	_currentTrial++;
-	if (_currentTrial > _trials) return false;
+	if (_currentTrial > _trials) {
+		//I like the idea that _currentTrial == _trials when the
+		//session is over, so let's not let _currentTrial increase
+		//without bound
+		_currentTrial--;
+		return false;
+	}
 
 	return true;
 }

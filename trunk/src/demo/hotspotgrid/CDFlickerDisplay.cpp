@@ -26,7 +26,7 @@ void CDFlickerDisplay::activate()
 		IntervalTimer::GetInstance()->addListener(this, delay , false);
 	}
 	else {
-		//NO flicker condition
+		//No flicker condition
 		CDSecondDisplay * cdsd = CDSecondDisplay::GetInstance(_grid);
 		cdsd->activate();
 	}
@@ -35,7 +35,6 @@ void CDFlickerDisplay::activate()
 
 void CDFlickerDisplay::handleTick()
 {
-	//cout << "Handing to CDSecond from Flicker" << endl;
 	CDSecondDisplay * cdsd = CDSecondDisplay::GetInstance(_grid);
 	cdsd->activate();
 }

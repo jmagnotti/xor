@@ -39,6 +39,8 @@ public:
 
 	/**
 	 * Increments the trial counter and checks for _currentTrial > _maxTrials)
+	 * The idea here is to mimic how looping through SQL queries works:
+	 * while(session.nextTrial()) do...;
 	 */
 	bool nextTrial();
 
