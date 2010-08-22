@@ -1,22 +1,22 @@
-#include "CDFlickerDisplay.h"
+#include "CDRetentionInterval.h"
 
 using namespace XOR;
 
-CDFlickerDisplay * CDFlickerDisplay::_state = NULL;
+CDRetentionInterval * CDRetentionInterval::_state = NULL;
 
-CDFlickerDisplay::CDFlickerDisplay() {
+CDRetentionInterval::CDRetentionInterval() {
 }
 
-CDFlickerDisplay * CDFlickerDisplay::GetInstance(CDGrid * grid) {
+CDRetentionInterval * CDRetentionInterval::GetInstance(CDGrid * grid) {
 	if (NULL == _state)
-		_state = new CDFlickerDisplay();
+		_state = new CDRetentionInterval();
 
 	_state->_grid = grid;
 
 	return _state;
 }
 
-void CDFlickerDisplay::activate()
+void CDRetentionInterval::activate()
 {
 	_grid->setVisible(false);
 
@@ -33,7 +33,7 @@ void CDFlickerDisplay::activate()
 }
 
 
-void CDFlickerDisplay::handleTick()
+void CDRetentionInterval::handleTick()
 {
 	CDSecondDisplay * cdsd = CDSecondDisplay::GetInstance(_grid);
 	cdsd->activate();

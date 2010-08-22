@@ -18,6 +18,22 @@ void Helper::Reorder(vector<int> * a)
 
 }
 
+void Helper::Reorder(vector<Trial*> * a)
+{
+	int size = a->size();
+	for(int i=0;i<size;i++) {
+		int sample_size = size - i;
+		int random = rand()	% sample_size;
+		Trial * t= a->at(size-(i+1));
+		a->at(size-(i+1)) = a->at(random);
+		a->at(random) = t;
+	}
+
+	//for(int i=0; i<a->size(); i++)
+	//cout << a->at(i) << endl;
+
+}
+
 void Helper::SampleWOReplacement(vector<int> pop, vector<int> * sample, int n)
 {
 
@@ -65,3 +81,22 @@ void Helper::FreshSampleWOReplacement(vector<int> pop, vector<int> * sample, vec
 		cout << sample->at(i) << endl;
 	*/
 }
+
+/**
+int main (int argc, char * argv[]) {
+	
+	srand(time(NULL));
+	vector<int> pop;
+	vector<int> sample;
+	for(int i=0; i<20; i++)
+		pop.push_back(i);
+
+	Helper::SampleWOReplacement(pop, &sample, pop.size());
+
+	for(int i=0; i<sample.size(); i++)
+		cout << sample[i] << endl;
+
+	return 0;
+}
+**/
+

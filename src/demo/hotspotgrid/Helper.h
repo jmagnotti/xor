@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include "Trial.h"
 
 using namespace std;
 
@@ -15,6 +16,8 @@ public:
 	 */
 	static void Reorder(vector<int> * a);
 
+	static void Reorder(vector<Trial*> * a);
+
 	/**
 	 * Calculates a sample of size n from pop into sample. 
 	 *
@@ -23,7 +26,8 @@ public:
 	static void SampleWOReplacement(vector<int> pop, vector<int> * sample, int n);
 
 	/**
-	 * Calculates a sample of size n ensuring that each sample[i] is not found in state
+	 * Calculates a sample of size n ensuring that each sample[i] is not found in stale
+	 * There's probably a faster way to do this...
 	 *
 	 * Input Condition: [pop.size() - stale.size() >= n]
 	 */

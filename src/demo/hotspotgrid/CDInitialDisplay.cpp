@@ -23,6 +23,7 @@ void CDInitialDisplay::activate()
 	_grid->setVisibleLocations(s->getInitialLocations());
 	_grid->setPictures(s->getInitialPictureIDs());
 
+	//s->getSampleDisplayDuration();
 	IntervalTimer::GetInstance()->addListener(this, 1000, false);
 
 	_grid->setVisible(true);
@@ -31,7 +32,7 @@ void CDInitialDisplay::activate()
 
 void CDInitialDisplay::handleTick()
 {
-	CDFlickerDisplay * cdfd = CDFlickerDisplay::GetInstance(_grid);
-	cdfd->activate();
+	CDRetentionInterval * cdri = CDRetentionInterval::GetInstance(_grid);
+	cdri->activate();
 }
 

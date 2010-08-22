@@ -5,7 +5,7 @@
 #include "CDState.h"
 #include "CDGrid.h"
 
-#include "CDFlickerDisplay.h"
+#include "CDRetentionInterval.h"
 #include "Helper.h"
 #include "Session.h"
 
