@@ -1,4 +1,5 @@
 #include "Session.h"
+#include <cstdlib>
 
 Session * Session::_session = NULL;
 
@@ -24,98 +25,113 @@ int findInVec(vector<int> haystack, int needle)
 	return ret;
 }
 
-Session::Session()
+Session::Session(const char * xmlFile)
 {
 	srand(time(NULL));
-	int NUM_PICS = 29;
-	int NUM_LOCS = 25;
 
-	//number of repeated stimuli
+	XMLNode parameters = XMLNode::openFileHelper(xmlFile, "SessionParameters");
 
-	int DISPLAY_SIZE = 8;
-	int PROBE_SIZE = 1; //max is DISPLAY_SIZE-1
+	int fixationDuration = atoi(parameters.getChildNode("Fixation").getAttribute("duration"));
+	int sampleDuration = atoi(parameters.getChildNode("SampleDisplay").getAttribute("duration"));
+	int retentionInterval= atoi(parameters.getChildNode("RetentionInterval").getAttribute("duration"));
 
-	_trials = 16;
+	//forcing this to be type==Ratio for now
+	int choiceFR= atoi(parameters.getChildNode("RetentionInterval").getAttribute("duration"));
+	int interTrialInterval = atoi(parameters.getChildNode("IntertrialInterval").getAttribute("duration"));
+	//cout << "ITI: " << atoi(parameters.getChildNode("IntertrialInterval").getAttribute("duration"));
+	_nTrials = atoi(parameters.getChildNode("StimuliSample").getAttribute("trialCount"));
 	_currentTrial = 1;
 
-	vector<int> pics;
-	vector<int> locs;
+	XMLNode trialTypes = parameters.getChildNode("StimuliSample").getChildNode("TrialTypes");
+	int blockSize = atoi(trialTypes.getAttribute("count"));
 
-	//no image0
-	for(int i=1; i<=NUM_PICS; i++) { pics.push_back(i); }
+	vector<int> locationPopulation;
+	int NUM_LOCS = 25; // can't use location_1
+	for (int i=1; i<NUM_LOCS; i++) { locationPopulation.push_back(i); }
+	
+	//note that we aren't doing ANY randomization except the pictures/locations.
+	//trial type randomization will come later
+	for(int block=0; block<_nTrials/blockSize; block++) {
+		int ttype = Trial::CHANGE_TRIAL;
+		for (int j=0; j<blockSize; j++) {
+			
+			//If ReportingMethod == 1, then we need to have "no-change" trials, otherwise, all
+			//trials are "change" trials
+			if (1 == atoi(parameters.getChildNode("ReportingMethod").getAttribute("type"))) {
+				if (j >= blockSize / 2 )
+						ttype = Trial::NO_CHANGE_TRIAL;
+			}
 
-	//we don't include loc[0] which is the fixation point
-	for(int i=1; i<NUM_LOCS; i++) { locs.push_back(i); }
+			XMLNode trialType = trialTypes.getChildNode(j);
 
-	vector<int> delays;
-	vector<int> delayTimes;
-	delayTimes.push_back(0);
-	delayTimes.push_back(17);
-	delayTimes.push_back(34);
-	delayTimes.push_back(68);
-	delayTimes.push_back(136);
-	delayTimes.push_back(272);
-	delayTimes.push_back(544);
-	delayTimes.push_back(1088);
+			int sds = atoi(trialType.getAttribute("sample"));
+			int cds = atoi(trialType.getAttribute("choice"));
+			
+			//we need to get the stimulus class
+			XMLNode stimulusClass = parameters.getChildNode("StimulusSet").getChildNodeWithAttribute("StimulusClass", "name", trialType.getAttribute("stimulusClass"));
 
-	//make sure this is clean division
-	int blocks = _trials / delayTimes.size();
+			vector<int> picPopulation;
+			for (int i=0; i<atoi(stimulusClass.getAttribute("count")); i++) { picPopulation.push_back(i); }
 
-	//build probe delays
-	for (int k=0; k<delayTimes.size(); k++)
-		for(int i=0; i<blocks; i++)
-			delays.push_back(delayTimes[k]);
 
-	Helper::SampleWOReplacement(delays, &_probeDelays, _trials);
+			vector<int> samplePicIDs;
+			Helper::SampleWOReplacement(picPopulation, &samplePicIDs, sds); 
 
-	// build all the trial info
-	for(int i=0; i<_trials; i++) {
-		cout << "\nTrial: " << i << endl;
-		
-		//we need to grab 8 random pictures	
-		vector<int> p;
-		Helper::SampleWOReplacement(pics, &p, DISPLAY_SIZE);
+			vector<int> choicePicIDs;
+			Helper::SampleWOReplacement(samplePicIDs, &choicePicIDs, cds); 
 
-		cout << "1st Pics: "; printVec(p);
+			//now we need to randomly grab the locations
+			vector<int> sampleLocations;
+			Helper::SampleWOReplacement(locationPopulation, &sampleLocations, sds);
 
-		//we need to grab 8 random locations
-		vector<int> l;
-		Helper::SampleWOReplacement(locs, &l, DISPLAY_SIZE);
-		
-		cout << "1st Locs: "; printVec(l);
 
-		_initialLocations.push_back(l);
-		_initialPictureIDs.push_back(p);
+			//the choice locations are a subset of the sample locations
+			//we want locations to be consistent between sample/choice, so whichever images were chosen, we need to keep those locations the same
+			vector<int> choiceLocations;
+			for(int i=0; i<cds; i++) {
+					//set the choice location to be the same location as when it was the stimulus
+					choiceLocations.push_back(sampleLocations[findInVec(samplePicIDs, choicePicIDs[i])]);
+			}
 
-		//for the second display we want to grab one pic for a comparison and two locations,
-		//Importantly, the last (i=PROBE_SIZE) image mustn't be in the previous display
-		vector<int> p2;
-		for(int i=0; i<PROBE_SIZE; i++) {
-			p2.push_back(p[i]);
+			//we have to add the "changed" item after we settle locations, as the match between
+			//sample and choice is part of the location-finding heuristic
+			if (ttype == Trial::CHANGE_TRIAL) {
+				vector<int> oneMore;
+				Helper::FreshSampleWOReplacement(picPopulation, &oneMore, samplePicIDs, 1);
+
+				//overwrite id.0 on choice pics
+				choicePicIDs[0] = oneMore[0];
+			}
+
+			vector<const char*> sFiles;
+			vector<const char*> cFiles;
+
+			for (int i=0; i<samplePicIDs.size(); i++) {
+				sFiles.push_back(stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("location"));
+			}
+			for (int i=0; i<choicePicIDs.size(); i++) {
+				cFiles.push_back(stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("location"));
+			}
+
+			_trials.push_back(new Trial(ttype, sds, cds,
+										fixationDuration, sampleDuration, retentionInterval, interTrialInterval,
+										sFiles, sampleLocations, cFiles, choiceLocations));
 		}
-
-		vector<int> p3;
-		Helper::FreshSampleWOReplacement(pics, &p3, p, 1);
-		p2.push_back(p3[0]);
-
-		//we need to save the corresponding location to remain and the
-		//one to change
-		vector<int> l2;
-		for (int i=0; i<= PROBE_SIZE; i++)
-			l2.push_back(l[i]);
-
-		//we need to put the two pics in the same vec
-		//let's be safe in case we later add more stim
-		//for(int i=0; i<p3.size(); i++)
-		//p2.push_back(p3[i]);
-		_secondLocations.push_back(l2);
-		_secondPictureIDs.push_back(p2);
-
-		cout << "2nd Pics: "; printVec(p2);
-		cout << "2nd Locs: "; printVec(l2);
-
 	}
+
+
+	Helper::Reorder(&_trials);
+
+	for (int i=0; i<_trials.size(); i++) {
+		_trials[i]->setTrialNumber(i+1);
+		_trials[i]->toXMLString();
+	}
+
+
 }
+
+Session::Session()
+{}
 
 vector<int> Session::getInitialLocations()
 {
@@ -150,11 +166,19 @@ Session * Session::GetInstance()
 	return _session;
 }
 
+Session * Session::GetInstance(const char * xmlFile)
+{
+	if (NULL == _session) 
+		_session = new Session(xmlFile);
+
+	return _session;
+}
+
 bool Session::nextTrial()
 {
 	_currentTrial++;
-	if (_currentTrial > _trials) {
-		//I like the idea that _currentTrial == _trials when the
+	if (_currentTrial > _nTrials) {
+		//I like the idea that _currentTrial == _nTrials when the
 		//session is over, so let's not let _currentTrial increase
 		//without bound
 		_currentTrial--;
@@ -166,7 +190,7 @@ bool Session::nextTrial()
 
 int Session::getNumberOfTrials()
 {
-	return _trials;
+	return _nTrials;
 }
 
 int Session::getProbeDelay() 

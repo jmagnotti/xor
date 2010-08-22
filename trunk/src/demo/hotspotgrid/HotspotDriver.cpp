@@ -62,7 +62,10 @@ vector<Vector2D*> buildPositionArray()
 int main(int argc, char * argv[])
 { 
 	//prebuild the session
-	Session::GetInstance();
+	Session::GetInstance("session.xml");
+
+
+	return 1;
 
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 

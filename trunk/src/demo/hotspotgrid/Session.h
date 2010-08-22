@@ -2,7 +2,9 @@
 #define SESSION_H
 
 #include <vector>
+#include "Trial.h"
 #include "Helper.h"
+#include "xmlParser/xmlParser.h"
 
 using namespace std;
 
@@ -10,6 +12,7 @@ class Session {
 
 public:
 
+	static Session * GetInstance(const char *);
 	static Session * GetInstance();
 
 	/**
@@ -53,6 +56,7 @@ public:
 private:
 
 	Session();
+	Session(const char *);
 	vector<vector<int> > _initialLocations;
 	vector<vector<int> > _initialPictureIDs;
 
@@ -63,7 +67,9 @@ private:
 
 	vector<int> _probeDelays;
 
-	int _currentTrial, _trials;
+	vector<Trial*> _trials;
+
+	int _currentTrial, _nTrials;
 
 	static Session * _session;
 };
