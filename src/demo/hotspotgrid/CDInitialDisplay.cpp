@@ -22,9 +22,10 @@ void CDInitialDisplay::activate()
 
 	_grid->setVisibleLocations(s->getInitialLocations());
 	_grid->setPictures(s->getInitialPictureIDs());
-	_grid->setVisible(true);
 
 	IntervalTimer::GetInstance()->addListener(this, 1000, false);
+
+	_grid->setVisible(true);
 }
 
 

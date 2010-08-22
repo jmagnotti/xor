@@ -1,5 +1,5 @@
 #include <math.h>
-#include <sstream>
+//#include <sstream>
 
 #include "../../xor.h"
 #include "PrintMousePosition.h"
@@ -12,24 +12,23 @@
 using namespace XOR;
 using namespace std;
 
+
+#define WIDTH 1280
+#define HEIGHT 1024
+
 class CDConfig : public XavierConfiguration 
 {
 public:
+
 	CDConfig(){}
 
-	Dimension2D * getWindowSize() const { return new Dimension2D(1920,1200); }	
+	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH,HEIGHT); }	
 
-
-	Uint32 getVideoFlags()
-	{
-		return (SDL_OPENGL|SDL_FULLSCREEN);
-	}
+	Uint32 getVideoFlags() { return (SDL_OPENGL); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
-	unsigned int getTimerInterval() {
-		return 15;
-	}
+	unsigned int getTimerInterval() { return 15; }
 
 };
 
@@ -38,8 +37,8 @@ vector<Vector2D*> buildPositionArray()
 {
 	vector<Vector2D*> _positions;
 	int centerX, centerY;
-	centerX = 1920/2;
-	centerY = 1200/2;
+	centerX = WIDTH/2;
+	centerY = HEIGHT/2;
 
 	int xoff = centerX - 128/2;
 	int yoff = centerY - 128/2;
@@ -67,10 +66,12 @@ int main(int argc, char * argv[])
 
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
+	//hide the mouse
+	//SDL_ShowCursor(SDL_DISABLE);
 	
 	//Print action notifies the appropriate CDState of the clicked action item
     PrintAction * pa;    
-    Dimension2D * iconSize = new Dimension2D(128,128);
+    Dimension2D * iconSize = new Dimension2D(32,32);
 
 	CDGrid * cdg = new CDGrid();
 	ActionItem * ai;
@@ -80,12 +81,12 @@ int main(int argc, char * argv[])
 	TextureFactory * tf = TextureFactory::GetInstance();
 	vector<Vector2D*> _positions = buildPositionArray();
 
-	cout << _positions.size() << endl;
+	//cout << _positions.size() << endl;
 
 	pa = new PrintAction(0);
 	Vector2D *offset = new Vector2D(50,50);
-	p = new Paint(tf->createTexture("resources/fixate.jpg"));
-	rect = new Rectangle2D((*_positions[0])+offset, new Dimension2D(16,16), p);
+	p = new Paint(tf->createTexture("images/fixate.jpg"));
+	rect = new Rectangle2D((*_positions[0])+offset, new Dimension2D(64,64), p);
 
 	delete offset;
 
@@ -93,13 +94,13 @@ int main(int argc, char * argv[])
 	cdg->addAction(ai);
 
 	//for each position, build a picture and assign an action 
-	for(int i=1; i<_positions.size();i++) {
+	for(int i=1; i<_positions.size(); i++) {
 
-		stringstream ss ("resources/image", ios::app | stringstream::in | stringstream::out);	
-		ss << i << ".jpg";
+		//stringstream ss ("C:/images/image", ios::app | stringstream::in | stringstream::out);	
+		//ss << i << ".jpg";
 		pa = new PrintAction(i);
 
-		p = new Paint(tf->createTexture(ss.str().c_str()));
+		p = new Paint(tf->createTexture("C:/images/red.jpg"));//ss.str().c_str()));
 		rect = new Rectangle2D(_positions[i], iconSize, p);
 
 		ai = new ActionItem(pa, rect);

@@ -11,7 +11,7 @@ class Helper {
 public:
 
 	/**
-	 * Inplace reorder of a. Similar to sampling from pop at n=pop.size()
+	 * Inplace reorder of a. Equivalent to SampleWOReplacement(pop, pop, pop.size());
 	 */
 	static void Reorder(vector<int> * a);
 
