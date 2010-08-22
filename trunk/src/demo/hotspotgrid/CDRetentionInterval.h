@@ -23,7 +23,7 @@ private:
 
 	CDRetentionInterval();
 
-	static CDRetentionInterva * _state;
+	static CDRetentionInterval * _state;
 };
 
 #endif			//CD_RETENTION_INTERVAL_H
