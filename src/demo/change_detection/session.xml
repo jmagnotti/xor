@@ -1,0 +1,51 @@
+<SessionParameters>
+	<ReportingMethod type='1' label='Change/No-Change' />
+	<!-- ReportingMethod type='2' label='Forced-Choice' -->
+
+	<Fixation duration='500' type='Interval' imageFile='C:/images/fixation.jpg'/>
+	<FixationInterval duration='0' type='Interval' /> 
+	<SampleDisplay duration='1000' type='Interval' />
+	<RetentionInterval duration='2000' type='Interval' />
+
+	<!--this is basically ignored for now-->
+	<ChoiceDisplay duration='1' type='Ratio' />
+	<IntertrialInterval duration='3000' type='Interval' />
+
+	<StimulusSet>
+		<StimulusClass name='StroopWords'> </StimulusClass>
+		<StimulusClass name='SexualAssaultWords'> </StimulusClass>
+		<StimulusClass name='GeneralThreatWords'> </StimulusClass>
+		<StimulusClass name='Pseudowords'> </StimulusClass>
+		<StimulusClass name='ColoredPolygons'> </StimulusClass>
+
+		<StimulusClass name='ColoredCircles' count='12'>
+			<image label='Red Circle' location='C:/images/red.jpg' color='Red' />
+			<image label='Pink Circle' location='C:/images/pink.jpg' color='Pink' />
+			<image label='Yellow-Green Circle' location='C:/images/yellowGreen.jpg' color='YellowGreen' />
+			<image label='Yellow Circle' location='C:/images/yellow.jpg' color='Yellow' />
+			<image label='Orange Circle' location='C:/images/orange.jpg' color='Orange' />
+			<image label='Aqua Circle' location='C:/images/aqua.jpg' color='Aqua' />
+			<image label='Blue Circle' location='C:/images/blue.jpg' color='Blue' />
+			<image label='Gray Circle' location='C:/images/gray.jpg' color='Gray' />
+			<image label='White Circle' location='C:/images/white.jpg' color='White' />
+			<image label='Navy Circle' location='C:/images/navy.jpg' color='Navy' />
+			<image label='Green Circle' location='C:/images/green.jpg' color='Green' />
+			<image label='Lime Circle' location='C:/images/lime.jpg' color='Lime' />
+		</StimulusClass>
+	</StimulusSet>
+
+	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 0 -->
+	<StimuliSample type='balanced' trialCount='180'>
+		<TrialTypes count='9'>
+			<trialType label='4:4' sample='4' choice='4' stimulusClass='ColoredCircles' />
+			<trialType label='4:2' sample='4' choice='2' stimulusClass='ColoredCircles' />
+			<trialType label='4:1' sample='4' choice='1' stimulusClass='ColoredCircles' />
+			<trialType label='6:6' sample='6' choice='6' stimulusClass='ColoredCircles' />
+			<trialType label='6:3' sample='6' choice='3' stimulusClass='ColoredCircles' />
+			<trialType label='6:1' sample='6' choice='1' stimulusClass='ColoredCircles' />
+			<trialType label='8:8' sample='8' choice='8' stimulusClass='ColoredCircles' />
+			<trialType label='8:4' sample='8' choice='4' stimulusClass='ColoredCircles' />
+			<trialType label='8:1' sample='8' choice='1' stimulusClass='ColoredCircles' />
+		</TrialTypes>
+	</StimuliSample>
+</SessionParameters>
