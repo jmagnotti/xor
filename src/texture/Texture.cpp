@@ -17,6 +17,11 @@ Texture::Texture(char * data, int size)
 	loadRwops(data, size);
 }
 
+Texture::~Texture()
+{
+	glDeleteTextures(1, &_id);
+}
+
 
 /*
  * height in pixels

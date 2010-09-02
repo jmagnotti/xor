@@ -10,12 +10,12 @@ namespace XOR {
  */
 Mouse::Mouse()
 {
-    _cursorVisible = false;
 	_currentX  = 0; _currentY = 0;
 	_previousX = 0; _previousY = 0;
 
 	_leftButtonDown = false; _middleButtonDown = false; _rightButtonDown = false;
 
+    _cursorVisible = true;
     setCursorVisibility(_cursorVisible);
 	_defaultMouseListener = NULL;
 }
@@ -158,10 +158,10 @@ void Mouse::removeListener(MouseListener * ml)
  */
 void Mouse::setCursorVisibility(bool show)
 {
-    if (_cursorVisible != show) {
-        _cursorVisible = show;
-        SDL_ShowCursor(_cursorVisible);
-    }
+    //if (_cursorVisible != show) {
+        //_cursorVisible = show;
+        //SDL_ShowCursor(_cursorVisible);
+    //}
 }
 
 /*

@@ -6,6 +6,45 @@ const int Trial::CHANGE_TRIAL = 1;
 Trial::Trial()
 {}
 
+void Trial::recordChoice(string outputFile, int location, int responseTime)
+{
+	ofstream fout;
+	fout.open(outputFile.c_str(), ios::app);
+	fout 	<< "\t<Trial trialNumber='" << _trialNumber << "' trialType='" << _trialType << "' "
+
+			//--newly aded for response encoding
+			<< "choiceLocation='" << location << "' "
+			<< "responseTime='" << responseTime << "' "
+			//--
+
+			<< "sampleDisplaySize='" << _sampleDisplaySize << "' "
+			<< "choiceDisplaySize='" << _choiceDisplaySize << "' "
+			<< "fixationDuration='" << _fixationDuration << "' "
+			<< "fixationImageFile='" << _fixationImageFile << "' "
+			<< "sampleDisplayDuration='" << _sampleDisplayDuration << "' "
+			<< "retentionInterval='" << _retentionInterval << "' "
+			<< "interTrialInterval='" << _interTrialInterval << "' "
+			<< ">" << endl;
+	
+	fout << "\t\t<sampleStimuli>" << endl;
+	for(int i=0; i<_sampleStimulusLocations.size(); i++) {
+		fout << "\t\t\t<stimulus location='" << _sampleStimulusLocations[i] << "' "
+				 		   << "imageFile='" << _sampleStimulusFiles[i] << "' />" << endl;
+	}
+	fout << "\t\t</sampleStimuli>" << endl;
+
+	fout << "\t\t<choiceStimuli>" << endl;
+	for(int i=0; i<_choiceStimulusLocations.size(); i++) {
+		fout << "\t\t\t<stimulus location='" << _choiceStimulusLocations[i] << "' "
+				 		   << "imageFile='" << _choiceStimulusFiles[i] << "' />" << endl;
+	}
+	fout << "\t\t</choiceStimuli>" << endl;
+
+	fout << "\t</Trial>" << endl;
+
+	fout.close();
+}
+
 Trial::Trial(XMLNode trialNode)
 {
 	_trialNumber = atoi(trialNode.getAttribute("trialNumber"));

@@ -64,13 +64,14 @@ TextureFactory * TextureFactory::GetInstance()
  */
 Texture * TextureFactory::createTexture(const char * pathToFile)
 {
-	Texture * temp = textures[string(pathToFile)];
+	string str = string(pathToFile);
+	Texture * temp = textures[str];
 
 	if (temp == NULL) {
-        temp = new Texture(pathToFile);
+        temp = new Texture(str.c_str());
 
 		//put the texture into the map, using the path as the key
-		textures[pathToFile] = temp;
+		textures[str] = temp;
 	}
 
 	return temp;

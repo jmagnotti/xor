@@ -17,7 +17,6 @@ vector<Picture*> XMLPictureLoader::load()
 	// default to the first album in the file
 	XMLNode xAlbumNode = xDemoNode.getChildNode("albums").getChildNode("album");
 	
-	// xmlParser uses this for some crap
 	int cubeIterator = 0;
 	int numCubes = xAlbumNode.nChildNode("cube");
 	int faceIterator;
