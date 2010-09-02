@@ -12,6 +12,13 @@ Session::Session(const char * xmlFile, const char * outputFile)
 	}
 
 	_currentTrial = 1;
+
+	_outputFile = string(outputFile);
+}
+
+void Session::recordChoice(int location, int responseTime)
+{
+	_trials[_currentTrial-1]->recordChoice(_outputFile, location, responseTime);
 }
 
 Session::Session()
@@ -46,10 +53,10 @@ int Session::getCurrentTrial()
 	return _currentTrial;
 }
 
-Session * Session::GetInstance(const char * xmlFile)
+Session * Session::GetInstance(const char * xmlFile, const char * outputFile)
 {
 	if (NULL == _session) 
-		_session = new Session(xmlFile);
+		_session = new Session(xmlFile, outputFile);
 
 	return _session;
 }

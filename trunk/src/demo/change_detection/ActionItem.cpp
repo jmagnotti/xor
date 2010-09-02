@@ -34,30 +34,19 @@ void ActionItem::handleMouseEvent(MouseEvent * me)
     Mouse * mouse = Controller::GetInstance()->getMouse();
 
 
-    if (me->getType() == MouseEvent::MOUSE_MOTION) {
-        if(! _bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
-            _downInBounds = false;
-    }
-    // mouse button down event
-    else if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
-
-        //mouse down
-        if(mouse->isLeftButtonDown() && 
-				_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
-        {
-            _downInBounds = true;
-			//trying this out
+	//
+	//This stuff goes kind of bonkers when working with the 
+	//touchscreen, as you just get a serious of disconnected tapping
+	//Having the action tied to MouseUp seems to alleviate the issues
+	//
+	
+    if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
+        if(_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
 			execute();
-        }
     }
-    // mouse up
-    else {
-        if(!(mouse->isLeftButtonDown())) {
-            //if (_downInBounds)
-                //execute();
-        
-            _downInBounds = false;
-        }
+    else if (me->getType() == MouseEvent::MOUSE_BUTTON_UP) {
+        if(_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
+			execute();
     }
 }
 

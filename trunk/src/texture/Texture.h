@@ -24,6 +24,8 @@ public:
 
 	Texture(char * data, int size);
 
+	virtual ~Texture();
+
     /**
      * Makes this texture the currently activated texture. This should not
 	 * be called by a user application, but rather is used by the

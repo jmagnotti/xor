@@ -12,6 +12,26 @@
 using namespace XOR;
 using namespace std;
 
+#define WIDTH 1280
+#define HEIGHT 1024
+
+class MouseTracker : public TimerListener
+{
+	public:
+		MouseTracker()
+		{ }
+
+		void handleTick()
+		{
+			Mouse * m = Controller::GetInstance()->getMouse();
+			cout << "m: " << m->getCurrentX() << ", " << m->getCurrentY() << endl;
+		}	
+
+};
+
+
+
+
 class CDConfig : public XavierConfiguration 
 {
 public:
@@ -60,8 +80,8 @@ int main(int argc, char * argv[])
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
 	//hide the mouse
-	SDL_ShowCursor(0);
-	SDL_WM_GrabInput(SDL_GRAB_ON);
+	//SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
+	//SDL_ShowCursor(0);
 	
 	//Print action notifies the appropriate CDState of the clicked action item
     PrintAction * pa;    
@@ -102,7 +122,13 @@ int main(int argc, char * argv[])
     ctrl->getMouse()->addListener(cdg);
     ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 
-	Session::GetInstance("changeNoChange.xml");
+	if (argc > 1)
+		Session::GetInstance("changeNoChange.xml", argv[1]);
+	else
+		Session::GetInstance("changeNoChange.xml", "result.tmp");
+
+	//TimerListenerManager::start(new MouseTracker());
+
 	CDStartState * cdss = CDStartState::GetInstance(cdg);
 	cdss->activate();
 

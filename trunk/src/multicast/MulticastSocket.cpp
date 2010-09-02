@@ -38,7 +38,7 @@ MulticastSocket::~MulticastSocket()
  */
 MulticastSocket::MulticastSocket(const char * group, unsigned short port)
 {
-    cout << "Building multicast socket with " << group << ":" << port << endl;
+//    cout << "Building multicast socket with " << group << ":" << port << endl;
 
     int success;
     int mc_ttl = 1;

@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <fstream>
 #include "Trial.h"
 #include "Helper.h"
 #include "xmlParser/xmlParser.h"
@@ -12,6 +14,9 @@ using namespace std;
 class Session {
 
 public:
+
+	static const int METHOD_CHANGE_NOCHANGE;
+	static const int METHOD_WHICH_CHANGED;
 
 	/**
 	 * const char *: The xml file containing "Trials"
@@ -51,6 +56,10 @@ public:
 	 */
 	int getCurrentTrial();
 
+
+	int getReportingMethod();
+	
+
 	/**
 	 * Increments the trial counter and checks for _currentTrial > _maxTrials)
 	 * The idea here is to mimic how looping through SQL queries works:
@@ -70,18 +79,28 @@ public:
 
 	string getFixationFile();
 
+	/**
+	 * Stores the result of a trial, location, RT pair
+	 *
+	 * int:	location (id, not X,Y) of response
+	 * int: response time (i.e., span between second-image display and choice)
+	 */
+	void recordChoice(int, int);
+
 	//printSession(char * filePath)
 
 private:
 
 	Session();
-	Session(const char *);
+	Session(const char *, const char *);
 
 	vector<int> _probeDelays;
 
 	vector<Trial*> _trials;
 
 	int _currentTrial;
+
+	string _outputFile;
 
 	static Session * _session;
 };

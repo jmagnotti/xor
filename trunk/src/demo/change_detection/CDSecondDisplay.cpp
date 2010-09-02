@@ -27,9 +27,6 @@ CDSecondDisplay * CDSecondDisplay::GetInstance(CDGrid * grid)
 
 void CDSecondDisplay::activate()
 {
-	//this looks dirty, but makes the input so clean [not sure why]
-	Mouse::ForceMove(640,512);
-
 	Session * s = Session::GetInstance();
 
 	_grid->setMouseListen(true);
@@ -38,15 +35,16 @@ void CDSecondDisplay::activate()
 	_grid->setImageFiles(s->getChoiceStimulusFiles());
 	_grid->setVisible(true);
 
+	_reactionTime = Controller::GetInstance()->getTimer()->getElapsedTime(); 
 }
 
 
 void CDSecondDisplay::handleChoice(int location)
 {
-	// recording choice
-	cout << "Choice Made:" << location << endl;
-	
+	_reactionTime = Controller::GetInstance()->getTimer()->getElapsedTime() - _reactionTime;
 	_grid->setMouseListen(false);
+
+	Session::GetInstance()->recordChoice(location, _reactionTime);
 	
 	CDITIState * cdis = CDITIState::GetInstance(_grid);
 	cdis->activate();

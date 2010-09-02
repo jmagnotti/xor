@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include "xmlParser/xmlParser.h"
 
 using namespace std;
@@ -65,6 +66,15 @@ public:
 	 * you wanted to load up on easy trials or something.
 	 */
 	void setTrialNumber(int);
+
+	/**
+	 * Appends result to file along with ALL trial information (XML-formatted)
+	 *
+	 * string:	name of file
+	 * int:	ID location of response
+	 * int:	response time
+	 */
+	void recordChoice(string, int, int);
 
 	string getFixationFile();
 
