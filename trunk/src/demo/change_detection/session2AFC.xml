@@ -1,7 +1,8 @@
 <SessionParameters>
-	<ReportingMethod type='1' label='Change/No-Change' />
+	<!--ReportingMethod type='1' label='Change/No-Change' -->
+	<ReportingMethod type='2' label='Forced-Choice' />
 
-	<Fixation duration='500' type='Interval' imageFile='C:/images/fixation.jpg' />
+	<Fixation duration='500' type='Interval' imageFile='images/fixation.jpg' />
 	<FixationInterval duration='0' type='Interval' />
 	<SampleDisplay duration='1000' type='Interval' />
 	<RetentionInterval duration='2000' type='Interval' />
@@ -23,23 +24,23 @@
 		</StimulusClass>
 
 		<StimulusClass name='ColoredCircles' count='12'>
-			<image label='Red Circle' location='C:/images/red.jpg' color='Red' />
-			<image label='Pink Circle' location='C:/images/pink.jpg' color='Pink' />
-			<image label='Yellow-Green Circle' location='C:/images/yellowGreen.jpg'
+			<image label='Red Circle' location='images/red.jpg' color='Red' />
+			<image label='Pink Circle' location='images/pink.jpg' color='Pink' />
+			<image label='Yellow-Green Circle' location='images/yellowGreen.jpg'
 				color='YellowGreen' />
-			<image label='Yellow Circle' location='C:/images/yellow.jpg'
+			<image label='Yellow Circle' location='images/yellow.jpg'
 				color='Yellow' />
-			<image label='Orange Circle' location='C:/images/orange.jpg'
+			<image label='Orange Circle' location='images/orange.jpg'
 				color='Orange' />
-			<image label='Aqua Circle' location='C:/images/aqua.jpg' color='Aqua' />
-			<image label='Blue Circle' location='C:/images/blue.jpg' color='Blue' />
-			<image label='Gray Circle' location='C:/images/gray.jpg' color='Gray' />
-			<image label='White Circle' location='C:/images/white.jpg'
+			<image label='Aqua Circle' location='images/aqua.jpg' color='Aqua' />
+			<image label='Blue Circle' location='images/blue.jpg' color='Blue' />
+			<image label='Gray Circle' location='images/gray.jpg' color='Gray' />
+			<image label='White Circle' location='images/white.jpg'
 				color='White' />
-			<image label='Navy Circle' location='C:/images/navy.jpg' color='Navy' />
-			<image label='Green Circle' location='C:/images/green.jpg'
+			<image label='Navy Circle' location='images/navy.jpg' color='Navy' />
+			<image label='Green Circle' location='images/green.jpg'
 				color='Green' />
-			<image label='Lime Circle' location='C:/images/lime.jpg' color='Lime' />
+			<image label='Lime Circle' location='images/lime.jpg' color='Lime' />
 		</StimulusClass>
 	</StimulusSet>
 
@@ -48,14 +49,16 @@
 	<StimuliSample type='balanced' trialCount='180'>
 		<TrialTypes count='9'>
 			<trialType label='4:4' sample='4' choice='4' stimulusClass='ColoredCircles' />
+			<trialType label='4:3' sample='4' choice='3' stimulusClass='ColoredCircles' />
 			<trialType label='4:2' sample='4' choice='2' stimulusClass='ColoredCircles' />
-			<trialType label='4:1' sample='4' choice='1' stimulusClass='ColoredCircles' />
+
 			<trialType label='6:6' sample='6' choice='6' stimulusClass='ColoredCircles' />
 			<trialType label='6:3' sample='6' choice='3' stimulusClass='ColoredCircles' />
-			<trialType label='6:1' sample='6' choice='1' stimulusClass='ColoredCircles' />
+			<trialType label='6:2' sample='6' choice='2' stimulusClass='ColoredCircles' />
+
 			<trialType label='8:8' sample='8' choice='8' stimulusClass='ColoredCircles' />
 			<trialType label='8:4' sample='8' choice='4' stimulusClass='ColoredCircles' />
-			<trialType label='8:1' sample='8' choice='1' stimulusClass='ColoredCircles' />
+			<trialType label='8:2' sample='8' choice='2' stimulusClass='ColoredCircles' />
 		</TrialTypes>
 	</StimuliSample>
 </SessionParameters>
