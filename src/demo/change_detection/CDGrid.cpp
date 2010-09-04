@@ -40,7 +40,7 @@ void CDGrid::handleMouseEvent(MouseEvent * me)
 			_actions[_locations[i]]->handleMouseEvent(me);
 
 
-		Mouse::ForceMove(1024,768);
+		//Mouse::ForceMove(1024,768);
 	}
 }
 

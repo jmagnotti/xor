@@ -82,8 +82,8 @@ void SessionBuilder::Build(const char * xmlFile)
 				choicePicIDs[0] = oneMore[0];
 			}
 
-			vector<const char*> sFiles;
-			vector<const char*> cFiles;
+			vector<string> sFiles;
+			vector<string> cFiles;
 
 			for (int i=0; i<samplePicIDs.size(); i++) {
 				sFiles.push_back(stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("location"));
@@ -112,7 +112,10 @@ void SessionBuilder::Build(const char * xmlFile)
 int main(int argc, char * argv[])
 { 
 	//Controller::GetInstance();
-	SessionBuilder::Build("session.xml");
+	if (argc > 1) 
+		SessionBuilder::Build(argv[1]);
+	else 
+		SessionBuilder::Build("sessionSD.xml");
 
 	return 0;
 }
