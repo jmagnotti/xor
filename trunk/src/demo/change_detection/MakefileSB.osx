@@ -2,7 +2,7 @@ MAKEFILE = MakefileSB.osx
 MKDP = makedepend
 
 CC = g++
-CFLAGS = -O3
+CFLAGS = -O2
 LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain -lSDL
 
 SRCS = Trial.cpp Helper.cpp SessionBuilder.cpp xmlParser/xmlParser.cpp
@@ -16,6 +16,8 @@ MAIN = BuildSession
 # build any executable just by changing the definitions above and by
 # deleting dependencies appended to the file from 'make depend'
 #
+
+.PHONY: depend clean
 
 all:		$(MAIN)
 

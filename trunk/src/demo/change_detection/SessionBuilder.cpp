@@ -22,6 +22,8 @@ void SessionBuilder::Build(const char * xmlFile)
 	XMLNode trialTypes = parameters.getChildNode("StimuliSample").getChildNode("TrialTypes");
 	int blockSize = atoi(trialTypes.getAttribute("count"));
 
+	int reportingMethod = atoi(parameters.getChildNode("ReportingMethod").getAttribute("type"));
+
 	vector<int> locationPopulation;
 	int NUM_LOCS = 25; // can't use location_1
 	for (int i=1; i<NUM_LOCS; i++) { locationPopulation.push_back(i); }
@@ -36,7 +38,7 @@ void SessionBuilder::Build(const char * xmlFile)
 			
 			//If ReportingMethod == 1, then we need to have "no-change" trials, otherwise, all
 			//trials are "change" trials
-			if (1 == atoi(parameters.getChildNode("ReportingMethod").getAttribute("type"))) {
+			if (1 == reportingMethod) {
 				if (j >= blockSize / 2 )
 						ttype = Trial::NO_CHANGE_TRIAL;
 			}
@@ -100,12 +102,14 @@ void SessionBuilder::Build(const char * xmlFile)
 
 	Helper::Reorder(&trials);
 
+	cout << "<Session reportingMethod='" << reportingMethod << "'>" << endl;
 	cout << "<Trials count='" << nTrials << "'>" << endl;
 	for (int i=0; i<trials.size(); i++) {
 		trials[i]->setTrialNumber(i+1);
 		trials[i]->toXMLString();
 	}
 	cout << "</Trials>" << endl;
+	cout << "</Session>" << endl;
 }
 
 
