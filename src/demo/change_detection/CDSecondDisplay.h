@@ -27,6 +27,8 @@ public:
 
 	void handleChoice(int location);
 
+	void handleMouseEvent(MouseEvent * me);
+
 private:
 
 	CDSecondDisplay();

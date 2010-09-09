@@ -11,13 +11,12 @@
 using namespace XOR;
 using namespace std;
 
-#define WIDTH 1280
-#define HEIGHT 1024
+#define WIDTH 1680
+#define HEIGHT 1050
 
 class MouseTracker: public TimerListener {
 public:
-	MouseTracker() {
-	}
+	MouseTracker() { }
 
 	void handleTick() {
 		Mouse * m = Controller::GetInstance()->getMouse();
@@ -37,8 +36,7 @@ public:
 	}
 
 	Uint32 getVideoFlags() {
-		return (SDL_OPENGL);
-	}//|SDL_FULLSCREEN); }
+		return (SDL_OPENGL|SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() {
 		return Color::BLACK;
@@ -81,7 +79,6 @@ int main(int argc, char * argv[]) {
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
 	//hide the mouse
-	//SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
 	//SDL_ShowCursor(0);
 
 	//Print action notifies the appropriate CDState of the clicked action item
@@ -123,10 +120,14 @@ int main(int argc, char * argv[]) {
 
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 
+	cout << "Argc: " << argc << endl;
 	if (argc > 2)
 		Session::GetInstance(argv[1], argv[2]);
+	else if (argc > 1)
+		Session::GetInstance(argv[1], "result.tmp");
 	else
-		Session::GetInstance("Two-AFC.xml", "result.tmp");
+		Session::GetInstance("sdTrials.xml", "result.tmp");
+	
 
 	CDStartState * cdss = CDStartState::GetInstance(cdg);
 	cdss->activate();

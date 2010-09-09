@@ -3,9 +3,15 @@
 
 Session * Session::_session = NULL;
 
+
+const int Session::METHOD_CHANGE_NOCHANGE	= 1;
+const int Session::METHOD_WHICH_CHANGED		= 2;
+
 Session::Session(const char * xmlFile, const char * outputFile)
 {
-	XMLNode trials = XMLNode::openFileHelper(xmlFile, "Trials");
+	XMLNode session = XMLNode::openFileHelper(xmlFile, "Session");
+	XMLNode trials = session.getChildNode("Trials");
+	
 	
 	for(int i=0; i<atoi(trials.getAttribute("count")); i++) {
 		_trials.push_back(new Trial(trials.getChildNode(i)));
@@ -14,6 +20,15 @@ Session::Session(const char * xmlFile, const char * outputFile)
 	_currentTrial = 1;
 
 	_outputFile = string(outputFile);
+
+	_reportingMethod = atoi(session.getAttribute("reportingMethod"));
+
+	//print some header info into the file
+	ofstream fout;
+	fout.open(_outputFile.c_str());
+	fout 	<< "<Session id='' reportingMethod='" << _reportingMethod << "' >" << endl;
+	fout.close();
+
 }
 
 void Session::recordChoice(int location, int responseTime)
@@ -69,6 +84,15 @@ Session * Session::GetInstance()
 	return _session;
 }
 
+
+void Session::closeResultsFile()
+{
+	ofstream fout;
+	fout.open(_outputFile.c_str(), ios::app);
+	fout << "</Session>" << endl;
+	fout.close();
+}
+
 bool Session::nextTrial()
 {
 	_currentTrial++;
@@ -77,10 +101,16 @@ bool Session::nextTrial()
 		//session is over, so let's not let _currentTrial increase
 		//without bound
 		_currentTrial--;
+
 		return false;
 	}
 
 	return true;
+}
+
+int Session::getReportingMethod()
+{
+	return _reportingMethod;
 }
 
 int Session::getNumberOfTrials()

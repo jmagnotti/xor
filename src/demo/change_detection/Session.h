@@ -67,6 +67,12 @@ public:
 	 */
 	bool nextTrial();
 
+	/**
+	 * Writes closing tag to results file. Should be called after nextTrial ==
+	 * false. Isn't done automatically just in case...
+	 */
+	void closeResultsFile();
+
 	int getNumberOfTrials();
 
 	int getRetentionInterval();
@@ -78,6 +84,7 @@ public:
 	int getInterTrialInterval();
 
 	string getFixationFile();
+
 
 	/**
 	 * Stores the result of a trial, location, RT pair
@@ -99,6 +106,7 @@ private:
 	vector<Trial*> _trials;
 
 	int _currentTrial;
+	int _reportingMethod;
 
 	string _outputFile;
 

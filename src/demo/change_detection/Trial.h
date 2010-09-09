@@ -14,7 +14,7 @@ class Trial {
 public:
 	static const int NO_CHANGE_TRIAL;
 	static const int CHANGE_TRIAL;
-	
+
 	/**
 	 * int: trial type, CHANGE_TRIAL or NO_CHANGE_TRIAL
 	 * int: sample display size
@@ -54,6 +54,8 @@ public:
 
 	vector<string> getChoiceStimulusFiles();
 	vector<int> getChoiceStimulusLocations();
+
+	int getReportingMethod();
 
 	/**
 	 * Outputs the XML representation for the trial to stdout

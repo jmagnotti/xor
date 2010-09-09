@@ -34,3 +34,2777 @@ depend: $(SRCS)
 			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
+
+Trial.o: Trial.h xmlParser/xmlParser.h /usr/include/stdlib.h
+Trial.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
+Trial.o: /usr/include/_types.h /usr/include/sys/_types.h
+Trial.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Trial.o: /usr/include/i386/_types.h /usr/include/sys/wait.h
+Trial.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+Trial.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+Trial.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+Trial.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+Trial.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+Trial.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+Trial.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+Trial.o: /usr/include/machine/types.h /usr/include/i386/types.h
+Trial.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/stdio.h
+Trial.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
+Trial.o: /usr/include/time.h /usr/include/_structs.h /usr/include/_wctype.h
+Trial.o: /usr/include/ctype.h /usr/include/runetype.h
+ActionItem.o: ActionItem.h ../../xor.h ../../core/Camera.h ../../core/World.h
+ActionItem.o: /usr/include/stdlib.h /usr/include/Availability.h
+ActionItem.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+ActionItem.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+ActionItem.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+ActionItem.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+ActionItem.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+ActionItem.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+ActionItem.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+ActionItem.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+ActionItem.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+ActionItem.o: /usr/include/libkern/_OSByteOrder.h
+ActionItem.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+ActionItem.o: /usr/include/machine/types.h /usr/include/i386/types.h
+ActionItem.o: ../../util/Logger.h ../../core/Renderable.h
+ActionItem.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+ActionItem.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+ActionItem.o: /usr/include/string.h /usr/include/secure/_string.h
+ActionItem.o: /usr/include/secure/_common.h ../../texture/Texture.h
+ActionItem.o: ../../geometry/Vector2D.h ../../paint/Color.h
+ActionItem.o: ../../core/Renderable.h ../../core/Window.h
+ActionItem.o: ../../event/reshape/ReshapeListener.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+ActionItem.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+ActionItem.o: ../../transform/Orientation.h /usr/include/stdio.h
+ActionItem.o: /usr/include/secure/_stdio.h ../../transform/Transform.h
+ActionItem.o: ../../transform/Translate.h ../../event/timer/Timer.h
+ActionItem.o: /usr/include/math.h /usr/include/architecture/i386/math.h
+ActionItem.o: ../../event/timer/TimerListener.h ../../event/Action.h
+ActionItem.o: ../../interpolation/InterpolatorFactory.h
+ActionItem.o: ../../interpolation/Interpolator.h
+ActionItem.o: ../../interpolation/LinearInterpolator.h
+ActionItem.o: ../../util/GraphicsConversionUtility.h
+ActionItem.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+ActionItem.o: ../../event/ContinuousAction.h ../../event/Action.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/timer/TimerListenerManager.h
+ActionItem.o: ../../event/timer/Timer.h ../../core/Controller.h
+ActionItem.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+ActionItem.o: ../../event/keyboard/KeyboardListener.h
+ActionItem.o: ../../event/keyboard/KeyEvent.h
+ActionItem.o: ../../event/keyboard/KeyEventFactory.h
+ActionItem.o: ../../event/keyboard/KeyDownEvent.h
+ActionItem.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+ActionItem.o: ../../event/mouse/MouseListener.h
+ActionItem.o: ../../event/mouse/MouseEvent.h
+ActionItem.o: ../../event/mouse/MouseEventFactory.h
+ActionItem.o: ../../event/mouse/MouseButtonDown.h
+ActionItem.o: ../../event/mouse/MouseClickEvent.h
+ActionItem.o: ../../event/mouse/MouseButtonUp.h
+ActionItem.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+ActionItem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+ActionItem.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+ActionItem.o: ../../core/XavierConfiguration.h
+ActionItem.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h
+ActionItem.o: ../../interpolation/InterpolationListener.h
+ActionItem.o: ../../interpolation/InterpolatorFactory.h
+ActionItem.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+ActionItem.o: ../../event/keyboard/KeyboardStub.h
+ActionItem.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+ActionItem.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+ActionItem.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+ActionItem.o: /usr/include/netinet/in.h /usr/include/stdint.h
+ActionItem.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+ActionItem.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+ActionItem.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+ActionItem.o: ../../multicast/MulticastSocketPool.h
+ActionItem.o: ../../multicast/MulticastSocket.h
+ActionItem.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+ActionItem.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+ActionItem.o: ../../core/Camera.h ../../geometry/Containment.h
+ActionItem.o: ../../transform/OrientationListener.h
+ActionItem.o: ../../transform/CoordinateSystemFactory.h
+ActionItem.o: ../../transform/CoordinateSystem.h
+ActionItem.o: ../../transform/OpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/MacCoordinateSystem.h
+ActionItem.o: ../../transform/MathCoordinateSystem.h
+ActionItem.o: ../../transform/LeftOpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/EngineerCoordinateSystem.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+ActionItem.o: ../../core/Controller.h ../../core/DebugCamera.h
+ActionItem.o: ../../core/Controller.h ../../core/Renderable.h
+ActionItem.o: ../../core/Window.h ../../core/World.h
+ActionItem.o: ../../core/XavierConfiguration.h ../../event/Action.h
+ActionItem.o: ../../event/ContinuousAction.h ../../event/DelayedAction.h
+ActionItem.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+ActionItem.o: ../../event/EventPlayerFactory.h
+ActionItem.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+ActionItem.o: ../../event/mouse/MouseListener.h
+ActionItem.o: ../../event/keyboard/KeyboardListener.h
+ActionItem.o: ../../event/EventRecorderFactory.h
+ActionItem.o: ../../event/FullEventHandlerFactory.h
+ActionItem.o: ../../event/keyboard/KeyboardSkeleton.h
+ActionItem.o: ../../event/mouse/MouseSkeleton.h
+ActionItem.o: ../../event/timer/TimerSkeleton.h
+ActionItem.o: ../../event/FullEventProxyFactory.h
+ActionItem.o: ../../event/InputEventHandlerFactory.h
+ActionItem.o: ../../event/InputEventProxyFactory.h
+ActionItem.o: ../../event/keyboard/DefaultKeyboardListener.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+ActionItem.o: ../../event/keyboard/Keyboard.h
+ActionItem.o: ../../event/keyboard/KeyboardListener.h
+ActionItem.o: ../../event/keyboard/KeyboardSkeleton.h
+ActionItem.o: ../../event/keyboard/KeyboardStub.h
+ActionItem.o: ../../event/keyboard/KeyDownEvent.h
+ActionItem.o: ../../event/keyboard/KeyEvent.h
+ActionItem.o: ../../event/keyboard/KeyEventFactory.h
+ActionItem.o: ../../event/keyboard/KeyUpEvent.h
+ActionItem.o: ../../event/keyboard/RegularKeyEvent.h
+ActionItem.o: ../../event/keyboard/SpecialKeyEvent.h
+ActionItem.o: ../../event/mouse/DefaultMouseListener.h
+ActionItem.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+ActionItem.o: ../../event/mouse/MouseButtonUp.h
+ActionItem.o: ../../event/mouse/MouseClickEvent.h
+ActionItem.o: ../../event/mouse/MouseEvent.h
+ActionItem.o: ../../event/mouse/MouseEventFactory.h
+ActionItem.o: ../../event/mouse/MouseListener.h
+ActionItem.o: ../../event/mouse/MouseMotionEvent.h
+ActionItem.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+ActionItem.o: ../../event/reshape/ReshapeEvent.h
+ActionItem.o: ../../event/reshape/ReshapeListener.h
+ActionItem.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+ActionItem.o: ../../event/timer/TimerListener.h
+ActionItem.o: ../../event/timer/TimerListenerManager.h
+ActionItem.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+ActionItem.o: ../../geometry/Containment.h ../../geometry/CylindricalVolume.h
+ActionItem.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+ActionItem.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+ActionItem.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+ActionItem.o: ../../interpolation/CameraRoller.h
+ActionItem.o: ../../interpolation/ContinuousInterpolation.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../interpolation/InterpolationEngine.h
+ActionItem.o: ../../interpolation/InterpolationListener.h
+ActionItem.o: ../../interpolation/Interpolator.h
+ActionItem.o: ../../interpolation/InterpolatorFactory.h
+ActionItem.o: ../../interpolation/LinearInterpolator.h
+ActionItem.o: ../../interpolation/TimedInterpolation.h
+ActionItem.o: ../../interpolation/Waypoint.h
+ActionItem.o: ../../interpolation/WaypointCollection.h
+ActionItem.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+ActionItem.o: ../../model/Model.h ../../texture/TextureFactory.h
+ActionItem.o: ../../texture/Texture.h ../../model/Model.h
+ActionItem.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+ActionItem.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+ActionItem.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+ActionItem.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+ActionItem.o: ../../core/Window.h ../../object2D/Object2DCollection.h
+ActionItem.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+ActionItem.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+ActionItem.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+ActionItem.o: ../../object2D/Transformable2D.h
+ActionItem.o: ../../transform/Transformable.h ../../transform/Transform.h
+ActionItem.o: ../../object3D/AdornablePrism.h
+ActionItem.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+ActionItem.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+ActionItem.o: ../../geometry/RectangularVolume.h
+ActionItem.o: ../../object3D/Object3DCollection.h
+ActionItem.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+ActionItem.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+ActionItem.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+ActionItem.o: ../../object3D/NormalPolygon3D.h
+ActionItem.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+ActionItem.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+ActionItem.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+ActionItem.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+ActionItem.o: ../../object3D/RectangularPrism.h
+ActionItem.o: ../../object3D/RectangularPrismFactory.h
+ActionItem.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+ActionItem.o: ../../object3D/Sprite3DListener.h
+ActionItem.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+ActionItem.o: ../../paint/Color.h ../../paint/Paint.h
+ActionItem.o: ../../shape/CollisionRenderable.h
+ActionItem.o: ../../terrain/FunctionHeightFieldStrategy.h
+ActionItem.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+ActionItem.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+ActionItem.o: ../../terrain/HeightFieldFactory.h
+ActionItem.o: ../../terrain/HeightFieldStrategy.h
+ActionItem.o: ../../terrain/ImageHeightFieldStrategy.h
+ActionItem.o: ../../terrain/MatrixHeightFieldStrategy.h
+ActionItem.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+ActionItem.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+ActionItem.o: ../../transform/CoordinateSystem.h
+ActionItem.o: ../../transform/CoordinateSystemFactory.h
+ActionItem.o: ../../transform/EngineerCoordinateSystem.h
+ActionItem.o: ../../transform/IdentityTransform.h
+ActionItem.o: ../../transform/LeftOpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/MacCoordinateSystem.h
+ActionItem.o: ../../transform/MathCoordinateSystem.h
+ActionItem.o: ../../transform/OpenGLCoordinateSystem.h
+ActionItem.o: ../../transform/Orientation.h
+ActionItem.o: ../../transform/OrientationListener.h ../../transform/Rotate.h
+ActionItem.o: ../../transform/Scale.h ../../transform/Stretch.h
+ActionItem.o: ../../transform/Transform.h ../../transform/Transformable.h
+ActionItem.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+ActionItem.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+ActionItem.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+ActionItem.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+ActionItem.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+ActionItem.o: ../../util/PointScale.h ../../util/xmlParser.h
+ActionItem.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+ActionItem.o: /usr/include/_structs.h /usr/include/_wctype.h
+ActionItem.o: /usr/include/ctype.h /usr/include/runetype.h RectangularHull.h
+CDFixateState.o: CDFixateState.h CDState.h ../../xor.h ../../core/Camera.h
+CDFixateState.o: ../../core/World.h /usr/include/stdlib.h
+CDFixateState.o: /usr/include/Availability.h
+CDFixateState.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDFixateState.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDFixateState.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDFixateState.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDFixateState.o: /usr/include/sys/appleapiopts.h
+CDFixateState.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+CDFixateState.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+CDFixateState.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+CDFixateState.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+CDFixateState.o: /usr/include/sys/_endian.h
+CDFixateState.o: /usr/include/libkern/_OSByteOrder.h
+CDFixateState.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDFixateState.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDFixateState.o: /usr/include/i386/types.h ../../util/Logger.h
+CDFixateState.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDFixateState.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDFixateState.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDFixateState.o: ../../paint/Paint.h /usr/include/string.h
+CDFixateState.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+CDFixateState.o: ../../texture/Texture.h ../../geometry/Vector2D.h
+CDFixateState.o: ../../paint/Color.h ../../core/Renderable.h
+CDFixateState.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+CDFixateState.o: ../../event/reshape/ReshapeEvent.h
+CDFixateState.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CDFixateState.o: ../../paint/Color.h ../../transform/Orientation.h
+CDFixateState.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+CDFixateState.o: ../../transform/Transform.h ../../transform/Translate.h
+CDFixateState.o: ../../event/timer/Timer.h /usr/include/math.h
+CDFixateState.o: /usr/include/architecture/i386/math.h
+CDFixateState.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDFixateState.o: ../../interpolation/InterpolatorFactory.h
+CDFixateState.o: ../../interpolation/Interpolator.h
+CDFixateState.o: ../../interpolation/LinearInterpolator.h
+CDFixateState.o: ../../util/GraphicsConversionUtility.h
+CDFixateState.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDFixateState.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDFixateState.o: ../../event/timer/TimerListener.h
+CDFixateState.o: ../../event/timer/TimerListenerManager.h
+CDFixateState.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDFixateState.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDFixateState.o: ../../event/keyboard/KeyboardListener.h
+CDFixateState.o: ../../event/keyboard/KeyEvent.h
+CDFixateState.o: ../../event/keyboard/KeyEventFactory.h
+CDFixateState.o: ../../event/keyboard/KeyDownEvent.h
+CDFixateState.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDFixateState.o: ../../event/mouse/MouseListener.h
+CDFixateState.o: ../../event/mouse/MouseEvent.h
+CDFixateState.o: ../../event/mouse/MouseEventFactory.h
+CDFixateState.o: ../../event/mouse/MouseButtonDown.h
+CDFixateState.o: ../../event/mouse/MouseClickEvent.h
+CDFixateState.o: ../../event/mouse/MouseButtonUp.h
+CDFixateState.o: ../../event/mouse/MouseMotionEvent.h
+CDFixateState.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+CDFixateState.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDFixateState.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+CDFixateState.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDFixateState.o: ../../interpolation/InterpolationEngine.h
+CDFixateState.o: ../../interpolation/InterpolationListener.h
+CDFixateState.o: ../../interpolation/InterpolatorFactory.h
+CDFixateState.o: ../../event/InputEventProxyFactory.h
+CDFixateState.o: ../../event/EventFactory.h
+CDFixateState.o: ../../event/keyboard/KeyboardStub.h
+CDFixateState.o: ../../multicast/MulticastSocket.h
+CDFixateState.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+CDFixateState.o: /usr/include/sys/socket.h /usr/include/machine/_param.h
+CDFixateState.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+CDFixateState.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+CDFixateState.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CDFixateState.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+CDFixateState.o: /usr/include/sys/_select.h
+CDFixateState.o: ../../multicast/MulticastSocketPool.h
+CDFixateState.o: ../../multicast/MulticastSocket.h
+CDFixateState.o: ../../event/keyboard/Keyboard.h
+CDFixateState.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDFixateState.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDFixateState.o: ../../geometry/Containment.h
+CDFixateState.o: ../../transform/OrientationListener.h
+CDFixateState.o: ../../transform/CoordinateSystemFactory.h
+CDFixateState.o: ../../transform/CoordinateSystem.h
+CDFixateState.o: ../../transform/OpenGLCoordinateSystem.h
+CDFixateState.o: ../../transform/MacCoordinateSystem.h
+CDFixateState.o: ../../transform/MathCoordinateSystem.h
+CDFixateState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDFixateState.o: ../../transform/EngineerCoordinateSystem.h
+CDFixateState.o: ../../event/timer/TimerListener.h
+CDFixateState.o: ../../event/reshape/ReshapeEvent.h
+CDFixateState.o: ../../core/CameraListener.h ../../core/Controller.h
+CDFixateState.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDFixateState.o: ../../core/Renderable.h ../../core/Window.h
+CDFixateState.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDFixateState.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDFixateState.o: ../../event/DelayedAction.h
+CDFixateState.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+CDFixateState.o: ../../event/EventPlayerFactory.h
+CDFixateState.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDFixateState.o: ../../event/mouse/MouseListener.h
+CDFixateState.o: ../../event/keyboard/KeyboardListener.h
+CDFixateState.o: ../../event/EventRecorderFactory.h
+CDFixateState.o: ../../event/FullEventHandlerFactory.h
+CDFixateState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDFixateState.o: ../../event/mouse/MouseSkeleton.h
+CDFixateState.o: ../../event/timer/TimerSkeleton.h
+CDFixateState.o: ../../event/FullEventProxyFactory.h
+CDFixateState.o: ../../event/InputEventHandlerFactory.h
+CDFixateState.o: ../../event/InputEventProxyFactory.h
+CDFixateState.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDFixateState.o: ../../interpolation/TimedInterpolation.h
+CDFixateState.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDFixateState.o: ../../event/keyboard/Keyboard.h
+CDFixateState.o: ../../event/keyboard/KeyboardListener.h
+CDFixateState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDFixateState.o: ../../event/keyboard/KeyboardStub.h
+CDFixateState.o: ../../event/keyboard/KeyDownEvent.h
+CDFixateState.o: ../../event/keyboard/KeyEvent.h
+CDFixateState.o: ../../event/keyboard/KeyEventFactory.h
+CDFixateState.o: ../../event/keyboard/KeyUpEvent.h
+CDFixateState.o: ../../event/keyboard/RegularKeyEvent.h
+CDFixateState.o: ../../event/keyboard/SpecialKeyEvent.h
+CDFixateState.o: ../../event/mouse/DefaultMouseListener.h
+CDFixateState.o: ../../event/mouse/Mouse.h
+CDFixateState.o: ../../event/mouse/MouseButtonDown.h
+CDFixateState.o: ../../event/mouse/MouseButtonUp.h
+CDFixateState.o: ../../event/mouse/MouseClickEvent.h
+CDFixateState.o: ../../event/mouse/MouseEvent.h
+CDFixateState.o: ../../event/mouse/MouseEventFactory.h
+CDFixateState.o: ../../event/mouse/MouseListener.h
+CDFixateState.o: ../../event/mouse/MouseMotionEvent.h
+CDFixateState.o: ../../event/mouse/MouseSkeleton.h
+CDFixateState.o: ../../event/mouse/MouseStub.h
+CDFixateState.o: ../../event/reshape/ReshapeEvent.h
+CDFixateState.o: ../../event/reshape/ReshapeListener.h
+CDFixateState.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDFixateState.o: ../../event/timer/TimerListener.h
+CDFixateState.o: ../../event/timer/TimerListenerManager.h
+CDFixateState.o: ../../event/timer/TimerSkeleton.h
+CDFixateState.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+CDFixateState.o: ../../geometry/CylindricalVolume.h
+CDFixateState.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDFixateState.o: ../../geometry/Dimension3D.h
+CDFixateState.o: ../../geometry/RectangularVolume.h
+CDFixateState.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDFixateState.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDFixateState.o: ../../interpolation/CameraRoller.h
+CDFixateState.o: ../../interpolation/ContinuousInterpolation.h
+CDFixateState.o: ../../interpolation/TimedInterpolation.h
+CDFixateState.o: ../../interpolation/InterpolationEngine.h
+CDFixateState.o: ../../interpolation/InterpolationListener.h
+CDFixateState.o: ../../interpolation/Interpolator.h
+CDFixateState.o: ../../interpolation/InterpolatorFactory.h
+CDFixateState.o: ../../interpolation/LinearInterpolator.h
+CDFixateState.o: ../../interpolation/TimedInterpolation.h
+CDFixateState.o: ../../interpolation/Waypoint.h
+CDFixateState.o: ../../interpolation/WaypointCollection.h
+CDFixateState.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDFixateState.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDFixateState.o: ../../texture/Texture.h ../../model/Model.h
+CDFixateState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDFixateState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDFixateState.o: ../../multicast/Multicast.h
+CDFixateState.o: ../../multicast/MulticastSocket.h
+CDFixateState.o: ../../multicast/MulticastSocketPool.h
+CDFixateState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDFixateState.o: ../../object2D/Object2DCollection.h
+CDFixateState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDFixateState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDFixateState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDFixateState.o: ../../object2D/Transformable2D.h
+CDFixateState.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDFixateState.o: ../../object3D/AdornablePrism.h
+CDFixateState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDFixateState.o: ../../object3D/Quadrilateral3D.h
+CDFixateState.o: ../../texture/TextureScale.h
+CDFixateState.o: ../../geometry/RectangularVolume.h
+CDFixateState.o: ../../object3D/Object3DCollection.h
+CDFixateState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDFixateState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDFixateState.o: ../../object3D/Cube.h
+CDFixateState.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDFixateState.o: ../../object3D/NormalPolygon3D.h
+CDFixateState.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDFixateState.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDFixateState.o: ../../object3D/Object3DCollection.h
+CDFixateState.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+CDFixateState.o: ../../object3D/Quadrilateral3D.h
+CDFixateState.o: ../../object3D/RectangularPrism.h
+CDFixateState.o: ../../object3D/RectangularPrismFactory.h
+CDFixateState.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CDFixateState.o: ../../object3D/Sprite3DListener.h
+CDFixateState.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+CDFixateState.o: ../../paint/Color.h ../../paint/Paint.h
+CDFixateState.o: ../../shape/CollisionRenderable.h
+CDFixateState.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDFixateState.o: ../../terrain/HeightFieldStrategy.h
+CDFixateState.o: ../../terrain/HeightField.h ../../object3D/Quadrilateral3D.h
+CDFixateState.o: ../../terrain/HeightField.h
+CDFixateState.o: ../../terrain/HeightFieldFactory.h
+CDFixateState.o: ../../terrain/HeightFieldStrategy.h
+CDFixateState.o: ../../terrain/ImageHeightFieldStrategy.h
+CDFixateState.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDFixateState.o: ../../terrain/NullHeightFieldStrategy.h
+CDFixateState.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDFixateState.o: ../../texture/TextureScale.h
+CDFixateState.o: ../../transform/CoordinateSystem.h
+CDFixateState.o: ../../transform/CoordinateSystemFactory.h
+CDFixateState.o: ../../transform/EngineerCoordinateSystem.h
+CDFixateState.o: ../../transform/IdentityTransform.h
+CDFixateState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDFixateState.o: ../../transform/MacCoordinateSystem.h
+CDFixateState.o: ../../transform/MathCoordinateSystem.h
+CDFixateState.o: ../../transform/OpenGLCoordinateSystem.h
+CDFixateState.o: ../../transform/Orientation.h
+CDFixateState.o: ../../transform/OrientationListener.h
+CDFixateState.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDFixateState.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDFixateState.o: ../../transform/Transformable.h
+CDFixateState.o: ../../transform/TransformFactory.h
+CDFixateState.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDFixateState.o: ../../transform/TransformFactory.h
+CDFixateState.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CDFixateState.o: ../../util/FramesPerSecondCounter.h
+CDFixateState.o: ../../object2D/String2D.h
+CDFixateState.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDFixateState.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDFixateState.o: /usr/include/wchar.h /usr/include/stdarg.h
+CDFixateState.o: /usr/include/time.h /usr/include/_structs.h
+CDFixateState.o: /usr/include/_wctype.h /usr/include/ctype.h
+CDFixateState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
+CDFixateState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
+CDFixateState.o: Helper.h CDInitialDisplay.h CDRetentionInterval.h
+CDFixateState.o: CDSecondDisplay.h CDITIState.h
+CDRetentionInterval.o: CDRetentionInterval.h CDState.h ../../xor.h
+CDRetentionInterval.o: ../../core/Camera.h ../../core/World.h
+CDRetentionInterval.o: /usr/include/stdlib.h /usr/include/Availability.h
+CDRetentionInterval.o: /usr/include/AvailabilityInternal.h
+CDRetentionInterval.o: /usr/include/_types.h /usr/include/sys/_types.h
+CDRetentionInterval.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+CDRetentionInterval.o: /usr/include/i386/_types.h /usr/include/sys/wait.h
+CDRetentionInterval.o: /usr/include/sys/signal.h
+CDRetentionInterval.o: /usr/include/sys/appleapiopts.h
+CDRetentionInterval.o: /usr/include/machine/signal.h
+CDRetentionInterval.o: /usr/include/i386/signal.h
+CDRetentionInterval.o: /usr/include/i386/_structs.h
+CDRetentionInterval.o: /usr/include/sys/_structs.h
+CDRetentionInterval.o: /usr/include/machine/_structs.h
+CDRetentionInterval.o: /usr/include/sys/resource.h
+CDRetentionInterval.o: /usr/include/machine/endian.h
+CDRetentionInterval.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDRetentionInterval.o: /usr/include/libkern/_OSByteOrder.h
+CDRetentionInterval.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDRetentionInterval.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDRetentionInterval.o: /usr/include/i386/types.h ../../util/Logger.h
+CDRetentionInterval.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDRetentionInterval.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDRetentionInterval.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDRetentionInterval.o: ../../paint/Paint.h /usr/include/string.h
+CDRetentionInterval.o: /usr/include/secure/_string.h
+CDRetentionInterval.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDRetentionInterval.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDRetentionInterval.o: ../../core/Renderable.h ../../core/Window.h
+CDRetentionInterval.o: ../../event/reshape/ReshapeListener.h
+CDRetentionInterval.o: ../../event/reshape/ReshapeEvent.h
+CDRetentionInterval.o: ../../geometry/Dimension2D.h
+CDRetentionInterval.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+CDRetentionInterval.o: ../../transform/Orientation.h /usr/include/stdio.h
+CDRetentionInterval.o: /usr/include/secure/_stdio.h
+CDRetentionInterval.o: ../../transform/Transform.h
+CDRetentionInterval.o: ../../transform/Translate.h ../../event/timer/Timer.h
+CDRetentionInterval.o: /usr/include/math.h
+CDRetentionInterval.o: /usr/include/architecture/i386/math.h
+CDRetentionInterval.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDRetentionInterval.o: ../../interpolation/InterpolatorFactory.h
+CDRetentionInterval.o: ../../interpolation/Interpolator.h
+CDRetentionInterval.o: ../../interpolation/LinearInterpolator.h
+CDRetentionInterval.o: ../../util/GraphicsConversionUtility.h
+CDRetentionInterval.o: ../../interpolation/Interpolator.h
+CDRetentionInterval.o: ../../transform/Rotate.h
+CDRetentionInterval.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDRetentionInterval.o: ../../event/timer/TimerListener.h
+CDRetentionInterval.o: ../../event/timer/TimerListenerManager.h
+CDRetentionInterval.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDRetentionInterval.o: ../../event/EventFactory.h
+CDRetentionInterval.o: ../../event/keyboard/Keyboard.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardListener.h
+CDRetentionInterval.o: ../../event/keyboard/KeyEvent.h
+CDRetentionInterval.o: ../../event/keyboard/KeyEventFactory.h
+CDRetentionInterval.o: ../../event/keyboard/KeyDownEvent.h
+CDRetentionInterval.o: ../../event/keyboard/KeyUpEvent.h
+CDRetentionInterval.o: ../../event/mouse/Mouse.h
+CDRetentionInterval.o: ../../event/mouse/MouseListener.h
+CDRetentionInterval.o: ../../event/mouse/MouseEvent.h
+CDRetentionInterval.o: ../../event/mouse/MouseEventFactory.h
+CDRetentionInterval.o: ../../event/mouse/MouseButtonDown.h
+CDRetentionInterval.o: ../../event/mouse/MouseClickEvent.h
+CDRetentionInterval.o: ../../event/mouse/MouseButtonUp.h
+CDRetentionInterval.o: ../../event/mouse/MouseMotionEvent.h
+CDRetentionInterval.o: ../../event/timer/Timer.h
+CDRetentionInterval.o: ../../event/keyboard/Keyboard.h
+CDRetentionInterval.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDRetentionInterval.o: ../../object3D/Object3D.h
+CDRetentionInterval.o: ../../core/XavierConfiguration.h
+CDRetentionInterval.o: ../../transform/CoordinateSystem.h
+CDRetentionInterval.o: ../../transform/Scale.h
+CDRetentionInterval.o: ../../interpolation/InterpolationEngine.h
+CDRetentionInterval.o: ../../interpolation/InterpolationListener.h
+CDRetentionInterval.o: ../../interpolation/InterpolatorFactory.h
+CDRetentionInterval.o: ../../event/InputEventProxyFactory.h
+CDRetentionInterval.o: ../../event/EventFactory.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardStub.h
+CDRetentionInterval.o: ../../multicast/MulticastSocket.h
+CDRetentionInterval.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+CDRetentionInterval.o: /usr/include/sys/socket.h
+CDRetentionInterval.o: /usr/include/machine/_param.h
+CDRetentionInterval.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+CDRetentionInterval.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+CDRetentionInterval.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CDRetentionInterval.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+CDRetentionInterval.o: /usr/include/sys/_select.h
+CDRetentionInterval.o: ../../multicast/MulticastSocketPool.h
+CDRetentionInterval.o: ../../multicast/MulticastSocket.h
+CDRetentionInterval.o: ../../event/keyboard/Keyboard.h
+CDRetentionInterval.o: ../../event/mouse/MouseStub.h
+CDRetentionInterval.o: ../../event/mouse/Mouse.h
+CDRetentionInterval.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDRetentionInterval.o: ../../geometry/Containment.h
+CDRetentionInterval.o: ../../transform/OrientationListener.h
+CDRetentionInterval.o: ../../transform/CoordinateSystemFactory.h
+CDRetentionInterval.o: ../../transform/CoordinateSystem.h
+CDRetentionInterval.o: ../../transform/OpenGLCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/MacCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/MathCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/EngineerCoordinateSystem.h
+CDRetentionInterval.o: ../../event/timer/TimerListener.h
+CDRetentionInterval.o: ../../event/reshape/ReshapeEvent.h
+CDRetentionInterval.o: ../../core/CameraListener.h ../../core/Controller.h
+CDRetentionInterval.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDRetentionInterval.o: ../../core/Renderable.h ../../core/Window.h
+CDRetentionInterval.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDRetentionInterval.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDRetentionInterval.o: ../../event/DelayedAction.h
+CDRetentionInterval.o: ../../event/timer/IntervalTimer.h
+CDRetentionInterval.o: ../../event/EventFactory.h
+CDRetentionInterval.o: ../../event/EventPlayerFactory.h
+CDRetentionInterval.o: ../../event/EventRecorderFactory.h
+CDRetentionInterval.o: ../../core/Controller.h
+CDRetentionInterval.o: ../../event/mouse/MouseListener.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardListener.h
+CDRetentionInterval.o: ../../event/EventRecorderFactory.h
+CDRetentionInterval.o: ../../event/FullEventHandlerFactory.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardSkeleton.h
+CDRetentionInterval.o: ../../event/mouse/MouseSkeleton.h
+CDRetentionInterval.o: ../../event/timer/TimerSkeleton.h
+CDRetentionInterval.o: ../../event/FullEventProxyFactory.h
+CDRetentionInterval.o: ../../event/InputEventHandlerFactory.h
+CDRetentionInterval.o: ../../event/InputEventProxyFactory.h
+CDRetentionInterval.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDRetentionInterval.o: ../../interpolation/TimedInterpolation.h
+CDRetentionInterval.o: ../../interpolation/InterpolationEngine.h
+CDRetentionInterval.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardListener.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardSkeleton.h
+CDRetentionInterval.o: ../../event/keyboard/KeyboardStub.h
+CDRetentionInterval.o: ../../event/keyboard/KeyDownEvent.h
+CDRetentionInterval.o: ../../event/keyboard/KeyEvent.h
+CDRetentionInterval.o: ../../event/keyboard/KeyEventFactory.h
+CDRetentionInterval.o: ../../event/keyboard/KeyUpEvent.h
+CDRetentionInterval.o: ../../event/keyboard/RegularKeyEvent.h
+CDRetentionInterval.o: ../../event/keyboard/SpecialKeyEvent.h
+CDRetentionInterval.o: ../../event/mouse/DefaultMouseListener.h
+CDRetentionInterval.o: ../../event/mouse/Mouse.h
+CDRetentionInterval.o: ../../event/mouse/MouseButtonDown.h
+CDRetentionInterval.o: ../../event/mouse/MouseButtonUp.h
+CDRetentionInterval.o: ../../event/mouse/MouseClickEvent.h
+CDRetentionInterval.o: ../../event/mouse/MouseEvent.h
+CDRetentionInterval.o: ../../event/mouse/MouseEventFactory.h
+CDRetentionInterval.o: ../../event/mouse/MouseListener.h
+CDRetentionInterval.o: ../../event/mouse/MouseMotionEvent.h
+CDRetentionInterval.o: ../../event/mouse/MouseSkeleton.h
+CDRetentionInterval.o: ../../event/mouse/MouseStub.h
+CDRetentionInterval.o: ../../event/reshape/ReshapeEvent.h
+CDRetentionInterval.o: ../../event/reshape/ReshapeListener.h
+CDRetentionInterval.o: ../../event/timer/IntervalTimer.h
+CDRetentionInterval.o: ../../event/timer/Timer.h
+CDRetentionInterval.o: ../../event/timer/TimerListener.h
+CDRetentionInterval.o: ../../event/timer/TimerListenerManager.h
+CDRetentionInterval.o: ../../event/timer/TimerSkeleton.h
+CDRetentionInterval.o: ../../event/timer/TimerStub.h
+CDRetentionInterval.o: ../../geometry/Containment.h
+CDRetentionInterval.o: ../../geometry/CylindricalVolume.h
+CDRetentionInterval.o: ../../geometry/Dimension.h
+CDRetentionInterval.o: ../../geometry/Dimension2D.h
+CDRetentionInterval.o: ../../geometry/Dimension3D.h
+CDRetentionInterval.o: ../../geometry/RectangularVolume.h
+CDRetentionInterval.o: ../../geometry/Dimension3D.h
+CDRetentionInterval.o: ../../geometry/Containment.h ../../geometry/Vector2D.h
+CDRetentionInterval.o: ../../geometry/Vector3D.h
+CDRetentionInterval.o: ../../interpolation/CameraRoller.h
+CDRetentionInterval.o: ../../interpolation/ContinuousInterpolation.h
+CDRetentionInterval.o: ../../interpolation/TimedInterpolation.h
+CDRetentionInterval.o: ../../interpolation/InterpolationEngine.h
+CDRetentionInterval.o: ../../interpolation/InterpolationListener.h
+CDRetentionInterval.o: ../../interpolation/Interpolator.h
+CDRetentionInterval.o: ../../interpolation/InterpolatorFactory.h
+CDRetentionInterval.o: ../../interpolation/LinearInterpolator.h
+CDRetentionInterval.o: ../../interpolation/TimedInterpolation.h
+CDRetentionInterval.o: ../../interpolation/Waypoint.h
+CDRetentionInterval.o: ../../interpolation/WaypointCollection.h
+CDRetentionInterval.o: ../../interpolation/Waypoint.h
+CDRetentionInterval.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CDRetentionInterval.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+CDRetentionInterval.o: ../../model/Model.h ../../model/ModelFactory.h
+CDRetentionInterval.o: ../../model/MilkshapeModel.h
+CDRetentionInterval.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDRetentionInterval.o: ../../multicast/Multicast.h
+CDRetentionInterval.o: ../../multicast/MulticastSocket.h
+CDRetentionInterval.o: ../../multicast/MulticastSocketPool.h
+CDRetentionInterval.o: ../../object2D/Object2D.h ../../core/Window.h
+CDRetentionInterval.o: ../../object2D/Object2DCollection.h
+CDRetentionInterval.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDRetentionInterval.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDRetentionInterval.o: ../../util/BitmapFontUtil.h
+CDRetentionInterval.o: ../../util/BitmapFontConstants.h
+CDRetentionInterval.o: ../../object2D/Transformable2D.h
+CDRetentionInterval.o: ../../transform/Transformable.h
+CDRetentionInterval.o: ../../transform/Transform.h
+CDRetentionInterval.o: ../../object3D/AdornablePrism.h
+CDRetentionInterval.o: ../../object3D/RectangularPrism.h
+CDRetentionInterval.o: ../../util/PointScale.h
+CDRetentionInterval.o: ../../object3D/Quadrilateral3D.h
+CDRetentionInterval.o: ../../texture/TextureScale.h
+CDRetentionInterval.o: ../../geometry/RectangularVolume.h
+CDRetentionInterval.o: ../../object3D/Object3DCollection.h
+CDRetentionInterval.o: ../../object3D/CompiledObject3D.h
+CDRetentionInterval.o: ../../object3D/Arc3D.h ../../object3D/Point3D.h
+CDRetentionInterval.o: ../../object3D/CompiledObject3D.h
+CDRetentionInterval.o: ../../object3D/Cube.h
+CDRetentionInterval.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDRetentionInterval.o: ../../object3D/NormalPolygon3D.h
+CDRetentionInterval.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDRetentionInterval.o: ../../object3D/NormalPolygon3D.h
+CDRetentionInterval.o: ../../object3D/Object3D.h
+CDRetentionInterval.o: ../../object3D/Object3DCollection.h
+CDRetentionInterval.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+CDRetentionInterval.o: ../../object3D/Quadrilateral3D.h
+CDRetentionInterval.o: ../../object3D/RectangularPrism.h
+CDRetentionInterval.o: ../../object3D/RectangularPrismFactory.h
+CDRetentionInterval.o: ../../object3D/Sprite3D.h
+CDRetentionInterval.o: ../../object3D/Sprite3DListener.h
+CDRetentionInterval.o: ../../object3D/Sprite3DListener.h
+CDRetentionInterval.o: ../../object3D/Transformable3D.h
+CDRetentionInterval.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+CDRetentionInterval.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+CDRetentionInterval.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDRetentionInterval.o: ../../terrain/HeightFieldStrategy.h
+CDRetentionInterval.o: ../../terrain/HeightField.h
+CDRetentionInterval.o: ../../object3D/Quadrilateral3D.h
+CDRetentionInterval.o: ../../terrain/HeightField.h
+CDRetentionInterval.o: ../../terrain/HeightFieldFactory.h
+CDRetentionInterval.o: ../../terrain/HeightFieldStrategy.h
+CDRetentionInterval.o: ../../terrain/ImageHeightFieldStrategy.h
+CDRetentionInterval.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDRetentionInterval.o: ../../terrain/NullHeightFieldStrategy.h
+CDRetentionInterval.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDRetentionInterval.o: ../../texture/TextureScale.h
+CDRetentionInterval.o: ../../transform/CoordinateSystem.h
+CDRetentionInterval.o: ../../transform/CoordinateSystemFactory.h
+CDRetentionInterval.o: ../../transform/EngineerCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/IdentityTransform.h
+CDRetentionInterval.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/MacCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/MathCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/OpenGLCoordinateSystem.h
+CDRetentionInterval.o: ../../transform/Orientation.h
+CDRetentionInterval.o: ../../transform/OrientationListener.h
+CDRetentionInterval.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDRetentionInterval.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDRetentionInterval.o: ../../transform/Transformable.h
+CDRetentionInterval.o: ../../transform/TransformFactory.h
+CDRetentionInterval.o: ../../transform/Translate.h
+CDRetentionInterval.o: ../../util/BehaviorParser.h
+CDRetentionInterval.o: ../../transform/TransformFactory.h
+CDRetentionInterval.o: ../../util/BitmapFontConstants.h
+CDRetentionInterval.o: ../../util/BitmapFontUtil.h
+CDRetentionInterval.o: ../../util/FramesPerSecondCounter.h
+CDRetentionInterval.o: ../../object2D/String2D.h
+CDRetentionInterval.o: ../../util/GraphicsConversionUtility.h
+CDRetentionInterval.o: ../../util/Logger.h ../../util/PointScale.h
+CDRetentionInterval.o: ../../util/xmlParser.h /usr/include/wchar.h
+CDRetentionInterval.o: /usr/include/stdarg.h /usr/include/time.h
+CDRetentionInterval.o: /usr/include/_structs.h /usr/include/_wctype.h
+CDRetentionInterval.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
+CDRetentionInterval.o: ActionItem.h RectangularHull.h Session.h Trial.h
+CDRetentionInterval.o: xmlParser/xmlParser.h Helper.h CDSecondDisplay.h
+CDRetentionInterval.o: CDITIState.h CDFixateState.h CDInitialDisplay.h
+CDGrid.o: CDGrid.h ../../xor.h ../../core/Camera.h ../../core/World.h
+CDGrid.o: /usr/include/stdlib.h /usr/include/Availability.h
+CDGrid.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDGrid.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDGrid.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDGrid.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDGrid.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+CDGrid.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+CDGrid.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+CDGrid.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDGrid.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDGrid.o: /usr/include/libkern/_OSByteOrder.h
+CDGrid.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+CDGrid.o: /usr/include/machine/types.h /usr/include/i386/types.h
+CDGrid.o: ../../util/Logger.h ../../core/Renderable.h
+CDGrid.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+CDGrid.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+CDGrid.o: ../../geometry/Vector3D.h ../../paint/Paint.h /usr/include/string.h
+CDGrid.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+CDGrid.o: ../../texture/Texture.h ../../geometry/Vector2D.h
+CDGrid.o: ../../paint/Color.h ../../core/Renderable.h ../../core/Window.h
+CDGrid.o: ../../event/reshape/ReshapeListener.h
+CDGrid.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CDGrid.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+CDGrid.o: ../../transform/Orientation.h /usr/include/stdio.h
+CDGrid.o: /usr/include/secure/_stdio.h ../../transform/Transform.h
+CDGrid.o: ../../transform/Translate.h ../../event/timer/Timer.h
+CDGrid.o: /usr/include/math.h /usr/include/architecture/i386/math.h
+CDGrid.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDGrid.o: ../../interpolation/InterpolatorFactory.h
+CDGrid.o: ../../interpolation/Interpolator.h
+CDGrid.o: ../../interpolation/LinearInterpolator.h
+CDGrid.o: ../../util/GraphicsConversionUtility.h
+CDGrid.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDGrid.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDGrid.o: ../../event/timer/TimerListener.h
+CDGrid.o: ../../event/timer/TimerListenerManager.h ../../event/timer/Timer.h
+CDGrid.o: ../../core/Controller.h ../../event/EventFactory.h
+CDGrid.o: ../../event/keyboard/Keyboard.h
+CDGrid.o: ../../event/keyboard/KeyboardListener.h
+CDGrid.o: ../../event/keyboard/KeyEvent.h
+CDGrid.o: ../../event/keyboard/KeyEventFactory.h
+CDGrid.o: ../../event/keyboard/KeyDownEvent.h
+CDGrid.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDGrid.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+CDGrid.o: ../../event/mouse/MouseEventFactory.h
+CDGrid.o: ../../event/mouse/MouseButtonDown.h
+CDGrid.o: ../../event/mouse/MouseClickEvent.h
+CDGrid.o: ../../event/mouse/MouseButtonUp.h
+CDGrid.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CDGrid.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CDGrid.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+CDGrid.o: ../../core/XavierConfiguration.h ../../transform/CoordinateSystem.h
+CDGrid.o: ../../transform/Scale.h ../../interpolation/InterpolationEngine.h
+CDGrid.o: ../../interpolation/InterpolationListener.h
+CDGrid.o: ../../interpolation/InterpolatorFactory.h
+CDGrid.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+CDGrid.o: ../../event/keyboard/KeyboardStub.h
+CDGrid.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CDGrid.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+CDGrid.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+CDGrid.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CDGrid.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+CDGrid.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+CDGrid.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+CDGrid.o: ../../multicast/MulticastSocketPool.h
+CDGrid.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+CDGrid.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDGrid.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDGrid.o: ../../geometry/Containment.h ../../transform/OrientationListener.h
+CDGrid.o: ../../transform/CoordinateSystemFactory.h
+CDGrid.o: ../../transform/CoordinateSystem.h
+CDGrid.o: ../../transform/OpenGLCoordinateSystem.h
+CDGrid.o: ../../transform/MacCoordinateSystem.h
+CDGrid.o: ../../transform/MathCoordinateSystem.h
+CDGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDGrid.o: ../../transform/EngineerCoordinateSystem.h
+CDGrid.o: ../../event/timer/TimerListener.h
+CDGrid.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+CDGrid.o: ../../core/Controller.h ../../core/DebugCamera.h
+CDGrid.o: ../../core/Controller.h ../../core/Renderable.h ../../core/Window.h
+CDGrid.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDGrid.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDGrid.o: ../../event/DelayedAction.h ../../event/timer/IntervalTimer.h
+CDGrid.o: ../../event/EventFactory.h ../../event/EventPlayerFactory.h
+CDGrid.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDGrid.o: ../../event/mouse/MouseListener.h
+CDGrid.o: ../../event/keyboard/KeyboardListener.h
+CDGrid.o: ../../event/EventRecorderFactory.h
+CDGrid.o: ../../event/FullEventHandlerFactory.h
+CDGrid.o: ../../event/keyboard/KeyboardSkeleton.h
+CDGrid.o: ../../event/mouse/MouseSkeleton.h ../../event/timer/TimerSkeleton.h
+CDGrid.o: ../../event/FullEventProxyFactory.h
+CDGrid.o: ../../event/InputEventHandlerFactory.h
+CDGrid.o: ../../event/InputEventProxyFactory.h
+CDGrid.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDGrid.o: ../../interpolation/TimedInterpolation.h
+CDGrid.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDGrid.o: ../../event/keyboard/Keyboard.h
+CDGrid.o: ../../event/keyboard/KeyboardListener.h
+CDGrid.o: ../../event/keyboard/KeyboardSkeleton.h
+CDGrid.o: ../../event/keyboard/KeyboardStub.h
+CDGrid.o: ../../event/keyboard/KeyDownEvent.h ../../event/keyboard/KeyEvent.h
+CDGrid.o: ../../event/keyboard/KeyEventFactory.h
+CDGrid.o: ../../event/keyboard/KeyUpEvent.h
+CDGrid.o: ../../event/keyboard/RegularKeyEvent.h
+CDGrid.o: ../../event/keyboard/SpecialKeyEvent.h
+CDGrid.o: ../../event/mouse/DefaultMouseListener.h ../../event/mouse/Mouse.h
+CDGrid.o: ../../event/mouse/MouseButtonDown.h
+CDGrid.o: ../../event/mouse/MouseButtonUp.h
+CDGrid.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseEvent.h
+CDGrid.o: ../../event/mouse/MouseEventFactory.h
+CDGrid.o: ../../event/mouse/MouseListener.h
+CDGrid.o: ../../event/mouse/MouseMotionEvent.h
+CDGrid.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+CDGrid.o: ../../event/reshape/ReshapeEvent.h
+CDGrid.o: ../../event/reshape/ReshapeListener.h
+CDGrid.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDGrid.o: ../../event/timer/TimerListener.h
+CDGrid.o: ../../event/timer/TimerListenerManager.h
+CDGrid.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+CDGrid.o: ../../geometry/Containment.h ../../geometry/CylindricalVolume.h
+CDGrid.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDGrid.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+CDGrid.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDGrid.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDGrid.o: ../../interpolation/CameraRoller.h
+CDGrid.o: ../../interpolation/ContinuousInterpolation.h
+CDGrid.o: ../../interpolation/TimedInterpolation.h
+CDGrid.o: ../../interpolation/InterpolationEngine.h
+CDGrid.o: ../../interpolation/InterpolationListener.h
+CDGrid.o: ../../interpolation/Interpolator.h
+CDGrid.o: ../../interpolation/InterpolatorFactory.h
+CDGrid.o: ../../interpolation/LinearInterpolator.h
+CDGrid.o: ../../interpolation/TimedInterpolation.h
+CDGrid.o: ../../interpolation/Waypoint.h
+CDGrid.o: ../../interpolation/WaypointCollection.h
+CDGrid.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDGrid.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDGrid.o: ../../texture/Texture.h ../../model/Model.h
+CDGrid.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDGrid.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDGrid.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+CDGrid.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+CDGrid.o: ../../core/Window.h ../../object2D/Object2DCollection.h
+CDGrid.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDGrid.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDGrid.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDGrid.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
+CDGrid.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
+CDGrid.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDGrid.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CDGrid.o: ../../geometry/RectangularVolume.h
+CDGrid.o: ../../object3D/Object3DCollection.h
+CDGrid.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDGrid.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDGrid.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+CDGrid.o: ../../object3D/NormalPolygon3D.h
+CDGrid.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDGrid.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDGrid.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+CDGrid.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+CDGrid.o: ../../object3D/RectangularPrism.h
+CDGrid.o: ../../object3D/RectangularPrismFactory.h ../../object3D/Sprite3D.h
+CDGrid.o: ../../object3D/Sprite3DListener.h ../../object3D/Sprite3DListener.h
+CDGrid.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+CDGrid.o: ../../paint/Color.h ../../paint/Paint.h
+CDGrid.o: ../../shape/CollisionRenderable.h
+CDGrid.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDGrid.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+CDGrid.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+CDGrid.o: ../../terrain/HeightFieldFactory.h
+CDGrid.o: ../../terrain/HeightFieldStrategy.h
+CDGrid.o: ../../terrain/ImageHeightFieldStrategy.h
+CDGrid.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDGrid.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+CDGrid.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+CDGrid.o: ../../transform/CoordinateSystem.h
+CDGrid.o: ../../transform/CoordinateSystemFactory.h
+CDGrid.o: ../../transform/EngineerCoordinateSystem.h
+CDGrid.o: ../../transform/IdentityTransform.h
+CDGrid.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDGrid.o: ../../transform/MacCoordinateSystem.h
+CDGrid.o: ../../transform/MathCoordinateSystem.h
+CDGrid.o: ../../transform/OpenGLCoordinateSystem.h
+CDGrid.o: ../../transform/Orientation.h ../../transform/OrientationListener.h
+CDGrid.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDGrid.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDGrid.o: ../../transform/Transformable.h ../../transform/TransformFactory.h
+CDGrid.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDGrid.o: ../../transform/TransformFactory.h ../../util/BitmapFontConstants.h
+CDGrid.o: ../../util/BitmapFontUtil.h ../../util/FramesPerSecondCounter.h
+CDGrid.o: ../../object2D/String2D.h ../../util/GraphicsConversionUtility.h
+CDGrid.o: ../../util/Logger.h ../../util/PointScale.h ../../util/xmlParser.h
+CDGrid.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+CDGrid.o: /usr/include/_structs.h /usr/include/_wctype.h /usr/include/ctype.h
+CDGrid.o: /usr/include/runetype.h ActionItem.h RectangularHull.h
+CDInitialDisplay.o: CDInitialDisplay.h CDState.h ../../xor.h
+CDInitialDisplay.o: ../../core/Camera.h ../../core/World.h
+CDInitialDisplay.o: /usr/include/stdlib.h /usr/include/Availability.h
+CDInitialDisplay.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDInitialDisplay.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDInitialDisplay.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDInitialDisplay.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDInitialDisplay.o: /usr/include/sys/appleapiopts.h
+CDInitialDisplay.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+CDInitialDisplay.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+CDInitialDisplay.o: /usr/include/machine/_structs.h
+CDInitialDisplay.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDInitialDisplay.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDInitialDisplay.o: /usr/include/libkern/_OSByteOrder.h
+CDInitialDisplay.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDInitialDisplay.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDInitialDisplay.o: /usr/include/i386/types.h ../../util/Logger.h
+CDInitialDisplay.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDInitialDisplay.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDInitialDisplay.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDInitialDisplay.o: ../../paint/Paint.h /usr/include/string.h
+CDInitialDisplay.o: /usr/include/secure/_string.h
+CDInitialDisplay.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDInitialDisplay.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDInitialDisplay.o: ../../core/Renderable.h ../../core/Window.h
+CDInitialDisplay.o: ../../event/reshape/ReshapeListener.h
+CDInitialDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDInitialDisplay.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CDInitialDisplay.o: ../../paint/Color.h ../../transform/Orientation.h
+CDInitialDisplay.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+CDInitialDisplay.o: ../../transform/Transform.h ../../transform/Translate.h
+CDInitialDisplay.o: ../../event/timer/Timer.h /usr/include/math.h
+CDInitialDisplay.o: /usr/include/architecture/i386/math.h
+CDInitialDisplay.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDInitialDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDInitialDisplay.o: ../../interpolation/Interpolator.h
+CDInitialDisplay.o: ../../interpolation/LinearInterpolator.h
+CDInitialDisplay.o: ../../util/GraphicsConversionUtility.h
+CDInitialDisplay.o: ../../interpolation/Interpolator.h
+CDInitialDisplay.o: ../../transform/Rotate.h ../../event/ContinuousAction.h
+CDInitialDisplay.o: ../../event/Action.h ../../event/timer/TimerListener.h
+CDInitialDisplay.o: ../../event/timer/TimerListenerManager.h
+CDInitialDisplay.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDInitialDisplay.o: ../../event/EventFactory.h
+CDInitialDisplay.o: ../../event/keyboard/Keyboard.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDInitialDisplay.o: ../../event/keyboard/KeyEvent.h
+CDInitialDisplay.o: ../../event/keyboard/KeyEventFactory.h
+CDInitialDisplay.o: ../../event/keyboard/KeyDownEvent.h
+CDInitialDisplay.o: ../../event/keyboard/KeyUpEvent.h
+CDInitialDisplay.o: ../../event/mouse/Mouse.h
+CDInitialDisplay.o: ../../event/mouse/MouseListener.h
+CDInitialDisplay.o: ../../event/mouse/MouseEvent.h
+CDInitialDisplay.o: ../../event/mouse/MouseEventFactory.h
+CDInitialDisplay.o: ../../event/mouse/MouseButtonDown.h
+CDInitialDisplay.o: ../../event/mouse/MouseClickEvent.h
+CDInitialDisplay.o: ../../event/mouse/MouseButtonUp.h
+CDInitialDisplay.o: ../../event/mouse/MouseMotionEvent.h
+CDInitialDisplay.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+CDInitialDisplay.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDInitialDisplay.o: ../../object3D/Object3D.h
+CDInitialDisplay.o: ../../core/XavierConfiguration.h
+CDInitialDisplay.o: ../../transform/CoordinateSystem.h
+CDInitialDisplay.o: ../../transform/Scale.h
+CDInitialDisplay.o: ../../interpolation/InterpolationEngine.h
+CDInitialDisplay.o: ../../interpolation/InterpolationListener.h
+CDInitialDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDInitialDisplay.o: ../../event/InputEventProxyFactory.h
+CDInitialDisplay.o: ../../event/EventFactory.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardStub.h
+CDInitialDisplay.o: ../../multicast/MulticastSocket.h
+CDInitialDisplay.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+CDInitialDisplay.o: /usr/include/sys/socket.h /usr/include/machine/_param.h
+CDInitialDisplay.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+CDInitialDisplay.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+CDInitialDisplay.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CDInitialDisplay.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+CDInitialDisplay.o: /usr/include/sys/_select.h
+CDInitialDisplay.o: ../../multicast/MulticastSocketPool.h
+CDInitialDisplay.o: ../../multicast/MulticastSocket.h
+CDInitialDisplay.o: ../../event/keyboard/Keyboard.h
+CDInitialDisplay.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDInitialDisplay.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDInitialDisplay.o: ../../geometry/Containment.h
+CDInitialDisplay.o: ../../transform/OrientationListener.h
+CDInitialDisplay.o: ../../transform/CoordinateSystemFactory.h
+CDInitialDisplay.o: ../../transform/CoordinateSystem.h
+CDInitialDisplay.o: ../../transform/OpenGLCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/MacCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/MathCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/EngineerCoordinateSystem.h
+CDInitialDisplay.o: ../../event/timer/TimerListener.h
+CDInitialDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDInitialDisplay.o: ../../core/CameraListener.h ../../core/Controller.h
+CDInitialDisplay.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDInitialDisplay.o: ../../core/Renderable.h ../../core/Window.h
+CDInitialDisplay.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDInitialDisplay.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDInitialDisplay.o: ../../event/DelayedAction.h
+CDInitialDisplay.o: ../../event/timer/IntervalTimer.h
+CDInitialDisplay.o: ../../event/EventFactory.h
+CDInitialDisplay.o: ../../event/EventPlayerFactory.h
+CDInitialDisplay.o: ../../event/EventRecorderFactory.h
+CDInitialDisplay.o: ../../core/Controller.h ../../event/mouse/MouseListener.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDInitialDisplay.o: ../../event/EventRecorderFactory.h
+CDInitialDisplay.o: ../../event/FullEventHandlerFactory.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardSkeleton.h
+CDInitialDisplay.o: ../../event/mouse/MouseSkeleton.h
+CDInitialDisplay.o: ../../event/timer/TimerSkeleton.h
+CDInitialDisplay.o: ../../event/FullEventProxyFactory.h
+CDInitialDisplay.o: ../../event/InputEventHandlerFactory.h
+CDInitialDisplay.o: ../../event/InputEventProxyFactory.h
+CDInitialDisplay.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDInitialDisplay.o: ../../interpolation/TimedInterpolation.h
+CDInitialDisplay.o: ../../interpolation/InterpolationEngine.h
+CDInitialDisplay.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardSkeleton.h
+CDInitialDisplay.o: ../../event/keyboard/KeyboardStub.h
+CDInitialDisplay.o: ../../event/keyboard/KeyDownEvent.h
+CDInitialDisplay.o: ../../event/keyboard/KeyEvent.h
+CDInitialDisplay.o: ../../event/keyboard/KeyEventFactory.h
+CDInitialDisplay.o: ../../event/keyboard/KeyUpEvent.h
+CDInitialDisplay.o: ../../event/keyboard/RegularKeyEvent.h
+CDInitialDisplay.o: ../../event/keyboard/SpecialKeyEvent.h
+CDInitialDisplay.o: ../../event/mouse/DefaultMouseListener.h
+CDInitialDisplay.o: ../../event/mouse/Mouse.h
+CDInitialDisplay.o: ../../event/mouse/MouseButtonDown.h
+CDInitialDisplay.o: ../../event/mouse/MouseButtonUp.h
+CDInitialDisplay.o: ../../event/mouse/MouseClickEvent.h
+CDInitialDisplay.o: ../../event/mouse/MouseEvent.h
+CDInitialDisplay.o: ../../event/mouse/MouseEventFactory.h
+CDInitialDisplay.o: ../../event/mouse/MouseListener.h
+CDInitialDisplay.o: ../../event/mouse/MouseMotionEvent.h
+CDInitialDisplay.o: ../../event/mouse/MouseSkeleton.h
+CDInitialDisplay.o: ../../event/mouse/MouseStub.h
+CDInitialDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDInitialDisplay.o: ../../event/reshape/ReshapeListener.h
+CDInitialDisplay.o: ../../event/timer/IntervalTimer.h
+CDInitialDisplay.o: ../../event/timer/Timer.h
+CDInitialDisplay.o: ../../event/timer/TimerListener.h
+CDInitialDisplay.o: ../../event/timer/TimerListenerManager.h
+CDInitialDisplay.o: ../../event/timer/TimerSkeleton.h
+CDInitialDisplay.o: ../../event/timer/TimerStub.h
+CDInitialDisplay.o: ../../geometry/Containment.h
+CDInitialDisplay.o: ../../geometry/CylindricalVolume.h
+CDInitialDisplay.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDInitialDisplay.o: ../../geometry/Dimension3D.h
+CDInitialDisplay.o: ../../geometry/RectangularVolume.h
+CDInitialDisplay.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDInitialDisplay.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDInitialDisplay.o: ../../interpolation/CameraRoller.h
+CDInitialDisplay.o: ../../interpolation/ContinuousInterpolation.h
+CDInitialDisplay.o: ../../interpolation/TimedInterpolation.h
+CDInitialDisplay.o: ../../interpolation/InterpolationEngine.h
+CDInitialDisplay.o: ../../interpolation/InterpolationListener.h
+CDInitialDisplay.o: ../../interpolation/Interpolator.h
+CDInitialDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDInitialDisplay.o: ../../interpolation/LinearInterpolator.h
+CDInitialDisplay.o: ../../interpolation/TimedInterpolation.h
+CDInitialDisplay.o: ../../interpolation/Waypoint.h
+CDInitialDisplay.o: ../../interpolation/WaypointCollection.h
+CDInitialDisplay.o: ../../interpolation/Waypoint.h
+CDInitialDisplay.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CDInitialDisplay.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+CDInitialDisplay.o: ../../model/Model.h ../../model/ModelFactory.h
+CDInitialDisplay.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+CDInitialDisplay.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+CDInitialDisplay.o: ../../multicast/MulticastSocket.h
+CDInitialDisplay.o: ../../multicast/MulticastSocketPool.h
+CDInitialDisplay.o: ../../object2D/Object2D.h ../../core/Window.h
+CDInitialDisplay.o: ../../object2D/Object2DCollection.h
+CDInitialDisplay.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDInitialDisplay.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDInitialDisplay.o: ../../util/BitmapFontUtil.h
+CDInitialDisplay.o: ../../util/BitmapFontConstants.h
+CDInitialDisplay.o: ../../object2D/Transformable2D.h
+CDInitialDisplay.o: ../../transform/Transformable.h
+CDInitialDisplay.o: ../../transform/Transform.h
+CDInitialDisplay.o: ../../object3D/AdornablePrism.h
+CDInitialDisplay.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDInitialDisplay.o: ../../object3D/Quadrilateral3D.h
+CDInitialDisplay.o: ../../texture/TextureScale.h
+CDInitialDisplay.o: ../../geometry/RectangularVolume.h
+CDInitialDisplay.o: ../../object3D/Object3DCollection.h
+CDInitialDisplay.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDInitialDisplay.o: ../../object3D/Point3D.h
+CDInitialDisplay.o: ../../object3D/CompiledObject3D.h ../../object3D/Cube.h
+CDInitialDisplay.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDInitialDisplay.o: ../../object3D/NormalPolygon3D.h
+CDInitialDisplay.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDInitialDisplay.o: ../../object3D/NormalPolygon3D.h
+CDInitialDisplay.o: ../../object3D/Object3D.h
+CDInitialDisplay.o: ../../object3D/Object3DCollection.h
+CDInitialDisplay.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+CDInitialDisplay.o: ../../object3D/Quadrilateral3D.h
+CDInitialDisplay.o: ../../object3D/RectangularPrism.h
+CDInitialDisplay.o: ../../object3D/RectangularPrismFactory.h
+CDInitialDisplay.o: ../../object3D/Sprite3D.h
+CDInitialDisplay.o: ../../object3D/Sprite3DListener.h
+CDInitialDisplay.o: ../../object3D/Sprite3DListener.h
+CDInitialDisplay.o: ../../object3D/Transformable3D.h
+CDInitialDisplay.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+CDInitialDisplay.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+CDInitialDisplay.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDInitialDisplay.o: ../../terrain/HeightFieldStrategy.h
+CDInitialDisplay.o: ../../terrain/HeightField.h
+CDInitialDisplay.o: ../../object3D/Quadrilateral3D.h
+CDInitialDisplay.o: ../../terrain/HeightField.h
+CDInitialDisplay.o: ../../terrain/HeightFieldFactory.h
+CDInitialDisplay.o: ../../terrain/HeightFieldStrategy.h
+CDInitialDisplay.o: ../../terrain/ImageHeightFieldStrategy.h
+CDInitialDisplay.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDInitialDisplay.o: ../../terrain/NullHeightFieldStrategy.h
+CDInitialDisplay.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDInitialDisplay.o: ../../texture/TextureScale.h
+CDInitialDisplay.o: ../../transform/CoordinateSystem.h
+CDInitialDisplay.o: ../../transform/CoordinateSystemFactory.h
+CDInitialDisplay.o: ../../transform/EngineerCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/IdentityTransform.h
+CDInitialDisplay.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/MacCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/MathCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/OpenGLCoordinateSystem.h
+CDInitialDisplay.o: ../../transform/Orientation.h
+CDInitialDisplay.o: ../../transform/OrientationListener.h
+CDInitialDisplay.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDInitialDisplay.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDInitialDisplay.o: ../../transform/Transformable.h
+CDInitialDisplay.o: ../../transform/TransformFactory.h
+CDInitialDisplay.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDInitialDisplay.o: ../../transform/TransformFactory.h
+CDInitialDisplay.o: ../../util/BitmapFontConstants.h
+CDInitialDisplay.o: ../../util/BitmapFontUtil.h
+CDInitialDisplay.o: ../../util/FramesPerSecondCounter.h
+CDInitialDisplay.o: ../../object2D/String2D.h
+CDInitialDisplay.o: ../../util/GraphicsConversionUtility.h
+CDInitialDisplay.o: ../../util/Logger.h ../../util/PointScale.h
+CDInitialDisplay.o: ../../util/xmlParser.h /usr/include/wchar.h
+CDInitialDisplay.o: /usr/include/stdarg.h /usr/include/time.h
+CDInitialDisplay.o: /usr/include/_structs.h /usr/include/_wctype.h
+CDInitialDisplay.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
+CDInitialDisplay.o: ActionItem.h RectangularHull.h Session.h Trial.h
+CDInitialDisplay.o: xmlParser/xmlParser.h Helper.h CDRetentionInterval.h
+CDInitialDisplay.o: CDSecondDisplay.h CDITIState.h CDFixateState.h
+CDSecondDisplay.o: CDSecondDisplay.h CDState.h ../../xor.h
+CDSecondDisplay.o: ../../core/Camera.h ../../core/World.h
+CDSecondDisplay.o: /usr/include/stdlib.h /usr/include/Availability.h
+CDSecondDisplay.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDSecondDisplay.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDSecondDisplay.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDSecondDisplay.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDSecondDisplay.o: /usr/include/sys/appleapiopts.h
+CDSecondDisplay.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+CDSecondDisplay.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+CDSecondDisplay.o: /usr/include/machine/_structs.h
+CDSecondDisplay.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDSecondDisplay.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDSecondDisplay.o: /usr/include/libkern/_OSByteOrder.h
+CDSecondDisplay.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDSecondDisplay.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDSecondDisplay.o: /usr/include/i386/types.h ../../util/Logger.h
+CDSecondDisplay.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDSecondDisplay.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDSecondDisplay.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDSecondDisplay.o: ../../paint/Paint.h /usr/include/string.h
+CDSecondDisplay.o: /usr/include/secure/_string.h
+CDSecondDisplay.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDSecondDisplay.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDSecondDisplay.o: ../../core/Renderable.h ../../core/Window.h
+CDSecondDisplay.o: ../../event/reshape/ReshapeListener.h
+CDSecondDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDSecondDisplay.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CDSecondDisplay.o: ../../paint/Color.h ../../transform/Orientation.h
+CDSecondDisplay.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+CDSecondDisplay.o: ../../transform/Transform.h ../../transform/Translate.h
+CDSecondDisplay.o: ../../event/timer/Timer.h /usr/include/math.h
+CDSecondDisplay.o: /usr/include/architecture/i386/math.h
+CDSecondDisplay.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDSecondDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDSecondDisplay.o: ../../interpolation/Interpolator.h
+CDSecondDisplay.o: ../../interpolation/LinearInterpolator.h
+CDSecondDisplay.o: ../../util/GraphicsConversionUtility.h
+CDSecondDisplay.o: ../../interpolation/Interpolator.h
+CDSecondDisplay.o: ../../transform/Rotate.h ../../event/ContinuousAction.h
+CDSecondDisplay.o: ../../event/Action.h ../../event/timer/TimerListener.h
+CDSecondDisplay.o: ../../event/timer/TimerListenerManager.h
+CDSecondDisplay.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDSecondDisplay.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDSecondDisplay.o: ../../event/keyboard/KeyEvent.h
+CDSecondDisplay.o: ../../event/keyboard/KeyEventFactory.h
+CDSecondDisplay.o: ../../event/keyboard/KeyDownEvent.h
+CDSecondDisplay.o: ../../event/keyboard/KeyUpEvent.h
+CDSecondDisplay.o: ../../event/mouse/Mouse.h
+CDSecondDisplay.o: ../../event/mouse/MouseListener.h
+CDSecondDisplay.o: ../../event/mouse/MouseEvent.h
+CDSecondDisplay.o: ../../event/mouse/MouseEventFactory.h
+CDSecondDisplay.o: ../../event/mouse/MouseButtonDown.h
+CDSecondDisplay.o: ../../event/mouse/MouseClickEvent.h
+CDSecondDisplay.o: ../../event/mouse/MouseButtonUp.h
+CDSecondDisplay.o: ../../event/mouse/MouseMotionEvent.h
+CDSecondDisplay.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+CDSecondDisplay.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDSecondDisplay.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+CDSecondDisplay.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDSecondDisplay.o: ../../interpolation/InterpolationEngine.h
+CDSecondDisplay.o: ../../interpolation/InterpolationListener.h
+CDSecondDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDSecondDisplay.o: ../../event/InputEventProxyFactory.h
+CDSecondDisplay.o: ../../event/EventFactory.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardStub.h
+CDSecondDisplay.o: ../../multicast/MulticastSocket.h
+CDSecondDisplay.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+CDSecondDisplay.o: /usr/include/sys/socket.h /usr/include/machine/_param.h
+CDSecondDisplay.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+CDSecondDisplay.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+CDSecondDisplay.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CDSecondDisplay.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+CDSecondDisplay.o: /usr/include/sys/_select.h
+CDSecondDisplay.o: ../../multicast/MulticastSocketPool.h
+CDSecondDisplay.o: ../../multicast/MulticastSocket.h
+CDSecondDisplay.o: ../../event/keyboard/Keyboard.h
+CDSecondDisplay.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDSecondDisplay.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDSecondDisplay.o: ../../geometry/Containment.h
+CDSecondDisplay.o: ../../transform/OrientationListener.h
+CDSecondDisplay.o: ../../transform/CoordinateSystemFactory.h
+CDSecondDisplay.o: ../../transform/CoordinateSystem.h
+CDSecondDisplay.o: ../../transform/OpenGLCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/MacCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/MathCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/EngineerCoordinateSystem.h
+CDSecondDisplay.o: ../../event/timer/TimerListener.h
+CDSecondDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDSecondDisplay.o: ../../core/CameraListener.h ../../core/Controller.h
+CDSecondDisplay.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDSecondDisplay.o: ../../core/Renderable.h ../../core/Window.h
+CDSecondDisplay.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDSecondDisplay.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDSecondDisplay.o: ../../event/DelayedAction.h
+CDSecondDisplay.o: ../../event/timer/IntervalTimer.h
+CDSecondDisplay.o: ../../event/EventFactory.h
+CDSecondDisplay.o: ../../event/EventPlayerFactory.h
+CDSecondDisplay.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDSecondDisplay.o: ../../event/mouse/MouseListener.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDSecondDisplay.o: ../../event/EventRecorderFactory.h
+CDSecondDisplay.o: ../../event/FullEventHandlerFactory.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardSkeleton.h
+CDSecondDisplay.o: ../../event/mouse/MouseSkeleton.h
+CDSecondDisplay.o: ../../event/timer/TimerSkeleton.h
+CDSecondDisplay.o: ../../event/FullEventProxyFactory.h
+CDSecondDisplay.o: ../../event/InputEventHandlerFactory.h
+CDSecondDisplay.o: ../../event/InputEventProxyFactory.h
+CDSecondDisplay.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDSecondDisplay.o: ../../interpolation/TimedInterpolation.h
+CDSecondDisplay.o: ../../interpolation/InterpolationEngine.h
+CDSecondDisplay.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardListener.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardSkeleton.h
+CDSecondDisplay.o: ../../event/keyboard/KeyboardStub.h
+CDSecondDisplay.o: ../../event/keyboard/KeyDownEvent.h
+CDSecondDisplay.o: ../../event/keyboard/KeyEvent.h
+CDSecondDisplay.o: ../../event/keyboard/KeyEventFactory.h
+CDSecondDisplay.o: ../../event/keyboard/KeyUpEvent.h
+CDSecondDisplay.o: ../../event/keyboard/RegularKeyEvent.h
+CDSecondDisplay.o: ../../event/keyboard/SpecialKeyEvent.h
+CDSecondDisplay.o: ../../event/mouse/DefaultMouseListener.h
+CDSecondDisplay.o: ../../event/mouse/Mouse.h
+CDSecondDisplay.o: ../../event/mouse/MouseButtonDown.h
+CDSecondDisplay.o: ../../event/mouse/MouseButtonUp.h
+CDSecondDisplay.o: ../../event/mouse/MouseClickEvent.h
+CDSecondDisplay.o: ../../event/mouse/MouseEvent.h
+CDSecondDisplay.o: ../../event/mouse/MouseEventFactory.h
+CDSecondDisplay.o: ../../event/mouse/MouseListener.h
+CDSecondDisplay.o: ../../event/mouse/MouseMotionEvent.h
+CDSecondDisplay.o: ../../event/mouse/MouseSkeleton.h
+CDSecondDisplay.o: ../../event/mouse/MouseStub.h
+CDSecondDisplay.o: ../../event/reshape/ReshapeEvent.h
+CDSecondDisplay.o: ../../event/reshape/ReshapeListener.h
+CDSecondDisplay.o: ../../event/timer/IntervalTimer.h
+CDSecondDisplay.o: ../../event/timer/Timer.h
+CDSecondDisplay.o: ../../event/timer/TimerListener.h
+CDSecondDisplay.o: ../../event/timer/TimerListenerManager.h
+CDSecondDisplay.o: ../../event/timer/TimerSkeleton.h
+CDSecondDisplay.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+CDSecondDisplay.o: ../../geometry/CylindricalVolume.h
+CDSecondDisplay.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDSecondDisplay.o: ../../geometry/Dimension3D.h
+CDSecondDisplay.o: ../../geometry/RectangularVolume.h
+CDSecondDisplay.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDSecondDisplay.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDSecondDisplay.o: ../../interpolation/CameraRoller.h
+CDSecondDisplay.o: ../../interpolation/ContinuousInterpolation.h
+CDSecondDisplay.o: ../../interpolation/TimedInterpolation.h
+CDSecondDisplay.o: ../../interpolation/InterpolationEngine.h
+CDSecondDisplay.o: ../../interpolation/InterpolationListener.h
+CDSecondDisplay.o: ../../interpolation/Interpolator.h
+CDSecondDisplay.o: ../../interpolation/InterpolatorFactory.h
+CDSecondDisplay.o: ../../interpolation/LinearInterpolator.h
+CDSecondDisplay.o: ../../interpolation/TimedInterpolation.h
+CDSecondDisplay.o: ../../interpolation/Waypoint.h
+CDSecondDisplay.o: ../../interpolation/WaypointCollection.h
+CDSecondDisplay.o: ../../interpolation/Waypoint.h
+CDSecondDisplay.o: ../../model/MilkshapeModel.h ../../model/Model.h
+CDSecondDisplay.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+CDSecondDisplay.o: ../../model/Model.h ../../model/ModelFactory.h
+CDSecondDisplay.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+CDSecondDisplay.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+CDSecondDisplay.o: ../../multicast/MulticastSocket.h
+CDSecondDisplay.o: ../../multicast/MulticastSocketPool.h
+CDSecondDisplay.o: ../../object2D/Object2D.h ../../core/Window.h
+CDSecondDisplay.o: ../../object2D/Object2DCollection.h
+CDSecondDisplay.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDSecondDisplay.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDSecondDisplay.o: ../../util/BitmapFontUtil.h
+CDSecondDisplay.o: ../../util/BitmapFontConstants.h
+CDSecondDisplay.o: ../../object2D/Transformable2D.h
+CDSecondDisplay.o: ../../transform/Transformable.h
+CDSecondDisplay.o: ../../transform/Transform.h
+CDSecondDisplay.o: ../../object3D/AdornablePrism.h
+CDSecondDisplay.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDSecondDisplay.o: ../../object3D/Quadrilateral3D.h
+CDSecondDisplay.o: ../../texture/TextureScale.h
+CDSecondDisplay.o: ../../geometry/RectangularVolume.h
+CDSecondDisplay.o: ../../object3D/Object3DCollection.h
+CDSecondDisplay.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDSecondDisplay.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDSecondDisplay.o: ../../object3D/Cube.h
+CDSecondDisplay.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDSecondDisplay.o: ../../object3D/NormalPolygon3D.h
+CDSecondDisplay.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDSecondDisplay.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDSecondDisplay.o: ../../object3D/Object3DCollection.h
+CDSecondDisplay.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+CDSecondDisplay.o: ../../object3D/Quadrilateral3D.h
+CDSecondDisplay.o: ../../object3D/RectangularPrism.h
+CDSecondDisplay.o: ../../object3D/RectangularPrismFactory.h
+CDSecondDisplay.o: ../../object3D/Sprite3D.h
+CDSecondDisplay.o: ../../object3D/Sprite3DListener.h
+CDSecondDisplay.o: ../../object3D/Sprite3DListener.h
+CDSecondDisplay.o: ../../object3D/Transformable3D.h
+CDSecondDisplay.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+CDSecondDisplay.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+CDSecondDisplay.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDSecondDisplay.o: ../../terrain/HeightFieldStrategy.h
+CDSecondDisplay.o: ../../terrain/HeightField.h
+CDSecondDisplay.o: ../../object3D/Quadrilateral3D.h
+CDSecondDisplay.o: ../../terrain/HeightField.h
+CDSecondDisplay.o: ../../terrain/HeightFieldFactory.h
+CDSecondDisplay.o: ../../terrain/HeightFieldStrategy.h
+CDSecondDisplay.o: ../../terrain/ImageHeightFieldStrategy.h
+CDSecondDisplay.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDSecondDisplay.o: ../../terrain/NullHeightFieldStrategy.h
+CDSecondDisplay.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDSecondDisplay.o: ../../texture/TextureScale.h
+CDSecondDisplay.o: ../../transform/CoordinateSystem.h
+CDSecondDisplay.o: ../../transform/CoordinateSystemFactory.h
+CDSecondDisplay.o: ../../transform/EngineerCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/IdentityTransform.h
+CDSecondDisplay.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/MacCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/MathCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/OpenGLCoordinateSystem.h
+CDSecondDisplay.o: ../../transform/Orientation.h
+CDSecondDisplay.o: ../../transform/OrientationListener.h
+CDSecondDisplay.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDSecondDisplay.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDSecondDisplay.o: ../../transform/Transformable.h
+CDSecondDisplay.o: ../../transform/TransformFactory.h
+CDSecondDisplay.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDSecondDisplay.o: ../../transform/TransformFactory.h
+CDSecondDisplay.o: ../../util/BitmapFontConstants.h
+CDSecondDisplay.o: ../../util/BitmapFontUtil.h
+CDSecondDisplay.o: ../../util/FramesPerSecondCounter.h
+CDSecondDisplay.o: ../../object2D/String2D.h
+CDSecondDisplay.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDSecondDisplay.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDSecondDisplay.o: /usr/include/wchar.h /usr/include/stdarg.h
+CDSecondDisplay.o: /usr/include/time.h /usr/include/_structs.h
+CDSecondDisplay.o: /usr/include/_wctype.h /usr/include/ctype.h
+CDSecondDisplay.o: /usr/include/runetype.h CDGrid.h ActionItem.h
+CDSecondDisplay.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
+CDSecondDisplay.o: Helper.h CDITIState.h CDFixateState.h CDInitialDisplay.h
+CDSecondDisplay.o: CDRetentionInterval.h
+CDStartState.o: CDStartState.h CDState.h ../../xor.h ../../core/Camera.h
+CDStartState.o: ../../core/World.h /usr/include/stdlib.h
+CDStartState.o: /usr/include/Availability.h
+CDStartState.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDStartState.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDStartState.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDStartState.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDStartState.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+CDStartState.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+CDStartState.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+CDStartState.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDStartState.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDStartState.o: /usr/include/libkern/_OSByteOrder.h
+CDStartState.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDStartState.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDStartState.o: /usr/include/i386/types.h ../../util/Logger.h
+CDStartState.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDStartState.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDStartState.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDStartState.o: ../../paint/Paint.h /usr/include/string.h
+CDStartState.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+CDStartState.o: ../../texture/Texture.h ../../geometry/Vector2D.h
+CDStartState.o: ../../paint/Color.h ../../core/Renderable.h
+CDStartState.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+CDStartState.o: ../../event/reshape/ReshapeEvent.h
+CDStartState.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CDStartState.o: ../../paint/Color.h ../../transform/Orientation.h
+CDStartState.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+CDStartState.o: ../../transform/Transform.h ../../transform/Translate.h
+CDStartState.o: ../../event/timer/Timer.h /usr/include/math.h
+CDStartState.o: /usr/include/architecture/i386/math.h
+CDStartState.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDStartState.o: ../../interpolation/InterpolatorFactory.h
+CDStartState.o: ../../interpolation/Interpolator.h
+CDStartState.o: ../../interpolation/LinearInterpolator.h
+CDStartState.o: ../../util/GraphicsConversionUtility.h
+CDStartState.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDStartState.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDStartState.o: ../../event/timer/TimerListener.h
+CDStartState.o: ../../event/timer/TimerListenerManager.h
+CDStartState.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDStartState.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDStartState.o: ../../event/keyboard/KeyboardListener.h
+CDStartState.o: ../../event/keyboard/KeyEvent.h
+CDStartState.o: ../../event/keyboard/KeyEventFactory.h
+CDStartState.o: ../../event/keyboard/KeyDownEvent.h
+CDStartState.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDStartState.o: ../../event/mouse/MouseListener.h
+CDStartState.o: ../../event/mouse/MouseEvent.h
+CDStartState.o: ../../event/mouse/MouseEventFactory.h
+CDStartState.o: ../../event/mouse/MouseButtonDown.h
+CDStartState.o: ../../event/mouse/MouseClickEvent.h
+CDStartState.o: ../../event/mouse/MouseButtonUp.h
+CDStartState.o: ../../event/mouse/MouseMotionEvent.h
+CDStartState.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+CDStartState.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDStartState.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+CDStartState.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDStartState.o: ../../interpolation/InterpolationEngine.h
+CDStartState.o: ../../interpolation/InterpolationListener.h
+CDStartState.o: ../../interpolation/InterpolatorFactory.h
+CDStartState.o: ../../event/InputEventProxyFactory.h
+CDStartState.o: ../../event/EventFactory.h
+CDStartState.o: ../../event/keyboard/KeyboardStub.h
+CDStartState.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CDStartState.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+CDStartState.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+CDStartState.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CDStartState.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+CDStartState.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+CDStartState.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+CDStartState.o: ../../multicast/MulticastSocketPool.h
+CDStartState.o: ../../multicast/MulticastSocket.h
+CDStartState.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+CDStartState.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+CDStartState.o: ../../core/Camera.h ../../geometry/Containment.h
+CDStartState.o: ../../transform/OrientationListener.h
+CDStartState.o: ../../transform/CoordinateSystemFactory.h
+CDStartState.o: ../../transform/CoordinateSystem.h
+CDStartState.o: ../../transform/OpenGLCoordinateSystem.h
+CDStartState.o: ../../transform/MacCoordinateSystem.h
+CDStartState.o: ../../transform/MathCoordinateSystem.h
+CDStartState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDStartState.o: ../../transform/EngineerCoordinateSystem.h
+CDStartState.o: ../../event/timer/TimerListener.h
+CDStartState.o: ../../event/reshape/ReshapeEvent.h
+CDStartState.o: ../../core/CameraListener.h ../../core/Controller.h
+CDStartState.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDStartState.o: ../../core/Renderable.h ../../core/Window.h
+CDStartState.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDStartState.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDStartState.o: ../../event/DelayedAction.h ../../event/timer/IntervalTimer.h
+CDStartState.o: ../../event/EventFactory.h ../../event/EventPlayerFactory.h
+CDStartState.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDStartState.o: ../../event/mouse/MouseListener.h
+CDStartState.o: ../../event/keyboard/KeyboardListener.h
+CDStartState.o: ../../event/EventRecorderFactory.h
+CDStartState.o: ../../event/FullEventHandlerFactory.h
+CDStartState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDStartState.o: ../../event/mouse/MouseSkeleton.h
+CDStartState.o: ../../event/timer/TimerSkeleton.h
+CDStartState.o: ../../event/FullEventProxyFactory.h
+CDStartState.o: ../../event/InputEventHandlerFactory.h
+CDStartState.o: ../../event/InputEventProxyFactory.h
+CDStartState.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDStartState.o: ../../interpolation/TimedInterpolation.h
+CDStartState.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDStartState.o: ../../event/keyboard/Keyboard.h
+CDStartState.o: ../../event/keyboard/KeyboardListener.h
+CDStartState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDStartState.o: ../../event/keyboard/KeyboardStub.h
+CDStartState.o: ../../event/keyboard/KeyDownEvent.h
+CDStartState.o: ../../event/keyboard/KeyEvent.h
+CDStartState.o: ../../event/keyboard/KeyEventFactory.h
+CDStartState.o: ../../event/keyboard/KeyUpEvent.h
+CDStartState.o: ../../event/keyboard/RegularKeyEvent.h
+CDStartState.o: ../../event/keyboard/SpecialKeyEvent.h
+CDStartState.o: ../../event/mouse/DefaultMouseListener.h
+CDStartState.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+CDStartState.o: ../../event/mouse/MouseButtonUp.h
+CDStartState.o: ../../event/mouse/MouseClickEvent.h
+CDStartState.o: ../../event/mouse/MouseEvent.h
+CDStartState.o: ../../event/mouse/MouseEventFactory.h
+CDStartState.o: ../../event/mouse/MouseListener.h
+CDStartState.o: ../../event/mouse/MouseMotionEvent.h
+CDStartState.o: ../../event/mouse/MouseSkeleton.h
+CDStartState.o: ../../event/mouse/MouseStub.h
+CDStartState.o: ../../event/reshape/ReshapeEvent.h
+CDStartState.o: ../../event/reshape/ReshapeListener.h
+CDStartState.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDStartState.o: ../../event/timer/TimerListener.h
+CDStartState.o: ../../event/timer/TimerListenerManager.h
+CDStartState.o: ../../event/timer/TimerSkeleton.h
+CDStartState.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+CDStartState.o: ../../geometry/CylindricalVolume.h ../../geometry/Dimension.h
+CDStartState.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+CDStartState.o: ../../geometry/RectangularVolume.h
+CDStartState.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDStartState.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDStartState.o: ../../interpolation/CameraRoller.h
+CDStartState.o: ../../interpolation/ContinuousInterpolation.h
+CDStartState.o: ../../interpolation/TimedInterpolation.h
+CDStartState.o: ../../interpolation/InterpolationEngine.h
+CDStartState.o: ../../interpolation/InterpolationListener.h
+CDStartState.o: ../../interpolation/Interpolator.h
+CDStartState.o: ../../interpolation/InterpolatorFactory.h
+CDStartState.o: ../../interpolation/LinearInterpolator.h
+CDStartState.o: ../../interpolation/TimedInterpolation.h
+CDStartState.o: ../../interpolation/Waypoint.h
+CDStartState.o: ../../interpolation/WaypointCollection.h
+CDStartState.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDStartState.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDStartState.o: ../../texture/Texture.h ../../model/Model.h
+CDStartState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDStartState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDStartState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+CDStartState.o: ../../multicast/MulticastSocketPool.h
+CDStartState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDStartState.o: ../../object2D/Object2DCollection.h ../../object2D/Object2D.h
+CDStartState.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDStartState.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CDStartState.o: ../../util/BitmapFontConstants.h
+CDStartState.o: ../../object2D/Transformable2D.h
+CDStartState.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDStartState.o: ../../object3D/AdornablePrism.h
+CDStartState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDStartState.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CDStartState.o: ../../geometry/RectangularVolume.h
+CDStartState.o: ../../object3D/Object3DCollection.h
+CDStartState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDStartState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDStartState.o: ../../object3D/Cube.h
+CDStartState.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDStartState.o: ../../object3D/NormalPolygon3D.h
+CDStartState.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDStartState.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDStartState.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+CDStartState.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+CDStartState.o: ../../object3D/RectangularPrism.h
+CDStartState.o: ../../object3D/RectangularPrismFactory.h
+CDStartState.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CDStartState.o: ../../object3D/Sprite3DListener.h
+CDStartState.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+CDStartState.o: ../../paint/Color.h ../../paint/Paint.h
+CDStartState.o: ../../shape/CollisionRenderable.h
+CDStartState.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDStartState.o: ../../terrain/HeightFieldStrategy.h
+CDStartState.o: ../../terrain/HeightField.h ../../object3D/Quadrilateral3D.h
+CDStartState.o: ../../terrain/HeightField.h
+CDStartState.o: ../../terrain/HeightFieldFactory.h
+CDStartState.o: ../../terrain/HeightFieldStrategy.h
+CDStartState.o: ../../terrain/ImageHeightFieldStrategy.h
+CDStartState.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDStartState.o: ../../terrain/NullHeightFieldStrategy.h
+CDStartState.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDStartState.o: ../../texture/TextureScale.h
+CDStartState.o: ../../transform/CoordinateSystem.h
+CDStartState.o: ../../transform/CoordinateSystemFactory.h
+CDStartState.o: ../../transform/EngineerCoordinateSystem.h
+CDStartState.o: ../../transform/IdentityTransform.h
+CDStartState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDStartState.o: ../../transform/MacCoordinateSystem.h
+CDStartState.o: ../../transform/MathCoordinateSystem.h
+CDStartState.o: ../../transform/OpenGLCoordinateSystem.h
+CDStartState.o: ../../transform/Orientation.h
+CDStartState.o: ../../transform/OrientationListener.h
+CDStartState.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDStartState.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDStartState.o: ../../transform/Transformable.h
+CDStartState.o: ../../transform/TransformFactory.h
+CDStartState.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDStartState.o: ../../transform/TransformFactory.h
+CDStartState.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CDStartState.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+CDStartState.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDStartState.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDStartState.o: /usr/include/wchar.h /usr/include/stdarg.h
+CDStartState.o: /usr/include/time.h /usr/include/_structs.h
+CDStartState.o: /usr/include/_wctype.h /usr/include/ctype.h
+CDStartState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
+CDStartState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
+CDStartState.o: Helper.h CDFixateState.h CDInitialDisplay.h
+CDStartState.o: CDRetentionInterval.h CDSecondDisplay.h CDITIState.h
+CDState.o: CDState.h ../../xor.h ../../core/Camera.h ../../core/World.h
+CDState.o: /usr/include/stdlib.h /usr/include/Availability.h
+CDState.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDState.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDState.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDState.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDState.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+CDState.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+CDState.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+CDState.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDState.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDState.o: /usr/include/libkern/_OSByteOrder.h
+CDState.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+CDState.o: /usr/include/machine/types.h /usr/include/i386/types.h
+CDState.o: ../../util/Logger.h ../../core/Renderable.h
+CDState.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+CDState.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+CDState.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+CDState.o: /usr/include/string.h /usr/include/secure/_string.h
+CDState.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDState.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDState.o: ../../core/Renderable.h ../../core/Window.h
+CDState.o: ../../event/reshape/ReshapeListener.h
+CDState.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CDState.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+CDState.o: ../../transform/Orientation.h /usr/include/stdio.h
+CDState.o: /usr/include/secure/_stdio.h ../../transform/Transform.h
+CDState.o: ../../transform/Translate.h ../../event/timer/Timer.h
+CDState.o: /usr/include/math.h /usr/include/architecture/i386/math.h
+CDState.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDState.o: ../../interpolation/InterpolatorFactory.h
+CDState.o: ../../interpolation/Interpolator.h
+CDState.o: ../../interpolation/LinearInterpolator.h
+CDState.o: ../../util/GraphicsConversionUtility.h
+CDState.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDState.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDState.o: ../../event/timer/TimerListener.h
+CDState.o: ../../event/timer/TimerListenerManager.h ../../event/timer/Timer.h
+CDState.o: ../../core/Controller.h ../../event/EventFactory.h
+CDState.o: ../../event/keyboard/Keyboard.h
+CDState.o: ../../event/keyboard/KeyboardListener.h
+CDState.o: ../../event/keyboard/KeyEvent.h
+CDState.o: ../../event/keyboard/KeyEventFactory.h
+CDState.o: ../../event/keyboard/KeyDownEvent.h
+CDState.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDState.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+CDState.o: ../../event/mouse/MouseEventFactory.h
+CDState.o: ../../event/mouse/MouseButtonDown.h
+CDState.o: ../../event/mouse/MouseClickEvent.h
+CDState.o: ../../event/mouse/MouseButtonUp.h
+CDState.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CDState.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CDState.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+CDState.o: ../../core/XavierConfiguration.h
+CDState.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDState.o: ../../interpolation/InterpolationEngine.h
+CDState.o: ../../interpolation/InterpolationListener.h
+CDState.o: ../../interpolation/InterpolatorFactory.h
+CDState.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+CDState.o: ../../event/keyboard/KeyboardStub.h
+CDState.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CDState.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+CDState.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+CDState.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CDState.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+CDState.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+CDState.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+CDState.o: ../../multicast/MulticastSocketPool.h
+CDState.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+CDState.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDState.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDState.o: ../../geometry/Containment.h ../../transform/OrientationListener.h
+CDState.o: ../../transform/CoordinateSystemFactory.h
+CDState.o: ../../transform/CoordinateSystem.h
+CDState.o: ../../transform/OpenGLCoordinateSystem.h
+CDState.o: ../../transform/MacCoordinateSystem.h
+CDState.o: ../../transform/MathCoordinateSystem.h
+CDState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDState.o: ../../transform/EngineerCoordinateSystem.h
+CDState.o: ../../event/timer/TimerListener.h
+CDState.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+CDState.o: ../../core/Controller.h ../../core/DebugCamera.h
+CDState.o: ../../core/Controller.h ../../core/Renderable.h
+CDState.o: ../../core/Window.h ../../core/World.h
+CDState.o: ../../core/XavierConfiguration.h ../../event/Action.h
+CDState.o: ../../event/ContinuousAction.h ../../event/DelayedAction.h
+CDState.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+CDState.o: ../../event/EventPlayerFactory.h
+CDState.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDState.o: ../../event/mouse/MouseListener.h
+CDState.o: ../../event/keyboard/KeyboardListener.h
+CDState.o: ../../event/EventRecorderFactory.h
+CDState.o: ../../event/FullEventHandlerFactory.h
+CDState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDState.o: ../../event/mouse/MouseSkeleton.h
+CDState.o: ../../event/timer/TimerSkeleton.h
+CDState.o: ../../event/FullEventProxyFactory.h
+CDState.o: ../../event/InputEventHandlerFactory.h
+CDState.o: ../../event/InputEventProxyFactory.h
+CDState.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDState.o: ../../interpolation/TimedInterpolation.h
+CDState.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDState.o: ../../event/keyboard/Keyboard.h
+CDState.o: ../../event/keyboard/KeyboardListener.h
+CDState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDState.o: ../../event/keyboard/KeyboardStub.h
+CDState.o: ../../event/keyboard/KeyDownEvent.h
+CDState.o: ../../event/keyboard/KeyEvent.h
+CDState.o: ../../event/keyboard/KeyEventFactory.h
+CDState.o: ../../event/keyboard/KeyUpEvent.h
+CDState.o: ../../event/keyboard/RegularKeyEvent.h
+CDState.o: ../../event/keyboard/SpecialKeyEvent.h
+CDState.o: ../../event/mouse/DefaultMouseListener.h ../../event/mouse/Mouse.h
+CDState.o: ../../event/mouse/MouseButtonDown.h
+CDState.o: ../../event/mouse/MouseButtonUp.h
+CDState.o: ../../event/mouse/MouseClickEvent.h ../../event/mouse/MouseEvent.h
+CDState.o: ../../event/mouse/MouseEventFactory.h
+CDState.o: ../../event/mouse/MouseListener.h
+CDState.o: ../../event/mouse/MouseMotionEvent.h
+CDState.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+CDState.o: ../../event/reshape/ReshapeEvent.h
+CDState.o: ../../event/reshape/ReshapeListener.h
+CDState.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDState.o: ../../event/timer/TimerListener.h
+CDState.o: ../../event/timer/TimerListenerManager.h
+CDState.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+CDState.o: ../../geometry/Containment.h ../../geometry/CylindricalVolume.h
+CDState.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDState.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+CDState.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDState.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDState.o: ../../interpolation/CameraRoller.h
+CDState.o: ../../interpolation/ContinuousInterpolation.h
+CDState.o: ../../interpolation/TimedInterpolation.h
+CDState.o: ../../interpolation/InterpolationEngine.h
+CDState.o: ../../interpolation/InterpolationListener.h
+CDState.o: ../../interpolation/Interpolator.h
+CDState.o: ../../interpolation/InterpolatorFactory.h
+CDState.o: ../../interpolation/LinearInterpolator.h
+CDState.o: ../../interpolation/TimedInterpolation.h
+CDState.o: ../../interpolation/Waypoint.h
+CDState.o: ../../interpolation/WaypointCollection.h
+CDState.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDState.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDState.o: ../../texture/Texture.h ../../model/Model.h
+CDState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+CDState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+CDState.o: ../../core/Window.h ../../object2D/Object2DCollection.h
+CDState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDState.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
+CDState.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
+CDState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDState.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CDState.o: ../../geometry/RectangularVolume.h
+CDState.o: ../../object3D/Object3DCollection.h
+CDState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDState.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+CDState.o: ../../object3D/NormalPolygon3D.h
+CDState.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDState.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDState.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+CDState.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+CDState.o: ../../object3D/RectangularPrism.h
+CDState.o: ../../object3D/RectangularPrismFactory.h ../../object3D/Sprite3D.h
+CDState.o: ../../object3D/Sprite3DListener.h
+CDState.o: ../../object3D/Sprite3DListener.h ../../object3D/Transformable3D.h
+CDState.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+CDState.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+CDState.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDState.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+CDState.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+CDState.o: ../../terrain/HeightFieldFactory.h
+CDState.o: ../../terrain/HeightFieldStrategy.h
+CDState.o: ../../terrain/ImageHeightFieldStrategy.h
+CDState.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDState.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+CDState.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+CDState.o: ../../transform/CoordinateSystem.h
+CDState.o: ../../transform/CoordinateSystemFactory.h
+CDState.o: ../../transform/EngineerCoordinateSystem.h
+CDState.o: ../../transform/IdentityTransform.h
+CDState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDState.o: ../../transform/MacCoordinateSystem.h
+CDState.o: ../../transform/MathCoordinateSystem.h
+CDState.o: ../../transform/OpenGLCoordinateSystem.h
+CDState.o: ../../transform/Orientation.h
+CDState.o: ../../transform/OrientationListener.h ../../transform/Rotate.h
+CDState.o: ../../transform/Scale.h ../../transform/Stretch.h
+CDState.o: ../../transform/Transform.h ../../transform/Transformable.h
+CDState.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+CDState.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+CDState.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CDState.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+CDState.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDState.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDState.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+CDState.o: /usr/include/_structs.h /usr/include/_wctype.h
+CDState.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h ActionItem.h
+CDState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h Helper.h
+Helper.o: Helper.h Trial.h xmlParser/xmlParser.h /usr/include/stdlib.h
+Helper.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
+Helper.o: /usr/include/_types.h /usr/include/sys/_types.h
+Helper.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Helper.o: /usr/include/i386/_types.h /usr/include/sys/wait.h
+Helper.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+Helper.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+Helper.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+Helper.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+Helper.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+Helper.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+Helper.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+Helper.o: /usr/include/machine/types.h /usr/include/i386/types.h
+Helper.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/stdio.h
+Helper.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
+Helper.o: /usr/include/time.h /usr/include/_structs.h /usr/include/_wctype.h
+Helper.o: /usr/include/ctype.h /usr/include/runetype.h
+CDDriver.o: /usr/include/math.h /usr/include/architecture/i386/math.h
+CDDriver.o: /usr/include/sys/cdefs.h ../../xor.h ../../core/Camera.h
+CDDriver.o: ../../core/World.h /usr/include/stdlib.h
+CDDriver.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
+CDDriver.o: /usr/include/_types.h /usr/include/sys/_types.h
+CDDriver.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDDriver.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDDriver.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+CDDriver.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+CDDriver.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+CDDriver.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+CDDriver.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+CDDriver.o: /usr/include/libkern/_OSByteOrder.h
+CDDriver.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+CDDriver.o: /usr/include/machine/types.h /usr/include/i386/types.h
+CDDriver.o: ../../util/Logger.h ../../core/Renderable.h
+CDDriver.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+CDDriver.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+CDDriver.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+CDDriver.o: /usr/include/string.h /usr/include/secure/_string.h
+CDDriver.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDDriver.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDDriver.o: ../../core/Renderable.h ../../core/Window.h
+CDDriver.o: ../../event/reshape/ReshapeListener.h
+CDDriver.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CDDriver.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+CDDriver.o: ../../transform/Orientation.h /usr/include/stdio.h
+CDDriver.o: /usr/include/secure/_stdio.h ../../transform/Transform.h
+CDDriver.o: ../../transform/Translate.h ../../event/timer/Timer.h
+CDDriver.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDDriver.o: ../../interpolation/InterpolatorFactory.h
+CDDriver.o: ../../interpolation/Interpolator.h
+CDDriver.o: ../../interpolation/LinearInterpolator.h
+CDDriver.o: ../../util/GraphicsConversionUtility.h
+CDDriver.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDDriver.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDDriver.o: ../../event/timer/TimerListener.h
+CDDriver.o: ../../event/timer/TimerListenerManager.h
+CDDriver.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDDriver.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDDriver.o: ../../event/keyboard/KeyboardListener.h
+CDDriver.o: ../../event/keyboard/KeyEvent.h
+CDDriver.o: ../../event/keyboard/KeyEventFactory.h
+CDDriver.o: ../../event/keyboard/KeyDownEvent.h
+CDDriver.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDDriver.o: ../../event/mouse/MouseListener.h ../../event/mouse/MouseEvent.h
+CDDriver.o: ../../event/mouse/MouseEventFactory.h
+CDDriver.o: ../../event/mouse/MouseButtonDown.h
+CDDriver.o: ../../event/mouse/MouseClickEvent.h
+CDDriver.o: ../../event/mouse/MouseButtonUp.h
+CDDriver.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CDDriver.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CDDriver.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+CDDriver.o: ../../core/XavierConfiguration.h
+CDDriver.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDDriver.o: ../../interpolation/InterpolationEngine.h
+CDDriver.o: ../../interpolation/InterpolationListener.h
+CDDriver.o: ../../interpolation/InterpolatorFactory.h
+CDDriver.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+CDDriver.o: ../../event/keyboard/KeyboardStub.h
+CDDriver.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CDDriver.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+CDDriver.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+CDDriver.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CDDriver.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+CDDriver.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+CDDriver.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+CDDriver.o: ../../multicast/MulticastSocketPool.h
+CDDriver.o: ../../multicast/MulticastSocket.h ../../event/keyboard/Keyboard.h
+CDDriver.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDDriver.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDDriver.o: ../../geometry/Containment.h
+CDDriver.o: ../../transform/OrientationListener.h
+CDDriver.o: ../../transform/CoordinateSystemFactory.h
+CDDriver.o: ../../transform/CoordinateSystem.h
+CDDriver.o: ../../transform/OpenGLCoordinateSystem.h
+CDDriver.o: ../../transform/MacCoordinateSystem.h
+CDDriver.o: ../../transform/MathCoordinateSystem.h
+CDDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDDriver.o: ../../transform/EngineerCoordinateSystem.h
+CDDriver.o: ../../event/timer/TimerListener.h
+CDDriver.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+CDDriver.o: ../../core/Controller.h ../../core/DebugCamera.h
+CDDriver.o: ../../core/Controller.h ../../core/Renderable.h
+CDDriver.o: ../../core/Window.h ../../core/World.h
+CDDriver.o: ../../core/XavierConfiguration.h ../../event/Action.h
+CDDriver.o: ../../event/ContinuousAction.h ../../event/DelayedAction.h
+CDDriver.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+CDDriver.o: ../../event/EventPlayerFactory.h
+CDDriver.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDDriver.o: ../../event/mouse/MouseListener.h
+CDDriver.o: ../../event/keyboard/KeyboardListener.h
+CDDriver.o: ../../event/EventRecorderFactory.h
+CDDriver.o: ../../event/FullEventHandlerFactory.h
+CDDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+CDDriver.o: ../../event/mouse/MouseSkeleton.h
+CDDriver.o: ../../event/timer/TimerSkeleton.h
+CDDriver.o: ../../event/FullEventProxyFactory.h
+CDDriver.o: ../../event/InputEventHandlerFactory.h
+CDDriver.o: ../../event/InputEventProxyFactory.h
+CDDriver.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDDriver.o: ../../interpolation/TimedInterpolation.h
+CDDriver.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDDriver.o: ../../event/keyboard/Keyboard.h
+CDDriver.o: ../../event/keyboard/KeyboardListener.h
+CDDriver.o: ../../event/keyboard/KeyboardSkeleton.h
+CDDriver.o: ../../event/keyboard/KeyboardStub.h
+CDDriver.o: ../../event/keyboard/KeyDownEvent.h
+CDDriver.o: ../../event/keyboard/KeyEvent.h
+CDDriver.o: ../../event/keyboard/KeyEventFactory.h
+CDDriver.o: ../../event/keyboard/KeyUpEvent.h
+CDDriver.o: ../../event/keyboard/RegularKeyEvent.h
+CDDriver.o: ../../event/keyboard/SpecialKeyEvent.h
+CDDriver.o: ../../event/mouse/DefaultMouseListener.h
+CDDriver.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+CDDriver.o: ../../event/mouse/MouseButtonUp.h
+CDDriver.o: ../../event/mouse/MouseClickEvent.h
+CDDriver.o: ../../event/mouse/MouseEvent.h
+CDDriver.o: ../../event/mouse/MouseEventFactory.h
+CDDriver.o: ../../event/mouse/MouseListener.h
+CDDriver.o: ../../event/mouse/MouseMotionEvent.h
+CDDriver.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+CDDriver.o: ../../event/reshape/ReshapeEvent.h
+CDDriver.o: ../../event/reshape/ReshapeListener.h
+CDDriver.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDDriver.o: ../../event/timer/TimerListener.h
+CDDriver.o: ../../event/timer/TimerListenerManager.h
+CDDriver.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+CDDriver.o: ../../geometry/Containment.h ../../geometry/CylindricalVolume.h
+CDDriver.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDDriver.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+CDDriver.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDDriver.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDDriver.o: ../../interpolation/CameraRoller.h
+CDDriver.o: ../../interpolation/ContinuousInterpolation.h
+CDDriver.o: ../../interpolation/TimedInterpolation.h
+CDDriver.o: ../../interpolation/InterpolationEngine.h
+CDDriver.o: ../../interpolation/InterpolationListener.h
+CDDriver.o: ../../interpolation/Interpolator.h
+CDDriver.o: ../../interpolation/InterpolatorFactory.h
+CDDriver.o: ../../interpolation/LinearInterpolator.h
+CDDriver.o: ../../interpolation/TimedInterpolation.h
+CDDriver.o: ../../interpolation/Waypoint.h
+CDDriver.o: ../../interpolation/WaypointCollection.h
+CDDriver.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDDriver.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDDriver.o: ../../texture/Texture.h ../../model/Model.h
+CDDriver.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDDriver.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDDriver.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+CDDriver.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+CDDriver.o: ../../core/Window.h ../../object2D/Object2DCollection.h
+CDDriver.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDDriver.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDDriver.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDDriver.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
+CDDriver.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
+CDDriver.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDDriver.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CDDriver.o: ../../geometry/RectangularVolume.h
+CDDriver.o: ../../object3D/Object3DCollection.h
+CDDriver.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDDriver.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDDriver.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+CDDriver.o: ../../object3D/NormalPolygon3D.h
+CDDriver.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDDriver.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDDriver.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+CDDriver.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+CDDriver.o: ../../object3D/RectangularPrism.h
+CDDriver.o: ../../object3D/RectangularPrismFactory.h
+CDDriver.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CDDriver.o: ../../object3D/Sprite3DListener.h
+CDDriver.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+CDDriver.o: ../../paint/Color.h ../../paint/Paint.h
+CDDriver.o: ../../shape/CollisionRenderable.h
+CDDriver.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDDriver.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+CDDriver.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+CDDriver.o: ../../terrain/HeightFieldFactory.h
+CDDriver.o: ../../terrain/HeightFieldStrategy.h
+CDDriver.o: ../../terrain/ImageHeightFieldStrategy.h
+CDDriver.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDDriver.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+CDDriver.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+CDDriver.o: ../../transform/CoordinateSystem.h
+CDDriver.o: ../../transform/CoordinateSystemFactory.h
+CDDriver.o: ../../transform/EngineerCoordinateSystem.h
+CDDriver.o: ../../transform/IdentityTransform.h
+CDDriver.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDDriver.o: ../../transform/MacCoordinateSystem.h
+CDDriver.o: ../../transform/MathCoordinateSystem.h
+CDDriver.o: ../../transform/OpenGLCoordinateSystem.h
+CDDriver.o: ../../transform/Orientation.h
+CDDriver.o: ../../transform/OrientationListener.h ../../transform/Rotate.h
+CDDriver.o: ../../transform/Scale.h ../../transform/Stretch.h
+CDDriver.o: ../../transform/Transform.h ../../transform/Transformable.h
+CDDriver.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+CDDriver.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+CDDriver.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CDDriver.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+CDDriver.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDDriver.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDDriver.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+CDDriver.o: /usr/include/_structs.h /usr/include/_wctype.h
+CDDriver.o: /usr/include/ctype.h /usr/include/runetype.h PrintMousePosition.h
+CDDriver.o: CDGrid.h ActionItem.h RectangularHull.h CDStartState.h CDState.h
+CDDriver.o: Session.h Trial.h xmlParser/xmlParser.h Helper.h CDFixateState.h
+CDDriver.o: CDInitialDisplay.h CDRetentionInterval.h CDSecondDisplay.h
+CDDriver.o: CDITIState.h PrintAction.h Icon2D.h
+PrintAction.o: PrintAction.h ../../xor.h ../../core/Camera.h
+PrintAction.o: ../../core/World.h /usr/include/stdlib.h
+PrintAction.o: /usr/include/Availability.h
+PrintAction.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+PrintAction.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+PrintAction.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+PrintAction.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+PrintAction.o: /usr/include/sys/appleapiopts.h /usr/include/machine/signal.h
+PrintAction.o: /usr/include/i386/signal.h /usr/include/i386/_structs.h
+PrintAction.o: /usr/include/sys/_structs.h /usr/include/machine/_structs.h
+PrintAction.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+PrintAction.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+PrintAction.o: /usr/include/libkern/_OSByteOrder.h
+PrintAction.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+PrintAction.o: /usr/include/machine/types.h /usr/include/i386/types.h
+PrintAction.o: ../../util/Logger.h ../../core/Renderable.h
+PrintAction.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+PrintAction.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+PrintAction.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+PrintAction.o: /usr/include/string.h /usr/include/secure/_string.h
+PrintAction.o: /usr/include/secure/_common.h ../../texture/Texture.h
+PrintAction.o: ../../geometry/Vector2D.h ../../paint/Color.h
+PrintAction.o: ../../core/Renderable.h ../../core/Window.h
+PrintAction.o: ../../event/reshape/ReshapeListener.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h
+PrintAction.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+PrintAction.o: ../../paint/Color.h ../../transform/Orientation.h
+PrintAction.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+PrintAction.o: ../../transform/Transform.h ../../transform/Translate.h
+PrintAction.o: ../../event/timer/Timer.h /usr/include/math.h
+PrintAction.o: /usr/include/architecture/i386/math.h
+PrintAction.o: ../../event/timer/TimerListener.h ../../event/Action.h
+PrintAction.o: ../../interpolation/InterpolatorFactory.h
+PrintAction.o: ../../interpolation/Interpolator.h
+PrintAction.o: ../../interpolation/LinearInterpolator.h
+PrintAction.o: ../../util/GraphicsConversionUtility.h
+PrintAction.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+PrintAction.o: ../../event/ContinuousAction.h ../../event/Action.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/timer/TimerListenerManager.h
+PrintAction.o: ../../event/timer/Timer.h ../../core/Controller.h
+PrintAction.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+PrintAction.o: ../../event/keyboard/KeyboardListener.h
+PrintAction.o: ../../event/keyboard/KeyEvent.h
+PrintAction.o: ../../event/keyboard/KeyEventFactory.h
+PrintAction.o: ../../event/keyboard/KeyDownEvent.h
+PrintAction.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+PrintAction.o: ../../event/mouse/MouseListener.h
+PrintAction.o: ../../event/mouse/MouseEvent.h
+PrintAction.o: ../../event/mouse/MouseEventFactory.h
+PrintAction.o: ../../event/mouse/MouseButtonDown.h
+PrintAction.o: ../../event/mouse/MouseClickEvent.h
+PrintAction.o: ../../event/mouse/MouseButtonUp.h
+PrintAction.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+PrintAction.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+PrintAction.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+PrintAction.o: ../../core/XavierConfiguration.h
+PrintAction.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h
+PrintAction.o: ../../interpolation/InterpolationListener.h
+PrintAction.o: ../../interpolation/InterpolatorFactory.h
+PrintAction.o: ../../event/InputEventProxyFactory.h
+PrintAction.o: ../../event/EventFactory.h ../../event/keyboard/KeyboardStub.h
+PrintAction.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+PrintAction.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+PrintAction.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+PrintAction.o: /usr/include/netinet/in.h /usr/include/stdint.h
+PrintAction.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+PrintAction.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+PrintAction.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+PrintAction.o: ../../multicast/MulticastSocketPool.h
+PrintAction.o: ../../multicast/MulticastSocket.h
+PrintAction.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+PrintAction.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+PrintAction.o: ../../core/Camera.h ../../geometry/Containment.h
+PrintAction.o: ../../transform/OrientationListener.h
+PrintAction.o: ../../transform/CoordinateSystemFactory.h
+PrintAction.o: ../../transform/CoordinateSystem.h
+PrintAction.o: ../../transform/OpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/MacCoordinateSystem.h
+PrintAction.o: ../../transform/MathCoordinateSystem.h
+PrintAction.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/EngineerCoordinateSystem.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+PrintAction.o: ../../core/Controller.h ../../core/DebugCamera.h
+PrintAction.o: ../../core/Controller.h ../../core/Renderable.h
+PrintAction.o: ../../core/Window.h ../../core/World.h
+PrintAction.o: ../../core/XavierConfiguration.h ../../event/Action.h
+PrintAction.o: ../../event/ContinuousAction.h ../../event/DelayedAction.h
+PrintAction.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+PrintAction.o: ../../event/EventPlayerFactory.h
+PrintAction.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+PrintAction.o: ../../event/mouse/MouseListener.h
+PrintAction.o: ../../event/keyboard/KeyboardListener.h
+PrintAction.o: ../../event/EventRecorderFactory.h
+PrintAction.o: ../../event/FullEventHandlerFactory.h
+PrintAction.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintAction.o: ../../event/mouse/MouseSkeleton.h
+PrintAction.o: ../../event/timer/TimerSkeleton.h
+PrintAction.o: ../../event/FullEventProxyFactory.h
+PrintAction.o: ../../event/InputEventHandlerFactory.h
+PrintAction.o: ../../event/InputEventProxyFactory.h
+PrintAction.o: ../../event/keyboard/DefaultKeyboardListener.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+PrintAction.o: ../../event/keyboard/Keyboard.h
+PrintAction.o: ../../event/keyboard/KeyboardListener.h
+PrintAction.o: ../../event/keyboard/KeyboardSkeleton.h
+PrintAction.o: ../../event/keyboard/KeyboardStub.h
+PrintAction.o: ../../event/keyboard/KeyDownEvent.h
+PrintAction.o: ../../event/keyboard/KeyEvent.h
+PrintAction.o: ../../event/keyboard/KeyEventFactory.h
+PrintAction.o: ../../event/keyboard/KeyUpEvent.h
+PrintAction.o: ../../event/keyboard/RegularKeyEvent.h
+PrintAction.o: ../../event/keyboard/SpecialKeyEvent.h
+PrintAction.o: ../../event/mouse/DefaultMouseListener.h
+PrintAction.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+PrintAction.o: ../../event/mouse/MouseButtonUp.h
+PrintAction.o: ../../event/mouse/MouseClickEvent.h
+PrintAction.o: ../../event/mouse/MouseEvent.h
+PrintAction.o: ../../event/mouse/MouseEventFactory.h
+PrintAction.o: ../../event/mouse/MouseListener.h
+PrintAction.o: ../../event/mouse/MouseMotionEvent.h
+PrintAction.o: ../../event/mouse/MouseSkeleton.h
+PrintAction.o: ../../event/mouse/MouseStub.h
+PrintAction.o: ../../event/reshape/ReshapeEvent.h
+PrintAction.o: ../../event/reshape/ReshapeListener.h
+PrintAction.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+PrintAction.o: ../../event/timer/TimerListener.h
+PrintAction.o: ../../event/timer/TimerListenerManager.h
+PrintAction.o: ../../event/timer/TimerSkeleton.h
+PrintAction.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+PrintAction.o: ../../geometry/CylindricalVolume.h ../../geometry/Dimension.h
+PrintAction.o: ../../geometry/Dimension2D.h ../../geometry/Dimension3D.h
+PrintAction.o: ../../geometry/RectangularVolume.h
+PrintAction.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+PrintAction.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+PrintAction.o: ../../interpolation/CameraRoller.h
+PrintAction.o: ../../interpolation/ContinuousInterpolation.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../interpolation/InterpolationEngine.h
+PrintAction.o: ../../interpolation/InterpolationListener.h
+PrintAction.o: ../../interpolation/Interpolator.h
+PrintAction.o: ../../interpolation/InterpolatorFactory.h
+PrintAction.o: ../../interpolation/LinearInterpolator.h
+PrintAction.o: ../../interpolation/TimedInterpolation.h
+PrintAction.o: ../../interpolation/Waypoint.h
+PrintAction.o: ../../interpolation/WaypointCollection.h
+PrintAction.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+PrintAction.o: ../../model/Model.h ../../texture/TextureFactory.h
+PrintAction.o: ../../texture/Texture.h ../../model/Model.h
+PrintAction.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+PrintAction.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+PrintAction.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+PrintAction.o: ../../multicast/MulticastSocketPool.h
+PrintAction.o: ../../object2D/Object2D.h ../../core/Window.h
+PrintAction.o: ../../object2D/Object2DCollection.h ../../object2D/Object2D.h
+PrintAction.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+PrintAction.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+PrintAction.o: ../../util/BitmapFontConstants.h
+PrintAction.o: ../../object2D/Transformable2D.h
+PrintAction.o: ../../transform/Transformable.h ../../transform/Transform.h
+PrintAction.o: ../../object3D/AdornablePrism.h
+PrintAction.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+PrintAction.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+PrintAction.o: ../../geometry/RectangularVolume.h
+PrintAction.o: ../../object3D/Object3DCollection.h
+PrintAction.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+PrintAction.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+PrintAction.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+PrintAction.o: ../../object3D/NormalPolygon3D.h
+PrintAction.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+PrintAction.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+PrintAction.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+PrintAction.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+PrintAction.o: ../../object3D/RectangularPrism.h
+PrintAction.o: ../../object3D/RectangularPrismFactory.h
+PrintAction.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+PrintAction.o: ../../object3D/Sprite3DListener.h
+PrintAction.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+PrintAction.o: ../../paint/Color.h ../../paint/Paint.h
+PrintAction.o: ../../shape/CollisionRenderable.h
+PrintAction.o: ../../terrain/FunctionHeightFieldStrategy.h
+PrintAction.o: ../../terrain/HeightFieldStrategy.h
+PrintAction.o: ../../terrain/HeightField.h ../../object3D/Quadrilateral3D.h
+PrintAction.o: ../../terrain/HeightField.h ../../terrain/HeightFieldFactory.h
+PrintAction.o: ../../terrain/HeightFieldStrategy.h
+PrintAction.o: ../../terrain/ImageHeightFieldStrategy.h
+PrintAction.o: ../../terrain/MatrixHeightFieldStrategy.h
+PrintAction.o: ../../terrain/NullHeightFieldStrategy.h
+PrintAction.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+PrintAction.o: ../../texture/TextureScale.h
+PrintAction.o: ../../transform/CoordinateSystem.h
+PrintAction.o: ../../transform/CoordinateSystemFactory.h
+PrintAction.o: ../../transform/EngineerCoordinateSystem.h
+PrintAction.o: ../../transform/IdentityTransform.h
+PrintAction.o: ../../transform/LeftOpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/MacCoordinateSystem.h
+PrintAction.o: ../../transform/MathCoordinateSystem.h
+PrintAction.o: ../../transform/OpenGLCoordinateSystem.h
+PrintAction.o: ../../transform/Orientation.h
+PrintAction.o: ../../transform/OrientationListener.h ../../transform/Rotate.h
+PrintAction.o: ../../transform/Scale.h ../../transform/Stretch.h
+PrintAction.o: ../../transform/Transform.h ../../transform/Transformable.h
+PrintAction.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+PrintAction.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+PrintAction.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+PrintAction.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+PrintAction.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+PrintAction.o: ../../util/PointScale.h ../../util/xmlParser.h
+PrintAction.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+PrintAction.o: /usr/include/_structs.h /usr/include/_wctype.h
+PrintAction.o: /usr/include/ctype.h /usr/include/runetype.h CDSecondDisplay.h
+PrintAction.o: CDState.h CDGrid.h ActionItem.h RectangularHull.h Session.h
+PrintAction.o: Trial.h xmlParser/xmlParser.h Helper.h CDITIState.h
+PrintAction.o: CDFixateState.h CDInitialDisplay.h CDRetentionInterval.h
+RectangularHull.o: RectangularHull.h ../../xor.h ../../core/Camera.h
+RectangularHull.o: ../../core/World.h /usr/include/stdlib.h
+RectangularHull.o: /usr/include/Availability.h
+RectangularHull.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+RectangularHull.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+RectangularHull.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+RectangularHull.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+RectangularHull.o: /usr/include/sys/appleapiopts.h
+RectangularHull.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+RectangularHull.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+RectangularHull.o: /usr/include/machine/_structs.h
+RectangularHull.o: /usr/include/sys/resource.h /usr/include/machine/endian.h
+RectangularHull.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+RectangularHull.o: /usr/include/libkern/_OSByteOrder.h
+RectangularHull.o: /usr/include/libkern/i386/_OSByteOrder.h
+RectangularHull.o: /usr/include/alloca.h /usr/include/machine/types.h
+RectangularHull.o: /usr/include/i386/types.h ../../util/Logger.h
+RectangularHull.o: ../../core/Renderable.h ../../object3D/Object3D.h
+RectangularHull.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+RectangularHull.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+RectangularHull.o: ../../paint/Paint.h /usr/include/string.h
+RectangularHull.o: /usr/include/secure/_string.h
+RectangularHull.o: /usr/include/secure/_common.h ../../texture/Texture.h
+RectangularHull.o: ../../geometry/Vector2D.h ../../paint/Color.h
+RectangularHull.o: ../../core/Renderable.h ../../core/Window.h
+RectangularHull.o: ../../event/reshape/ReshapeListener.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h
+RectangularHull.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+RectangularHull.o: ../../paint/Color.h ../../transform/Orientation.h
+RectangularHull.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+RectangularHull.o: ../../transform/Transform.h ../../transform/Translate.h
+RectangularHull.o: ../../event/timer/Timer.h /usr/include/math.h
+RectangularHull.o: /usr/include/architecture/i386/math.h
+RectangularHull.o: ../../event/timer/TimerListener.h ../../event/Action.h
+RectangularHull.o: ../../interpolation/InterpolatorFactory.h
+RectangularHull.o: ../../interpolation/Interpolator.h
+RectangularHull.o: ../../interpolation/LinearInterpolator.h
+RectangularHull.o: ../../util/GraphicsConversionUtility.h
+RectangularHull.o: ../../interpolation/Interpolator.h
+RectangularHull.o: ../../transform/Rotate.h ../../event/ContinuousAction.h
+RectangularHull.o: ../../event/Action.h ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/timer/TimerListenerManager.h
+RectangularHull.o: ../../event/timer/Timer.h ../../core/Controller.h
+RectangularHull.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/keyboard/KeyboardListener.h
+RectangularHull.o: ../../event/keyboard/KeyEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEventFactory.h
+RectangularHull.o: ../../event/keyboard/KeyDownEvent.h
+RectangularHull.o: ../../event/keyboard/KeyUpEvent.h
+RectangularHull.o: ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/mouse/MouseListener.h
+RectangularHull.o: ../../event/mouse/MouseEvent.h
+RectangularHull.o: ../../event/mouse/MouseEventFactory.h
+RectangularHull.o: ../../event/mouse/MouseButtonDown.h
+RectangularHull.o: ../../event/mouse/MouseClickEvent.h
+RectangularHull.o: ../../event/mouse/MouseButtonUp.h
+RectangularHull.o: ../../event/mouse/MouseMotionEvent.h
+RectangularHull.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+RectangularHull.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+RectangularHull.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../interpolation/InterpolationListener.h
+RectangularHull.o: ../../interpolation/InterpolatorFactory.h
+RectangularHull.o: ../../event/InputEventProxyFactory.h
+RectangularHull.o: ../../event/EventFactory.h
+RectangularHull.o: ../../event/keyboard/KeyboardStub.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+RectangularHull.o: /usr/include/sys/socket.h /usr/include/machine/_param.h
+RectangularHull.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+RectangularHull.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+RectangularHull.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+RectangularHull.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+RectangularHull.o: /usr/include/sys/_select.h
+RectangularHull.o: ../../multicast/MulticastSocketPool.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+RectangularHull.o: ../../geometry/Containment.h
+RectangularHull.o: ../../transform/OrientationListener.h
+RectangularHull.o: ../../transform/CoordinateSystemFactory.h
+RectangularHull.o: ../../transform/CoordinateSystem.h
+RectangularHull.o: ../../transform/OpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/MacCoordinateSystem.h
+RectangularHull.o: ../../transform/MathCoordinateSystem.h
+RectangularHull.o: ../../transform/LeftOpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/EngineerCoordinateSystem.h
+RectangularHull.o: ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h
+RectangularHull.o: ../../core/CameraListener.h ../../core/Controller.h
+RectangularHull.o: ../../core/DebugCamera.h ../../core/Controller.h
+RectangularHull.o: ../../core/Renderable.h ../../core/Window.h
+RectangularHull.o: ../../core/World.h ../../core/XavierConfiguration.h
+RectangularHull.o: ../../event/Action.h ../../event/ContinuousAction.h
+RectangularHull.o: ../../event/DelayedAction.h
+RectangularHull.o: ../../event/timer/IntervalTimer.h
+RectangularHull.o: ../../event/EventFactory.h
+RectangularHull.o: ../../event/EventPlayerFactory.h
+RectangularHull.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+RectangularHull.o: ../../event/mouse/MouseListener.h
+RectangularHull.o: ../../event/keyboard/KeyboardListener.h
+RectangularHull.o: ../../event/EventRecorderFactory.h
+RectangularHull.o: ../../event/FullEventHandlerFactory.h
+RectangularHull.o: ../../event/keyboard/KeyboardSkeleton.h
+RectangularHull.o: ../../event/mouse/MouseSkeleton.h
+RectangularHull.o: ../../event/timer/TimerSkeleton.h
+RectangularHull.o: ../../event/FullEventProxyFactory.h
+RectangularHull.o: ../../event/InputEventHandlerFactory.h
+RectangularHull.o: ../../event/InputEventProxyFactory.h
+RectangularHull.o: ../../event/keyboard/DefaultKeyboardListener.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+RectangularHull.o: ../../event/keyboard/KeyboardListener.h
+RectangularHull.o: ../../event/keyboard/KeyboardSkeleton.h
+RectangularHull.o: ../../event/keyboard/KeyboardStub.h
+RectangularHull.o: ../../event/keyboard/KeyDownEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEvent.h
+RectangularHull.o: ../../event/keyboard/KeyEventFactory.h
+RectangularHull.o: ../../event/keyboard/KeyUpEvent.h
+RectangularHull.o: ../../event/keyboard/RegularKeyEvent.h
+RectangularHull.o: ../../event/keyboard/SpecialKeyEvent.h
+RectangularHull.o: ../../event/mouse/DefaultMouseListener.h
+RectangularHull.o: ../../event/mouse/Mouse.h
+RectangularHull.o: ../../event/mouse/MouseButtonDown.h
+RectangularHull.o: ../../event/mouse/MouseButtonUp.h
+RectangularHull.o: ../../event/mouse/MouseClickEvent.h
+RectangularHull.o: ../../event/mouse/MouseEvent.h
+RectangularHull.o: ../../event/mouse/MouseEventFactory.h
+RectangularHull.o: ../../event/mouse/MouseListener.h
+RectangularHull.o: ../../event/mouse/MouseMotionEvent.h
+RectangularHull.o: ../../event/mouse/MouseSkeleton.h
+RectangularHull.o: ../../event/mouse/MouseStub.h
+RectangularHull.o: ../../event/reshape/ReshapeEvent.h
+RectangularHull.o: ../../event/reshape/ReshapeListener.h
+RectangularHull.o: ../../event/timer/IntervalTimer.h
+RectangularHull.o: ../../event/timer/Timer.h
+RectangularHull.o: ../../event/timer/TimerListener.h
+RectangularHull.o: ../../event/timer/TimerListenerManager.h
+RectangularHull.o: ../../event/timer/TimerSkeleton.h
+RectangularHull.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+RectangularHull.o: ../../geometry/CylindricalVolume.h
+RectangularHull.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+RectangularHull.o: ../../geometry/Dimension3D.h
+RectangularHull.o: ../../geometry/RectangularVolume.h
+RectangularHull.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+RectangularHull.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+RectangularHull.o: ../../interpolation/CameraRoller.h
+RectangularHull.o: ../../interpolation/ContinuousInterpolation.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../interpolation/InterpolationEngine.h
+RectangularHull.o: ../../interpolation/InterpolationListener.h
+RectangularHull.o: ../../interpolation/Interpolator.h
+RectangularHull.o: ../../interpolation/InterpolatorFactory.h
+RectangularHull.o: ../../interpolation/LinearInterpolator.h
+RectangularHull.o: ../../interpolation/TimedInterpolation.h
+RectangularHull.o: ../../interpolation/Waypoint.h
+RectangularHull.o: ../../interpolation/WaypointCollection.h
+RectangularHull.o: ../../interpolation/Waypoint.h
+RectangularHull.o: ../../model/MilkshapeModel.h ../../model/Model.h
+RectangularHull.o: ../../texture/TextureFactory.h ../../texture/Texture.h
+RectangularHull.o: ../../model/Model.h ../../model/ModelFactory.h
+RectangularHull.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
+RectangularHull.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
+RectangularHull.o: ../../multicast/MulticastSocket.h
+RectangularHull.o: ../../multicast/MulticastSocketPool.h
+RectangularHull.o: ../../object2D/Object2D.h ../../core/Window.h
+RectangularHull.o: ../../object2D/Object2DCollection.h
+RectangularHull.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+RectangularHull.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+RectangularHull.o: ../../util/BitmapFontUtil.h
+RectangularHull.o: ../../util/BitmapFontConstants.h
+RectangularHull.o: ../../object2D/Transformable2D.h
+RectangularHull.o: ../../transform/Transformable.h
+RectangularHull.o: ../../transform/Transform.h
+RectangularHull.o: ../../object3D/AdornablePrism.h
+RectangularHull.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+RectangularHull.o: ../../object3D/Quadrilateral3D.h
+RectangularHull.o: ../../texture/TextureScale.h
+RectangularHull.o: ../../geometry/RectangularVolume.h
+RectangularHull.o: ../../object3D/Object3DCollection.h
+RectangularHull.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+RectangularHull.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+RectangularHull.o: ../../object3D/Cube.h
+RectangularHull.o: ../../object3D/ExtrudedNormalPolygon3D.h
+RectangularHull.o: ../../object3D/NormalPolygon3D.h
+RectangularHull.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+RectangularHull.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+RectangularHull.o: ../../object3D/Object3DCollection.h
+RectangularHull.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+RectangularHull.o: ../../object3D/Quadrilateral3D.h
+RectangularHull.o: ../../object3D/RectangularPrism.h
+RectangularHull.o: ../../object3D/RectangularPrismFactory.h
+RectangularHull.o: ../../object3D/Sprite3D.h
+RectangularHull.o: ../../object3D/Sprite3DListener.h
+RectangularHull.o: ../../object3D/Sprite3DListener.h
+RectangularHull.o: ../../object3D/Transformable3D.h
+RectangularHull.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+RectangularHull.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+RectangularHull.o: ../../terrain/FunctionHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/HeightFieldStrategy.h
+RectangularHull.o: ../../terrain/HeightField.h
+RectangularHull.o: ../../object3D/Quadrilateral3D.h
+RectangularHull.o: ../../terrain/HeightField.h
+RectangularHull.o: ../../terrain/HeightFieldFactory.h
+RectangularHull.o: ../../terrain/HeightFieldStrategy.h
+RectangularHull.o: ../../terrain/ImageHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/MatrixHeightFieldStrategy.h
+RectangularHull.o: ../../terrain/NullHeightFieldStrategy.h
+RectangularHull.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+RectangularHull.o: ../../texture/TextureScale.h
+RectangularHull.o: ../../transform/CoordinateSystem.h
+RectangularHull.o: ../../transform/CoordinateSystemFactory.h
+RectangularHull.o: ../../transform/EngineerCoordinateSystem.h
+RectangularHull.o: ../../transform/IdentityTransform.h
+RectangularHull.o: ../../transform/LeftOpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/MacCoordinateSystem.h
+RectangularHull.o: ../../transform/MathCoordinateSystem.h
+RectangularHull.o: ../../transform/OpenGLCoordinateSystem.h
+RectangularHull.o: ../../transform/Orientation.h
+RectangularHull.o: ../../transform/OrientationListener.h
+RectangularHull.o: ../../transform/Rotate.h ../../transform/Scale.h
+RectangularHull.o: ../../transform/Stretch.h ../../transform/Transform.h
+RectangularHull.o: ../../transform/Transformable.h
+RectangularHull.o: ../../transform/TransformFactory.h
+RectangularHull.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+RectangularHull.o: ../../transform/TransformFactory.h
+RectangularHull.o: ../../util/BitmapFontConstants.h
+RectangularHull.o: ../../util/BitmapFontUtil.h
+RectangularHull.o: ../../util/FramesPerSecondCounter.h
+RectangularHull.o: ../../object2D/String2D.h
+RectangularHull.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+RectangularHull.o: ../../util/PointScale.h ../../util/xmlParser.h
+RectangularHull.o: /usr/include/wchar.h /usr/include/stdarg.h
+RectangularHull.o: /usr/include/time.h /usr/include/_structs.h
+RectangularHull.o: /usr/include/_wctype.h /usr/include/ctype.h
+RectangularHull.o: /usr/include/runetype.h
+CDITIState.o: CDITIState.h CDState.h ../../xor.h ../../core/Camera.h
+CDITIState.o: ../../core/World.h /usr/include/stdlib.h
+CDITIState.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
+CDITIState.o: /usr/include/_types.h /usr/include/sys/_types.h
+CDITIState.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+CDITIState.o: /usr/include/i386/_types.h /usr/include/sys/wait.h
+CDITIState.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+CDITIState.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+CDITIState.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+CDITIState.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+CDITIState.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+CDITIState.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+CDITIState.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+CDITIState.o: /usr/include/machine/types.h /usr/include/i386/types.h
+CDITIState.o: ../../util/Logger.h ../../core/Renderable.h
+CDITIState.o: ../../object3D/Object3D.h ../../geometry/Vector3D.h
+CDITIState.o: ../../geometry/Dimension3D.h ../../geometry/Dimension.h
+CDITIState.o: ../../geometry/Vector3D.h ../../paint/Paint.h
+CDITIState.o: /usr/include/string.h /usr/include/secure/_string.h
+CDITIState.o: /usr/include/secure/_common.h ../../texture/Texture.h
+CDITIState.o: ../../geometry/Vector2D.h ../../paint/Color.h
+CDITIState.o: ../../core/Renderable.h ../../core/Window.h
+CDITIState.o: ../../event/reshape/ReshapeListener.h
+CDITIState.o: ../../event/reshape/ReshapeEvent.h ../../geometry/Dimension2D.h
+CDITIState.o: ../../geometry/Dimension2D.h ../../paint/Color.h
+CDITIState.o: ../../transform/Orientation.h /usr/include/stdio.h
+CDITIState.o: /usr/include/secure/_stdio.h ../../transform/Transform.h
+CDITIState.o: ../../transform/Translate.h ../../event/timer/Timer.h
+CDITIState.o: /usr/include/math.h /usr/include/architecture/i386/math.h
+CDITIState.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDITIState.o: ../../interpolation/InterpolatorFactory.h
+CDITIState.o: ../../interpolation/Interpolator.h
+CDITIState.o: ../../interpolation/LinearInterpolator.h
+CDITIState.o: ../../util/GraphicsConversionUtility.h
+CDITIState.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDITIState.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDITIState.o: ../../event/timer/TimerListener.h
+CDITIState.o: ../../event/timer/TimerListenerManager.h
+CDITIState.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDITIState.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDITIState.o: ../../event/keyboard/KeyboardListener.h
+CDITIState.o: ../../event/keyboard/KeyEvent.h
+CDITIState.o: ../../event/keyboard/KeyEventFactory.h
+CDITIState.o: ../../event/keyboard/KeyDownEvent.h
+CDITIState.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDITIState.o: ../../event/mouse/MouseListener.h
+CDITIState.o: ../../event/mouse/MouseEvent.h
+CDITIState.o: ../../event/mouse/MouseEventFactory.h
+CDITIState.o: ../../event/mouse/MouseButtonDown.h
+CDITIState.o: ../../event/mouse/MouseClickEvent.h
+CDITIState.o: ../../event/mouse/MouseButtonUp.h
+CDITIState.o: ../../event/mouse/MouseMotionEvent.h ../../event/timer/Timer.h
+CDITIState.o: ../../event/keyboard/Keyboard.h ../../event/mouse/Mouse.h
+CDITIState.o: ../../object3D/Point3D.h ../../object3D/Object3D.h
+CDITIState.o: ../../core/XavierConfiguration.h
+CDITIState.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDITIState.o: ../../interpolation/InterpolationEngine.h
+CDITIState.o: ../../interpolation/InterpolationListener.h
+CDITIState.o: ../../interpolation/InterpolatorFactory.h
+CDITIState.o: ../../event/InputEventProxyFactory.h ../../event/EventFactory.h
+CDITIState.o: ../../event/keyboard/KeyboardStub.h
+CDITIState.o: ../../multicast/MulticastSocket.h ../../multicast/Multicast.h
+CDITIState.o: /usr/include/sys/types.h /usr/include/sys/socket.h
+CDITIState.o: /usr/include/machine/_param.h /usr/include/i386/_param.h
+CDITIState.o: /usr/include/netinet/in.h /usr/include/stdint.h
+CDITIState.o: /usr/include/netinet6/in6.h /usr/include/arpa/inet.h
+CDITIState.o: /usr/include/unistd.h /usr/include/sys/unistd.h
+CDITIState.o: /usr/include/sys/select.h /usr/include/sys/_select.h
+CDITIState.o: ../../multicast/MulticastSocketPool.h
+CDITIState.o: ../../multicast/MulticastSocket.h
+CDITIState.o: ../../event/keyboard/Keyboard.h ../../event/mouse/MouseStub.h
+CDITIState.o: ../../event/mouse/Mouse.h ../../event/timer/TimerStub.h
+CDITIState.o: ../../core/Camera.h ../../geometry/Containment.h
+CDITIState.o: ../../transform/OrientationListener.h
+CDITIState.o: ../../transform/CoordinateSystemFactory.h
+CDITIState.o: ../../transform/CoordinateSystem.h
+CDITIState.o: ../../transform/OpenGLCoordinateSystem.h
+CDITIState.o: ../../transform/MacCoordinateSystem.h
+CDITIState.o: ../../transform/MathCoordinateSystem.h
+CDITIState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDITIState.o: ../../transform/EngineerCoordinateSystem.h
+CDITIState.o: ../../event/timer/TimerListener.h
+CDITIState.o: ../../event/reshape/ReshapeEvent.h ../../core/CameraListener.h
+CDITIState.o: ../../core/Controller.h ../../core/DebugCamera.h
+CDITIState.o: ../../core/Controller.h ../../core/Renderable.h
+CDITIState.o: ../../core/Window.h ../../core/World.h
+CDITIState.o: ../../core/XavierConfiguration.h ../../event/Action.h
+CDITIState.o: ../../event/ContinuousAction.h ../../event/DelayedAction.h
+CDITIState.o: ../../event/timer/IntervalTimer.h ../../event/EventFactory.h
+CDITIState.o: ../../event/EventPlayerFactory.h
+CDITIState.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDITIState.o: ../../event/mouse/MouseListener.h
+CDITIState.o: ../../event/keyboard/KeyboardListener.h
+CDITIState.o: ../../event/EventRecorderFactory.h
+CDITIState.o: ../../event/FullEventHandlerFactory.h
+CDITIState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDITIState.o: ../../event/mouse/MouseSkeleton.h
+CDITIState.o: ../../event/timer/TimerSkeleton.h
+CDITIState.o: ../../event/FullEventProxyFactory.h
+CDITIState.o: ../../event/InputEventHandlerFactory.h
+CDITIState.o: ../../event/InputEventProxyFactory.h
+CDITIState.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDITIState.o: ../../interpolation/TimedInterpolation.h
+CDITIState.o: ../../interpolation/InterpolationEngine.h ../../core/World.h
+CDITIState.o: ../../event/keyboard/Keyboard.h
+CDITIState.o: ../../event/keyboard/KeyboardListener.h
+CDITIState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDITIState.o: ../../event/keyboard/KeyboardStub.h
+CDITIState.o: ../../event/keyboard/KeyDownEvent.h
+CDITIState.o: ../../event/keyboard/KeyEvent.h
+CDITIState.o: ../../event/keyboard/KeyEventFactory.h
+CDITIState.o: ../../event/keyboard/KeyUpEvent.h
+CDITIState.o: ../../event/keyboard/RegularKeyEvent.h
+CDITIState.o: ../../event/keyboard/SpecialKeyEvent.h
+CDITIState.o: ../../event/mouse/DefaultMouseListener.h
+CDITIState.o: ../../event/mouse/Mouse.h ../../event/mouse/MouseButtonDown.h
+CDITIState.o: ../../event/mouse/MouseButtonUp.h
+CDITIState.o: ../../event/mouse/MouseClickEvent.h
+CDITIState.o: ../../event/mouse/MouseEvent.h
+CDITIState.o: ../../event/mouse/MouseEventFactory.h
+CDITIState.o: ../../event/mouse/MouseListener.h
+CDITIState.o: ../../event/mouse/MouseMotionEvent.h
+CDITIState.o: ../../event/mouse/MouseSkeleton.h ../../event/mouse/MouseStub.h
+CDITIState.o: ../../event/reshape/ReshapeEvent.h
+CDITIState.o: ../../event/reshape/ReshapeListener.h
+CDITIState.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDITIState.o: ../../event/timer/TimerListener.h
+CDITIState.o: ../../event/timer/TimerListenerManager.h
+CDITIState.o: ../../event/timer/TimerSkeleton.h ../../event/timer/TimerStub.h
+CDITIState.o: ../../geometry/Containment.h ../../geometry/CylindricalVolume.h
+CDITIState.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDITIState.o: ../../geometry/Dimension3D.h ../../geometry/RectangularVolume.h
+CDITIState.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDITIState.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDITIState.o: ../../interpolation/CameraRoller.h
+CDITIState.o: ../../interpolation/ContinuousInterpolation.h
+CDITIState.o: ../../interpolation/TimedInterpolation.h
+CDITIState.o: ../../interpolation/InterpolationEngine.h
+CDITIState.o: ../../interpolation/InterpolationListener.h
+CDITIState.o: ../../interpolation/Interpolator.h
+CDITIState.o: ../../interpolation/InterpolatorFactory.h
+CDITIState.o: ../../interpolation/LinearInterpolator.h
+CDITIState.o: ../../interpolation/TimedInterpolation.h
+CDITIState.o: ../../interpolation/Waypoint.h
+CDITIState.o: ../../interpolation/WaypointCollection.h
+CDITIState.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDITIState.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDITIState.o: ../../texture/Texture.h ../../model/Model.h
+CDITIState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDITIState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDITIState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
+CDITIState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
+CDITIState.o: ../../core/Window.h ../../object2D/Object2DCollection.h
+CDITIState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDITIState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDITIState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDITIState.o: ../../object2D/Transformable2D.h
+CDITIState.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDITIState.o: ../../object3D/AdornablePrism.h
+CDITIState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDITIState.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
+CDITIState.o: ../../geometry/RectangularVolume.h
+CDITIState.o: ../../object3D/Object3DCollection.h
+CDITIState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDITIState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDITIState.o: ../../object3D/Cube.h ../../object3D/ExtrudedNormalPolygon3D.h
+CDITIState.o: ../../object3D/NormalPolygon3D.h
+CDITIState.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDITIState.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDITIState.o: ../../object3D/Object3DCollection.h ../../object3D/Particle.h
+CDITIState.o: ../../object3D/Point3D.h ../../object3D/Quadrilateral3D.h
+CDITIState.o: ../../object3D/RectangularPrism.h
+CDITIState.o: ../../object3D/RectangularPrismFactory.h
+CDITIState.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CDITIState.o: ../../object3D/Sprite3DListener.h
+CDITIState.o: ../../object3D/Transformable3D.h ../../object3D/Triangle3D.h
+CDITIState.o: ../../paint/Color.h ../../paint/Paint.h
+CDITIState.o: ../../shape/CollisionRenderable.h
+CDITIState.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDITIState.o: ../../terrain/HeightFieldStrategy.h ../../terrain/HeightField.h
+CDITIState.o: ../../object3D/Quadrilateral3D.h ../../terrain/HeightField.h
+CDITIState.o: ../../terrain/HeightFieldFactory.h
+CDITIState.o: ../../terrain/HeightFieldStrategy.h
+CDITIState.o: ../../terrain/ImageHeightFieldStrategy.h
+CDITIState.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDITIState.o: ../../terrain/NullHeightFieldStrategy.h ../../texture/Texture.h
+CDITIState.o: ../../texture/TextureFactory.h ../../texture/TextureScale.h
+CDITIState.o: ../../transform/CoordinateSystem.h
+CDITIState.o: ../../transform/CoordinateSystemFactory.h
+CDITIState.o: ../../transform/EngineerCoordinateSystem.h
+CDITIState.o: ../../transform/IdentityTransform.h
+CDITIState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDITIState.o: ../../transform/MacCoordinateSystem.h
+CDITIState.o: ../../transform/MathCoordinateSystem.h
+CDITIState.o: ../../transform/OpenGLCoordinateSystem.h
+CDITIState.o: ../../transform/Orientation.h
+CDITIState.o: ../../transform/OrientationListener.h ../../transform/Rotate.h
+CDITIState.o: ../../transform/Scale.h ../../transform/Stretch.h
+CDITIState.o: ../../transform/Transform.h ../../transform/Transformable.h
+CDITIState.o: ../../transform/TransformFactory.h ../../transform/Translate.h
+CDITIState.o: ../../util/BehaviorParser.h ../../transform/TransformFactory.h
+CDITIState.o: ../../util/BitmapFontConstants.h ../../util/BitmapFontUtil.h
+CDITIState.o: ../../util/FramesPerSecondCounter.h ../../object2D/String2D.h
+CDITIState.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDITIState.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDITIState.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
+CDITIState.o: /usr/include/_structs.h /usr/include/_wctype.h
+CDITIState.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
+CDITIState.o: ActionItem.h RectangularHull.h Session.h Trial.h
+CDITIState.o: xmlParser/xmlParser.h Helper.h CDFixateState.h
+CDITIState.o: CDInitialDisplay.h CDRetentionInterval.h CDSecondDisplay.h
+Session.o: Session.h Trial.h xmlParser/xmlParser.h /usr/include/stdlib.h
+Session.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
+Session.o: /usr/include/_types.h /usr/include/sys/_types.h
+Session.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+Session.o: /usr/include/i386/_types.h /usr/include/sys/wait.h
+Session.o: /usr/include/sys/signal.h /usr/include/sys/appleapiopts.h
+Session.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+Session.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+Session.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+Session.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+Session.o: /usr/include/sys/_endian.h /usr/include/libkern/_OSByteOrder.h
+Session.o: /usr/include/libkern/i386/_OSByteOrder.h /usr/include/alloca.h
+Session.o: /usr/include/machine/types.h /usr/include/i386/types.h
+Session.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/stdio.h
+Session.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
+Session.o: /usr/include/time.h /usr/include/_structs.h /usr/include/_wctype.h
+Session.o: /usr/include/ctype.h /usr/include/runetype.h Helper.h
+xmlParser/xmlParser.o: /usr/include/memory.h /usr/include/string.h
+xmlParser/xmlParser.o: /usr/include/_types.h /usr/include/sys/_types.h
+xmlParser/xmlParser.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
+xmlParser/xmlParser.o: /usr/include/i386/_types.h
+xmlParser/xmlParser.o: /usr/include/secure/_string.h
+xmlParser/xmlParser.o: /usr/include/secure/_common.h /usr/include/assert.h
+xmlParser/xmlParser.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+xmlParser/xmlParser.o: /usr/include/stdlib.h /usr/include/Availability.h
+xmlParser/xmlParser.o: /usr/include/AvailabilityInternal.h
+xmlParser/xmlParser.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+xmlParser/xmlParser.o: /usr/include/sys/appleapiopts.h
+xmlParser/xmlParser.o: /usr/include/machine/signal.h
+xmlParser/xmlParser.o: /usr/include/i386/signal.h
+xmlParser/xmlParser.o: /usr/include/i386/_structs.h
+xmlParser/xmlParser.o: /usr/include/sys/_structs.h
+xmlParser/xmlParser.o: /usr/include/machine/_structs.h
+xmlParser/xmlParser.o: /usr/include/sys/resource.h
+xmlParser/xmlParser.o: /usr/include/machine/endian.h
+xmlParser/xmlParser.o: /usr/include/i386/endian.h /usr/include/sys/_endian.h
+xmlParser/xmlParser.o: /usr/include/libkern/_OSByteOrder.h
+xmlParser/xmlParser.o: /usr/include/libkern/i386/_OSByteOrder.h
+xmlParser/xmlParser.o: /usr/include/alloca.h /usr/include/machine/types.h
+xmlParser/xmlParser.o: /usr/include/i386/types.h xmlParser/xmlParser.h
+xmlParser/xmlParser.o: /usr/include/wchar.h /usr/include/stdarg.h
+xmlParser/xmlParser.o: /usr/include/time.h /usr/include/_structs.h
+xmlParser/xmlParser.o: /usr/include/_wctype.h /usr/include/ctype.h
+xmlParser/xmlParser.o: /usr/include/runetype.h
