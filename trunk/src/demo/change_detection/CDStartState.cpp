@@ -33,7 +33,7 @@ void CDStartState::activate()
 	Controller::GetInstance()->getMouse()->addListener(this);
 
 	//show display some text here about what to do
-	World::GetInstance()->addObject("instructions", _instructions);
+	Controller::GetInstance()->getModel()->addObject("instructions", _instructions);
 }
 
 void CDStartState::handleMouseEvent(MouseEvent * me)
