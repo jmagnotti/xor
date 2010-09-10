@@ -32,10 +32,7 @@ void CDITIState::handleTick()
 	bool next = Session::GetInstance()->nextTrial();
 
 	if (!next) {
-		Session::GetInstance()->closeResultsFile();
-
-		//should probably have a closing screen
-		Controller::GetInstance()->CleanUpAndExit();
+		CDClosingState::GetInstance(_grid)->activate();
 	}
 	else {
 		CDFixateState::GetInstance(_grid)->activate();

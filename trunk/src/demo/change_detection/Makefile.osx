@@ -4,7 +4,7 @@ CC = g++
 LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain -lSDL
 
 #Packages
-SRCS = Trial.cpp ActionItem.cpp CDFixateState.cpp CDRetentionInterval.cpp CDGrid.cpp CDInitialDisplay.cpp CDSecondDisplay.cpp CDStartState.cpp CDState.cpp Helper.cpp CDDriver.cpp PrintAction.cpp RectangularHull.cpp CDITIState.cpp Session.cpp xmlParser/xmlParser.cpp
+SRCS = Trial.cpp ActionItem.cpp CDFixateState.cpp CDRetentionInterval.cpp CDGrid.cpp CDInitialDisplay.cpp CDSecondDisplay.cpp CDStartState.cpp CDState.cpp Helper.cpp CDDriver.cpp PrintAction.cpp RectangularHull.cpp CDITIState.cpp Session.cpp CDClosingState.cpp xmlParser/xmlParser.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)	
@@ -2781,6 +2781,241 @@ Session.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/stdio.h
 Session.o: /usr/include/secure/_stdio.h /usr/include/secure/_common.h
 Session.o: /usr/include/time.h /usr/include/_structs.h /usr/include/_wctype.h
 Session.o: /usr/include/ctype.h /usr/include/runetype.h Helper.h
+CDClosingState.o: CDClosingState.h CDState.h ../../xor.h ../../core/Camera.h
+CDClosingState.o: ../../core/World.h /usr/include/stdlib.h
+CDClosingState.o: /usr/include/Availability.h
+CDClosingState.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
+CDClosingState.o: /usr/include/sys/_types.h /usr/include/sys/cdefs.h
+CDClosingState.o: /usr/include/machine/_types.h /usr/include/i386/_types.h
+CDClosingState.o: /usr/include/sys/wait.h /usr/include/sys/signal.h
+CDClosingState.o: /usr/include/sys/appleapiopts.h
+CDClosingState.o: /usr/include/machine/signal.h /usr/include/i386/signal.h
+CDClosingState.o: /usr/include/i386/_structs.h /usr/include/sys/_structs.h
+CDClosingState.o: /usr/include/machine/_structs.h /usr/include/sys/resource.h
+CDClosingState.o: /usr/include/machine/endian.h /usr/include/i386/endian.h
+CDClosingState.o: /usr/include/sys/_endian.h
+CDClosingState.o: /usr/include/libkern/_OSByteOrder.h
+CDClosingState.o: /usr/include/libkern/i386/_OSByteOrder.h
+CDClosingState.o: /usr/include/alloca.h /usr/include/machine/types.h
+CDClosingState.o: /usr/include/i386/types.h ../../util/Logger.h
+CDClosingState.o: ../../core/Renderable.h ../../object3D/Object3D.h
+CDClosingState.o: ../../geometry/Vector3D.h ../../geometry/Dimension3D.h
+CDClosingState.o: ../../geometry/Dimension.h ../../geometry/Vector3D.h
+CDClosingState.o: ../../paint/Paint.h /usr/include/string.h
+CDClosingState.o: /usr/include/secure/_string.h /usr/include/secure/_common.h
+CDClosingState.o: ../../texture/Texture.h ../../geometry/Vector2D.h
+CDClosingState.o: ../../paint/Color.h ../../core/Renderable.h
+CDClosingState.o: ../../core/Window.h ../../event/reshape/ReshapeListener.h
+CDClosingState.o: ../../event/reshape/ReshapeEvent.h
+CDClosingState.o: ../../geometry/Dimension2D.h ../../geometry/Dimension2D.h
+CDClosingState.o: ../../paint/Color.h ../../transform/Orientation.h
+CDClosingState.o: /usr/include/stdio.h /usr/include/secure/_stdio.h
+CDClosingState.o: ../../transform/Transform.h ../../transform/Translate.h
+CDClosingState.o: ../../event/timer/Timer.h /usr/include/math.h
+CDClosingState.o: /usr/include/architecture/i386/math.h
+CDClosingState.o: ../../event/timer/TimerListener.h ../../event/Action.h
+CDClosingState.o: ../../interpolation/InterpolatorFactory.h
+CDClosingState.o: ../../interpolation/Interpolator.h
+CDClosingState.o: ../../interpolation/LinearInterpolator.h
+CDClosingState.o: ../../util/GraphicsConversionUtility.h
+CDClosingState.o: ../../interpolation/Interpolator.h ../../transform/Rotate.h
+CDClosingState.o: ../../event/ContinuousAction.h ../../event/Action.h
+CDClosingState.o: ../../event/timer/TimerListener.h
+CDClosingState.o: ../../event/timer/TimerListenerManager.h
+CDClosingState.o: ../../event/timer/Timer.h ../../core/Controller.h
+CDClosingState.o: ../../event/EventFactory.h ../../event/keyboard/Keyboard.h
+CDClosingState.o: ../../event/keyboard/KeyboardListener.h
+CDClosingState.o: ../../event/keyboard/KeyEvent.h
+CDClosingState.o: ../../event/keyboard/KeyEventFactory.h
+CDClosingState.o: ../../event/keyboard/KeyDownEvent.h
+CDClosingState.o: ../../event/keyboard/KeyUpEvent.h ../../event/mouse/Mouse.h
+CDClosingState.o: ../../event/mouse/MouseListener.h
+CDClosingState.o: ../../event/mouse/MouseEvent.h
+CDClosingState.o: ../../event/mouse/MouseEventFactory.h
+CDClosingState.o: ../../event/mouse/MouseButtonDown.h
+CDClosingState.o: ../../event/mouse/MouseClickEvent.h
+CDClosingState.o: ../../event/mouse/MouseButtonUp.h
+CDClosingState.o: ../../event/mouse/MouseMotionEvent.h
+CDClosingState.o: ../../event/timer/Timer.h ../../event/keyboard/Keyboard.h
+CDClosingState.o: ../../event/mouse/Mouse.h ../../object3D/Point3D.h
+CDClosingState.o: ../../object3D/Object3D.h ../../core/XavierConfiguration.h
+CDClosingState.o: ../../transform/CoordinateSystem.h ../../transform/Scale.h
+CDClosingState.o: ../../interpolation/InterpolationEngine.h
+CDClosingState.o: ../../interpolation/InterpolationListener.h
+CDClosingState.o: ../../interpolation/InterpolatorFactory.h
+CDClosingState.o: ../../event/InputEventProxyFactory.h
+CDClosingState.o: ../../event/EventFactory.h
+CDClosingState.o: ../../event/keyboard/KeyboardStub.h
+CDClosingState.o: ../../multicast/MulticastSocket.h
+CDClosingState.o: ../../multicast/Multicast.h /usr/include/sys/types.h
+CDClosingState.o: /usr/include/sys/socket.h /usr/include/machine/_param.h
+CDClosingState.o: /usr/include/i386/_param.h /usr/include/netinet/in.h
+CDClosingState.o: /usr/include/stdint.h /usr/include/netinet6/in6.h
+CDClosingState.o: /usr/include/arpa/inet.h /usr/include/unistd.h
+CDClosingState.o: /usr/include/sys/unistd.h /usr/include/sys/select.h
+CDClosingState.o: /usr/include/sys/_select.h
+CDClosingState.o: ../../multicast/MulticastSocketPool.h
+CDClosingState.o: ../../multicast/MulticastSocket.h
+CDClosingState.o: ../../event/keyboard/Keyboard.h
+CDClosingState.o: ../../event/mouse/MouseStub.h ../../event/mouse/Mouse.h
+CDClosingState.o: ../../event/timer/TimerStub.h ../../core/Camera.h
+CDClosingState.o: ../../geometry/Containment.h
+CDClosingState.o: ../../transform/OrientationListener.h
+CDClosingState.o: ../../transform/CoordinateSystemFactory.h
+CDClosingState.o: ../../transform/CoordinateSystem.h
+CDClosingState.o: ../../transform/OpenGLCoordinateSystem.h
+CDClosingState.o: ../../transform/MacCoordinateSystem.h
+CDClosingState.o: ../../transform/MathCoordinateSystem.h
+CDClosingState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDClosingState.o: ../../transform/EngineerCoordinateSystem.h
+CDClosingState.o: ../../event/timer/TimerListener.h
+CDClosingState.o: ../../event/reshape/ReshapeEvent.h
+CDClosingState.o: ../../core/CameraListener.h ../../core/Controller.h
+CDClosingState.o: ../../core/DebugCamera.h ../../core/Controller.h
+CDClosingState.o: ../../core/Renderable.h ../../core/Window.h
+CDClosingState.o: ../../core/World.h ../../core/XavierConfiguration.h
+CDClosingState.o: ../../event/Action.h ../../event/ContinuousAction.h
+CDClosingState.o: ../../event/DelayedAction.h
+CDClosingState.o: ../../event/timer/IntervalTimer.h
+CDClosingState.o: ../../event/EventFactory.h ../../event/EventPlayerFactory.h
+CDClosingState.o: ../../event/EventRecorderFactory.h ../../core/Controller.h
+CDClosingState.o: ../../event/mouse/MouseListener.h
+CDClosingState.o: ../../event/keyboard/KeyboardListener.h
+CDClosingState.o: ../../event/EventRecorderFactory.h
+CDClosingState.o: ../../event/FullEventHandlerFactory.h
+CDClosingState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDClosingState.o: ../../event/mouse/MouseSkeleton.h
+CDClosingState.o: ../../event/timer/TimerSkeleton.h
+CDClosingState.o: ../../event/FullEventProxyFactory.h
+CDClosingState.o: ../../event/InputEventHandlerFactory.h
+CDClosingState.o: ../../event/InputEventProxyFactory.h
+CDClosingState.o: ../../event/keyboard/DefaultKeyboardListener.h
+CDClosingState.o: ../../interpolation/TimedInterpolation.h
+CDClosingState.o: ../../interpolation/InterpolationEngine.h
+CDClosingState.o: ../../core/World.h ../../event/keyboard/Keyboard.h
+CDClosingState.o: ../../event/keyboard/KeyboardListener.h
+CDClosingState.o: ../../event/keyboard/KeyboardSkeleton.h
+CDClosingState.o: ../../event/keyboard/KeyboardStub.h
+CDClosingState.o: ../../event/keyboard/KeyDownEvent.h
+CDClosingState.o: ../../event/keyboard/KeyEvent.h
+CDClosingState.o: ../../event/keyboard/KeyEventFactory.h
+CDClosingState.o: ../../event/keyboard/KeyUpEvent.h
+CDClosingState.o: ../../event/keyboard/RegularKeyEvent.h
+CDClosingState.o: ../../event/keyboard/SpecialKeyEvent.h
+CDClosingState.o: ../../event/mouse/DefaultMouseListener.h
+CDClosingState.o: ../../event/mouse/Mouse.h
+CDClosingState.o: ../../event/mouse/MouseButtonDown.h
+CDClosingState.o: ../../event/mouse/MouseButtonUp.h
+CDClosingState.o: ../../event/mouse/MouseClickEvent.h
+CDClosingState.o: ../../event/mouse/MouseEvent.h
+CDClosingState.o: ../../event/mouse/MouseEventFactory.h
+CDClosingState.o: ../../event/mouse/MouseListener.h
+CDClosingState.o: ../../event/mouse/MouseMotionEvent.h
+CDClosingState.o: ../../event/mouse/MouseSkeleton.h
+CDClosingState.o: ../../event/mouse/MouseStub.h
+CDClosingState.o: ../../event/reshape/ReshapeEvent.h
+CDClosingState.o: ../../event/reshape/ReshapeListener.h
+CDClosingState.o: ../../event/timer/IntervalTimer.h ../../event/timer/Timer.h
+CDClosingState.o: ../../event/timer/TimerListener.h
+CDClosingState.o: ../../event/timer/TimerListenerManager.h
+CDClosingState.o: ../../event/timer/TimerSkeleton.h
+CDClosingState.o: ../../event/timer/TimerStub.h ../../geometry/Containment.h
+CDClosingState.o: ../../geometry/CylindricalVolume.h
+CDClosingState.o: ../../geometry/Dimension.h ../../geometry/Dimension2D.h
+CDClosingState.o: ../../geometry/Dimension3D.h
+CDClosingState.o: ../../geometry/RectangularVolume.h
+CDClosingState.o: ../../geometry/Dimension3D.h ../../geometry/Containment.h
+CDClosingState.o: ../../geometry/Vector2D.h ../../geometry/Vector3D.h
+CDClosingState.o: ../../interpolation/CameraRoller.h
+CDClosingState.o: ../../interpolation/ContinuousInterpolation.h
+CDClosingState.o: ../../interpolation/TimedInterpolation.h
+CDClosingState.o: ../../interpolation/InterpolationEngine.h
+CDClosingState.o: ../../interpolation/InterpolationListener.h
+CDClosingState.o: ../../interpolation/Interpolator.h
+CDClosingState.o: ../../interpolation/InterpolatorFactory.h
+CDClosingState.o: ../../interpolation/LinearInterpolator.h
+CDClosingState.o: ../../interpolation/TimedInterpolation.h
+CDClosingState.o: ../../interpolation/Waypoint.h
+CDClosingState.o: ../../interpolation/WaypointCollection.h
+CDClosingState.o: ../../interpolation/Waypoint.h ../../model/MilkshapeModel.h
+CDClosingState.o: ../../model/Model.h ../../texture/TextureFactory.h
+CDClosingState.o: ../../texture/Texture.h ../../model/Model.h
+CDClosingState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
+CDClosingState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
+CDClosingState.o: ../../multicast/Multicast.h
+CDClosingState.o: ../../multicast/MulticastSocket.h
+CDClosingState.o: ../../multicast/MulticastSocketPool.h
+CDClosingState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDClosingState.o: ../../object2D/Object2DCollection.h
+CDClosingState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDClosingState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
+CDClosingState.o: ../../util/BitmapFontUtil.h
+CDClosingState.o: ../../util/BitmapFontConstants.h
+CDClosingState.o: ../../object2D/Transformable2D.h
+CDClosingState.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDClosingState.o: ../../object3D/AdornablePrism.h
+CDClosingState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
+CDClosingState.o: ../../object3D/Quadrilateral3D.h
+CDClosingState.o: ../../texture/TextureScale.h
+CDClosingState.o: ../../geometry/RectangularVolume.h
+CDClosingState.o: ../../object3D/Object3DCollection.h
+CDClosingState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
+CDClosingState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
+CDClosingState.o: ../../object3D/Cube.h
+CDClosingState.o: ../../object3D/ExtrudedNormalPolygon3D.h
+CDClosingState.o: ../../object3D/NormalPolygon3D.h
+CDClosingState.o: ../../object3D/NoDepthTestQuadrilateral3D.h
+CDClosingState.o: ../../object3D/NormalPolygon3D.h ../../object3D/Object3D.h
+CDClosingState.o: ../../object3D/Object3DCollection.h
+CDClosingState.o: ../../object3D/Particle.h ../../object3D/Point3D.h
+CDClosingState.o: ../../object3D/Quadrilateral3D.h
+CDClosingState.o: ../../object3D/RectangularPrism.h
+CDClosingState.o: ../../object3D/RectangularPrismFactory.h
+CDClosingState.o: ../../object3D/Sprite3D.h ../../object3D/Sprite3DListener.h
+CDClosingState.o: ../../object3D/Sprite3DListener.h
+CDClosingState.o: ../../object3D/Transformable3D.h
+CDClosingState.o: ../../object3D/Triangle3D.h ../../paint/Color.h
+CDClosingState.o: ../../paint/Paint.h ../../shape/CollisionRenderable.h
+CDClosingState.o: ../../terrain/FunctionHeightFieldStrategy.h
+CDClosingState.o: ../../terrain/HeightFieldStrategy.h
+CDClosingState.o: ../../terrain/HeightField.h
+CDClosingState.o: ../../object3D/Quadrilateral3D.h
+CDClosingState.o: ../../terrain/HeightField.h
+CDClosingState.o: ../../terrain/HeightFieldFactory.h
+CDClosingState.o: ../../terrain/HeightFieldStrategy.h
+CDClosingState.o: ../../terrain/ImageHeightFieldStrategy.h
+CDClosingState.o: ../../terrain/MatrixHeightFieldStrategy.h
+CDClosingState.o: ../../terrain/NullHeightFieldStrategy.h
+CDClosingState.o: ../../texture/Texture.h ../../texture/TextureFactory.h
+CDClosingState.o: ../../texture/TextureScale.h
+CDClosingState.o: ../../transform/CoordinateSystem.h
+CDClosingState.o: ../../transform/CoordinateSystemFactory.h
+CDClosingState.o: ../../transform/EngineerCoordinateSystem.h
+CDClosingState.o: ../../transform/IdentityTransform.h
+CDClosingState.o: ../../transform/LeftOpenGLCoordinateSystem.h
+CDClosingState.o: ../../transform/MacCoordinateSystem.h
+CDClosingState.o: ../../transform/MathCoordinateSystem.h
+CDClosingState.o: ../../transform/OpenGLCoordinateSystem.h
+CDClosingState.o: ../../transform/Orientation.h
+CDClosingState.o: ../../transform/OrientationListener.h
+CDClosingState.o: ../../transform/Rotate.h ../../transform/Scale.h
+CDClosingState.o: ../../transform/Stretch.h ../../transform/Transform.h
+CDClosingState.o: ../../transform/Transformable.h
+CDClosingState.o: ../../transform/TransformFactory.h
+CDClosingState.o: ../../transform/Translate.h ../../util/BehaviorParser.h
+CDClosingState.o: ../../transform/TransformFactory.h
+CDClosingState.o: ../../util/BitmapFontConstants.h
+CDClosingState.o: ../../util/BitmapFontUtil.h
+CDClosingState.o: ../../util/FramesPerSecondCounter.h
+CDClosingState.o: ../../object2D/String2D.h
+CDClosingState.o: ../../util/GraphicsConversionUtility.h ../../util/Logger.h
+CDClosingState.o: ../../util/PointScale.h ../../util/xmlParser.h
+CDClosingState.o: /usr/include/wchar.h /usr/include/stdarg.h
+CDClosingState.o: /usr/include/time.h /usr/include/_structs.h
+CDClosingState.o: /usr/include/_wctype.h /usr/include/ctype.h
+CDClosingState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
+CDClosingState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
+CDClosingState.o: Helper.h
 xmlParser/xmlParser.o: /usr/include/memory.h /usr/include/string.h
 xmlParser/xmlParser.o: /usr/include/_types.h /usr/include/sys/_types.h
 xmlParser/xmlParser.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h
