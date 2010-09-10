@@ -1,4 +1,4 @@
-<Session reportingMethod='2'>
+<Session reportingMethod='1'>
 <Trials count='9'>
 	<Trial trialNumber='1' trialType='1' sampleDisplaySize='8' choiceDisplaySize='8' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1000' retentionInterval='2000' interTrialInterval='3000' >
 		<sampleStimuli>

@@ -42,7 +42,7 @@ void CDStartState::handleMouseEvent(MouseEvent * me)
 		//unregister ourself then setup for the next state
 		Controller::GetInstance()->getKeyboard()->removeListener(this);
 
-		World::GetInstance()->removeObject("instructions");
+		Controller::GetInstance()->getModel()->removeObject("instructions");
 
 		DelayedAction * da = new DelayedAction(new StartFixation(_grid), 3000);
 		da->execute();
