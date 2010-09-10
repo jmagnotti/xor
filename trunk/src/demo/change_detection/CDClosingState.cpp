@@ -15,7 +15,7 @@ void CDClosingState::activate()
 	_grid->setVisible(false);
 	Session::GetInstance()->closeResultsFile();
 
-	World::GetInstance()->addObject("instructions", _instructions);
+	Controller::GetInstance()->getModel()->addObject("instructions", _instructions);
 }
 
 CDClosingState * CDClosingState::GetInstance(CDGrid * grid)
