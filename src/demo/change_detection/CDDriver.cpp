@@ -11,8 +11,8 @@
 using namespace XOR;
 using namespace std;
 
-#define WIDTH 1680
-#define HEIGHT 1050
+#define WIDTH 1280
+#define HEIGHT 1024
 
 class MouseTracker: public TimerListener {
 public:
@@ -36,7 +36,8 @@ public:
 	}
 
 	Uint32 getVideoFlags() {
-		return (SDL_OPENGL|SDL_FULLSCREEN); }
+		return (SDL_OPENGL);//|SDL_FULLSCREEN); 
+	}
 
 	const float * getBackgroundColor() {
 		return Color::BLACK;

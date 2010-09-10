@@ -17,15 +17,31 @@ public:
 
 	static CDStartState * GetInstance(CDGrid * grid);
 
-	void handleKeyEvent(KeyEvent * ke);
+	void handleMouseEvent(MouseEvent * me);
 
 	void activate();
 
 private:
 
-	CDStartState(){}
+	Rectangle2D * _instructions;
 
 	static CDStartState * _state;
+
+	CDStartState();
+};
+
+
+class StartFixation : public XOR::Action
+{
+
+public:
+
+	StartFixation(CDGrid * grid);
+	void execute();
+
+private:
+
+	CDGrid * _grid;
 
 };
 

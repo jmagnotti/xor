@@ -34,7 +34,6 @@ void CDFixateState::activate()
 
 }
 
-
 void CDFixateState::handleTick()
 {
 	CDInitialDisplay * cdid = CDInitialDisplay::GetInstance(_grid);

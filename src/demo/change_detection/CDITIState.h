@@ -3,6 +3,7 @@
 
 #include "CDState.h"
 #include "CDFixateState.h"
+#include "CDClosingState.h"
 #include "Session.h"
 
 using namespace std;
