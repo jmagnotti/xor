@@ -35,6 +35,8 @@ private:
 
 	int _reactionTime;
 
+	bool _handled;
+
 	static CDSecondDisplay * _state;
 };
 

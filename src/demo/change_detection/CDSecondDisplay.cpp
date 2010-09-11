@@ -41,23 +41,29 @@ void CDSecondDisplay::activate()
 	_grid->setImageFiles(s->getChoiceStimulusFiles());
 
 
+	_handled = false;
 	_grid->setVisible(true);
-
+	
 	_reactionTime = Controller::GetInstance()->getTimer()->getElapsedTime(); 
 }
 
 void CDSecondDisplay::handleMouseEvent(MouseEvent * me)
 {
-	if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
-		if (Controller::GetInstance()->getMouse()->isLeftButtonDown()) {
-			handleChoice(1);
-			cout << "Chose Same" << endl;
-		}
-		else {
-			handleChoice(-1);
-			cout << "Chose Different" << endl;
-		}
+	if (! _handled) { 
+		if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
 
+			_handled = true;
+
+			if (Controller::GetInstance()->getMouse()->isLeftButtonDown()) {
+				handleChoice(1);
+				cout << "Chose Same" << endl;
+			}
+			else {
+				handleChoice(-1);
+				cout << "Chose Different" << endl;
+			}
+
+		}
 	}
 }
 

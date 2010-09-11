@@ -80,7 +80,7 @@ int main(int argc, char * argv[]) {
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
 	//hide the mouse
-	//SDL_ShowCursor(0);
+	SDL_ShowCursor(0);
 
 	//Print action notifies the appropriate CDState of the clicked action item
 	PrintAction * pa;
@@ -95,8 +95,11 @@ int main(int argc, char * argv[]) {
 	vector<Vector2D*> _positions = buildPositionArray();
 
 	pa = new PrintAction(0);
+
 	Vector2D *offset = new Vector2D(50, 50);
+
 	p = new Paint(Color::YELLOW);
+
 	rect = new Rectangle2D((*_positions[0]) + offset,
 			new Dimension2D(128, 128), p);
 
@@ -116,14 +119,15 @@ int main(int argc, char * argv[]) {
 	}
 
 	ctrl->setModel(cdg);
-
 	ctrl->getMouse()->addListener(cdg);
-
 	ctrl->getKeyboard()->addListener(new DefaultKeyboardListener());
 
 	cout << "Argc: " << argc << endl;
+
 	if (argc > 2)
-		Session::GetInstance(argv[1], argv[2]);
+		Session::GetInstance(argv[1], argv[2], atoi(argv[3]));
+	else if (argc > 2)
+		Session::GetInstance(argv[1], argv[2], time(NULL));
 	else if (argc > 1)
 		Session::GetInstance(argv[1], "result.tmp");
 	else

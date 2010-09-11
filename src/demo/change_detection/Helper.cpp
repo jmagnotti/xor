@@ -33,6 +33,13 @@ void Helper::Reorder(vector<int> * a)
 
 }
 
+void Helper::Reorder(vector<Trial*> * a, int seed)
+{
+	srand(seed);
+	Reorder(a);
+}
+
+
 void Helper::Reorder(vector<Trial*> * a)
 {
 	int size = a->size();

@@ -7,7 +7,7 @@ Session * Session::_session = NULL;
 const int Session::METHOD_CHANGE_NOCHANGE	= 1;
 const int Session::METHOD_WHICH_CHANGED		= 2;
 
-Session::Session(const char * xmlFile, const char * outputFile)
+Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 {
 	XMLNode session = XMLNode::openFileHelper(xmlFile, "Session");
 	XMLNode trials = session.getChildNode("Trials");
@@ -23,12 +23,13 @@ Session::Session(const char * xmlFile, const char * outputFile)
 
 	_reportingMethod = atoi(session.getAttribute("reportingMethod"));
 
+	_id = id;
+
 	//print some header info into the file
 	ofstream fout;
 	fout.open(_outputFile.c_str());
-	fout 	<< "<Session id='' reportingMethod='" << _reportingMethod << "' >" << endl;
+	fout 	<< "<Session id='" << _id << "' reportingMethod='" << _reportingMethod << "' >" << endl;
 	fout.close();
-
 }
 
 void Session::recordChoice(int location, int responseTime)
@@ -68,10 +69,10 @@ int Session::getCurrentTrial()
 	return _currentTrial;
 }
 
-Session * Session::GetInstance(const char * xmlFile, const char * outputFile)
+Session * Session::GetInstance(const char * xmlFile, const char * outputFile, int id)
 {
 	if (NULL == _session) 
-		_session = new Session(xmlFile, outputFile);
+		_session = new Session(xmlFile, outputFile, id);
 
 	return _session;
 }
@@ -131,6 +132,11 @@ int Session::getFixationDuration()
 int Session::getSampleDisplayDuration() 
 {
 	return _trials[_currentTrial-1]->getSampleDisplayDuration();
+}
+
+int Session::getID()
+{
+	return _id;
 }
 
 string Session::getFixationFile(){
