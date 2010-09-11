@@ -124,7 +124,7 @@ int main(int argc, char * argv[]) {
 
 	cout << "Argc: " << argc << endl;
 
-	if (argc > 2)
+	if (argc > 3)
 		Session::GetInstance(argv[1], argv[2], atoi(argv[3]));
 	else if (argc > 2)
 		Session::GetInstance(argv[1], argv[2], time(NULL));
