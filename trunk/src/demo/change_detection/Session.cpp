@@ -28,7 +28,7 @@ Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 	//print some header info into the file
 	ofstream fout;
 	fout.open(_outputFile.c_str());
-	fout 	<< "<Session id='" << _id << "' reportingMethod='" << _reportingMethod << "' >" << endl;
+	fout 	<< "<Session id='" << _id << "' reportingMethod='" << _reportingMethod << "' label='" << session.getAttribute("label") << "'>" << endl;
 	fout.close();
 }
 
