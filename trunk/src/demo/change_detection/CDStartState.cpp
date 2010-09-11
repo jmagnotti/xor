@@ -47,6 +47,7 @@ void CDStartState::handleMouseEvent(MouseEvent * me)
 		DelayedAction * da = new DelayedAction(new StartFixation(_grid), 3000);
 		da->execute();
 		
+		Controller::GetInstance()->getMouse()->removeListener(this);
 	}
 }
 

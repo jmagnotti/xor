@@ -19,6 +19,12 @@ public:
 	static void Reorder(vector<Trial*> * a);
 
 	/**
+	 * Passing in a seed allows us to randomize two vectors in the same way.
+	 * Useful for matched trials. Just sets the seed and calls Reorder(a);
+	 */
+	static void Reorder(vector<Trial*> * a, int seed);
+
+	/**
 	 * Provide haystack and the needle. Returns position or -1
 	 */
 	static int FindInVec(vector<int>,  int);

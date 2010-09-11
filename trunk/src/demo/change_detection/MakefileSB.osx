@@ -3,7 +3,7 @@ MKDP = makedepend
 
 CC = g++
 CFLAGS = -O2
-LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain -lSDL
+LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain 
 
 SRCS = Trial.cpp Helper.cpp SessionBuilder.cpp xmlParser/xmlParser.cpp
 

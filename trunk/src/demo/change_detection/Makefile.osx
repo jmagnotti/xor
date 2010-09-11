@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++ 
-LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain -lSDL
+LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain 
 
 #Packages
 SRCS = Trial.cpp ActionItem.cpp CDFixateState.cpp CDRetentionInterval.cpp CDGrid.cpp CDInitialDisplay.cpp CDSecondDisplay.cpp CDStartState.cpp CDState.cpp Helper.cpp CDDriver.cpp PrintAction.cpp RectangularHull.cpp CDITIState.cpp Session.cpp CDClosingState.cpp xmlParser/xmlParser.cpp

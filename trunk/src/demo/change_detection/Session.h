@@ -19,10 +19,11 @@ public:
 	static const int METHOD_WHICH_CHANGED;
 
 	/**
-	 * const char *: The xml file containing "Trials"
-	 * const char *: the file to store results in
+	 * const char *	: The xml file containing "Trials"
+	 * const char *	: The file to store results in
+	 * int			: int to put in the session, defaults to 0
 	 */
-	static Session * GetInstance(const char *, const char *);
+	static Session * GetInstance(const char *, const char *, int id=0);
 	static Session * GetInstance();
 
 	/**
@@ -96,10 +97,15 @@ public:
 
 	//printSession(char * filePath)
 
+	/**
+	 * Returns the user-specified session ID, or 0
+	 */
+	int getID();
+
 private:
 
 	Session();
-	Session(const char *, const char *);
+	Session(const char *, const char *, int);
 
 	vector<int> _probeDelays;
 
@@ -107,6 +113,7 @@ private:
 
 	int _currentTrial;
 	int _reportingMethod;
+	int _id;
 
 	string _outputFile;
 
