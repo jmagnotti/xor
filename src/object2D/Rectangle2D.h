@@ -85,6 +85,11 @@ public:
      */
     Paint * getPaint();
 
+	/**
+	 * Nudges the Rectangle2D by a fixed amount
+	 */
+	void nudge(Vector2D * offset);
+
 
 private:
 
