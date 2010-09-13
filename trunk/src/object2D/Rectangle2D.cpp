@@ -169,5 +169,15 @@ Dimension2D * Rectangle2D::getDimension()
 			_finish->getY() - _start->getY());
 }
 
+
+/*
+ * in-place translation
+ */
+void Rectangle2D::nudge(Vector2D * offset)
+{
+	_start->increment(offset);
+	_finish->increment(offset);
+}
+
 }
 
