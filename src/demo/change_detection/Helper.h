@@ -46,6 +46,14 @@ public:
 	 */
 	static void FreshSampleWOReplacement(vector<int> pop, vector<int> * sample, vector<int> stale, int n);
 
+	/**
+	 * Singleton seed function
+	 */
+	static void SeedGenerator();
+
+private:
+	static bool _seeded;
+
 };
 
 #endif			// HELPER_H

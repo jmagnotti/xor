@@ -22,6 +22,7 @@ void CDInitialDisplay::activate()
 
 	_grid->setVisibleLocations(s->getSampleStimulusLocations());
 	_grid->setImageFiles(s->getSampleStimulusFiles());
+	_grid->jitter();
 	_grid->setVisible(true);
 
 	IntervalTimer::GetInstance()->addListener(this, s->getSampleDisplayDuration(), false);

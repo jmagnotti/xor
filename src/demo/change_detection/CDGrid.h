@@ -82,10 +82,17 @@ public:
 	 */
 	bool isVisible();
 
-
 	void setVisibleLocations(vector<int>);
 
 	void setImageFiles(vector<string>);
+
+	/**
+	 * Pass-through to ALL Action Items, not just currently active ones (except
+	 * fixation). Must do all because jitter at initial display, but need to
+	 * nudge choice display items as well, and calling it then would result in
+	 * double-nudging for all "no-change" items
+	 */
+	void jitter();
 
 private:
 
@@ -99,7 +106,7 @@ private:
 	Dimension2D * _size;
 	Vector2D * _origin;
 
-	bool _visible, _mouseHandle;
+	bool _visible, _mouseHandle, _jitter;
 };
 
 

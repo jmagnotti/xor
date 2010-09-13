@@ -14,10 +14,17 @@ CDGrid::CDGrid()
 	_mouseHandle = false;
 }
 
+void CDGrid::jitter()
+{
+	//don't jitter fixation
+	for(int i=1; i<_actions.size(); i++) {
+		_actions[i]->jitter();
+	}
+}
+
 void CDGrid::rebuildImages()
 {
 	for(int i=0; i<_locations.size(); i++) {
-		//cout << "Trying to build: " << _imageFiles[i] << endl;
 		Paint * p = new Paint(TextureFactory::GetInstance()->createTexture(_imageFiles[i].c_str()));
 		_actions[_locations[i]]->setPaint(p);
 	}
