@@ -2,6 +2,8 @@
 
 using namespace std;
 
+bool Helper::_seeded = false;
+
 /*
  * returns the index associated with the given value for the given vector
  * returns -1 if the needle was not in the haystack
@@ -109,6 +111,11 @@ void Helper::PrintVector(vector<int> a) {
 		cout << "\t" << a[i];
 
 	cout << endl;
+}
+
+void Helper::SeedGenerator()
+{
+	if (! _seeded) { srand(time(NULL)); _seeded = true; }
 }
 
 /**

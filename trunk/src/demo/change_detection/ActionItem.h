@@ -3,6 +3,7 @@
 
 #include "../../xor.h"
 #include "RectangularHull.h"
+#include "Helper.h"
 
 using namespace XOR;
 
@@ -55,11 +56,31 @@ public:
 
 	void setPaint(Paint *p);
 
+	/*
+	 * Maximal, per-axis (X,Y) threshold
+	 */
+	void setJitterThreshold(int threshold);
+
+	/**
+	 * Peturb image location according to <X,Y> iid U[-threshold, threshold]
+	 * Jitters based on ORIGINAL item location, so setting Jitter threshold
+	 * sets a bounding box for the movement space of the point of origin.
+	 * 
+	 * The bounding box for the ActionItem is updated after each call to jitter();
+	 */
+	void jitter();
+
 private:
+
+	void updateBoundingBox();
+
 	Action * _action;
 	bool _downInBounds;
 	Rectangle2D * _picture;
+	
 	RectangularHull * _bounds;
+	int _jitterThreshold;
+	Vector2D * _jitterVector;
 };
 
 #endif			// ACTIONITEM_H
