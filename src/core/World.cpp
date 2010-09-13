@@ -127,7 +127,9 @@ void World::renderObject()
 	map<string, Renderable*>::iterator finish = _objects.end();
 
     while(iter != finish) {
-        iter->second->render();
+		if (iter->second != NULL)
+			iter->second->render();
+
         ++iter;
     }
 #ifdef DEBUG
