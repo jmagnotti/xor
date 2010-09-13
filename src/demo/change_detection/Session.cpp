@@ -27,28 +27,27 @@ Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 
 	//check if output file already exists.
 	//if so, create new name that appends system time
-	ifstream test;
-	test.open(_outputFile.c_str());
-
 	string originalFileName = _outputFile;
 
-	int i=2;
+	int i=100;
+	ifstream test;
+	stringstream newname("");
+	newname << originalFileName << i << ".xml";
+	_outputFile = newname.str();
+	test.open(_outputFile.c_str());
+
+	//this means the file exists, create a new name	
 	while (test.is_open()) {
+		i++;
 		test.close();
-		//this means the file exists, create a new name	
-		stringstream newname("");
 
-		newname << originalFileName << i;
-
+		newname.str("");
+		newname << originalFileName << i << ".xml";
 		_outputFile = newname.str();
 
-		newname.flush();
-		newname.str("");
 		cout << "New output file: " << _outputFile << endl;
 
 		test.open(_outputFile.c_str());
-
-		i++;
 	}
 	test.close();
 
