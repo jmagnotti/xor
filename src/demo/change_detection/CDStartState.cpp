@@ -41,16 +41,15 @@ void CDStartState::handleMouseEvent(MouseEvent * me)
 	if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
 		//unregister ourself then setup for the next state
 		Controller::GetInstance()->getKeyboard()->removeListener(this);
-
 		Controller::GetInstance()->getModel()->removeObject("instructions");
 
+		//wait 3s before starting the fixation screen
 		DelayedAction * da = new DelayedAction(new StartFixation(_grid), 3000);
 		da->execute();
 		
 		Controller::GetInstance()->getMouse()->removeListener(this);
 	}
 }
-
 
 StartFixation::StartFixation(CDGrid * grid)
 {

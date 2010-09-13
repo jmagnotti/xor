@@ -3,6 +3,9 @@
 const int Trial::NO_CHANGE_TRIAL = 0;
 const int Trial::CHANGE_TRIAL = 1;
 
+const int Trial::CHOOSE_CHANGE = -1;
+const int Trial::CHOOSE_NO_CHANGE = -2;
+
 Trial::Trial()
 {}
 
@@ -11,10 +14,12 @@ void Trial::recordChoice(string outputFile, int location, int responseTime)
 	ofstream fout;
 	fout.open(outputFile.c_str(), ios::app);
 	fout 	<< "\t<Trial trialNumber='" << _trialNumber << "' trialType='" << _trialType << "' "
+			<< "trialLabel='" << (_trialType==CHANGE_TRIAL? "change" : "no-change") << "' "
 
 			//--newly aded for response encoding
 			<< "choiceLocation='" << location << "' "
 			<< "responseTime='" << responseTime << "' "
+			<< "choiceLabel='" << (location==CHOOSE_CHANGE? "change" : "no-change") << "' "
 			//--
 
 			<< "sampleDisplaySize='" << _sampleDisplaySize << "' "
@@ -55,7 +60,6 @@ Trial::Trial(XMLNode trialNode)
 
 	_fixationDuration = atoi(trialNode.getAttribute("fixationDuration"));
 	_fixationImageFile = string(trialNode.getAttribute("fixationImageFile"));
-	//cout << "Read FI img: " << _fixationImageFile << endl;
 
 	_sampleDisplayDuration = atoi(trialNode.getAttribute("sampleDisplayDuration"));
 
@@ -66,14 +70,12 @@ Trial::Trial(XMLNode trialNode)
 	for(int i=0; i<_sampleDisplaySize; i++) {
 		_sampleStimulusLocations.push_back(atoi(sampleStimuli.getChildNode(i).getAttribute("location")));
 		_sampleStimulusFiles.push_back(string(sampleStimuli.getChildNode(i).getAttribute("imageFile")));
-		//cout << "Read SMP img: " << _sampleStimulusFiles[i] << endl;
 	}
 
 	XMLNode choiceStimuli = trialNode.getChildNode("choiceStimuli");
 	for(int i=0; i<_choiceDisplaySize; i++) {
 		_choiceStimulusLocations.push_back(atoi(choiceStimuli.getChildNode(i).getAttribute("location")));
 		_choiceStimulusFiles.push_back(string(choiceStimuli.getChildNode(i).getAttribute("imageFile")));
-		//cout << "Read CH img: " << _choiceStimulusFiles[i] << endl;
 	}
 }
 

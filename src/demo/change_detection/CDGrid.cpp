@@ -38,9 +38,6 @@ void CDGrid::handleMouseEvent(MouseEvent * me)
 	if (_mouseHandle) {
 		for(int i=0; i<_locations.size(); i++)
 			_actions[_locations[i]]->handleMouseEvent(me);
-
-
-		//Mouse::ForceMove(1024,768);
 	}
 }
 
@@ -93,12 +90,5 @@ void CDGrid::setImageFiles(vector<string> imgFiles)
 void CDGrid::setMouseListen(bool flag)
 {
 	_mouseHandle = flag;
-
-	if (_mouseHandle)
-		SDL_EventState(SDL_MOUSEMOTION, SDL_ENABLE);
-	else
-		SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
-
 }
-
 
