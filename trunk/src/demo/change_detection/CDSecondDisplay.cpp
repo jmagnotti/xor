@@ -55,14 +55,11 @@ void CDSecondDisplay::handleMouseEvent(MouseEvent * me)
 			_handled = true;
 
 			if (Controller::GetInstance()->getMouse()->isLeftButtonDown()) {
-				handleChoice(1);
-				cout << "Chose Same" << endl;
+				handleChoice(Trial::CHOOSE_CHANGE);
 			}
 			else {
-				handleChoice(-1);
-				cout << "Chose Different" << endl;
+				handleChoice(Trial::CHOOSE_NO_CHANGE);
 			}
-
 		}
 	}
 }

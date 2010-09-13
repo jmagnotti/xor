@@ -23,7 +23,6 @@ void CDFixateState::activate()
 {
 	Session * s = Session::GetInstance();
 
-	//this is a vector to avoid overloading method in CDGrid
 	_fixationImageFile[0] = s->getFixationFile();
 
 	_grid->setVisibleLocations(_fixationLocation);
@@ -31,7 +30,6 @@ void CDFixateState::activate()
 	_grid->setVisible(true);
 
 	IntervalTimer::GetInstance()->addListener(this, s->getFixationDuration(), false);
-
 }
 
 void CDFixateState::handleTick()

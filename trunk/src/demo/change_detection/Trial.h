@@ -15,6 +15,9 @@ public:
 	static const int NO_CHANGE_TRIAL;
 	static const int CHANGE_TRIAL;
 
+	static const int CHOOSE_CHANGE;
+	static const int CHOOSE_NO_CHANGE;
+
 	/**
 	 * int: trial type, CHANGE_TRIAL or NO_CHANGE_TRIAL
 	 * int: sample display size

@@ -32,7 +32,6 @@ void CDRetentionInterval::activate()
 	}
 }
 
-
 void CDRetentionInterval::handleTick()
 {
 	CDSecondDisplay * cdsd = CDSecondDisplay::GetInstance(_grid);

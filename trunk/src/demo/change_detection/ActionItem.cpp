@@ -32,19 +32,8 @@ Dimension2D * ActionItem::getHull()
 void ActionItem::handleMouseEvent(MouseEvent * me)
 {
     Mouse * mouse = Controller::GetInstance()->getMouse();
-
-
-	//
-	//This stuff goes kind of bonkers when working with the 
-	//touchscreen, as you just get a serious of disconnected tapping
-	//Having the action tied to MouseUp seems to alleviate the issues
-	//
 	
-    if (me->getType() == MouseEvent::MOUSE_BUTTON_DOWN) {
-        if(_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
-			execute();
-    }
-    else if (me->getType() == MouseEvent::MOUSE_BUTTON_UP) {
+    if (me->getType() == MouseEvent::MOUSE_BUTTON_UP) {
         if(_bounds->inHull(mouse->getCurrentX(), mouse->getCurrentY()))
 			execute();
     }

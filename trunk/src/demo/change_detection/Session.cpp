@@ -1,5 +1,6 @@
 #include "Session.h"
 #include <cstdlib>
+#include <sstream>
 
 Session * Session::_session = NULL;
 
@@ -12,7 +13,6 @@ Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 	XMLNode session = XMLNode::openFileHelper(xmlFile, "Session");
 	XMLNode trials = session.getChildNode("Trials");
 	
-	
 	for(int i=0; i<atoi(trials.getAttribute("count")); i++) {
 		_trials.push_back(new Trial(trials.getChildNode(i)));
 	}
@@ -24,6 +24,33 @@ Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 	_reportingMethod = atoi(session.getAttribute("reportingMethod"));
 
 	_id = id;
+
+	//check if output file already exists.
+	//if so, create new name that appends system time
+	ifstream test;
+	test.open(_outputFile.c_str());
+
+	string originalFileName = _outputFile;
+
+	int i=2;
+	while (test.is_open()) {
+		test.close();
+		//this means the file exists, create a new name	
+		stringstream newname("");
+
+		newname << originalFileName << i;
+
+		_outputFile = newname.str();
+
+		newname.flush();
+		newname.str("");
+		cout << "New output file: " << _outputFile << endl;
+
+		test.open(_outputFile.c_str());
+
+		i++;
+	}
+	test.close();
 
 	//print some header info into the file
 	ofstream fout;
