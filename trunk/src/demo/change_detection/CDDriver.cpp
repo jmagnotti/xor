@@ -152,7 +152,7 @@ int main(int argc, char * argv[]) {
 	pa = new PrintAction(0);
 
 	p = new Paint(Color::YELLOW);
-	rect = new Rectangle2D(_positions[0], new Dimension2D(128, 128), p);
+	rect = new Rectangle2D(_positions[0], new Dimension2D(64, 64), p);
 
 	ai = new ActionItem(pa, rect);
 	cdg->addAction(ai);
@@ -178,7 +178,7 @@ int main(int argc, char * argv[]) {
 	else if (argc > 1)
 		Session::GetInstance(argv[1], "result.tmp");
 	else
-		Session::GetInstance("sdTrials.xml", "result.tmp");
+		Session::GetInstance("cncShortTrials.xml", "result.tmp");
 	
 
 	CDStartState * cdss = CDStartState::GetInstance(cdg);
