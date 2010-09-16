@@ -33,7 +33,6 @@ void CDGrid::rebuildImages()
 void CDGrid::renderObject()
 {
     if (_visible) {
-
 		for(int l=0; l<_locations.size(); l++) {
 			_actions[_locations[l]]->renderObject();
 		}
