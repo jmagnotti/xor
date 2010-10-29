@@ -39,19 +39,11 @@
 	</StimulusSet>
 
 	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 0 -->
-	<StimuliSample type='balanced' trialCount='180'>
-		<TrialTypes count='9'>
-			<trialType label='4:4' sample='4' choice='4' stimulusClass='ColoredSquares' />
+	<StimuliSample type='balanced' trialCount='6'>
+		<TrialTypes count='3'>
 			<trialType label='4:2' sample='4' choice='2' stimulusClass='ColoredSquares' />
-			<trialType label='4:1' sample='4' choice='1' stimulusClass='ColoredSquares' />
-
-			<trialType label='6:6' sample='6' choice='6' stimulusClass='ColoredSquares' />
+			<trialType label='5:3' sample='5' choice='3' stimulusClass='ColoredSquares' />
 			<trialType label='6:3' sample='6' choice='3' stimulusClass='ColoredSquares' />
-			<trialType label='6:1' sample='6' choice='1' stimulusClass='ColoredSquares' />
-
-			<trialType label='8:8' sample='8' choice='8' stimulusClass='ColoredSquares' />
-			<trialType label='8:4' sample='8' choice='4' stimulusClass='ColoredSquares' />
-			<trialType label='8:1' sample='8' choice='1' stimulusClass='ColoredSquares' />
 		</TrialTypes>
 	</StimuliSample>
 </SessionParameters>
