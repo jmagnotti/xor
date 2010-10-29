@@ -1,5 +1,5 @@
 <SessionParameters>
-	<ReportingMethod type='2' label='Forced-Choice' />
+	<ReportingMethod type='4' label='Forced-Choice' />
 
 	<Fixation duration='500' type='Interval' imageFile='images/fixation.jpg' />
 	<FixationInterval duration='0' type='Interval' />
@@ -38,8 +38,7 @@
 		</StimulusClass>
 	</StimulusSet>
 
-	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 
-		0 -->
+	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 0 -->
 	<StimuliSample type='balanced' trialCount='18'>
 		<TrialTypes count='9'>
 			<trialType label='4:4' sample='4' choice='4' stimulusClass='ColoredCircles' />

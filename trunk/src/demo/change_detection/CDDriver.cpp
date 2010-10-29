@@ -14,13 +14,16 @@ using namespace std;
 #define WIDTH 1280
 #define HEIGHT 1024
 
+//not currently used
+#define STIMULUS_SIZE 32
+
 class CDConfig: public XavierConfiguration {
 public:
 	CDConfig() { }
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL|SDL_FULLSCREEN); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL); } //|SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
@@ -134,7 +137,6 @@ int main(int argc, char * argv[]) {
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
 	//hide the mouse
-	//SDL_ShowCursor(0);
 	SDL_SetCursor(getCursor());
 
 	//Print action notifies the appropriate CDState of the clicked action item
