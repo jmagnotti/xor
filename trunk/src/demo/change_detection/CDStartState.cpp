@@ -10,8 +10,15 @@ CDStartState::CDStartState()
 	if (Session::GetInstance()->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE) {
 		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrSD.png"));
 	}
-	else {
+	else if (Session::GetInstance()->getReportingMethod() == Session::METHOD_WHICH_CHANGED) {
 		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrFC.png"));
+	}
+	else if (Session::GetInstance()->getReportingMethod() == Session::METHOD_SAME_DIFF) {
+		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrSameOrDiff.png"));
+	}
+	else //(Session::GetInstance()->getReportingMethod() == Session::METHOD_CHOOSE_SAME) 
+    {
+		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrChooseSame.png"));
 	}
 
 	_instructions = new Rectangle2D(new Vector2D(100, 100), new Vector2D(1180, 924), p);

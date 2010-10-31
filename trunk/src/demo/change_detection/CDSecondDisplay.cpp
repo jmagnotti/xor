@@ -37,6 +37,14 @@ void CDSecondDisplay::activate()
 		_grid->setMouseListen(true);
 	}
 
+/**
+    vector<string> files = s->getChoiceStimulusFiles();
+    vector<int>    locs  = s->getChoiceStimulusLocations();
+    for(int i=0; i<files.size(); i++)
+        cout << files[i] << ", " << locs[i] << "| \t";
+    cout << endl;
+*/
+
 	_grid->setVisibleLocations(s->getChoiceStimulusLocations());
 	_grid->setImageFiles(s->getChoiceStimulusFiles());
 

@@ -20,6 +20,14 @@ void CDInitialDisplay::activate()
 {
 	Session * s = Session::GetInstance();
 
+/**
+    vector<string>  files   = s->getSampleStimulusFiles();
+    vector<int>     locs    = s->getSampleStimulusLocations();
+    for(int i=0; i<files.size(); i++)
+        cout << files[i] << ", " << locs[i] << "| \t";
+    cout << endl;
+*/
+
 	_grid->setVisibleLocations(s->getSampleStimulusLocations());
 	_grid->setImageFiles(s->getSampleStimulusFiles());
 	_grid->jitter();
