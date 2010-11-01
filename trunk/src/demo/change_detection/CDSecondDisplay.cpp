@@ -30,7 +30,7 @@ void CDSecondDisplay::activate()
 {
 	Session * s = Session::GetInstance();
 
-	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE) {
+	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE || s->getReportingMethod() == Session::METHOD_SAME_DIFF) {
 		Controller::GetInstance()->getMouse()->addListener(this);
 	}
 	else {
