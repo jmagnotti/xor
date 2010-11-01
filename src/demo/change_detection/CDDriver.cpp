@@ -23,7 +23,7 @@ public:
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL); } //|SDL_FULLSCREEN); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL|SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
