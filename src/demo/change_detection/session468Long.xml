@@ -4,11 +4,11 @@
 	<Fixation duration='500' type='Interval' imageFile='images/fixation.jpg' />
 	<FixationInterval duration='0' type='Interval' />
 	<SampleDisplay duration='1000' type='Interval' />
-	<RetentionInterval duration='2000' type='Interval' />
+	<RetentionInterval duration='1500' type='Interval' />
 
 	<!--this is basically ignored for now -->
 	<ChoiceDisplay duration='1' type='Ratio' />
-	<IntertrialInterval duration='3000' type='Interval' />
+	<IntertrialInterval duration='2000' type='Interval' />
 
 	<StimulusSet>
 		<StimulusClass name='StroopWords'>
