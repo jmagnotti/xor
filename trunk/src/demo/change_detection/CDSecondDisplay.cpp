@@ -80,7 +80,7 @@ void CDSecondDisplay::handleChoice(int location)
 	Session * s = Session::GetInstance();
 	s->recordChoice(location, _reactionTime);
 
-	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE) {
+	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE || s->getReportingMethod() == Session::METHOD_SAME_DIFF) {
 		Controller::GetInstance()->getMouse()->removeListener(this);
 	}
 	else {

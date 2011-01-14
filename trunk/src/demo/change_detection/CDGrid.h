@@ -94,6 +94,11 @@ public:
 	 */
 	void jitter();
 
+    /**
+     * Connect the dots according to random node traversal
+     */
+	void rebuildConstellation();
+
 private:
 
 	void rebuildImages();
@@ -102,11 +107,13 @@ private:
 	vector<int>	_locations;
 	vector<string>	_imageFiles;
 
+    vector<Line2D*> _lines;
+
 	RectangularHull * _bounds;
 	Dimension2D * _size;
 	Vector2D * _origin;
 
-	bool _visible, _mouseHandle, _jitter;
+	bool _visible, _mouseHandle, _jitter, _constellation;
 };
 
 

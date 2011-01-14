@@ -38,6 +38,11 @@ public:
 	 */
 	static void SampleWOReplacement(vector<int> pop, vector<int> * sample, int n);
 
+    /**
+     * Allows nRepeats number of duplicates in obtaining the n samples
+    */
+	static void SampleWithLimitedReplacement(vector<int> pop, vector<int> * sample, int nRepeats, int n);
+
 	/**
 	 * Calculates a sample of size n ensuring that each sample[i] is not found in stale
 	 * There's probably a faster way to do this...

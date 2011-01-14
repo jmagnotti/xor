@@ -19,6 +19,7 @@ public:
 	static const int METHOD_WHICH_CHANGED;
 	static const int METHOD_SAME_DIFF;
 	static const int METHOD_CHOOSE_SAME;
+	static const int METHOD_RANDLOC_CHOOSE_SAME;
 
 	/**
 	 * const char *	: The xml file containing "Trials"

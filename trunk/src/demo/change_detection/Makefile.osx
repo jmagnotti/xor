@@ -203,11 +203,12 @@ ActionItem.o: ../../texture/Texture.h ../../model/Model.h
 ActionItem.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 ActionItem.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 ActionItem.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-ActionItem.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
-ActionItem.o: ../../core/Window.h ../../object2D/Object2DCollection.h
-ActionItem.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-ActionItem.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-ActionItem.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+ActionItem.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
+ActionItem.o: ../../object2D/Object2D.h ../../core/Window.h
+ActionItem.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
+ActionItem.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+ActionItem.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+ActionItem.o: ../../util/BitmapFontConstants.h
 ActionItem.o: ../../object2D/Transformable2D.h
 ActionItem.o: ../../transform/Transformable.h ../../transform/Transform.h
 ActionItem.o: ../../object3D/AdornablePrism.h
@@ -260,6 +261,7 @@ ActionItem.o: ../../util/PointScale.h ../../util/xmlParser.h
 ActionItem.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 ActionItem.o: /usr/include/_structs.h /usr/include/_wctype.h
 ActionItem.o: /usr/include/ctype.h /usr/include/runetype.h RectangularHull.h
+ActionItem.o: Helper.h Trial.h xmlParser/xmlParser.h
 CDFixateState.o: CDFixateState.h CDState.h ../../xor.h ../../core/Camera.h
 CDFixateState.o: ../../core/World.h /usr/include/stdlib.h
 CDFixateState.o: /usr/include/Availability.h
@@ -424,9 +426,9 @@ CDFixateState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDFixateState.o: ../../multicast/Multicast.h
 CDFixateState.o: ../../multicast/MulticastSocket.h
 CDFixateState.o: ../../multicast/MulticastSocketPool.h
-CDFixateState.o: ../../object2D/Object2D.h ../../core/Window.h
-CDFixateState.o: ../../object2D/Object2DCollection.h
-CDFixateState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
+CDFixateState.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+CDFixateState.o: ../../core/Window.h ../../object2D/Object2D.h
+CDFixateState.o: ../../object2D/Object2DCollection.h ../../object2D/Point2D.h
 CDFixateState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
 CDFixateState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
 CDFixateState.o: ../../object2D/Transformable2D.h
@@ -490,9 +492,9 @@ CDFixateState.o: /usr/include/wchar.h /usr/include/stdarg.h
 CDFixateState.o: /usr/include/time.h /usr/include/_structs.h
 CDFixateState.o: /usr/include/_wctype.h /usr/include/ctype.h
 CDFixateState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
-CDFixateState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
-CDFixateState.o: Helper.h CDInitialDisplay.h CDRetentionInterval.h
-CDFixateState.o: CDSecondDisplay.h CDITIState.h
+CDFixateState.o: RectangularHull.h Helper.h Trial.h xmlParser/xmlParser.h
+CDFixateState.o: Session.h CDInitialDisplay.h CDRetentionInterval.h
+CDFixateState.o: CDSecondDisplay.h CDITIState.h CDClosingState.h
 CDRetentionInterval.o: CDRetentionInterval.h CDState.h ../../xor.h
 CDRetentionInterval.o: ../../core/Camera.h ../../core/World.h
 CDRetentionInterval.o: /usr/include/stdlib.h /usr/include/Availability.h
@@ -679,11 +681,11 @@ CDRetentionInterval.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDRetentionInterval.o: ../../multicast/Multicast.h
 CDRetentionInterval.o: ../../multicast/MulticastSocket.h
 CDRetentionInterval.o: ../../multicast/MulticastSocketPool.h
-CDRetentionInterval.o: ../../object2D/Object2D.h ../../core/Window.h
+CDRetentionInterval.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+CDRetentionInterval.o: ../../core/Window.h ../../object2D/Object2D.h
 CDRetentionInterval.o: ../../object2D/Object2DCollection.h
-CDRetentionInterval.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDRetentionInterval.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDRetentionInterval.o: ../../util/BitmapFontUtil.h
+CDRetentionInterval.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDRetentionInterval.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 CDRetentionInterval.o: ../../util/BitmapFontConstants.h
 CDRetentionInterval.o: ../../object2D/Transformable2D.h
 CDRetentionInterval.o: ../../transform/Transformable.h
@@ -754,9 +756,10 @@ CDRetentionInterval.o: ../../util/xmlParser.h /usr/include/wchar.h
 CDRetentionInterval.o: /usr/include/stdarg.h /usr/include/time.h
 CDRetentionInterval.o: /usr/include/_structs.h /usr/include/_wctype.h
 CDRetentionInterval.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
-CDRetentionInterval.o: ActionItem.h RectangularHull.h Session.h Trial.h
-CDRetentionInterval.o: xmlParser/xmlParser.h Helper.h CDSecondDisplay.h
+CDRetentionInterval.o: ActionItem.h RectangularHull.h Helper.h Trial.h
+CDRetentionInterval.o: xmlParser/xmlParser.h Session.h CDSecondDisplay.h
 CDRetentionInterval.o: CDITIState.h CDFixateState.h CDInitialDisplay.h
+CDRetentionInterval.o: CDClosingState.h
 CDGrid.o: CDGrid.h ../../xor.h ../../core/Camera.h ../../core/World.h
 CDGrid.o: /usr/include/stdlib.h /usr/include/Availability.h
 CDGrid.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
@@ -900,16 +903,16 @@ CDGrid.o: ../../texture/Texture.h ../../model/Model.h
 CDGrid.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CDGrid.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDGrid.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-CDGrid.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
-CDGrid.o: ../../core/Window.h ../../object2D/Object2DCollection.h
-CDGrid.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDGrid.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDGrid.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-CDGrid.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
-CDGrid.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
-CDGrid.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
-CDGrid.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-CDGrid.o: ../../geometry/RectangularVolume.h
+CDGrid.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
+CDGrid.o: ../../object2D/Object2D.h ../../core/Window.h
+CDGrid.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
+CDGrid.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDGrid.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CDGrid.o: ../../util/BitmapFontConstants.h ../../object2D/Transformable2D.h
+CDGrid.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDGrid.o: ../../object3D/AdornablePrism.h ../../object3D/RectangularPrism.h
+CDGrid.o: ../../util/PointScale.h ../../object3D/Quadrilateral3D.h
+CDGrid.o: ../../texture/TextureScale.h ../../geometry/RectangularVolume.h
 CDGrid.o: ../../object3D/Object3DCollection.h
 CDGrid.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
 CDGrid.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
@@ -953,7 +956,8 @@ CDGrid.o: ../../object2D/String2D.h ../../util/GraphicsConversionUtility.h
 CDGrid.o: ../../util/Logger.h ../../util/PointScale.h ../../util/xmlParser.h
 CDGrid.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 CDGrid.o: /usr/include/_structs.h /usr/include/_wctype.h /usr/include/ctype.h
-CDGrid.o: /usr/include/runetype.h ActionItem.h RectangularHull.h
+CDGrid.o: /usr/include/runetype.h ActionItem.h RectangularHull.h Helper.h
+CDGrid.o: Trial.h xmlParser/xmlParser.h
 CDInitialDisplay.o: CDInitialDisplay.h CDState.h ../../xor.h
 CDInitialDisplay.o: ../../core/Camera.h ../../core/World.h
 CDInitialDisplay.o: /usr/include/stdlib.h /usr/include/Availability.h
@@ -1126,11 +1130,11 @@ CDInitialDisplay.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
 CDInitialDisplay.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 CDInitialDisplay.o: ../../multicast/MulticastSocket.h
 CDInitialDisplay.o: ../../multicast/MulticastSocketPool.h
-CDInitialDisplay.o: ../../object2D/Object2D.h ../../core/Window.h
+CDInitialDisplay.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+CDInitialDisplay.o: ../../core/Window.h ../../object2D/Object2D.h
 CDInitialDisplay.o: ../../object2D/Object2DCollection.h
-CDInitialDisplay.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDInitialDisplay.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDInitialDisplay.o: ../../util/BitmapFontUtil.h
+CDInitialDisplay.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDInitialDisplay.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 CDInitialDisplay.o: ../../util/BitmapFontConstants.h
 CDInitialDisplay.o: ../../object2D/Transformable2D.h
 CDInitialDisplay.o: ../../transform/Transformable.h
@@ -1198,9 +1202,10 @@ CDInitialDisplay.o: ../../util/xmlParser.h /usr/include/wchar.h
 CDInitialDisplay.o: /usr/include/stdarg.h /usr/include/time.h
 CDInitialDisplay.o: /usr/include/_structs.h /usr/include/_wctype.h
 CDInitialDisplay.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
-CDInitialDisplay.o: ActionItem.h RectangularHull.h Session.h Trial.h
-CDInitialDisplay.o: xmlParser/xmlParser.h Helper.h CDRetentionInterval.h
+CDInitialDisplay.o: ActionItem.h RectangularHull.h Helper.h Trial.h
+CDInitialDisplay.o: xmlParser/xmlParser.h Session.h CDRetentionInterval.h
 CDInitialDisplay.o: CDSecondDisplay.h CDITIState.h CDFixateState.h
+CDInitialDisplay.o: CDClosingState.h
 CDSecondDisplay.o: CDSecondDisplay.h CDState.h ../../xor.h
 CDSecondDisplay.o: ../../core/Camera.h ../../core/World.h
 CDSecondDisplay.o: /usr/include/stdlib.h /usr/include/Availability.h
@@ -1369,11 +1374,11 @@ CDSecondDisplay.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
 CDSecondDisplay.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 CDSecondDisplay.o: ../../multicast/MulticastSocket.h
 CDSecondDisplay.o: ../../multicast/MulticastSocketPool.h
-CDSecondDisplay.o: ../../object2D/Object2D.h ../../core/Window.h
+CDSecondDisplay.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+CDSecondDisplay.o: ../../core/Window.h ../../object2D/Object2D.h
 CDSecondDisplay.o: ../../object2D/Object2DCollection.h
-CDSecondDisplay.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDSecondDisplay.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDSecondDisplay.o: ../../util/BitmapFontUtil.h
+CDSecondDisplay.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDSecondDisplay.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 CDSecondDisplay.o: ../../util/BitmapFontConstants.h
 CDSecondDisplay.o: ../../object2D/Transformable2D.h
 CDSecondDisplay.o: ../../transform/Transformable.h
@@ -1440,9 +1445,9 @@ CDSecondDisplay.o: /usr/include/wchar.h /usr/include/stdarg.h
 CDSecondDisplay.o: /usr/include/time.h /usr/include/_structs.h
 CDSecondDisplay.o: /usr/include/_wctype.h /usr/include/ctype.h
 CDSecondDisplay.o: /usr/include/runetype.h CDGrid.h ActionItem.h
-CDSecondDisplay.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
-CDSecondDisplay.o: Helper.h CDITIState.h CDFixateState.h CDInitialDisplay.h
-CDSecondDisplay.o: CDRetentionInterval.h
+CDSecondDisplay.o: RectangularHull.h Helper.h Trial.h xmlParser/xmlParser.h
+CDSecondDisplay.o: Session.h CDITIState.h CDFixateState.h CDInitialDisplay.h
+CDSecondDisplay.o: CDRetentionInterval.h CDClosingState.h
 CDStartState.o: CDStartState.h CDState.h ../../xor.h ../../core/Camera.h
 CDStartState.o: ../../core/World.h /usr/include/stdlib.h
 CDStartState.o: /usr/include/Availability.h
@@ -1599,9 +1604,9 @@ CDStartState.o: ../../texture/Texture.h ../../model/Model.h
 CDStartState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CDStartState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDStartState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-CDStartState.o: ../../multicast/MulticastSocketPool.h
+CDStartState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
 CDStartState.o: ../../object2D/Object2D.h ../../core/Window.h
-CDStartState.o: ../../object2D/Object2DCollection.h ../../object2D/Object2D.h
+CDStartState.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
 CDStartState.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
 CDStartState.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 CDStartState.o: ../../util/BitmapFontConstants.h
@@ -1663,9 +1668,10 @@ CDStartState.o: /usr/include/wchar.h /usr/include/stdarg.h
 CDStartState.o: /usr/include/time.h /usr/include/_structs.h
 CDStartState.o: /usr/include/_wctype.h /usr/include/ctype.h
 CDStartState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
-CDStartState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
-CDStartState.o: Helper.h CDFixateState.h CDInitialDisplay.h
+CDStartState.o: RectangularHull.h Helper.h Trial.h xmlParser/xmlParser.h
+CDStartState.o: Session.h CDFixateState.h CDInitialDisplay.h
 CDStartState.o: CDRetentionInterval.h CDSecondDisplay.h CDITIState.h
+CDStartState.o: CDClosingState.h
 CDState.o: CDState.h ../../xor.h ../../core/Camera.h ../../core/World.h
 CDState.o: /usr/include/stdlib.h /usr/include/Availability.h
 CDState.o: /usr/include/AvailabilityInternal.h /usr/include/_types.h
@@ -1814,16 +1820,16 @@ CDState.o: ../../texture/Texture.h ../../model/Model.h
 CDState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CDState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-CDState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
-CDState.o: ../../core/Window.h ../../object2D/Object2DCollection.h
-CDState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-CDState.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
-CDState.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
-CDState.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
-CDState.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-CDState.o: ../../geometry/RectangularVolume.h
+CDState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
+CDState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDState.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
+CDState.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDState.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CDState.o: ../../util/BitmapFontConstants.h ../../object2D/Transformable2D.h
+CDState.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDState.o: ../../object3D/AdornablePrism.h ../../object3D/RectangularPrism.h
+CDState.o: ../../util/PointScale.h ../../object3D/Quadrilateral3D.h
+CDState.o: ../../texture/TextureScale.h ../../geometry/RectangularVolume.h
 CDState.o: ../../object3D/Object3DCollection.h
 CDState.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
 CDState.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
@@ -1869,7 +1875,7 @@ CDState.o: ../../util/PointScale.h ../../util/xmlParser.h
 CDState.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 CDState.o: /usr/include/_structs.h /usr/include/_wctype.h
 CDState.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h ActionItem.h
-CDState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h Helper.h
+CDState.o: RectangularHull.h Helper.h Trial.h xmlParser/xmlParser.h Session.h
 Helper.o: Helper.h Trial.h xmlParser/xmlParser.h /usr/include/stdlib.h
 Helper.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
 Helper.o: /usr/include/_types.h /usr/include/sys/_types.h
@@ -2037,16 +2043,16 @@ CDDriver.o: ../../texture/Texture.h ../../model/Model.h
 CDDriver.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CDDriver.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDDriver.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-CDDriver.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
-CDDriver.o: ../../core/Window.h ../../object2D/Object2DCollection.h
-CDDriver.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDDriver.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDDriver.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
-CDDriver.o: ../../object2D/Transformable2D.h ../../transform/Transformable.h
-CDDriver.o: ../../transform/Transform.h ../../object3D/AdornablePrism.h
-CDDriver.o: ../../object3D/RectangularPrism.h ../../util/PointScale.h
-CDDriver.o: ../../object3D/Quadrilateral3D.h ../../texture/TextureScale.h
-CDDriver.o: ../../geometry/RectangularVolume.h
+CDDriver.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
+CDDriver.o: ../../object2D/Object2D.h ../../core/Window.h
+CDDriver.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
+CDDriver.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDDriver.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CDDriver.o: ../../util/BitmapFontConstants.h ../../object2D/Transformable2D.h
+CDDriver.o: ../../transform/Transformable.h ../../transform/Transform.h
+CDDriver.o: ../../object3D/AdornablePrism.h ../../object3D/RectangularPrism.h
+CDDriver.o: ../../util/PointScale.h ../../object3D/Quadrilateral3D.h
+CDDriver.o: ../../texture/TextureScale.h ../../geometry/RectangularVolume.h
 CDDriver.o: ../../object3D/Object3DCollection.h
 CDDriver.o: ../../object3D/CompiledObject3D.h ../../object3D/Arc3D.h
 CDDriver.o: ../../object3D/Point3D.h ../../object3D/CompiledObject3D.h
@@ -2093,10 +2099,11 @@ CDDriver.o: ../../util/PointScale.h ../../util/xmlParser.h
 CDDriver.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 CDDriver.o: /usr/include/_structs.h /usr/include/_wctype.h
 CDDriver.o: /usr/include/ctype.h /usr/include/runetype.h PrintMousePosition.h
-CDDriver.o: CDGrid.h ActionItem.h RectangularHull.h CDStartState.h CDState.h
-CDDriver.o: Session.h Trial.h xmlParser/xmlParser.h Helper.h CDFixateState.h
-CDDriver.o: CDInitialDisplay.h CDRetentionInterval.h CDSecondDisplay.h
-CDDriver.o: CDITIState.h PrintAction.h Icon2D.h
+CDDriver.o: CDGrid.h ActionItem.h RectangularHull.h Helper.h Trial.h
+CDDriver.o: xmlParser/xmlParser.h CDStartState.h CDState.h Session.h
+CDDriver.o: CDFixateState.h CDInitialDisplay.h CDRetentionInterval.h
+CDDriver.o: CDSecondDisplay.h CDITIState.h CDClosingState.h PrintAction.h
+CDDriver.o: Icon2D.h
 PrintAction.o: PrintAction.h ../../xor.h ../../core/Camera.h
 PrintAction.o: ../../core/World.h /usr/include/stdlib.h
 PrintAction.o: /usr/include/Availability.h
@@ -2252,9 +2259,9 @@ PrintAction.o: ../../texture/Texture.h ../../model/Model.h
 PrintAction.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 PrintAction.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 PrintAction.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-PrintAction.o: ../../multicast/MulticastSocketPool.h
+PrintAction.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
 PrintAction.o: ../../object2D/Object2D.h ../../core/Window.h
-PrintAction.o: ../../object2D/Object2DCollection.h ../../object2D/Object2D.h
+PrintAction.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
 PrintAction.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
 PrintAction.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 PrintAction.o: ../../util/BitmapFontConstants.h
@@ -2311,9 +2318,10 @@ PrintAction.o: ../../util/PointScale.h ../../util/xmlParser.h
 PrintAction.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 PrintAction.o: /usr/include/_structs.h /usr/include/_wctype.h
 PrintAction.o: /usr/include/ctype.h /usr/include/runetype.h CDSecondDisplay.h
-PrintAction.o: CDState.h CDGrid.h ActionItem.h RectangularHull.h Session.h
-PrintAction.o: Trial.h xmlParser/xmlParser.h Helper.h CDITIState.h
+PrintAction.o: CDState.h CDGrid.h ActionItem.h RectangularHull.h Helper.h
+PrintAction.o: Trial.h xmlParser/xmlParser.h Session.h CDITIState.h
 PrintAction.o: CDFixateState.h CDInitialDisplay.h CDRetentionInterval.h
+PrintAction.o: CDClosingState.h
 RectangularHull.o: RectangularHull.h ../../xor.h ../../core/Camera.h
 RectangularHull.o: ../../core/World.h /usr/include/stdlib.h
 RectangularHull.o: /usr/include/Availability.h
@@ -2482,11 +2490,11 @@ RectangularHull.o: ../../model/MilkshapeModel.h ../../multicast/mcreceive.h
 RectangularHull.o: ../../multicast/mcsend.h ../../multicast/Multicast.h
 RectangularHull.o: ../../multicast/MulticastSocket.h
 RectangularHull.o: ../../multicast/MulticastSocketPool.h
-RectangularHull.o: ../../object2D/Object2D.h ../../core/Window.h
+RectangularHull.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+RectangularHull.o: ../../core/Window.h ../../object2D/Object2D.h
 RectangularHull.o: ../../object2D/Object2DCollection.h
-RectangularHull.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-RectangularHull.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-RectangularHull.o: ../../util/BitmapFontUtil.h
+RectangularHull.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+RectangularHull.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 RectangularHull.o: ../../util/BitmapFontConstants.h
 RectangularHull.o: ../../object2D/Transformable2D.h
 RectangularHull.o: ../../transform/Transformable.h
@@ -2704,11 +2712,12 @@ CDITIState.o: ../../texture/Texture.h ../../model/Model.h
 CDITIState.o: ../../model/ModelFactory.h ../../model/MilkshapeModel.h
 CDITIState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDITIState.o: ../../multicast/Multicast.h ../../multicast/MulticastSocket.h
-CDITIState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Object2D.h
-CDITIState.o: ../../core/Window.h ../../object2D/Object2DCollection.h
-CDITIState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDITIState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDITIState.o: ../../util/BitmapFontUtil.h ../../util/BitmapFontConstants.h
+CDITIState.o: ../../multicast/MulticastSocketPool.h ../../object2D/Line2D.h
+CDITIState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDITIState.o: ../../object2D/Object2D.h ../../object2D/Object2DCollection.h
+CDITIState.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDITIState.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
+CDITIState.o: ../../util/BitmapFontConstants.h
 CDITIState.o: ../../object2D/Transformable2D.h
 CDITIState.o: ../../transform/Transformable.h ../../transform/Transform.h
 CDITIState.o: ../../object3D/AdornablePrism.h
@@ -2761,9 +2770,10 @@ CDITIState.o: ../../util/PointScale.h ../../util/xmlParser.h
 CDITIState.o: /usr/include/wchar.h /usr/include/stdarg.h /usr/include/time.h
 CDITIState.o: /usr/include/_structs.h /usr/include/_wctype.h
 CDITIState.o: /usr/include/ctype.h /usr/include/runetype.h CDGrid.h
-CDITIState.o: ActionItem.h RectangularHull.h Session.h Trial.h
-CDITIState.o: xmlParser/xmlParser.h Helper.h CDFixateState.h
+CDITIState.o: ActionItem.h RectangularHull.h Helper.h Trial.h
+CDITIState.o: xmlParser/xmlParser.h Session.h CDFixateState.h
 CDITIState.o: CDInitialDisplay.h CDRetentionInterval.h CDSecondDisplay.h
+CDITIState.o: CDClosingState.h
 Session.o: Session.h Trial.h xmlParser/xmlParser.h /usr/include/stdlib.h
 Session.o: /usr/include/Availability.h /usr/include/AvailabilityInternal.h
 Session.o: /usr/include/_types.h /usr/include/sys/_types.h
@@ -2945,11 +2955,11 @@ CDClosingState.o: ../../multicast/mcreceive.h ../../multicast/mcsend.h
 CDClosingState.o: ../../multicast/Multicast.h
 CDClosingState.o: ../../multicast/MulticastSocket.h
 CDClosingState.o: ../../multicast/MulticastSocketPool.h
-CDClosingState.o: ../../object2D/Object2D.h ../../core/Window.h
+CDClosingState.o: ../../object2D/Line2D.h ../../object2D/Object2D.h
+CDClosingState.o: ../../core/Window.h ../../object2D/Object2D.h
 CDClosingState.o: ../../object2D/Object2DCollection.h
-CDClosingState.o: ../../object2D/Object2D.h ../../object2D/Point2D.h
-CDClosingState.o: ../../object2D/Rectangle2D.h ../../object2D/String2D.h
-CDClosingState.o: ../../util/BitmapFontUtil.h
+CDClosingState.o: ../../object2D/Point2D.h ../../object2D/Rectangle2D.h
+CDClosingState.o: ../../object2D/String2D.h ../../util/BitmapFontUtil.h
 CDClosingState.o: ../../util/BitmapFontConstants.h
 CDClosingState.o: ../../object2D/Transformable2D.h
 CDClosingState.o: ../../transform/Transformable.h ../../transform/Transform.h
@@ -3014,8 +3024,8 @@ CDClosingState.o: /usr/include/wchar.h /usr/include/stdarg.h
 CDClosingState.o: /usr/include/time.h /usr/include/_structs.h
 CDClosingState.o: /usr/include/_wctype.h /usr/include/ctype.h
 CDClosingState.o: /usr/include/runetype.h CDGrid.h ActionItem.h
-CDClosingState.o: RectangularHull.h Session.h Trial.h xmlParser/xmlParser.h
-CDClosingState.o: Helper.h
+CDClosingState.o: RectangularHull.h Helper.h Trial.h xmlParser/xmlParser.h
+CDClosingState.o: Session.h
 xmlParser/xmlParser.o: /usr/include/memory.h /usr/include/string.h
 xmlParser/xmlParser.o: /usr/include/_types.h /usr/include/sys/_types.h
 xmlParser/xmlParser.o: /usr/include/sys/cdefs.h /usr/include/machine/_types.h

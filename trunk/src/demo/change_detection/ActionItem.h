@@ -48,6 +48,11 @@ public:
 	 * Gets base vector
 	 */
 	Vector2D* getBaseVector();
+
+    /**
+     * Get center vector
+     */
+    Vector2D * getCenterVector();
 	
 	/**
 	 * Gets the dimensions

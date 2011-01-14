@@ -60,8 +60,10 @@ void Helper::Reorder(vector<Trial*> * a)
 
 void Helper::SampleWOReplacement(vector<int> pop, vector<int> * sample, int n)
 {
-
 	int size = pop.size();
+    
+    //cout << "N: " << size << "\tn: " << n << endl;
+
 
 	for(int i=0; i<n; i++) {
 		int sample_size = n - i;
@@ -79,6 +81,21 @@ void Helper::SampleWOReplacement(vector<int> pop, vector<int> * sample, int n)
 	for(int i=0; i<n; i++)
 		cout << sample->at(i) << endl;
 	*/
+}
+
+void Helper::SampleWithLimitedReplacement(vector<int> pop, vector<int> * sample, int nRepeats, int n)
+{
+    //the trick here is just to duplicate the pop vector nRepeats times then
+    //sample using the WO replacement function. We are making a tradeoff here
+    //favoring simplicity over memory usage. So long as these vectors aren't
+    //large, and for small values of nRepeats, it shoudln't matter too much.
+
+    vector<int> newPop;
+    for(int i=0; i<pop.size(); i++)
+        for (int j=0; j<nRepeats; j++)
+           newPop.push_back(pop[i]); 
+
+    SampleWOReplacement(newPop, sample, n);
 }
 
 void Helper::FreshSampleWOReplacement(vector<int> pop, vector<int> * sample, vector<int> stale, int n)

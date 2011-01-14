@@ -17,6 +17,7 @@ ActionItem::ActionItem(Action * action, Rectangle2D * pic)
 
 	_picture = pic;
 
+    _bounds = NULL;
 	updateBoundingBox();
 }
 
@@ -28,6 +29,8 @@ void ActionItem::updateBoundingBox()
 	Vector2D * newB = new Vector2D(_picture->getBaseVector()->getX()-pad, _picture->getBaseVector()->getY()-pad);
 
 	Dimension2D * newD = new Dimension2D(_picture->getDimension()->getWidth()+2*pad, _picture->getDimension()->getHeight() + 2*pad);
+
+    if (_bounds != NULL)    delete _bounds;
 
     _bounds = new RectangularHull(newB, newD);
 }
@@ -67,6 +70,19 @@ void ActionItem::setPaint(Paint *p)
 	_picture->setPaint(p);
 }
 
+Vector2D * ActionItem::getCenterVector()
+{
+    //cout << this << "\tBase: " << _picture->getBaseVector()->toString() << "\t";
+    //cout << "CV: " << _bounds->getCentroid()->toString() << "\t";
+    //cout << "Dim: " << _picture->getDimension()->get(0) << ", " << _picture->getDimension()->get(1) << endl;
+
+    //return _bounds->getCentroid();
+    
+    Vector2D * cv = _picture->getBaseVector();
+    cv->increment(32,32);
+    return cv;
+}
+
 void ActionItem::renderObject()
 {
     _picture->renderObject();
@@ -91,7 +107,7 @@ void ActionItem::jitter()
 
 	updateBoundingBox();
 
-	cout << _jitterVector->toString() << endl;
+//	cout << _jitterVector->toString() << endl;
 }
 
 void ActionItem::setJitterThreshold(int threshold)
