@@ -71,6 +71,12 @@ bool RectangularHull::inHull(int xPos, int yPos)
 	 return false;
 }
 
+Vector2D * RectangularHull::getCentroid()
+{
+       return  new Vector2D((_dimension->getWidth()  - _origin->getX() / 2.0) + _origin->getX(),
+                            (_dimension->getHeight() - _origin->getY() / 2.0) + _origin->getY());
+}
+
 /*
  * Returns whether or not the vector is in the hull
  */

@@ -12,6 +12,9 @@ CDGrid::CDGrid()
     _size = new Dimension2D(0,20);
     _bounds = new RectangularHull(_origin, _size);
 	_mouseHandle = false;
+
+    //_constellation = true;
+    _constellation = false;
 }
 
 void CDGrid::jitter()
@@ -22,17 +25,39 @@ void CDGrid::jitter()
 	}
 }
 
+void CDGrid::rebuildConstellation()
+{
+    Helper::SeedGenerator(); 
+    vector<int> lineLocations;
+    int nRep = 1;
+    Helper::SampleWithLimitedReplacement(_locations, & lineLocations, nRep, (int) (nRep*_locations.size()));
+   
+    _lines.clear();
+    for(int i=1; i<lineLocations.size(); i++) {
+        _lines.push_back(new Line2D(_actions[lineLocations[i-1]]->getCenterVector(),
+                                    _actions[lineLocations[i]]->getCenterVector()));
+    }
+    _lines.push_back(new Line2D(_actions[lineLocations[lineLocations.size()-1]]->getCenterVector(),
+                                _actions[lineLocations[0]]->getCenterVector()));
+}
+
 void CDGrid::rebuildImages()
 {
 	for(int i=0; i<_locations.size(); i++) {
 		Paint * p = new Paint(TextureFactory::GetInstance()->createTexture(_imageFiles[i].c_str()));
 		_actions[_locations[i]]->setPaint(p);
 	}
+
 }
 
 void CDGrid::renderObject()
 {
     if (_visible) {
+        if (_constellation && _locations.size() > 1) {
+            for (int i=0; i<_lines.size(); i++) {
+                _lines[i]->renderObject();
+            }
+        }
 		for(int l=0; l<_locations.size(); l++) {
 			_actions[_locations[l]]->renderObject();
 		}

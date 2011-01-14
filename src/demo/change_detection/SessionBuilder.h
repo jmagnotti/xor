@@ -5,6 +5,7 @@
 #include "../../xor.h"
 
 #include "Trial.h"
+#include "Session.h"
 #include "Helper.h"
 #include "xmlParser/xmlParser.h"
 
@@ -18,11 +19,20 @@ public:
 		/**
 		 * const char *: Path to XML file to use to build session
 		 */
-		static void Build(const char *);
+		void build(const char *);
+		SessionBuilder();
 
 private:
 
-		SessionBuilder();
+        void buildRandomLocationSession();
+        void printSession(string label, int seed, vector<Trial*> trials);
+
+        int fixationDuration, sampleDuration, retentionInterval, choiceFR,
+            interTrialInterval, nTrials, blockSize, reportingMethod;
+        const char * fixationFile;
+
+        vector<int> locationPopulation;
+        XMLNode parameters, trialTypes;
 
 };
 

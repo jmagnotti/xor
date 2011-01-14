@@ -54,6 +54,8 @@ public:
      */
     bool inHull(Vector2D * point);
 
+    Vector2D * getCentroid();
+
 
 private:
 	Dimension2D * _dimension;
