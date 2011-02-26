@@ -5,11 +5,14 @@
 Session * Session::_session = NULL;
 
 
-const int Session::METHOD_CHANGE_NOCHANGE	    = 1;
-const int Session::METHOD_WHICH_CHANGED		    = 2;
-const int Session::METHOD_SAME_DIFF	    	    = 3;
-const int Session::METHOD_CHOOSE_SAME		    = 4;
-const int Session::METHOD_RANDLOC_CHOOSE_SAME	= 5;
+const int Session::METHOD_CHANGE_NOCHANGE	     = 1;
+const int Session::METHOD_WHICH_CHANGED		     = 2;
+const int Session::METHOD_SAME_DIFF	    	     = 3;
+const int Session::METHOD_CHOOSE_SAME		     = 4;
+const int Session::METHOD_RANDLOC_CHOOSE_SAME	 = 5;
+
+const int Session::METHOD_RET_STROOP_CHANGE_NOCHANGE = 6;
+const int Session::METHOD_ENC_STROOP_CHANGE_NOCHANGE = 7;
 
 Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 {

@@ -24,6 +24,11 @@ public:
 	 */
 	static void Reorder(vector<Trial*> * a, int seed);
 
+    /**
+     * Returns the [position % a.size] + 1 item from the vector with wrapping
+     */
+	static int Rot_1(vector<int> a, int position);
+
 	/**
 	 * Provide haystack and the needle. Returns position or -1
 	 */

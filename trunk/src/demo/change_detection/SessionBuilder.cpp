@@ -27,10 +27,16 @@ void SessionBuilder::build(const char * xmlFile)
     for (int i=1; i<NUM_LOCS; i++) { locationPopulation.push_back(i); }
 
 
-    //RandomLocationChooseSame 
-    if (reportingMethod == Session::METHOD_RANDLOC_CHOOSE_SAME) {
+    if (reportingMethod == Session::METHOD_RET_STROOP_CHANGE_NOCHANGE) {
+        buildRetrievalStroopSession();
+    }
+    else if (reportingMethod == Session::METHOD_ENC_STROOP_CHANGE_NOCHANGE) {
+        buildEncodingStroopSession();
+    }
+    else if (reportingMethod == Session::METHOD_RANDLOC_CHOOSE_SAME) {
         buildRandomLocationSession();
     }
+    //break this out into another method just to keep this cleaner?
     else {
         vector<Trial*> trials; vector<Trial*> FCtrials;
         vector<Trial*> SDtrials; vector<Trial*> NCFCtrials;
@@ -274,9 +280,7 @@ void SessionBuilder::buildRandomLocationSession()
             choicePicIDs.push_back(oneItem[0]);
 
             //get n-1 changed items
-            for(int i=0; i<cds-1; i++) {
-                choicePicIDs.push_back(changingItems[i]);
-            }
+            for(int i=0; i<cds-1; i++) { choicePicIDs.push_back(changingItems[i]); }
 
             //now we need to randomly grab the locations
             vector<int> sampleLocations;
@@ -306,6 +310,136 @@ void SessionBuilder::buildRandomLocationSession()
 
     string lbl("RandomLocationChooseSame");
     printSession(lbl,  seed, trials);
+}
+
+void SessionBuilder::buildRetrievalStroopSession()
+{
+    vector<Trial*> trials;
+
+
+    //note that we aren't doing ANY randomization except the pictures/locations.
+    //trial type order randomization will come later
+    for(int block=0; block < (nTrials/blockSize) / 2 ; block++) {
+        for (int trialType = 0; trialType < 2; trialType++) {
+            for (int j=0; j<blockSize; j++) {
+
+                XMLNode xmlTrialType = trialTypes.getChildNode(j);
+
+                int sds = atoi(xmlTrialType.getAttribute("sample"));
+                int cds = atoi(xmlTrialType.getAttribute("choice"));
+
+                //cout << "cds: " << cds << endl;
+                //cout << "sds: " << sds << endl;
+
+                //this actually only impacts the choice display
+                int type = atoi(xmlTrialType.getAttribute("interference"));
+
+                XMLNode stimulusClass = parameters.getChildNode("StimulusSet").getChildNodeWithAttribute("StimulusClass", "name", xmlTrialType.getAttribute("stimulusClass"));
+
+                vector<int> picPopulation;
+                for (int i=0; i<atoi(stimulusClass.getAttribute("count")); i++) { picPopulation.push_back(i); }
+
+                vector<int> samplePicIDs;
+                Helper::SampleWOReplacement(picPopulation, &samplePicIDs, sds); 
+
+                vector<int> choicePicIDs; 
+                Helper::SampleWOReplacement(samplePicIDs, &choicePicIDs, cds); 
+
+                //now we need to randomly grab the locations
+                vector<int> sampleLocations;
+                Helper::SampleWOReplacement(locationPopulation, &sampleLocations, sds);
+
+                vector<int> choiceLocations;  
+                //set the choice location to be the same location as when it was the stimulus
+                for(int i=0; i<cds; i++) {
+                    choiceLocations.push_back(sampleLocations[Helper::FindInVec(samplePicIDs, choicePicIDs[i])]);
+                }
+
+                if (trialType == Trial::CHANGE_TRIAL) {
+                    vector<int> oneMore;
+                    Helper::FreshSampleWOReplacement(picPopulation, &oneMore, samplePicIDs, 1);
+
+                    //overwrite id.0 on choice pics
+                    choicePicIDs[0]   = oneMore[0];
+                }
+
+                vector<string> sFiles;
+                vector<string> cFiles;
+
+                string loc, word, color;
+                for (int i=0; i<samplePicIDs.size(); i++) {
+                    loc   = stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("location");
+                    color = stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("name");
+                    sFiles.push_back(loc + color + "-" + color + ".jpg");
+                }
+
+                //Baseline, Congruent condition
+                if (0 == type) {
+                    for (int i=0; i<choicePicIDs.size(); i++) {
+                        loc   = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("location");
+                        word = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
+                        color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
+                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                    }
+                }
+                //Within (intra) list interference
+                else if (1 == type) {
+                    //For intra-list interference, we basically need to re-order the words, while keeping the colors the same (except for one item on the change trial). because the locations are randomized, we can just ROT1 on the samplePicIDs. We need to use samplePicIDs because DS==1 can occur
+                    for (int i=0; i<choicePicIDs.size(); i++) {
+                        loc   = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("location");
+
+                        word  = stimulusClass.getChildNode(Helper::Rot_1(samplePicIDs, i)).getAttribute("name");
+
+                        color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
+                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                    }
+                }
+
+                //Between (extra) list interference
+                else if (2 == type) {
+                    //For extra-list interference we need to pick new words not in the sample display, we can use fresh sample without replacement here
+                    vector<int> choiceWordIDs;
+                    vector<int> usedWords;
+
+                    for(int i=0; i<samplePicIDs.size(); i++) { usedWords.push_back(samplePicIDs[i]); }
+
+                    if (trialType == Trial::CHANGE_TRIAL)
+                        usedWords.push_back(choicePicIDs[0]);
+
+                    Helper::FreshSampleWOReplacement(picPopulation, &choiceWordIDs, usedWords, cds);
+
+                    for (int i=0; i<choicePicIDs.size(); i++) {
+                        loc   = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("location");
+
+                        word  = stimulusClass.getChildNode(choiceWordIDs[i]).getAttribute("name");
+
+                        color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
+                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                    }
+                }
+
+                //we need to embed the intereference type into the trial type
+                int newTrialType = type * 10 + trialType;
+
+                trials.push_back(new Trial(newTrialType, sds, cds,
+                                            fixationDuration, sampleDuration, retentionInterval, interTrialInterval,
+                                            fixationFile, sFiles, sampleLocations, cFiles, choiceLocations));
+            }
+        }
+    }
+
+    //we need to use the same seed to ensure STRICT matching
+    int seed = time(NULL);
+
+    Helper::Reorder(&trials, seed);
+    string lbl("Retrieval Stroop: Change/NoChange");
+    printSession(lbl, seed, trials);
+}
+
+
+void SessionBuilder::buildEncodingStroopSession()
+{
+    cout << "NOT IMPLEMENTED" << endl;
 }
 
 void SessionBuilder::printSession(string label, int seed, vector<Trial*> trials)

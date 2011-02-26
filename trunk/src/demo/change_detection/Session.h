@@ -21,6 +21,9 @@ public:
 	static const int METHOD_CHOOSE_SAME;
 	static const int METHOD_RANDLOC_CHOOSE_SAME;
 
+	static const int METHOD_RET_STROOP_CHANGE_NOCHANGE;
+	static const int METHOD_ENC_STROOP_CHANGE_NOCHANGE;
+
 	/**
 	 * const char *	: The xml file containing "Trials"
 	 * const char *	: The file to store results in

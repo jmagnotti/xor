@@ -30,7 +30,11 @@ void CDSecondDisplay::activate()
 {
 	Session * s = Session::GetInstance();
 
-	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE || s->getReportingMethod() == Session::METHOD_SAME_DIFF) {
+	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE ||
+        s->getReportingMethod() == Session::METHOD_SAME_DIFF ||
+        s->getReportingMethod() == Session::METHOD_RET_STROOP_CHANGE_NOCHANGE ||
+        s->getReportingMethod() == Session::METHOD_ENC_STROOP_CHANGE_NOCHANGE)
+    {
 		Controller::GetInstance()->getMouse()->addListener(this);
 	}
 	else {
@@ -80,7 +84,11 @@ void CDSecondDisplay::handleChoice(int location)
 	Session * s = Session::GetInstance();
 	s->recordChoice(location, _reactionTime);
 
-	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE || s->getReportingMethod() == Session::METHOD_SAME_DIFF) {
+	if (s->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE ||
+        s->getReportingMethod() == Session::METHOD_SAME_DIFF ||
+        s->getReportingMethod() == Session::METHOD_RET_STROOP_CHANGE_NOCHANGE ||
+        s->getReportingMethod() == Session::METHOD_ENC_STROOP_CHANGE_NOCHANGE)
+    {
 		Controller::GetInstance()->getMouse()->removeListener(this);
 	}
 	else {
