@@ -2,6 +2,7 @@
 #define SESSION_BUILDER_H
 
 #include <vector>
+#include <string>
 #include "../../xor.h"
 
 #include "Trial.h"
@@ -25,6 +26,8 @@ public:
 private:
 
         void buildRandomLocationSession();
+        void buildRetrievalStroopSession();
+        void buildEncodingStroopSession();
         void printSession(string label, int seed, vector<Trial*> trials);
 
         int fixationDuration, sampleDuration, retentionInterval, choiceFR,

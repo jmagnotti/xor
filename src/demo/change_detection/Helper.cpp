@@ -19,6 +19,17 @@ int Helper::FindInVec(vector<int> haystack, int needle)
 	return ret;
 }
 
+int Helper::Rot_1(vector<int> a, int position)
+{
+    int p = position % a.size();
+    if (p == a.size()-1)
+        p = 0;
+    else
+        p++;
+
+    return a[p];
+}
+
 void Helper::Reorder(vector<int> * a)
 {
 	int size = a->size();
