@@ -370,7 +370,7 @@ void SessionBuilder::buildRetrievalStroopSession()
                 for (int i=0; i<samplePicIDs.size(); i++) {
                     loc   = stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("location");
                     color = stimulusClass.getChildNode(samplePicIDs[i]).getAttribute("name");
-                    sFiles.push_back(loc + color + "-" + color + ".jpg");
+                    sFiles.push_back(loc + color + "-" + color + ".png");
                 }
 
                 //Baseline, Congruent condition
@@ -379,7 +379,7 @@ void SessionBuilder::buildRetrievalStroopSession()
                         loc   = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("location");
                         word = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
                         color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
-                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                        cFiles.push_back(loc + word + "-" + color + ".png");
                     }
                 }
                 //Within (intra) list interference

@@ -33,7 +33,7 @@ void CDInitialDisplay::activate()
 	_grid->jitter();
 
     //if (s->getReportingMethod() == Session::CONSTELLATION_CHANGE_NOCHANGE)
-        _grid->rebuildConstellation();
+    //_grid->rebuildConstellation();
 
 	_grid->setVisible(true);
 

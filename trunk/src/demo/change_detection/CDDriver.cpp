@@ -15,7 +15,7 @@ using namespace std;
 #define HEIGHT 1024
 
 //not currently used
-#define STIMULUS_SIZE 32
+#define STIMULUS_SIZE   128 
 
 class CDConfig: public XavierConfiguration {
 public:
@@ -113,10 +113,10 @@ vector<Vector2D*> buildPositionArray() {
 	centerX = WIDTH / 2;
 	centerY = HEIGHT / 2;
 
-	int xoff = centerX - 64 / 2;
-	int yoff = centerY - 64 / 2;
+	int xoff = centerX - STIMULUS_SIZE / 2;
+	int yoff = centerY - STIMULUS_SIZE / 2;
 
-	int radius = 130;
+	int radius = STIMULUS_SIZE;
 	double to_d = M_PI / 180.0;
 
 	//the first element in the list is the fixation cross
@@ -128,7 +128,7 @@ vector<Vector2D*> buildPositionArray() {
 			_positions.push_back(new Vector2D(xoff + rad * cos(to_d * p), yoff + rad * sin(to_d * p)));
 		}
 	}
-    Vector2D * halfSize = new Vector2D(32, 32);
+    Vector2D * halfSize = new Vector2D(STIMULUS_SIZE/2, STIMULUS_SIZE/2);
 	for (int i = 0; i < _positions.size(); i++)
 		cout << i << " " << ((*(_positions[i]))+halfSize)->toString() << endl;
 	return _positions;
@@ -142,7 +142,7 @@ int main(int argc, char * argv[]) {
 
 	//Print action notifies the appropriate CDState of the clicked action item
 	PrintAction * pa;
-	Dimension2D * iconSize = new Dimension2D(64, 64);
+	Dimension2D * iconSize = new Dimension2D(STIMULUS_SIZE, STIMULUS_SIZE);
 
 	CDGrid * cdg = new CDGrid();
 	ActionItem * ai;
@@ -155,7 +155,7 @@ int main(int argc, char * argv[]) {
 	pa = new PrintAction(0);
 
 	p = new Paint(Color::YELLOW);
-	rect = new Rectangle2D(_positions[0], new Dimension2D(64, 64), p);
+	rect = new Rectangle2D(_positions[0], new Dimension2D(STIMULUS_SIZE, STIMULUS_SIZE), p);
 
 	ai = new ActionItem(pa, rect);
 	cdg->addAction(ai);
@@ -185,7 +185,7 @@ int main(int argc, char * argv[]) {
 	
 
     //dirty dirty
-    glLineWidth(3.0f);
+    //glLineWidth(3.0f);
 
 
 	CDStartState * cdss = CDStartState::GetInstance(cdg);
