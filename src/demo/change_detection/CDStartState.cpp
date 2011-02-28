@@ -7,7 +7,9 @@ CDStartState * CDStartState::_state = NULL;
 CDStartState::CDStartState()
 {
 	Paint * p;
-	if (Session::GetInstance()->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE) {
+	if (Session::GetInstance()->getReportingMethod() == Session::METHOD_CHANGE_NOCHANGE ||
+        Session::GetInstance()->getReportingMethod() == Session::METHOD_RET_STROOP_CHANGE_NOCHANGE )
+    {
 		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrSD.png"));
 	}
 	else if (Session::GetInstance()->getReportingMethod() == Session::METHOD_WHICH_CHANGED) {

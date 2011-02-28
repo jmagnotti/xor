@@ -1,7 +1,7 @@
 #Makefile for libgor.la, *nix
 #
 CC = g++ 
-LIBS = -I/Library/Frameworks/SDL.framework/Headers -I/System/Library/Frameworks/OpenGL.framework/Headers -framework SDL -framework Cocoa -framework OpenGL -lXOR
+LIBS = -I/Library/Frameworks/SDL.framework/Headers -I/System/Library/Frameworks/OpenGL.framework/Headers -framework SDL -framework SDL_image -framework SDL_mixer -framework Cocoa -framework OpenGL -framework XOR
 
 #Packages
 SRCS = Trial.cpp ActionItem.cpp CDFixateState.cpp CDRetentionInterval.cpp CDGrid.cpp CDInitialDisplay.cpp CDSecondDisplay.cpp CDStartState.cpp CDState.cpp Helper.cpp CDDriver.cpp PrintAction.cpp RectangularHull.cpp CDITIState.cpp Session.cpp CDClosingState.cpp xmlParser/xmlParser.cpp
@@ -31,7 +31,7 @@ clean:
 			$(RM) $(OBJS) $(MAIN)
 
 depend: $(SRCS)
-			makedepend -fMakefile.osx &> /dev/null $(INCLUDES) $^
+			makedepend -fMakefile.osx $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
