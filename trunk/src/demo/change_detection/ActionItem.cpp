@@ -12,7 +12,7 @@ ActionItem::ActionItem(Action * action, Rectangle2D * pic)
 
     _action = action;
     _downInBounds = false;
-	_jitterThreshold = 20;
+	_jitterThreshold = 10;
 	_jitterVector = new Vector2D(0,0);
 
 	_picture = pic;

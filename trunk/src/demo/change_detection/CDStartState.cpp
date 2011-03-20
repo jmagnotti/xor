@@ -38,10 +38,10 @@ CDStartState * CDStartState::GetInstance(CDGrid * grid)
 
 void CDStartState::activate()
 {
-	_grid->setVisible(false);
+	//_grid->setVisible(true);
 	Controller::GetInstance()->getMouse()->addListener(this);
 
-	//show display some text here about what to do
+	//show some text here about what to do
 	Controller::GetInstance()->getModel()->addObject("instructions", _instructions);
 }
 
