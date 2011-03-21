@@ -42,7 +42,7 @@ public:
 	/**
 	 * Converts the given float degree in to radians RAD*PI/180
 	 */
-    inline float degressToRadians(float degree);
+    inline float degreesToRadians(float degree);
 
 	
 	/** 
@@ -51,6 +51,7 @@ public:
 	 */
 	bool compare_f(float, float, float epsilon = 0.01);
 
+    float fabs(float f);
 
 	/**
 	 * Converts a given ratio value to a ratio value in another system. I think

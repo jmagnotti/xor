@@ -65,17 +65,20 @@ Vector3D * GraphicsConversionUtility::crossProduct(Vector3D * vecA, Vector3D *
     return resultant;
 }
 
-
 /* 
  * changes degree to a radian value.
  */
-float GraphicsConversionUtility::degressToRadians(float degree)
+float GraphicsConversionUtility::degreesToRadians(float degree)
 {
     degree *= M_PI/180.0;
 
     return degree;
 }
 
+float GraphicsConversionUtility::fabs(float f)
+{
+    return (f > 0.0f ? f : -1.0f * f );
+}
 
 /*
  * scales the value from one coordinate space to another.
