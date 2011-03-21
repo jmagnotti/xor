@@ -21,7 +21,7 @@ SDLKey KeyEvent::getKey()
 /*
  * returns the modifer mask
  */
-SDLMod KeyEvent::getModifiers()
+Uint16 KeyEvent::getModifiers()
 {
     return _modifiers;
 }
