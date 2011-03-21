@@ -37,7 +37,7 @@ class KeyEvent
         /**
          * Returns the modifier mask
          */
-        SDLMod getModifiers();
+        Uint16 getModifiers();
 
 
         bool isShiftPressed();
@@ -66,7 +66,8 @@ class KeyEvent
 		char * _eventString;
 
         SDLKey  _key;
-        SDLMod  _modifiers;
+        //SDLMod  _modifiers;
+        Uint16  _modifiers;
 };
 
 }

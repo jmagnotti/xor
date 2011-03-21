@@ -48,7 +48,7 @@ public:
 	 * Returns the class type
      * @see Renderable
 	 */
-	virtual char * getRenderableType() {    return "COLLIDABLE";    }
+	//virtual char * getRenderableType() {    return "COLLIDABLE";    }
 
 };
 

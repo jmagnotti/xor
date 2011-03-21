@@ -1,10 +1,10 @@
-#ifndef RECTANGLE2D_H
-#define RECTANGLE2D_H
+#ifndef LINE2D_H
+#define LINE2D_H
 
 
 #include "Object2D.h"
 #include "../geometry/Vector2D.h"
-#include "../geometry/Dimension2D.h"
+#include "../geometry/Vector3D.h"
 #include "../paint/Paint.h"
 
 
@@ -13,7 +13,7 @@ namespace XOR {
 /**
  * 
  */
-class Rectangle2D : public Object2D
+class Line2D : public Object2D
 {
 
 public:
@@ -21,32 +21,22 @@ public:
     /*
 	 * Default Constructor.
 	 */
-    Rectangle2D();
-    ~Rectangle2D();
+    Line2D();
+    ~Line2D();
 
 
     /*
 	 * Explicit Constructor.
 	 * Two corners and a default white paint.
 	 */
-    Rectangle2D(Vector2D * p0, Vector2D * p1);
+    Line2D(Vector2D * p0, Vector2D * p1);
 
 
     /**
 	 * Explicit Constructor.
 	 * Two corners and a paint.  
 	 */
-    Rectangle2D(Vector2D * p0, Vector2D * p1, Paint * paint);
-
-
-    /**
-     * Explicit Constructor
-     *
-     * Allows for creation using a dimension instead of bounding points.
-     * Because the internal representation is two Vector2D, the memory
-     * associated with the Dimension2D should be freed by the calling class.
-     */
-    Rectangle2D(Vector2D * p0, Dimension2D * size, Paint * paint);
+    Line2D(Vector2D * p0, Vector2D * p1, Paint * paint);
 
 
     /**
@@ -68,8 +58,7 @@ public:
 
 
     /**
-	 * Draws the rectangle.
-	 * Is doing texture stuff right now, which I may be mixing burdens.
+	 * Draws the line.
 	 */
     void renderObject();
 
@@ -79,16 +68,11 @@ public:
 	 */
     void setPaint(Paint * paint);
 
+
     /**
      * Returns a copy of the paint object associated with the rect
      */
     Paint * getPaint();
-
-	/**
-	 * Nudges the Rectangle2D by a fixed amount
-	 */
-	void nudge(Vector2D * offset);
-
 
 private:
 
@@ -99,5 +83,5 @@ private:
 
 }
 
-#endif			// RECTANGLE2D_H
+#endif			// LINE2D_H
 

@@ -14,7 +14,7 @@ SDL_Event KeyEventFactory::_sdlKeyUpEvent   = {SDL_KEYUP};
 /*
  * Constructs the proper keyevent
  */
-KeyEvent * KeyEventFactory::ConstructInstance(Uint8 * type, SDL_keysym * keysym)
+KeyEvent * KeyEventFactory::ConstructInstance(Uint32 * type, SDL_keysym * keysym)
 {
     if (*type == SDL_KEYDOWN)
         return new KeyDownEvent(keysym);

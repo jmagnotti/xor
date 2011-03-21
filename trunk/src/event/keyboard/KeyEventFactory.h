@@ -32,7 +32,7 @@ class KeyEventFactory
          * Should decide if this matters.
          * @ImmutableReturn
          */
-		static KeyEvent * ConstructInstance(Uint8 * type, SDL_keysym * keysym);
+		static KeyEvent * ConstructInstance(Uint32 * type, SDL_keysym * keysym);
 
 		static KeyEvent * ConstructInstance(string event);
 
