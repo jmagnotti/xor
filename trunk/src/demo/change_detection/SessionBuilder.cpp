@@ -391,7 +391,7 @@ void SessionBuilder::buildRetrievalStroopSession()
                         word  = stimulusClass.getChildNode(Helper::Rot_1(samplePicIDs, i)).getAttribute("name");
 
                         color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
-                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                        cFiles.push_back(loc + word + "-" + color + ".png");
                     }
                 }
 
@@ -414,7 +414,7 @@ void SessionBuilder::buildRetrievalStroopSession()
                         word  = stimulusClass.getChildNode(choiceWordIDs[i]).getAttribute("name");
 
                         color = stimulusClass.getChildNode(choicePicIDs[i]).getAttribute("name");
-                        cFiles.push_back(loc + word + "-" + color + ".jpg");
+                        cFiles.push_back(loc + word + "-" + color + ".png");
                     }
                 }
 
