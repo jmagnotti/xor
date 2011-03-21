@@ -124,15 +124,15 @@ void Texture::buildTexture(SDL_Surface * texture)
      _height = texture->h;
 
      if (texture->format->BytesPerPixel == 4) {
-        gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels);
-        //glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
+        //gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_BGRA, GL_UNSIGNED_BYTE, texture->pixels);
+        glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture->pixels );
 	 }
 	 else {
-		gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
-        //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
+		//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, _width, _height, GL_BGR, GL_UNSIGNED_BYTE, texture->pixels);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->w, texture->h, 0, GL_RGB, GL_UNSIGNED_BYTE, texture->pixels);
 	 }
 	 //if (SDL_MUSTLOCK(texture)) SDL_UnlockSurface(texture);
-	 SDL_FreeSurface(texture);
+	 //SDL_FreeSurface(texture);
 }
 
 
