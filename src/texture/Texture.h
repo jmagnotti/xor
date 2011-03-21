@@ -3,9 +3,9 @@
 
 
 #include <iostream>
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-#include <SDL/SDL_opengl.h>
+#include "SDL/SDL.h"
+#include "SDL_image/SDL_image.h"
+#include "SDL/SDL_opengl.h"
 
 
 using namespace std;
