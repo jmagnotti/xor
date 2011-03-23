@@ -25,7 +25,7 @@ public:
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL | SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
@@ -139,8 +139,9 @@ vector<Vector2D*> buildPositionArray() {
 int main(int argc, char * argv[]) {
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
-	//hide the mouse
 	//SDL_SetCursor(getCursor());
+    //SDL_ShowCursor(NULL);
+    SDL_ShowCursor(SDL_DISABLE);
 
 	//Print action notifies the appropriate CDState of the clicked action item
 	PrintAction * pa;
