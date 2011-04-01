@@ -49,7 +49,19 @@ void CDSecondDisplay::activate()
     cout << endl;
 */
 
-	_grid->setVisibleLocations(s->getChoiceStimulusLocations());
+    if (s->getReportingMethod() == Session::METHOD_CHOOSE_SAME_LINEUP) {
+        vector<int> positions;
+        int start   = CDGrid::GetLineUpStartPosition(s->getChoiceDisplaySize());
+        int finish  = start + s->getChoiceDisplaySize();
+        for(int i=start; i<finish; i++) {
+            positions.push_back(i);
+        }
+        _grid->setVisibleLocations(positions);
+    }
+    else {
+        _grid->setVisibleLocations(s->getChoiceStimulusLocations());
+    }
+
 	_grid->setImageFiles(s->getChoiceStimulusFiles());
 
 

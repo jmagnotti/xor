@@ -123,3 +123,23 @@ void CDGrid::setMouseListen(bool flag)
 	_mouseHandle = flag;
 }
 
+int CDGrid::GetLineUpStartPosition(int nStimuli) 
+{
+    switch(nStimuli) {
+        case 2:
+            return 4 + 24;
+            break;
+        case 4:
+            return 3 + 24;
+            break;
+        case 6:
+            return 2 + 24;
+            break;
+        case 8:
+            return 1 + 24;
+            break;
+    }
+
+    return 1;
+}
+

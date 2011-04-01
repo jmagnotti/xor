@@ -1,0 +1,46 @@
+<SessionParameters>
+	<ReportingMethod type='6' label='Retrieval Stroop: Change/No-Change' />
+
+	<Fixation duration='500' type='Interval' imageFile='images/fixation.jpg' />
+	<FixationInterval duration='0' type='Interval' />
+	<SampleDisplay duration='1000' type='Interval' />
+	<RetentionInterval duration='1500' type='Interval' />
+
+	<!--this is basically ignored for now -->
+	<ChoiceDisplay duration='1' type='Ratio' />
+	<IntertrialInterval duration='2000' type='Interval' />
+
+	<StimulusSet>
+		<StimulusClass count='13' name='StroopWords'>
+            <!--This is NOT a standard way to do things, this relies on the special buildRetrievalStroopSession and buildEncodingStroopSession in SessionBuilder.cpp-->
+
+            <color name='red' location='images/'/>
+            <color name='green' location='images/'/>
+            <color name='blue' location='images/'/>
+
+            <color name='aqua' location='images/'/>
+            <color name='pink' location='images/'/>
+            <color name='lime' location='images/'/>
+
+            <color name='yellow' location='images/'/>
+            <color name='orange' location='images/'/>
+            <color name='purple' location='images/'/>
+
+            <color name='brown' location='images/'/>
+            <color name='navy' location='images/'/>
+
+            <color name='white' location='images/'/>
+            <color name='gray' location='images/'/>
+		</StimulusClass>
+
+	</StimulusSet>
+
+	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 0 -->
+	<StimuliSample type='balanced' trialCount='6'>
+		<TrialTypes count='3'>
+			<trialType label='Baseline 4:2' interference='0' sample='4' choice='2' stimulusClass='StroopWords' />
+			<trialType label='Intra-List 6:3' interference='1' sample='6' choice='3' stimulusClass='StroopWords' />
+			<trialType label='Extra-List 4:4' interference='2' sample='4' choice='4' stimulusClass='StroopWords' />
+		</TrialTypes>
+	</StimuliSample>
+</SessionParameters>

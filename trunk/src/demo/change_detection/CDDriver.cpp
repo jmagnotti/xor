@@ -14,10 +14,13 @@ using namespace std;
 #define WIDTH 1280
 #define HEIGHT 1024
 
-#define STIMULUS_WIDTH  128 
-#define STIMULUS_HEIGHT 96
+#define STIMULUS_WIDTH  64
+#define STIMULUS_HEIGHT 64
 
-#define OFFSET .20 * STIMULUS_WIDTH 
+#define OFFSET 32
+//.50 * STIMULUS_WIDTH 
+
+#define LINE_UP_LEFT_OFFSET 160
 
 class CDConfig: public XavierConfiguration {
 public:
@@ -25,90 +28,13 @@ public:
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL | SDL_FULLSCREEN); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL);}// | SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
 	unsigned int getTimerInterval() { return 15; }
 };
 
-/* XPM */
-static const char *arrow[] = {
-  /* width height num_colors chars_per_pixel */
-  "    32    32        3            1",
-  /* colors */
-  "X c #000000",
-  ". c #ffffff",
-  "  c None",
-  /* pixels */
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "                                ",
-  "0,0"
-};
-
-static SDL_Cursor * getCursor()
-{
-  int i, row, col;
-  Uint8 data[4*32];
-  Uint8 mask[4*32];
-  int hot_x, hot_y;
-
-  i = -1;
-  for ( row=0; row<32; ++row ) {
-    for ( col=0; col<32; ++col ) {
-      if ( col % 8 ) {
-        data[i] <<= 1;
-        mask[i] <<= 1;
-      } else {
-        ++i;
-        data[i] = mask[i] = 0;
-      }
-      switch (arrow[4+row][col]) {
-        case 'X':
-          data[i] |= 0x01;
-          mask[i] |= 0x01;
-          break;
-        case '.':
-          mask[i] |= 0x01;
-          break;
-        case ' ':
-          break;
-      }
-    }
-  }
-  sscanf(arrow[4+row], "%d,%d", &hot_x, &hot_y);
-  return SDL_CreateCursor(data, mask, 32, 32, hot_x, hot_y);
-}
 vector<Vector2D*> buildPositionArray() {
 	vector<Vector2D*> _positions;
 	int centerX, centerY;
@@ -119,7 +45,7 @@ vector<Vector2D*> buildPositionArray() {
 	int yoff = centerY - STIMULUS_HEIGHT/ 2;
 
 	int radius = STIMULUS_WIDTH + OFFSET;
-	double to_d = M_PI / 180.0;
+	double to_rad = M_PI / 180.0;
 
 	//the first element in the list is the fixation cross
 	_positions.push_back(new Vector2D(xoff, yoff));
@@ -127,21 +53,30 @@ vector<Vector2D*> buildPositionArray() {
 	for (int r = 1; r <= 3; r++) {
 		for (double p = 0; p < 360; p += 90 / r) {
 			int rad = radius * r;
-			_positions.push_back(new Vector2D(xoff + rad * cos(to_d * p), yoff + rad * sin(to_d * p)));
+			_positions.push_back(new Vector2D(xoff + rad * cos(to_rad * p), yoff + rad * sin(to_rad * p)));
 		}
 	}
+    //now we need to build the positions for the "line-up" view
+    for(int i=0; i<8; i++) {
+        _positions.push_back(new Vector2D(LINE_UP_LEFT_OFFSET + i* (STIMULUS_WIDTH*2), yoff));
+    }    
+
     Vector2D * halfSize = new Vector2D(STIMULUS_WIDTH/2, STIMULUS_HEIGHT/2);
+    cout << "Stim Centers" << endl;
 	for (int i = 0; i < _positions.size(); i++)
 		cout << i << " " << ((*(_positions[i]))+halfSize)->toString() << endl;
+
+    
+
+
 	return _positions;
 }
 
 int main(int argc, char * argv[]) {
 	Controller * ctrl = Controller::GetInstance(new CDConfig());
 
-	//SDL_SetCursor(getCursor());
     //SDL_ShowCursor(NULL);
-    SDL_ShowCursor(SDL_DISABLE);
+    //SDL_ShowCursor(SDL_DISABLE);
 
 	//Print action notifies the appropriate CDState of the clicked action item
 	PrintAction * pa;

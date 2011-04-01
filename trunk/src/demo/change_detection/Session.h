@@ -20,6 +20,7 @@ public:
 	static const int METHOD_SAME_DIFF;
 	static const int METHOD_CHOOSE_SAME;
 	static const int METHOD_RANDLOC_CHOOSE_SAME;
+	static const int METHOD_CHOOSE_SAME_LINEUP;
 
 	static const int METHOD_RET_STROOP_CHANGE_NOCHANGE;
 	static const int METHOD_ENC_STROOP_CHANGE_NOCHANGE;
@@ -107,6 +108,10 @@ public:
 	 * Returns the user-specified session ID, or 0
 	 */
 	int getID();
+
+    int getSampleDisplaySize();
+
+    int getChoiceDisplaySize();
 
 private:
 
