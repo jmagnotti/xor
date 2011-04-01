@@ -14,6 +14,8 @@ const int Session::METHOD_RANDLOC_CHOOSE_SAME	 = 5;
 const int Session::METHOD_RET_STROOP_CHANGE_NOCHANGE = 6;
 const int Session::METHOD_ENC_STROOP_CHANGE_NOCHANGE = 7;
 
+const int Session::METHOD_CHOOSE_SAME_LINEUP	 = 8;
+
 Session::Session(const char * xmlFile, const char * outputFile, int id=0)
 {
 	XMLNode session = XMLNode::openFileHelper(xmlFile, "Session");
@@ -149,6 +151,16 @@ int Session::getReportingMethod()
 int Session::getNumberOfTrials()
 {
 	return _trials.size();
+}
+
+int Session::getSampleDisplaySize()
+{
+    return _trials[_currentTrial-1]->getSampleDisplaySize();  
+}
+
+int Session::getChoiceDisplaySize()
+{
+    return _trials[_currentTrial-1]->getChoiceDisplaySize();  
 }
 
 int Session::getRetentionInterval() 

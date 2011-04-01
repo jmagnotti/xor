@@ -19,8 +19,9 @@ CDStartState::CDStartState()
 	else if (Session::GetInstance()->getReportingMethod() == Session::METHOD_SAME_DIFF) {
 		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrSameOrDiff.png"));
 	}
-	else //(Session::GetInstance()->getReportingMethod() == Session::METHOD_CHOOSE_SAME) 
-    {
+    //(Session::GetInstance()->getReportingMethod() == Session::METHOD_CHOOSE_SAME) 
+    //(Session::GetInstance()->getReportingMethod() == Session::METHOD_CHOOSE_SAME_LINEUP) 
+	else {
 		p = new Paint(TextureFactory::GetInstance()->createTexture("images/instrChooseSame.png"));
 	}
 

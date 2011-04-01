@@ -19,6 +19,13 @@ class CDGrid : public Object2D, public MouseListener
 public:
 
     /**
+     * Specifies the offset required for centering stimuli in the "line-up" task
+     * This function assumes 25 stimuli in the Initial display (24+fixation), 0-indexed.
+     */
+    static int GetLineUpStartPosition(int nStimuli);
+
+
+    /**
      * Construct a grid with width gridSize at origin.
      */
     CDGrid();
@@ -98,6 +105,7 @@ public:
      * Connect the dots according to random node traversal
      */
 	void rebuildConstellation();
+
 
 private:
 
