@@ -188,3 +188,8 @@ string Trial::getFixationFile()
 	return _fixationImageFile;
 }
 
+int Trial::getTrialType()
+{
+    return _trialType;
+}
+

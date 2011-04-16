@@ -14,11 +14,14 @@ using namespace std;
 #define WIDTH 1280
 #define HEIGHT 1024
 
-#define STIMULUS_WIDTH  64
-#define STIMULUS_HEIGHT 64
+//#define STIMULUS_WIDTH  64
+//#define STIMULUS_HEIGHT 64
 
-#define OFFSET 32
-//.50 * STIMULUS_WIDTH 
+//STROOP
+#define STIMULUS_WIDTH 128 
+#define STIMULUS_HEIGHT 96 
+
+#define OFFSET .20 * STIMULUS_WIDTH 
 
 #define LINE_UP_LEFT_OFFSET 160
 
@@ -28,7 +31,7 @@ public:
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL);}// | SDL_FULLSCREEN); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL | SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 
@@ -65,9 +68,6 @@ vector<Vector2D*> buildPositionArray() {
     cout << "Stim Centers" << endl;
 	for (int i = 0; i < _positions.size(); i++)
 		cout << i << " " << ((*(_positions[i]))+halfSize)->toString() << endl;
-
-    
-
 
 	return _positions;
 }

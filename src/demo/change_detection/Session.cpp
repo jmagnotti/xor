@@ -187,3 +187,8 @@ string Session::getFixationFile(){
 	return _trials[_currentTrial-1]->getFixationFile();
 }
 
+int Session::getTrialType()
+{
+	return _trials[_currentTrial-1]->getTrialType();
+}
+
