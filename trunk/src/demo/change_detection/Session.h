@@ -66,6 +66,8 @@ public:
 
 
 	int getReportingMethod();
+
+    int getTrialType();
 	
 
 	/**

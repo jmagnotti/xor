@@ -60,6 +60,8 @@ public:
 
 	int getReportingMethod();
 
+    int getTrialType();
+
 	/**
 	 * Outputs the XML representation for the trial to stdout
 	 */
