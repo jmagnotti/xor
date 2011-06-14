@@ -1,0 +1,688 @@
+<Session label='Forced-Choice' id='1306948386' reportingMethod='2'>
+<Trials count='48'>
+	<Trial trialNumber='1' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='14' imageFile='images/gray.jpg' />
+			<stimulus location='16' imageFile='images/lime.jpg' />
+			<stimulus location='23' imageFile='images/red.jpg' />
+			<stimulus location='3' imageFile='images/yellow.jpg' />
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='13' imageFile='images/navy.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='16' imageFile='images/brown.jpg' />
+			<stimulus location='3' imageFile='images/yellow.jpg' />
+			<stimulus location='13' imageFile='images/navy.jpg' />
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='14' imageFile='images/gray.jpg' />
+			<stimulus location='23' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='2' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='24' imageFile='images/brown.jpg' />
+			<stimulus location='21' imageFile='images/gray.jpg' />
+			<stimulus location='22' imageFile='images/blue.jpg' />
+			<stimulus location='13' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='22' imageFile='images/purple.jpg' />
+			<stimulus location='21' imageFile='images/gray.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='3' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='8' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='16' imageFile='images/lime.jpg' />
+			<stimulus location='3' imageFile='images/white.jpg' />
+			<stimulus location='12' imageFile='images/purple.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='16' imageFile='images/pink.jpg' />
+			<stimulus location='12' imageFile='images/purple.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='4' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='3' imageFile='images/brown.jpg' />
+			<stimulus location='21' imageFile='images/aqua.jpg' />
+			<stimulus location='1' imageFile='images/red.jpg' />
+			<stimulus location='4' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='2' imageFile='images/white.jpg' />
+			<stimulus location='23' imageFile='images/lime.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='23' imageFile='images/orange.jpg' />
+			<stimulus location='2' imageFile='images/white.jpg' />
+			<stimulus location='1' imageFile='images/red.jpg' />
+			<stimulus location='21' imageFile='images/aqua.jpg' />
+			<stimulus location='3' imageFile='images/brown.jpg' />
+			<stimulus location='4' imageFile='images/yellowGreen.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='5' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='5' imageFile='images/gray.jpg' />
+			<stimulus location='9' imageFile='images/brown.jpg' />
+			<stimulus location='18' imageFile='images/pink.jpg' />
+			<stimulus location='16' imageFile='images/red.jpg' />
+			<stimulus location='13' imageFile='images/orange.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='9' imageFile='images/purple.jpg' />
+			<stimulus location='18' imageFile='images/pink.jpg' />
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='16' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='6' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/purple.jpg' />
+			<stimulus location='5' imageFile='images/white.jpg' />
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='22' imageFile='images/yellow.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='22' imageFile='images/orange.jpg' />
+			<stimulus location='5' imageFile='images/white.jpg' />
+			<stimulus location='12' imageFile='images/yellowGreen.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='7' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='23' imageFile='images/purple.jpg' />
+			<stimulus location='15' imageFile='images/yellow.jpg' />
+			<stimulus location='24' imageFile='images/orange.jpg' />
+			<stimulus location='12' imageFile='images/gray.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='23' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='15' imageFile='images/yellow.jpg' />
+			<stimulus location='24' imageFile='images/orange.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='8' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='16' imageFile='images/purple.jpg' />
+			<stimulus location='9' imageFile='images/orange.jpg' />
+			<stimulus location='8' imageFile='images/gray.jpg' />
+			<stimulus location='21' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='20' imageFile='images/blue.jpg' />
+			<stimulus location='4' imageFile='images/brown.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='4' imageFile='images/yellow.jpg' />
+			<stimulus location='20' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='9' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/aqua.jpg' />
+			<stimulus location='1' imageFile='images/white.jpg' />
+			<stimulus location='11' imageFile='images/yellow.jpg' />
+			<stimulus location='14' imageFile='images/pink.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='21' imageFile='images/blue.jpg' />
+			<stimulus location='11' imageFile='images/yellow.jpg' />
+			<stimulus location='1' imageFile='images/white.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='10' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='8' imageFile='images/pink.jpg' />
+			<stimulus location='13' imageFile='images/blue.jpg' />
+			<stimulus location='1' imageFile='images/green.jpg' />
+			<stimulus location='16' imageFile='images/orange.jpg' />
+			<stimulus location='9' imageFile='images/red.jpg' />
+			<stimulus location='22' imageFile='images/navy.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='8' imageFile='images/aqua.jpg' />
+			<stimulus location='22' imageFile='images/navy.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='11' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='23' imageFile='images/pink.jpg' />
+			<stimulus location='18' imageFile='images/purple.jpg' />
+			<stimulus location='22' imageFile='images/blue.jpg' />
+			<stimulus location='10' imageFile='images/orange.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='18' imageFile='images/yellow.jpg' />
+			<stimulus location='23' imageFile='images/pink.jpg' />
+			<stimulus location='10' imageFile='images/orange.jpg' />
+			<stimulus location='22' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='12' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='5' imageFile='images/brown.jpg' />
+			<stimulus location='8' imageFile='images/white.jpg' />
+			<stimulus location='12' imageFile='images/blue.jpg' />
+			<stimulus location='9' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='21' imageFile='images/orange.jpg' />
+			<stimulus location='4' imageFile='images/gray.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='9' imageFile='images/pink.jpg' />
+			<stimulus location='8' imageFile='images/white.jpg' />
+			<stimulus location='5' imageFile='images/brown.jpg' />
+			<stimulus location='21' imageFile='images/orange.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='13' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='11' imageFile='images/lime.jpg' />
+			<stimulus location='14' imageFile='images/blue.jpg' />
+			<stimulus location='18' imageFile='images/yellow.jpg' />
+			<stimulus location='3' imageFile='images/yellowGreen.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='14' imageFile='images/aqua.jpg' />
+			<stimulus location='11' imageFile='images/lime.jpg' />
+			<stimulus location='3' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='18' imageFile='images/yellow.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='14' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='2' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='17' imageFile='images/purple.jpg' />
+			<stimulus location='1' imageFile='images/pink.jpg' />
+			<stimulus location='9' imageFile='images/red.jpg' />
+			<stimulus location='5' imageFile='images/navy.jpg' />
+			<stimulus location='16' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='11' imageFile='images/yellow.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='11' imageFile='images/aqua.jpg' />
+			<stimulus location='9' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='15' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='13' imageFile='images/green.jpg' />
+			<stimulus location='2' imageFile='images/pink.jpg' />
+			<stimulus location='12' imageFile='images/brown.jpg' />
+			<stimulus location='24' imageFile='images/red.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='24' imageFile='images/lime.jpg' />
+			<stimulus location='12' imageFile='images/brown.jpg' />
+			<stimulus location='13' imageFile='images/green.jpg' />
+			<stimulus location='2' imageFile='images/pink.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='16' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='20' imageFile='images/blue.jpg' />
+			<stimulus location='24' imageFile='images/gray.jpg' />
+			<stimulus location='13' imageFile='images/purple.jpg' />
+			<stimulus location='15' imageFile='images/lime.jpg' />
+			<stimulus location='22' imageFile='images/green.jpg' />
+			<stimulus location='6' imageFile='images/yellow.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='6' imageFile='images/navy.jpg' />
+			<stimulus location='20' imageFile='images/blue.jpg' />
+			<stimulus location='13' imageFile='images/purple.jpg' />
+			<stimulus location='22' imageFile='images/green.jpg' />
+			<stimulus location='15' imageFile='images/lime.jpg' />
+			<stimulus location='24' imageFile='images/gray.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='17' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='19' imageFile='images/green.jpg' />
+			<stimulus location='15' imageFile='images/brown.jpg' />
+			<stimulus location='21' imageFile='images/blue.jpg' />
+			<stimulus location='12' imageFile='images/purple.jpg' />
+			<stimulus location='1' imageFile='images/pink.jpg' />
+			<stimulus location='5' imageFile='images/red.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='5' imageFile='images/white.jpg' />
+			<stimulus location='21' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='18' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='11' imageFile='images/white.jpg' />
+			<stimulus location='14' imageFile='images/orange.jpg' />
+			<stimulus location='16' imageFile='images/brown.jpg' />
+			<stimulus location='23' imageFile='images/blue.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='23' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='16' imageFile='images/brown.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='19' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='24' imageFile='images/green.jpg' />
+			<stimulus location='14' imageFile='images/brown.jpg' />
+			<stimulus location='20' imageFile='images/purple.jpg' />
+			<stimulus location='16' imageFile='images/yellow.jpg' />
+			<stimulus location='13' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='18' imageFile='images/lime.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='14' imageFile='images/blue.jpg' />
+			<stimulus location='24' imageFile='images/green.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='20' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='1' imageFile='images/red.jpg' />
+			<stimulus location='12' imageFile='images/pink.jpg' />
+			<stimulus location='21' imageFile='images/purple.jpg' />
+			<stimulus location='13' imageFile='images/navy.jpg' />
+			<stimulus location='7' imageFile='images/white.jpg' />
+			<stimulus location='3' imageFile='images/aqua.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='12' imageFile='images/orange.jpg' />
+			<stimulus location='13' imageFile='images/navy.jpg' />
+			<stimulus location='21' imageFile='images/purple.jpg' />
+			<stimulus location='3' imageFile='images/aqua.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='21' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='17' imageFile='images/brown.jpg' />
+			<stimulus location='10' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='23' imageFile='images/green.jpg' />
+			<stimulus location='20' imageFile='images/pink.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='23' imageFile='images/yellow.jpg' />
+			<stimulus location='20' imageFile='images/pink.jpg' />
+			<stimulus location='10' imageFile='images/yellowGreen.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='22' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/navy.jpg' />
+			<stimulus location='23' imageFile='images/green.jpg' />
+			<stimulus location='8' imageFile='images/blue.jpg' />
+			<stimulus location='16' imageFile='images/purple.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='8' imageFile='images/white.jpg' />
+			<stimulus location='16' imageFile='images/purple.jpg' />
+			<stimulus location='23' imageFile='images/green.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='23' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='19' imageFile='images/orange.jpg' />
+			<stimulus location='16' imageFile='images/white.jpg' />
+			<stimulus location='3' imageFile='images/yellow.jpg' />
+			<stimulus location='21' imageFile='images/aqua.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='19' imageFile='images/red.jpg' />
+			<stimulus location='16' imageFile='images/white.jpg' />
+			<stimulus location='3' imageFile='images/yellow.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='24' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='1' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='4' imageFile='images/brown.jpg' />
+			<stimulus location='11' imageFile='images/lime.jpg' />
+			<stimulus location='1' imageFile='images/orange.jpg' />
+			<stimulus location='12' imageFile='images/blue.jpg' />
+			<stimulus location='13' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='7' imageFile='images/pink.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='11' imageFile='images/navy.jpg' />
+			<stimulus location='13' imageFile='images/yellowGreen.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='25' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='15' imageFile='images/pink.jpg' />
+			<stimulus location='21' imageFile='images/brown.jpg' />
+			<stimulus location='16' imageFile='images/orange.jpg' />
+			<stimulus location='23' imageFile='images/yellow.jpg' />
+			<stimulus location='4' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='20' imageFile='images/gray.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='21' imageFile='images/blue.jpg' />
+			<stimulus location='15' imageFile='images/pink.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='26' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/yellow.jpg' />
+			<stimulus location='5' imageFile='images/red.jpg' />
+			<stimulus location='6' imageFile='images/gray.jpg' />
+			<stimulus location='14' imageFile='images/blue.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='14' imageFile='images/aqua.jpg' />
+			<stimulus location='5' imageFile='images/red.jpg' />
+			<stimulus location='21' imageFile='images/yellow.jpg' />
+			<stimulus location='6' imageFile='images/gray.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='27' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='19' imageFile='images/navy.jpg' />
+			<stimulus location='18' imageFile='images/pink.jpg' />
+			<stimulus location='23' imageFile='images/green.jpg' />
+			<stimulus location='21' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='15' imageFile='images/blue.jpg' />
+			<stimulus location='20' imageFile='images/white.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='19' imageFile='images/yellow.jpg' />
+			<stimulus location='21' imageFile='images/yellowGreen.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='28' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='13' imageFile='images/gray.jpg' />
+			<stimulus location='22' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='17' imageFile='images/purple.jpg' />
+			<stimulus location='14' imageFile='images/orange.jpg' />
+			<stimulus location='7' imageFile='images/pink.jpg' />
+			<stimulus location='19' imageFile='images/navy.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='17' imageFile='images/aqua.jpg' />
+			<stimulus location='14' imageFile='images/orange.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='29' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='16' imageFile='images/pink.jpg' />
+			<stimulus location='21' imageFile='images/red.jpg' />
+			<stimulus location='6' imageFile='images/brown.jpg' />
+			<stimulus location='24' imageFile='images/navy.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='24' imageFile='images/orange.jpg' />
+			<stimulus location='21' imageFile='images/red.jpg' />
+			<stimulus location='6' imageFile='images/brown.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='30' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='2' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='7' imageFile='images/blue.jpg' />
+			<stimulus location='6' imageFile='images/pink.jpg' />
+			<stimulus location='5' imageFile='images/orange.jpg' />
+			<stimulus location='16' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='5' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='6' imageFile='images/pink.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='31' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='15' imageFile='images/pink.jpg' />
+			<stimulus location='21' imageFile='images/brown.jpg' />
+			<stimulus location='5' imageFile='images/yellow.jpg' />
+			<stimulus location='6' imageFile='images/red.jpg' />
+			<stimulus location='23' imageFile='images/lime.jpg' />
+			<stimulus location='16' imageFile='images/purple.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='6' imageFile='images/blue.jpg' />
+			<stimulus location='16' imageFile='images/purple.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='32' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='13' imageFile='images/pink.jpg' />
+			<stimulus location='16' imageFile='images/blue.jpg' />
+			<stimulus location='1' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='15' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='15' imageFile='images/brown.jpg' />
+			<stimulus location='16' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='33' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='17' imageFile='images/pink.jpg' />
+			<stimulus location='22' imageFile='images/navy.jpg' />
+			<stimulus location='6' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='16' imageFile='images/aqua.jpg' />
+			<stimulus location='15' imageFile='images/yellow.jpg' />
+			<stimulus location='5' imageFile='images/lime.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='22' imageFile='images/gray.jpg' />
+			<stimulus location='15' imageFile='images/yellow.jpg' />
+			<stimulus location='16' imageFile='images/aqua.jpg' />
+			<stimulus location='17' imageFile='images/pink.jpg' />
+			<stimulus location='6' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='5' imageFile='images/lime.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='34' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='3' imageFile='images/blue.jpg' />
+			<stimulus location='5' imageFile='images/lime.jpg' />
+			<stimulus location='12' imageFile='images/red.jpg' />
+			<stimulus location='4' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='12' imageFile='images/white.jpg' />
+			<stimulus location='4' imageFile='images/green.jpg' />
+			<stimulus location='5' imageFile='images/lime.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='35' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='10' imageFile='images/white.jpg' />
+			<stimulus location='5' imageFile='images/aqua.jpg' />
+			<stimulus location='15' imageFile='images/blue.jpg' />
+			<stimulus location='6' imageFile='images/red.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='5' imageFile='images/purple.jpg' />
+			<stimulus location='10' imageFile='images/white.jpg' />
+			<stimulus location='6' imageFile='images/red.jpg' />
+			<stimulus location='15' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='36' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='22' imageFile='images/pink.jpg' />
+			<stimulus location='3' imageFile='images/red.jpg' />
+			<stimulus location='8' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='21' imageFile='images/navy.jpg' />
+			<stimulus location='23' imageFile='images/white.jpg' />
+			<stimulus location='5' imageFile='images/brown.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='3' imageFile='images/aqua.jpg' />
+			<stimulus location='22' imageFile='images/pink.jpg' />
+			<stimulus location='21' imageFile='images/navy.jpg' />
+			<stimulus location='23' imageFile='images/white.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='37' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='14' imageFile='images/brown.jpg' />
+			<stimulus location='8' imageFile='images/orange.jpg' />
+			<stimulus location='7' imageFile='images/navy.jpg' />
+			<stimulus location='13' imageFile='images/red.jpg' />
+			<stimulus location='17' imageFile='images/white.jpg' />
+			<stimulus location='18' imageFile='images/yellowGreen.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='18' imageFile='images/aqua.jpg' />
+			<stimulus location='13' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='38' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='20' imageFile='images/gray.jpg' />
+			<stimulus location='3' imageFile='images/purple.jpg' />
+			<stimulus location='2' imageFile='images/pink.jpg' />
+			<stimulus location='1' imageFile='images/orange.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='2' imageFile='images/brown.jpg' />
+			<stimulus location='1' imageFile='images/orange.jpg' />
+			<stimulus location='20' imageFile='images/gray.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='39' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='16' imageFile='images/aqua.jpg' />
+			<stimulus location='10' imageFile='images/orange.jpg' />
+			<stimulus location='13' imageFile='images/gray.jpg' />
+			<stimulus location='24' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='15' imageFile='images/pink.jpg' />
+			<stimulus location='18' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='24' imageFile='images/yellow.jpg' />
+			<stimulus location='15' imageFile='images/pink.jpg' />
+			<stimulus location='10' imageFile='images/orange.jpg' />
+			<stimulus location='18' imageFile='images/green.jpg' />
+			<stimulus location='13' imageFile='images/gray.jpg' />
+			<stimulus location='16' imageFile='images/aqua.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='40' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='10' imageFile='images/aqua.jpg' />
+			<stimulus location='5' imageFile='images/blue.jpg' />
+			<stimulus location='14' imageFile='images/navy.jpg' />
+			<stimulus location='1' imageFile='images/red.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='10' imageFile='images/orange.jpg' />
+			<stimulus location='1' imageFile='images/red.jpg' />
+			<stimulus location='5' imageFile='images/blue.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='41' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='14' imageFile='images/navy.jpg' />
+			<stimulus location='12' imageFile='images/brown.jpg' />
+			<stimulus location='24' imageFile='images/pink.jpg' />
+			<stimulus location='6' imageFile='images/blue.jpg' />
+			<stimulus location='2' imageFile='images/orange.jpg' />
+			<stimulus location='3' imageFile='images/white.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='14' imageFile='images/purple.jpg' />
+			<stimulus location='3' imageFile='images/white.jpg' />
+			<stimulus location='2' imageFile='images/orange.jpg' />
+			<stimulus location='12' imageFile='images/brown.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='42' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='2' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/lime.jpg' />
+			<stimulus location='15' imageFile='images/white.jpg' />
+			<stimulus location='11' imageFile='images/green.jpg' />
+			<stimulus location='4' imageFile='images/gray.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='11' imageFile='images/purple.jpg' />
+			<stimulus location='15' imageFile='images/white.jpg' />
+			<stimulus location='4' imageFile='images/gray.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='43' trialType='1' sampleDisplaySize='4' choiceDisplaySize='3' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='2' imageFile='images/yellow.jpg' />
+			<stimulus location='17' imageFile='images/aqua.jpg' />
+			<stimulus location='19' imageFile='images/orange.jpg' />
+			<stimulus location='11' imageFile='images/brown.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='19' imageFile='images/lime.jpg' />
+			<stimulus location='2' imageFile='images/yellow.jpg' />
+			<stimulus location='11' imageFile='images/brown.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='44' trialType='1' sampleDisplaySize='6' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='10' imageFile='images/white.jpg' />
+			<stimulus location='6' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='17' imageFile='images/aqua.jpg' />
+			<stimulus location='13' imageFile='images/orange.jpg' />
+			<stimulus location='9' imageFile='images/red.jpg' />
+			<stimulus location='14' imageFile='images/brown.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='6' imageFile='images/yellow.jpg' />
+			<stimulus location='13' imageFile='images/orange.jpg' />
+			<stimulus location='14' imageFile='images/brown.jpg' />
+			<stimulus location='9' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='45' trialType='1' sampleDisplaySize='6' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='21' imageFile='images/lime.jpg' />
+			<stimulus location='8' imageFile='images/white.jpg' />
+			<stimulus location='4' imageFile='images/navy.jpg' />
+			<stimulus location='12' imageFile='images/purple.jpg' />
+			<stimulus location='9' imageFile='images/orange.jpg' />
+			<stimulus location='5' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='9' imageFile='images/blue.jpg' />
+			<stimulus location='8' imageFile='images/white.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='46' trialType='1' sampleDisplaySize='4' choiceDisplaySize='4' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='2' decideDuration='1' choiceDuration='1' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='12' imageFile='images/red.jpg' />
+			<stimulus location='11' imageFile='images/pink.jpg' />
+			<stimulus location='10' imageFile='images/white.jpg' />
+			<stimulus location='16' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='16' imageFile='images/purple.jpg' />
+			<stimulus location='12' imageFile='images/red.jpg' />
+			<stimulus location='11' imageFile='images/pink.jpg' />
+			<stimulus location='10' imageFile='images/white.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='47' trialType='1' sampleDisplaySize='6' choiceDisplaySize='6' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='2' retentionInterval='1' decideDuration='1' choiceDuration='2' interTrialInterval='3' >
+		<sampleStimuli>
+			<stimulus location='3' imageFile='images/purple.jpg' />
+			<stimulus location='12' imageFile='images/red.jpg' />
+			<stimulus location='4' imageFile='images/aqua.jpg' />
+			<stimulus location='6' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='14' imageFile='images/gray.jpg' />
+			<stimulus location='2' imageFile='images/lime.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='3' imageFile='images/brown.jpg' />
+			<stimulus location='6' imageFile='images/yellowGreen.jpg' />
+			<stimulus location='2' imageFile='images/lime.jpg' />
+			<stimulus location='14' imageFile='images/gray.jpg' />
+			<stimulus location='4' imageFile='images/aqua.jpg' />
+			<stimulus location='12' imageFile='images/red.jpg' />
+		</choiceStimuli>
+	</Trial>
+	<Trial trialNumber='48' trialType='1' sampleDisplaySize='4' choiceDisplaySize='2' fixationDuration='500' fixationImageFile='images/fixation.jpg' sampleDisplayDuration='1' retentionInterval='1' decideDuration='2' choiceDuration='2' interTrialInterval='4' >
+		<sampleStimuli>
+			<stimulus location='4' imageFile='images/navy.jpg' />
+			<stimulus location='3' imageFile='images/orange.jpg' />
+			<stimulus location='11' imageFile='images/white.jpg' />
+			<stimulus location='17' imageFile='images/green.jpg' />
+		</sampleStimuli>
+		<choiceStimuli>
+			<stimulus location='11' imageFile='images/gray.jpg' />
+			<stimulus location='4' imageFile='images/navy.jpg' />
+		</choiceStimuli>
+	</Trial>
+</Trials>
+</Session>

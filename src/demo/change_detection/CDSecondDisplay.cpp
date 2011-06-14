@@ -88,6 +88,12 @@ void CDSecondDisplay::handleMouseEvent(MouseEvent * me)
 	}
 }
 
+
+void CDSecondDisplay::handleKeyEvent(KeyEvent * ke)
+{
+    handleChoice(1);
+}
+
 void CDSecondDisplay::handleChoice(int location)
 {
 	_reactionTime = Controller::GetInstance()->getTimer()->getElapsedTime() - _reactionTime;

@@ -1,0 +1,65 @@
+<SessionParameters>
+
+    <!--This is ignored, because 4 sessions are generated -->
+	<ReportingMethod type='3' label='Same/Different' />
+
+	<!--this is basically ignored for now -->
+	<Fixation duration='500' type='Interval' imageFile='images/fixation.jpg' />
+	<!--this is basically ignored for now -->
+	<FixationInterval duration='0' type='Interval' />
+	<!--this is basically ignored for now -->
+	<SampleDisplay duration='1' type='Interval' />
+	<!--this is basically ignored for now -->
+	<RetentionInterval duration='1' type='Interval' />
+
+	<!--this is basically ignored for now -->
+	<ChoiceDisplay duration='1' type='Ratio' />
+	<!--this is basically ignored for now -->
+	<IntertrialInterval duration='2' note='This is random 3 or 4 in code' type='Interval' />
+
+	<StimulusSet>
+		<StimulusClass name='ColoredSquares' count='14'>
+			<image label='Red Square' location='images/red.jpg' color='Red' />
+			<image label='Brown Square' location='images/brown.jpg' color='Brown' />
+			<image label='Purple Square' location='images/purple.jpg' color='Purple' />
+			<image label='Pink Square' location='images/pink.jpg' color='Pink' />
+			<image label='Yellow-Green Square' location='images/yellowGreen.jpg' color='YellowGreen' />
+			<image label='Yellow Square' location='images/yellow.jpg' color='Yellow' />
+			<image label='Orange Square' location='images/orange.jpg' color='Orange' />
+			<image label='Aqua Square' location='images/aqua.jpg' color='Aqua' />
+			<image label='Blue Square' location='images/blue.jpg' color='Blue' />
+			<image label='Gray Square' location='images/gray.jpg' color='Gray' />
+			<image label='White Square' location='images/white.jpg' color='White' />
+			<image label='Navy Square' location='images/navy.jpg' color='Navy' />
+			<image label='Green Square' location='images/green.jpg' color='Green' />
+			<image label='Lime Square' location='images/lime.jpg' color='Lime' />
+		</StimulusClass>
+	</StimulusSet>
+
+	<!--We need to ensure that StimuliSample.trialCount % TrialTypes.count == 0 -->
+	<StimuliSample type='balanced' trialCount='48'>
+		<TrialTypes count='8'>
+			<!--<trialType label='3:3' sample='3' choice='3' stimulusClass='ColoredSquares' />
+			<trialType label='3:2' sample='3' choice='2' stimulusClass='ColoredSquares' />
+			<trialType label='3:1' sample='3' choice='1' stimulusClass='ColoredSquares' />-->
+
+			<trialType label='4:4' sample='4' choice='4' stimulusClass='ColoredSquares' />
+			<trialType label='4:3' sample='4' choice='3' stimulusClass='ColoredSquares' />
+			<trialType label='4:2' sample='4' choice='2' stimulusClass='ColoredSquares' />
+			<trialType label='4:1' sample='4' choice='1' stimulusClass='ColoredSquares' />
+
+			<!--<trialType label='5:5' sample='5' choice='5' stimulusClass='ColoredSquares' />
+			<trialType label='5:3' sample='5' choice='3' stimulusClass='ColoredSquares' />
+			<trialType label='5:1' sample='5' choice='1' stimulusClass='ColoredSquares' />-->
+
+			<trialType label='6:6' sample='6' choice='6' stimulusClass='ColoredSquares' />
+			<trialType label='6:4' sample='6' choice='4' stimulusClass='ColoredSquares' />
+			<trialType label='6:2' sample='6' choice='2' stimulusClass='ColoredSquares' />
+			<trialType label='6:1' sample='6' choice='1' stimulusClass='ColoredSquares' />
+
+			<!--<trialType label='7:7' sample='7' choice='7' stimulusClass='ColoredSquares' />
+			<trialType label='7:4' sample='7' choice='4' stimulusClass='ColoredSquares' />
+			<trialType label='7:1' sample='7' choice='1' stimulusClass='ColoredSquares' />-->
+		</TrialTypes>
+	</StimuliSample>
+</SessionParameters>

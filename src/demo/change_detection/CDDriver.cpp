@@ -17,11 +17,18 @@ using namespace std;
 //#define STIMULUS_WIDTH  64
 //#define STIMULUS_HEIGHT 64
 
-//STROOP
-#define STIMULUS_WIDTH 128 
-#define STIMULUS_HEIGHT 96 
+#define STIMULUS_WIDTH 96
+#define STIMULUS_HEIGHT 96
 
-#define OFFSET .20 * STIMULUS_WIDTH 
+
+//STROOP
+//#define STIMULUS_WIDTH 128 
+//#define STIMULUS_HEIGHT 96 
+
+// STROOP
+//#define OFFSET .20 * STIMULUS_WIDTH 
+
+#define OFFSET .50 * STIMULUS_WIDTH 
 
 #define LINE_UP_LEFT_OFFSET 160
 
@@ -31,7 +38,7 @@ public:
 
 	Dimension2D * getWindowSize() const { return new Dimension2D(WIDTH, HEIGHT); }
 
-	Uint32 getVideoFlags() { return (SDL_OPENGL | SDL_FULLSCREEN); }
+	Uint32 getVideoFlags() { return (SDL_OPENGL);} // | SDL_FULLSCREEN); }
 
 	const float * getBackgroundColor() { return Color::BLACK; }
 

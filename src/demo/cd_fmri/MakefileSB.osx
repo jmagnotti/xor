@@ -1,0 +1,37 @@
+MAKEFILE = MakefileSB.osx
+MKDP = makedepend
+
+CC = g++
+CFLAGS = -O2
+LIBS = -L/sw/lib -framework Cocoa -framework OpenGL -framework SDL -framework SDL_image -lXOR -lSDLmain 
+
+SRCS = Trial.cpp Session.cpp Helper.cpp SessionBuilder.cpp xmlParser/xmlParser.cpp
+
+OBJS = $(SRCS:.cpp=.o) 
+
+MAIN = BuildSession
+
+#
+# The following part of the makefile is generic; it can be used to
+# build any executable just by changing the definitions above and by
+# deleting dependencies appended to the file from 'make depend'
+#
+
+.PHONY: depend clean
+
+all:		$(MAIN)
+
+$(MAIN):	$(OBJS)
+			$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+.cpp.o:
+		$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+		$(RM) $(OBJS) $(MAIN)
+
+depend:		$(SRCS)
+		$(MKDP) -f$(MAKEFILE) 2> /dev/null $(INCLUDES) $^
+
+
+# DO NOT DELETE THIS LINE -- make depend needs it

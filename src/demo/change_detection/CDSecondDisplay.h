@@ -28,6 +28,7 @@ public:
 	void handleChoice(int location);
 
 	void handleMouseEvent(MouseEvent * me);
+	void handleKeyEvent(KeyEvent * ke);
 
 private:
 
