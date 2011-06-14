@@ -44,7 +44,7 @@ void CDStartState::activate()
 	Controller::GetInstance()->getMouse()->addListener(this);
 
 	//show some text here about what to do
-	Controller::GetInstance()->getModel()->addObject("instructions", _instructions);
+	//Controller::GetInstance()->getModel()->addObject("instructions", _instructions);
 }
 
 void CDStartState::handleMouseEvent(MouseEvent * me)

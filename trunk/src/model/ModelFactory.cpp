@@ -7,15 +7,13 @@ ModelFactory * ModelFactory::_modelFactory = 0;
 /*
  * private default constructor
  */
-ModelFactory::ModelFactory()
-{
+ModelFactory::ModelFactory() {
 }
 
 /*
  * singleton accessor
  */
-ModelFactory * ModelFactory::GetInstance()
-{
+ModelFactory * ModelFactory::GetInstance() {
 	if (_modelFactory == NULL)
 		_modelFactory = new ModelFactory();
 
@@ -25,21 +23,17 @@ ModelFactory * ModelFactory::GetInstance()
 /*
  * creates and returns a model
  */
-Model * ModelFactory::createModel(char * pathToFile)
-{
+Model * ModelFactory::createModel(char * pathToFile) {
 	Model * temp = models[pathToFile];
 
 	if (temp == NULL) {
 
 		string path(pathToFile);
-		string ext = path.substr(path.length()-4);
-		
-		if (ext.compare("ms3d") == 0)
-		{
+		string ext = path.substr(path.length() - 4);
+
+		if (ext.compare("ms3d") == 0) {
 			temp = new MilkshapeModel(pathToFile);
-		}
-		else
-		{
+		} else {
 			temp = NULL;
 		}
 

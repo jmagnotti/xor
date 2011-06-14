@@ -62,6 +62,10 @@ void CDGrid::renderObject()
 			_actions[_locations[l]]->renderObject();
 		}
 	}
+
+    for(int l=1; l<25; l++) {
+    //    _actions[l]->renderObject();
+    }
 }
 
 void CDGrid::handleMouseEvent(MouseEvent * me)

@@ -1,15 +1,15 @@
 /*
-	MilkshapeModel.h
+ MilkshapeModel.h
 
-		Loads and renders a Milkshape3D model. 
+ Loads and renders a Milkshape3D model.
 
-	Author:	Brett Porter
-	Email: brettporter@yahoo.com
-	Website: http://www.geocities.com/brettporter/
-	Copyright (C)2000, Brett Porter. All Rights Reserved.
+ Author:	Brett Porter
+ Email: brettporter@yahoo.com
+ Website: http://www.geocities.com/brettporter/
+ Copyright (C)2000, Brett Porter. All Rights Reserved.
 
-	This file may be used only as long as this copyright notice remains intact.
-*/
+ This file may be used only as long as this copyright notice remains intact.
+ */
 
 #ifndef MILKSHAPEMODEL_H
 #define MILKSHAPEMODEL_H
@@ -18,20 +18,19 @@
 
 namespace XOR {
 
-class MilkshapeModel : public Model
-{
-	public:
-		/*	Constructor. */
-		MilkshapeModel(const char *filename);
+class MilkshapeModel: public Model {
+public:
+	/*	Constructor. */
+	MilkshapeModel(const char *filename);
 
-		/*	Destructor. */
-		virtual ~MilkshapeModel();
+	/*	Destructor. */
+	virtual ~MilkshapeModel();
 
-		/*	
-			Load the model data into the private variables. 
-				filename			Model filename
-		*/
-		virtual bool loadModelData( const char *filename );
+	/*
+	 Load the model data into the private variables.
+	 filename			Model filename
+	 */
+	virtual bool loadModelData(const char *filename);
 
 };
 
